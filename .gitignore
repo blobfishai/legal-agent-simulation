@@ -20,6 +20,10 @@ world/corpus/lab/
 world/blobfish/world-v[0-9]*.json
 !world/blobfish/world-v15.json
 
+# Regenerable: seeded LAB task variants (research/lab_mutate.py + committed
+# mutation-configs reproduce them exactly for a given seed).
+research/mutations/
+
 # Python bytecode
 __pycache__/
 
