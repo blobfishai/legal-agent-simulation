@@ -1,0 +1,89 @@
+{
+  "criterion_overrides": {},
+  "layout_preserving": true,
+  "mutation_axes": [
+    "alternate-deliverable",
+    "party-posture",
+    "prior-state-ready"
+  ],
+  "output_task": "banking-finance/draft-lender-reservation-of-rights/covenant-default-v1",
+  "replacements": [],
+  "schema_version": 1,
+  "source_commit": "7be41d57fd5a",
+  "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+  "task_overrides": {
+    "criteria": [
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-001",
+        "match_criteria": "PASS if the letter states that corrected Total Funded Debt and EBITDA produce a Total Leverage Ratio of approximately 5.54x, materially above the applicable 4.25x maximum, and identifies the omitted subordinated note, omitted capital leases, and impermissible or questionable addbacks as drivers. FAIL if the leverage breach or its principal calculation defects are omitted.",
+        "title": "Identifies the corrected leverage covenant breach"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-002",
+        "match_criteria": "PASS if the letter identifies the August 22, 2024 liquidity drop to approximately $10.1 million as a breach of the $15 million covenant tested at all times and notes that it was not disclosed in the compliance certificate. FAIL if the intra-quarter liquidity breach or non-disclosure is omitted.",
+        "title": "Identifies the undisclosed continuous liquidity breach"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-003",
+        "match_criteria": "PASS if the letter expressly reserves all rights, remedies, powers, privileges, and claims under the loan documents and applicable law; states that delay, discussion, or continued funding does not waive any Default or Event of Default; and avoids promising forbearance. FAIL if a clear non-waiver and reservation-of-rights statement is absent.",
+        "title": "Expressly reserves rights and avoids waiver"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-004",
+        "match_criteria": "PASS if the letter demands a corrected compliance certificate, revised covenant calculations, debt support including the subordinated note and capital leases, addback support, and liquidity records sufficient to test continuous compliance. FAIL if the requested cure package is generic or omits corrected calculations and supporting records.",
+        "title": "Demands a corrected compliance package"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-005",
+        "match_criteria": "PASS if the letter requests the complete Ridgeline subordinated note and related amendments or side letters and reserves rights regarding any cross-default or default cascade. FAIL if the subordinated note and cross-default risk are not addressed.",
+        "title": "Addresses cross-default and subordinated debt risk"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-006",
+        "match_criteria": "PASS if the letter distinguishes material financial or certification defaults from the potentially cured four-day reporting delay and preserves the lenders' position on the five-business-day grace period. FAIL if all issues are treated as equivalent or the reporting-delay grace-period issue is misstated.",
+        "title": "Separates material and technical defaults"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-007",
+        "match_criteria": "PASS if the letter sets a definite, commercially reasonable deadline for the corrective package and proposes a prompt discussion with the Administrative Agent and ad hoc group without committing to a waiver or forbearance. FAIL if no deadline or controlled next-step process is provided.",
+        "title": "Sets a definite response deadline and next-step process"
+      },
+      {
+        "deliverables": [
+          "reservation-of-rights-letter.docx"
+        ],
+        "id": "R-008",
+        "match_criteria": "PASS if the deliverable is a polished lender-side letter with addressee, subject or reference line, concise factual basis, demands, reservation language, and signature block or sender identification. FAIL if it is presented as an internal memo or lacks basic external-correspondence structure.",
+        "title": "Uses professional lender-side correspondence form"
+      }
+    ],
+    "deliverables": {
+      "reservation-of-rights-letter.docx": "reservation-of-rights-letter.docx"
+    },
+    "instructions": "Act for the ad hoc lender group. Using the attached credit agreement excerpts, compliance certificate, financials, addback support, and engagement memo, draft a concise lender-side reservation-of-rights letter to the Borrower and Administrative Agent. Identify the material covenant and certification issues, demand specified corrective information, avoid an unintended waiver, and preserve remedies while leaving room for a consensual forbearance discussion. Output: `reservation-of-rights-letter.docx`.",
+    "title": "Draft Lender Reservation-of-Rights Letter Following Covenant Compliance Review",
+    "work_type": "draft"
+  },
+  "variant_id": "lender-reservation-of-rights-v1"
+}

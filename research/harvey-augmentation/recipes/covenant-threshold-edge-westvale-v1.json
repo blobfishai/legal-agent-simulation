@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "variant_id": "covenant-threshold-edge-westvale-v1",
+  "source_commit": "7be41d57fd5a",
+  "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+  "output_task": "banking-finance/compare-borrower-covenant-compliance-analysis/threshold-edge-westvale-v1",
+  "layout_preserving": true,
+  "mutation_axes": [
+    "entity-alias",
+    "threshold-edge"
+  ],
+  "replacements": [
+    {
+      "old": "Ironclad Nutrition Holdings",
+      "new": "Westvale Nutrition Holdings",
+      "min_document_occurrences": 8,
+      "min_task_occurrences": 1
+    },
+    {
+      "old": "4.25x",
+      "new": "4.40x",
+      "extensions": [
+        ".docx"
+      ],
+      "min_document_occurrences": 2,
+      "min_task_occurrences": 7
+    },
+    {
+      "old": "4.25 to 1.00",
+      "new": "4.40 to 1.00",
+      "extensions": [
+        ".docx"
+      ],
+      "min_document_occurrences": 1,
+      "min_task_occurrences": 0
+    }
+  ],
+  "task_overrides": {
+    "title": "Borrower Covenant Compliance Analysis — Threshold-Edge Variant for Westvale Nutrition Holdings"
+  },
+  "criterion_overrides": {
+    "C-001": {
+      "title": "Recognizes the reported leverage ratio is only narrowly compliant",
+      "match_criteria": "PASS if the report recognizes that the Borrower's reported Total Leverage Ratio of 4.39x is 0.01x below the amended 4.40x maximum and therefore does not itself prove a breach, while explaining that the corrected debt and EBITDA calculations still produce a material leverage covenant breach. FAIL if the report calls 4.39x an arithmetic breach of the 4.40x threshold or accepts the certificate without recalculation."
+    },
+    "C-023": {
+      "title": "Distinguishes facial compliance from corrected leverage breach",
+      "match_criteria": "PASS if the report explicitly distinguishes the Borrower's facially compliant reported ratio of 4.39x against the 4.40x maximum from the corrected ratio of approximately 5.54x, which is a breach. FAIL if it claims the reported 4.39x ratio exceeds 4.40x or fails to explain why recalculation changes the conclusion."
+    }
+  }
+}

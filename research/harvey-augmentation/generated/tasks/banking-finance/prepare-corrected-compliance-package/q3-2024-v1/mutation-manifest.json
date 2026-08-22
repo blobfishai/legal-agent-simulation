@@ -1,0 +1,70 @@
+{
+  "document_replacement_counts": {},
+  "files": [
+    {
+      "changed_package_parts": [],
+      "extension": ".xlsx",
+      "output_bytes": 13115,
+      "output_sha256": "f6dedb5186d7bd9e5060a3a7af9af56dd27ec8e54fc008c0713b21fff9f6342b",
+      "package_topology_preserved": true,
+      "path": "addback-support-schedule.xlsx",
+      "replacement_counts": {},
+      "source_bytes": 13115,
+      "source_sha256": "f6dedb5186d7bd9e5060a3a7af9af56dd27ec8e54fc008c0713b21fff9f6342b"
+    },
+    {
+      "changed_package_parts": [],
+      "extension": ".docx",
+      "output_bytes": 44586,
+      "output_sha256": "6775e1d97b82bcaa6c5d4b7329299a1624a4e6b8f374ecaf17b95975c897ea84",
+      "package_topology_preserved": true,
+      "path": "compliance-certificate-q3-2024.docx",
+      "replacement_counts": {},
+      "source_bytes": 44586,
+      "source_sha256": "6775e1d97b82bcaa6c5d4b7329299a1624a4e6b8f374ecaf17b95975c897ea84"
+    },
+    {
+      "changed_package_parts": [],
+      "extension": ".docx",
+      "output_bytes": 51006,
+      "output_sha256": "fe4cff38ba4a525b44d820fbb136f08c4765b45ed05f70f7026c071e3b5aa0dd",
+      "package_topology_preserved": true,
+      "path": "credit-agreement-excerpts.docx",
+      "replacement_counts": {},
+      "source_bytes": 51006,
+      "source_sha256": "fe4cff38ba4a525b44d820fbb136f08c4765b45ed05f70f7026c071e3b5aa0dd"
+    },
+    {
+      "changed_package_parts": [],
+      "extension": ".eml",
+      "output_bytes": 14635,
+      "output_sha256": "b70b695080b8ff93ea669ee46de231a1b0586454db1b5e213656c2b7221a03f5",
+      "package_topology_preserved": null,
+      "path": "engagement-memo.eml",
+      "replacement_counts": {},
+      "source_bytes": 14635,
+      "source_sha256": "b70b695080b8ff93ea669ee46de231a1b0586454db1b5e213656c2b7221a03f5"
+    },
+    {
+      "changed_package_parts": [],
+      "extension": ".xlsx",
+      "output_bytes": 24835,
+      "output_sha256": "08f1abbfe9a0caf33f326b660b353c06d963dfa944a19b437994bc0afbb3ffcd",
+      "package_topology_preserved": true,
+      "path": "quarterly-financials-q3-2024.xlsx",
+      "replacement_counts": {},
+      "source_bytes": 24835,
+      "source_sha256": "08f1abbfe9a0caf33f326b660b353c06d963dfa944a19b437994bc0afbb3ffcd"
+    }
+  ],
+  "output_task": "banking-finance/prepare-corrected-compliance-package/q3-2024-v1",
+  "output_task_json_sha256": "ec42113dded10a4d3c84ecc445f747f9278dd4efa4410fffb2a2682fc3bb6eaf",
+  "recipe_sha256": "a24afae7bf692ff8de4d5a5180218d9ad076bd5324be3aa9ce0dcead153b7441",
+  "schema_version": 1,
+  "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+  "source_repo": "harveyai/harvey-labs",
+  "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+  "source_task_json_sha256": "2aeebd1cafdfa9f53566571327005df821c21eaa1a0a7604e9b87dc91331e9aa",
+  "task_replacement_counts": {},
+  "variant_id": "corrected-compliance-package-v1"
+}

@@ -1,0 +1,97 @@
+{
+  "augmentation": {
+    "mutation_axes": [
+      "alternate-deliverable",
+      "party-posture",
+      "remediation-workflow"
+    ],
+    "originals_immutable": true,
+    "recipe_sha256": "7f78cafe1d46c0ad1cb37aa204c7b9ef7c677a94d69adb1268fe501a9d775e58",
+    "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "source_repo": "harveyai/harvey-labs",
+    "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+    "variant_id": "borrower-waiver-and-cure-request-v1"
+  },
+  "criteria": [
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-001",
+      "match_criteria": "PASS if the request states that corrected Total Funded Debt of approximately $181.925 million and corrected EBITDA of approximately $32.83 million produce leverage of approximately 5.54x against the 4.25x maximum. FAIL if it repeats the reported 4.39x without correction or conceals the resulting breach.",
+      "title": "Candidly states the corrected leverage breach"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-002",
+      "match_criteria": "PASS if the request identifies the omitted $5 million subordinated note and $6.8 million capital leases and addresses the restructuring-cap excess, Project Streamline cost-savings issue, and $620,000 equipment-sale gain. FAIL if the key reasons for the corrected leverage result are omitted.",
+      "title": "Explains the principal debt and EBITDA corrections"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-003",
+      "match_criteria": "PASS if the request discloses that liquidity fell to approximately $10.1 million on August 22, 2024, below the $15 million requirement tested at all times, and notes restoration around August 25. FAIL if the intra-quarter breach is omitted or described as quarter-end noncompliance.",
+      "title": "Discloses the continuous liquidity breach"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-004",
+      "match_criteria": "PASS if the request notes that corrected quarter-end liquidity is approximately $17 million, corrected interest coverage remains approximately 2.91x versus a 2.50x minimum, capex remains within the $19.25 million limit, and the four-day reporting delay must be analyzed under the five-business-day grace period. FAIL if it overstates the scope of financial covenant breaches or ignores the grace-period distinction.",
+      "title": "Accurately distinguishes remaining compliance and technical issues"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-005",
+      "match_criteria": "PASS if the document identifies the defaults for which relief is sought, proposes a defined waiver or temporary forbearance period, and does not ask for an unexplained blanket release of all existing or future defaults. FAIL if the relief request is absent or materially overbroad.",
+      "title": "Requests a clearly scoped waiver or short forbearance"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-006",
+      "match_criteria": "PASS if the request commits to a corrected compliance certificate and calculations, debt and addback support, liquidity reporting, and production of the Ridgeline subordinated-note materials on definite dates or a definite proposed timetable. FAIL if remediation is merely aspirational.",
+      "title": "Offers a concrete cure and information package"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-007",
+      "match_criteria": "PASS if the request offers commercially plausible enhanced reporting, milestone, meeting, or other process protections while clearly presenting them as proposals subject to agreement. FAIL if it falsely states that lenders have agreed to a fee, amendment, covenant reset, release, or forbearance.",
+      "title": "Addresses lender protections without inventing agreed terms"
+    },
+    {
+      "deliverables": [
+        "waiver-and-cure-request.docx"
+      ],
+      "id": "B-008",
+      "match_criteria": "PASS if the deliverable is a polished external letter with addressee, subject or reference line, concise factual narrative, requested relief, remediation commitments, and signature block or sender identification. FAIL if it is an internal memo or lacks a clear request.",
+      "title": "Uses professional borrower-side correspondence form"
+    }
+  ],
+  "deliverables": {
+    "waiver-and-cure-request.docx": "waiver-and-cure-request.docx"
+  },
+  "instructions": "Act for Ironclad Nutrition Holdings. Using the attached credit agreement excerpts, compliance certificate, financials, addback support, and engagement memo, draft a candid but carefully scoped request to the Administrative Agent for a waiver or short forbearance. Correct the covenant calculations, acknowledge the material issues supported by the record, distinguish cured or technical issues, propose a concrete corrective-information package and reporting process, and avoid unsupported factual or legal assertions. Output: `waiver-and-cure-request.docx`.",
+  "tags": [
+    "Banking & Finance",
+    "covenant-compliance",
+    "leveraged-finance",
+    "restructuring",
+    "event-of-default",
+    "cross-default",
+    "financial-covenants",
+    "lender-representation"
+  ],
+  "title": "Draft Borrower Waiver and Cure Request Following Covenant Recalculation",
+  "work_type": "draft"
+}

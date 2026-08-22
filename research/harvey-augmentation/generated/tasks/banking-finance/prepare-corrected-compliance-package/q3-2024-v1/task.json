@@ -1,0 +1,111 @@
+{
+  "augmentation": {
+    "mutation_axes": [
+      "alternate-deliverable",
+      "multi-file-output",
+      "calculation-workflow"
+    ],
+    "originals_immutable": true,
+    "recipe_sha256": "a24afae7bf692ff8de4d5a5180218d9ad076bd5324be3aa9ce0dcead153b7441",
+    "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "source_repo": "harveyai/harvey-labs",
+    "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+    "variant_id": "corrected-compliance-package-v1"
+  },
+  "criteria": [
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx"
+      ],
+      "id": "P-001",
+      "match_criteria": "PASS if the workbook visibly calculates Total Funded Debt as $181,925,000 from the $131,625,000 term loan, $38,500,000 revolver, $5,000,000 subordinated note, and $6,800,000 capital leases. FAIL if either omitted debt item remains excluded or the arithmetic is materially wrong.",
+      "title": "Workbook corrects Total Funded Debt"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx"
+      ],
+      "id": "P-002",
+      "match_criteria": "PASS if the workbook starts from the Borrower's $38.75 million EBITDA, separately removes the $1.1 million restructuring excess, $4.2 million Project Streamline savings, and $620,000 equipment-sale gain to reach approximately $32.83 million, and also shows an approximately $31.33 million scenario if the $1.5 million Apex settlement is disallowed. FAIL if the adjustment bridge is opaque or omits a principal adjustment.",
+      "title": "Workbook provides corrected EBITDA bridges"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx",
+        "corrected-compliance-certificate.docx"
+      ],
+      "id": "P-003",
+      "match_criteria": "PASS if the outputs show leverage of approximately 5.54x in the primary corrected case and approximately 5.81x in the Apex-disallowance case, compare each with the 4.25x maximum, and state that the covenant is breached. FAIL if the ratio, threshold, or conclusion is missing or materially wrong.",
+      "title": "Workbook recalculates leverage and flags breach"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx",
+        "corrected-compliance-certificate.docx"
+      ],
+      "id": "P-004",
+      "match_criteria": "PASS if the outputs use $11.3 million of cash interest, excluding $450,000 of deferred-financing-cost amortization and $300,000 of commitment fees, calculate coverage of approximately 2.91x in the primary corrected case, and conclude that it remains above the 2.50x minimum. FAIL if total interest expense is used as the cash-interest denominator or a breach is incorrectly stated.",
+      "title": "Correctly calculates cash-interest coverage"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx",
+        "corrected-compliance-certificate.docx"
+      ],
+      "id": "P-005",
+      "match_criteria": "PASS if the outputs calculate September 30 liquidity as $17 million after deducting the $3.2 million letters of credit, state period-end compliance with the $15 million minimum, and separately disclose the approximately $10.1 million August 22 breach of the covenant tested at all times. FAIL if either conclusion is omitted or conflated.",
+      "title": "Correctly reports period-end and intra-quarter liquidity"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx",
+        "corrected-compliance-certificate.docx"
+      ],
+      "id": "P-006",
+      "match_criteria": "PASS if the package compares $14.8 million of YTD capex with a $19.25 million limit consisting of the $18 million base plus $1.25 million carryforward and concludes compliance. FAIL if the carryforward, limit, or conclusion is materially wrong.",
+      "title": "Correctly confirms capital-expenditure compliance"
+    },
+    {
+      "deliverables": [
+        "corrected-compliance-certificate.docx"
+      ],
+      "id": "P-007",
+      "match_criteria": "PASS if the corrected certificate affirmatively discloses the leverage and August liquidity breaches, avoids certifying compliance with all covenants, and identifies the four-day reporting delay and applicable grace-period issue. FAIL if it retains or implies the original inaccurate blanket certification.",
+      "title": "Certificate replaces the inaccurate blanket compliance statement"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx",
+        "corrected-compliance-certificate.docx"
+      ],
+      "id": "P-008",
+      "match_criteria": "PASS if the package clearly reconciles the original reported 4.39x leverage and $20.2 million liquidity figures to the corrected figures, with labeled adjustment rows or an equivalent traceable presentation. FAIL if a reviewer cannot determine why the results changed.",
+      "title": "Package reconciles changes from the original submission"
+    },
+    {
+      "deliverables": [
+        "revised-covenant-calculations.xlsx"
+      ],
+      "id": "P-009",
+      "match_criteria": "PASS if material totals and ratios are driven by spreadsheet formulas rather than only hard-coded results, units are labeled, source or assumption references are included, inputs and outputs are visually distinguishable, and no formula errors are visible. FAIL if the workbook is a static table without auditable calculations or contains formula errors.",
+      "title": "Workbook is formula-driven and reviewable"
+    }
+  ],
+  "deliverables": {
+    "corrected-compliance-certificate.docx": "corrected-compliance-certificate.docx",
+    "revised-covenant-calculations.xlsx": "revised-covenant-calculations.xlsx"
+  },
+  "instructions": "Using the attached credit agreement excerpts, original compliance certificate, quarterly financials, addback support, and engagement memo, prepare a corrected Q3 2024 compliance package for Ironclad Nutrition Holdings. Create (1) a revised covenant-calculation workbook with transparent formulas and source references and (2) a corrected compliance certificate that accurately states compliance or noncompliance, reconciles changes from the original certificate, and identifies assumptions requiring confirmation. Outputs: `corrected-compliance-certificate.docx` and `revised-covenant-calculations.xlsx`.",
+  "tags": [
+    "Banking & Finance",
+    "covenant-compliance",
+    "leveraged-finance",
+    "restructuring",
+    "event-of-default",
+    "cross-default",
+    "financial-covenants",
+    "lender-representation"
+  ],
+  "title": "Prepare Corrected Q3 2024 Compliance Certificate and Covenant Workbook",
+  "work_type": "draft"
+}

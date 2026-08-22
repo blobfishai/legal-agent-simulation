@@ -1,0 +1,97 @@
+{
+  "document_replacement_counts": {
+    "4.25 to 1.00": 1,
+    "4.25x": 2,
+    "Ironclad Nutrition Holdings": 10
+  },
+  "files": [
+    {
+      "changed_package_parts": [],
+      "extension": ".xlsx",
+      "output_bytes": 13115,
+      "output_sha256": "f6dedb5186d7bd9e5060a3a7af9af56dd27ec8e54fc008c0713b21fff9f6342b",
+      "package_topology_preserved": true,
+      "path": "addback-support-schedule.xlsx",
+      "replacement_counts": {},
+      "source_bytes": 13115,
+      "source_sha256": "f6dedb5186d7bd9e5060a3a7af9af56dd27ec8e54fc008c0713b21fff9f6342b"
+    },
+    {
+      "changed_package_parts": [
+        "word/document.xml",
+        "word/header1.xml"
+      ],
+      "extension": ".docx",
+      "output_bytes": 44585,
+      "output_sha256": "0575c97caca97ecda4edc103727351e06416a591c68c050196e3964ee63b121c",
+      "package_topology_preserved": true,
+      "path": "compliance-certificate-q3-2024.docx",
+      "replacement_counts": {
+        "4.25x": 2,
+        "Ironclad Nutrition Holdings": 4
+      },
+      "source_bytes": 44586,
+      "source_sha256": "6775e1d97b82bcaa6c5d4b7329299a1624a4e6b8f374ecaf17b95975c897ea84"
+    },
+    {
+      "changed_package_parts": [
+        "word/document.xml",
+        "word/header1.xml"
+      ],
+      "extension": ".docx",
+      "output_bytes": 51008,
+      "output_sha256": "e9978227404e6e16c9f1c7b6520af74e65657fcb298e241ab10320b4100bf9b8",
+      "package_topology_preserved": true,
+      "path": "credit-agreement-excerpts.docx",
+      "replacement_counts": {
+        "4.25 to 1.00": 1,
+        "Ironclad Nutrition Holdings": 3
+      },
+      "source_bytes": 51006,
+      "source_sha256": "fe4cff38ba4a525b44d820fbb136f08c4765b45ed05f70f7026c071e3b5aa0dd"
+    },
+    {
+      "changed_package_parts": [
+        "engagement-memo.eml"
+      ],
+      "extension": ".eml",
+      "output_bytes": 14635,
+      "output_sha256": "1c06e14c0914b2c265702eea8cbe7f6a28aef7cbc4e00636d1071f3f2b27977f",
+      "package_topology_preserved": null,
+      "path": "engagement-memo.eml",
+      "replacement_counts": {
+        "Ironclad Nutrition Holdings": 2
+      },
+      "source_bytes": 14635,
+      "source_sha256": "b70b695080b8ff93ea669ee46de231a1b0586454db1b5e213656c2b7221a03f5"
+    },
+    {
+      "changed_package_parts": [
+        "xl/worksheets/sheet1.xml"
+      ],
+      "extension": ".xlsx",
+      "output_bytes": 24836,
+      "output_sha256": "c5e6b246dcbd1994afd1ff39208186cbe597b6759f0b10508a5469e0ef18461b",
+      "package_topology_preserved": true,
+      "path": "quarterly-financials-q3-2024.xlsx",
+      "replacement_counts": {
+        "Ironclad Nutrition Holdings": 1
+      },
+      "source_bytes": 24835,
+      "source_sha256": "08f1abbfe9a0caf33f326b660b353c06d963dfa944a19b437994bc0afbb3ffcd"
+    }
+  ],
+  "output_task": "banking-finance/compare-borrower-covenant-compliance-analysis/threshold-edge-westvale-v1",
+  "output_task_json_sha256": "4610f723f8a3da7e63d043fb0f0a068d8f9c0d2cfc033361cc9da0b3cc581209",
+  "recipe_sha256": "f1df45f340582aacca3f656339aca0e19b575d3dd3ee5f8b39b001513ad013e9",
+  "schema_version": 1,
+  "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+  "source_repo": "harveyai/harvey-labs",
+  "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+  "source_task_json_sha256": "2aeebd1cafdfa9f53566571327005df821c21eaa1a0a7604e9b87dc91331e9aa",
+  "task_replacement_counts": {
+    "4.25x": 7,
+    "Ironclad Nutrition Holdings": 1
+  },
+  "variant_id": "covenant-threshold-edge-westvale-v1"
+}
