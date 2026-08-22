@@ -1,0 +1,254 @@
+{
+  "document_sets": 1761,
+  "duplicate_input_occurrences": 430,
+  "extensions": {
+    ".docx": {
+      "bytes": 2712418686,
+      "files": 42009
+    },
+    ".eml": {
+      "bytes": 53139322,
+      "files": 5784
+    },
+    ".json": {
+      "bytes": 133617,
+      "files": 5
+    },
+    ".pptx": {
+      "bytes": 103547720,
+      "files": 1136
+    },
+    ".txt": {
+      "bytes": 55575066,
+      "files": 889
+    },
+    ".xlsx": {
+      "bytes": 281925227,
+      "files": 11148
+    }
+  },
+  "format_validation": {
+    "errors": [],
+    "legacy_office_checked": 0,
+    "lfs_pointers": 0,
+    "ooxml_crc_checked": 54293,
+    "pdfs_checked": 0,
+    "zero_byte_inputs": 0
+  },
+  "generated_at": "2026-08-22T20:30:24.059418+00:00",
+  "largest_document_sets": [
+    {
+      "consumer_tasks": 250,
+      "path": "tasks/firm-knowledge/dms",
+      "physical_files": 9288,
+      "shared": true
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/rail-horizontal-merger/documents",
+      "physical_files": 4061,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents",
+      "physical_files": 3858,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/oil-gas-horizontal-merger/documents",
+      "physical_files": 3781,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/enterprise-software-diversification/documents",
+      "physical_files": 3633,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/cybersecurity-tuck-in/documents",
+      "physical_files": 3513,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/gaming-strategic-acquisition/documents",
+      "physical_files": 3391,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/restaurant-pe-buyout/documents",
+      "physical_files": 3378,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/sports-media-consolidation/documents",
+      "physical_files": 3355,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents",
+      "physical_files": 3190,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/aerospace-vertical-integration/documents",
+      "physical_files": 2863,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/media-recap/documents",
+      "physical_files": 2600,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/litigation-dispute-resolution/review-privilege-log-clawback-review/documents",
+      "physical_files": 55,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/corporate-ma/draft-acquisition-due-diligence/documents",
+      "physical_files": 31,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/litigation-dispute-resolution/categorize-document-production-set-by-relevance-and-privilege/documents",
+      "physical_files": 25,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/tax/draft-transfer-pricing-documentation/documents",
+      "physical_files": 25,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/corporate-governance/assess-impact-of-new-gdpr-adequacy-decision-on-cross/documents",
+      "physical_files": 24,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/litigation-dispute-resolution/draft-motion-to-dismiss-brief/documents",
+      "physical_files": 24,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/corporate-governance/assess-impact-of-ftc-noncompete-ban-on-existing-employment-agreements/documents",
+      "physical_files": 22,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/tax/draft-cross-border-acquisition-tax-memo/documents",
+      "physical_files": 22,
+      "shared": false
+    }
+  ],
+  "largest_inputs": [
+    {
+      "bytes": 422858,
+      "path": "tasks/funds-asset-management/respond-to-comment-memo/documents/02-precedent-fund-iii/fund-iii-comment-compendium.docx"
+    },
+    {
+      "bytes": 373956,
+      "path": "tasks/funds-asset-management/respond-to-comment-memo/documents/03-precedent-fund-ii/fund-ii-comment-compendium.docx"
+    },
+    {
+      "bytes": 336038,
+      "path": "tasks/funds-asset-management/respond-to-comment-memo/documents/04-precedent-fund-i/fund-i-comment-compendium.docx"
+    },
+    {
+      "bytes": 304926,
+      "path": "tasks/diligence/aerospace-vertical-integration/documents/11.0 Privacy Cybersecurity and IT/11.2 Systems Access Retention and Data Flows/engineering-skills-matrix-sharepoint-audit-export-esm-2024-05.txt"
+    },
+    {
+      "bytes": 228636,
+      "path": "tasks/diligence/restaurant-pe-buyout/documents/5.0 Franchise System and Franchise Regulatory/5.1 Franchise Agreement Templates and Contract Database/boardwalknext-pos-services-addendum-standard-form-v2019-1.docx"
+    },
+    {
+      "bytes": 221542,
+      "path": "tasks/antitrust-competition/prepare-antitrust-risk-assessment/documents/project-lighthouse-strategic-rationale-presentation.pptx"
+    },
+    {
+      "bytes": 221132,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents/10.0 Manufacturing Quality and Supply Operations/10.1 Internal Manufacturing and Batch Release/cerviax-antibody-ds-process-characterization-report-longview-commercia.docx"
+    },
+    {
+      "bytes": 214898,
+      "path": "tasks/diligence/enterprise-software-diversification/documents/6.0 Intellectual Property and Product Technology/6.4 Product Roadmaps Source Mapping and Repository Evidence/onyxguard-sensor-core-source-export-2022-migration-window.txt"
+    },
+    {
+      "bytes": 203857,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents/9.0 R&D Clinical and Regulatory/9.3 Clinical Operations and Trial Records/protocol-hrtb-304-herantib-brain-metastases-cohort.docx"
+    },
+    {
+      "bytes": 203514,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/2.0 Corporate Organization and Governance/2.2 Board Committees and Approval Record/2023-09-08-merrimack-apa-approval-presentation.pptx"
+    },
+    {
+      "bytes": 198901,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/10.0 Litigation Investigations and Regulatory Proceedings/10.1 Antitrust Litigation/declaration-of-denise-kartchner-regarding-colorado-store-operations-an.docx"
+    },
+    {
+      "bytes": 198874,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents/9.0 R&D Clinical and Regulatory/9.1 Pipeline Development Plans and R&D Governance/herantib-adjuvant-snda-readiness-project-charter.docx"
+    },
+    {
+      "bytes": 191706,
+      "path": "tasks/diligence/media-recap/documents/8.0 Employment Labor and Benefits/8.1 Workforce Employment and Retention/employee-privacy-systems-monitoring-and-data-handling-policy-2024.docx"
+    },
+    {
+      "bytes": 186009,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/7.0 Intellectual Property Technology and Data/7.3 Invention Assignments Contractors and Restrictive Covenants/specialtyrx-contractor-pharmacist-agreements-clinical-protocol-contrib.docx"
+    },
+    {
+      "bytes": 184394,
+      "path": "tasks/diligence/oil-gas-horizontal-merger/documents/13.0 Intellectual Property Technology and Data Assets/13.5 IT Escrow Repositories and Operational Systems/kestrelconnect-v4-6-0-major-release-build-and-deployment-runbook.txt"
+    },
+    {
+      "bytes": 177574,
+      "path": "tasks/corporate-ma/draft-confidential-information-memorandum/documents/apex-management-presentation.pptx"
+    },
+    {
+      "bytes": 176266,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/2.0 Corporate Organization and Governance/2.2 Board Committees and Approval Record/2023-03-22-fy2022-close-and-integration-readiness-update.pptx"
+    },
+    {
+      "bytes": 175973,
+      "path": "tasks/antitrust-competition/prepare-antitrust-risk-assessment/documents/market-data-report-north-american-specialty-coatings-and-adhesives-industry.docx"
+    },
+    {
+      "bytes": 175710,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/2.0 Corporate Organization and Governance/2.2 Board Committees and Approval Record/2023-12-12-fy2024-operating-plan-and-capital-allocation.pptx"
+    },
+    {
+      "bytes": 175196,
+      "path": "tasks/firm-knowledge/dms/matters/1014-00004/Claim Construction/markman-hearing-slides-draft.pptx"
+    }
+  ],
+  "physical_input_bytes": 3206739638,
+  "physical_input_tree_sha256": "3ee4648b4e6465fc6635fc92634606f22b9a6d7f8e2e586899e3be68182f5cae",
+  "physical_inputs": 60971,
+  "schema_version": 1,
+  "shared_document_sets": 1,
+  "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+  "source_git_clean": true,
+  "source_repo": "harveyai/harvey-labs",
+  "tasks": 2010,
+  "tracked_files": 63074,
+  "unique_input_blobs": 60541
+}
