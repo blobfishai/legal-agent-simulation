@@ -92,6 +92,12 @@ extended rather than weakened. These changes advance generated provenance to
   scan for every generated or re-derived variant (up to 210 scans for the
   35-variant generate-and-check CLI path); a regression freezes the
   source-cleanliness scan count at two per complete plan operation.
+- DOCX verification processes paragraph runs together exactly once and limits
+  the isolated-run fallback to XML outside those paragraphs. Boundary
+  substitutions use literal search instead of recompiling and applying one
+  regular expression per entity/run, and the residual verifier case-folds a
+  document once before native literal searches. Regression tests preserve the
+  boundary, split-run, metadata, and unscoped-run semantics.
 
 ## Tool capability note (2026-08-22)
 

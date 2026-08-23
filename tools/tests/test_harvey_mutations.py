@@ -205,6 +205,22 @@ class BroadMutationTests(HarveyMutationFixture):
             BROAD.package_topology(output_path),
         )
 
+    def test_docx_mutation_does_not_rescan_paragraph_runs(self) -> None:
+        xml = (
+            '<w:root xmlns:w="urn:test">'
+            '<w:p><w:r><w:t>Ore</w:t></w:r><w:r><w:t>gon</w:t></w:r></w:p>'
+            '<w:t>Oregon</w:t>'
+            '</w:root>'
+        )
+        with patch.object(BROAD, "replace_text", wraps=BROAD.replace_text) as replace:
+            mutated = BROAD.mutate_docx_xml(xml, [("Oregon", "Nevada")])
+        visible_text = "".join(
+            BROAD.xml_unescape(match.group(2)) for match in BROAD.WT_RE.finditer(mutated)
+        )
+        self.assertEqual(visible_text, "NevadaNevada")
+        self.assertNotIn("Oregon", mutated)
+        self.assertEqual(replace.call_count, 1)
+
     def test_seed_must_be_a_non_negative_integer(self) -> None:
         for seed in (-1, True, 1.5):
             with self.subTest(seed=seed), self.assertRaises(ValueError):
@@ -252,6 +268,45 @@ class BroadMutationTests(HarveyMutationFixture):
 
     def test_replacement_strings_are_not_regex_templates(self) -> None:
         self.assertEqual(BROAD.replace_text("Oregon", [("Oregon", r"A\1")]), r"A\1")
+
+    def test_literal_boundary_substitution_matches_regex_reference(self) -> None:
+        cases = [
+            ("Oregon", "Oregon; (Oregon) _Oregon_ Oregon2 preOregon"),
+            ("A+B", "A+B/A+B2 preA+B [A+B]"),
+            ("a.b", "a.b,aXb,a.b_"),
+            ("[x]", "[x] [x]9 before[x]"),
+            ("aa", "aa aaaa (aa)"),
+        ]
+        for old, text in cases:
+            with self.subTest(old=old, text=text):
+                expected = BROAD._boundary_pattern(old).subn(
+                    lambda _match: r"A\1", text
+                )
+                self.assertEqual(
+                    BROAD._replace_boundary_literal_count(text, old, r"A\1"),
+                    expected,
+                )
+
+    def test_residual_scan_is_boundary_aware_without_regex_rescans(self) -> None:
+        pairs = [
+            ("Alpha Beta", "Juniper Delta"),
+            ("Oregon", "Nevada"),
+            ("STRASSE", "CALLE"),
+        ]
+        with patch.object(
+            BROAD.re,
+            "search",
+            side_effect=AssertionError("residual scan must use literal search"),
+        ):
+            self.assertEqual(
+                BROAD.residual_terms("OREGON; alpha beta; Straße", pairs),
+                ["Alpha Beta", "STRASSE", "Oregon"],
+            )
+            self.assertEqual(
+                BROAD.residual_terms("preOregon Oregon2 Alpha Beta3", pairs),
+                [],
+            )
+            self.assertEqual(BROAD.residual_terms("_oregon_", pairs), ["Oregon"])
 
     def test_checker_detects_tampering(self) -> None:
         generated = self.broad_generate(self.workspace / "output")

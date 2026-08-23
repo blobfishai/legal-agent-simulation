@@ -118,6 +118,14 @@ defects:
     boundary. Generated caches were removed, source-tree validation now rejects
     `__pycache__`, `.pyc`, and `.pyo` artifacts, and the probe creates its
     fixture beneath the confined repository `dist` root.
+26. The structure-preserving DOCX mutator rescanned every paragraph run once
+    per source entity after those paragraphs had already been mutated, and the
+    residual verifier repeated a whole-document case-insensitive regex scan per
+    entity. Large agreements could therefore hold the mutation transaction for
+    minutes. The fallback now visits only XML outside processed paragraphs;
+    boundary substitutions use equivalent literal searches; and residual text
+    is case-folded once. Dedicated regressions freeze split-run, unscoped-run,
+    Unicode fail-closed, and ASCII-boundary behavior.
 
 ## Measured inventory
 
@@ -150,7 +158,7 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
-| Unit suites | 101/101 passed (manifest, port, local runtime, assertion guards, Harbor byte/topology and dataset integrity including cache-artifact rejection, Harvey mutation v3 including cross-process serialization, anonymous GHCR, production-wrapper trust boundary) |
+| Unit suites | 104/104 passed (manifest, port, local runtime, assertion guards, Harbor byte/topology and dataset integrity including cache-artifact rejection, Harvey mutation v3 including cross-process serialization and bounded DOCX/residual scans, anonymous GHCR, production-wrapper trust boundary) |
 | Document-render adversarial suite | 4/4 passed: full-bleed header accepted, clipped body rejected, catalog hash substitution rejected, traversal rejected |
 | Seed reproducibility | 351/351 files byte-identical in isolated rebuild |
 | Retail authority projection | 51/51 mapped citations and URLs projected byte-exactly into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated. This is not a claim that every external URL or law was revalidated live at build time. |

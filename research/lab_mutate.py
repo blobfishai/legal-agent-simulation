@@ -369,6 +369,46 @@ def _boundary_pattern(term: str) -> re.Pattern[str]:
     return re.compile(r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])")
 
 
+def _ascii_alphanumeric(value: str) -> bool:
+    return (
+        "a" <= value <= "z"
+        or "A" <= value <= "Z"
+        or "0" <= value <= "9"
+    )
+
+
+def _replace_boundary_literal_count(
+    text: str,
+    old: str,
+    new: str,
+) -> tuple[str, int]:
+    """Literal equivalent of the case-sensitive boundary regex substitution."""
+    if not old:
+        return text, 0
+    fragments: list[str] = []
+    copied_through = 0
+    search_from = 0
+    occurrences = 0
+    while True:
+        index = text.find(old, search_from)
+        if index < 0:
+            break
+        end = index + len(old)
+        left_boundary = index == 0 or not _ascii_alphanumeric(text[index - 1])
+        right_boundary = end == len(text) or not _ascii_alphanumeric(text[end])
+        if left_boundary and right_boundary:
+            fragments.extend((text[copied_through:index], new))
+            copied_through = end
+            search_from = end
+            occurrences += 1
+        else:
+            search_from = index + 1
+    if not occurrences:
+        return text, 0
+    fragments.append(text[copied_through:])
+    return "".join(fragments), occurrences
+
+
 def build_replacement_map(
     entities: list[dict[str, Any]],
     seed: int,
@@ -483,7 +523,7 @@ def replace_text_count(
 ) -> tuple[str, Counter[str]]:
     counts: Counter[str] = Counter()
     for old, new in pairs:
-        text, occurrences = _boundary_pattern(old).subn(lambda _match, value=new: value, text)
+        text, occurrences = _replace_boundary_literal_count(text, old, new)
         if occurrences:
             counts[old] += occurrences
     return text, counts
@@ -610,8 +650,6 @@ def mutate_docx_xml(xml: str, pairs: list[tuple[str, str]]) -> str:
             paragraph,
         )
 
-    xml = WP_RE.sub(replace_paragraph, xml)
-
     def replace_unscoped_run(run: re.Match[str]) -> str:
         original = xml_unescape(run.group(2))
         replacement = replace_text(original, pairs)
@@ -619,7 +657,20 @@ def mutate_docx_xml(xml: str, pairs: list[tuple[str, str]]) -> str:
             return run.group(0)
         return render_word_text_run(run, replacement)
 
-    return WT_RE.sub(replace_unscoped_run, xml)
+    # Paragraph runs were already processed together above, so applying WT_RE
+    # to the entire document would rescan every run once per source entity.
+    # Restrict the fallback to gaps outside paragraphs, where isolated Word
+    # text elements (if any) still need the same fail-closed replacement.
+    fragments: list[str] = []
+    copied_through = 0
+    for paragraph in WP_RE.finditer(xml):
+        fragments.append(
+            WT_RE.sub(replace_unscoped_run, xml[copied_through:paragraph.start()])
+        )
+        fragments.append(replace_paragraph(paragraph))
+        copied_through = paragraph.end()
+    fragments.append(WT_RE.sub(replace_unscoped_run, xml[copied_through:]))
+    return "".join(fragments)
 
 
 def package_topology(path: Path) -> dict[str, Any]:
@@ -694,10 +745,9 @@ def replace_escaped_xml_boundary(xml: str, pairs: list[tuple[str, str]]) -> str:
     scan re-derives byte-identically under this pass."""
     for old, new in pairs:
         escaped_old, escaped_new = xml_escape(old), xml_escape(new)
-        pattern = re.compile(
-            r"(?<![A-Za-z0-9])" + re.escape(escaped_old) + r"(?![A-Za-z0-9])"
+        xml, _occurrences = _replace_boundary_literal_count(
+            xml, escaped_old, escaped_new
         )
-        xml = pattern.sub(lambda _match, value=escaped_new: value, xml)
     return xml
 
 
@@ -978,14 +1028,40 @@ def mutate_document(source: Path, destination: Path, pairs: list[tuple[str, str]
 
 
 def residual_terms(text: str, pairs: list[tuple[str, str]]) -> list[str]:
-    found = []
-    for term in sorted({old for old, _ in pairs if len(old) >= 4}, key=lambda value: (-len(value), value)):
-        if re.search(
-            r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])",
-            text,
-            flags=re.IGNORECASE,
-        ):
-            found.append(term)
+    """Find residual source entities without repeatedly regex-scanning a file.
+
+    The previous implementation ran one case-insensitive regular-expression
+    search over the complete extracted document for every source term. Large
+    transactional agreements made that verifier path CPU-bound for minutes.
+    Case-fold once, then use CPython's literal search while retaining the exact
+    ASCII-alphanumeric boundary policy. Unicode case folding is intentionally
+    fail-closed: an expanded equivalent can produce an additional residual,
+    but cannot hide one.
+    """
+    folded_text = text.casefold()
+    found: list[str] = []
+    terms = sorted(
+        {old for old, _ in pairs if len(old) >= 4},
+        key=lambda value: (-len(value), value),
+    )
+    for term in terms:
+        folded_term = term.casefold()
+        cursor = 0
+        while True:
+            index = folded_text.find(folded_term, cursor)
+            if index < 0:
+                break
+            end = index + len(folded_term)
+            left_boundary = index == 0 or not _ascii_alphanumeric(
+                folded_text[index - 1]
+            )
+            right_boundary = end == len(folded_text) or not _ascii_alphanumeric(
+                folded_text[end]
+            )
+            if left_boundary and right_boundary:
+                found.append(term)
+                break
+            cursor = index + 1
     return found
 
 
