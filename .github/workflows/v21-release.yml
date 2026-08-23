@@ -35,7 +35,7 @@ jobs:
         run: |
           set -euo pipefail
           [[ "$TAG" =~ ^[a-z0-9][a-z0-9._-]{0,127}$ ]]
-          release_suffix="${GITHUB_SHA:0:12}"
+          release_suffix="${GITHUB_SHA:0:12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           echo "WORLD_CANDIDATE=$WORLD_IMAGE:$TAG-$release_suffix" >> "$GITHUB_ENV"
           echo "LAB_CANDIDATE=$LAB_IMAGE:$TAG-$release_suffix" >> "$GITHUB_ENV"
 
@@ -140,8 +140,8 @@ jobs:
       - name: Promote validated candidates to production
         run: |
           set -euo pipefail
-          docker buildx imagetools create --tag "$LAB_IMAGE:$TAG" "$LAB_CANDIDATE"
-          docker buildx imagetools create --tag "$WORLD_IMAGE:$TAG" "$WORLD_CANDIDATE"
+          docker buildx imagetools create --prefer-index=false --tag "$LAB_IMAGE:$TAG" "$LAB_CANDIDATE"
+          docker buildx imagetools create --prefer-index=false --tag "$WORLD_IMAGE:$TAG" "$WORLD_CANDIDATE"
           lab_candidate_digest="sha256:$(docker buildx imagetools inspect "$LAB_CANDIDATE" --raw | sha256sum | cut -d' ' -f1)"
           lab_production_digest="sha256:$(docker buildx imagetools inspect "$LAB_IMAGE:$TAG" --raw | sha256sum | cut -d' ' -f1)"
           world_candidate_digest="sha256:$(docker buildx imagetools inspect "$WORLD_CANDIDATE" --raw | sha256sum | cut -d' ' -f1)"
