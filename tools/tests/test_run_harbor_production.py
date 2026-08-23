@@ -43,7 +43,7 @@ class RunHarborProductionTests(unittest.TestCase):
                 RUNNER.write_oracle_proof_report(
                     self.image,
                     output,
-                    matched=False,
+                    image_proof_sha256=None,
                     failure_class="remote_image_inspection_unavailable",
                     error="cannot inspect immutable production image",
                 )
@@ -53,6 +53,51 @@ class RunHarborProductionTests(unittest.TestCase):
             report["failure_class"], "remote_image_inspection_unavailable"
         )
         self.assertIsNone(report["image_oracle_proof_sha256"])
+
+    def test_report_derives_match_from_the_observed_image_proof(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            (output / "world-image").mkdir()
+            (output / "world-image" / "solve-token.txt").write_text(
+                "c" * 64 + "\n", "utf-8"
+            )
+            expected = RUNNER.hashlib.sha256(("c" * 64).encode()).hexdigest()
+            report_path = output / "oracle-report.json"
+            with mock.patch.object(RUNNER, "ORACLE_PROOF_REPORT", report_path):
+                RUNNER.write_oracle_proof_report(
+                    self.image,
+                    output,
+                    image_proof_sha256=expected,
+                    failure_class="oracle_integrity_failure",
+                    error="caller tried to forge a failure",
+                )
+            report = json.loads(report_path.read_text("utf-8"))
+        self.assertTrue(report["matched"])
+        self.assertEqual(report["image_oracle_proof_sha256"], expected)
+        self.assertIsNone(report["failure_class"])
+        self.assertIsNone(report["error"])
+
+    def test_mismatched_observed_proof_cannot_be_reported_as_matched(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            (output / "world-image").mkdir()
+            (output / "world-image" / "solve-token.txt").write_text(
+                "d" * 64 + "\n", "utf-8"
+            )
+            actual = "e" * 64
+            report_path = output / "oracle-report.json"
+            with mock.patch.object(RUNNER, "ORACLE_PROOF_REPORT", report_path):
+                RUNNER.write_oracle_proof_report(
+                    self.image,
+                    output,
+                    image_proof_sha256=actual,
+                    failure_class=None,
+                    error=None,
+                )
+            report = json.loads(report_path.read_text("utf-8"))
+        self.assertFalse(report["matched"])
+        self.assertEqual(report["image_oracle_proof_sha256"], actual)
+        self.assertEqual(report["failure_class"], "oracle_integrity_failure")
 
     def test_integrity_failure_is_not_classified_as_registry_access(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
