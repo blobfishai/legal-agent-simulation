@@ -59,6 +59,9 @@ def validate_dataset_tree(dataset_root: Path) -> Path:
             f"missing={sorted(expected - set(files))} "
             f"unexpected={sorted(set(files) - expected)}"
         )
+    expected_readme = f"# {DATASET_NAME}\n"
+    if files["README.md"].read_text("utf-8") != expected_readme:
+        raise RuntimeError("dataset README differs from the production contract")
     return files["dataset.toml"]
 
 

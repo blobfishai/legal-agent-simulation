@@ -50,6 +50,9 @@ class RunHarborProductionTests(unittest.TestCase):
             report = json.loads(report_path.read_text("utf-8"))
         self.assertFalse(report["matched"])
         self.assertEqual(
+            report["runner_sha256"], RUNNER.hashlib.sha256(SCRIPT.read_bytes()).hexdigest()
+        )
+        self.assertEqual(
             report["failure_class"], "remote_image_inspection_unavailable"
         )
         self.assertIsNone(report["image_oracle_proof_sha256"])

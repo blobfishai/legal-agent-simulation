@@ -70,9 +70,10 @@ jobs:
             tools.tests.test_assertion_guards \
             tools.tests.test_harbor_dataset_integrity \
             tools.tests.test_harbor_generation \
+            tools.tests.test_harvey_mutations \
             tools.tests.test_ghcr_public \
             tools.tests.test_run_harbor_production -v
-          jq -e '.world_sha256 == "76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab"' \
+          jq -e '.world_sha256 == "7cb5f9ccb36ea1e3ce27bf86554550ba73a01b1e04be35ca6a3e6e15a38702c6"' \
             world/v21/build-report.json
 
       - name: Hydrate checksum-pinned production evidence
@@ -202,7 +203,7 @@ jobs:
             echo "- Validated candidate: \`$WORLD_CANDIDATE\`"
             echo "- Harbor oracle/no-op production gate: 5/5 pass and 5/5 reject"
             echo "- Commit: \`${{ github.sha }}\`"
-            echo '- World SHA-256: `76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab`'
+            echo '- World SHA-256: `7cb5f9ccb36ea1e3ce27bf86554550ba73a01b1e04be35ca6a3e6e15a38702c6`'
             echo '- Exhaustive v21 checker: passed before publication'
           } >> "$GITHUB_STEP_SUMMARY"
 

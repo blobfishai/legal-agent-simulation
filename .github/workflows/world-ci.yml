@@ -72,6 +72,7 @@ jobs:
             world/v18/verifiers.py \
             world/v19/build.py \
             world/v19/verifiers.py \
+            harbor/generate.py \
             world/local/precorrection.py \
             world/ecosystem/compile_skills.py \
             world/ecosystem/diff_mcp_schemas.py \
@@ -84,6 +85,7 @@ jobs:
             tools/check_harbor_dataset.py \
             tools/check_ghcr_public.py \
             tools/run_harbor_production.py \
+            tools/build_harvey_parity_audit.py \
             tools/hydrate_v21_evidence.py \
             tools/check_lab_port.py \
             tools/check_lab_extractor_parity.py \

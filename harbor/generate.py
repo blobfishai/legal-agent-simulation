@@ -36,6 +36,7 @@ import secrets
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path, PurePosixPath
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -134,10 +135,24 @@ def validate_project_source_file(path: Path, label: str) -> Path:
 
 
 def assert_generated_targets_safe(output: Path) -> None:
-    for name in ("README.md", "tasks", "world-image", "lab-agent-image"):
+    allowed = {"README.md", "tasks", "world-image", "lab-agent-image", "dataset"}
+    unexpected = sorted(path.name for path in output.iterdir() if path.name not in allowed)
+    if unexpected:
+        raise RuntimeError(f"generated output root contains unexpected entries: {unexpected}")
+    for name in sorted(allowed):
         target = output / name
         if target.is_symlink():
             raise RuntimeError(f"refusing symlinked generated target: {target}")
+
+
+def remove_generated_directory(path: Path, label: str) -> None:
+    """Remove a known generated subtree without leaving a stale empty shell."""
+    if path.is_symlink():
+        raise RuntimeError(f"refusing to replace symlinked {label}: {path}")
+    if path.exists():
+        if not path.is_dir():
+            raise RuntimeError(f"refusing to replace non-directory {label}: {path}")
+        shutil.rmtree(path)
 
 
 def validate_task_layout(tasks: list[dict]) -> None:
@@ -717,6 +732,62 @@ PYEOF
 """
 
 
+def root_readme(
+    task_count: int,
+    world_path: str | os.PathLike[str],
+    contracts_dir: str | os.PathLike[str],
+    image_tag: str,
+    world: dict,
+    runtime_tool_count: int,
+) -> str:
+    """Render the byte-exact top-level export documentation."""
+    return f"""\
+# legal-agent-simulation — Harbor tasks
+
+{task_count} Harbor-format tasks generated from `{os.path.relpath(world_path, ROOT)}`
+(one per world task; regenerate with `python3 harbor/generate.py`).
+
+Contract suite: `{os.path.relpath(contracts_dir, ROOT)}`.
+
+{DISCLAIMER}
+
+## One-time setup
+
+Build the shared world image (world runtime + world doc + product contracts):
+
+```bash
+python3 harbor/generate.py --build-image        # tags {image_tag}
+```
+
+## Run
+
+```bash
+harbor run -p "dist/harbor/tasks/task_003" -a claude-code -m anthropic/claude-sonnet-5
+harbor run -p "dist/harbor/tasks/task_003" -a oracle       # reference-walk sanity check
+```
+
+Multi-container tasks require Harbor's **docker** environment provider
+(compose networking); cloud providers are not supported for these tasks.
+
+## Architecture
+
+- `world` service (shared image `{image_tag}`): the executable law-firm
+  world — {len(world["tables"])} product-system tables hydrated from the world
+  doc, {runtime_tool_count} contract-defined tools and zero synthesized
+  name-family tools,
+  deterministic seeded friction, and shipped VCode verifiers.
+  A per-trial shim creates the task's session, records the tool trace, and
+  exposes `POST /mcp` (JSON-RPC), `POST /verify`, and token-gated `POST /solve`.
+- `main` (agent container): pinned python + the `tool` CLI. It contains no
+  world document, verifier code, or reference walks.
+- `tests/test.sh` fetches the VCode verdict and writes `reward.json`
+  (`reward` = graded fraction with anti-hack vetoes, `passed` = strict bool).
+- `solution/solve.sh` triggers the oracle reference walk server-side — the
+  same walk `world/local/oracle.py` proves against all {len(world['tasks'])}
+  tasks in this generated world.
+"""
+
+
 # ---------------------------------------------------------------------------
 # Assembly
 # ---------------------------------------------------------------------------
@@ -726,10 +797,32 @@ def write(path: str, content: str, executable: bool = False) -> None:
     if destination.is_symlink():
         raise RuntimeError(f"refusing to overwrite symlink: {destination}")
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with destination.open("w", encoding="utf-8", newline="\n") as f:
-        f.write(content)
-    if executable:
-        os.chmod(path, 0o755)
+    try:
+        with destination.open("x", encoding="utf-8", newline="\n") as handle:
+            handle.write(content)
+    except FileExistsError:
+        pass
+    else:
+        destination.chmod(0o755 if executable else 0o644)
+        return
+    temporary_path: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            newline="\n",
+            prefix=f".{destination.name}.",
+            dir=destination.parent,
+            delete=False,
+        ) as handle:
+            temporary_path = Path(handle.name)
+            handle.write(content)
+        temporary_path.chmod(0o755 if executable else 0o644)
+        os.replace(temporary_path, destination)
+        temporary_path = None
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
 
 
 def link_or_copy(source: str, destination: str) -> str:
@@ -786,11 +879,11 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
     img = str(img_path)
     local = os.path.join(ROOT, "world", "local")
     for name in WORLD_RUNTIME_FILES:
-        shutil.copyfile(os.path.join(local, name), os.path.join(img, name))
+        shutil.copy2(os.path.join(local, name), os.path.join(img, name))
     for name in WORLD_IMAGE_TEMPLATE_FILES:
-        shutil.copyfile(os.path.join(HERE, "world-image", name),
-                        os.path.join(img, name))
-    shutil.copyfile(world_path, os.path.join(img, "world.json"))
+        shutil.copy2(os.path.join(HERE, "world-image", name),
+                     os.path.join(img, name))
+    shutil.copy2(world_path, os.path.join(img, "world.json"))
     contracts = os.path.abspath(contracts_dir or contracts_for_world(world_path))
     dst = os.path.join(img, "contracts")
     if os.path.isdir(dst):
@@ -848,7 +941,7 @@ def assemble_lab_agent_image(out: str) -> str:
     # Dockerfile cannot mutate the exact recovery source through a hard link.
     shutil.copytree(upstream, destination)
     for name in required_template_files:
-        shutil.copyfile(template / name, destination / name)
+        shutil.copy2(template / name, destination / name)
     return str(destination)
 
 
@@ -906,6 +999,10 @@ def main() -> None:
     out_path = resolve_output_root(args.out)
     out_path.mkdir(parents=True, exist_ok=True)
     assert_generated_targets_safe(out_path)
+    # A dataset is derived from the freshly generated task bytes by the locked
+    # production wrapper. Never leave a manifest from the previous generation
+    # beside new task packages.
+    remove_generated_directory(out_path / "dataset", "Harbor dataset")
     out = str(out_path)
 
     # The encrypted release secret lets independently generated full-task and
@@ -973,51 +1070,17 @@ def main() -> None:
             write(os.path.join(d, "solution", "solve.sh"), solve_sh(token, task),
                   executable=True)
 
-    write(os.path.join(out, "README.md"), f"""\
-# legal-agent-simulation — Harbor tasks
-
-{len(tasks)} Harbor-format tasks generated from `{os.path.relpath(world_path, ROOT)}`
-(one per world task; regenerate with `python3 harbor/generate.py`).
-
-Contract suite: `{os.path.relpath(contracts_dir, ROOT)}`.
-
-{DISCLAIMER}
-
-## One-time setup
-
-Build the shared world image (world runtime + world doc + product contracts):
-
-```bash
-python3 harbor/generate.py --build-image        # tags {args.image_tag}
-```
-
-## Run
-
-```bash
-harbor run -p "dist/harbor/tasks/task_003" -a claude-code -m anthropic/claude-sonnet-5
-harbor run -p "dist/harbor/tasks/task_003" -a oracle       # reference-walk sanity check
-```
-
-Multi-container tasks require Harbor's **docker** environment provider
-(compose networking); cloud providers are not supported for these tasks.
-
-## Architecture
-
-- `world` service (shared image `{args.image_tag}`): the executable law-firm
-  world — {len(world["tables"])} product-system tables hydrated from the world
-  doc, {runtime_tool_count} contract-defined tools and zero synthesized
-  name-family tools,
-  deterministic seeded friction, and shipped VCode verifiers.
-  A per-trial shim creates the task's session, records the tool trace, and
-  exposes `POST /mcp` (JSON-RPC), `POST /verify`, and token-gated `POST /solve`.
-- `main` (agent container): pinned python + the `tool` CLI. It contains no
-  world document, verifier code, or reference walks.
-- `tests/test.sh` fetches the VCode verdict and writes `reward.json`
-  (`reward` = graded fraction with anti-hack vetoes, `passed` = strict bool).
-- `solution/solve.sh` triggers the oracle reference walk server-side — the
-  same walk `world/local/oracle.py` proves against all {len(world['tasks'])}
-  tasks in this generated world.
-""")
+    write(
+        os.path.join(out, "README.md"),
+        root_readme(
+            len(tasks),
+            world_path,
+            contracts_dir,
+            args.image_tag,
+            world,
+            runtime_tool_count,
+        ),
+    )
 
     print(f"generated {len(tasks)} Harbor tasks -> {tasks_root}")
     print(f"world image context -> {img_dir}")

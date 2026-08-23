@@ -49,13 +49,23 @@ class HarborDatasetIntegrityTests(unittest.TestCase):
     def test_dataset_tree_rejects_extra_files(self) -> None:
         with tempfile.TemporaryDirectory(prefix="harbor-dataset-tree-") as temporary:
             dataset = Path(temporary)
-            (dataset / "README.md").write_text("dataset\n", "utf-8")
+            (dataset / "README.md").write_text(
+                f"# {DATASET.DATASET_NAME}\n", "utf-8"
+            )
             (dataset / "dataset.toml").write_text("[dataset]\n", "utf-8")
             self.assertEqual(
                 DATASET.validate_dataset_tree(dataset), dataset / "dataset.toml"
             )
             (dataset / "secret.txt").write_text("unexpected\n", "utf-8")
             with self.assertRaisesRegex(RuntimeError, "topology differs"):
+                DATASET.validate_dataset_tree(dataset)
+
+    def test_dataset_tree_rejects_tampered_readme(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="harbor-dataset-readme-") as temporary:
+            dataset = Path(temporary)
+            (dataset / "README.md").write_text("# different/name\n", "utf-8")
+            (dataset / "dataset.toml").write_text("[dataset]\n", "utf-8")
+            with self.assertRaisesRegex(RuntimeError, "README differs"):
                 DATASET.validate_dataset_tree(dataset)
 
     def test_manifest_requires_exact_metadata_order_and_fields(self) -> None:

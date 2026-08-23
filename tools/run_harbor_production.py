@@ -163,6 +163,7 @@ def write_oracle_proof_report(
         raise RuntimeError("failed oracle proof reports require a classified error")
     report = {
         "schema_version": 2,
+        "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "world_image": world_image,
         "export_solve_token_sha256": expected,
         "image_oracle_proof_sha256": image_proof_sha256,

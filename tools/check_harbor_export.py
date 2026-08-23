@@ -40,6 +40,16 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def file_mode(path: Path) -> int:
+    return stat.S_IMODE(path.stat().st_mode)
+
+
+def assert_mode(path: Path, expected: int, label: str) -> None:
+    actual = file_mode(path)
+    if actual != expected:
+        fail(f"{label}: mode {actual:04o} differs from expected {expected:04o}")
+
+
 def file_inventory(root: Path) -> dict[str, Path]:
     if root.is_symlink() or not root.is_dir():
         fail(f"required source/export tree missing: {root}")
@@ -49,6 +59,8 @@ def file_inventory(root: Path) -> dict[str, Path]:
             fail(f"symlink forbidden in Harbor export: {path}")
         if path.is_file():
             result[path.relative_to(root).as_posix()] = path
+        elif not path.is_dir():
+            fail(f"special file forbidden in Harbor export: {path}")
     return result
 
 
@@ -61,6 +73,8 @@ def assert_tree_equal(exported: Path, source: Path, label: str) -> dict[str, Pat
         source_path = source_files[relative]
         if exported_path.stat().st_size != source_path.stat().st_size:
             fail(f"{label}: byte count differs for {relative}")
+        if file_mode(exported_path) != file_mode(source_path):
+            fail(f"{label}: file mode differs for {relative}")
         if not os.path.samefile(exported_path, source_path):
             if sha256_file(exported_path) != sha256_file(source_path):
                 fail(f"{label}: SHA-256 differs for {relative}")
@@ -103,22 +117,36 @@ def discover_task_directories(tasks_root: Path) -> list[Path]:
     return directories
 
 
-def assert_generated_text(path: Path, expected: str, label: str) -> None:
+def assert_generated_text(
+    path: Path, expected: str, label: str, *, executable: bool = False
+) -> None:
     try:
         actual = path.read_text("utf-8")
     except OSError as error:
         fail(f"{label}: cannot read {path}: {error}")
     if actual != expected:
         fail(f"{label}: generated text differs for {path.name}")
+    assert_mode(path, 0o755 if executable else 0o644, label)
 
 
-def assert_source_file(exported: Path, source: Path, label: str) -> None:
+def assert_source_file(
+    exported: Path,
+    source: Path,
+    label: str,
+    *,
+    expected_mode: int | None = None,
+) -> None:
     if source.is_symlink() or not source.is_file():
         fail(f"{label}: source file is missing or unsafe: {source}")
     if exported.stat().st_size != source.stat().st_size:
         fail(f"{label}: byte count differs for {exported.name}")
     if not os.path.samefile(exported, source) and sha256_file(exported) != sha256_file(source):
         fail(f"{label}: SHA-256 differs for {exported.name}")
+    assert_mode(
+        exported,
+        file_mode(source) if expected_mode is None else expected_mode,
+        label,
+    )
 
 
 def audit_world_image_context(
@@ -233,7 +261,7 @@ def skills_source(config: dict[str, Any]) -> Path:
 
 
 def assert_executable(path: Path) -> None:
-    if not path.is_file() or not (path.stat().st_mode & stat.S_IXUSR):
+    if not path.is_file() or file_mode(path) != 0o755:
         fail(f"required executable missing or not executable: {path}")
 
 
@@ -302,6 +330,7 @@ def audit_task(
         environment / "tool",
         ROOT / "harbor" / "agent-image" / "tool",
         f"{task_id}: agent tool",
+        expected_mode=0o755,
     )
     assert_generated_text(
         environment / "docker-compose.yaml",
@@ -348,6 +377,7 @@ def audit_task(
                     include_file_deliverables=include_file_deliverables,
                 ),
                 f"{task_id}/{name}: verifier script",
+                executable=True,
             )
             assert_generated_text(
                 step / "solution" / "solve.sh",
@@ -358,6 +388,7 @@ def audit_task(
                     include_file_deliverables=include_file_deliverables,
                 ),
                 f"{task_id}/{name}: oracle solution",
+                executable=True,
             )
             expected_files.update({
                 f"steps/{name}/instruction.md",
@@ -378,11 +409,13 @@ def audit_task(
             directory / "tests" / "test.sh",
             GENERATOR.test_sh(task),
             f"{task_id}: verifier script",
+            executable=True,
         )
         assert_generated_text(
             directory / "solution" / "solve.sh",
             GENERATOR.solve_sh(solve_token, task),
             f"{task_id}: oracle solution",
+            executable=True,
         )
         expected_files.update({"instruction.md", "tests/test.sh", "solution/solve.sh"})
 
@@ -459,6 +492,8 @@ def main() -> int:
     world = world.get("world", world)
     world_image_context_files = audit_world_image_context(export_root, world_path, world)
     world_tasks = {task["task_id"]: task for task in world["tasks"]}
+    if len(world_tasks) != len(world["tasks"]):
+        fail("canonical world contains duplicate task IDs")
     task_directories = discover_task_directories(tasks_root)
     if len(task_directories) != args.expected_tasks:
         fail(f"task directory count {len(task_directories)} != {args.expected_tasks}")
@@ -494,7 +529,8 @@ def main() -> int:
         )
         task_package_files += len(package_files)
         for relative in package_files:
-            entry = f"{directory.name}/{relative}\n".encode()
+            mode = file_mode(directory / relative)
+            entry = f"{directory.name}/{relative}\0{mode:04o}\n".encode()
             topology_digest.update(entry)
         document_count += documents
         skill_count += skills
@@ -506,6 +542,18 @@ def main() -> int:
     if sha256_file(image_world) != sha256_file(world_path):
         fail("world-image/world.json is not the canonical world byte-for-byte")
     source_contracts = resolve_source("mcp/v5/contracts")
+    assert_generated_text(
+        export_root / "README.md",
+        GENERATOR.root_readme(
+            len(task_directories),
+            world_path,
+            source_contracts,
+            args.world_image,
+            world,
+            GENERATOR.contract_tool_count(str(source_contracts)),
+        ),
+        "Harbor export README",
+    )
     assert_tree_equal(
         export_root / "world-image" / "contracts",
         source_contracts,
