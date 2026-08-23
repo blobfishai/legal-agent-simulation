@@ -32,10 +32,82 @@
     "legacy_office_checked": 0,
     "lfs_pointers": 0,
     "ooxml_crc_checked": 54293,
+    "ooxml_xml_parts_failed": 9,
+    "ooxml_xml_parts_parsed": 1107704,
     "pdfs_checked": 0,
     "zero_byte_inputs": 0
   },
-  "generated_at": "2026-08-22T20:30:24.059418+00:00",
+  "known_source_defects": {
+    "allowlist": "research/harvey-augmentation/upstream-ooxml-defects.json",
+    "allowlist_sha256": "81afb46a76a9f7841bae77718834454a7598f9e41b9d8a5ea9608f547d2e9527",
+    "count": 9,
+    "items": [
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 2,
+        "part": "word/document.xml",
+        "path": "tasks/antitrust-competition/extract-competitive-overlap-data-from-joint-venture-business-plan/documents/jv-business-plan-final.docx",
+        "sha256": "fa325c8e50c03f8129d32b7bb05d97597e5a07e883089d45fd144b3de5db27cc"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "xl/worksheets/sheet4.xml",
+        "path": "tasks/corporate-ma/compare-merger-filing-requirements-across-multiple-jurisdictions/documents/market-share-analysis.xlsx",
+        "sha256": "afe306487e19de55f732fbf92b42ea2b930a74fa884452c6a31ec9b9a55cc388"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/corporate-ma/draft-asset-purchase-agreement/scenario-01/documents/assumed-and-excluded-liabilities-schedule.docx",
+        "sha256": "5417b7ea7afe56d1250ed922735cdc91395707f15a7d4c78eae0e89824a0d3ad"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/corporate-ma/draft-asset-purchase-agreement/scenario-01/documents/employee-census.docx",
+        "sha256": "aae0e6d1da74a926b3595528db84af82719f733caffe318fe5f47e0d4df2613c"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "xl/worksheets/sheet1.xml",
+        "path": "tasks/emerging-companies-venture-capital/draft-merger-agreement/documents/veridia-cap-table.xlsx",
+        "sha256": "4be300666ebcf58543764b073daee0c21b97bac387056c0694cb21339454c6b1"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/funds-asset-management/draft-code-of-ethics-for-registered-investment-adviser/documents/info-barrier-notes.docx",
+        "sha256": "0b4b435506163ef77dd00e4d0851fe2180be3c9cf3c81ec9004b76665918be78"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 2,
+        "part": "xl/worksheets/sheet1.xml",
+        "path": "tasks/funds-asset-management/draft-compliance-manual/documents/proxy-voting-records-2024.xlsx",
+        "sha256": "24a288b12dc38c6532e408d06591f697d18436ca2d949a8109430b53e8b2944a"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 2,
+        "part": "word/document.xml",
+        "path": "tasks/funds-asset-management/draft-fund-ppm/documents/team-bios-and-track-record-data.docx",
+        "sha256": "5277001258ad2ea3184f593898a80e82995c09faa603b3d358d6fa51809232e5"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/international-trade-sanctions/identify-issues-in-cfius-mandatory-declaration/documents/draft-cfius-declaration.docx",
+        "sha256": "9e9d738ba060b37d5a5d360580089ef55df2b2559b45f33607fdcef21a2b8a18"
+      }
+    ],
+    "matched": true
+  },
   "largest_document_sets": [
     {
       "consumer_tasks": 250,
@@ -243,11 +315,23 @@
   "physical_input_bytes": 3206739638,
   "physical_input_tree_sha256": "3ee4648b4e6465fc6635fc92634606f22b9a6d7f8e2e586899e3be68182f5cae",
   "physical_inputs": 60971,
-  "schema_version": 1,
+  "schema_version": 3,
   "shared_document_sets": 1,
   "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+  "source_commit_time": "2026-08-11T18:03:26-07:00",
+  "source_expected_commit": "7be41d57fd5a",
   "source_git_clean": true,
+  "source_remote": "https://github.com/harveyai/harvey-labs.git",
   "source_repo": "harveyai/harvey-labs",
+  "task_tree_coverage": {
+    "all_tracked_task_files_classified": true,
+    "other_tracked_files": [
+      "tasks/funds-asset-management/respond-to-comment-memo/grader/gold/rubric.json"
+    ],
+    "referenced_inputs": 60971,
+    "tracked_files": 62982,
+    "tracked_task_configs": 2010
+  },
   "tasks": 2010,
   "tracked_files": 63074,
   "unique_input_blobs": 60541

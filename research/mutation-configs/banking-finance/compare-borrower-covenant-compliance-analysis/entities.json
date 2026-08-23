@@ -1,0 +1,81 @@
+[
+  {
+    "type": "company",
+    "name": "Ironclad Nutrition Holdings",
+    "role": "holdings",
+    "tail_options": [
+      "Nutrition Holdings",
+      "Foods Holdings"
+    ],
+    "fragments": [
+      "Ironclad"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Sterling National Trust Company",
+    "role": "company",
+    "tail_options": [
+      "National Trust Company"
+    ],
+    "fragments": [
+      "Sterling"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Ridgeline Capital Partners",
+    "role": "partners",
+    "fragments": [
+      "Ridgeline"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Greystone Credit",
+    "role": "company",
+    "tail_options": [
+      "Credit"
+    ],
+    "fragments": [
+      "Greystone"
+    ],
+    "domain": "greystonecredit.com"
+  },
+  {
+    "type": "company",
+    "name": "Whitfield & Crane",
+    "role": "lawfirm",
+    "fragments": [
+      "Whitfield",
+      "Crane"
+    ],
+    "domain": "whitfieldcrane.com"
+  },
+  {
+    "type": "person",
+    "name": "Lisa Cheng",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "Marcus Pratt"
+  },
+  {
+    "type": "person",
+    "name": "Sarah Levinson",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "Michael Torres"
+  },
+  {
+    "type": "person",
+    "name": "Robert Kwan"
+  },
+  {
+    "type": "person",
+    "name": "Patricia Goodwin"
+  }
+]

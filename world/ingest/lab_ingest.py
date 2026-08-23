@@ -34,10 +34,12 @@ import concurrent.futures
 import hashlib
 import json
 import os
+import re
 import shutil
 import sqlite3
 import subprocess
 import sys
+import tempfile
 import zipfile
 from collections import Counter
 from email import policy
@@ -58,9 +60,12 @@ REPO_COMMITS = ROOT / "research" / "repos-commits.json"
 SOURCE_REPO = "harveyai/harvey-labs"
 SOURCE_LOCK_KEY = "harveyai@harvey-labs"
 SCHEMA_VERSION = 1
-EXTRACTOR_VERSION = "lab-compatible-v4-ooxml-openpyxl-markitdown-pptx"
+EXTRACTOR_VERSION = "lab-compatible-v5-recorded-ooxml-ampersand-recovery"
 
 SUPPORTED_EXTENSIONS = {".docx", ".pdf", ".pptx", ".xlsx", ".eml", ".txt", ".md", ".json"}
+RAW_XML_AMPERSAND_RE = re.compile(
+    br"&(?!amp;|lt;|gt;|quot;|apos;|#[0-9]+;|#x[0-9A-Fa-f]+;)"
+)
 
 
 def canonical_json(value: Any) -> str:
@@ -342,7 +347,7 @@ def parse_eml(path: Path) -> str:
     return "\n".join(header for header in headers if header.split(": ", 1)[1]) + "\n\n" + text
 
 
-def parse_docx_ooxml(path: Path) -> str:
+def parse_docx_ooxml_with_recovery(path: Path) -> tuple[str, dict[str, Any] | None]:
     """Extract all Word text nodes in document order, including headers/notes.
 
     The exact OOXML bytes remain in the blob store. This derivative is for
@@ -351,6 +356,7 @@ def parse_docx_ooxml(path: Path) -> str:
     """
     from defusedxml import ElementTree
     parts: list[str] = []
+    recovered_parts: list[dict[str, Any]] = []
     with zipfile.ZipFile(path) as archive:
         members = [name for name in archive.namelist() if (
             name == "word/document.xml" or
@@ -360,7 +366,15 @@ def parse_docx_ooxml(path: Path) -> str:
         ) and name.endswith(".xml")]
         members.sort(key=lambda name: (name != "word/document.xml", name))
         for member in members:
-            root = ElementTree.fromstring(archive.read(member))
+            payload = archive.read(member)
+            try:
+                root = ElementTree.fromstring(payload)
+            except Exception:
+                repaired, occurrences = RAW_XML_AMPERSAND_RE.subn(b"&amp;", payload)
+                if not occurrences:
+                    raise
+                root = ElementTree.fromstring(repaired)
+                recovered_parts.append({"part": member, "occurrences": occurrences})
             for paragraph in root.iter("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}p"):
                 text = "".join(
                     node.text or "" for node in
@@ -368,7 +382,76 @@ def parse_docx_ooxml(path: Path) -> str:
                 ).strip()
                 if text:
                     parts.append(text)
+    recovery = ({
+        "kind": "escaped_unescaped_xml_ampersands",
+        "parts": recovered_parts,
+        "occurrences": sum(row["occurrences"] for row in recovered_parts),
+    } if recovered_parts else None)
+    return "\n".join(parts), recovery
+
+
+def parse_docx_ooxml(path: Path) -> str:
+    return parse_docx_ooxml_with_recovery(path)[0]
+
+
+def parse_xlsx_openpyxl(path: Path) -> str:
+    import openpyxl
+    workbook = openpyxl.load_workbook(str(path), data_only=True, read_only=True)
+    try:
+        parts: list[str] = []
+        for sheet in workbook.worksheets:
+            parts.append(f"=== Sheet: {sheet.title} ===")
+            for row in sheet.iter_rows(values_only=True):
+                cells = ["" if value is None else str(value) for value in row]
+                if any(cell.strip() for cell in cells):
+                    parts.append("\t".join(cells).rstrip("\t"))
+    finally:
+        workbook.close()
     return "\n".join(parts)
+
+
+def sanitized_ooxml_copy(source: Path, destination: Path) -> list[dict[str, Any]]:
+    recovered_parts: list[dict[str, Any]] = []
+    with zipfile.ZipFile(source) as input_archive, zipfile.ZipFile(destination, "w") as output_archive:
+        output_archive.comment = input_archive.comment
+        for info in input_archive.infolist():
+            payload = input_archive.read(info.filename)
+            if info.filename.lower().endswith((".xml", ".rels")):
+                payload, occurrences = RAW_XML_AMPERSAND_RE.subn(b"&amp;", payload)
+                if occurrences:
+                    recovered_parts.append({
+                        "part": info.filename,
+                        "occurrences": occurrences,
+                    })
+            output_archive.writestr(info, payload)
+    return recovered_parts
+
+
+def parse_xlsx_with_recovery(path: Path) -> tuple[str, dict[str, Any] | None]:
+    try:
+        return parse_xlsx_openpyxl(path), None
+    except Exception:
+        with tempfile.TemporaryDirectory(prefix="lab-xlsx-recovery-") as temporary:
+            repaired = Path(temporary) / path.name
+            recovered_parts = sanitized_ooxml_copy(path, repaired)
+            if not recovered_parts:
+                raise
+            text = parse_xlsx_openpyxl(repaired)
+    return text, {
+        "kind": "escaped_unescaped_xml_ampersands",
+        "parts": recovered_parts,
+        "occurrences": sum(row["occurrences"] for row in recovered_parts),
+    }
+
+
+def parse_document_with_recovery(
+    path: Path, extension: str
+) -> tuple[str, dict[str, Any] | None]:
+    if extension == ".docx":
+        return parse_docx_ooxml_with_recovery(path)
+    if extension == ".xlsx":
+        return parse_xlsx_with_recovery(path)
+    return parse_document(path, extension), None
 
 
 def parse_document(path: Path, extension: str) -> str:
@@ -396,17 +479,7 @@ def parse_document(path: Path, extension: str) -> str:
         from markitdown import MarkItDown
         return MarkItDown().convert(str(path)).text_content
     if extension == ".xlsx":
-        import openpyxl
-        workbook = openpyxl.load_workbook(str(path), data_only=True, read_only=True)
-        parts: list[str] = []
-        for sheet in workbook.worksheets:
-            parts.append(f"=== Sheet: {sheet.title} ===")
-            for row in sheet.iter_rows(values_only=True):
-                cells = ["" if value is None else str(value) for value in row]
-                if any(cell.strip() for cell in cells):
-                    parts.append("\t".join(cells).rstrip("\t"))
-        workbook.close()
-        return "\n".join(parts)
+        return parse_xlsx_with_recovery(path)[0]
     raise RuntimeError(f"unsupported extension {extension or '(none)'}")
 
 
@@ -417,8 +490,14 @@ def parse_one(argument: tuple[str, str, str, str]) -> dict[str, Any]:
     path = source / source_path
     digest = sha256_file(path)
     text_path = dest / "text-v4" / digest[:2] / f"{digest}.txt"
+    recovery_path = text_path.with_suffix(".recovery.json")
     if text_path.is_file():
         text = text_path.read_text(encoding="utf-8", errors="replace")
+        recovery = (
+            json.loads(recovery_path.read_text(encoding="utf-8"))
+            if recovery_path.is_file()
+            else None
+        )
         return {
             "sha256": digest,
             "status": "parsed",
@@ -426,13 +505,19 @@ def parse_one(argument: tuple[str, str, str, str]) -> dict[str, Any]:
             "text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
             "text_path": text_path.relative_to(dest).as_posix(),
             "parse_error": None,
+            "recovery": recovery,
         }
     try:
-        text = parse_document(path, extension)
+        text, recovery = parse_document_with_recovery(path, extension)
         text_path.parent.mkdir(parents=True, exist_ok=True)
         temporary = text_path.with_suffix(".tmp")
         temporary.write_text(text, encoding="utf-8", errors="replace")
         temporary.replace(text_path)
+        if recovery:
+            recovery_path.write_text(
+                json.dumps(recovery, ensure_ascii=False, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
         return {
             "sha256": digest,
             "status": "parsed",
@@ -440,6 +525,7 @@ def parse_one(argument: tuple[str, str, str, str]) -> dict[str, Any]:
             "text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
             "text_path": text_path.relative_to(dest).as_posix(),
             "parse_error": None,
+            "recovery": recovery,
         }
     except Exception as exc:
         return {
@@ -449,6 +535,7 @@ def parse_one(argument: tuple[str, str, str, str]) -> dict[str, Any]:
             "text_sha256": None,
             "text_path": None,
             "parse_error": f"{type(exc).__name__}: {exc}"[:500],
+            "recovery": None,
         }
 
 
@@ -634,8 +721,21 @@ def build_index(dest: Path, snapshot: dict, tasks: list[dict], files: list[dict]
             "chars": result["chars"],
             "text_sha256": result["text_sha256"],
             "parse_error": result["parse_error"],
+            "recovery": result.get("recovery"),
         }).encode())
         text_tree.update(b"\n")
+    unique_recoveries = [
+        {
+            "sha256": digest,
+            "source_path": representative[digest]["source_path"],
+            **result["recovery"],
+        }
+        for digest, result in sorted(results.items())
+        if result.get("recovery")
+    ]
+    recovered_documents = sum(
+        bool(results[row["sha256"]].get("recovery")) for row in files
+    )
     report = {
         **snapshot,
         "parser_image": parser_image,
@@ -649,6 +749,8 @@ def build_index(dest: Path, snapshot: dict, tasks: list[dict], files: list[dict]
         "canary_policy": "no source-byte rewriting; embedded benchmark canaries preserved",
         "parse_failures": failures,
         "unique_parse_failures": unique_failures,
+        "recovered_documents": recovered_documents,
+        "unique_recoveries": unique_recoveries,
         "index": "index.sqlite",
         "fts_enabled": with_fts,
     }

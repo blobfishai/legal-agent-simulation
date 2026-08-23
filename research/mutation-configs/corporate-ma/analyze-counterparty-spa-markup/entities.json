@@ -1,0 +1,154 @@
+[
+  {
+    "type": "company",
+    "name": "DataForge Analytics",
+    "role": "company",
+    "tail_options": [
+      "Analytics"
+    ],
+    "fragments": [
+      "DataForge"
+    ],
+    "domain": "dataforgeanalytics.com"
+  },
+  {
+    "type": "company",
+    "name": "Pinnacle Software Holdings",
+    "role": "holdings",
+    "tail_options": [
+      "Software Holdings"
+    ],
+    "fragments": [
+      "Pinnacle"
+    ],
+    "domain": "pinnaclesoftware.com"
+  },
+  {
+    "type": "company",
+    "name": "Calverley Crest Capital Partners",
+    "role": "partners",
+    "fragments": [
+      "Calverley"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Meridian Partners",
+    "role": "partners",
+    "tail_options": [
+      "Partners"
+    ],
+    "fragments": [
+      "Meridian"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Clearview Accounting Group",
+    "role": "accounting",
+    "fragments": [
+      "Clearview"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Orion Data Consortium",
+    "role": "company",
+    "tail_options": [
+      "Data Consortium"
+    ],
+    "fragments": [
+      "Orion"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Great Lakes Hartleigh Bank",
+    "role": "company",
+    "tail_options": [
+      "Bank"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Greystone Financial Corp",
+    "role": "company",
+    "tail_options": [
+      "Financial Corp"
+    ],
+    "fragments": [
+      "Greystone"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Summit Logistics Group",
+    "role": "company",
+    "tail_options": [
+      "Logistics Group"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Whitfield & Crane",
+    "role": "lawfirm",
+    "fragments": [
+      "Whitfield",
+      "Crane"
+    ],
+    "domain": "whitfieldcrane.com"
+  },
+  {
+    "type": "company",
+    "name": "Kessler Hahn & Devereaux",
+    "role": "lawfirm",
+    "fragments": [
+      "Devereaux"
+    ],
+    "domain": "kesslerhahn.com"
+  },
+  {
+    "type": "person",
+    "name": "Rajesh Anand"
+  },
+  {
+    "type": "person",
+    "name": "Priya Deshmukh"
+  },
+  {
+    "type": "person",
+    "name": "Sandra Ngo"
+  },
+  {
+    "type": "person",
+    "name": "Marcus Ellison"
+  },
+  {
+    "type": "person",
+    "name": "Jonathan Hartwell"
+  },
+  {
+    "type": "person",
+    "name": "Emily Zhou"
+  },
+  {
+    "type": "person",
+    "name": "Thomas Kessler"
+  },
+  {
+    "type": "person",
+    "name": "Natalie Voss"
+  },
+  {
+    "type": "person",
+    "name": "Robert Feinberg"
+  },
+  {
+    "type": "person",
+    "name": "Patricia Meyers"
+  },
+  {
+    "type": "person",
+    "name": "Michael Huang"
+  }
+]

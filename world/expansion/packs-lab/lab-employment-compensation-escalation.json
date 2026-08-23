@@ -3,7 +3,7 @@
  "anchor": "harvey_lab",
  "provenance": {
   "repo": "harveyai/harvey-labs",
-  "commit": "60071cc4",
+  "commit": "7be41d57fd5a",
   "task": "tasks/contracts/employment-compensation/employment-agreement-playbook-escalation/scenario-01",
   "license": "MIT",
   "documents_verbatim": true,

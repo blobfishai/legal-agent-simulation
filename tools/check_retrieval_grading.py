@@ -11,7 +11,13 @@ sys.path.insert(0, str(ROOT))
 from world.v17.verifiers import retrieval_vcode
 
 
-def run(code: str, body: str, read_id: int = 9, include_read: bool = True):
+def run(
+    code: str,
+    body: str,
+    read_id: int = 9,
+    include_read: bool = True,
+    deliverable_name: str = "response.md",
+):
     namespace: dict = {}
     exec(code, namespace)
     trace = [
@@ -20,10 +26,10 @@ def run(code: str, body: str, read_id: int = 9, include_read: bool = True):
          "ok": True},
         *([{"tool": "documents_download", "arguments": {"id": read_id}, "ok": True}]
           if include_read else []),
-        {"tool": "documents_create", "arguments": {"name": "firm-knowledge-response.md"}, "ok": True},
+        {"tool": "documents_create", "arguments": {"name": deliverable_name}, "ok": True},
     ]
     initial = {"dm_documents": []}
-    final = {"dm_documents": [{"id": 1, "name": "firm-knowledge-response.md", "body": body}]}
+    final = {"dm_documents": [{"id": 1, "name": deliverable_name, "body": body}]}
     return namespace["verify"](initial, final, trace)
 
 
@@ -49,11 +55,11 @@ def main() -> int:
     namespace: dict = {}
     exec(paging, namespace)
     initial = {"dm_documents": []}
-    final = {"dm_documents": [{"id": 1, "name": "firm-knowledge-response.md", "body": "complete"}]}
+    final = {"dm_documents": [{"id": 1, "name": "response.md", "body": "complete"}]}
     first_page = [
         {"tool": "documents_search_fulltext", "arguments": {"query": "*", "offset": 0},
          "observation": '{"data":{"has_more":true,"next_offset":100,"results":[]}}', "ok": True},
-        {"tool": "documents_create", "arguments": {"name": "firm-knowledge-response.md"}, "ok": True},
+        {"tool": "documents_create", "arguments": {"name": "response.md"}, "ok": True},
     ]
     stopped = namespace["verify"](initial, final, first_page)
     assert stopped["reward"] == 0.0 and not stopped["paging_complete"]

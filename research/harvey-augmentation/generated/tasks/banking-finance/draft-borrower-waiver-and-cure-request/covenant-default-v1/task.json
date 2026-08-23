@@ -8,6 +8,8 @@
     "originals_immutable": true,
     "recipe_sha256": "7f78cafe1d46c0ad1cb37aa204c7b9ef7c677a94d69adb1268fe501a9d775e58",
     "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "source_expected_commit": "7be41d57fd5a",
+    "source_license": "MIT",
     "source_repo": "harveyai/harvey-labs",
     "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
     "variant_id": "borrower-waiver-and-cure-request-v1"

@@ -1,0 +1,109 @@
+[
+  {
+    "type": "company",
+    "name": "Cascade Environmental Solutions",
+    "role": "company",
+    "tail_options": [
+      "Environmental Solutions"
+    ],
+    "fragments": [
+      "Cascade"
+    ],
+    "domain": "cascadeenvironmental.com"
+  },
+  {
+    "type": "company",
+    "name": "Ridgeline National Bank",
+    "role": "company",
+    "tail_options": [
+      "National Bank"
+    ],
+    "fragments": [
+      "Ridgeline"
+    ],
+    "domain": "ridgelinenational.com"
+  },
+  {
+    "type": "company",
+    "name": "Prairieview Financial Corp",
+    "role": "company",
+    "tail_options": [
+      "Financial Corp"
+    ],
+    "fragments": [
+      "Prairieview"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Summit Bridge Capital",
+    "role": "company",
+    "tail_options": [
+      "Capital"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Northway Lending Partners",
+    "role": "partners",
+    "tail_options": [
+      "Lending Partners"
+    ],
+    "fragments": [
+      "Northway"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Whitmore Capital",
+    "role": "company",
+    "tail_options": [
+      "Capital"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Caldwell Strauss & Moran",
+    "role": "lawfirm",
+    "fragments": [
+      "Caldwell",
+      "Moran"
+    ],
+    "domain": "caldwellstrauss.com"
+  },
+  {
+    "type": "company",
+    "name": "Pennington & Locke",
+    "role": "lawfirm",
+    "fragments": [
+      "Pennington",
+      "Locke"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Hargrove",
+    "role": "lawfirm",
+    "domain": "hargrovepl.com"
+  },
+  {
+    "type": "person",
+    "name": "Philip Granville"
+  },
+  {
+    "type": "person",
+    "name": "Rebecca Thayer"
+  },
+  {
+    "type": "person",
+    "name": "Daniel Ochoa"
+  },
+  {
+    "type": "person",
+    "name": "Katherine Fulton"
+  },
+  {
+    "type": "person",
+    "name": "James Delvecchio"
+  }
+]

@@ -443,7 +443,7 @@ migrating a world.
 **Symptom:** `WHY-BEYOND-HARVEY-LAB.md` still described a 156-task, Gen-1 world and
 could be read as claiming parity with LAB's complete rubric judgment. That was no
 longer the implemented architecture: world-v19 hosts 2,009 of 2,010 LAB tasks,
-determinizes 65,596 of 111,814 practice criteria, and deliberately does not run a
+determinizes 65,614 of 111,814 practice criteria, and deliberately does not run a
 prose-quality judge.
 
 **Diagnosis:** the narrative was handwritten before the v16–v19 migration and had no
@@ -453,7 +453,7 @@ gate forced the claim language to change with it.
 
 **Fix:** `tools/build_superset_matrix.py` now derives both the machine-readable matrix
 and the public write-up from committed proof artifacts. The checker fails if the
-dropped 46,218 criteria, absent judge lane, parse failures, contamination boundary,
+dropped 46,200 criteria, absent judge lane, exact-hash recovery accounting, contamination boundary,
 iManage ceiling, or incomplete calibration disappears. The claim is narrowed to a
 strict operational superset of the deterministically admitted LAB subset—not a
 superset of LAB's prose-quality judgment.

@@ -8,6 +8,8 @@
     "originals_immutable": true,
     "recipe_sha256": "b30e31576d9f9afd6987c7e7d57b643a17e86a00b2e3320d4941a86486d9f1df",
     "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "source_expected_commit": "7be41d57fd5a",
+    "source_license": "MIT",
     "source_repo": "harveyai/harvey-labs",
     "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
     "variant_id": "lender-reservation-of-rights-v1"

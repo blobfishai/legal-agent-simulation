@@ -31,6 +31,16 @@ MIN_MEAN_RECALL = 0.97
 MIN_DOCUMENT_RECALL = 0.90
 
 
+def pinned_commit() -> str:
+    if COMMITS.is_file():
+        value = json.loads(COMMITS.read_text()).get("harveyai@harvey-labs")
+    else:
+        value = os.environ.get("LAB_SOURCE_COMMIT")
+    if not isinstance(value, str) or len(value) < 12:
+        raise RuntimeError("Harvey LAB source commit is not pinned")
+    return value
+
+
 def import_file(name: str, path: Path):
     spec = importlib.util.spec_from_file_location(name, path)
     if not spec or not spec.loader:
@@ -155,7 +165,7 @@ def main() -> int:
     parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--source", type=Path, default=SOURCE)
     parser.add_argument("--ingest", type=Path, default=INGEST)
-    parser.add_argument("--image", default="legal-agent-lab-parser:60071cc424d6")
+    parser.add_argument("--image", default=f"legal-agent-lab-parser:{pinned_commit()}")
     args = parser.parse_args()
     if args.worker:
         print(json.dumps(worker(args.source, args.ingest), sort_keys=True))
@@ -171,12 +181,14 @@ def main() -> int:
             raise RuntimeError("extractor version changed without regenerating parity report")
         if report.get("extractor_sha256") != hashlib.sha256(INGEST.read_bytes()).hexdigest():
             raise RuntimeError("extractor implementation changed without regenerating parity report")
+        if report.get("source_commit") != pinned_commit():
+            raise RuntimeError("parity report source commit differs from the checked-in Harvey pin")
         validate(report)
         print("LAB extractor parity: committed report passes")
         return 0
     if not SOURCE.is_dir():
         raise RuntimeError(f"LAB source missing: {SOURCE}")
-    commit = json.loads(COMMITS.read_text())["harveyai@harvey-labs"]
+    commit = pinned_commit()
     image_id = subprocess.run(
         ["docker", "image", "inspect", "--format", "{{.Id}}", args.image],
         check=True, capture_output=True, text=True,

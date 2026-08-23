@@ -20,9 +20,10 @@ never contains world.json, so verifier code and reference walks are not
 readable by the agent.
 
 Usage:
-  python3 harbor/generate.py [--world world/blobfish/world-v16.json]
+  python3 harbor/generate.py [--world world/blobfish/world-v20.json]
+                             [--contracts mcp/v4/contracts]
                              [--out dist/harbor] [--tasks task_003,task_010]
-                             [--build-image] [--image-tag legal-agent-sim-world:v16]
+                             [--build-image] [--image-tag legal-agent-sim-world:v20]
 """
 from __future__ import annotations
 
@@ -54,14 +55,23 @@ def load_world(path: str) -> dict:
     return raw.get("world", raw)
 
 
-def contract_tool_count() -> int:
-    contracts = os.path.join(ROOT, "mcp", "v3", "contracts")
+def contracts_for_world(world_path: str) -> str:
+    """Select the matching frozen contract suite unless explicitly overridden."""
+    version = load_world(world_path).get("version") or 0
+    suite = "v4" if int(version) >= 20 else "v3"
+    return os.path.join(ROOT, "mcp", suite, "contracts")
+
+
+def contract_tool_count(contracts: str) -> int:
     total = 0
     for name in sorted(os.listdir(contracts)):
         if not name.endswith(".json"):
             continue
         with open(os.path.join(contracts, name)) as f:
-            total += len(json.load(f).get("tools") or [])
+            total += sum(
+                tool.get("agent_visible") is not False
+                for tool in (json.load(f).get("tools") or [])
+            )
     return total
 
 
@@ -588,7 +598,7 @@ def stage_file_lane(task: dict, task_dir: str) -> None:
         shutil.copytree(source_skill, skills_destination / name, copy_function=link_or_copy)
 
 
-def assemble_world_image(out: str, world_path: str) -> str:
+def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = None) -> str:
     """Copy runtime + world doc + shim into the shared image build context."""
     img = os.path.join(out, "world-image")
     os.makedirs(img, exist_ok=True)
@@ -600,7 +610,7 @@ def assemble_world_image(out: str, world_path: str) -> str:
         shutil.copyfile(os.path.join(HERE, "world-image", name),
                         os.path.join(img, name))
     shutil.copyfile(world_path, os.path.join(img, "world.json"))
-    contracts = os.path.join(ROOT, "mcp", "v3", "contracts")
+    contracts = os.path.abspath(contracts_dir or contracts_for_world(world_path))
     dst = os.path.join(img, "contracts")
     if os.path.isdir(dst):
         shutil.rmtree(dst)
@@ -629,11 +639,14 @@ def assemble_world_image(out: str, world_path: str) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--world", default=os.path.join(ROOT, "world", "blobfish",
-                                                    "world-v16.json"))
+                                                    "world-v20.json"))
+    ap.add_argument("--contracts", default="",
+                    help="product-contract directory; defaults to mcp/v4 for world v20+ "
+                         "and mcp/v3 for historical worlds")
     ap.add_argument("--out", default=os.path.join(ROOT, "dist", "harbor"))
     ap.add_argument("--tasks", default="", help="comma-separated task_id filter")
     ap.add_argument("--image-tag",
-                    default="ghcr.io/blobfishai/legal-agent-sim-world:v16",
+                    default="ghcr.io/blobfishai/legal-agent-sim-world:v20",
                     help="world image reference baked into every task's compose "
                          "file; --build-image tags the local build with it")
     ap.add_argument("--build-image", action="store_true")
@@ -644,7 +657,8 @@ def main() -> None:
     args = ap.parse_args()
 
     world = load_world(args.world)
-    runtime_tool_count = contract_tool_count()
+    contracts_dir = os.path.abspath(args.contracts or contracts_for_world(args.world))
+    runtime_tool_count = contract_tool_count(contracts_dir)
     wanted = {t for t in args.tasks.split(",") if t}
     tasks = [t for t in world["tasks"] if not wanted or t["task_id"] in wanted]
     if wanted and len(tasks) != len(wanted):
@@ -659,7 +673,7 @@ def main() -> None:
         token = open(token_path).read().strip()
     else:
         token = secrets.token_hex(16)
-    img_dir = assemble_world_image(out, args.world)
+    img_dir = assemble_world_image(out, args.world, contracts_dir)
     write(token_path, token + "\n")
 
     if args.build_lab_agent_image:
@@ -711,6 +725,8 @@ def main() -> None:
 {len(tasks)} Harbor-format tasks generated from `{os.path.relpath(args.world, ROOT)}`
 (one per world task; regenerate with `python3 harbor/generate.py`).
 
+Contract suite: `{os.path.relpath(contracts_dir, ROOT)}`.
+
 {DISCLAIMER}
 
 ## One-time setup
@@ -745,7 +761,8 @@ Multi-container tasks require Harbor's **docker** environment provider
 - `tests/test.sh` fetches the VCode verdict and writes `reward.json`
   (`reward` = graded fraction with anti-hack vetoes, `passed` = strict bool).
 - `solution/solve.sh` triggers the oracle reference walk server-side — the
-  same walk `world/local/oracle.py` proves 291/291 against this world.
+  same walk `world/local/oracle.py` proves against all {len(world['tasks'])}
+  tasks in this generated world.
 """)
 
     print(f"generated {len(tasks)} Harbor tasks -> {tasks_root}")

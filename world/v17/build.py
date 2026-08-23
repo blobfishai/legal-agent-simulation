@@ -8,7 +8,7 @@ import hashlib
 import json
 import sqlite3
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +23,9 @@ DEFAULT_LAB = ROOT / "world" / "port" / "determinate" / "lab-assertions.jsonl"
 DEFAULT_OUT = ROOT / "world" / "blobfish" / "world-v17.json"
 DEFAULT_REPORT = ROOT / "world" / "v17" / "build-report.json"
 CH_INDEX = ROOT / "world" / "corpus" / "ch" / "index.sqlite"
+HARVEY_COMMIT = json.loads(
+    (ROOT / "research" / "repos-commits.json").read_text(encoding="utf-8")
+)["harveyai@harvey-labs"]
 ZERO_SEARCHES = {
     "fk_012": '"springing lien"',
     "fk_061": '"deal-by-deal waterfall"',
@@ -104,6 +107,23 @@ def _empty_key_contract(source: dict[str, Any]) -> tuple[list[list[str]], str]:
 
 def _retrieval_task(source: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     task_id = f"lab_{source['id']}"
+    source_deliverables = source.get("deliverables") or []
+    if len(source_deliverables) != 1:
+        raise RuntimeError(
+            f"{source['id']} must declare exactly one firm-knowledge deliverable"
+        )
+    deliverable_name = source_deliverables[0]
+    if not isinstance(deliverable_name, str):
+        raise RuntimeError(f"{source['id']} has a non-string deliverable")
+    deliverable_path = PurePosixPath(deliverable_name)
+    if (
+        deliverable_path.is_absolute()
+        or len(deliverable_path.parts) != 1
+        or "\\" in deliverable_name
+        or any(ord(character) < 32 for character in deliverable_name)
+        or any(part in {"", ".", ".."} for part in deliverable_path.parts)
+    ):
+        raise RuntimeError(f"{source['id']} has unsafe deliverable {deliverable_name!r}")
     source_gold = sorted(set(source.get("expected") or []))
     gold = [matter_id for matter_id in source_gold if _ch_matter_exists(matter_id)]
     excluded_aliases = sorted(set(source_gold) - set(gold))
@@ -132,7 +152,7 @@ def _retrieval_task(source: dict[str, Any]) -> tuple[dict[str, Any], dict[str, A
     prompt = (
         source["prompt"].rstrip() +
         "\n\nUse MatterVault DMS full-text search, page until no results remain, and open the "
-        "supporting records in full. File `firm-knowledge-response.md` to the DMS with an "
+        f"supporting records in full. File `{deliverable_name}` to the DMS with an "
         "all-and-only list of qualifying matter IDs. Do not leave the answer only in chat."
     )
     walk = ["documents_search_fulltext" for _ in search_plan]
@@ -141,7 +161,7 @@ def _retrieval_task(source: dict[str, Any]) -> tuple[dict[str, Any], dict[str, A
     reference_args.extend({"id": document_id} for document_id in read_ids)
     walk.append("documents_create")
     reference_args.append(
-        {"folder_id": 1, "workspace_id": 1, "name": "firm-knowledge-response.md",
+        {"folder_id": 1, "workspace_id": 1, "name": deliverable_name,
          "doc_class": "MEMO", "author": "oracle@simulated-firm.example", "body": body}
     )
     task = {
@@ -158,7 +178,7 @@ def _retrieval_task(source: dict[str, Any]) -> tuple[dict[str, Any], dict[str, A
         "relevant_data": [{"external_store": "ch", "gold_matter_ids": gold,
                            "required_document_ids": read_ids}],
         "expected_state_changes": [{"table": "dm_documents", "field": "name",
-                                    "value": "firm-knowledge-response.md"}],
+                                    "value": deliverable_name}],
         "tables_affected": ["dm_documents"],
         "walk": walk,
         "reference_args": reference_args,
@@ -184,7 +204,8 @@ def _retrieval_task(source: dict[str, Any]) -> tuple[dict[str, Any], dict[str, A
         "key_assertions": ["required_grounded_anchors", "gold_set_complete",
                            "no_over_inclusion"],
         "vcode": retrieval_vcode(task_id, gold, read_ids, anchor_groups,
-                                  paging_required=paging_required),
+                                  paging_required=paging_required,
+                                  deliverable_name=deliverable_name),
         "generated_by": "world/v17/build.py",
     }
     return task, verifier
@@ -264,7 +285,7 @@ def build(base_path: Path, fk_path: Path, lab_path: Path, out_path: Path,
     world["world_id"] = "legal-agent-simulation-world-v17"
     world["lineage"] = {
         "base": str(base_path.relative_to(ROOT)),
-        "harvey_lab_source": "harveyai/harvey-labs@60071cc424d6",
+        "harvey_lab_source": f"harveyai/harvey-labs@{HARVEY_COMMIT}",
         "compiler": "world/v17/build.py",
     }
     out_path.parent.mkdir(parents=True, exist_ok=True)

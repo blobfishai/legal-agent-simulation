@@ -1,0 +1,289 @@
+{
+  "answers": {
+    "all_harvey_documents_copied": "Yes: 60,971/60,971 physical input files are in the clean pinned mirror. Upstream contains zero PDF inputs.",
+    "all_harvey_tasks_hosted": "Yes in world v20: 2,010/2,010, with one disclosed response.md output-contract adapter and no upstream source edit.",
+    "can_create_more_tasks": "Yes: six executable retail workflows and three matched document scenarios demonstrate the pattern.",
+    "can_mutate_documents": "Yes, in a separate synthetic derivative tree with identical structure, hashes, manifests, and visual PDF review; never overwrite the exact source mirror.",
+    "can_research_online": "Yes, with primary-source and rights gates; four official/public reference PDFs are pinned in the retail source manifest.",
+    "same_folder_structure": "Yes inside the exact nested Harvey mirror; no at repository root, intentionally.",
+    "world_is_harbor_format": "The canonical world JSON is not Harbor. harbor/generate.py exports schema-1.4 Harbor task directories; the selected v20 export was structurally validated."
+  },
+  "audit_date": "2026-08-22",
+  "local": {
+    "agent_visible_tools": 110,
+    "broad_harvey_seed_families": 8,
+    "broad_harvey_seed_variants": 19,
+    "contract_systems": 10,
+    "exact_mirror_path": "research/repos/harveyai@harvey-labs",
+    "harbor": {
+      "export_format": "one Harbor task directory per world task",
+      "native_multistep_retail_task_steps": 4,
+      "schema_version": "1.4",
+      "source_format": "custom canonical world JSON",
+      "validated_new_task_exports": 7
+    },
+    "harvey_adapter_tasks": 1,
+    "harvey_recovery_discrimination_failures": 0,
+    "harvey_recovery_oracle": {
+      "pass_rate": 1.0,
+      "passed": 1,
+      "total": 1
+    },
+    "harvey_tasks_hosted": 2010,
+    "harvey_tasks_total": 2010,
+    "internal_operations": 11,
+    "jurisdictions": 51,
+    "jurisdictions_pending_substantive_validation": 45,
+    "jurisdictions_primary_source_triaged": 6,
+    "practice_criteria_determinized": 65614,
+    "practice_criteria_residual": 46200,
+    "practice_criteria_total": 111814,
+    "retail_discrimination_failures": 0,
+    "retail_input_documents": 15,
+    "retail_oracle": {
+      "pass_rate": 1.0,
+      "passed": 6,
+      "total": 6
+    },
+    "retail_reference_pdfs": 4,
+    "retail_tasks": 6,
+    "seed_rows": 2840,
+    "strict_harvey_derivative_recipes": 4,
+    "strict_harvey_generated_tasks": 4,
+    "tables": 56,
+    "tasks": 2331,
+    "verifiers": 2331,
+    "world": "world/blobfish/world-v20.json",
+    "world_version": 20
+  },
+  "open_gaps": [
+    {
+      "closure": "Run the copied LAB dual-judge lane as a separately reported semantic score, or add source-validated deterministic assertions with oracle and corruption gates.",
+      "gap": "46,200 of 111,814 practice rubric criteria remain outside the deterministic assertion subset.",
+      "id": "G1",
+      "impact": "VCode does not replace the upstream LLM judge for all prose quality, legal nuance, completeness, or formatting judgments.",
+      "severity": "high"
+    },
+    {
+      "closure": "Qualified counsel must validate current primary text and applicability for each jurisdiction before deployment; encode each completed review with a version/effective-date pin.",
+      "gap": "The 45 baseline-only state rows are not a completed 51-jurisdiction legal opinion.",
+      "id": "G2",
+      "impact": "They identify official code portals and an operational floor but deliberately do not assert substantive law, remedies, local overlays, or effective dates.",
+      "severity": "high"
+    },
+    {
+      "closure": "Use accurate-charge prevention, rapid detection/refund, nonwaiver wording, evidence preservation, audits, escalation, and current legal review.",
+      "gap": "No receipt, contract term, disclaimer, or control can ensure that the retailer will not be sued.",
+      "id": "G3",
+      "impact": "A zero-lawsuit guarantee would be misleading; controls reduce frequency, severity, and proof problems but cannot eliminate claims.",
+      "severity": "high"
+    },
+    {
+      "closure": "Fund and resume the exact frozen calibration denominator, or publish a separately versioned replacement protocol.",
+      "gap": "Frozen v19 external reference-model calibration remains incomplete (856/6,972 episodes) because the pinned account lacked funds.",
+      "id": "G4",
+      "impact": "Do not publish the partial model result as a completed comparative benchmark or infer model difficulty from deterministic oracle success.",
+      "severity": "high"
+    },
+    {
+      "closure": "Choose a licensed/public retail API specification or partner sandbox, pin it, and add schema/error/pagination conformance tests.",
+      "gap": "RetailGuard is a synthetic documentation-fixture API, not a conformance-tested mirror of a real retail platform.",
+      "id": "G5",
+      "impact": "The workflows are executable and realistic, but request/response fidelity cannot be claimed for an external vendor.",
+      "severity": "medium"
+    },
+    {
+      "closure": "Build/publish the v20 world and LAB agent images, run the seven-task Harbor oracle canary, then fan out the full task tree with recorded Harbor version and image digests.",
+      "gap": "The seven new/adapted tasks were structurally exported to Harbor, but a full 2,331-task Docker/Harbor fleet run was not repeated in this audit.",
+      "id": "G6",
+      "impact": "Local runtime oracle and discrimination proofs cover all seven new/adapted tasks; container-registry availability and fleet-scale runtime remain separate operational checks.",
+      "severity": "medium"
+    },
+    {
+      "closure": "Keep the immutable source, exact-hash allowlist, recovery copies, and separate normalized derivatives. Fail on any hash or defect-count drift.",
+      "gap": "The exact upstream mirror contains nine known malformed OOXML XML parts.",
+      "id": "G7",
+      "impact": "Normalizing them would destroy byte identity; some parsers require the exact-hash recovery path.",
+      "severity": "medium"
+    },
+    {
+      "closure": "Add OOXML semantic checks, formula recalculation, render comparisons, and the copied LAB judge as independent channels; never average away lane disagreement.",
+      "gap": "Deterministic anchors do not fully grade visual polish, tracked-change semantics, formula correctness after every application, or professional legal judgment.",
+      "id": "G8",
+      "impact": "An output can satisfy anchors while remaining stylistically weak or legally incomplete.",
+      "severity": "medium"
+    },
+    {
+      "closure": "Use the nested mirror for byte/folder parity and the generated Harbor tree for runnable task parity; do not describe the repository root as an upstream clone.",
+      "gap": "The repository root intentionally does not reproduce Harvey's top-level layout.",
+      "id": "G9",
+      "impact": "Only research/repos/harveyai@harvey-labs is an exact upstream tree; root world/mcp/harbor/research additions are local architecture.",
+      "severity": "low"
+    },
+    {
+      "closure": "Keep the zero-PDF audit fact. Add only clearly labeled synthetic or provenance-tracked public reference PDFs in separate extension lanes.",
+      "gap": "Upstream contains no PDF inputs, so there is nothing upstream to copy in that format.",
+      "id": "G10",
+      "impact": "Claims that Harvey PDFs were copied would be false.",
+      "severity": "low"
+    },
+    {
+      "closure": "Index each derivative evidence set, compile its changed rubric facts, then require world admission, file/state lane agreement, oracle, corruption probes, and Harbor canary before counting it in the 2,331-task world total.",
+      "gap": "Four strict Harvey derivative tasks and 19 broad seeded variants are generator/harness assets, not separately admitted v20 state workflows.",
+      "id": "G11",
+      "impact": "They are reproducible task/document expansions, but they do not yet receive a distinct world task ID, product-state verifier, oracle, discrimination result, and Harbor package.",
+      "severity": "medium"
+    }
+  ],
+  "parity_matrix": [
+    {
+      "area": "Repository bytes and folder tree",
+      "local": "Exact nested Git mirror at the pinned commit",
+      "status": "exact_copy",
+      "upstream": "63,074 tracked paths"
+    },
+    {
+      "area": "Task configurations",
+      "local": "All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20 adapter",
+      "status": "exact_plus_executable",
+      "upstream": "2,010 task.json files"
+    },
+    {
+      "area": "Input documents",
+      "local": "Every physical input is present in the exact mirror; 51,683 task-local documents are indexed for executable retrieval",
+      "status": "exact_copy_and_index",
+      "upstream": "60,971 physical inputs / 3.207 GB"
+    },
+    {
+      "area": "Office/PDF formats",
+      "local": "All upstream formats copied; synthetic retail extension adds 3 PDF receipts and 4 immutable primary-source PDFs",
+      "status": "exact_plus_extension",
+      "upstream": "DOCX/XLSX/PPTX/EML/TXT/JSON; zero PDFs"
+    },
+    {
+      "area": "Generic agent tools",
+      "local": "Exact harness/tools.py is copied; Harbor file-lane agents retain a shell and document stack, while state work uses 110 visible product tools",
+      "status": "exact_copy_different_operational_surface",
+      "upstream": "bash, read, write, edit, glob, grep"
+    },
+    {
+      "area": "Document skills",
+      "local": "Exact skill trees are copied and staged into each file-lane Harbor task",
+      "status": "exact_and_operational",
+      "upstream": "docx, xlsx, pptx skill trees"
+    },
+    {
+      "area": "Sandbox",
+      "local": "Exact sandbox source copied; used as the file-lane agent-image base",
+      "status": "exact_and_operational",
+      "upstream": "LibreOffice/pandoc/parsers image"
+    },
+    {
+      "area": "Evaluation",
+      "local": "Exact evaluation code copied; operational headline uses deterministic VCode and separate file/state lanes",
+      "status": "exact_copy_alternative_default",
+      "upstream": "Criterion-by-criterion LLM judge; all-pass task scoring"
+    },
+    {
+      "area": "Gold graders/verifiers",
+      "local": "The one gold file is copied; world v20 ships 2,331 deterministic verifier programs",
+      "status": "exact_plus_extension",
+      "upstream": "One grader/gold/rubric.json; no per-task deterministic verifier programs"
+    },
+    {
+      "area": "Firm knowledge",
+      "local": "All 250 hosted through the indexed shared corpus",
+      "status": "operational_parity",
+      "upstream": "250 tasks over one shared 9,288-file DMS"
+    },
+    {
+      "area": "Practice tasks",
+      "local": "All 1,760 hosted; one task receives the explicit response.md adapter because upstream omitted a filename",
+      "status": "operational_parity_with_disclosed_adapter",
+      "upstream": "1,760 task-local assignments"
+    },
+    {
+      "area": "Harbor format",
+      "local": "Schema 1.4 task.toml, isolated agent/world containers, MCP, tests/test.sh, solution/solve.sh, and native multi-step [[steps]]",
+      "status": "local_extension",
+      "upstream": "Not Harbor; custom filesystem harness"
+    },
+    {
+      "area": "Canonical world format",
+      "local": "Canonical world-v20.json is the runtime source format; harbor/generate.py exports it to Harbor",
+      "status": "local_extension",
+      "upstream": "No world/ state model"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Harvey LAB exact-copy, executable-port, Harbor, document, verifier, tool, mutation, and retail-research parity",
+  "upstream": {
+    "commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "expected_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "firm_knowledge_tasks": 250,
+    "generic_tools": [
+      "bash",
+      "read",
+      "write",
+      "edit",
+      "glob",
+      "grep"
+    ],
+    "grader_or_verifier_paths": [
+      "tasks/funds-asset-management/respond-to-comment-memo/grader/gold/rubric.json"
+    ],
+    "input_bytes": 3206739638,
+    "input_extensions": {
+      ".docx": {
+        "bytes": 2712418686,
+        "files": 42009
+      },
+      ".eml": {
+        "bytes": 53139322,
+        "files": 5784
+      },
+      ".json": {
+        "bytes": 133617,
+        "files": 5
+      },
+      ".pptx": {
+        "bytes": 103547720,
+        "files": 1136
+      },
+      ".txt": {
+        "bytes": 55575066,
+        "files": 889
+      },
+      ".xlsx": {
+        "bytes": 281925227,
+        "files": 11148
+      }
+    },
+    "known_ooxml_source_defects": 9,
+    "license": "MIT",
+    "mirror_clean": true,
+    "pdf_inputs": 0,
+    "physical_inputs": 60971,
+    "practice_tasks": 1760,
+    "repository": "https://github.com/harveyai/harvey-labs",
+    "task_configs": 2010,
+    "top_level_tracked_paths": {
+      ".github": 3,
+      ".gitignore": 1,
+      "CONTRIBUTING.md": 1,
+      "LICENSE": 1,
+      "README.md": 1,
+      "docs": 4,
+      "evaluation": 8,
+      "harness": 42,
+      "pyproject.toml": 1,
+      "sandbox": 5,
+      "scripts": 4,
+      "tasks": 62982,
+      "tests": 14,
+      "utils": 6,
+      "uv.lock": 1
+    },
+    "tracked_paths": 63074
+  }
+}

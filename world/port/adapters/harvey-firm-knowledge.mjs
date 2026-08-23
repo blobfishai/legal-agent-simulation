@@ -36,6 +36,7 @@ export function port(repoDir) {
     ungraded += criteria.length - keyed.length;
     tasks.push({
       id: `fk_${t.id}`, prompt: t.instructions, title: t.title,
+      deliverables: Object.keys(t.deliverables ?? {}),
       expected: [...new Set(keyed.flatMap((c) => c.matter_ids))].sort(),
       criteria,
       grading: keyed.length && keyed.length === criteria.length ? "deterministic"

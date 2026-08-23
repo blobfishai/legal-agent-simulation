@@ -1,7 +1,7 @@
 # v17A — Harvey LAB evidence and isolated file lane
 
 Status: **built and mechanically verified** against
-`harveyai/harvey-labs@60071cc424d6`.
+`harveyai/harvey-labs@7be41d57fd5a`.
 
 This milestone imports the evidence and execution contract without pretending
 that a copied prose rubric is a deterministic answer key. The source-native
@@ -19,7 +19,7 @@ after compiled assertions pass oracle and discrimination.
 | Shared firm-knowledge DMS files | 9,288 |
 | Total physical inputs | 60,971 |
 | Total source bytes | 3,206,739,638 |
-| Parsed task-local occurrences | 51,674 / 51,683 (99.982586%) |
+| Parsed task-local occurrences | 51,683 / 51,683 (100%) |
 | Shared DMS parse failures | 0 |
 
 Every task-local binary is preserved byte-for-byte in a content-addressed
@@ -28,12 +28,12 @@ MIT license, LAB parser, system prompt, and three document skills. The SQLite
 index retains every occurrence-to-blob provenance edge and a full-text row for
 every successfully parsed unique blob.
 
-The nine task-local parse failures are named in
-[`lab-ingest-report.json`](../world/ingest/lab-ingest-report.json). All are
-malformed DOCX/XLSX packages, and all nine also fail through LAB's own pinned
-`parse-doc` implementation. Their exact binaries remain available; affected
-tasks can be quarantined or use direct binary tooling, but missing text is
-never represented as a successful parse.
+Nine task-local DOCX/XLSX packages contain raw ampersands in XML text nodes and
+also fail through LAB's own pinned `parse-doc` implementation. The v5 indexer
+recovers those exact packages by escaping only the otherwise-invalid
+ampersands in a temporary derivative. The committed report records every
+source SHA-256, package part, and occurrence count; exact binaries remain
+unchanged in the content-addressed store.
 
 ## Extractor parity
 

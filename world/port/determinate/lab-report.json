@@ -1,19 +1,19 @@
 {
-  "assertions": 109832,
+  "assertions": 109868,
   "compiled_tasks": 1760,
   "compiler_sha256": "4b316a4dd9132c5cd7a8debe2bdd8bef6be946acfbd6824b7cf6f57274cdc73c",
   "compiler_version": "7",
   "criteria": 111814,
-  "criteria_coverage": 0.58665283,
-  "criteria_determinate": 65596,
+  "criteria_coverage": 0.58681382,
+  "criteria_determinate": 65614,
   "drop_reasons": {
     "compiled assertion failed local oracle/discrimination": 22,
-    "no mechanically typed or named PASS-clause anchor found in task evidence": 35109,
+    "no mechanically typed or named PASS-clause anchor found in task evidence": 35091,
     "unsupported range or comparison logic": 11087
   },
   "family": "all",
   "limited": false,
-  "output_sha256": "99ec889a1c238d9d9ecdc3f3d487821e59009f161682e2c3c44d9177fa2c1715",
+  "output_sha256": "ad319afa45bd69e92e6cd78d08181316ba51f197bf5980c97f2ca030b7b44656",
   "policy": {
     "admitted_criterion": "conjunctive typed or named PASS-clause groups occur in task-local evidence and each rejects isolated corruption",
     "alternative_logic": "explicit or/and-or candidates form one any-of group; groups remain conjunctive",
@@ -24,14 +24,14 @@
     "unsupported_logic": "range/comparison criteria are dropped until a typed inequality predicate is proven"
   },
   "schema_version": 1,
-  "source_index_sha256": "821fa7920bef5ea1cb837e7c00a733d4b08e977416c8f5db60e1c66dda04ca2f",
+  "source_index_sha256": "ca753a6212683a46221a2965382be05a6756e6ffc1773df614cac9ee284291b0",
   "tasks": 1760,
   "thin_grading_tasks": 0,
   "work_types": {
     "analyze": {
-      "coverage": 0.5822322,
+      "coverage": 0.58244941,
       "criteria": 27623,
-      "determinate": 16083,
+      "determinate": 16089,
       "tasks": 488
     },
     "contracting": {
@@ -41,21 +41,21 @@
       "tasks": 498
     },
     "draft": {
-      "coverage": 0.56287191,
+      "coverage": 0.56309954,
       "criteria": 30753,
-      "determinate": 17310,
+      "determinate": 17317,
       "tasks": 444
     },
     "research": {
-      "coverage": 0.54909366,
+      "coverage": 0.54984894,
       "criteria": 1324,
-      "determinate": 727,
+      "determinate": 728,
       "tasks": 24
     },
     "review": {
-      "coverage": 0.60712444,
+      "coverage": 0.60731193,
       "criteria": 21335,
-      "determinate": 12953,
+      "determinate": 12957,
       "tasks": 306
     }
   }

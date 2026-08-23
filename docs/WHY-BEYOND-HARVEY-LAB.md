@@ -12,9 +12,9 @@ Open gate(s): M7/three_episode_calibration: 856/6972 valid episodes; 6116 remain
 |---|---:|---|
 | LAB tasks hosted | 2,009/2,010 (99.95%) | `docs/PARITY.md`, `world/v17/build-report.json` |
 | LAB documents preserved as source bytes | 51,683 | `world/corpus/lab/ingest-report.json` |
-| Documents text-parsed | 51,674/51,683 | same report; 9 failures named individually |
-| Practice criteria compiled to assertions | 65,596/111,814 (58.7%) | `world/port/determinate/lab-report.json` |
-| Residual practice criteria dropped and counted | 46,218 | never judged or silently passed |
+| Documents text-parsed | 51,683/51,683 | same report; 0 failures and 9 exact-hash recoveries |
+| Practice criteria compiled to assertions | 65,614/111,814 (58.7%) | `world/port/determinate/lab-report.json` |
+| Residual practice criteria dropped and counted | 46,200 | never judged or silently passed |
 | LAB prose-quality judge | excluded | this benchmark's headline is judge-free |
 
 Hosting and deterministic criterion coverage are different denominators. A task can preserve LAB's inputs and instruction while only its mechanically validated determinations contribute reward.
@@ -34,7 +34,7 @@ Hosting and deterministic criterion coverage are different denominators. A task 
 
 ## What the executable world adds
 
-The released world contains **2,324 tasks** across all **10 capability types**, **102 agent-visible tools** over **9 mirrored systems**, **5** 50-call capstones, and **30** load-bearing interruption tasks. Its reference proof is 2,324/2,324; adversarial probes cover 2,324/2,324.
+The released world contains **2,324 tasks** across all **10 capability types**, **91 agent-visible tools** plus **11 non-discoverable simulator/migration operations** over **9 mirrored systems**, **5** 50-call capstones, and **30** load-bearing interruption tasks. Its reference proof is 2,324/2,324; adversarial probes cover 2,324/2,324.
 
 LAB asks whether a file satisfies expert-written criteria. This world additionally asks whether the agent read the right evidence, paged through all qualifying records, handled real-shaped failures, changed the correct system state, avoided collateral writes, filed the same grounded deliverable it produced, and retained corrections over a multi-phase matter.
 
@@ -47,12 +47,12 @@ This deliberately gives up argument elegance, tone, persuasion, and open-ended s
 ## Caveats that travel with every score
 
 - No prose style, persuasion, or legal-writing-quality score is produced.
-- The 46,218 residual practice criteria are not silently treated as passing.
+- The 46,200 residual practice criteria are not silently treated as passing.
 - Verbatim public LAB tasks are contamination-caveated and reported separately.
 - iManage fidelity is capped by the public connector specification; the full API is partner-gated.
 - Conformance applies to task-used endpoints, not every endpoint in each vendor product.
 - The original 291 tasks include synthetic evidence; hosted LAB provenance applies only where recorded.
-- 9 LAB files failed text extraction; their original bytes remain preserved and their paths/errors are published.
+- 0 LAB files failed text extraction; 9 malformed upstream OOXML packages were recovered only in temporary parser derivatives, with exact paths and hashes published and source bytes preserved.
 - The file/state split is proven by Harbor fixtures and an oracle/no-op smoke; model-level lane-split coverage remains null until Harbor model episodes are imported.
 - Difficulty labels and the world-v19 pass³ headline remain provisional until `data/triage/world-v19.json` says `complete: true`.
 

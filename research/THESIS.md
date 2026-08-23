@@ -21,7 +21,7 @@ built one of them without having read the other.
 | scale | 2,010 tasks · 51,683 documents | 270 tasks · 311 documents |
 
 *(LAB figures from `research/answers/data/lab-corpus.json`, extracted at commit
-`60071cc4`. Note the repo's own README badge says 1,671 tasks; there are 2,010
+`7be41d57`. Note the repo's own README badge says 1,671 tasks; there are 2,010
 `task.json` files at HEAD, and my first extraction said 1,143 before I fixed a
 fixed-depth scan. All three numbers were wrong at some point today; 2,010 is
 what is on disk.)*

@@ -22,6 +22,7 @@ Run (server must be up with --v2-contracts):
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import gzip
 import hashlib
 import json
@@ -101,7 +102,13 @@ def main() -> int:
                     help="stop cleanly after this budget (chunked runs); 0 = no limit")
     ap.add_argument("--gzip", action="store_true",
                     help="write .json.gz fixtures (checker reads both)")
+    ap.add_argument("--workers", type=int, default=1,
+                    help="record independent task sessions concurrently")
     args = ap.parse_args()
+    if args.workers < 1:
+        ap.error("--workers must be at least 1")
+    if args.workers > 1 and args.max_seconds:
+        ap.error("--max-seconds is supported only with --workers 1")
     t0 = time.monotonic()
 
     raw = json.load(open(args.world))
@@ -136,13 +143,7 @@ def main() -> int:
         tasks = [t for t in tasks if not fixture_current(t["task_id"])]
         print(f"resume: {before - len(tasks)} current, {len(tasks)} to record")
 
-    n_bad_oracle = 0
-    recorded = 0
-    for n, task in enumerate(tasks, 1):
-        if args.max_seconds and time.monotonic() - t0 > args.max_seconds:
-            print(f"budget reached after {recorded} tasks — resume to continue",
-                  flush=True)
-            break
+    def record_task(task: dict) -> tuple[str, bool]:
         tid = task["task_id"]
         v = verifiers.get(tid)
         episodes: dict[str, dict] = {}
@@ -151,10 +152,6 @@ def main() -> int:
                 episodes[mode] = oracle_episode(args.base, world, task, v)
             else:
                 episodes[mode] = adversarial_episode(args.base, world, task, v, mode)
-        if not episodes["oracle"]["verdict"].get("passed"):
-            n_bad_oracle += 1
-            print(f"  !! {tid}: ORACLE EPISODE DID NOT PASS — fixture suspect",
-                  file=sys.stderr)
         payload = {"task_id": tid, "world": world_name,
                    "world_sha256": world_sha, "episodes": episodes}
         # NO sort_keys: argument insertion order must be preserved exactly —
@@ -165,14 +162,40 @@ def main() -> int:
             stale = os.path.join(args.out, f"{tid}.json")
             if os.path.exists(stale):
                 os.remove(stale)
-            with gzip.open(os.path.join(args.out, f"{tid}.json.gz"), "wt") as f:
-                json.dump(payload, f, indent=1, default=str)
+            encoded = json.dumps(payload, indent=1, default=str).encode("utf-8")
+            compressed = gzip.compress(encoded, compresslevel=9, mtime=0)
+            with open(os.path.join(args.out, f"{tid}.json.gz"), "wb") as f:
+                f.write(compressed)
         else:
             with open(os.path.join(args.out, f"{tid}.json"), "w") as f:
                 json.dump(payload, f, indent=1, default=str)
+        return tid, not episodes["oracle"]["verdict"].get("passed")
+
+    n_bad_oracle = 0
+    recorded = 0
+
+    def accept_result(n: int, result: tuple[str, bool]) -> None:
+        nonlocal n_bad_oracle, recorded
+        tid, bad_oracle = result
+        if bad_oracle:
+            n_bad_oracle += 1
+            print(f"  !! {tid}: ORACLE EPISODE DID NOT PASS — fixture suspect",
+                  file=sys.stderr)
         recorded += 1
         if n % 25 == 0:
             print(f"  [{n}/{len(tasks)}] recorded", flush=True)
+
+    if args.workers == 1:
+        for n, task in enumerate(tasks, 1):
+            if args.max_seconds and time.monotonic() - t0 > args.max_seconds:
+                print(f"budget reached after {recorded} tasks — resume to continue",
+                      flush=True)
+                break
+            accept_result(n, record_task(task))
+    else:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+            for n, result in enumerate(pool.map(record_task, tasks), 1):
+                accept_result(n, result)
 
     print(f"recorded {recorded} tasks x {len(MODES)} episodes -> {args.out}")
     if n_bad_oracle:

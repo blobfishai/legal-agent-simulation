@@ -1,6 +1,6 @@
 {
-  "candidate_extractor": "lab-compatible-v4-ooxml-openpyxl-markitdown-pptx",
-  "extractor_sha256": "78ed730603c38bb1f3806cb81eb3b6e08390982961d24761d4e4fc905034ce5e",
+  "candidate_extractor": "lab-compatible-v5-recorded-ooxml-ampersand-recovery",
+  "extractor_sha256": "3a3bb36427632ebf2f2773830f548f530a09b84ed5e3a960540439d738d40d01",
   "formats": {
     ".docx": {
       "documents": 32,
@@ -616,7 +616,7 @@
     }
   ],
   "schema_version": 1,
-  "source_commit": "60071cc424d6",
+  "source_commit": "7be41d57fd5a",
   "source_repo": "harveyai/harvey-labs",
   "thresholds": {
     "mean_token_recall": 0.97,

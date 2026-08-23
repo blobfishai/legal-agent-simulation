@@ -23,20 +23,24 @@
  * the right documents. What is honestly gained: the answer key is checkable,
  * and the discrimination sweep can prove a wrong answer is rejected.
  *
- * Source: research/repos/harveyai@harvey-labs @ 60071cc4, task
+ * Source: research/repos/harveyai@harvey-labs at the commit pinned in
+ *   research/repos-commits.json, task
  *   tasks/contracts/employment-compensation/
  *     employment-agreement-playbook-escalation/scenario-01
  *   (10 documents, 57 criteria, MIT licensed)
  *
  * Run: node world/expansion/packs-lab/build-lab-pack.mjs
  */
-import { writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..", "..", "..");
+const SOURCE_COMMIT = JSON.parse(
+  readFileSync(join(ROOT, "research", "repos-commits.json"), "utf8"),
+)["harveyai@harvey-labs"];
 const LAB_TASK = join(ROOT, "research/repos/harveyai@harvey-labs/tasks/contracts",
   "employment-compensation/employment-agreement-playbook-escalation/scenario-01");
 
@@ -210,7 +214,7 @@ const pack = {
   anchor: "harvey_lab",
   provenance: {
     repo: "harveyai/harvey-labs",
-    commit: "60071cc4",
+    commit: SOURCE_COMMIT,
     task: "tasks/contracts/employment-compensation/employment-agreement-playbook-escalation/scenario-01",
     license: "MIT",
     documents_verbatim: true,

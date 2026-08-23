@@ -1,0 +1,128 @@
+[
+  {
+    "type": "company",
+    "name": "Whitecliff Capital Partners",
+    "role": "partners",
+    "fragments": [
+      "Whitecliff"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "LakeFront Tower",
+    "role": "company",
+    "tail_options": [
+      "Tower"
+    ],
+    "fragments": [
+      "LakeFront"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Bridgeview Property Services",
+    "role": "company",
+    "tail_options": [
+      "Property Services"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Hendricks Bray Stanton",
+    "role": "lawfirm",
+    "fragments": [
+      "Hendricks",
+      "Stanton"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Cole & Whitmore",
+    "role": "lawfirm",
+    "fragments": [
+      "Whitmore"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Atherton",
+    "role": "lawfirm",
+    "domain": "athertoncole.com"
+  },
+  {
+    "type": "company",
+    "name": "Pinnacle Advisory Group",
+    "role": "advisory",
+    "tail_options": [
+      "Advisory Group"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Crestline Data Systems",
+    "role": "company",
+    "tail_options": [
+      "Data Systems"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Northgate Wealth Management",
+    "role": "company",
+    "tail_options": [
+      "Wealth Management"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Belcourt Partners",
+    "role": "partners",
+    "tail_options": [
+      "Partners"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Clearwater Consulting Group",
+    "role": "company",
+    "tail_options": [
+      "Consulting Group"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Sterling Ridge Capital Advisors",
+    "role": "advisory",
+    "tail_options": [
+      "Capital Advisors"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Graystone Ventures",
+    "role": "company",
+    "tail_options": [
+      "Ventures"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Thornfield Capital Management",
+    "role": "company",
+    "tail_options": [
+      "Capital Management"
+    ]
+  },
+  {
+    "type": "person",
+    "name": "Sarah Beckford"
+  },
+  {
+    "type": "person",
+    "name": "Daniel Kirsch"
+  },
+  {
+    "type": "person",
+    "name": "Thomas Agnelli"
+  }
+]

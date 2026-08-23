@@ -35,9 +35,9 @@
     }
   ],
   "shared_documents": 9288,
-  "source_commit": "60071cc424d6",
+  "source_commit": "7be41d57fd5a",
   "source_repo": "harveyai/harvey-labs",
-  "source_tree_sha256": "97a45124ff77d7ad79eb42f38cca62194a58e7beda9362dd8f3ddc140888d32c",
+  "source_tree_sha256": "32c8f4ec50756be261beb0f7fe5baf2da45a5375d391ba0200c52f08ee7d6a60",
   "tasks": 2010,
   "total_input_bytes": 3206739638,
   "total_input_files": 60971,

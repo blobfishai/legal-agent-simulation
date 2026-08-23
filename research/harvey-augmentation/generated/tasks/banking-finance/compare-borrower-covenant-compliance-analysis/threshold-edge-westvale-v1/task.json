@@ -7,6 +7,8 @@
     "originals_immutable": true,
     "recipe_sha256": "f1df45f340582aacca3f656339aca0e19b575d3dd3ee5f8b39b001513ad013e9",
     "source_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "source_expected_commit": "7be41d57fd5a",
+    "source_license": "MIT",
     "source_repo": "harveyai/harvey-labs",
     "source_task": "banking-finance/compare-borrower-covenant-compliance-analysis",
     "variant_id": "covenant-threshold-edge-westvale-v1"

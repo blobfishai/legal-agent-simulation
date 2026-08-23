@@ -16,23 +16,26 @@ now **fully self-hosting** — the entire world runs offline from this repo.
 
 ## Current LAB-Superset program status
 
-The complete release candidate is `world/blobfish/world-v19.json`: **2,324
-tasks**, **102 total operations / 91 agent-visible product tools**, nine
-mirrored systems, 2,009/2,010 Harvey LAB tasks hosted, five 50-call capstones,
-and 30 load-bearing multi-turn tasks. The deterministic implementation gates
+The latest local augmentation is `world/blobfish/world-v20.json`: **2,331
+tasks**, **121 total operations / 110 agent-visible product tools**, ten
+systems, **2,010/2,010 Harvey LAB tasks hosted**, six executable retail
+price-accuracy workflows, five 50-call capstones, and 31 load-bearing
+multi-step/multi-turn tasks. The frozen v19 deterministic implementation gates
 M0–M6 and M8 pass. M7 is externally blocked at 856/6,972 reference-model
 episodes because the pinned DeepSeek account has insufficient balance; the
 partial observations are not published as a pass³ result.
 
-The generated [program status](docs/PROGRAM-STATUS.md) maps every M0–M8 gate to
+The [Harvey parity audit](docs/HARVEY-PARITY-AUDIT.md) separates exact-copy,
+operational-parity, extension, and open-gap claims. The generated [program
+status](docs/PROGRAM-STATUS.md) maps every M0–M8 gate to
 its proof and exact verification command. `world-v16.json` remains the
 lightweight product-only default until the frozen v19 calibration completes;
 this prevents a release candidate with an unfinished denominator from silently
 becoming the default benchmark.
 
 The charter's `~150–170` tool count was a planning estimate, not an acceptance
-threshold. The admitted, task-driven T1 surface is smaller: all 2,324 task walks
-close over 91 agent-visible tools, plus 11 non-discoverable runtime operations.
+threshold. The v20 task-driven surface has 110 agent-visible tools, plus 11
+non-discoverable runtime operations.
 The T2 rule remains in force: endpoints no admitted task exercises are not added
 merely to increase the count.
 
@@ -59,7 +62,7 @@ Three things live here:
 
 2. **The evidence and eval supply chain** — task packs, real source documents,
    and a 46-repository legal-domain research corpus under `research/repos/`.
-   The v17 work imports Harvey LAB’s documents and task harness into a separate
+   World v20 imports all Harvey LAB documents and task shapes into a separate
    file lane while deterministic state/grounding checks remain the headline
    score. The completed evidence/file-lane gate and its measured parse caveats
    are in [`docs/V17A-EVIDENCE-AND-FILE-LANE.md`](docs/V17A-EVIDENCE-AND-FILE-LANE.md).
@@ -178,7 +181,7 @@ the repo's target policy via `QWEN_BASE_URL`).
 Harvey LAB grades *what an agent wrote* with an LLM judge — the strongest
 rubric corpus in legal AI (2,010 tasks, 114,437 criteria, 51,683 task-local
 documents, plus one shared 9,288-file firm-knowledge DMS at the pinned
-`60071cc424d6` snapshot). It is structurally unable to measure what this repo
+`7be41d57fd5a` snapshot). It is structurally unable to measure what this repo
 measures: whether the work *actually happened* in a system of record, whether
 it happens *reliably* across repeated runs, and *which step* breaks when it
 doesn't. The exact source and extraction boundary is documented in
@@ -196,6 +199,11 @@ itself is [`data/research/legal-eval-inventory.md`](data/research/legal-eval-inv
 | Failure attribution | missed rubric criteria | exact tool call, arguments, observation per failing step |
 | Answer keys | rubric prose | CUAD/MAUD/LegalBench/TaxCalcBench-anchored pinned values |
 | Runs offline | no (judge API) | yes (stdlib Python + Node) |
+
+World v20 does not erase the honest converse: 46,200/111,814 practice rubric
+criteria remain outside the deterministic subset, and 45/51 retail
+jurisdictions are explicitly research-queue rows pending substantive counsel
+review. Those gaps are listed individually in the parity audit.
 
 And the honest converse: LAB has expert-written rubrics, human-guided
 documents, prose-quality judgment, and nearly 7× the canonical v16 task
@@ -226,6 +234,9 @@ mcp/blobfish-lawfirm-bridge.mjs   stdio ⇄ world-server bridge + harness tools
 world/local/server.py             local world runtime (sessions, tools, verifiers, friction)
 world/local/oracle.py             reference-walk fidelity prover
 world/blobfish/world-v16.json     canonical product-only world (tables, rows, tasks, verifiers)
+world/v20/build.py                complete LAB adapter + RetailGuard world compiler
+mcp/v4/contracts/                 v3 contracts plus the RetailGuard extension
+research/retail-price-accuracy/   cited sources + matched DOCX/XLSX/PDF scenario mutations
 world/migrate/                    deterministic Gen-1 → product compiler and manifests
 world/expansion/packs/*.json      content packs (documents + answer-keyed task specs)
 world/expansion/assemble.mjs      pack compiler (tasks + generated verifiers, append-only)

@@ -2,8 +2,8 @@
 
 **Status:** answered from the eval corpus on disk.
 
-**Evidence:** `research/repos/harveyai@harvey-labs` @ `60071cc4` (2026-08-10,
-"firm-knowledge: update tasks to v3 rubric"). Inventory extracted by
+**Evidence:** `research/repos/harveyai@harvey-labs` @ `7be41d57` (2026-08-11,
+"firm-knowledge: add response.md output instruction + deliverable hooks"). Inventory extracted by
 `research/extract-lab-corpus.mjs` into `research/answers/data/lab-corpus.json`;
 the byte-level source identity is frozen in
 `world/ingest/lab-source-lock.json`.
@@ -25,7 +25,7 @@ the byte-level source identity is frozen in
 | shared firm-knowledge DMS | **9,288** | separately hosted as C&H |
 | document format | real `.docx` / `.xlsx` / `.eml` / `.pptx` | text rows in SQLite |
 | grading units | 114,437 rubric criteria (mean **56.9**/task) | ~7 assertions/task |
-| deliverable format | 1,247 `.docx`, 39 `.xlsx`, 11 `.md` | a row insert, or a document row |
+| deliverable format | 1,247 `.docx`, 39 `.xlsx`, 261 `.md` | a row insert, or a document row |
 
 Document formats, by count: `.docx` 33,954 · `.xlsx` 10,575 · `.eml` 5,169 ·
 `.pptx` 1,091 · `.txt` 889.

@@ -6,7 +6,8 @@ import json
 
 def retrieval_vcode(task_id: str, gold: list[str], required_read_ids: list[int],
                     required_anchor_groups: list[list[str]] | None = None,
-                    paging_required: bool = False) -> str:
+                    paging_required: bool = False,
+                    deliverable_name: str = "response.md") -> str:
     required_anchor_groups = required_anchor_groups or []
     return rf'''"""Generated retrieval verifier for {task_id}."""
 import re
@@ -15,6 +16,7 @@ GOLD = set({gold!r})
 REQUIRED_READ_IDS = set({[str(value) for value in required_read_ids]!r})
 REQUIRED_ANCHOR_GROUPS = {required_anchor_groups!r}
 PAGING_REQUIRED = {paging_required!r}
+DELIVERABLE_NAME = {deliverable_name!r}
 
 def _rows(state, table):
     return state.get(table, []) if isinstance(state, dict) else []
@@ -77,7 +79,7 @@ def verify(initial_state, final_state, trace):
     before = _by_id(_rows(initial_state, "dm_documents"))
     after = _rows(final_state, "dm_documents")
     created = [row for row in after if str(row.get("id")) not in before]
-    deliverables = [row for row in created if row.get("name") == "firm-knowledge-response.md"]
+    deliverables = [row for row in created if row.get("name") == DELIVERABLE_NAME]
     check("deliverable_filed_to_dms", bool(deliverables),
           f"{{len(deliverables)}} matching DMS deliverable(s) created")
     body = "\n".join(str(row.get("body") or "") for row in deliverables)

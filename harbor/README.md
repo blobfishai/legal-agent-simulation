@@ -11,8 +11,8 @@ which now writes to `dist/harbor-legacy`.)
 ## Generate + build
 
 ```bash
-python3 harbor/generate.py --build-image   # 291 tasks -> dist/harbor/tasks/,
-                                           # shared image legal-agent-sim-world:v16
+python3 harbor/generate.py --build-image   # 2,331 tasks -> dist/harbor/tasks/,
+                                           # shared image legal-agent-sim-world:v20
 ```
 
 LAB-imported tasks carry a `file_lane` block. For those tasks the generator
@@ -26,15 +26,12 @@ python3 harbor/generate.py --build-lab-agent-image \
 ```
 
 The verifier copies non-symlink output files to `/logs/artifacts` and emits
-`file-lane.json`. At this evidence-only milestone, `file_passed` means the
-exact non-empty output filename contract was satisfied
-(`grade_kind=output_contract_only`), not that prose quality passed a rubric.
-Once v17B attaches source-validated anchors, the same artifact switches to
-`grade_kind=determinate` and reports criterion-level grounding separately.
-`reward.json` retains the deterministic world reward and adds the separate
-file/state diagnostics; the lanes are never averaged. Deterministic content
-assertions are added during v17B admission. `python3
-tools/check_harbor_file_lane.py` gates path confinement and this contract.
+`file-lane.json`. Determinate file tasks check source-grounded anchor groups
+inside DOCX, XLSX, PPTX, PDF, Markdown, JSON, and text outputs; thin upstream
+tasks remain explicitly labeled `output_contract_only`. `reward.json` retains
+the deterministic state reward and adds separate file/state diagnostics; the
+lanes are never averaged. `python3 tools/check_harbor_file_lane.py` gates path
+confinement and this contract.
 
 `dist/` is gitignored; the generated tree is a build artifact. Regeneration is
 deterministic (the `/solve` token persists in
@@ -53,7 +50,7 @@ networking); cloud providers (Daytona/Modal/E2B) are not supported for these.
 
 ## Ship
 
-Tasks reference the world image as `ghcr.io/blobfishai/legal-agent-sim-world:v16`,
+Tasks reference the world image as `ghcr.io/blobfishai/legal-agent-sim-world:v20`,
 so a published image makes every task dir self-sufficient (no local build).
 Both shipping steps need interactive auth, so they are manual:
 
@@ -61,7 +58,7 @@ Both shipping steps need interactive auth, so they are manual:
 # 1. Push the world image (one-time; needs the write:packages scope)
 gh auth refresh -h github.com -s write:packages
 gh auth token | docker login ghcr.io -u <github-user> --password-stdin
-docker push ghcr.io/blobfishai/legal-agent-sim-world:v16
+docker push ghcr.io/blobfishai/legal-agent-sim-world:v20
 # then make the package public: https://github.com/orgs/blobfishai/packages
 
 # 2. Publish tasks to the Harbor registry (hub.harborframework.com)
@@ -88,20 +85,20 @@ main (agent)                          world (shared image, TASK_ID env)
   every `tools/call` into the trace exactly as `sim/run-simulation.mjs` does,
   and runs verification server-side — so the agent container never contains
   `world.json` (tasks, walks, verifier code, answer keys). The canonical source
-  is `world/blobfish/world-v16.json`.
+  is `world/blobfish/world-v20.json`; historical worlds automatically retain
+  their matching v3 contract suite.
 - `tests/test.sh` writes `reward.json` with `reward` (the
   verifier's graded fraction, anti-hack vetoes to 0) and `passed` (strict
   pass/fail — the world's headline metric). File-lane tasks add separate
   diagnostic fields and preserve every produced artifact under
   `/logs/artifacts`.
 - `solution/solve.sh` triggers the same reference walk that
-  `world/local/oracle.py` proves 291/291; the solve endpoint is gated by a
+  `world/local/oracle.py` proves against all 2,331 tasks; the solve endpoint is gated by a
   token that exists only in the world image and in `solution/` (which Harbor
   copies in only for Oracle-agent runs).
-- The two tasks with scripted mid-episode user turns (`task_003`, `task_004`)
-  carry those turns in `instruction.md` as a "Follow-up messages" section —
-  Harbor trials are single-instruction, so the turns are presented up front;
-  verifiers are unaffected (they never see user messages).
+- Native multi-step tasks use Harbor schema 1.4 `[[steps]]` and checkpoint
+  VCodes. Older scripted-turn tasks retain their follow-up-message adapter for
+  single-instruction harnesses.
 
 ## Files
 

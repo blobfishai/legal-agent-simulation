@@ -361,11 +361,14 @@ def build() -> dict[str, Any]:
                 check(
                     "lab_evidence_ingest",
                     ingest["documents"] == 51_683
-                    and ingest["parsed_documents"] + ingest["failed_documents"] == ingest["documents"]
-                    and ingest["parse_rate"] >= 0.99,
+                    and ingest["parsed_documents"] == ingest["documents"]
+                    and ingest["failed_documents"] == 0
+                    and ingest.get("recovered_documents") == 9
+                    and ingest["parse_rate"] == 1.0,
                     (
                         f"{ingest['parsed_documents']:,}/{ingest['documents']:,} LAB documents "
-                        f"text-parsed; {ingest['failed_documents']} failures named, source bytes preserved"
+                        f"text-parsed; {ingest['recovered_documents']} exact-hash OOXML recoveries "
+                        "recorded; source bytes preserved"
                     ),
                     "world/ingest/lab-ingest-report.json",
                 ),
@@ -691,7 +694,8 @@ def build() -> dict[str, Any]:
             ),
             "lab_task_hosting": "2,009/2,010 source tasks (99.95%)",
             "lab_practice_criteria": (
-                "65,596/111,814 criteria (58.7%); passes the executable 55% M5 "
+                f"{compiler['criteria_determinate']:,}/{compiler['criteria']:,} criteria "
+                f"({100 * compiler['criteria_coverage']:.1f}%); passes the executable 55% M5 "
                 "admission floor; the earlier ~60% figure was an estimate, not a hidden pass"
             ),
             "tool_surface": (

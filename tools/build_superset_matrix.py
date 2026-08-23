@@ -29,6 +29,8 @@ TRIAGE = ROOT / "data/triage/world-v19.json"
 PROGRAM_EXIT = ROOT / "data/program-exit-v19.json"
 MATRIX_OUT = ROOT / "data/superset-matrix-v19.json"
 DOC_OUT = ROOT / "docs/WHY-BEYOND-HARVEY-LAB.md"
+CONTRACTS = ROOT / "mcp/v3/contracts"
+ROUTES = ROOT / "mcp/systems.json"
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -52,6 +54,14 @@ def build() -> tuple[dict[str, Any], str]:
     canary = load(CANARY)
     triage = load(TRIAGE)
     program_exit = load(PROGRAM_EXIT)
+    contract_tools = [
+        tool
+        for path in sorted(CONTRACTS.glob("*.json"))
+        for tool in (load(path).get("tools") or [])
+    ]
+    agent_tools = sum(tool.get("agent_visible") is not False for tool in contract_tools)
+    internal_operations = len(contract_tools) - agent_tools
+    mirrored_systems = len(load(ROUTES).get("systems") or {})
 
     total_tasks = int(world["total_tasks"])
     oracle_total = int(oracle_base["total"]) + int(oracle_m6["total"])
@@ -70,7 +80,8 @@ def build() -> tuple[dict[str, Any], str]:
     dropped = criteria - determinate
     hosted = int(v17["lab_hosted_tasks"])
     source_tasks = hosted + int(v17["lab_quarantined_tasks"])
-    parsed_documents = int(ingest["documents"]) - int(ingest["failed_documents"])
+    parsed_documents = int(ingest["parsed_documents"])
+    recovered_documents = int(ingest.get("recovered_documents", 0))
     triage_measured = sum(
         1 for row in triage.get("labels", {}).values()
         if int(row.get("episodes", 0)) >= int(triage["expected_episodes_per_task"])
@@ -169,6 +180,7 @@ def build() -> tuple[dict[str, Any], str]:
             "documents_binary_preserved": int(ingest["documents"]),
             "documents_text_parsed": parsed_documents,
             "documents_parse_failed": int(ingest["failed_documents"]),
+            "documents_recovered": recovered_documents,
             "rubric_criteria_total_practice": criteria,
             "rubric_criteria_determinized": determinate,
             "rubric_criteria_dropped": dropped,
@@ -179,8 +191,9 @@ def build() -> tuple[dict[str, Any], str]:
         "world_scope": {
             "tasks": total_tasks,
             "capability_types": len(world["capability_counts"]),
-            "tools": 102,
-            "mirrored_systems": 9,
+            "tools": agent_tools,
+            "internal_operations": internal_operations,
+            "mirrored_systems": mirrored_systems,
             "long_horizon_capstones": int(world["added"]["capstones"]),
             "multi_turn_tasks": int(world["added"]["multi_turn"]),
             "oracle_passed": oracle_passed,
@@ -199,7 +212,7 @@ def build() -> tuple[dict[str, Any], str]:
         },
         "non_claims": [
             "No prose style, persuasion, or legal-writing-quality score is produced.",
-            "The 46,218 residual practice criteria are not silently treated as passing.",
+            f"The {dropped:,} residual practice criteria are not silently treated as passing.",
             "Verbatim public LAB tasks are contamination-caveated and reported separately.",
             "iManage fidelity is capped by the public connector specification; the full API is partner-gated.",
             "Conformance applies to task-used endpoints, not every endpoint in each vendor product.",
@@ -232,7 +245,7 @@ def render_doc(report: dict[str, Any]) -> str:
         "|---|---:|---|",
         f"| LAB tasks hosted | {lab['hosted_tasks']:,}/{lab['source_tasks']:,} ({lab['hosted_percent']:.2f}%) | `docs/PARITY.md`, `world/v17/build-report.json` |",
         f"| LAB documents preserved as source bytes | {lab['documents_binary_preserved']:,} | `world/corpus/lab/ingest-report.json` |",
-        f"| Documents text-parsed | {lab['documents_text_parsed']:,}/{lab['documents_binary_preserved']:,} | same report; {lab['documents_parse_failed']} failures named individually |",
+        f"| Documents text-parsed | {lab['documents_text_parsed']:,}/{lab['documents_binary_preserved']:,} | same report; {lab['documents_parse_failed']} failures and {lab['documents_recovered']} exact-hash recoveries |",
         f"| Practice criteria compiled to assertions | {lab['rubric_criteria_determinized']:,}/{lab['rubric_criteria_total_practice']:,} ({lab['rubric_criteria_determinized_percent']:.1f}%) | `world/port/determinate/lab-report.json` |",
         f"| Residual practice criteria dropped and counted | {lab['rubric_criteria_dropped']:,} | never judged or silently passed |",
         "| LAB prose-quality judge | excluded | this benchmark's headline is judge-free |",
@@ -252,7 +265,7 @@ def render_doc(report: dict[str, Any]) -> str:
         "",
         "## What the executable world adds",
         "",
-        f"The released world contains **{world['tasks']:,} tasks** across all **{world['capability_types']} capability types**, **{world['tools']} agent-visible tools** over **{world['mirrored_systems']} mirrored systems**, **{world['long_horizon_capstones']}** 50-call capstones, and **{world['multi_turn_tasks']}** load-bearing interruption tasks. Its reference proof is {world['oracle_passed']:,}/{world['tasks']:,}; adversarial probes cover {world['discrimination_tasks']:,}/{world['tasks']:,}.",
+        f"The released world contains **{world['tasks']:,} tasks** across all **{world['capability_types']} capability types**, **{world['tools']} agent-visible tools** plus **{world['internal_operations']} non-discoverable simulator/migration operations** over **{world['mirrored_systems']} mirrored systems**, **{world['long_horizon_capstones']}** 50-call capstones, and **{world['multi_turn_tasks']}** load-bearing interruption tasks. Its reference proof is {world['oracle_passed']:,}/{world['tasks']:,}; adversarial probes cover {world['discrimination_tasks']:,}/{world['tasks']:,}.",
         "",
         "LAB asks whether a file satisfies expert-written criteria. This world additionally asks whether the agent read the right evidence, paged through all qualifying records, handled real-shaped failures, changed the correct system state, avoided collateral writes, filed the same grounded deliverable it produced, and retained corrections over a multi-phase matter.",
         "",
@@ -267,7 +280,7 @@ def render_doc(report: dict[str, Any]) -> str:
     ])
     lines.extend(f"- {item}" for item in report["non_claims"])
     lines.extend([
-        f"- {lab['documents_parse_failed']} LAB files failed text extraction; their original bytes remain preserved and their paths/errors are published.",
+        f"- {lab['documents_parse_failed']} LAB files failed text extraction; {lab['documents_recovered']} malformed upstream OOXML packages were recovered only in temporary parser derivatives, with exact paths and hashes published and source bytes preserved.",
         "- The file/state split is proven by Harbor fixtures and an oracle/no-op smoke; model-level lane-split coverage remains null until Harbor model episodes are imported.",
         "- Difficulty labels and the world-v19 pass³ headline remain provisional until `data/triage/world-v19.json` says `complete: true`.",
         "",

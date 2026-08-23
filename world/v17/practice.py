@@ -13,7 +13,9 @@ from world.v17.verifiers import practice_vcode
 
 ROOT = Path(__file__).resolve().parents[2]
 LAB_INDEX = ROOT / "world" / "corpus" / "lab" / "index.sqlite"
-SOURCE_COMMIT = "60071cc424d6"
+SOURCE_COMMIT = json.loads(
+    (ROOT / "research" / "repos-commits.json").read_text(encoding="utf-8")
+)["harveyai@harvey-labs"]
 
 
 def _connect() -> sqlite3.Connection:
@@ -107,8 +109,21 @@ def _task_id(source_task: str) -> str:
     return "labp_" + hashlib.sha256(source_task.encode()).hexdigest()[:16]
 
 
-def append_practice_tasks(world: dict[str, Any], rows: list[dict[str, Any]],
-                          existing: set[str]) -> dict[str, Any]:
+def append_practice_tasks(
+    world: dict[str, Any],
+    rows: list[dict[str, Any]],
+    existing: set[str],
+    *,
+    deliverable_overrides: dict[str, list[str]] | None = None,
+) -> dict[str, Any]:
+    """Append compiled practice tasks.
+
+    ``deliverable_overrides`` is deliberately narrow: it lets a later world
+    adapter supply an output contract when an upstream LAB task omitted only
+    the filename.  The source mirror and source task JSON remain unchanged,
+    and the override is keyed by the full upstream task path so it cannot
+    silently alter unrelated imports.
+    """
     if not LAB_INDEX.is_file():
         raise RuntimeError(f"LAB index missing: {LAB_INDEX}")
     connection = _connect()
@@ -119,8 +134,12 @@ def append_practice_tasks(world: dict[str, Any], rows: list[dict[str, Any]],
         for compiled in rows:
             task_id = _task_id(compiled["source_task"])
             source_task = _task_source(connection, compiled["task_id"])
-            deliverables = _deliverables({**compiled, **{"deliverables": source_task.get("deliverables") or {},
-                                                         "instructions": source_task.get("instructions") or compiled["instructions"]}})
+            overridden = (deliverable_overrides or {}).get(compiled["source_task"])
+            deliverables = list(overridden or _deliverables({
+                **compiled,
+                **{"deliverables": source_task.get("deliverables") or {},
+                   "instructions": source_task.get("instructions") or compiled["instructions"]},
+            }))
             if not deliverables:
                 counts["quarantined_missing_output"] += 1
                 quarantine.append({"source_task": compiled["source_task"],

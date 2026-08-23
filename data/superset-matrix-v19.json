@@ -88,22 +88,23 @@
   ],
   "lab_import": {
     "documents_binary_preserved": 51683,
-    "documents_parse_failed": 9,
-    "documents_text_parsed": 51674,
+    "documents_parse_failed": 0,
+    "documents_recovered": 9,
+    "documents_text_parsed": 51683,
     "hosted_percent": 99.95,
     "hosted_tasks": 2009,
     "judge_lane": "excluded_from_headline_and_not_implemented",
     "quarantined_tasks": 1,
-    "rubric_criteria_determinized": 65596,
+    "rubric_criteria_determinized": 65614,
     "rubric_criteria_determinized_percent": 58.7,
-    "rubric_criteria_dropped": 46218,
+    "rubric_criteria_dropped": 46200,
     "rubric_criteria_total_all_lab": 114437,
     "rubric_criteria_total_practice": 111814,
     "source_tasks": 2010
   },
   "non_claims": [
     "No prose style, persuasion, or legal-writing-quality score is produced.",
-    "The 46,218 residual practice criteria are not silently treated as passing.",
+    "The 46,200 residual practice criteria are not silently treated as passing.",
     "Verbatim public LAB tasks are contamination-caveated and reported separately.",
     "iManage fidelity is capped by the public connector specification; the full API is partner-gated.",
     "Conformance applies to task-used endpoints, not every endpoint in each vendor product.",
@@ -134,11 +135,12 @@
     "capability_types": 10,
     "discrimination_tasks": 2324,
     "fixture_tasks": 2324,
+    "internal_operations": 11,
     "long_horizon_capstones": 5,
     "mirrored_systems": 9,
     "multi_turn_tasks": 30,
     "oracle_passed": 2324,
     "tasks": 2324,
-    "tools": 102
+    "tools": 91
   }
 }

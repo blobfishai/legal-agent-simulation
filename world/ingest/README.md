@@ -4,7 +4,7 @@ This directory is the reproducible boundary between the public Harvey LAB
 snapshot and the simulation world. The source itself is intentionally ignored
 because it is 3.2 GB; its revision and byte identity are committed here.
 
-Measured at `harveyai/harvey-labs@60071cc424d6`:
+Measured at `harveyai/harvey-labs@7be41d57fd5a`:
 
 - 2,010 tasks and 114,437 criteria;
 - 51,683 task-local documents (51,253 unique blobs, 2,686,142,369 bytes);
@@ -23,7 +23,7 @@ Source drift is a hard error.
 python3 world/ingest/lab_ingest.py --inventory-only
 
 # Build Harvey's sandbox/parser image from the pinned source, then ingest.
-docker build -t legal-agent-lab-parser:60071cc424d6 \
+docker build -t legal-agent-lab-parser:7be41d57fd5a \
   research/repos/harveyai@harvey-labs/sandbox
 python3 world/ingest/lab_ingest.py
 
@@ -41,6 +41,13 @@ parsing runs once inside the network-disabled LAB sandbox. The resulting
 `world/corpus/lab` directory is regenerable and ignored; the compact measured
 `lab-ingest-report.json` is committed. A run exits nonzero below 99% parsed and
 lists every failed occurrence by task and source path.
+
+Nine pinned upstream packages contain raw ampersands in OOXML text nodes. The
+v5 extractor first attempts normal parsing, then narrowly escapes only those
+otherwise-invalid ampersands in an in-memory/temporary derivative. Exact source
+blobs remain untouched. Every recovery is recorded by source SHA-256, package
+part, and occurrence count in the ingest report and must match the separately
+audited upstream-defect inventory.
 
 For indexing speed, the derivative extractor reads OOXML text nodes directly
 for DOCX and openpyxl cell values for XLSX; PPTX stays on Harvey's own
