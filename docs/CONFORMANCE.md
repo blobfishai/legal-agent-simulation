@@ -1,5 +1,12 @@
 # Tool conformance
 
+> **Scope:** this report measures the frozen v3 vendor-target baseline. The
+> canonical v21 world retains all 91 rows and adds 1,009 executable synthetic
+> legal-operations tools (19 RetailGuard and 990 CounselOps), for 1,100 visible
+> tools total. The added tools are covered by v21 execution and adversarial
+> verifier tests, not by the vendor-exactness score below. See
+> [the v21 release audit](V21-RELEASE-AUDIT.md).
+
 Pinned specifications: **2026-08-12**.
 
 > Endpoint mapping is not API exactness. A tool counts as exact only after its wire input, success response, pagination, and documented errors all validate. Derived helpers and simulator extensions are excluded from the vendor score.

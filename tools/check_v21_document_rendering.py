@@ -16,6 +16,7 @@ import json
 import shutil
 import subprocess
 import tempfile
+import threading
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -29,6 +30,8 @@ EXPECTED_PACKS = 117
 EXPECTED_FILES = 351
 EXPECTED_PAGES = {"docx": 117, "xlsx": 351, "pdf": 117}
 CATALOG_CORPUS_PREFIX = PurePosixPath("research/v21-seeded-documents")
+SOFFICE_ATTEMPTS = 2
+_SOFFICE_LOCK = threading.Lock()
 
 
 def _sha256(path: Path) -> str:
@@ -74,10 +77,13 @@ def _version(command: list[str]) -> str:
 
 
 def _convert_office(soffice: str, source: Path, output_dir: Path) -> Path:
-    profile = output_dir / f"lo-profile-{source.suffix[1:]}"
-    profile.mkdir(parents=True, exist_ok=True)
-    result = _run(
-        [
+    target = output_dir / f"{source.stem}.pdf"
+    failures: list[str] = []
+    for attempt in range(1, SOFFICE_ATTEMPTS + 1):
+        profile = output_dir / f"lo-profile-{source.suffix[1:]}-attempt-{attempt}"
+        profile.mkdir(parents=True, exist_ok=True)
+        target.unlink(missing_ok=True)
+        command = [
             soffice,
             "--headless",
             f"-env:UserInstallation={profile.resolve().as_uri()}",
@@ -86,14 +92,28 @@ def _convert_office(soffice: str, source: Path, output_dir: Path) -> Path:
             "--outdir",
             str(output_dir),
             str(source),
-        ],
-    )
-    target = output_dir / f"{source.stem}.pdf"
-    if not target.is_file() or target.stat().st_size == 0:
-        raise RuntimeError(
-            f"LibreOffice did not create {target}; stdout={result.stdout!r}; stderr={result.stderr!r}"
+        ]
+        try:
+            # LibreOffice still shares process-global resources even when each
+            # invocation receives a distinct user profile. Concurrent headless
+            # starts can abort with WrappedTargetRuntimeException on Linux, so
+            # keep Office conversion serial while PDF raster inspection remains
+            # parallel across worker threads.
+            with _SOFFICE_LOCK:
+                result = _run(command)
+        except (RuntimeError, subprocess.TimeoutExpired) as exc:
+            failures.append(f"attempt {attempt}: {exc}")
+            continue
+        if target.is_file() and target.stat().st_size > 0:
+            return target
+        failures.append(
+            f"attempt {attempt}: LibreOffice did not create a nonempty {target}; "
+            f"stdout={result.stdout!r}; stderr={result.stderr!r}"
         )
-    return target
+    raise RuntimeError(
+        f"LibreOffice conversion failed after {SOFFICE_ATTEMPTS} isolated attempts for {source}:\n"
+        + "\n".join(failures)
+    )
 
 
 def _render_pdf(pdftoppm: str, source: Path, output_dir: Path, prefix: str) -> list[Path]:

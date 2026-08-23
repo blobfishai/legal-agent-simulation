@@ -1,13 +1,15 @@
 from __future__ import annotations
 
 import hashlib
+import subprocess
 import tempfile
 from pathlib import Path
 import unittest
+from unittest import mock
 
 from PIL import Image, ImageDraw
 
-from tools.check_v21_document_rendering import _page_metric, _render_pack
+from tools.check_v21_document_rendering import _convert_office, _page_metric, _render_pack
 
 
 class V21DocumentRenderingTests(unittest.TestCase):
@@ -98,6 +100,49 @@ class V21DocumentRenderingTests(unittest.TestCase):
                     soffice="must-not-run",
                     pdftoppm="must-not-run",
                 )
+
+    def test_office_conversion_retries_with_a_fresh_profile(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "matter-brief.docx"
+            source.write_bytes(b"synthetic docx")
+            calls = 0
+
+            def fake_run(command: list[str], **_kwargs: object) -> subprocess.CompletedProcess[str]:
+                nonlocal calls
+                calls += 1
+                if calls == 1:
+                    raise RuntimeError("transient LibreOffice process abort")
+                (root / "matter-brief.pdf").write_bytes(b"%PDF-1.4\n")
+                return subprocess.CompletedProcess(command, 0, stdout="converted", stderr="")
+
+            with mock.patch("tools.check_v21_document_rendering._run", side_effect=fake_run) as runner:
+                target = _convert_office("soffice", source, root)
+
+            self.assertEqual(target.read_bytes(), b"%PDF-1.4\n")
+            self.assertEqual(runner.call_count, 2)
+            first = runner.call_args_list[0].args[0]
+            second = runner.call_args_list[1].args[0]
+            self.assertIn("lo-profile-docx-attempt-1", first[2])
+            self.assertIn("lo-profile-docx-attempt-2", second[2])
+
+    def test_office_conversion_rejects_stale_output_and_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "matter-brief.docx"
+            source.write_bytes(b"synthetic docx")
+            target = root / "matter-brief.pdf"
+            target.write_bytes(b"stale prior output")
+
+            with mock.patch(
+                "tools.check_v21_document_rendering._run",
+                side_effect=RuntimeError("persistent conversion failure"),
+            ) as runner:
+                with self.assertRaisesRegex(RuntimeError, "failed after 2 isolated attempts"):
+                    _convert_office("soffice", source, root)
+
+            self.assertEqual(runner.call_count, 2)
+            self.assertFalse(target.exists())
 
 
 if __name__ == "__main__":

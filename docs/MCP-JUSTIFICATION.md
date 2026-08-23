@@ -1,5 +1,11 @@
 # Why each MCP exists — proof of choice, thesis tie, and real-vs-mock diff
 
+> **Scope:** the vendor comparisons below describe the frozen v3 baseline of 91
+> tools. The v21 world retains that baseline and adds 19 RetailGuard and 990
+> CounselOps tools, for 1,100 agent-visible tools. Those additions are
+> deterministic synthetic legal-operations contracts; they are not represented
+> as proprietary vendor replicas. See [the v21 release audit](V21-RELEASE-AUDIT.md).
+
 Every mock service justified four ways: (1) **thesis tie** — which stage of the
 world's own thesis it serves; (2) **stored research** — the domain-registry
 workflow items (URLs collected during the discovery sweep) that name this
@@ -25,10 +31,10 @@ The world's thesis (verbatim topic from the world document):
 | document substrate of every stage | dms + workspace |
 | signature and closing | esign + dms |
 
-The canonical v16 runtime exposes only `mcp/v3/contracts/`: a vendor-shaped
-surface whose remaining wire differences are machine-reported rather than
-described as 1:1. The older `mcp/v2/contracts/` files are retained solely as
-lineage inputs; the runtime and task bank do not expose them.
+The frozen vendor baseline exposes `mcp/v3/contracts/`: a vendor-shaped surface
+whose remaining wire differences are machine-reported rather than described as
+1:1. The older `mcp/v2/contracts/` files are retained solely as lineage inputs;
+the runtime and task bank do not expose them.
 
 ### Conformance status (pinned 2026-08-12)
 
