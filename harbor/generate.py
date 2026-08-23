@@ -79,7 +79,12 @@ def contract_tool_count(contracts: str) -> int:
 # Per-task files
 # ---------------------------------------------------------------------------
 
-def instruction_md(task: dict, phase: dict | None = None) -> str:
+def instruction_md(
+    task: dict,
+    phase: dict | None = None,
+    *,
+    include_file_deliverables: bool = True,
+) -> str:
     prompt = ((phase or {}).get("instruction") or task.get("prompt") or "").strip()
     parts = [prompt]
     # Harbor-native multi-step tasks deliver one instruction per step.  The
@@ -95,7 +100,16 @@ def instruction_md(task: dict, phase: dict | None = None) -> str:
             + "\n".join(f"{i}. {json.dumps(t)}" for i, t in enumerate(followups, 1))
         )
     file_lane = task.get("file_lane") or {}
-    if file_lane:
+    if file_lane and not include_file_deliverables:
+        parts.append("""
+## Input-document lane
+
+The source documents are mounted read-only at `/workspace/documents`. Read the
+documents relevant to this step before acting. Final filesystem deliverables
+are requested and graded only in the final step; do not anticipate later
+instructions.
+""")
+    elif file_lane:
         deliverables = file_lane.get("deliverables") or []
         if file_lane.get("inputs_only") and not deliverables:
             parts.append("""
@@ -302,9 +316,15 @@ def validated_deliverables(task: dict) -> list[str]:
     return clean
 
 
-def test_sh(task: dict, phase: str | None = None) -> str:
-    expected = json.dumps(validated_deliverables(task))
-    file_assertions = json.dumps((task.get("file_lane") or {}).get("assertions") or {})
+def test_sh(
+    task: dict,
+    phase: str | None = None,
+    *,
+    include_file_deliverables: bool = True,
+) -> str:
+    file_lane = (task.get("file_lane") or {}) if include_file_deliverables else {}
+    expected = json.dumps(validated_deliverables(task) if file_lane else [])
+    file_assertions = json.dumps(file_lane.get("assertions") or {})
     verify_body = json.dumps({"phase": phase} if phase else {})
     return f"""\
 #!/bin/bash
@@ -500,9 +520,16 @@ def oracle_file_outputs(task: dict) -> dict[str, str]:
             for name, lines in outputs.items()}
 
 
-def solve_sh(token: str, task: dict | None = None, phase: str | None = None) -> str:
+def solve_sh(
+    token: str,
+    task: dict | None = None,
+    phase: str | None = None,
+    *,
+    include_file_deliverables: bool = True,
+) -> str:
     import base64
-    payload = base64.b64encode(json.dumps(oracle_file_outputs(task or {})).encode()).decode()
+    file_task = (task or {}) if include_file_deliverables else {}
+    payload = base64.b64encode(json.dumps(oracle_file_outputs(file_task)).encode()).decode()
     file_writer = f"""\
 python3 - <<'PYEOF'
 import base64, json
@@ -769,13 +796,30 @@ def main() -> None:
         write(os.path.join(d, "environment", "docker-compose.yaml"),
               compose_yaml(tid, args.image_tag, bool(task.get("file_lane"))))
         if phases:
-            for phase in phases:
+            for index, phase in enumerate(phases):
+                include_file_deliverables = index == len(phases) - 1
                 step_dir = os.path.join(d, "steps", phase["name"])
-                write(os.path.join(step_dir, "instruction.md"), instruction_md(task, phase))
+                write(
+                    os.path.join(step_dir, "instruction.md"),
+                    instruction_md(
+                        task,
+                        phase,
+                        include_file_deliverables=include_file_deliverables,
+                    ),
+                )
                 write(os.path.join(step_dir, "tests", "test.sh"),
-                      test_sh(task, phase["name"]), executable=True)
+                      test_sh(
+                          task,
+                          phase["name"],
+                          include_file_deliverables=include_file_deliverables,
+                      ), executable=True)
                 write(os.path.join(step_dir, "solution", "solve.sh"),
-                      solve_sh(token, task, phase["name"]), executable=True)
+                      solve_sh(
+                          token,
+                          task,
+                          phase["name"],
+                          include_file_deliverables=include_file_deliverables,
+                      ), executable=True)
         else:
             write(os.path.join(d, "tests", "test.sh"), test_sh(task), executable=True)
             write(os.path.join(d, "solution", "solve.sh"), solve_sh(token, task),
