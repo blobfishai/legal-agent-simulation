@@ -31,6 +31,8 @@
     "v21:check": "python3 tools/build_v21_seed_documents.py --check && python3 tools/check_v21_scale.py",
     "v21:serve": "python3 world/local/server.py --world world/blobfish/world-v21.json",
     "v21:harbor": "python3 harbor/generate.py --world world/blobfish/world-v21.json --contracts mcp/v5/contracts --image-tag ghcr.io/blobfishai/legal-agent-sim-world:v21",
+    "v21:harbor-prod": "python3 harbor/generate.py --world world/blobfish/world-v21.json --contracts mcp/v5/contracts --out dist/harbor-v21-prod --image-tag ghcr.io/blobfishai/legal-agent-sim-world:v21 --lab-agent-image ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21",
+    "v21:harbor-check": "python3 tools/check_harbor_export.py --root dist/harbor-v21-prod --world world/blobfish/world-v21.json --expected-tasks 23310 --world-image ghcr.io/blobfishai/legal-agent-sim-world:v21 --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21 --require-all-world-tasks --verify-evidence",
     "manifest:check": "python3 -m unittest discover -s world/manifest/tests -v && python3 -m unittest discover -s world/port/tests -v && python3 -m unittest discover -s world/local/tests -v",
     "lab:determinize": "python3 world/port/lab_determinize.py",
     "lab:determinize-check": "python3 world/port/lab_determinize.py --check",

@@ -11,9 +11,14 @@ which now writes to `dist/harbor-legacy`.)
 ## Generate + build
 
 ```bash
-python3 harbor/generate.py --build-image   # 23,310 v21 tasks -> dist/harbor/tasks/,
-                                           # shared image legal-agent-sim-world:v21
+npm run v21:harbor-prod   # 23,310 tasks -> dist/harbor-v21-prod/tasks
+npm run v21:harbor-check  # exact manifests, inputs, skills, images, steps, corpus
 ```
+
+The structural gate checks all 23,310 task directories against the canonical
+world, including 22,813 file lanes, 126,592 staged document instances, 5,544
+skill trees, 36 multi-step tasks/89 phases, both evidence-index hashes, and zero
+agent-side `world.json` copies.
 
 LAB-imported tasks carry a `file_lane` block. For those tasks the generator
 also stages the exact commit-pinned input tree at `/workspace/documents`

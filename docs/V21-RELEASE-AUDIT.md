@@ -61,7 +61,7 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Unit suites | 39/39 passed (manifest, port, local runtime) |
 | Seed reproducibility | 198/198 files byte-identical in isolated rebuild |
 | Visual document audit | 330/330 rendered pages inspected: 66 DOCX, 198 worksheet pages, 66 PDF |
-| Harbor structural export | 23,310 task directories and manifests; zero agent-side `world.json` copies |
+| Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,592 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies |
 | Harbor schema 1.4 steps | 36 multi-step tasks, 89 step test/solution fixtures |
 | Harbor oracle canary | 5/5 representative tasks reward 1.0; zero exceptions |
 | Harbor discrimination | no-op task reward 0.0; zero harness exceptions |
@@ -69,8 +69,11 @@ upstream sandbox/skill sources required by Harbor are tracked under
 The five-task Harbor canary spans the legacy scripted-turn, v20 researched
 consumer-protection, v20 retail multi-step, v21 generated state, and v21 seeded
 document lanes. The exhaustive in-process checker covers every generated task;
-the container canary proves the shared Docker/Harbor integration rather than
-repeating 23,310 equivalent image starts on a 2 GiB development VM.
+`npm run v21:harbor-check` separately proves exact source/export file trees,
+schema 1.4 topology, executable test/solution programs, image routing,
+contracts, and packaged corpus hashes across the complete export. The container
+canary proves the shared Docker/Harbor integration rather than repeating 23,310
+equivalent image starts on a 2 GiB development VM.
 
 ## Production path
 

@@ -74,6 +74,13 @@ jobs:
             --tasks labp_b50165c2a9cd39db,task_v20_cp_001,task_v20_retail_national_closeout,task_v21_lt_matters_00001,task_v21_lt_matters_00005 \
             --image-tag "$WORLD_CANDIDATE" \
             --lab-agent-image "$LAB_CANDIDATE"
+          python3 tools/check_harbor_export.py \
+            --root dist/harbor-v21-release \
+            --world world/blobfish/world-v21.json \
+            --expected-tasks 5 \
+            --world-image "$WORLD_CANDIDATE" \
+            --lab-image "$LAB_CANDIDATE" \
+            --verify-evidence
 
       - name: Authenticate to GHCR
         env:
