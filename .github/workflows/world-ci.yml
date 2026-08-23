@@ -81,6 +81,7 @@ jobs:
             tools/check_atomic_seed.py \
             tools/check_lab_ingest.py \
             tools/check_harbor_file_lane.py \
+            tools/hydrate_v21_evidence.py \
             tools/check_lab_port.py \
             tools/check_lab_extractor_parity.py \
             tools/check_external_evidence.py \

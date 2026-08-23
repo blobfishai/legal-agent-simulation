@@ -1,4 +1,4 @@
-name: Publish v21 world image
+name: Publish v21 runtime images
 
 on:
   workflow_dispatch:
@@ -21,10 +21,12 @@ jobs:
   publish:
     name: Rebuild, verify, and publish v21
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     env:
-      IMAGE: ghcr.io/blobfishai/legal-agent-sim-world
+      WORLD_IMAGE: ghcr.io/blobfishai/legal-agent-sim-world
+      LAB_IMAGE: ghcr.io/blobfishai/legal-agent-sim-agent-lab
       TAG: ${{ inputs.tag }}
+      HARBOR_VERSION: 0.21.0
     steps:
       - name: Check out release commit
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -33,9 +35,18 @@ jobs:
         run: |
           set -euo pipefail
           [[ "$TAG" =~ ^[a-z0-9][a-z0-9._-]{0,127}$ ]]
+          release_suffix="${GITHUB_SHA:0:12}"
+          echo "WORLD_CANDIDATE=$WORLD_IMAGE:$TAG-$release_suffix" >> "$GITHUB_ENV"
+          echo "LAB_CANDIDATE=$LAB_IMAGE:$TAG-$release_suffix" >> "$GITHUB_ENV"
 
       - name: Install pinned document dependencies
         run: python3 -m pip install --disable-pip-version-check -r tools/v21-requirements.txt
+
+      - name: Install pinned Harbor runner
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+
+      - name: Configure Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
 
       - name: Rebuild and exhaustively verify v21
         run: |
@@ -45,6 +56,14 @@ jobs:
           jq -e '.world_sha256 == "55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394"' \
             world/v21/build-report.json
 
+      - name: Hydrate checksum-pinned production evidence
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends zstd
+          python3 tools/hydrate_v21_evidence.py
+          python3 tools/hydrate_v21_evidence.py --check
+
       - name: Assemble the production image context
         run: |
           set -euo pipefail
@@ -52,8 +71,9 @@ jobs:
             --world world/blobfish/world-v21.json \
             --contracts mcp/v5/contracts \
             --out dist/harbor-v21-release \
-            --tasks task_003,task_v20_cp_001,task_v20_retail_national_closeout,task_v21_lt_matters_00001,task_v21_lt_matters_00005 \
-            --image-tag "$IMAGE:$TAG"
+            --tasks labp_b50165c2a9cd39db,task_v20_cp_001,task_v20_retail_national_closeout,task_v21_lt_matters_00001,task_v21_lt_matters_00005 \
+            --image-tag "$WORLD_CANDIDATE" \
+            --lab-agent-image "$LAB_CANDIDATE"
 
       - name: Authenticate to GHCR
         env:
@@ -62,25 +82,78 @@ jobs:
           set -euo pipefail
           printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "${{ github.actor }}" --password-stdin
 
-      - name: Build and publish immutable release contents
+      - name: Build and publish immutable release candidates
         run: |
           set -euo pipefail
           token_hash=$(tr -d '\n' < dist/harbor-v21-release/world-image/solve-token.txt | sha256sum | cut -d' ' -f1)
           docker build \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --tag "$LAB_CANDIDATE" \
+            research/harvey-recovery/sandbox
+          docker build \
             --build-arg "ORACLE_PROOF_SHA256=$token_hash" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
-            --tag "$IMAGE:$TAG" \
+            --tag "$WORLD_CANDIDATE" \
             dist/harbor-v21-release/world-image
-          docker push "$IMAGE:$TAG"
-          docker buildx imagetools inspect "$IMAGE:$TAG"
+          docker push "$LAB_CANDIDATE"
+          docker push "$WORLD_CANDIDATE"
+          docker image rm "$LAB_CANDIDATE" "$WORLD_CANDIDATE"
+          docker pull "$LAB_CANDIDATE"
+          docker pull "$WORLD_CANDIDATE"
+
+      - name: Validate pushed candidates in Harbor
+        run: |
+          set -euo pipefail
+          uvx --from "harbor==$HARBOR_VERSION" harbor run \
+            --path dist/harbor-v21-release/tasks \
+            --agent oracle \
+            --jobs-dir jobs/v21-release \
+            --job-name production-oracle \
+            --n-concurrent 1 --quiet --yes
+          python3 tools/check_harbor_result.py \
+            --job jobs/v21-release/production-oracle \
+            --tasks labp_b50165c2a9cd39db task_v20_cp_001 task_v20_retail_national_closeout task_v21_lt_matters_00001 task_v21_lt_matters_00005 \
+            --reward 1 --passed 1
+          uvx --from "harbor==$HARBOR_VERSION" harbor run \
+            --path dist/harbor-v21-release/tasks \
+            --agent nop \
+            --jobs-dir jobs/v21-release \
+            --job-name production-nop \
+            --n-concurrent 1 --quiet --yes
+          python3 tools/check_harbor_result.py \
+            --job jobs/v21-release/production-nop \
+            --tasks labp_b50165c2a9cd39db task_v20_cp_001 task_v20_retail_national_closeout task_v21_lt_matters_00001 task_v21_lt_matters_00005 \
+            --reward 0 --passed 0
+
+      - name: Promote validated candidates to production
+        run: |
+          set -euo pipefail
+          docker buildx imagetools create --tag "$LAB_IMAGE:$TAG" "$LAB_CANDIDATE"
+          docker buildx imagetools create --tag "$WORLD_IMAGE:$TAG" "$WORLD_CANDIDATE"
+          lab_candidate_digest="sha256:$(docker buildx imagetools inspect "$LAB_CANDIDATE" --raw | sha256sum | cut -d' ' -f1)"
+          lab_production_digest="sha256:$(docker buildx imagetools inspect "$LAB_IMAGE:$TAG" --raw | sha256sum | cut -d' ' -f1)"
+          world_candidate_digest="sha256:$(docker buildx imagetools inspect "$WORLD_CANDIDATE" --raw | sha256sum | cut -d' ' -f1)"
+          world_production_digest="sha256:$(docker buildx imagetools inspect "$WORLD_IMAGE:$TAG" --raw | sha256sum | cut -d' ' -f1)"
+          [[ "$lab_candidate_digest" == "$lab_production_digest" ]]
+          [[ "$world_candidate_digest" == "$world_production_digest" ]]
+          echo "LAB_DIGEST=$lab_production_digest" >> "$GITHUB_ENV"
+          echo "WORLD_DIGEST=$world_production_digest" >> "$GITHUB_ENV"
+          docker buildx imagetools inspect "$LAB_IMAGE:$TAG"
+          docker buildx imagetools inspect "$WORLD_IMAGE:$TAG"
 
       - name: Record release summary
         run: |
           {
-            echo '### v21 production image'
+            echo '### v21 production images'
             echo
-            echo "- Image: \`$IMAGE:$TAG\`"
+            echo "- World image: \`$WORLD_IMAGE:$TAG\`"
+            echo "- File-lane agent image: \`$LAB_IMAGE:$TAG\`"
+            echo "- World digest: \`$WORLD_DIGEST\`"
+            echo "- File-lane digest: \`$LAB_DIGEST\`"
+            echo "- Validated candidate: \`$WORLD_CANDIDATE\`"
+            echo "- Harbor oracle/no-op production gate: 5/5 pass and 5/5 reject"
             echo "- Commit: \`${{ github.sha }}\`"
             echo '- World SHA-256: `55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394`'
             echo '- Exhaustive v21 checker: passed before publication'

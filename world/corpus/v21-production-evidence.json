@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "release": {
+    "repository": "blobfishai/legal-agent-simulation",
+    "tag": "v21-production-evidence"
+  },
+  "source": {
+    "license": "MIT",
+    "repository": "harveyai/harvey-labs",
+    "commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "lab_source_tree_sha256": "32c8f4ec50756be261beb0f7fe5baf2da45a5375d391ba0200c52f08ee7d6a60",
+    "ch_source_tree_sha256": "0922c48792e77e7e0906f7ab7bb86d3e882b5131917b67a828426d336875d6ee"
+  },
+  "indexes": {
+    "ch": {
+      "asset": "ch-index.sqlite.zst",
+      "target": "ch/index.sqlite",
+      "compressed_bytes": 235341719,
+      "compressed_sha256": "51db39e9117e0e728d3407695c2d219c66647dd2ecea6f75e8e2090151dbd791",
+      "sqlite_bytes": 723673088,
+      "sqlite_sha256": "28c32f30fb8d5498ce1756fcb4bc4722b35a2d263861388ae8fc59b5b356d78f",
+      "table_counts": {
+        "files": 9288,
+        "files_fts": 9288,
+        "matters": 266
+      },
+      "metadata_table": "corpus_metadata",
+      "metadata": {
+        "fts_version": "1",
+        "indexed_chars": 533985300,
+        "indexed_files": 9288,
+        "source_tree_sha256": "0922c48792e77e7e0906f7ab7bb86d3e882b5131917b67a828426d336875d6ee",
+        "text_tree_sha256": "375006513ec329c1a4f0ecb98ac4f4307907be129bc3d4ce632563d4aae44378"
+      }
+    },
+    "lab": {
+      "asset": "lab-index.sqlite.zst",
+      "target": "lab/index.sqlite",
+      "compressed_bytes": 1250300461,
+      "compressed_sha256": "8e7a84dbd939c62a868ade701f7651f37603bda3218de8dc261c562cab211c4a",
+      "sqlite_bytes": 4014469120,
+      "sqlite_sha256": "ca753a6212683a46221a2965382be05a6756e6ffc1773df614cac9ee284291b0",
+      "table_counts": {
+        "blobs": 51253,
+        "blobs_fts": 51253,
+        "files": 51683,
+        "tasks": 2010
+      },
+      "metadata_table": "metadata",
+      "metadata": {
+        "documents": 51683,
+        "fts_enabled": true,
+        "license": "MIT",
+        "source_commit": "7be41d57fd5a",
+        "source_repo": "harveyai/harvey-labs",
+        "source_tree_sha256": "32c8f4ec50756be261beb0f7fe5baf2da45a5375d391ba0200c52f08ee7d6a60",
+        "tasks": 2010,
+        "total_input_bytes": 3206739638,
+        "total_input_files": 60971,
+        "unique_blobs": 51253
+      }
+    }
+  }
+}

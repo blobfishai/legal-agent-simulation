@@ -22,7 +22,7 @@ manuals, and uses the heavier LibreOffice+pandoc agent base:
 
 ```bash
 python3 harbor/generate.py --build-lab-agent-image \
-  --lab-agent-image ghcr.io/blobfishai/legal-agent-sim-agent-lab:v17
+  --lab-agent-image ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21
 ```
 
 The verifier copies non-symlink output files to `/logs/artifacts` and emits
@@ -61,16 +61,27 @@ memory before increasing `-n`; the release smoke is deliberately serial on a
 
 Tasks reference the world image as `ghcr.io/blobfishai/legal-agent-sim-world:v21`,
 so a published image makes every task dir self-sufficient (no local build).
-Both shipping steps need interactive auth, so they are manual:
+File-lane tasks likewise reference
+`ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21`. The GitHub Actions release
+workflow rebuilds and publishes both images; Harbor registry publication still
+needs its own interactive OAuth token:
+
+The 4.7 GB materialized LAB/C&H search indexes are intentionally outside
+ordinary Git history. `world/corpus/v21-production-evidence.json` pins their
+release assets by compressed and uncompressed SHA-256, byte count, SQLite
+integrity, table counts, and source metadata. A clean release runner hydrates
+them with `python3 tools/hydrate_v21_evidence.py` before building the world
+image; `--check` verifies a materialized copy without downloading it.
 
 ```bash
-# 1. Push the world image (one-time; needs the write:packages scope)
+# Optional manual image push (the release workflow normally performs this)
 gh auth refresh -h github.com -s write:packages
 gh auth token | docker login ghcr.io -u <github-user> --password-stdin
 docker push ghcr.io/blobfishai/legal-agent-sim-world:v21
+docker push ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21
 # then make the package public: https://github.com/orgs/blobfishai/packages
 
-# 2. Publish tasks to the Harbor registry (hub.harborframework.com)
+# Publish tasks to the Harbor registry (hub.harborframework.com)
 uvx harbor auth login          # GitHub sign-in flow
 uvx harbor publish "dist/harbor-v21-prod/tasks"
 ```

@@ -232,7 +232,7 @@ def task_toml(task: dict, image_tag: str, world_version) -> str:
 AGENT_DOCKERFILE = """\
 # Agent container. The world (tools, verifiers, state) lives in the separate
 # `world` compose service — see docker-compose.yaml.
-FROM python:3.12-slim
+FROM python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36
 RUN apt-get update && apt-get install -y --no-install-recommends curl \\
     && rm -rf /var/lib/apt/lists/*
 COPY tool /usr/local/bin/tool
@@ -593,9 +593,13 @@ def stage_file_lane(task: dict, task_dir: str) -> None:
     shutil.copytree(source_path, destination, copy_function=link_or_copy)
 
     configured_skills = config.get("skills_source")
-    skills_source = Path(configured_skills) if configured_skills else (
-        Path(ROOT) / "research" / "repos" / "harveyai@harvey-labs" / "harness" / "skills"
-    )
+    if configured_skills:
+        skills_source = Path(configured_skills)
+    else:
+        skills_source = (Path(ROOT) / "research" / "repos" / "harveyai@harvey-labs" /
+                         "harness" / "skills")
+        if not skills_source.is_dir():
+            skills_source = Path(ROOT) / "research" / "harvey-recovery" / "skills"
     if not skills_source.is_absolute():
         skills_source = Path(ROOT) / skills_source
     skills_source = skills_source.resolve()
@@ -663,7 +667,7 @@ def main() -> None:
                          "file; --build-image tags the local build with it")
     ap.add_argument("--build-image", action="store_true")
     ap.add_argument("--lab-agent-image",
-                    default="ghcr.io/blobfishai/legal-agent-sim-agent-lab:v17")
+                    default="ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21")
     ap.add_argument("--build-lab-agent-image", action="store_true",
                     help="build the heavy file-lane base from the pinned LAB sandbox")
     args = ap.parse_args()
@@ -691,7 +695,10 @@ def main() -> None:
     if args.build_lab_agent_image:
         lab_sandbox = os.path.join(ROOT, "research", "repos", "harveyai@harvey-labs", "sandbox")
         if not os.path.isfile(os.path.join(lab_sandbox, "Dockerfile")):
-            sys.exit(f"Harvey LAB sandbox source missing: {lab_sandbox}")
+            lab_sandbox = os.path.join(ROOT, "research", "harvey-recovery", "sandbox")
+        if not os.path.isfile(os.path.join(lab_sandbox, "Dockerfile")):
+            sys.exit("Harvey LAB sandbox source missing from both the local mirror "
+                     "and research/harvey-recovery/sandbox")
         command = ["docker", "build", "-t", args.lab_agent_image, lab_sandbox]
         print("+", " ".join(command))
         subprocess.run(command, check=True)

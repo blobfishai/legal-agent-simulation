@@ -33,7 +33,7 @@ This audit found and closed three release-blocking implementation defects:
 | --- | ---: | ---: |
 | Task configurations / hosted tasks | 2,010 | 2,010/2,010 preserved inside 23,310 total tasks |
 | Tracked upstream paths | 63,074 | exact local nested mirror, plus local extensions |
-| Physical upstream inputs | 60,971 / 3,206,739,638 bytes | exact local mirror; 15 release-critical files narrowly vendored for clean rebuilds |
+| Physical upstream inputs | 60,971 / 3,206,739,638 bytes | exact local mirror; 15 release-critical inputs narrowly vendored for clean rebuilds |
 | Upstream PDFs | 0 | 66 new synthetic evidence PDFs plus provenance-tracked research PDFs |
 | Deterministic per-task verifiers | 0 | 23,310 |
 | Generic / product tools | 6 generic shell/file tools | 1,100 visible + 11 internal operations |
@@ -44,7 +44,8 @@ The exact Harvey tree remains at the pinned commit
 `7be41d57fd5a6e97b5f246a029e810f83d09cd96` under the gitignored local research
 corpus. `research/clone-repos.sh` hydrates the pinned tree. The Git repository
 does not pretend that a 3.2 GB nested checkout is stored in normal Git history;
-the exact 15 files required by the recovered canonical task are tracked under
+the exact 15 files required by the recovered canonical task and the small
+upstream sandbox/skill sources required by Harbor are tracked under
 `research/harvey-recovery/` with the upstream MIT license.
 
 ## Validation evidence
@@ -75,10 +76,17 @@ repeating 23,310 equivalent image starts on a 2 GiB development VM.
 
 `.github/workflows/v21-release.yml` rebuilds the release from tracked inputs,
 runs the exhaustive checker, asserts the world hash above, builds the isolated
-world image, and publishes `ghcr.io/blobfishai/legal-agent-sim-world:v21` using
-the repository-scoped GitHub Actions token. The full generated Harbor dataset
-is `dist/harbor-v21-prod/tasks` (23,310 tasks); Harbor registry publication is a
-separate authenticated operation documented in `harbor/README.md`.
+world and file-lane agent images, and publishes
+`ghcr.io/blobfishai/legal-agent-sim-world:v21` and
+`ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21` using the
+repository-scoped GitHub Actions token. The build hydrates the complete LAB and
+C&H FTS indexes from the `v21-production-evidence` release. Their 1.49 GB of
+compressed assets expand to 4,738,142,208 exact SQLite bytes and are gated by
+compressed/uncompressed SHA-256, SQLite quick-check, semantic table counts, and
+pinned Harvey source metadata in `world/corpus/v21-production-evidence.json`.
+The full generated Harbor dataset is `dist/harbor-v21-prod/tasks` (23,310
+tasks); Harbor registry publication is a separate authenticated operation
+documented in `harbor/README.md`.
 
 ## Explicit boundaries and remaining external work
 

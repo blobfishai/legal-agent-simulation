@@ -16,6 +16,33 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GENERATOR_PATH = ROOT / "harbor" / "generate.py"
+RECOVERY_TREE_FILES = 34
+RECOVERY_TREE_BYTES = 113081
+RECOVERY_TREE_SHA256 = "bbdcf02717bf2ad491bf5ebbe028ebd5d69f5427609fddb0aaca3ad8d4e88d5a"
+
+
+def recovery_tree_fingerprint() -> tuple[int, int, str]:
+    """Hash path names and bytes for the pinned Harvey sandbox/skill snapshot."""
+    root = ROOT / "research" / "harvey-recovery"
+    files = sorted(
+        path
+        for directory in ("sandbox", "skills")
+        for path in (root / directory).rglob("*")
+        if path.is_file()
+    )
+    digest = hashlib.sha256()
+    byte_count = 0
+    for path in files:
+        relative = path.relative_to(root).as_posix().encode()
+        payload = path.read_bytes()
+        byte_count += len(payload)
+        digest.update(len(relative).to_bytes(4, "big"))
+        digest.update(relative)
+        digest.update(len(payload).to_bytes(8, "big"))
+        digest.update(payload)
+    return len(files), byte_count, digest.hexdigest()
+
+
 def load_generator():
     spec = importlib.util.spec_from_file_location("harbor_generate", GENERATOR_PATH)
     assert spec and spec.loader
@@ -27,6 +54,11 @@ def load_generator():
 def main() -> int:
     generator = load_generator()
     commit = json.loads((ROOT / "research" / "repos-commits.json").read_text())["harveyai@harvey-labs"]
+    assert recovery_tree_fingerprint() == (
+        RECOVERY_TREE_FILES,
+        RECOVERY_TREE_BYTES,
+        RECOVERY_TREE_SHA256,
+    )
     live_checked = False
     with tempfile.TemporaryDirectory(prefix="harbor-file-lane-") as temporary:
         base = Path(temporary)
@@ -58,6 +90,23 @@ def main() -> int:
         assert len(documents) == 9, len(documents)
         assert all((task_dir / "environment" / "skills" / name / "SKILL.md").is_file()
                    for name in ("docx", "xlsx", "pptx"))
+
+        # A clean Git checkout does not contain the 3.2 GB ignored Harvey
+        # mirror. The tracked, commit-pinned recovery copy must therefore be a
+        # complete staging source for authored file lanes.
+        recovery_task = {
+            **task,
+            "task_id": "harvey_recovery_skills_gate",
+            "file_lane": {
+                **task["file_lane"],
+                "skills_source": "research/harvey-recovery/skills",
+            },
+        }
+        recovery_dir = base / "recovery-task"
+        generator.stage_file_lane(recovery_task, str(recovery_dir))
+        assert all((recovery_dir / "environment" / "skills" / name / "SKILL.md").is_file()
+                   for name in ("docx", "xlsx", "pptx"))
+        assert (ROOT / "research" / "harvey-recovery" / "sandbox" / "Dockerfile").is_file()
 
         instruction = generator.instruction_md(task)
         assert source_instruction in instruction

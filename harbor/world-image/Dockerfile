@@ -1,7 +1,7 @@
 # Shared world image for every legal-agent-simulation Harbor task.
 # Built ONCE by harbor/generate.py (--build-image); per-task compose files
 # reference it by tag and select the task with the TASK_ID env var.
-FROM python:3.12-slim
+FROM python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36
 WORKDIR /world
 # The multi-GB evidence layer changes least often. Keep it ahead of runtime
 # code so a verifier/runtime edit does not rebuild and re-export the corpus.
