@@ -1,0 +1,104 @@
+[
+  {
+    "type": "company",
+    "name": "DataCore Systems",
+    "role": "company",
+    "tail_options": [
+      "Systems"
+    ],
+    "fragments": [
+      "DataCore"
+    ],
+    "domain": "datacoresystems.com"
+  },
+  {
+    "type": "company",
+    "name": "Pinnacle Staffing Solutions",
+    "role": "company",
+    "tail_options": [
+      "Staffing Solutions"
+    ],
+    "fragments": [
+      "Pinnacle"
+    ],
+    "domain": "pinnaclestaffing.com"
+  },
+  {
+    "type": "company",
+    "name": "Greenleaf Accounting Group",
+    "role": "accounting",
+    "fragments": [
+      "Greenleaf"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Harmon Ridge Capital",
+    "role": "holdings",
+    "tail_options": [
+      "Capital"
+    ],
+    "fragments": [
+      "Harmon Ridge"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Braxton Cole LLP",
+    "role": "lawfirm",
+    "fragments": [
+      "Braxton"
+    ],
+    "domain": "braxtoncole.com"
+  },
+  {
+    "type": "company",
+    "name": "Ashford, Clement & Yates",
+    "role": "lawfirm",
+    "domain": "ashfordclementyates.com"
+  },
+  {
+    "type": "person",
+    "name": "Victor Sousa",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Cheryl Nance",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "Derek Baines",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Rajesh Narayan",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Anil Subramanian"
+  },
+  {
+    "type": "person",
+    "name": "Thomas Whitford"
+  },
+  {
+    "type": "person",
+    "name": "Shannon Pryor"
+  },
+  {
+    "type": "person",
+    "name": "Katherine Ashford"
+  },
+  {
+    "type": "person",
+    "name": "Daniel Reeves"
+  },
+  {
+    "type": "person",
+    "name": "Steven Lofton"
+  }
+]

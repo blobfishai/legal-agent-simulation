@@ -1,0 +1,153 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 8094,
+      "path": "evidence-register.xlsx",
+      "sha256": "dc0eb521b318fc393ade6aa055c25a11faf46b13287c030b3c881681741eb24e"
+    },
+    {
+      "bytes": 39571,
+      "path": "matter-brief.docx",
+      "sha256": "8fa034bb807240c588998510c5f87259b29e889519f67d238cfa90b27ca6b324"
+    },
+    {
+      "bytes": 2890,
+      "path": "source-extract.pdf",
+      "sha256": "bcb3eab6b0a5bd5c8929249e625122a7f250ecd9870736547a2febab1b08b79b"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-RETAIL-NC-33",
+    "attorney_validation_required": true,
+    "authority_focus": "Prohibits price misrepresentation for commodities or services sold by weight, measure, or count.",
+    "domain": "retail-price-accuracy",
+    "domain_label": "Retail Price Accuracy",
+    "due_date": "2026-09-01",
+    "evidence_date": "2026-08-02",
+    "expected_status": "retail-authority-mapped-nc",
+    "issue": "checkout control gap mapped to N.C. Gen. Stat. \u00a7 81A-23",
+    "item_count": 76,
+    "jurisdiction": "NC",
+    "legal_research_status": "specific_authority_mapped_attorney_validation_required",
+    "matter_ref": "MAT-RPA-2033",
+    "mutation_parent": "pack-retail-price-accuracy-al",
+    "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
+    "pack_id": "pack-retail-price-accuracy-nc",
+    "private_remedy_encoded": false,
+    "research_authority": "N.C. Gen. Stat. \u00a7 81A-23",
+    "research_authority_url": "https://www.ncleg.gov/enactedlegislation/statutes/pdf/bychapter/chapter_81a.pdf",
+    "research_source_kind": "official_state_statute",
+    "reserve_amount": 2137.5,
+    "risk_level": "critical",
+    "substantive_legal_opinion": false,
+    "synthetic": true,
+    "title": "Retail Price Accuracy Review - NC",
+    "total_amount": 1275.28,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 16.78,
+    "variant": 33
+  },
+  "schema_version": 2,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          12,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$12",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "type": "company",
+    "name": "Vectralign Technologies",
+    "role": "company",
+    "tail_options": [
+      "Technologies"
+    ],
+    "fragments": [
+      "Vectralign"
+    ],
+    "domain": "vectralign.com"
+  },
+  {
+    "type": "company",
+    "name": "Pinnacle Robotics",
+    "role": "company",
+    "tail_options": [
+      "Robotics"
+    ],
+    "fragments": [
+      "Pinnacle"
+    ],
+    "domain": "pinnaclerobotics.com"
+  },
+  {
+    "type": "company",
+    "name": "Hollcroft Ventures Hill Capital",
+    "role": "holdings",
+    "tail_options": [
+      "Hill Capital"
+    ],
+    "fragments": [
+      "Hollcroft Ventures"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Thornfield Ventures",
+    "role": "holdings",
+    "tail_options": [
+      "Ventures"
+    ],
+    "fragments": [
+      "Thornfield"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "OmniNav Corp",
+    "role": "company",
+    "tail_options": [
+      "Corp"
+    ],
+    "fragments": [
+      "OmniNav"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "ParkourAI",
+    "role": "company"
+  },
+  {
+    "type": "company",
+    "name": "Oakvale IP Analytics",
+    "role": "advisory",
+    "tail_options": [
+      "IP Analytics"
+    ],
+    "fragments": [
+      "Oakvale"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Silverthread Code Assurance",
+    "role": "advisory",
+    "tail_options": [
+      "Code Assurance"
+    ],
+    "fragments": [
+      "Silverthread"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Castlebridge Whitford",
+    "role": "lawfirm",
+    "fragments": [
+      "Castlebridge"
+    ],
+    "domain": "castlebridgewhitford.com"
+  },
+  {
+    "type": "company",
+    "name": "Hargrove, Bledsoe & Kwan",
+    "role": "lawfirm",
+    "domain": "hargrovebledsoe.com"
+  },
+  {
+    "type": "person",
+    "name": "Ravi Sundaresh",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Kenji Watanabe",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Naveen Patel",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Lila Okonkwo",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "Elaine Coopersmith",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "Ananya Krishnamurthy"
+  },
+  {
+    "type": "person",
+    "name": "Marcus Bellweather"
+  },
+  {
+    "type": "person",
+    "name": "Jonathan Whitford"
+  },
+  {
+    "type": "person",
+    "name": "Sandra Kwan"
+  }
+]

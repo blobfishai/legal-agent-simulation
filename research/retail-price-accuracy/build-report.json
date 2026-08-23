@@ -1,11 +1,27 @@
 {
   "all_attorney_validation_required": true,
+  "authority_map_v2_all_attorney_validation_required": true,
+  "authority_map_v2_jurisdictions": 51,
+  "authority_map_v2_private_remedies_encoded": 0,
+  "authority_map_v2_source_kinds": {
+    "official_district_statute": 1,
+    "official_nist_compilation_of_state_text": 8,
+    "official_state_agency_compilation": 1,
+    "official_state_code_portal": 1,
+    "official_state_program": 2,
+    "official_state_regulation": 2,
+    "official_state_statute": 34,
+    "official_state_statute_compilation": 1,
+    "official_state_statute_portal": 1
+  },
+  "authority_map_v2_specific_authorities": 51,
+  "authority_map_v2_substantive_legal_opinions": 0,
   "built_at": "2026-08-22",
-  "documents": 15,
+  "documents": 18,
   "formats": {
     "docx": 6,
     "pdf": 3,
-    "xlsx": 6
+    "xlsx": 9
   },
   "jurisdictions": 51,
   "pending_substantive_validation_jurisdictions": 45,
@@ -23,7 +39,7 @@
     "research/retail-price-accuracy/mutations/dc-price-weight-duplicate-scan-v1/manifest.json"
   ],
   "scenarios": 3,
-  "schema_version": 1,
+  "schema_version": 2,
   "seed_data": "research/retail-price-accuracy/seed-data.json",
   "shared_structure_signature": {
     "docx": {
@@ -52,6 +68,7 @@
       "checkout-event-log.xlsx",
       "customer-price-accuracy-policy.docx",
       "incident-report.docx",
+      "jurisdiction-authority-map-v2.xlsx",
       "jurisdiction-source-register.xlsx",
       "sample-receipts.pdf"
     ],
@@ -71,6 +88,18 @@
           "Line Items",
           "Control Tests",
           "Data Dictionary"
+        ]
+      },
+      "jurisdiction-authority-map-v2.xlsx": {
+        "columns": {
+          "Authority Map": 13,
+          "Control Baseline": 4,
+          "Methodology": 2
+        },
+        "sheets": [
+          "Authority Map",
+          "Control Baseline",
+          "Methodology"
         ]
       },
       "jurisdiction-source-register.xlsx": {

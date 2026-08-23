@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7887,
+      "bytes": 7989,
       "path": "evidence-register.xlsx",
-      "sha256": "88fc0ab869076f8ff92b32bfb5a95dac18eb71dd0535ee2140b71741adccd9d8"
+      "sha256": "688ff2b99eec90d2510b666d94d6f2fe04abd3a98f2be0114457cfe35e29d002"
     },
     {
       "bytes": 39490,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in plans",
     "item_count": 38,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-BK-1092",
     "mutation_parent": "pack-bankruptcy-01",
     "pack_id": "pack-bankruptcy-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1975,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Bankruptcy Control Review 02",
     "total_amount": 2359.8,
@@ -40,7 +46,7 @@
     "unit_rate": 62.1,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

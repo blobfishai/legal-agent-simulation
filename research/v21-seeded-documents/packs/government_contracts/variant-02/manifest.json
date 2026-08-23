@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7914,
+      "bytes": 8012,
       "path": "evidence-register.xlsx",
-      "sha256": "7e2d7bc8c7aecddf499c1c9a85114401a876ad30aa790716fde94f0e6eaf7465"
+      "sha256": "46778c3b30f6ee3e462affe208b77f9797968dfa98e2b9e1a1486e37bdfdc09f"
     },
     {
       "bytes": 39508,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in audits",
     "item_count": 68,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-GC-1192",
     "mutation_parent": "pack-government_contracts-01",
     "pack_id": "pack-government_contracts-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3225,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Government Contracts Control Review 02",
     "total_amount": 7180.8,
@@ -40,7 +46,7 @@
     "unit_rate": 105.6,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

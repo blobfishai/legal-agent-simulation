@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import copy
 import hashlib
 import json
@@ -27,12 +28,16 @@ from world.v21.catalog import (  # noqa: E402
     tool_name,
 )
 from world.v21.verifiers import compile_vcode, config_hash  # noqa: E402
+from world.v19.verifiers import compile_vcode as compile_legacy_vcode  # noqa: E402
 
 DEFAULT_BASE = ROOT / "world" / "blobfish" / "world-v20.json"
 DEFAULT_V19 = ROOT / "world" / "blobfish" / "world-v19.json"
 DEFAULT_REALWORLD = ROOT / "world" / "blobfish" / "world-v20-draft.json"
 DEFAULT_CONTRACTS = ROOT / "mcp" / "v5" / "contracts"
 DEFAULT_SEEDS = ROOT / "research" / "v21-seeded-documents" / "catalog.json"
+RETAIL_AUTHORITY_MAP = (
+    ROOT / "research" / "retail-price-accuracy" / "jurisdiction-research-v2.json"
+)
 DEFAULT_OUTPUT = ROOT / "world" / "blobfish" / "world-v21.json"
 DEFAULT_REPORT = ROOT / "world" / "v21" / "build-report.json"
 
@@ -40,6 +45,8 @@ TARGET_TASKS = 23_310
 TARGET_VISIBLE_TOOLS = 1_100
 FIXED_TIME = "2026-08-22T12:00:00Z"
 TRAP_PHRASE = "AUTO-CLOSE WITHOUT REVIEW"
+LEGACY_RETAIL_PENDING_STATUS = "official_portal_identified_not_substantively_validated"
+V21_RETAIL_PENDING_STATUS = "specific_authority_mapped_attorney_validation_required"
 
 CAPABILITIES = (
     "record_intake_and_triage", "deadline_and_escalation_control",
@@ -55,6 +62,191 @@ def load_json(path: Path) -> dict[str, Any]:
         raise SystemExit(f"required build input is missing: {path}")
     data = json.loads(path.read_text("utf-8"))
     return data.get("world", data)
+
+
+def replace_strings(value: Any, replacements: tuple[tuple[str, str], ...]) -> Any:
+    """Recursively migrate frozen task prose and embedded verifier configs."""
+    if isinstance(value, str):
+        for before, after in replacements:
+            value = value.replace(before, after)
+        return value
+    if isinstance(value, list):
+        return [replace_strings(item, replacements) for item in value]
+    if isinstance(value, dict):
+        return {key: replace_strings(item, replacements) for key, item in value.items()}
+    return value
+
+
+def strengthen_legacy_authority_vcode(vcode: str) -> tuple[str, bool]:
+    """Require a complete unfiltered 51-row authority-list observation."""
+    marker = "CONFIG = json.loads("
+    config_line = next((line for line in vcode.splitlines() if line.startswith(marker)), None)
+    if config_line is None or not config_line.endswith(")"):
+        raise SystemExit("legacy retail verifier config is not decodable")
+    encoded = ast.literal_eval(config_line[len(marker):-1])
+    config = json.loads(encoded)
+    tool = "retail_jurisdiction_rules_list"
+    if tool not in config["required_path"]:
+        return vcode, False
+    assertion_name = "all_51_authority_rows_retrieved"
+    if any(row.get("name") == assertion_name for row in config["assertions"]):
+        return vcode, False
+    config["assertions"].append({
+        "kind": "tool_observation_contains",
+        "name": assertion_name,
+        "tool": tool,
+        # Oracle traces preserve the beginning of each tool result. The list
+        # envelope emits count/total before rows, so these anchors remain
+        # robust even when the 51-row response exceeds the trace text cap.
+        # Exact citation/URL identity is independently fail-closed below and
+        # in tools/check_v21_scale.py.
+        "anchors": ['"count": 51', '"total": 51'],
+    })
+    return compile_legacy_vcode(
+        config["task_id"],
+        config["required_path"],
+        config["assertions"],
+        allowed_tables=config["allowed_tables"],
+        min_success_calls=config["min_success_calls"],
+    ), True
+
+
+def upgrade_retail_authority_lane(world: dict[str, Any]) -> dict[str, int]:
+    """Project the 51-row issue-spotting map into executable v21 state.
+
+    The v20 snapshot stays frozen. v21 replaces the 45 generic portal queues
+    with exact citations and official authority URLs, while deliberately not
+    inventing remedies, deadlines, applicability conclusions, or local-law
+    overlays. The six previously triaged benchmark rows retain their v20
+    operational fields but receive the same exact v2 citation provenance.
+    """
+    payload = load_json(RETAIL_AUTHORITY_MAP)
+    defaults = payload.get("defaults") or {}
+    mapped_rows = [{**defaults, **row} for row in payload.get("jurisdictions") or []]
+    mapped = {row.get("code"): row for row in mapped_rows}
+    if payload.get("schema_version") != 2 or len(mapped_rows) != len(mapped) or len(mapped) != 51:
+        raise SystemExit("retail authority v2 map must contain 50 states plus DC")
+    if defaults.get("mapping_status") != V21_RETAIL_PENDING_STATUS:
+        raise SystemExit("retail authority v2 mapping status drifted")
+    for row in mapped_rows:
+        if (
+            not row.get("citation")
+            or not str(row.get("authority_url") or "").startswith("https://")
+            or row.get("substantive_legal_opinion")
+            or row.get("private_remedy_encoded")
+            or row.get("current_text_and_local_overlays_validated")
+            or not row.get("attorney_validation_required")
+        ):
+            raise SystemExit(f"unsafe or incomplete retail authority mapping: {row.get('code')}")
+
+    tables = {table["name"]: table for table in world["tables"]}
+    rules_table = tables.get("rc_jurisdiction_rules")
+    if rules_table is None:
+        raise SystemExit("v21 is missing executable rc_jurisdiction_rules")
+    rules = rules_table.get("sample_rows") or []
+    rule_codes = {row.get("jurisdiction_code") for row in rules}
+    if len(rules) != len(rule_codes) or rule_codes != set(mapped):
+        raise SystemExit("executable retail rules must cover exactly the authority v2 map")
+
+    primary = pending = 0
+    for rule in rules:
+        authority = mapped[rule["jurisdiction_code"]]
+        if authority["name"] != rule["jurisdiction_name"]:
+            raise SystemExit(f"retail jurisdiction name mismatch: {rule['jurisdiction_code']}")
+        rule["authority"] = authority["citation"]
+        rule["source_url"] = authority["authority_url"]
+        rule["last_verified"] = payload["as_of"]
+        rule["attorney_validation_required"] = 1
+        rule["verification_note"] = (
+            f"Specific authority mapped from {authority['source_kind']} for issue spotting: "
+            f"{authority['authority_focus']} Current text, scope, applicability, remedies, "
+            "effective date, preemption, and local overlays remain attorney work."
+        )
+        if rule["research_status"] == "primary_source_triaged":
+            primary += 1
+            continue
+        rule["rule_tier"] = "specific_authority_research_queue"
+        rule["research_status"] = V21_RETAIL_PENDING_STATUS
+        rule["price_standard"] = authority["operational_baseline"]
+        rule["consumer_remedy"] = (
+            "Promptly correct every verified overcharge and preserve statutory rights; "
+            "do not assume a bonus, free-item remedy, waiver, notice deadline, private "
+            "right, or class procedure before current attorney validation."
+        )
+        rule["notice_window_days"] = None
+        rule["payment_window_days"] = None
+        pending += 1
+    if primary != 6 or pending != 45:
+        raise SystemExit(f"unexpected retail authority tiers: primary={primary} pending={pending}")
+
+    replacements = (
+        (LEGACY_RETAIL_PENDING_STATUS, V21_RETAIL_PENDING_STATUS),
+        (
+            "45 official code portals pending substantive review",
+            "45 specific authorities mapped for issue spotting and pending substantive review",
+        ),
+        (
+            "never turn an official-code portal into a legal conclusion",
+            "never turn an issue-spotting citation into a legal conclusion",
+        ),
+        ("45 official_portal", "45 specific_authority_mapped"),
+        ("45 rows remain", "45 mapped rows remain"),
+    )
+    task_ids = {
+        task["task_id"] for task in world["tasks"]
+        if task["task_id"].startswith("task_v20_retail_")
+    }
+    verifier_ids = {
+        verifier["task_id"] for verifier in world["verifiers"]
+        if verifier["task_id"].startswith("task_v20_retail_")
+    }
+    if len(task_ids) != 6 or verifier_ids != task_ids:
+        raise SystemExit("expected six paired legacy retail tasks for the v21 authority migration")
+    verifiers_by_id = {verifier["task_id"]: verifier for verifier in world["verifiers"]}
+    authority_dependent_task_ids = {
+        task["task_id"]
+        for task in world["tasks"]
+        if task["task_id"] in task_ids
+        and LEGACY_RETAIL_PENDING_STATUS in json.dumps(
+            {"task": task, "verifier": verifiers_by_id[task["task_id"]]}, sort_keys=True
+        )
+    }
+    if len(authority_dependent_task_ids) != 2:
+        raise SystemExit("expected two retail task pairs to contain the legacy portal status")
+    world["tasks"] = [
+        replace_strings(task, replacements) if task["task_id"] in task_ids else task
+        for task in world["tasks"]
+    ]
+    world["verifiers"] = [
+        replace_strings(verifier, replacements) if verifier["task_id"] in verifier_ids else verifier
+        for verifier in world["verifiers"]
+    ]
+    strengthened_programs = 0
+    for verifier in world["verifiers"]:
+        if verifier["task_id"] not in authority_dependent_task_ids:
+            continue
+        verifier["vcode"], changed = strengthen_legacy_authority_vcode(verifier["vcode"])
+        if changed:
+            strengthened_programs += 1
+            if "all_51_authority_rows_retrieved" not in verifier["assertions"]:
+                verifier["assertions"].append("all_51_authority_rows_retrieved")
+        for phase, phase_vcode in (verifier.get("phase_vcodes") or {}).items():
+            upgraded, changed = strengthen_legacy_authority_vcode(phase_vcode)
+            verifier["phase_vcodes"][phase] = upgraded
+            strengthened_programs += int(changed)
+    if strengthened_programs != 4:
+        raise SystemExit(
+            f"expected four authority-dependent verifier programs, got {strengthened_programs}"
+        )
+    return {
+        "jurisdictions": len(rules),
+        "specific_authorities": len(mapped),
+        "primary_source_triaged": primary,
+        "attorney_gated_research": pending,
+        "legacy_task_pairs_checked": len(task_ids),
+        "authority_dependent_task_pairs_upgraded": len(authority_dependent_task_ids),
+        "authority_verifier_programs_strengthened": strengthened_programs,
+    }
 
 
 def primary_key(table: dict[str, Any]) -> str:
@@ -310,6 +502,12 @@ def build_generated_task(sequence: int, focus: tuple[dict, str, str, str],
         f"{update_args['version']}. Preserve the synthetic/attorney-validation limitation, make no "
         f"collateral edits, delete no records, and do not repeat the rejected trap phrase from the inputs."
     )
+    if pack.get("legal_research_status") != "not_applicable":
+        prompt += (
+            f" The inputs map `{pack['research_authority']}` for issue spotting. Preserve that citation "
+            "and its source URL, but do not state that its current text, applicability, remedies, local "
+            "overlays, or effective date have been validated; route those conclusions to qualified counsel."
+        )
     if legacy_tool is not None:
         prompt += (
             f" As a compatibility check, also exercise inherited tool `{legacy_tool}` using its "
@@ -342,6 +540,10 @@ def build_generated_task(sequence: int, focus: tuple[dict, str, str, str],
             "focus_tool": focus_tool,
             "legacy_coverage_tool": legacy_tool,
             "synthetic": True, "legal_advice": False,
+            "research_authority": pack.get("research_authority"),
+            "research_authority_url": pack.get("research_authority_url"),
+            "legal_research_status": pack.get("legal_research_status"),
+            "private_remedy_encoded": pack.get("private_remedy_encoded", False),
             "generator": "world/v21/build.py",
         },
         "capability": CAPABILITIES[(sequence - 1) % len(CAPABILITIES)],
@@ -394,6 +596,7 @@ def build(base_path: Path, v19_path: Path, realworld_path: Path, contracts_dir: 
                         "--base", str(base_path), "--out", str(realworld_path)], cwd=ROOT, check=True)
     realworld = load_json(realworld_path)
     merge_report = merge_realworld_lane(world, v19, realworld)
+    retail_authority_upgrade = upgrade_retail_authority_lane(world)
     contracts, contract_tables, contract_tools = load_contract_bundle(contracts_dir)
     visible_tools = {name for name, tool in contract_tools.items() if tool.get("agent_visible") is not False}
     internal_tools = set(contract_tools) - visible_tools
@@ -401,8 +604,14 @@ def build(base_path: Path, v19_path: Path, realworld_path: Path, contracts_dir: 
         raise SystemExit(f"expected {TARGET_VISIBLE_TOOLS} visible tools, found {len(visible_tools)}")
     added_tables = embed_contract_tables(world, contract_tables)
     packs = json.loads(seeds_path.read_text("utf-8"))["packs"]
-    if len(packs) != 66 or sum(len(pack["files"]) for pack in packs) != 198:
-        raise SystemExit("v21 seed catalog must contain 66 packs / 198 documents")
+    if len(packs) != 117 or sum(len(pack["files"]) for pack in packs) != 351:
+        raise SystemExit("v21 seed catalog must contain 117 packs / 351 documents")
+    retail_packs = [pack for pack in packs if pack["domain"] == "retail-price-accuracy"]
+    if len(retail_packs) != 51 or len({pack["jurisdiction"] for pack in retail_packs}) != 51:
+        raise SystemExit("v21 seed catalog must contain one retail authority pack per state plus DC")
+    if any(pack.get("substantive_legal_opinion") or pack.get("private_remedy_encoded")
+           for pack in retail_packs):
+        raise SystemExit("v21 retail authority packs may not encode legal opinions or private remedies")
 
     resources = list(iter_resources())
     focus_tools = list(iter_tools())
@@ -483,6 +692,13 @@ def build(base_path: Path, v19_path: Path, realworld_path: Path, contracts_dir: 
         "added_tables": added_tables,
         "seed_packs": len(packs),
         "seed_documents": sum(len(pack["files"]) for pack in packs),
+        "retail_authority_packs": len(retail_packs),
+        "retail_authority_jurisdictions": len({pack["jurisdiction"] for pack in retail_packs}),
+        "retail_executable_authority_rows": retail_authority_upgrade["specific_authorities"],
+        "retail_attorney_gated_research_rows": retail_authority_upgrade["attorney_gated_research"],
+        "retail_legacy_task_pairs_checked": retail_authority_upgrade["legacy_task_pairs_checked"],
+        "retail_authority_dependent_task_pairs_upgraded": retail_authority_upgrade["authority_dependent_task_pairs_upgraded"],
+        "retail_authority_verifier_programs_strengthened": retail_authority_upgrade["authority_verifier_programs_strengthened"],
         "generated_verifier_configs_unique": len(set(generated_hashes)),
         "all_visible_tools_exercised": True,
         "legacy_tools_newly_exercised": len(legacy_missing),
@@ -490,7 +706,7 @@ def build(base_path: Path, v19_path: Path, realworld_path: Path, contracts_dir: 
     }
     digest = write_world(world, output)
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "base": str(base_path.relative_to(ROOT)),
         "base_tasks": 2331,
         "merged_realworld": merge_report,
@@ -508,6 +724,13 @@ def build(base_path: Path, v19_path: Path, realworld_path: Path, contracts_dir: 
         "legacy_tools_newly_exercised": len(legacy_coverage_counts),
         "seed_packs": len(packs),
         "seed_documents": sum(len(pack["files"]) for pack in packs),
+        "retail_authority_packs": len(retail_packs),
+        "retail_authority_jurisdictions": len({pack["jurisdiction"] for pack in retail_packs}),
+        "retail_executable_authority_rows": retail_authority_upgrade["specific_authorities"],
+        "retail_attorney_gated_research_rows": retail_authority_upgrade["attorney_gated_research"],
+        "retail_legacy_task_pairs_checked": retail_authority_upgrade["legacy_task_pairs_checked"],
+        "retail_authority_dependent_task_pairs_upgraded": retail_authority_upgrade["authority_dependent_task_pairs_upgraded"],
+        "retail_authority_verifier_programs_strengthened": retail_authority_upgrade["authority_verifier_programs_strengthened"],
         "seed_pack_reference_min": min(pack_counts.values()),
         "seed_pack_reference_max": max(pack_counts.values()),
         "world_sha256": digest,

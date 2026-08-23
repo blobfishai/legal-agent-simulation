@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Generate 66 structure-matched legal seed packs (198 input documents).
+"""Generate 117 structure-matched legal seed packs (351 input documents).
 
 Each pack contains a DOCX matter brief, an XLSX evidence/computation register,
 and a PDF source extract.  All content is synthetic and explicitly marked as
-such.  Variant 02 and 03 mutate the facts of variant 01 while preserving the
-same document schema, headings, sheet layout, formulas, and page geometry.
+such.  The 66 general packs and 51 retail price-accuracy authority packs all
+preserve the same document schema, headings, sheet layout, formulas, and page
+geometry.  Authority metadata is issue-spotting research, never a legal opinion.
 """
 from __future__ import annotations
 
@@ -43,6 +44,7 @@ sys.path.insert(0, str(ROOT))
 from world.v21.catalog import DOMAIN_RESOURCES, JURISDICTIONS, RISK_LEVELS  # noqa: E402
 
 OUTPUT_ROOT = ROOT / "research" / "v21-seeded-documents"
+RETAIL_RESEARCH = ROOT / "research" / "retail-price-accuracy" / "jurisdiction-research-v2.json"
 FIXED_DATETIME = datetime(2026, 8, 22, 12, 0, 0)
 FIXED_ZIP_TIME = (2026, 8, 22, 12, 0, 0)
 BUILD_DATE = "2026-08-22"
@@ -279,10 +281,15 @@ def build_docx(path: Path, pack: dict[str, Any]) -> None:
     set_table_geometry(metadata, [1800, 7560])
 
     document.add_heading("Executive issue", level=1)
+    authority_boundary = (
+        f"Issue-spotting authority: {pack['research_authority']}; current-law and remedy validation remain counsel work."
+        if pack["legal_research_status"] != "not_applicable"
+        else "Treat this as a simulation fact, not a legal conclusion."
+    )
     paragraph = document.add_paragraph(
         f"The synthetic record reports a {pack['issue']} affecting {pack['item_count']} units. "
         f"The evidence register pins a unit rate of ${pack['unit_rate']:,.2f} and a computed "
-        f"exposure of ${pack['total_amount']:,.2f}. Treat this as a simulation fact, not a legal conclusion."
+        f"exposure of ${pack['total_amount']:,.2f}. {authority_boundary}"
     )
     paragraph.paragraph_format.keep_with_next = True
 
@@ -413,6 +420,9 @@ def build_xlsx(path: Path, pack: dict[str, Any]) -> None:
         ("Pack ID", pack["pack_id"]), ("Domain", pack["domain_label"]),
         ("Jurisdiction", pack["jurisdiction"]), ("Matter", pack["matter_ref"]),
         ("Anchor", pack["anchor"]), ("Required status", pack["expected_status"]),
+        ("Research authority", pack["research_authority"]),
+        ("Authority URL", pack["research_authority_url"]),
+        ("Research status", pack["legal_research_status"]),
         ("Forbidden phrase", TRAP_PHRASE),
         ("Boundary", "Synthetic simulation only; attorney validation required before external use."),
     ):
@@ -589,6 +599,70 @@ def make_pack(domain: dict, variant: int, domain_index: int) -> dict[str, Any]:
         "trap_phrase": TRAP_PHRASE,
         "synthetic": True,
         "attorney_validation_required": True,
+        "research_authority": "synthetic benchmark source; no external authority asserted",
+        "research_authority_url": "not_applicable",
+        "research_source_kind": "synthetic_fixture",
+        "legal_research_status": "not_applicable",
+        "substantive_legal_opinion": False,
+        "private_remedy_encoded": False,
+    }
+
+
+def retail_authority_rows() -> list[dict[str, Any]]:
+    payload = json.loads(RETAIL_RESEARCH.read_text("utf-8"))
+    defaults = payload.get("defaults") or {}
+    rows = [{**defaults, **row} for row in payload.get("jurisdictions") or []]
+    if payload.get("schema_version") != 2 or len(rows) != 51:
+        raise SystemExit("retail authority map must contain schema v2 and 51 jurisdictions")
+    codes = [row.get("code") for row in rows]
+    if len(set(codes)) != 51 or "DC" not in codes:
+        raise SystemExit("retail authority map must contain 50 unique state codes plus DC")
+    for row in rows:
+        if not row.get("citation") or not str(row.get("authority_url", "")).startswith("https://"):
+            raise SystemExit(f"retail authority row {row.get('code')} lacks a specific HTTPS authority")
+        if row.get("substantive_legal_opinion") or row.get("private_remedy_encoded"):
+            raise SystemExit(f"retail authority row {row['code']} improperly encodes a legal conclusion")
+        if row.get("current_text_and_local_overlays_validated") or not row.get("attorney_validation_required"):
+            raise SystemExit(f"retail authority row {row['code']} bypasses the attorney gate")
+    return rows
+
+
+def make_retail_pack(row: dict[str, Any], index: int) -> dict[str, Any]:
+    evidence_date = datetime(2026, 6, 30) + timedelta(days=index)
+    due_date = evidence_date + timedelta(days=30)
+    item_count = 10 + index * 2
+    unit_rate = round(3.25 + index * 0.41, 2)
+    code = row["code"]
+    return {
+        "pack_id": f"pack-retail-price-accuracy-{code.lower()}",
+        "domain": "retail-price-accuracy",
+        "domain_label": "Retail Price Accuracy",
+        "variant": index,
+        "mutation_parent": None if index == 1 else "pack-retail-price-accuracy-al",
+        "jurisdiction": code,
+        "matter_ref": f"MAT-RPA-{2000 + index}",
+        "title": f"Retail Price Accuracy Review - {code}",
+        "issue": f"checkout control gap mapped to {row['citation']}",
+        "evidence_date": evidence_date.date().isoformat(),
+        "due_date": due_date.date().isoformat(),
+        "risk_level": RISK_LEVELS[(index - 1) % len(RISK_LEVELS)],
+        "item_count": item_count,
+        "unit_rate": unit_rate,
+        "total_amount": round(item_count * unit_rate, 2),
+        "reserve_amount": round(900 + index * 37.5, 2),
+        "anchor": f"V21-RETAIL-{code}-{index:02d}",
+        "expected_status": f"retail-authority-mapped-{code.lower()}",
+        "trap_phrase": TRAP_PHRASE,
+        "synthetic": True,
+        "attorney_validation_required": True,
+        "research_authority": row["citation"],
+        "research_authority_url": row["authority_url"],
+        "research_source_kind": row["source_kind"],
+        "legal_research_status": row["mapping_status"],
+        "authority_focus": row["authority_focus"],
+        "operational_baseline": row["operational_baseline"],
+        "substantive_legal_opinion": False,
+        "private_remedy_encoded": False,
     }
 
 
@@ -612,49 +686,61 @@ def build(output_root: Path) -> dict[str, Any]:
 
     catalog = []
     expected_signature = None
+
+    def emit_pack(pack: dict[str, Any], root: Path) -> None:
+        nonlocal expected_signature
+        documents = root / "documents"
+        documents.mkdir(parents=True, exist_ok=True)
+        build_docx(documents / "matter-brief.docx", pack)
+        build_xlsx(documents / "evidence-register.xlsx", pack)
+        build_pdf(documents / "source-extract.pdf", pack)
+        signature = structure_signature(documents)
+        if expected_signature is None:
+            expected_signature = signature
+        elif signature != expected_signature:
+            raise SystemExit(f"structure drift in {pack['pack_id']}: {signature} != {expected_signature}")
+        files = [
+            {"path": path.name, "bytes": path.stat().st_size, "sha256": sha256(path)}
+            for path in sorted(documents.iterdir()) if path.is_file()
+        ]
+        manifest = {
+            "schema_version": 2,
+            "build_date": BUILD_DATE,
+            "pack": pack,
+            "structure_signature": signature,
+            "files": files,
+        }
+        (root / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", "utf-8")
+        logical_root = Path("research") / "v21-seeded-documents"
+        catalog.append({
+            **pack,
+            # Logical repository paths must not depend on the temporary
+            # directory used by the isolated reproducibility check.
+            "documents_source": str(logical_root / documents.relative_to(output_root)),
+            "manifest": str(logical_root / (root / "manifest.json").relative_to(output_root)),
+            "files": files,
+        })
+
     for domain_index, domain in enumerate(DOMAIN_RESOURCES):
         for variant in (1, 2, 3):
             pack = make_pack(domain, variant, domain_index)
             root = packs_root / domain["key"] / f"variant-{variant:02d}"
-            documents = root / "documents"
-            documents.mkdir(parents=True, exist_ok=True)
-            build_docx(documents / "matter-brief.docx", pack)
-            build_xlsx(documents / "evidence-register.xlsx", pack)
-            build_pdf(documents / "source-extract.pdf", pack)
-            signature = structure_signature(documents)
-            if expected_signature is None:
-                expected_signature = signature
-            elif signature != expected_signature:
-                raise SystemExit(f"structure drift in {pack['pack_id']}: {signature} != {expected_signature}")
-            files = [
-                {"path": path.name, "bytes": path.stat().st_size, "sha256": sha256(path)}
-                for path in sorted(documents.iterdir()) if path.is_file()
-            ]
-            manifest = {
-                "schema_version": 1,
-                "build_date": BUILD_DATE,
-                "pack": pack,
-                "structure_signature": signature,
-                "files": files,
-            }
-            (root / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", "utf-8")
-            logical_root = Path("research") / "v21-seeded-documents"
-            catalog.append({
-                **pack,
-                # Logical repository paths must not depend on the temporary
-                # directory used by the isolated reproducibility check.
-                "documents_source": str(logical_root / documents.relative_to(output_root)),
-                "manifest": str(logical_root / (root / "manifest.json").relative_to(output_root)),
-                "files": files,
-            })
+            emit_pack(pack, root)
+
+    for index, row in enumerate(retail_authority_rows(), 1):
+        pack = make_retail_pack(row, index)
+        emit_pack(pack, packs_root / "retail-price-accuracy" / row["code"].lower())
 
     (output_root / "catalog.json").write_text(
-        json.dumps({"schema_version": 1, "packs": catalog}, indent=2, sort_keys=True) + "\n", "utf-8"
+        json.dumps({"schema_version": 2, "packs": catalog}, indent=2, sort_keys=True) + "\n", "utf-8"
     )
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "build_date": BUILD_DATE,
-        "domains": len(DOMAIN_RESOURCES),
+        "domains": len(DOMAIN_RESOURCES) + 1,
+        "general_domains": len(DOMAIN_RESOURCES),
+        "retail_authority_packs": 51,
+        "retail_authority_jurisdictions": 51,
         "packs": len(catalog),
         "documents": len(catalog) * 3,
         "docx": len(catalog),
@@ -664,6 +750,8 @@ def build(output_root: Path) -> dict[str, Any]:
         "structure_signature": expected_signature,
         "all_synthetic": all(pack["synthetic"] for pack in catalog),
         "all_attorney_validation_required": all(pack["attorney_validation_required"] for pack in catalog),
+        "substantive_legal_opinions": sum(bool(pack["substantive_legal_opinion"]) for pack in catalog),
+        "private_remedies_encoded": sum(bool(pack["private_remedy_encoded"]) for pack in catalog),
     }
     (output_root / "build-report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", "utf-8")
     return report

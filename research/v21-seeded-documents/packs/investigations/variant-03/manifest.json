@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7898,
+      "bytes": 7998,
       "path": "evidence-register.xlsx",
-      "sha256": "e377f0db4af35074c109279c232dd6e8eb3ac825e1480de8ea17d62b947a3b3e"
+      "sha256": "ea4e30f2cfff85dc12eb19373c24aaf0e8f153b3ae0e0d378c8788d5fb149dcc"
     },
     {
       "bytes": 39500,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in interviews",
     "item_count": 76,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IV-1213",
     "mutation_parent": "pack-investigations-01",
     "pack_id": "pack-investigations-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3525,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Internal Investigations Control Review 03",
     "total_amount": 8846.4,
@@ -40,7 +46,7 @@
     "unit_rate": 116.4,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

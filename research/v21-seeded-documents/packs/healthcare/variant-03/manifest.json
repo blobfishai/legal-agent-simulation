@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7905,
+      "bytes": 8004,
       "path": "evidence-register.xlsx",
-      "sha256": "410aa99d9265ff72aa69fb6affe3ef2467aa41b178bffcecdd642d0338e44309"
+      "sha256": "27b66a00736f037f1a467ef6f8d2a067d48ab34041609311fb52f75ade185634"
     },
     {
       "bytes": 39495,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in licenses",
     "item_count": 46,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-HC-1113",
     "mutation_parent": "pack-healthcare-01",
     "pack_id": "pack-healthcare-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2275,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Healthcare Regulatory Control Review 03",
     "total_amount": 3353.4,
@@ -40,7 +46,7 @@
     "unit_rate": 72.9,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

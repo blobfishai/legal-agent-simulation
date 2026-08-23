@@ -30,6 +30,8 @@ def main() -> int:
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--expected-tasks", type=int, required=True)
     parser.add_argument("--workers", type=int, default=16)
+    parser.add_argument("--report", type=Path,
+                        help="Optionally write the successful machine-readable audit report")
     args = parser.parse_args()
 
     root = args.root.resolve()
@@ -74,12 +76,16 @@ def main() -> int:
     if len(set(actual_records.values())) != args.expected_tasks:
         raise RuntimeError("dataset contains duplicate task content digests")
 
-    print(json.dumps({
+    report = {
         "dataset": "legal-agent-simulation/v21",
         "dataset_sha256": hashlib.sha256(dataset_path.read_bytes()).hexdigest(),
         "tasks": len(actual_records),
         "unique_digests": len(set(actual_records.values())),
-    }, sort_keys=True))
+    }
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", "utf-8")
+    print(json.dumps(report, sort_keys=True))
     return 0
 
 

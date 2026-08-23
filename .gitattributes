@@ -1,1 +1,8 @@
 docs/audit/lab-determinization-10pct.csv whitespace=cr-at-eol
+
+# Generated and provenance-tracked document fixtures are byte-addressed
+# artifacts. Never apply text conversion, merge drivers, or whitespace checks.
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.pdf binary

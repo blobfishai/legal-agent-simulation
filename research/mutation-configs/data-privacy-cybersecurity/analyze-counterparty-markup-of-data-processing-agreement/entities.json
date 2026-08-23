@@ -1,0 +1,123 @@
+[
+  {
+    "type": "company",
+    "name": "Stratton Health Technologies, Inc.",
+    "role": "company",
+    "tail_options": [
+      "Health Technologies, Inc."
+    ],
+    "fragments": [
+      "Stratton Health"
+    ],
+    "domain": "strattonhealth.com"
+  },
+  {
+    "type": "company",
+    "name": "CloudNest Infrastructure Services Ltd.",
+    "role": "company",
+    "tail_options": [
+      "Infrastructure Services Ltd."
+    ],
+    "fragments": [
+      "CloudNest"
+    ],
+    "domain": "cloudnest.co.uk"
+  },
+  {
+    "type": "company",
+    "name": "Peregrine Data Analytics Pvt. Ltd.",
+    "role": "company",
+    "tail_options": [
+      "Data Analytics Pvt. Ltd."
+    ],
+    "fragments": [
+      "Peregrine"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "StrattonCare",
+    "role": "company",
+    "tail_options": [
+      "Connect"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Whitfield & Crane",
+    "role": "lawfirm",
+    "fragments": [
+      "Whitfield",
+      "Crane"
+    ],
+    "domain": "whitfieldcrane.com"
+  },
+  {
+    "type": "company",
+    "name": "Barrington Reeves",
+    "role": "lawfirm",
+    "domain": "barringtonreeves.co.uk"
+  },
+  {
+    "type": "company",
+    "name": "Thornfield Audit Partners LLP",
+    "role": "accounting",
+    "tail_options": [
+      "Audit Partners LLP"
+    ],
+    "fragments": [
+      "Thornfield"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Calloway National Insurance Group",
+    "role": "company",
+    "tail_options": [
+      "National Insurance Group"
+    ],
+    "fragments": [
+      "Calloway"
+    ]
+  },
+  {
+    "type": "person",
+    "name": "Catherine Holloway"
+  },
+  {
+    "type": "person",
+    "name": "David Ngata"
+  },
+  {
+    "type": "person",
+    "name": "Sebastian Harding"
+  },
+  {
+    "type": "person",
+    "name": "Priya Venkatesh"
+  },
+  {
+    "type": "person",
+    "name": "Jonathan Pryce-Whitaker"
+  },
+  {
+    "type": "person",
+    "name": "Jonathan Pryor-Whitaker"
+  },
+  {
+    "type": "person",
+    "name": "Anisha Ramachandran"
+  },
+  {
+    "type": "person",
+    "name": "Miriam Osei-Kwame"
+  },
+  {
+    "type": "person",
+    "name": "Fiona Ashworth-Baines"
+  },
+  {
+    "type": "person",
+    "name": "Henrik Lindqvist"
+  }
+]

@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7904,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "a41c34c4319ce504308940b76f060d34de41f773203883d77b89f640cd66d42f"
+      "sha256": "e0ab3bfe88f10d405cac6422949e07aa224d56f0f9abdba23fe5739e8de181a4"
     },
     {
       "bytes": 39493,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in demands",
     "item_count": 58,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IN-1153",
     "mutation_parent": "pack-insurance-01",
     "pack_id": "pack-insurance-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2775,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Insurance Coverage Control Review 03",
     "total_amount": 5237.4,
@@ -40,7 +46,7 @@
     "unit_rate": 90.3,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

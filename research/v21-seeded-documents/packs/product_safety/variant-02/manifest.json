@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7905,
+      "bytes": 8007,
       "path": "evidence-register.xlsx",
-      "sha256": "c8eba48c909b85b741ba96c085d55735fc5e8de820dcfd08baab7f4c11cee80b"
+      "sha256": "d1d192f1f81648e6e70909d714b9ff2800a2669cd9a7fa1004fc4381d7425bdc"
     },
     {
       "bytes": 39502,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in notices",
     "item_count": 71,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-PS-1202",
     "mutation_parent": "pack-product_safety-01",
     "pack_id": "pack-product_safety-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3350,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Product Safety Control Review 02",
     "total_amount": 7806.45,
@@ -40,7 +46,7 @@
     "unit_rate": 109.95,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

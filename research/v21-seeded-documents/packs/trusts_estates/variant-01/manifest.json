@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7902,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "16ab81b3ff0440c5c014b0528702f761fe176bdedb091e417f573b603922e710"
+      "sha256": "fcccb561e1bf57472c94c4f54554d9a6235b952cb5759ab85a8df6c915af5fea"
     },
     {
       "bytes": 39506,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in fiduciaries",
     "item_count": 60,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-TE-1171",
     "mutation_parent": null,
     "pack_id": "pack-trusts_estates-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2925,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Trusts and Estates Control Review 01",
     "total_amount": 5688.0,
@@ -40,7 +46,7 @@
     "unit_rate": 94.8,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

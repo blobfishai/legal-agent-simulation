@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7906,
+      "bytes": 8004,
       "path": "evidence-register.xlsx",
-      "sha256": "3bb73111e2dd93753be78409fb5a7bb4e59dff90a79ee08ffcb3b1c3bbf61342"
+      "sha256": "6e9520d1fc1f3d0bd397b96429578da18ee3675f40ad48140be043b58d1557a4"
     },
     {
       "bytes": 39497,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in facilities",
     "item_count": 47,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-EN-1122",
     "mutation_parent": "pack-environmental-01",
     "pack_id": "pack-environmental-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2350,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Environmental Control Review 02",
     "total_amount": 3532.05,
@@ -40,7 +46,7 @@
     "unit_rate": 75.15,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

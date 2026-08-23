@@ -9,6 +9,11 @@ research/mutation-configs/seed-plan.json`, which independently re-derives every
 task.json and every document byte and fails closed on residual source
 entities, drift, or orphaned outputs.
 
+`candidate-status.json` classifies every committed `entities.json` as either
+planned or blocked, and `tools/check_harvey_mutation_inventory.py` rejects any
+missing, overlapping, or silently unclassified map before the expensive byte
+reproduction check runs.
+
 | # | Source task | Docs | Formats | Entities mapped | Seeds | Validation |
 |---|---|---|---|---|---|---|
 | 1 | banking-finance/identify-issues-in-compliance-certificate (pilot) | 4 | docx, xlsx, eml | 16 | 1, 2, 3 | pass |
@@ -19,10 +24,46 @@ entities, drift, or orphaned outputs.
 | 6 | real-estate/analyze-counterparty-markup-of-commercial-lease-agreement | 5 | 3 docx, xlsx, eml | 17 | 1, 2 | pass |
 | 7 | tax/analyze-counterparty-markup-of-tax-closing-agreement | 6 | 4 docx, xlsx, eml | 11 | 1, 2 | pass |
 | 8 | funds-asset-management/analyze-counterparty-markup-of-limited-partnership-agreement | 5 | 4 docx, eml | 14 | 1, 2 | pass |
+| 9 | intellectual-property/analyze-counterparty-markup-of-ip-assignment-agreement | 6 | 4 docx, xlsx, eml | 19 | 1, 2 | pass |
+| 10 | capital-markets/analyze-counterparty-markup-of-underwriting-agreement | 5 | 4 docx, eml | 15 | 1, 2 | pass |
+| 11 | bankruptcy-restructuring/analyze-counterparty-markup-of-restructuring-support-agreement | 6 | 4 docx, xlsx, eml | 25 | 1, 2 | pass |
+| 12 | data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement | 5 | 4 docx, eml | 18 | 1, 2 | pass |
+| 13 | emerging-companies-venture-capital/analyze-counterparty-markup-of-stock-purchase-agreement | 6 | 4 docx, xlsx, eml | 23 | 1, 2 | pass |
+| 14 | insurance/analyze-counterparty-markup-of-reinsurance-treaty | 6 | 3 docx, xlsx, 2 eml | 15 | 1, 2 | pass |
 
-Totals: 8 source tasks, 6 practice areas, 19 seeded variants (16 beyond the
-pilot), 39 source documents mutated per seed set, `--check-plan` verdict:
-**19/19 valid** at source `7be41d57fd5a`. No candidate task was dropped.
+Totals: 14 source tasks, 12 practice areas, 31 seeded variants (28 beyond the
+pilot), 73 task-relative source document occurrences, and 158 generated
+document instances. `--check-plan` verdict: **31/31 valid** at source
+`7be41d57fd5a`.
+
+Two additional candidates were attempted and are blocked by newly identified
+upstream source defects rather than mapping gaps; their validated
+`entities.json` configs are retained as staged work product, and they are
+deliberately NOT in `seed-plan.json` (the plan checker would fail closed):
+
+- `litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss` —
+  upstream criterion C-021 reads "FAIL only if …", which fails the tool's
+  fail-closed requirement for literal "FAIL if" rubric text. Reproduced on the
+  unmodified source task.json, so it is entity-independent.
+- `white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement`
+  — `negotiation-strategy-memo.docx` carries anomalous ZIP member metadata
+  (`flag_bits=2050`, `external_attr=0`, empty `dc:creator`, unlike every
+  sibling document) that Python's `zipfile` cannot round-trip byte-for-byte,
+  so the mandatory package-topology equality check fails even for an
+  identity copy (verified with an empty-substitution control run).
+
+Known tool limitation recorded during row 9: `.eml` headers that carry raw
+UTF-8 (not RFC-2047 encoded-words) are surrogate-escaped by Python's header
+parser, so non-ASCII names there ("Derek Muñoz") cannot be substituted; the
+residual scan correctly flags them, and such names are left unmapped with the
+choice documented.
+
+Admission status: these thirty-one outputs are reproducible mutation and
+regression fixtures, not thirty-one independently graded v21 tasks. See
+[`../harvey-augmentation/ADMISSION.md`](../harvey-augmentation/ADMISSION.md) for
+the release boundary. The canonical v21 scale claim instead counts 117 admitted
+packs, 351 documents, and 94 mutations that are referenced by stable tasks and
+native Harbor packages.
 
 ## Tool capability note (2026-08-22)
 

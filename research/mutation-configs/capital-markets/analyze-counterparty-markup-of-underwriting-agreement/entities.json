@@ -1,0 +1,119 @@
+[
+  {
+    "type": "company",
+    "name": "Pinebrook Therapeutics",
+    "role": "company",
+    "tail_options": [
+      "Therapeutics"
+    ],
+    "fragments": [
+      "Pinebrook"
+    ],
+    "domain": "pinebrooktherapeutics.com"
+  },
+  {
+    "type": "company",
+    "name": "Clearwater Capital Markets",
+    "role": "company",
+    "tail_options": [
+      "Capital Markets"
+    ],
+    "fragments": [
+      "Clearwater"
+    ],
+    "domain": "clearwatercm.com"
+  },
+  {
+    "type": "company",
+    "name": "Oakmont Securities",
+    "role": "company",
+    "tail_options": [
+      "Securities"
+    ],
+    "fragments": [
+      "Oakmont"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Halsted & Whitmore",
+    "role": "lawfirm",
+    "fragments": [
+      "Halsted",
+      "Whitmore"
+    ],
+    "domain": "halstedwhitmore.com"
+  },
+  {
+    "type": "company",
+    "name": "Northgate Sullivan",
+    "role": "lawfirm",
+    "fragments": [
+      "Northgate",
+      "Sullivan"
+    ],
+    "domain": "northgatesullivan.com"
+  },
+  {
+    "type": "company",
+    "name": "Thornberry & Associates",
+    "role": "accounting",
+    "tail_options": [
+      "Accounting"
+    ],
+    "fragments": [
+      "Thornberry"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Redfield Compliance Advisors",
+    "role": "advisory",
+    "tail_options": [
+      "Compliance Advisors"
+    ],
+    "fragments": [
+      "Redfield"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Continental Transfer & Trust",
+    "role": "company",
+    "tail_options": [
+      "Transfer & Trust"
+    ],
+    "fragments": [
+      "Continental"
+    ]
+  },
+  {
+    "type": "person",
+    "name": "Margaret Chen",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "David Kowalski"
+  },
+  {
+    "type": "person",
+    "name": "Robert Nakamura"
+  },
+  {
+    "type": "person",
+    "name": "Sandra Kilpatrick"
+  },
+  {
+    "type": "person",
+    "name": "James Vasquez"
+  },
+  {
+    "type": "person",
+    "name": "David Langford"
+  },
+  {
+    "type": "person",
+    "name": "Jennifer Hartwick"
+  }
+]

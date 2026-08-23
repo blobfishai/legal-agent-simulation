@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7905,
+      "bytes": 8006,
       "path": "evidence-register.xlsx",
-      "sha256": "ec285ccba2797bad073be3a93ceb0b121f2046a4c343106d47086cd889b3d51c"
+      "sha256": "74eba948329f30d1d056505a3291d3ef142411e7c66843c310feed869b2635da"
     },
     {
       "bytes": 39503,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in organizations",
     "item_count": 67,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-NP-1183",
     "mutation_parent": "pack-nonprofit-01",
     "pack_id": "pack-nonprofit-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3150,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Nonprofit Governance Control Review 03",
     "total_amount": 6924.45,
@@ -40,7 +46,7 @@
     "unit_rate": 103.35,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

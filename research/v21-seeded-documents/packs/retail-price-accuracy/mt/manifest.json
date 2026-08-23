@@ -1,0 +1,153 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 8059,
+      "path": "evidence-register.xlsx",
+      "sha256": "a423e49891238f39f0f6df81732f66282282f29ab55656cbdeb307b84fd827a0"
+    },
+    {
+      "bytes": 39557,
+      "path": "matter-brief.docx",
+      "sha256": "c288b662ad13f0b4e05f7b3e2db002b008a96dff0d116c5be54efe711cf4a98c"
+    },
+    {
+      "bytes": 2875,
+      "path": "source-extract.pdf",
+      "sha256": "a18a64f3bb21beb1c381fbaa29a5ef3d9e4c6d3e9c133da72ede4c9f8c13e8fa"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-RETAIL-MT-26",
+    "attorney_validation_required": true,
+    "authority_focus": "Adopts Handbook 130 uniform packaging, method-of-sale, and unit-pricing controls.",
+    "domain": "retail-price-accuracy",
+    "domain_label": "Retail Price Accuracy",
+    "due_date": "2026-08-25",
+    "evidence_date": "2026-07-26",
+    "expected_status": "retail-authority-mapped-mt",
+    "issue": "checkout control gap mapped to Mont. Admin. R. 24.351.301",
+    "item_count": 62,
+    "jurisdiction": "MT",
+    "legal_research_status": "specific_authority_mapped_attorney_validation_required",
+    "matter_ref": "MAT-RPA-2026",
+    "mutation_parent": "pack-retail-price-accuracy-al",
+    "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
+    "pack_id": "pack-retail-price-accuracy-mt",
+    "private_remedy_encoded": false,
+    "research_authority": "Mont. Admin. R. 24.351.301",
+    "research_authority_url": "https://www.nist.gov/document/montanapdf",
+    "research_source_kind": "official_nist_compilation_of_state_text",
+    "reserve_amount": 1875.0,
+    "risk_level": "high",
+    "substantive_legal_opinion": false,
+    "synthetic": true,
+    "title": "Retail Price Accuracy Review - MT",
+    "total_amount": 862.42,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 13.91,
+    "variant": 26
+  },
+  "schema_version": 2,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          12,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$12",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

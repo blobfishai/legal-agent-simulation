@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7907,
+      "bytes": 8009,
       "path": "evidence-register.xlsx",
-      "sha256": "4eff699d3fabaa6a6c4544491d2e250f235f24a3966158dec61137ab12f3d7f8"
+      "sha256": "7b5e7ebff314bc240bfe63e59c54919259f6a508c44a7af356488e19a5b35e20"
     },
     {
       "bytes": 39504,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in corrective actions",
     "item_count": 44,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-HC-1112",
     "mutation_parent": "pack-healthcare-01",
     "pack_id": "pack-healthcare-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2225,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Healthcare Regulatory Control Review 02",
     "total_amount": 3115.2,
@@ -40,7 +46,7 @@
     "unit_rate": 70.8,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

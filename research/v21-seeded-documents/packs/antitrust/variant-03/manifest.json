@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7885,
+      "bytes": 7985,
       "path": "evidence-register.xlsx",
-      "sha256": "a10ed6be5314e8a968e1f34776216adde702e85c1bf912b90307127a71176403"
+      "sha256": "c4fe7a05585f78df744e36a3438cdfce6724b229159a9c56a402aa8df9ce3577"
     },
     {
       "bytes": 39491,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in markets",
     "item_count": 43,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-AT-1103",
     "mutation_parent": "pack-antitrust-01",
     "pack_id": "pack-antitrust-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2150,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Antitrust Control Review 03",
     "total_amount": 2947.65,
@@ -40,7 +46,7 @@
     "unit_rate": 68.55,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

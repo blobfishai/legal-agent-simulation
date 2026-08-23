@@ -1,0 +1,2314 @@
+{
+  "as_of": "2026-08-22",
+  "deep_triage_method": {
+    "confidence_distribution": {
+      "high": 21,
+      "low": 2,
+      "medium": 22
+    },
+    "coverage": "45 jurisdictions (the six v1 primary-source-triaged rows CA/CT/DC/MA/MI/NY are carried by the v1 register and rc_jurisdiction_rules)",
+    "fields": "each researched row's deep_triage: price_accuracy_law, udap_law, weights_measures_law, specific_overcharge_remedy, item_pricing_requirement, proposed_rule_tier, proposed_price_standard, proposed_consumer_remedy, confidence, verification_note, sources",
+    "limits": "AI-assisted triage, not attorney validation; effective dates, amendments, local ordinances, and remedy mechanics unverified; a none_found finding is a search outcome, not a legal opinion",
+    "method": "five parallel 9-state web-research batches preferring official legislature and agency sources; NIST retail-pricing compilations used as an index; citation invention prohibited; per-row confidence and residual-attorney-work notes recorded",
+    "performed": "2026-08-22",
+    "tier_distribution": {
+      "enhanced_item_pricing": 4,
+      "enhanced_lowest_price": 3,
+      "enhanced_price_disclosure": 1,
+      "enhanced_scanner_accuracy": 20,
+      "udap_and_unit_price": 3,
+      "udap_wm_baseline": 14
+    }
+  },
+  "defaults": {
+    "attorney_validation_required": true,
+    "current_text_and_local_overlays_validated": false,
+    "mapping_status": "specific_authority_mapped_attorney_validation_required",
+    "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
+    "private_remedy_encoded": false,
+    "substantive_legal_opinion": false
+  },
+  "jurisdictions": [
+    {
+      "authority_focus": "Unfair or deceptive trade practices and misleading price representations.",
+      "authority_url": "https://alison.legislature.state.al.us/code-of-alabama?section=8-19-5",
+      "citation": "Ala. Code § 8-19-5",
+      "code": "AL",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": null,
+          "kind": "none_found",
+          "operative_summary": "No Alabama statute or regulation specifically governing scanner/price-verification accuracy, item pricing, or display-vs-charged price was located; NIST's U.S. Retail Pricing Laws compendium lists Alabama as having no pricing laws or regulations.",
+          "url": "https://www.nist.gov/document/us-pricing-laws-all-states2pdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Charge no more than the price represented to the consumer, since charging above a displayed or advertised price risks an unconscionable/false/misleading practice claim under Ala. Code §§ 8-19-1 to 8-19-15.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://www.nist.gov/document/us-pricing-laws-all-states2pdf",
+          "https://law.justia.com/codes/alabama/title-8/chapter-19/",
+          "https://law.justia.com/codes/alabama/title-8/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; no free-item, bonus-payment, or statutory refund/notice-window provision for retail overcharges. DTPA private action (greater of actual damages or $100, discretionary trebling) is the only consumer damages route located.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Ala. Code §§ 8-19-1 to 8-19-15 (Alabama Deceptive Trade Practices Act)",
+          "url": "https://law.justia.com/codes/alabama/title-8/chapter-19/"
+        },
+        "verification_note": "Absence finding rests on the 2009 NIST compendium plus current secondary surveys; counsel must confirm no post-2009 Alabama enactment or Department of Agriculture & Industries rule, verify the exact operative DTPA section text and current ch. 8-16 provisions on the official code, and check municipal ordinances.",
+        "weights_measures_law": {
+          "citation": "Ala. Code tit. 8, ch. 16 (Weights and Measures)",
+          "url": "https://law.justia.com/codes/alabama/title-8/"
+        }
+      },
+      "name": "Alabama",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Price may not be misrepresented for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://www.nist.gov/document/alaska-2pdf",
+      "citation": "Alaska Stat. § 45.75.230",
+      "code": "AK",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Alaska Stat. § 45.75.230 (Misrepresentation of price)",
+          "kind": "statute",
+          "operative_summary": "For commodities or services sold or advertised by weight, measure, or count, the price may not be misrepresented or represented in a manner calculated or tending to mislead or deceive a purchaser; no scanner-specific verification statute was found.",
+          "url": "https://dot.alaska.gov/mscvc/webres/WMAS4575.pdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The price charged at the register must match the posted or advertised price, because a shelf-vs-receipt discrepancy is treated as price misrepresentation under AS 45.75.230 and an unlawful practice under AS 45.50.471.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://dot.alaska.gov/mscvc/webres/WMAS4575.pdf",
+          "https://law.justia.com/codes/alaska/title-45/chapter-50/article-3/section-45-50-471/",
+          "https://law.alaska.gov/press/releases/2026/012626-Grocery.html",
+          "https://law.justia.com/codes/alaska/title-45/chapter-75/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; no free-item/bonus/refund-window statute. The Attorney General's 2026 statewide grocery pricing initiative treats shelf-vs-receipt mismatches as AS 45.50.471 violations carrying $1,000-$25,000 civil penalties payable to the state, not consumers.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Alaska Stat. § 45.50.471 (Unfair Trade Practices and Consumer Protection Act, §§ 45.50.471-45.50.561)",
+          "url": "https://law.justia.com/codes/alaska/title-45/chapter-50/article-3/section-45-50-471/"
+        },
+        "verification_note": "Counsel must verify AS 45.75.230 and AS 45.50.471 current text on the official akleg.gov code, and account for the active AG Grocery Pricing Compliance Initiative (announced Jan. 2026, overt plus covert reinspections) when setting audit cadence; confirm no new regulations issued under it.",
+        "weights_measures_law": {
+          "citation": "Alaska Stat. ch. 45.75 (Weights and Measures Act)",
+          "url": "https://law.justia.com/codes/alaska/title-45/chapter-75/"
+        }
+      },
+      "name": "Alaska",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations and requires retail price-error controls.",
+      "authority_url": "https://www.azleg.gov/ars/3/03431.htm",
+      "citation": "Ariz. Rev. Stat. § 3-3431(C)",
+      "code": "AZ",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Ariz. Rev. Stat. § 3-3431 (Sale of commodities; former § 41-2081), implemented by Ariz. Admin. Code R3-7-104 (price verification/price posting enforcement)",
+          "kind": "statute",
+          "operative_summary": "Prohibits misrepresenting the price of any commodity or service, requires the price to be marked on the package or posted at the point of display (with retailers using scanning systems providing a written price-error policy on request), and R3-7-104 enforces scanned-vs-posted price verification with stop-sale/stop-use tags and escalating civil penalties (e.g., $100 per violation when more than one item scans above its posted price on reinspection).",
+          "url": "https://www.azleg.gov/ars/3/03431.htm"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Every item must have its price marked on the package or posted at the point of display, and the scanner/POS price charged may not exceed that marked or posted price, per Ariz. Rev. Stat. § 3-3431 and Ariz. Admin. Code R3-7-104.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.azleg.gov/ars/3/03431.htm",
+          "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R3-7-104",
+          "https://agriculture.az.gov/weights-measures/retail-upc-price-posting",
+          "https://www.nist.gov/system/files/documents/2018/06/25/pricepostingfornist-031518.pdf",
+          "https://law.justia.com/codes/arizona/title-44/section-44-1521/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found for consumers; civil penalties under Ariz. Admin. Code R3-7-104 run to the state (initial inspections are educational), and the statute requires only a written retailer price-error policy on request, not a free-item or bonus payment.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Ariz. Rev. Stat. §§ 44-1521 to 44-1534 (Arizona Consumer Fraud Act; § 44-1522 unlawful practices)",
+          "url": "https://law.justia.com/codes/arizona/title-44/section-44-1521/"
+        },
+        "verification_note": "Counsel must verify current subsection lettering of § 3-3431 (2016 recodification moved former § 41-2081 and AAC Title 20 rules into Title 3/AAC Title 3 ch. 7) and the R3-7 rules' current text, since AZDA had active Title 3 ch. 7 rulemaking on its 2026 council agenda; also confirm the written price-error-policy and checkout-display requirements against the current official text.",
+        "weights_measures_law": {
+          "citation": "Ariz. Rev. Stat. tit. 3, ch. 19 (Weights and Measures Services Division, § 3-3401 et seq.)",
+          "url": "https://www.lawserver.com/law/state/arizona/az-laws/arizona_laws_title_3_chapter_19"
+        }
+      },
+      "name": "Arizona",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading pricing for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://media.ark.org/agri/Weights_and_Measures.pdf",
+      "citation": "Ark. Code Ann. § 4-18-316",
+      "code": "AR",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Ark. Code Ann. § 4-18-316 (Misrepresentation of pricing); Ark. Code Ann. § 4-18-312 (board powers including verification of advertised prices, price representations, and point-of-sale/scanning systems per NIST Handbook 130 Examination Procedure for Price Verification)",
+          "kind": "statute",
+          "operative_summary": "No person may misrepresent the price of any commodity or service sold or advertised by weight, measure, or count, and the State Plant Board is expressly empowered to verify advertised prices and point-of-sale/scanner system accuracy using NIST Handbook 130 price-verification procedures.",
+          "url": "https://codes.findlaw.com/ar/title-4-business-and-commercial-law/ar-code-sect-4-18-316/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The POS/scanner price charged must match advertised and represented prices, which the state may verify against NIST Handbook 130 price-verification procedures under Ark. Code Ann. §§ 4-18-312 and 4-18-316.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://codes.findlaw.com/ar/title-4-business-and-commercial-law/ar-code-sect-4-18-316/",
+          "https://codes.findlaw.com/ar/title-4-business-and-commercial-law/ar-code-sect-4-18-312/",
+          "https://law.justia.com/codes/arkansas/title-4/subtitle-2/chapter-18/subchapter-3/",
+          "https://media.ark.org/agri/Weights_and_Measures.pdf",
+          "https://law.justia.com/codes/arkansas/title-4/subtitle-7/chapter-88/subchapter-1/section-4-88-107/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; no free-item, bonus, or refund/notice-window statute — enforcement is administrative (State Plant Board/Bureau of Standards civil penalties) and via ADTPA remedies.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Ark. Code Ann. § 4-88-107 (Arkansas Deceptive Trade Practices Act, § 4-88-101 et seq.)",
+          "url": "https://law.justia.com/codes/arkansas/title-4/subtitle-7/chapter-88/subchapter-1/section-4-88-107/"
+        },
+        "verification_note": "Sections were confirmed on FindLaw/Justia, not the official arkleg.gov code (and postdate the 2009 NIST compendium, which listed Arkansas as having no pricing laws); counsel must confirm current official text, the exact subsection of § 4-18-312 on price verification, and State Plant Board rules including its civil penalty matrix.",
+        "weights_measures_law": {
+          "citation": "Ark. Code Ann. §§ 4-18-301 to 4-18-344 (Uniform Weights and Measures Law)",
+          "url": "https://law.justia.com/codes/arkansas/title-4/subtitle-2/chapter-18/subchapter-3/"
+        }
+      },
+      "name": "Arkansas",
+      "source_kind": "official_state_agency_compilation"
+    },
+    {
+      "authority_focus": "Prohibits charging more than an advertised, posted, marked, displayed, or quoted price and generally requires the lowest displayed price.",
+      "authority_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=12024.2",
+      "citation": "Cal. Bus. & Prof. Code § 12024.2",
+      "code": "CA",
+      "name": "California",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misrepresentation of price for commodities sold by weight, measure, or count.",
+      "authority_url": "https://leg.colorado.gov/agencies/office-legislative-legal-services/colorado-revised-statutes",
+      "citation": "Colo. Rev. Stat. § 35-14-111",
+      "code": "CO",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Colo. Rev. Stat. § 35-14-111 (Misrepresentation of price, Measurement Standards Act)",
+          "kind": "statute",
+          "operative_summary": "No person may misrepresent the price of any commodity or service sold or advertised by weight, measure, or count, or represent the price in any manner calculated or tending to mislead or deceive; the Department of Agriculture conducts retail price-verification inspections under this authority using the NIST Handbook 130 Examination Procedure for Price Verification.",
+          "url": "https://law.justia.com/codes/colorado/title-35/weights-and-measures/article-14/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The price charged may not misrepresent the posted or advertised price, per C.R.S. § 35-14-111, and false or misleading price statements are deceptive trade practices under C.R.S. § 6-1-105.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://law.justia.com/codes/colorado/title-35/weights-and-measures/article-14/",
+          "https://ag.colorado.gov/ics/measurement-standards",
+          "https://law.justia.com/codes/colorado/2023/title-6/fair-trade-and-restraint-of-trade/article-1/part-1/section-6-1-105/",
+          "https://content.leg.colorado.gov/sites/default/files/documents/audits/2360p_measurement_standards_program.pdf"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; no free-item, bonus, or refund/notice-window statute — inspectors require correction of overcharges found during inspections and may pursue civil penalties (C.R.S. 35-14-131), which run to the state.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Colo. Rev. Stat. § 6-1-105 (Colorado Consumer Protection Act, § 6-1-101 et seq.; includes false or misleading statements of fact concerning the price of goods)",
+          "url": "https://law.justia.com/codes/colorado/2023/title-6/fair-trade-and-restraint-of-trade/article-1/part-1/section-6-1-105/"
+        },
+        "verification_note": "Counsel must confirm which Department of Agriculture rule formally adopts NIST Handbook 130's price-verification procedure (rule citation not independently confirmed), the current post-sunset-review text of Article 14 (including § 35-14-117 unit-pricing consistency for retailers that voluntarily unit price), and CCPA private-action elements/damages.",
+        "weights_measures_law": {
+          "citation": "Colo. Rev. Stat. §§ 35-14-101 to 35-14-134 (Measurement Standards Act; § 35-14-112 method of sale)",
+          "url": "https://law.justia.com/codes/colorado/title-35/weights-and-measures/article-14/"
+        }
+      },
+      "name": "Colorado",
+      "source_kind": "official_state_code_portal"
+    },
+    {
+      "authority_focus": "Electronic pricing, item-pricing, scanner-accuracy, and applicable consumer-remedy requirements.",
+      "authority_url": "https://www.cga.ct.gov/current/pub/chap_417.htm",
+      "citation": "Conn. Gen. Stat. ch. 417",
+      "code": "CT",
+      "name": "Connecticut",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits price misrepresentation for commodities or services offered by weight, measure, or count.",
+      "authority_url": "https://delcode.delaware.gov/title6/c051/",
+      "citation": "6 Del. C. § 5123",
+      "code": "DE",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "6 Del. C. § 5123 (Misrepresentation of price, Weights and Measures Act of Delaware)",
+          "kind": "statute",
+          "operative_summary": "The price of a commodity or service sold by weight, measure, or count shall not be misrepresented or represented in any manner calculated or tending to mislead or deceive a purchaser, with price verification conducted under the NIST Examination Procedure for Price Verification.",
+          "url": "https://delcode.delaware.gov/title6/c051/index.shtml"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The price charged must not misrepresent the posted or advertised price, and scanned prices must survive verification under the NIST price-verification examination procedure referenced in 6 Del. C. § 5123.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://delcode.delaware.gov/title6/c051/index.shtml",
+          "https://delcode.delaware.gov/title6/c025/sc02/index.html",
+          "https://law.justia.com/codes/delaware/title-6/chapter-25/subchapter-ii/section-2513/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; no free-item, bonus, or refund/notice-window provision — enforcement is by the Secretary of Agriculture under ch. 51 and the DOJ Consumer Protection Unit under the Consumer Fraud Act.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "6 Del. C. § 2513 (Consumer Fraud Act, 6 Del. C. §§ 2511-2526)",
+          "url": "https://delcode.delaware.gov/title6/c025/sc02/index.html"
+        },
+        "verification_note": "Section 5123 postdates the 2009 NIST compendium (which listed Delaware as having no pricing laws); counsel must pull the full official text of § 5123 to confirm the scope of its price-verification language and effective date, and confirm no Department of Agriculture regulations add retail inspection standards.",
+        "weights_measures_law": {
+          "citation": "6 Del. C. ch. 51 (Standard Weights and Measures; Weights and Measures Act of Delaware, §§ 5101-5142)",
+          "url": "https://delcode.delaware.gov/title6/c051/index.shtml"
+        }
+      },
+      "name": "Delaware",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits price misrepresentation for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&Search_String=&URL=0500-0599%2F0531%2FSections%2F0531.44.html",
+      "citation": "Fla. Stat. § 531.44",
+      "code": "FL",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Fla. Stat. § 531.44 (Misrepresentation of pricing; verification procedures)",
+          "kind": "statute",
+          "operative_summary": "No person may misrepresent the price of any commodity or service sold or advertised by weight, measure, or count or present price in a misleading manner, and FDACS may adopt by rule sampling procedures (including National Conference on Weights and Measures procedures) to verify retail pricing/scanner accuracy.",
+          "url": "https://www.flsenate.gov/Laws/Statutes/2024/531.44"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The scanned/charged price must match the represented shelf or advertised price, subject to FDACS sampling-based price-verification inspections under Fla. Stat. § 531.44, with unit-price display duties under § 501.135 for any voluntarily unit-priced commodity.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.flsenate.gov/Laws/Statutes/2024/531.44",
+          "https://www.flsenate.gov/Laws/Statutes/2018/0501.135",
+          "https://www.fdacs.gov/Consumer-Resources/Consumer-Rights-and-Responsibilities/Weights-and-Measures/Are-price-scanners-used-in-retail-stores-inspected-for-accuracy",
+          "https://www.fdacs.gov/Consumer-Resources/Consumer-Rights-and-Responsibilities/Weights-and-Measures"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; FDACS states retailers face administrative fines under ch. 531 for failing accuracy standards but are under no legal obligation to give a mis-scanned item free or at a discount, and § 501.135 unit pricing (misdemeanor penalty) applies only to sellers who voluntarily unit price.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Fla. Stat. § 501.204 (Florida Deceptive and Unfair Trade Practices Act, §§ 501.201-501.213)",
+          "url": "https://www.flsenate.gov/Laws/Statutes/2024/501.204"
+        },
+        "verification_note": "Counsel must confirm the current FDACS administrative rules implementing § 531.44 sampling procedures (rule numbers not confirmed here), FDUTPA damages limits for pricing claims, and that no county price-verification ordinances add local inspection fees or standards.",
+        "weights_measures_law": {
+          "citation": "Fla. Stat. ch. 531 (Weights, Measures, and Standards)",
+          "url": "https://www.fdacs.gov/Consumer-Resources/Consumer-Rights-and-Responsibilities/Weights-and-Measures"
+        }
+      },
+      "name": "Florida",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Retail price representations and accurate quantity/price information.",
+      "authority_url": "https://rules.sos.ga.gov/GAC/40-15-3",
+      "citation": "Ga. Comp. R. & Regs. 40-15-3-.13",
+      "code": "GA",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": null,
+          "kind": "none_found",
+          "operative_summary": "No Georgia statute or regulation specifically governing scanner accuracy, item pricing, or display-vs-charged price was located; the NIST compendium lists Georgia as having no pricing laws, and the AG Consumer Protection Division's price-scanning guidance cites no pricing-specific statute.",
+          "url": "https://consumer.georgia.gov/consumer-topics/price-scanning"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Charge no more than the represented shelf or advertised price, since deceptive pricing and false or misleading price-reduction statements are unlawful consumer practices under O.C.G.A. § 10-1-393.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://consumer.georgia.gov/consumer-topics/price-scanning",
+          "https://www.nist.gov/document/us-pricing-laws-all-states2pdf",
+          "https://law.justia.com/codes/georgia/title-10/chapter-1/article-15/part-2/section-10-1-393/",
+          "https://law.justia.com/codes/georgia/title-10/chapter-2/",
+          "https://consumer.georgia.gov/document/document/fbpa-february-2024pdf/download"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; no free-item, bonus, or refund/notice-window statute — the AG guidance directs consumers to seek store correction and file complaints, with FBPA remedies as the enforcement backdrop.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "O.C.G.A. § 10-1-393 (Fair Business Practices Act, §§ 10-1-390 to 10-1-408; includes false or misleading statements concerning price reductions)",
+          "url": "https://law.justia.com/codes/georgia/title-10/chapter-1/article-15/part-2/section-10-1-393/"
+        },
+        "verification_note": "Absence finding rests on the 2009 NIST compendium and the current AG guidance page; counsel must confirm no recent enactment (a price-scanning bill, GA HB 1439, appeared in bill-tracking results and its status should be checked) and review Department of Agriculture weights-and-measures rules for any price-verification program. CROSS-REFERENCE CONFLICT: a parallel authority-mapping pass cites Ga. Comp. R. & Regs. 40-15-3-.13 as a specific pricing authority, which this batch did not locate — counsel must resolve whether that Dept. of Agriculture rule governs retail price verification before treating Georgia as none_found.",
+        "weights_measures_law": {
+          "citation": "O.C.G.A. §§ 10-2-1 to 10-2-54 (Weights and Measures)",
+          "url": "https://law.justia.com/codes/georgia/title-10/chapter-2/"
+        }
+      },
+      "name": "Georgia",
+      "source_kind": "official_state_regulation"
+    },
+    {
+      "authority_focus": "Displayed and charged prices must be identical unless a lower price or other lawful agreement applies.",
+      "authority_url": "https://data.capitol.hawaii.gov/hrscurrent/Vol11_Ch0476-0490/HRS0486/HRS_0486-0116.htm",
+      "citation": "Haw. Rev. Stat. § 486-116",
+      "code": "HI",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Haw. Rev. Stat. § 486-116 (Misrepresentation of price)",
+          "kind": "statute",
+          "operative_summary": "The retail price of consumer commodities must be clearly displayed, the price displayed and the price actually charged must be identical unless the charged price is lower (or a prior buyer-seller agreement exists), and price misrepresentation in any misleading manner is prohibited.",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol11_Ch0476-0490/HRS0486/HRS_0486-0116.htm"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Every consumer commodity must ring up at exactly the displayed price or lower — never higher — per Haw. Rev. Stat. § 486-116, with mandatory unit pricing for designated commodities (e.g., cheese, meat/poultry/seafood, fruits and vegetables) under HAR title 4, chapter 91.",
+        "proposed_rule_tier": "enhanced_lowest_price",
+        "sources": [
+          "https://www.capitol.hawaii.gov/hrscurrent/Vol11_Ch0476-0490/HRS0486/HRS_0486-0116.htm",
+          "https://codes.findlaw.com/hi/division-2-business/hi-rev-st-sect-486-116",
+          "https://www.capitol.hawaii.gov/hrscurrent/vol11_ch0476-0490/hrs0480/hrs_0480-0002.htm",
+          "https://www.nist.gov/document/hawaii-2docx"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "None found; § 486-116 mandates that the charged price not exceed the displayed price but provides no free-item, bonus payment, or statutory refund/notice window for consumers — enforcement is via chapter 486 penalties and chapter 480 remedies.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Haw. Rev. Stat. § 480-2 (Unfair competition, practices, declared unlawful)",
+          "url": "https://www.capitol.hawaii.gov/hrscurrent/vol11_ch0476-0490/hrs0480/hrs_0480-0002.htm"
+        },
+        "verification_note": "Counsel must verify the current official HRS § 486-116 text and chapter 486 penalty provisions on capitol.hawaii.gov, confirm current HAR title 4 ch. 91 unit-pricing commodity list and any amendments, check pending bills (e.g., a bill-tracking hit on HI HB465), and confirm HRS ch. 480 standing/damages rules for consumer suits.",
+        "weights_measures_law": {
+          "citation": "Haw. Rev. Stat. ch. 486 (Measurement Standards), administered by the Department of Agriculture Measurement Standards Division; unit pricing rules at Haw. Admin. R. tit. 4, ch. 91",
+          "url": "https://law.justia.com/codes/hawaii/title-26/chapter-486/"
+        }
+      },
+      "name": "Hawaii",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://legislature.idaho.gov/statutesrules/idstat/Title71/T71CH2/SECT71-234/",
+      "citation": "Idaho Code § 71-234",
+      "code": "ID",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Idaho Code § 71-234 (Misrepresentation of Price Prohibited)",
+          "kind": "statute",
+          "operative_summary": "Whenever any commodity or service is sold or offered/advertised for sale by weight, measure, or count, the price shall not be misrepresented nor represented in any manner calculated or tending to mislead or deceive an actual or prospective purchaser.",
+          "url": "https://legislature.idaho.gov/statutesrules/idstat/Title71/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The advertised, posted, or labeled price of any commodity sold by weight, measure, or count may not be misrepresented, so the price charged must match the price represented (Idaho Code § 71-234), and misleading price representations are deceptive practices under Idaho Code § 48-603.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://legislature.idaho.gov/statutesrules/idstat/Title71/",
+          "https://www.nist.gov/document/idaho-pricing-statutepdf",
+          "https://legislature.idaho.gov/statutesrules/idstat/title48/t48ch6/sect48-603/",
+          "https://agri.idaho.gov/ag-inspections/weights-and-measures/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, refund-window, or notice-window remedy for retail overcharges located; enforcement is administrative/AG-driven.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Idaho Consumer Protection Act, Idaho Code § 48-601 et seq. (unfair/deceptive practices prohibited at § 48-603)",
+          "url": "https://legislature.idaho.gov/statutesrules/idstat/title48/t48ch6/sect48-603/"
+        },
+        "verification_note": "Attorney must confirm current text of § 71-234 on the Idaho Legislature site (text verified via NIST's state pricing-law compilation), whether ISDA regulations adopt NIST Handbook 130 price verification, and any local ordinances.",
+        "weights_measures_law": {
+          "citation": "Idaho Code, Title 71 (Weights and Measures), administered by Idaho State Dept. of Agriculture",
+          "url": "https://legislature.idaho.gov/statutesrules/idstat/Title71/"
+        }
+      },
+      "name": "Idaho",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Misrepresentation of price and electronic scanner/item-pricing disclosures.",
+      "authority_url": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=1371&ChapterID=24&Print=True",
+      "citation": "225 ILCS 470/29; 815 ILCS 505/2J.2",
+      "code": "IL",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Sale Price Ad Act, 815 ILCS 408/3.5 (added by P.A. 102-0722)",
+          "kind": "statute",
+          "operative_summary": "Grocery stores and supermarkets must disclose a discount at the point of sale (screen/display, receipt, or other listed means) showing the original price together with the discounted price/savings when the item's price is displayed, and noncompliance is an unlawful practice.",
+          "url": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=3441&ChapterID=67"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "When a grocery/supermarket item sells at a discount from the regular price, the point-of-sale display or receipt must show the original price alongside the discounted price or savings (815 ILCS 408/3.5), and price representations must not be deceptive under 815 ILCS 505/2.",
+        "proposed_rule_tier": "enhanced_price_disclosure",
+        "sources": [
+          "https://www.ilga.gov/Legislation/publicacts/view/102-0722",
+          "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=3441&ChapterID=67",
+          "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2356&ChapterID=67",
+          "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1371&ChapterID=24"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, or refund/notice-window remedy located; 815 ILCS 408/3.5 violations are enforced as unlawful practices rather than through a consumer bonus.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Consumer Fraud and Deceptive Business Practices Act, 815 ILCS 505/1 et seq. (§ 2 prohibition)",
+          "url": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2356&ChapterID=67"
+        },
+        "verification_note": "Attorney must verify current codified text of 815 ILCS 408/3.5 and its coverage/exemptions, pending digital-pricing bills (e.g., SB3657), Chicago/Cook County item-pricing ordinances, and IDOA scanner-inspection practice under 225 ILCS 470.",
+        "weights_measures_law": {
+          "citation": "Weights and Measures Act, 225 ILCS 470 (adopts NIST Handbook 130 uniform packaging/labeling and method-of-sale regulations with enumerated exclusions; implemented at 8 Ill. Adm. Code 600)",
+          "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=1371&ChapterID=24"
+        }
+      },
+      "name": "Illinois",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "State price-verification inspections and incorporated weights-and-measures requirements.",
+      "authority_url": "https://www.in.gov/health/weights-measures/laws-and-regulations",
+      "citation": "Ind. Code ch. 24-6-3; 410 Ind. Admin. Code 12-1-1.3",
+      "code": "IN",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "None located — NIST's U.S. Retail Pricing Laws and Regulations by State lists Indiana as n/a",
+          "kind": "none_found",
+          "operative_summary": "No Indiana statute or regulation specifically governing scanner accuracy, item pricing, or display-vs-charged price was located.",
+          "url": "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "No pricing-specific statutory standard located; deceptive acts in consumer sales, including deceptive price representations, are actionable under Ind. Code § 24-5-0.5-3, and weighing/measuring devices are subject to state inspection under Ind. Code § 24-6-3.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state",
+          "https://law.justia.com/codes/indiana/title-24/article-5/chapter-0-5/",
+          "https://law.justia.com/codes/indiana/title-24/article-6/",
+          "https://www.in.gov/health/weights-measures/laws-and-regulations/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No pricing-specific overcharge remedy located; the DCSA's $500 minimum-damages provision is a general UDAP remedy, not a scanner/overcharge bonus.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Indiana Deceptive Consumer Sales Act, Ind. Code § 24-5-0.5 (remedies at § 24-5-0.5-4: greater of actual damages or $500; treble up to $1,000 for willful violations)",
+          "url": "https://law.justia.com/codes/indiana/title-24/article-5/chapter-0-5/"
+        },
+        "verification_note": "Attorney must confirm on iga.in.gov that no pricing/scanner provision exists elsewhere in Title 24 or in Indiana Administrative Code (including any NIST HB 130 price-verification adoption by the Dept. of Health), and check DCSA notice-of-cure prerequisites (§ 24-5-0.5-5) before suit.",
+        "weights_measures_law": {
+          "citation": "Ind. Code § 24-6-3 (State and Local Weights and Measures Program, within Title 24, Art. 6, Weights, Measures, and Labeling; administered by Indiana Dept. of Health)",
+          "url": "https://www.in.gov/health/weights-measures/laws-and-regulations/"
+        }
+      },
+      "name": "Indiana",
+      "source_kind": "official_state_program"
+    },
+    {
+      "authority_focus": "Consumer fraud and deceptive practices in the advertisement or sale of merchandise.",
+      "authority_url": "https://www.legis.iowa.gov/docs/code/714.pdf",
+      "citation": "Iowa Code § 714.16",
+      "code": "IA",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Iowa Code §§ 215.1(1), 215.1A, 215.4 (commercial scanner defined as a commercial weighing and measuring device subject to mandatory inspection and condemnation)",
+          "kind": "statute",
+          "operative_summary": "A 'commercial weighing and measuring device' expressly includes a commercial scanner, which the Department of Agriculture and Land Stewardship must regularly inspect and must reject/condemn if found inaccurate or incorrect.",
+          "url": "https://www.legis.iowa.gov/docs/code/215.pdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retail checkout scanners are regulated commercial weighing and measuring devices that must be accurate and correct, subject to regular state inspection and condemnation when inaccurate (Iowa Code §§ 215.1(1), 215.1A, 215.4).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.legis.iowa.gov/docs/code/215.pdf",
+          "https://www.legis.iowa.gov/docs/code/714.16.pdf",
+          "https://www.legis.iowa.gov/docs/code/714H.pdf"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, or refund/notice-window remedy for overcharges located; scanner inaccuracy is addressed through device condemnation and misdemeanor penalties, not consumer payments.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Iowa Consumer Fraud Act, Iowa Code § 714.16 (AG enforcement); private cause of action under Iowa Code ch. 714H",
+          "url": "https://www.legis.iowa.gov/docs/code/714.16.pdf"
+        },
+        "verification_note": "Chapter text read from the official 2026 Iowa Code PDF; attorney should confirm DALS administrative rules on scanner/price-verification inspection procedures and tolerances and any Iowa Code ch. 214 licensing overlay for scanner systems.",
+        "weights_measures_law": {
+          "citation": "Iowa Code ch. 215 (Inspection of Weights and Measures; § 215.18 adopts NIST Handbook 44 specifications and tolerances)",
+          "url": "https://www.legis.iowa.gov/docs/code/215.pdf"
+        }
+      },
+      "name": "Iowa",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Weights-and-measures unlawful acts, including deceptive price or quantity practices.",
+      "authority_url": "https://ksrevisor.gov/statutes/ksa_ch83.html",
+      "citation": "Kan. Stat. Ann. § 83-219",
+      "code": "KS",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "K.S.A. 83-219(a)(13)-(16) (unlawful acts), with K.S.A. 83-201(l) (point-of-sale system/scanner definition) and K.S.A. 83-206(f) (state inspection of POS systems)",
+          "kind": "statute",
+          "operative_summary": "It is unlawful to misrepresent the price of any commodity or service, to compute a value that is not a true extension of the advertised/posted/quoted unit price, or to charge, at the time of sale, more than the price which is advertised, posted, or quoted, and commercially used point-of-sale (scanner) systems are subject to state inspection and testing.",
+          "url": "https://ksrevisor.gov/statutes/ksa_ch83.html"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The price charged at the register may not exceed the advertised, posted, or quoted price, and computed prices must be true extensions of the posted unit price (K.S.A. 83-219(a)(13)-(16)).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.nist.gov/document/kansas-retail-pricing-laws-and-regulations-pdf",
+          "https://ksrevisor.gov/statutes/ksa_ch83.html",
+          "https://ksrevisor.gov/statutes/chapters/ch50/050_006_0023.html"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, or refund/notice-window remedy located; K.S.A. 83-219 violations carry regulatory penalties rather than consumer bonus payments.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Kansas Consumer Protection Act, K.S.A. 50-623 et seq.",
+          "url": "https://ksrevisor.gov/statutes/chapters/ch50/050_006_0023.html"
+        },
+        "verification_note": "Statutory text verified from NIST's Kansas retail-pricing compilation (last modified 2022); attorney must confirm the current K.S.A. 83-219/83-201/83-206 text on ksrevisor.gov, KDA implementing regulations, and interplay with KCPA remedies (K.S.A. 50-623 et seq.).",
+        "weights_measures_law": {
+          "citation": "K.S.A. Chapter 83 (Weights and Measures), administered by the Kansas Secretary of Agriculture",
+          "url": "https://ksrevisor.gov/statutes/ksa_ch83.html"
+        }
+      },
+      "name": "Kansas",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits price misrepresentation and establishes scanner price-verification procedures.",
+      "authority_url": "https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39068",
+      "citation": "Ky. Rev. Stat. § 363.760; 302 Ky. Admin. Regs. 80:010",
+      "code": "KY",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "302 KAR 80:010 (Examination procedure for price verification), backed by KRS 363.760 (misrepresentation of price prohibited)",
+          "kind": "regulation",
+          "operative_summary": "All scanners must comply with the NIST Handbook 130 Examination Procedure for Price Verification, and a retail establishment failing a 98% pricing-accuracy compliance rate (errors not in the customer's favor) is assessed an administrative penalty of $100-$500 per inspection; the statute separately bans misrepresenting the price of commodities sold by weight, measure, or count.",
+          "url": "https://apps.legislature.ky.gov/law/kar/TITLE302.HTM"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Scanned prices must match posted prices at a minimum 98% price-verification compliance rate under NIST Handbook 130 procedures with no pattern of errors against the customer (302 KAR 80:010), and prices may not be misrepresented (KRS 363.760).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.nist.gov/system/files/documents/2021/06/01/Pricing%20KY%20.pdf",
+          "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=34914",
+          "https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39068",
+          "https://apps.legislature.ky.gov/law/kar/TITLE302.HTM"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No consumer-facing free-item/bonus or refund/notice-window remedy located; 302 KAR 80:010's $100-$500 penalty is an administrative fine payable to the state, not a consumer remedy.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Kentucky Consumer Protection Act, KRS 367.170 (unfair, false, misleading, or deceptive acts unlawful)",
+          "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=34914"
+        },
+        "verification_note": "Regulation text (eff. 10-7-2019, incorporating HB 130 2019 ed.) verified via NIST's Kentucky compilation; attorney must confirm the current 302 KAR 80:010 text and HB 130 edition on the LRC site, KDA enforcement practice, and KCPA private-action prerequisites (purchase for personal/family/household use).",
+        "weights_measures_law": {
+          "citation": "KRS Chapter 363 (Weights, Measures, and Millers' Tolls), including KRS 363.750 (quantity in price advertising) and KRS 363.760",
+          "url": "https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39068"
+        }
+      },
+      "name": "Kentucky",
+      "source_kind": "official_state_statute_portal"
+    },
+    {
+      "authority_focus": "Shelf and bar-code prices must match the charge; price or quantity may not be misrepresented.",
+      "authority_url": "https://www.nist.gov/document/louisianapdf",
+      "citation": "La. Admin. Code tit. 7, pt. XXXV, §§ 101, 117; La. Rev. Stat. § 3:4617",
+      "code": "LA",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "LAC 7:XXXV.117 (Bar Code Scanning Devices and Labels) and LAC 7:XXXV.101(B) (adopting NIST Handbook 130 Examination Procedure for Price Verification), backed by La. R.S. 3:4617 (price/quantity misrepresentation prohibited)",
+          "kind": "regulation",
+          "operative_summary": "For any item labeled with a bar code, the price must be plainly displayed on the package or a shelf placard, and the displayed price 'shall be precisely equal to the price actually charged by the seller'; scanners are examined under the NIST HB 130 price-verification procedure.",
+          "url": "https://www.nist.gov/document/louisianapdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "The price displayed on the shelf or item for bar-coded goods must be precisely equal to the price actually charged at checkout (LAC 7:XXXV.117(B)), and no one may misrepresent the price of a commodity or service (La. R.S. 3:4617(A)).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.nist.gov/document/louisianapdf",
+          "https://www.ldaf.la.gov/about/boards-commissions/commission-of-weights-and-measures",
+          "https://law.justia.com/codes/louisiana/revised-statutes/title-51/rs-51-1405/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, or refund/notice-window remedy located; LAC 7:XXXV.117 violations are enforced by LDAF (multiple items in one lot count as one violation), with no consumer bonus payment.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Louisiana Unfair Trade Practices and Consumer Protection Law, La. R.S. 51:1405 (unfair/deceptive acts unlawful; private actions with treble damages after AG notice for knowing violations)",
+          "url": "https://law.justia.com/codes/louisiana/revised-statutes/title-51/rs-51-1405/"
+        },
+        "verification_note": "Regulation text verified via NIST's Louisiana compilation (historical notes through LR 34:408, 2008); attorney must confirm the current LAC 7:XXXV text on the Louisiana Register/DOA site, exact placement of R.S. 3:4617 in the current chapter, LUTPA exemptions/prescription, and the official legis.la.gov section URLs.",
+        "weights_measures_law": {
+          "citation": "Louisiana Weights and Measures Law, La. R.S. 3:4601-3:4746 (Dept. of Agriculture and Forestry / Weights and Measures Commission; rulemaking authority at R.S. 3:4606, 3:4608)",
+          "url": "https://www.ldaf.la.gov/about/boards-commissions/commission-of-weights-and-measures"
+        }
+      },
+      "name": "Louisiana",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Prohibits misrepresentation of price for commodities or services offered by weight, measure, or count.",
+      "authority_url": "https://legislature.maine.gov/statutes/10/title10sec2622.html",
+      "citation": "10 Me. Rev. Stat. § 2622",
+      "code": "ME",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "10 M.R.S. § 2622 (Misrepresentation of pricing)",
+          "kind": "statute",
+          "operative_summary": "No person may misrepresent the price of any commodity or service sold or offered/advertised for sale by weight, measure, or count, nor represent the price in any manner calculated or tending to mislead or deceive; no scanner-specific or item-pricing statute was located.",
+          "url": "https://www.mainelegislature.org/legis/statutes/10/title10sec2622.html"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Prices for commodities or services sold by weight, measure, or count may not be misrepresented or represented in a misleading way (10 M.R.S. § 2622), and deceptive pricing is an unfair trade practice under 5 M.R.S. § 207.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://www.mainelegislature.org/legis/statutes/10/title10sec2622.html",
+          "https://www.mainelegislature.org/legis/statutes/10/title10ch501sec0.html",
+          "https://www.mainelegislature.org/legis/statutes/5/title5sec207.html",
+          "https://legislature.maine.gov/legis/bills/getPDF.asp?paper=HP1265&item=1&snum=132"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, or refund/notice-window remedy located; ch. 501 enforcement is via offenses and administrative penalties (10 M.R.S. §§ 2751-2751-E), not consumer payments.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Maine Unfair Trade Practices Act, 5 M.R.S. §§ 205-A to 214 (§ 207 declares unfair/deceptive acts unlawful)",
+          "url": "https://www.mainelegislature.org/legis/statutes/5/title5sec207.html"
+        },
+        "verification_note": "Attorney should confirm no price-verification rule exists in Maine agency regulations, monitor LD 1894/HP 1265 (132nd Leg., 'An Act to Address Consumer Grocery Pricing Fairness' — a supplier price-discrimination bill, not scanner accuracy, not verified as enacted), and check UTPA § 213 private-remedy prerequisites.",
+        "weights_measures_law": {
+          "citation": "Maine Weights and Measures Law, 10 M.R.S. ch. 501 (§ 2623 method of sale; § 2628 conformity to national method-of-sale regulations; § 2353 adopts NIST Handbook 44)",
+          "url": "https://www.mainelegislature.org/legis/statutes/10/title10ch501sec0.html"
+        }
+      },
+      "name": "Maine",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Unit-price and total-price disclosure, including controls for non-intentional technical errors.",
+      "authority_url": "https://www.nist.gov/document/marylandpdf",
+      "citation": "Md. Code, Com. Law §§ 14-101–14-105; COMAR 02.01.01",
+      "code": "MD",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Md. Code Ann., Com. Law §§ 14-101 to 14-105 (Unit Pricing; mandatory total-price/unit-price disclosure)",
+          "kind": "statute",
+          "operative_summary": "Each person selling or displaying consumer commodities at retail must disclose the total price, and for covered prepackaged categories the unit price, in the prescribed manner (with exemptions at § 14-102, including small retailers and a 90%-inventory compliance alternative), enforced through § 14-105; Maryland is one of the mandatory unit-pricing states per NIST.",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-103&enactments=false"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retailers must disclose the total price of each consumer commodity and the unit price for covered prepackaged commodities in the statutorily prescribed manner (Md. Code, Com. Law §§ 14-103, 14-104), and deceptive price representations are prohibited under Com. Law § 13-301.",
+        "proposed_rule_tier": "udap_and_unit_price",
+        "sources": [
+          "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-103&enactments=false",
+          "https://www.nist.gov/document/marylandpdf",
+          "https://mda.maryland.gov/weights_measures/Pages/Laws-and-Regulations.aspx",
+          "https://law.justia.com/codes/maryland/commercial-law/title-13/subtitle-3/section-13-301/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus, or refund/notice-window remedy for scanner overcharges located at the state level; unit-pricing and W&M violations are enforced administratively.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Maryland Consumer Protection Act, Md. Code Ann., Com. Law § 13-101 et seq. (§ 13-301 defines unfair, abusive, or deceptive trade practices)",
+          "url": "https://law.justia.com/codes/maryland/commercial-law/title-13/subtitle-3/section-13-301/"
+        },
+        "verification_note": "Attorney must verify current Com. Law Title 14, Subtitle 1 text and exemptions on mgaleg.maryland.gov, check for any COMAR 15.03 price-verification/scanner regulation, the Montgomery County local scanner/pricing ordinance overlay, and the new Protection From Predatory Pricing Act (HB 895, 2026, surveillance/dynamic pricing in food retail, eff. 10/1/2026).",
+        "weights_measures_law": {
+          "citation": "Md. Code Ann., Agriculture Art., Title 11 (Weights and Measures), implemented by COMAR Title 15, Subtitle 03 (Md. Dept. of Agriculture)",
+          "url": "https://mda.maryland.gov/weights_measures/Pages/Laws-and-Regulations.aspx"
+        }
+      },
+      "name": "Maryland",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Price disclosure, scanner accuracy, receipts, and applicable price-accuracy remedies.",
+      "authority_url": "https://www.mass.gov/regulations/202-CMR-700-price-disclosure",
+      "citation": "202 Mass. Code Regs. 7.00",
+      "code": "MA",
+      "name": "Massachusetts",
+      "source_kind": "official_state_regulation"
+    },
+    {
+      "authority_focus": "Displayed pricing and post-transaction automatic-checkout overcharge procedures.",
+      "authority_url": "https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Act-15-of-2011.pdf",
+      "citation": "Shopping Reform and Modernization Act, 2011 Mich. Pub. Act 15",
+      "code": "MI",
+      "name": "Michigan",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Price marking and disclosure for consumer commodities.",
+      "authority_url": "https://www.revisor.mn.gov/statutes/cite/325F.53",
+      "citation": "Minn. Stat. § 325F.53",
+      "code": "MN",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": "Minn. Stat. § 325F.53",
+          "exists": true
+        },
+        "price_accuracy_law": {
+          "citation": "Minn. Stat. §§ 325F.53–325F.55 (Retail Merchandise; Price Marking)",
+          "kind": "statute",
+          "operative_summary": "In stores primarily selling groceries at retail that use electronic/magnetic checkout scanners, every canned, bottled, boxed, or bagged item must have its selling price conspicuously displayed (subject to enumerated exemptions and up to two posted 25-class exemption lists), with knowing/willful failure to price more than six items of a commodity a petty misdemeanor and injunctive actions available to any person (§ 325F.54).",
+          "url": "https://www.revisor.mn.gov/statutes/cite/325F.53"
+        },
+        "proposed_consumer_remedy": "No pricing-specific bonus/refund statute; any person may seek an injunction for price-marking violations under Minn. Stat. § 325F.54, so pair prompt refund practice with consumer-fraud (§ 325F.69) exposure analysis.",
+        "proposed_price_standard": "Individually price-mark all canned/bottled/boxed/bagged grocery items in scanner-equipped grocery stores (outside statutory exemptions and posted 25-class lists) and charge the conspicuously displayed price (Minn. Stat. § 325F.53).",
+        "proposed_rule_tier": "enhanced_item_pricing",
+        "sources": [
+          "https://www.revisor.mn.gov/statutes/cite/325F.53",
+          "https://www.revisor.mn.gov/statutes/cite/325F.54",
+          "https://www.revisor.mn.gov/statutes/cite/325F.69",
+          "https://www.revisor.mn.gov/statutes/cite/239"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No free-item, bonus, or timed refund/notice remedy located; § 325F.54 provides only a petty-misdemeanor penalty and lets any person sue to enjoin price-marking violations.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Minn. Stat. § 325F.69 (Prevention of Consumer Fraud Act, §§ 325F.68–325F.70)",
+          "url": "https://www.revisor.mn.gov/statutes/cite/325F.69"
+        },
+        "verification_note": "Attorney should confirm current text of §§ 325F.53–.55 and ch. 239 on the Revisor site, the scope of 'primarily grocery' stores, the 25-class exemption mechanics, § 325F.55 preemption of local ordinances, and recent amendments expanding private enforcement of the consumer fraud statutes.",
+        "weights_measures_law": {
+          "citation": "Minn. Stat. ch. 239 (Weights, Measures) — incl. § 239.091 (method of sale)",
+          "url": "https://www.revisor.mn.gov/statutes/cite/239"
+        }
+      },
+      "name": "Minnesota",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Price representation and posting for commodities sold by weight, measure, or count.",
+      "authority_url": "https://www.nist.gov/document/mississippipdf",
+      "citation": "Miss. Code Ann. § 75-27-51",
+      "code": "MS",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Miss. Code Ann. § 75-27-51 (Misrepresentation of price)",
+          "kind": "statute",
+          "operative_summary": "For any commodity or service sold or offered/advertised by weight, measure, or count, the price may not be misrepresented or represented in any manner calculated or tending to mislead a purchaser, with civil penalties of at least $100 (first offense) and $100–$500 per subsequent offense; it is a general weights-and-measures provision, not a scanner-specific law.",
+          "url": "https://law.justia.com/codes/mississippi/title-75/chapter-27/article-1/section-75-27-51/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Charge no more than the posted/advertised price for commodities sold by weight, measure, or count, since a mismatch constitutes prohibited price misrepresentation (Miss. Code Ann. § 75-27-51) and potential MCPA exposure (§ 75-24-5).",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://law.justia.com/codes/mississippi/title-75/chapter-27/article-1/section-75-27-51/",
+          "https://law.justia.com/codes/mississippi/title-75/chapter-24/general-provisions/section-75-24-5/",
+          "https://law.justia.com/codes/mississippi/2020/title-75/chapter-27/article-1/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No consumer-facing free-item, bonus, or timed refund/notice remedy located; § 75-27-51 carries only agency-assessed civil penalties.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Miss. Code Ann. § 75-24-5 (Mississippi Consumer Protection Act, §§ 75-24-1 to -29)",
+          "url": "https://law.justia.com/codes/mississippi/title-75/chapter-24/general-provisions/section-75-24-5/"
+        },
+        "verification_note": "Citations confirmed via Justia (official Mississippi Code is hosted on LexisNexis and was not directly fetched); attorney should verify current § 75-27-51 penalty amounts, any MDAC price-verification regulations adopting NIST HB 130, and MCPA pre-suit/enforcement mechanics under § 75-24-9.",
+        "weights_measures_law": {
+          "citation": "Miss. Code Ann. §§ 75-27-1 to 75-27-67 (Weights and Measures Law of 1964)",
+          "url": "https://law.justia.com/codes/mississippi/2020/title-75/chapter-27/article-1/"
+        }
+      },
+      "name": "Mississippi",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "False or misleading advertising and price representations for commodities or services.",
+      "authority_url": "https://revisor.mo.gov/main/OneSection.aspx?section=413.105",
+      "citation": "Mo. Rev. Stat. § 413.105",
+      "code": "MO",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Mo. Rev. Stat. § 413.105 (Misrepresentation of quantity or price prohibited)",
+          "kind": "statute",
+          "operative_summary": "Makes it the crime of false or misleading advertising to recklessly make false or misleading statements or representations in connection with promoting the sale of any commodity or service sold or advertised by weight, measure, or count; the catchline references price misrepresentation but the text is a general false-advertising ban — no scanner-accuracy or item-pricing law was located.",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=413.105"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis (MMPA § 407.025 private actions for ascertainable loss).",
+        "proposed_price_standard": "Charge the displayed/advertised price; an overcharge risks treatment as deception, misrepresentation, or an unfair practice in connection with the sale or advertisement of merchandise under MMPA § 407.020 and as false or misleading advertising under § 413.105.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://revisor.mo.gov/main/OneSection.aspx?section=413.105",
+          "https://revisor.mo.gov/main/OneSection.aspx?section=407.020",
+          "https://law.justia.com/codes/missouri/title-xxvi/chapter-413/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No free-item, bonus, or timed refund/notice remedy located in ch. 413 or ch. 407.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Mo. Rev. Stat. § 407.020 (Missouri Merchandising Practices Act, § 407.010 et seq.; private action § 407.025)",
+          "url": "https://revisor.mo.gov/main/OneSection.aspx?section=407.020"
+        },
+        "verification_note": "Attorney should confirm on revisor.mo.gov the current ch. 413 text, any Department of Agriculture price-verification regulations (2 CSR) adopting NIST HB 130, and MMPA § 407.025 damages/attorney-fee standards after recent amendments.",
+        "weights_measures_law": {
+          "citation": "Mo. Rev. Stat. ch. 413 (Weights and Measures)",
+          "url": "https://law.justia.com/codes/missouri/title-xxvi/chapter-413/"
+        }
+      },
+      "name": "Missouri",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Adopts Handbook 130 uniform packaging, method-of-sale, and unit-pricing controls.",
+      "authority_url": "https://www.nist.gov/document/montanapdf",
+      "citation": "Mont. Admin. R. 24.351.301",
+      "code": "MT",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Mont. Code Ann. § 30-12-307 (Misrepresentation of price)",
+          "kind": "statute",
+          "operative_summary": "For any commodity or service sold or offered/advertised by weight, measure, or count, the price may not be misrepresented nor represented in any manner calculated or tending to mislead or deceive an actual or prospective purchaser; it is a general weights-and-measures provision, not a scanner-specific law.",
+          "url": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0120/part_0030/section_0070/0300-0120-0030-0070.html"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Charge no more than the posted/advertised price for commodities sold by weight, measure, or count, since a mismatch is prohibited price misrepresentation (Mont. Code Ann. § 30-12-307) and a potential unfair or deceptive practice (§ 30-14-103).",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://mca.legmt.gov/bills/mca/title_0300/chapter_0120/part_0030/section_0070/0300-0120-0030-0070.html",
+          "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0010/section_0030/0300-0140-0010-0030.html",
+          "https://law.justia.com/codes/montana/title-30/chapter-12/part-3/section-30-12-307/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No free-item, bonus, or timed refund/notice remedy located; ch. 12 enforcement runs through general offense/penalty and injunction provisions (e.g., § 30-12-505).",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Mont. Code Ann. § 30-14-103 (Montana Consumer Protection Act, Title 30, ch. 14, pt. 1)",
+          "url": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0010/section_0030/0300-0140-0010-0030.html"
+        },
+        "verification_note": "Verified on the official MCA 2025 site; attorney should confirm Dept. of Labor & Industry weights-and-measures rules (ARM) for any HB 130 price-verification adoption and the CPA's private-remedy provisions (§ 30-14-133) before relying on them.",
+        "weights_measures_law": {
+          "citation": "Mont. Code Ann. Title 30, ch. 12 (Weights, Measures, Standards, and Labeling), incl. pt. 3 (Method of Sale of Commodities)",
+          "url": "https://law.justia.com/codes/montana/title-30/chapter-12/part-3/section-30-12-307/"
+        }
+      },
+      "name": "Montana",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations in weights-and-measures transactions.",
+      "authority_url": "https://nebraskalegislature.gov/laws/laws-index/chap89-full.html",
+      "citation": "Neb. Rev. Stat. §§ 89-196, 89-197(14)",
+      "code": "NE",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Neb. Rev. Stat. § 89-197(14) (Weights and Measures Act — unlawful acts)",
+          "kind": "statute",
+          "operative_summary": "Makes it unlawful to misrepresent the price of any commodity kept for sale or sold by weight, measure, or count, or to represent the price in any manner calculated or tending to mislead or deceive; it is a general weights-and-measures provision, not a scanner-specific law.",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=89-197"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Charge no more than the posted/advertised price for commodities sold by weight, measure, or count, since a mismatch is unlawful price misrepresentation under Neb. Rev. Stat. § 89-197(14) with parallel Consumer Protection Act exposure (§ 59-1602).",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://nebraskalegislature.gov/laws/statutes.php?statute=89-197",
+          "https://nebraskalegislature.gov/laws/statutes.php?statute=59-1602",
+          "https://nebraskalegislature.gov/laws/display_html.php?begin_section=89-182.01&end_section=89-1%2C103",
+          "https://nda.nebraska.gov/sites/default/files/regulations/wam/WeightsMeasuresRegulations.pdf"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No free-item, bonus, or timed refund/notice remedy located; § 89-197 violations are enforced through the Act's penalty provisions, and CPA violations carry civil penalties.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Neb. Rev. Stat. § 59-1602 (Consumer Protection Act, §§ 59-1601 to 59-1622)",
+          "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=59-1602"
+        },
+        "verification_note": "Verified on the official Nebraska Legislature site; attorney should confirm whether NDA weights-and-measures regulations (Title 155) adopt the HB 130 price-verification examination procedure and check the CPA public-interest requirement and Uniform Deceptive Trade Practices Act (§ 87-301 et seq.) overlay.",
+        "weights_measures_law": {
+          "citation": "Neb. Rev. Stat. §§ 89-182.01 to 89-1,103 (Weights and Measures Act; adopts by reference the NIST Handbook 130 Uniform Packaging and Labeling Regulation and Uniform Regulation for the Method of Sale of Commodities as of Jan. 1, 2025)",
+          "url": "https://nebraskalegislature.gov/laws/display_html.php?begin_section=89-182.01&end_section=89-1%2C103"
+        }
+      },
+      "name": "Nebraska",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Price and quantity representations for commodities sold by weight, measure, or count.",
+      "authority_url": "https://www.leg.state.nv.us/NRS/NRS-581.html",
+      "citation": "Nev. Rev. Stat. § 581.377",
+      "code": "NV",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "NAC 581.030 (adopting by reference NIST Handbook 130, including the Examination Procedure for Price Verification, Uniform Unit Pricing Regulation, Uniform Packaging and Labeling Regulation, and Method of Sale Regulation); see also NRS 581.377 (misrepresentation of price prohibited)",
+          "kind": "regulation",
+          "operative_summary": "Nevada's weights-and-measures regulations adopt the NIST HB 130 price-verification examination procedure — under which checkout prices are tested against the posted/advertised/marked price — and deem any violation of the adopted provisions a violation of NAC ch. 581, while NRS 581.377 separately prohibits misrepresenting the price of any commodity or service sold by weight, measure, or count.",
+          "url": "https://www.leg.state.nv.us/nac/Nac-581.html"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis (DTPA, NRS ch. 598).",
+        "proposed_price_standard": "Scanned/charged prices must match posted, advertised, or marked prices under the HB 130 price-verification procedure adopted at NAC 581.030, and price misrepresentation for commodities sold by weight, measure, or count is prohibited by NRS 581.377.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.law.cornell.edu/regulations/nevada/NAC-581-030",
+          "https://www.leg.state.nv.us/nac/Nac-581.html",
+          "https://www.leg.state.nv.us/nrs/NRS-581.html",
+          "https://law.justia.com/codes/nevada/2022/chapter-581/statute-581-377/",
+          "https://law.justia.com/codes/nevada/chapter-598/statute-598-0915/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No free-item, bonus, or timed refund/notice remedy located; enforcement is by the state sealer/Department under NRS/NAC ch. 581 and by DTPA remedies.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "NRS ch. 598 (Deceptive Trade Practices Act), incl. NRS 598.0915 (false or misleading statements concerning price)",
+          "url": "https://law.justia.com/codes/nevada/chapter-598/statute-598-0915/"
+        },
+        "verification_note": "Attorney should confirm the current NAC 581.030 text and which HB 130 edition is incorporated (the fetched version referenced the 2003 edition plus approved revisions), the exact NRS 581.377 numbering in the current NRS, and DTPA private-remedy pathways (e.g., NRS 41.600).",
+        "weights_measures_law": {
+          "citation": "NRS ch. 581 (Weights and Measures)",
+          "url": "https://www.leg.state.nv.us/nrs/NRS-581.html"
+        }
+      },
+      "name": "Nevada",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Retail grocery price marking and electronic checkout requirements.",
+      "authority_url": "https://gc.nh.gov/rsa/html/XL/438/438-26-a.htm",
+      "citation": "N.H. Rev. Stat. § 438:26-a",
+      "code": "NH",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": "RSA 438:26-a",
+          "exists": true
+        },
+        "price_accuracy_law": {
+          "citation": "N.H. Rev. Stat. Ann. (RSA) 438:26-a (Grocery Stores; Prices), implemented by N.H. Admin. R. Agr 1400 (Weights and Measures)",
+          "kind": "statute",
+          "operative_summary": "Grocery stores must mark the price on each packaged item or, alternatively, post a uniform shelf tag or larger sign showing the item's regular price in numerals at least 7/16 inch high plus unit price and item identity (with exceptions for cold beverages and single-serve snack items), with the commissioner's Agr 1400 rules governing pricing and the Division of Weights and Measures conducting price-verification audits.",
+          "url": "https://gc.nh.gov/rsa/html/XL/438/438-26-a.htm"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis (RSA 358-A private actions).",
+        "proposed_price_standard": "Price every grocery item on the package or via a compliant shelf tag/sign (regular price in ≥7/16-inch numerals, unit price, item identity) per RSA 438:26-a and Agr 1400, and charge consistently with the posted price given division price-verification audits.",
+        "proposed_rule_tier": "enhanced_item_pricing",
+        "sources": [
+          "https://gc.nh.gov/rsa/html/XL/438/438-26-a.htm",
+          "https://gc.nh.gov/rules/state_agencies/agr1400.html",
+          "https://mm.nh.gov/files/uploads/agriculture/documents/grocers-guide.pdf",
+          "https://law.justia.com/codes/new-hampshire/title-xxxi/chapter-358-a/section-358-a-2/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "RSA 438:26-a contains no consumer remedy (no free item, bonus, or refund/notice window); enforcement is administrative through the Department of Agriculture, Markets & Food.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "RSA 358-A:2 (Regulation of Business Practices for Consumer Protection — Consumer Protection Act)",
+          "url": "https://law.justia.com/codes/new-hampshire/title-xxxi/chapter-358-a/section-358-a-2/"
+        },
+        "verification_note": "Verified on the official gc.nh.gov RSA site; attorney should confirm current Agr 1400 rule text (shelf-tag specifications, snack-item definitions), the scope of 'grocery store,' and RSA 358-A:10 remedy mechanics, plus any pending amendments.",
+        "weights_measures_law": {
+          "citation": "RSA ch. 438 (Standards for Weights and Measures)",
+          "url": "https://gc.nh.gov/rsa/html/XL/438/438-26-a.htm"
+        }
+      },
+      "name": "New Hampshire",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Unit-pricing and retail price disclosure requirements.",
+      "authority_url": "https://www.nist.gov/document/new-jerseypdf",
+      "citation": "N.J. Admin. Code § 13:45A-14",
+      "code": "NJ",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": "N.J.S.A. 56:8-2.5",
+          "exists": true
+        },
+        "price_accuracy_law": {
+          "citation": "N.J.S.A. 56:8-2.5 (total selling price must be plainly marked; daily violations under 56:8-2.6); Unit Price Disclosure Act, N.J.S.A. 56:8-21 to 56:8-26",
+          "kind": "statute",
+          "operative_summary": "It is an unlawful practice under the Consumer Fraud Act to sell, attempt to sell, or offer any merchandise at retail unless the total selling price is plainly marked by a stamp, tag, label, or sign affixed to the merchandise or located at the point where it is offered for sale, and covered consumer commodities must also be marked with the price per measure (unit price) at the point of display.",
+          "url": "https://www.njconsumeraffairs.gov/statutes/consumer-fraud-act.pdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific bonus remedy located, but CFA private actions carry threefold damages and fees for ascertainable loss (N.J.S.A. 56:8-19), so prompt refund at the marked price is the required practice.",
+        "proposed_price_standard": "Plainly mark the total selling price of all retail merchandise on the item or at the point of offer (N.J.S.A. 56:8-2.5) and the unit price of covered commodities at the point of display (56:8-23), and charge the marked price, since misrepresentation in connection with sale or advertisement violates 56:8-2.",
+        "proposed_rule_tier": "enhanced_item_pricing",
+        "sources": [
+          "https://www.njconsumeraffairs.gov/statutes/consumer-fraud-act.pdf",
+          "https://law.justia.com/codes/new-jersey/title-56/section-56-8-2-5/",
+          "https://law.justia.com/codes/new-jersey/title-51/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No Michigan-style free-item/bonus or timed refund/notice statute located; however, the CFA gives private plaintiffs threefold damages plus fees for ascertainable loss (56:8-19), and each day of failure to tag is a separate violation (56:8-2.6).",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "New Jersey Consumer Fraud Act, N.J.S.A. 56:8-1 et seq. (incl. 56:8-2; private treble-damages action under 56:8-19)",
+          "url": "https://www.njconsumeraffairs.gov/statutes/consumer-fraud-act.pdf"
+        },
+        "verification_note": "Verified against the Division of Consumer Affairs' official CFA compilation (rev. 3/30/2022); attorney should confirm post-2022 amendments, N.J.A.C. 13:45A advertising/unit-pricing regulations, unit-pricing exemptions set by the Director, county weights-and-measures enforcement practice, and the 2026 surveillance-pricing legislation's interaction.",
+        "weights_measures_law": {
+          "citation": "N.J. Rev. Stat. Title 51 (Standards, Weights, Measures and Containers), ch. 1 (State/county/municipal weights and measures offices)",
+          "url": "https://law.justia.com/codes/new-jersey/title-51/"
+        }
+      },
+      "name": "New Jersey",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Correct, nondeceptive retail price information and price representations.",
+      "authority_url": "https://www.nist.gov/document/new-mexicopdf",
+      "citation": "N.M. Stat. §§ 57-17-12, 57-17-15; N.M. Admin. Code 21.16.6.9",
+      "code": "NM",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "NMSA 1978, § 57-17-15 (Misrepresentation of price), implemented by 21.16.6 NMAC (Price Representations)",
+          "kind": "statute",
+          "operative_summary": "For any commodity or service sold or offered/advertised by weight, measure, or count, the price may not be misrepresented or represented in a manner tending to mislead or deceive a purchaser, and NMDA's 21.16.6 NMAC applies price-representation requirements to all retail sales displays and makes the seller responsible for furnishing correct price information; no scanner-specific bonus law was located.",
+          "url": "https://law.justia.com/codes/new-mexico/2016/chapter-57/article-17/section-57-17-15"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus Unfair Practices Act exposure analysis (private recovery of the greater of actual damages or $100, trebled or $300 if willful, under NMSA § 57-12-10).",
+        "proposed_price_standard": "Retail displays must furnish correct price information and charge no more than the posted/advertised price, since price misrepresentation for commodities sold by weight, measure, or count is prohibited (NMSA § 57-17-15; 21.16.6 NMAC).",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://law.justia.com/codes/new-mexico/2016/chapter-57/article-17/section-57-17-15",
+          "https://law.justia.com/codes/new-mexico/chapter-57/article-12/section-57-12-3",
+          "https://law.justia.com/codes/new-mexico/chapter-57/article-17/",
+          "http://www.nmda.nmsu.edu/home/laws-regulations/weights-measures/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No pricing-specific free-item, bonus, or timed refund/notice remedy located in art. 17 or the NMAC price-representation rules.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "New Mexico Unfair Practices Act, NMSA 1978, § 57-12-1 et seq. (incl. § 57-12-3; remedies § 57-12-10)",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-57/article-12/section-57-12-3"
+        },
+        "verification_note": "Statute confirmed via Justia and the rule's existence via NMDA/SRCA references (official NM code is on nmonesource.com, not directly fetched); attorney should pull the current 21.16.6 NMAC text and any NMDA adoption of the HB 130 price-verification examination procedure, and confirm UPA damages figures.",
+        "weights_measures_law": {
+          "citation": "NMSA 1978, ch. 57, art. 17 (Standards of Weights and Measures, §§ 57-17-1 through 57-17-19)",
+          "url": "https://law.justia.com/codes/new-mexico/chapter-57/article-17/"
+        }
+      },
+      "name": "New Mexico",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Lowest advertised, written, posted, or marked retail price and item-pricing rules where applicable.",
+      "authority_url": "https://www.nysenate.gov/legislation/laws/AGM/197-B",
+      "citation": "N.Y. Agric. & Mkts. Law § 197-b",
+      "code": "NY",
+      "name": "New York",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits price misrepresentation for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://www.ncleg.gov/enactedlegislation/statutes/pdf/bychapter/chapter_81a.pdf",
+      "citation": "N.C. Gen. Stat. § 81A-23",
+      "code": "NC",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "N.C. Gen. Stat. § 81A-23 (Misrepresentation of pricing), Weights and Measures Act of 1975",
+          "kind": "statute",
+          "operative_summary": "No person may misrepresent the price of any commodity or service sold, offered, exposed, or advertised for sale by weight, measure, or count, or represent the price in a manner calculated or tending to mislead or deceive, and the NC Dept. of Agriculture's Standards Division runs recurring unannounced retail price-scanner verification inspections under Chapter 81A.",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_81A/GS_81A-23.pdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retailers may not misrepresent the price of any commodity or service sold by weight, measure, or count (N.C. Gen. Stat. § 81A-23), enforced through the state's unannounced price-scanner verification inspection program under Chapter 81A.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_81A/GS_81A-23.pdf",
+          "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_81A/Article_3.html",
+          "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_81A.html",
+          "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_75/Article_1.html",
+          "https://www.ncagr.gov/news/press-releases/2024/04/16/14-stores-pay-fines-price-scanning-errors"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": "N.C. Gen. Stat. Chapter 81A, Article 3 (Violations)",
+          "description": "Chapter 81A provides only public enforcement remedies (Class 2 then Class 1 misdemeanor, civil penalties up to $5,000 per violation, injunctive relief) — no statutory refund, free-item, or bonus payment to the individual consumer.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_81A/Article_3.html"
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "N.C. Gen. Stat. § 75-1.1 et seq. (unfair methods of competition; unfair or deceptive acts or practices)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_75/Article_1.html"
+        },
+        "verification_note": "§ 81A-23 confirmed from the official ncleg.gov PDF. Unconfirmed: the codified numeric accuracy tolerance NCDA&CS cites in enforcement (press materials reference a 2% overcharge-error threshold; likely in 02 NCAC but the OAH rules server was unreachable). Confirm current civil penalty amounts and NC case law applying Chapter 75 to scanner overcharges.",
+        "weights_measures_law": {
+          "citation": "N.C. Gen. Stat. Chapter 81A (Weights and Measures Act of 1975)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_81A.html"
+        }
+      },
+      "name": "North Carolina",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Electronic scanner pricing and conspicuous price information.",
+      "authority_url": "https://ndlegis.gov/cencode/t51c07.html",
+      "citation": "N.D. Cent. Code § 51-07-15",
+      "code": "ND",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": null,
+          "kind": "none_found",
+          "operative_summary": "No North Dakota statute or regulation was found that specifically addresses retail scanner/point-of-sale price accuracy, UPC/PLU verification, or a price-related method-of-sale standard; N.D. Cent. Code ch. 64-02 governs only device testing, licensing, and bonding, and ch. 64-03 covers only false-weight/device criminal offenses.",
+          "url": "https://ndlegis.gov/cencode/t64c02.html"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "No North Dakota-specific price-accuracy standard was located; retail pricing conduct is governed by the Consumer Fraud Act's prohibition on deceptive, false, or unconscionable practices (N.D. Cent. Code § 51-15-02) and general device oversight (Title 64).",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://ndlegis.gov/cencode/t64c02.html",
+          "https://ndlegis.gov/cencode/t64c02.pdf",
+          "https://ndlegis.gov/cencode/t64c03.pdf",
+          "https://ndlegis.gov/cencode/t64.html",
+          "https://ndlegis.gov/cencode/t51c15.html",
+          "https://www.psc.nd.gov/jurisdictions/weights-measures"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory overcharge remedy found; weights-and-measures chapters address device testing/licensing and false-weight criminal penalties only.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "N.D. Cent. Code ch. 51-15 (Unlawful Sales or Advertising Practices / Consumer Fraud Act), § 51-15-02",
+          "url": "https://ndlegis.gov/cencode/t51c15.html"
+        },
+        "verification_note": "Negative finding reached twice (dedicated research + direct section-list reads of ch. 64-02/64-03). N.D. Admin Code ch. 69-10-02 (Scales) and 69-10-04 (Service Regulations) identified but not full-text reviewed; counsel should also check PSC bulletins for HB 130 price-verification adoption, and reconcile the separate peer-map lead N.D.C.C. § 51-07-15 (Title 51 ch. 7) which this pass did not review.",
+        "weights_measures_law": {
+          "citation": "N.D. Cent. Code Title 64 (Weights, Measures, and Grades), chs. 64-01 through 64-04",
+          "url": "https://ndlegis.gov/cencode/t64.html"
+        }
+      },
+      "name": "North Dakota",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://codes.ohio.gov/ohio-revised-code/section-1327.54",
+      "citation": "Ohio Rev. Code § 1327.54",
+      "code": "OH",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Ohio Rev. Code § 1327.54 (Misrepresentation of price of commodity or service), plus § 1327.571 (Retail Price Posting) and OAC Chapter 901:6 (device/price-verification testing rules)",
+          "kind": "statute",
+          "operative_summary": "Ohio prohibits misrepresenting the price of any commodity or service sold by weight, measure, or count, requires retail price posting, and subjects UPC/price-verification scanner systems to periodic inspection by the Dept. of Agriculture's weights-and-measures program under OAC Chapter 901:6.",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-1327.54"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under the Ohio Consumer Sales Practices Act (ORC §§ 1345.02, 1345.09).",
+        "proposed_price_standard": "Sellers may not misrepresent or mislead as to a commodity's price (Ohio Rev. Code § 1327.54), and retail price-verification/UPC scanner systems are subject to periodic testing under OAC Chapter 901:6.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://codes.ohio.gov/ohio-revised-code/section-1327.54",
+          "https://codes.ohio.gov/ohio-revised-code/section-1327.571",
+          "https://codes.ohio.gov/ohio-revised-code/section-1345.02",
+          "https://codes.ohio.gov/ohio-revised-code/chapter-1327",
+          "https://codes.ohio.gov/ohio-administrative-code/rule-901:6-8-01",
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No Ohio statute grants a specific bonus, free-item, or refund-window remedy; remedies run through the CSPA's general damages and rescission provisions.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Ohio Rev. Code § 1345.02 (Consumer Sales Practices Act, incl. (B)(8) false price-advantage claims)",
+          "url": "https://codes.ohio.gov/ohio-revised-code/section-1345.02"
+        },
+        "verification_note": "Confirm the precise OAC 901:6 sub-rules governing UPC/price-verification testing frequency and NIST HB 130 adoption with ODA Weights and Measures; confirm CSPA remedy scope under ORC 1345.09; check county/municipal scanner ordinances.",
+        "weights_measures_law": {
+          "citation": "Ohio Rev. Code Chapter 1327 (Weights and Measures)",
+          "url": "https://codes.ohio.gov/ohio-revised-code/chapter-1327"
+        }
+      },
+      "name": "Ohio",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading price or quantity representations and supports price-verification inspections.",
+      "authority_url": "https://oksenate.gov/sites/default/files/2019-12/os2.pdf",
+      "citation": "Okla. Stat. tit. 2, § 14-38",
+      "code": "OK",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Okla. Stat. tit. 2, § 2-14-38",
+          "kind": "statute",
+          "operative_summary": "Oklahoma makes it unlawful for a store to charge a retail price for any consumer item that exceeds the lowest price then in effect in that store — whether a shelf, sale, advertised, or otherwise publicly communicated price — and deems a compliance inspection failed if fewer than 95% of sampled items price accurately.",
+          "url": "https://law.justia.com/codes/oklahoma/title-2/section-2-14-38/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under the Oklahoma Consumer Protection Act, since § 2-14-38's penalties run to the state.",
+        "proposed_price_standard": "A store may not charge a retail price for any consumer item that exceeds the lowest price then in effect in that store — whether a shelf, sale, advertised, or otherwise publicly communicated price — with inspections failed below 95% sampled accuracy (Okla. Stat. tit. 2, § 2-14-38).",
+        "proposed_rule_tier": "enhanced_lowest_price",
+        "sources": [
+          "https://law.justia.com/codes/oklahoma/title-2/section-2-14-38/",
+          "https://law.justia.com/codes/oklahoma/2020/title-2/section-2-14-38/",
+          "https://ag.ok.gov/wp-content/uploads/2020/11/OklahomaWeights-and-Measures-September-2022.pdf",
+          "https://law.justia.com/codes/oklahoma/title-15/section-15-753/",
+          "https://www.findlaw.com/legalblogs/consumer-protection/pricing-disputes-you-pay-the-lowest-marked-price/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "Escalating regulatory penalties on the store (Letter of Warning, increased inspection frequency, per-day violations) rather than a direct consumer payout; no free-item or bonus remedy located.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Okla. Stat. tit. 15, §§ 751-763 (Oklahoma Consumer Protection Act)",
+          "url": "https://law.justia.com/codes/oklahoma/title-15/section-15-753/"
+        },
+        "verification_note": "Direct oscn.net fetch blocked (403); the lowest-price and 95% language is confirmed via Justia mirrors across two year-snapshots plus FindLaw commentary, not an official .gov rendering. Counsel MUST verify current text and penalty/appeal mechanics on oscn.net/ODA/Westlaw, and confirm whether any private right of action attaches.",
+        "weights_measures_law": {
+          "citation": "Okla. Stat. tit. 2, §§ 2-14-1 et seq. (Agricultural Weights and Measures, Article 14)",
+          "url": "https://ag.ok.gov/wp-content/uploads/2020/11/OklahomaWeights-and-Measures-September-2022.pdf"
+        }
+      },
+      "name": "Oklahoma",
+      "source_kind": "official_state_statute_compilation"
+    },
+    {
+      "authority_focus": "Unit and total retail price disclosure for covered grocery commodities.",
+      "authority_url": "https://www.oregonlegislature.gov/bills_laws/ors/ors616.html",
+      "citation": "Or. Rev. Stat. §§ 616.850–616.890",
+      "code": "OR",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "OAR 603-027-0180 (Examination Procedures for Price Verification); ORS 618.236 (price misrepresentation)",
+          "kind": "regulation",
+          "operative_summary": "Oregon requires that price-verification/accuracy examinations at any store using UPC scanners or price-look-up codes follow NCWM procedures contained in NIST Handbook 130 (2009 ed.), and separately bars misrepresenting the price of any commodity or service sold by weight, measure, or count.",
+          "url": "https://oregon.public.law/rules/oar_603-027-0180"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under ORS 646.608.",
+        "proposed_price_standard": "Any Oregon store using UPC scanners or price-look-up codes must have its price accuracy examined under NCWM procedures in NIST Handbook 130, 2009 ed. (OAR 603-027-0180), and no seller may misrepresent the price of a commodity or service (ORS 618.236).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://oregon.public.law/rules/oar_603-027-0180",
+          "https://oregon.public.law/statutes/ors_618.236",
+          "https://oregon.public.law/statutes/ors_618.016",
+          "https://oregon.public.law/statutes/ors_646.608",
+          "https://oregon.public.law/statutes/ors_616.860",
+          "https://secure.sos.state.or.us/oard/displayDivisionRules.action?selectedDivision=2716"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "Neither ORS ch. 618 nor OAR 603-027-0180 provides a consumer bonus, free-item, or refund-window remedy; enforcement runs through ODA investigation authority (ORS 618.066) and general UTPA remedies.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "ORS 646.605-646.652 (Unlawful Trade Practices Act), incl. ORS 646.608(1)(j),(s)",
+          "url": "https://oregon.public.law/statutes/ors_646.608"
+        },
+        "verification_note": "oregon.public.law mirror used (official sites resisted fetch); confirm current text on oregonlegislature.gov/OARD, whether the HB 130 adoption was updated past the 2009 edition, and reconcile the peer-map lead ORS 616.850-616.890 (advertising/pricing provisions) which this pass did not review.",
+        "weights_measures_law": {
+          "citation": "ORS Chapter 618 (Weights and Measures)",
+          "url": "https://oregon.public.law/statutes/ors_618.016"
+        }
+      },
+      "name": "Oregon",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Weights-and-measures price verification and misleading price representations.",
+      "authority_url": "https://www.palegis.us/statutes/consolidated/view-statute&txtType=PDF&ttl=3&div=00.&chpt=041.",
+      "citation": "3 Pa. Cons. Stat. § 4133",
+      "code": "PA",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "70 Pa. Code §§ 5.1-5.23 (UPC Scanning Systems and PLU Devices), implementing the testing mandate in 3 Pa.C.S. § 4112(c)",
+          "kind": "regulation",
+          "operative_summary": "Pennsylvania requires commercially used UPC scanning systems and PLU devices to be tested by a Department-certified inspector using the NCWM Examination Procedure for Price Verification (Publication 19), achieving at least a 98% accuracy rate, with statutory testing intervals not greater than 36 months.",
+          "url": "https://www.pacodeandbulletin.gov/Display/pacode?file=%2Fsecure%2Fpacode%2Fdata%2F070%2Fchapter5%2Fchap5toc.html"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under the UTPCPL (73 P.S. §§ 201-1 et seq., private action at § 201-9.2).",
+        "proposed_price_standard": "Retail UPC scanning systems and PLU devices must pass the state's NCWM-based price-verification testing at a 98% accuracy rate, at intervals not exceeding 36 months (3 Pa.C.S. § 4112(c); 70 Pa. Code Ch. 5).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.pacodeandbulletin.gov/Display/pacode?file=%2Fsecure%2Fpacode%2Fdata%2F070%2Fchapter5%2Fchap5toc.html",
+          "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/070/chapter5/s5.3.html",
+          "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/03/00.041..HTM",
+          "https://law.justia.com/codes/pennsylvania/title-3/chapter-41/",
+          "https://codes.findlaw.com/pa/title-73-ps-trade-and-commerce/pa-st-sect-73-201-1/",
+          "https://codes.findlaw.com/pa/title-3-pacsa-agriculture/pa-csa-sect-3-4112.html"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "70 Pa. Code Ch. 5 and 3 Pa.C.S. § 4112 are procedural inspection/testing/certification regimes — no refund, free-item, or bonus remedy to the consumer.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "73 P.S. §§ 201-1 to 201-9.3 (Unfair Trade Practices and Consumer Protection Law)",
+          "url": "https://codes.findlaw.com/pa/title-73-ps-trade-and-commerce/pa-st-sect-73-201-1/"
+        },
+        "verification_note": "Confirmed via two research passes and direct fetches of pacodeandbulletin.gov, legis.state.pa.us, and FindLaw. Confirm current § 4112(c) and 70 Pa. Code Ch. 5 amendments, NCWM Publication 19 status, and PA case law applying § 201-9.2 to scanner overcharges. Peer map cites 3 Pa.C.S. § 4133 (a related W&M provision) — reconcile.",
+        "weights_measures_law": {
+          "citation": "3 Pa.C.S. Chapter 41 (Weights and Measures), including § 4112",
+          "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/03/00.041..HTM"
+        }
+      },
+      "name": "Pennsylvania",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Unit-price and total-price disclosure for covered consumer commodities.",
+      "authority_url": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-31/INDEX.htm",
+      "citation": "R.I. Gen. Laws §§ 6-31-1–6-31-6",
+      "code": "RI",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": null,
+          "kind": "none_found",
+          "operative_summary": "No dedicated retail scanner-accuracy, price-verification, or display-vs-charged-price statute or regulation was located; G.L. Chapter 6-13.2 is confirmed via the RI General Assembly's own chapter index to govern comparison price advertising for precious metals and stones, not electronic scanning, and Title 47 has no scanning-device chapter.",
+          "url": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-13.2/INDEX.htm"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "No dedicated scanner/checkout price-accuracy statute; Rhode Island requires unit-price disclosure for certain retail commodities under Ch. 6-31 (Unit Pricing, §§ 6-31-1 to 6-31-6), layered on the Deceptive Trade Practices Act.",
+        "proposed_rule_tier": "udap_and_unit_price",
+        "sources": [
+          "https://webserver.rilegislature.gov/Statutes/TITLE6/6-13.2/INDEX.htm",
+          "https://webserver.rilegislature.gov/Statutes/TITLE6/6-13/INDEX.htm",
+          "https://webserver.rilegislature.gov/Statutes/TITLE6/6-31/INDEX.HTM",
+          "https://law.justia.com/codes/rhode-island/title-6/chapter-6-13-1/section-6-13-1-2/",
+          "https://law.justia.com/codes/rhode-island/title-47/",
+          "https://rules.sos.ri.gov/regulations/part/260-30-10-3",
+          "https://rhodeislandcurrent.com/2025/03/16/lt-gov-matos-rings-up-supermarket-consumer-protection-bills-during-house-hearing/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory bonus, free-item, or mandated refund-window remedy found. Ch. 6-13.2 is precious-metals advertising; ch. 6-13's only register provision (§ 6-13-13) concerns physical obstruction of the register window. Pending 2025 bills (H5551/H5552) would address supermarket scanner/surge pricing but are not enacted.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "R.I. Gen. Laws § 6-13.1-1 et seq. (Deceptive Trade Practices Act), unlawful acts at § 6-13.1-2",
+          "url": "https://law.justia.com/codes/rhode-island/title-6/chapter-6-13-1/section-6-13-1-2/"
+        },
+        "verification_note": "The prior 6-13.2 'scanner accuracy' lead is affirmatively wrong (official index title: 'Comparison Price Advertising for Precious Metal and Stones'). Ch. 6-31 confirmed by official index but only section titles reviewed — counsel must pull §§ 6-31-2/6-31-3 full text for covered goods/retailers; check 260-RICR-30-10-3; track H5551/H5552.",
+        "weights_measures_law": {
+          "citation": "R.I. Gen. Laws Title 47 (Weights and Measures), e.g. Chapter 47-1",
+          "url": "https://law.justia.com/codes/rhode-island/title-47/"
+        }
+      },
+      "name": "Rhode Island",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits false quantity or price representations in weights-and-measures commerce.",
+      "authority_url": "https://www.scstatehouse.gov/code/t39c009.php",
+      "citation": "S.C. Code § 39-9-120",
+      "code": "SC",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "S.C. Code § 39-9-120 (within Title 39, Chapter 9, the 'Uniform Weights and Measures Law')",
+          "kind": "statute",
+          "operative_summary": "South Carolina prohibits misrepresenting the price of any commodity or service sold, offered, exposed, or advertised for sale by weight, measure, or count, or representing the price in any manner calculated or tending to mislead or deceive, and mandates prominent, proportionate display of any fractional-cent unit price.",
+          "url": "https://www.scstatehouse.gov/code/t39c009.php"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retailers may not misrepresent, or charge, a price differing from the price represented at the point of sale, per S.C. Code § 39-9-120.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.scstatehouse.gov/code/t39c009.php",
+          "https://www.scstatehouse.gov/code/t39c005.php",
+          "https://law.justia.com/codes/south-carolina/title-39/chapter-9/section-39-9-120/",
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory bonus, free-item, or refund-window remedy in Chapter 9 (§§ 39-9-100 through 39-9-170 reviewed).",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "S.C. Code § 39-5-10 et seq. (South Carolina Unfair Trade Practices Act)",
+          "url": "https://www.scstatehouse.gov/code/t39c005.php"
+        },
+        "verification_note": "NIST index lists SC as n/a for dedicated retail pricing docs; confirm with SCDA Weights & Measures whether a scanner/price-verification testing methodology is adopted by regulation; review § 39-9-120 penalty mechanics and SCUTPA private-action pathway.",
+        "weights_measures_law": {
+          "citation": "S.C. Code Title 39, Chapter 9 (Uniform Weights and Measures Law)",
+          "url": "https://www.scstatehouse.gov/code/t39c009.php"
+        }
+      },
+      "name": "South Carolina",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Deceptive price practices, transaction display, and receipt requirements for electronic registers.",
+      "authority_url": "https://sdlegislature.gov/api/Statutes/37-24-6.html",
+      "citation": "S.D. Codified Laws §§ 37-24-6, 37-24-6.1",
+      "code": "SD",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "A.R.S.D. 20:01:02:03 (South Dakota adopts NIST Handbook 130 (2020 ed.) uniform laws and regulations, except Section IIIB Uniform Weighmaster Law and Section IVC Uniform Unit Pricing Regulation)",
+          "kind": "regulation",
+          "operative_summary": "By regulation, South Dakota incorporates NIST Handbook 130's uniform weights-and-measures standards — including the price-verification/scanner-accuracy inspection methodology — as state law, but expressly declines HB130's Uniform Unit Pricing Regulation.",
+          "url": "https://www.law.cornell.edu/regulations/south-dakota/ARSD-20-01-02-03"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "South Dakota incorporates NIST Handbook 130 (2020)'s uniform standards including price-verification inspection methodology into state regulation (A.R.S.D. 20:01:02:03), without the Uniform Unit Pricing Regulation.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.law.cornell.edu/regulations/south-dakota/ARSD-20-01-02-03",
+          "https://sdlegislature.gov/Statutes/37-20",
+          "https://sdlegislature.gov/api/Statutes/37-24.html",
+          "https://dps.sd.gov/inspections/weights-measures/laws"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory bonus, free-item, or refund-window remedy. SDCL 37-20's penalties are false-weight misdemeanors; consumer relief runs through SDCL 37-24 (private action for actual damages plus fees under 37-24-31).",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "SDCL Chapter 37-24 (Deceptive Trade Practices and Consumer Protection Act)",
+          "url": "https://sdlegislature.gov/Statutes/37-24"
+        },
+        "verification_note": "ARSD 20:01:02:03 is a general adoption clause; counsel should confirm which HB 130 (2020) provisions are thereby incorporated, re-verify on the official ARSD portal (Cornell LII mirror used), and confirm AG/W&M enforcement practice under SDCL 37-24. Peer map cites SDCL 37-24-6/-6.1 (UDAP enumerations) — complementary.",
+        "weights_measures_law": {
+          "citation": "SDCL Title 37, Chapter 37-20 (Standard Weights and Measures) and Chapter 37-21 (Enforcement)",
+          "url": "https://sdlegislature.gov/Statutes/37-20"
+        }
+      },
+      "name": "South Dakota",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "State inspection program verifies UPC charges against advertisements, labels, and shelf prices.",
+      "authority_url": "https://www.tn.gov/agriculture/consumers/standards.html",
+      "citation": "Tenn. Code Ann. § 47-26-907",
+      "code": "TN",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Tenn. Code Ann. § 47-26-913",
+          "kind": "statute",
+          "operative_summary": "No person may misrepresent the price of any commodity or service sold, offered, exposed, or advertised for sale by weight, measure, or count, or state the price in a manner calculated or tending to mislead or deceive.",
+          "url": "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-913/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Sellers may not misrepresent the price of goods sold by weight, measure, or count (Tenn. Code Ann. § 47-26-913); no scanner-accuracy testing mandate or item-pricing statute was located beyond this general anti-misrepresentation rule.",
+        "proposed_rule_tier": "udap_wm_baseline",
+        "sources": [
+          "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-913/",
+          "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-907/",
+          "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-914/",
+          "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-18-109/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No pricing- or scanner-specific overcharge remedy located in Title 47 Ch. 26 or Ch. 18; § 47-26-907 merely adopts national technical standards (NIST Handbook 44, uniform packaging/labeling/method-of-sale regulations) and contains no pricing or remedy language, contrary to the peer-map framing. Only the general TCPA private action under § 47-18-109 applies.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Tenn. Code Ann. § 47-18-101 et seq. (Tennessee Consumer Protection Act of 1977); general prohibition at § 47-18-104, private remedy at § 47-18-109",
+          "url": "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-18-104/"
+        },
+        "verification_note": "Tennessee's official code sits behind a Lexis/Michie's contract; all TN citations were confirmed only via FindLaw, so counsel must verify current text on Lexis/Westlaw, confirm the administering agency for Ch. 26, and confirm no implementing rule adds scanner/item-pricing/overcharge duties. Peer-map citation § 47-26-907 verified to be a standards-adoption section, not a pricing rule.",
+        "weights_measures_law": {
+          "citation": "Tenn. Code Ann. Title 47, Chapter 26 (Weights and Measures)",
+          "url": "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/"
+        }
+      },
+      "name": "Tennessee",
+      "source_kind": "official_state_program"
+    },
+    {
+      "authority_focus": "False, misleading, or deceptive trade practices, including advertising goods without intent to sell as advertised and misleading price-reduction statements.",
+      "authority_url": "https://statutes.capitol.texas.gov/Docs/BC/pdf/BC.17.pdf",
+      "citation": "Tex. Bus. & Com. Code § 17.46",
+      "code": "TX",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "4 Tex. Admin. Code § 12.20 (Packages & Price Verification), enforced under Tex. Agric. Code Title 2, ch. 13 (Weights and Measures)",
+          "kind": "regulation",
+          "operative_summary": "Texas Department of Agriculture rule 4 Tex. Admin. Code § 12.20 requires retailers using UPC/PLU scanners or price-look-up systems to correct pricing discrepancies so that customers are charged the lowest price, examined under NIST Handbook 130 Section V procedures.",
+          "url": "https://texasagriculture.gov/Regulatory-Programs/Weights-and-Measures/Scanners"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory overcharge remedy located; lowest-price correction duty under 4 Tex. Admin. Code § 12.20 plus UDAP exposure analysis under Tex. Bus. & Com. Code § 17.41 et seq.",
+        "proposed_price_standard": "Retailers operating UPC/PLU scanner or price-look-up systems must correct any pricing discrepancy so the customer is charged the lowest price, per 4 Tex. Admin. Code § 12.20 under Tex. Agric. Code ch. 13.",
+        "proposed_rule_tier": "enhanced_lowest_price",
+        "sources": [
+          "https://texasagriculture.gov/Regulatory-Programs/Weights-and-Measures/Scanners",
+          "https://codes.findlaw.com/tx/business-and-commerce-code/bus-com-sect-17-41/",
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus-payment, or specific consumer refund/notice-window remedy located; retailers must correct scanner discrepancies to charge the lowest price; TDA penalty matrix is administrative.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Tex. Bus. & Com. Code § 17.41 et seq. (Deceptive Trade Practices-Consumer Protection Act)",
+          "url": "https://codes.findlaw.com/tx/business-and-commerce-code/bus-com-sect-17-41/"
+        },
+        "verification_note": "Confirm current 4 TAC § 12.20 and Agric. Code ch. 13 text on official SOS/statutes portals (both resisted automated fetch); confirm no private remedy; NIST index lists TX as n/a so citation rests on the TDA agency page.",
+        "weights_measures_law": {
+          "citation": "Tex. Agric. Code Title 2, ch. 13 (Weights and Measures)",
+          "url": "https://texasagriculture.gov/Regulatory-Programs/Weights-and-Measures/Scanners"
+        }
+      },
+      "name": "Texas",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Retail price posting, verification, and misrepresentation controls.",
+      "authority_url": "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S116.html",
+      "citation": "Utah Code § 4-9-116",
+      "code": "UT",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "low",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Utah Code Title 4, Ch. 9 (Weights and Measures Act), implemented via the Utah Dept. of Agriculture and Food Weights & Measures checkout-register/scanner inspection program",
+          "kind": "regulation",
+          "operative_summary": "UDAF inspects retail checkout registers/scanners and requires at least 98% accuracy between the displayed/shelf price and the price actually charged at the point of sale.",
+          "url": "https://ag.utah.gov/regulatory-services/weights-and-measures/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retailers using checkout scanners are subject to state inspection and must maintain at least 98% accuracy between displayed and charged prices, under Utah's Weights and Measures Act (Title 4, Ch. 9) as administered by UDAF.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://ag.utah.gov/regulatory-services/weights-and-measures/",
+          "https://codes.findlaw.com/ut/title-13-commerce-and-trade/ut-code-sect-13-11-1.html",
+          "https://codes.findlaw.com/ut/title-4-utah-agricultural-code/",
+          "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S116.html"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No confirmed statutory consumer bonus/free-item remedy. §§ 13-11a-3 through -6 individually checked and ruled out (13-11a-6 is truth-in-music-advertising); free-item policies described by secondary sources as voluntary; agency fines run to the state. Trace S.B. 180 (1999) 'retail merchant overcharges' to any current codification.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Utah Code § 13-11-1 et seq. (Utah Consumer Sales Practices Act)",
+          "url": "https://codes.findlaw.com/ut/title-13-commerce-and-trade/ut-code-sect-13-11-1.html"
+        },
+        "verification_note": "Pull the Utah Admin. Code rule number behind UDAF's 98% program; peer map cites Utah Code § 4-9-116 as the specific statutory basis — verify that section's text as the likely anchor; independently confirm whether any Utah statute grants a private overcharge remedy (research interrupted); confirm 2026 H.B. 29 total-price disclosure bill status.",
+        "weights_measures_law": {
+          "citation": "Utah Code Title 4, Chapter 9 (Weights and Measures)",
+          "url": "https://codes.findlaw.com/ut/title-4-utah-agricultural-code/"
+        }
+      },
+      "name": "Utah",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Unit-price and total-price disclosure for covered consumer commodities.",
+      "authority_url": "https://legislature.vermont.gov/statutes/chapter/06/037",
+      "citation": "6 V.S.A. §§ 681–687",
+      "code": "VT",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "low",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "6 V.S.A. ch. 37 (§§ 681-687, unit pricing)",
+          "kind": "statute",
+          "operative_summary": "Per NIST's official state-by-state retail-pricing index, Vermont's retail-pricing-specific law is a unit-pricing statute (6 V.S.A. ch. 37) requiring per-unit price disclosure on certain goods, not a scanner-accuracy, item-pricing, or checkout-price-verification mandate; no Vermont AG rule on item/scanner pricing accuracy could be located.",
+          "url": "https://legislature.vermont.gov/statutes/chapter/06/037"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Vermont's only confirmed retail-pricing-specific rule is a unit-pricing disclosure statute (6 V.S.A. ch. 37); absent a confirmed scanner-accuracy or item-pricing mandate, checkout price accuracy is governed by the Consumer Fraud Act's general UDAP prohibition.",
+        "proposed_rule_tier": "udap_and_unit_price",
+        "sources": [
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state",
+          "https://ago.vermont.gov/",
+          "https://codes.findlaw.com/vt/title-9-commerce-and-trade/",
+          "https://legislature.vermont.gov/statutes/chapter/06/037"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No Vermont-specific statutory overcharge, scanner-bonus, or free-item remedy found; a pricing-accuracy violation would presumptively proceed under the general Consumer Fraud Act.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Vermont Consumer Protection Act, Title 9, Part 4 (widely cited as 9 V.S.A. ch. 63, § 2453; specific section not independently verified this session)",
+          "url": "https://codes.findlaw.com/vt/title-9-commerce-and-trade/"
+        },
+        "verification_note": "legislature.vermont.gov returned TLS errors on every attempt; pull 6 V.S.A. ch. 37 full text and the exact CFA citation (9 V.S.A. § 2453) directly; check the AG's Code of Vermont Rules for any pricing-accuracy rule (a 'CP 104' lead could not be confirmed and should be treated as likely mis-cited); confirm the general weights-and-measures chapter in Title 6 (peer map cites 6 V.S.A. §§ 681-687 for ch. 37).",
+        "weights_measures_law": {
+          "citation": "Title 6 (Agriculture) weights-and-measures provisions; specific general chapter not confirmed this session",
+          "url": null
+        }
+      },
+      "name": "Vermont",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://law.lis.virginia.gov/vacode/title3.2/chapter56/section3.2-5627/",
+      "citation": "Va. Code § 3.2-5627",
+      "code": "VA",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": "Va. Code § 3.2-5627",
+          "exists": true
+        },
+        "price_accuracy_law": {
+          "citation": "Va. Code § 3.2-5627",
+          "kind": "statute",
+          "operative_summary": "The selling price of a consumer item displayed or offered for sale at retail must be clearly and conspicuously indicated in Arabic numerals, either stamped/affixed on the item or posted at or adjacent to its display, and a knowing violation is both a Class 4 misdemeanor and a per se Virginia Consumer Protection Act violation under § 3.2-5630.",
+          "url": "https://law.lis.virginia.gov/vacode/3.2-5627/"
+        },
+        "proposed_consumer_remedy": "A knowing violation of the item-pricing statute is a per se VCPA violation (Va. Code § 3.2-5630), entitling a consumer to the greater of actual damages or $500, up to treble with a $1,000 minimum for willful violations, plus fees under § 59.1-204.",
+        "proposed_price_standard": "Every consumer item offered at retail must have its selling price clearly and conspicuously shown, on the item or posted at/adjacent to its display, under Va. Code § 3.2-5627, with Commissioner POS/scanner testing under § 3.2-5602.",
+        "proposed_rule_tier": "enhanced_item_pricing",
+        "sources": [
+          "https://law.lis.virginia.gov/vacode/3.2-5627/",
+          "https://law.lis.virginia.gov/vacode/3.2-5602/",
+          "https://law.lis.virginia.gov/vacode/3.2-5630/",
+          "https://law.lis.virginia.gov/vacode/59.1-200/",
+          "https://law.lis.virginia.gov/vacode/59.1-204/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No dedicated overcharge remedy located. § 3.2-5602 authorizes the Commissioner to inspect and test point-of-sale/scanner systems but specifies no consumer remedy; § 3.2-5630 routes pricing violations through the general VCPA remedy in § 59.1-204 (actual damages or $500 minimum; treble to $1,000 minimum if willful; fees).",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Va. Code § 59.1-196 et seq. (Virginia Consumer Protection Act of 1977); prohibited practices at § 59.1-200 (subdivision 26 cross-references § 3.2-5627), remedy at § 59.1-204",
+          "url": "https://law.lis.virginia.gov/vacode/59.1-200/"
+        },
+        "verification_note": "Confirm the currently effective § 59.1-200 version (multiple effective-date versions through 2027 shown on the official source); verify whether Title 3.2 regulations add a scanner-overcharge remedy beyond § 3.2-5602 testing; confirm the VCPA cure-offer mechanics.",
+        "weights_measures_law": {
+          "citation": "Va. Code Title 3.2, Chapter 56 (Weights and Measures)",
+          "url": "https://law.lis.virginia.gov/vacode/title3.2/chapter56/"
+        }
+      },
+      "name": "Virginia",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations for commodities sold by weight, measure, or count.",
+      "authority_url": "https://app.leg.wa.gov/RCW/default.aspx?cite=19.94.230",
+      "citation": "Wash. Rev. Code § 19.94.230",
+      "code": "WA",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "RCW 19.94.390",
+          "kind": "statute",
+          "operative_summary": "Washington law prohibits retail prices from being misrepresented or presented in a misleading/deceptive manner, requires electronic scanner screens installed after January 1, 1996 to be visible to consumers at checkout, and makes scanner accuracy subject to state-adopted price-verification examination procedures, but sets no explicit lowest-price standard and no statutory consumer remedy.",
+          "url": "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.94.390"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under RCW 19.86 (private actions under RCW 19.86.090).",
+        "proposed_price_standard": "Retail prices charged at checkout must not be misrepresented or presented in a misleading manner, and point-of-sale electronic scanners must have consumer-visible screens and comply with state-adopted price-verification examination procedures, per RCW 19.94.390.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.94.390",
+          "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.94",
+          "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.86",
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory bonus, free-item, or refund-window remedy found; RCW 19.94.390 violations are addressed through state-adopted examination/enforcement procedures, not a pricing-specific private remedy.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "RCW 19.86 (Unfair Business Practices—Consumer Protection Act; private action at RCW 19.86.090)",
+          "url": "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.86"
+        },
+        "verification_note": "Confirm current RCW 19.94.390 text (last amended 2000 c 171 s 64); locate the WAC chapter implementing the price-verification examination procedures (WSDA page 404'd); reconcile peer-map citation RCW 19.94.230 (a different section of the same chapter); confirm whether a 19.94.390 violation is per se actionable under RCW 19.86.",
+        "weights_measures_law": {
+          "citation": "RCW 19.94 (Weights and Measures)",
+          "url": "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.94"
+        }
+      },
+      "name": "Washington",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Weights-and-measures rules and incorporated unit-pricing controls.",
+      "authority_url": "https://www.nist.gov/document/west-virginiapdf",
+      "citation": "W. Va. Code § 47-1-7; incorporated Handbook 130 unit-pricing provisions",
+      "code": "WV",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "W. Va. Code § 47-1-13",
+          "kind": "statute",
+          "operative_summary": "West Virginia prohibits misrepresenting the price of any commodity or service sold, offered, exposed, or advertised for sale by weight, measure, or count, or representing a price in any manner calculated or tending to mislead or deceive a person.",
+          "url": "https://code.wvlegislature.gov/47-1-13/"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retailers may not misrepresent the price of goods or services sold, offered, exposed, or advertised for sale, or represent a price in a manner calculated or tending to mislead or deceive a consumer (W. Va. Code § 47-1-13).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://code.wvlegislature.gov/47-1-13/",
+          "https://code.wvlegislature.gov/47-1/",
+          "https://code.wvlegislature.gov/46A-6-104/",
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory bonus, free-item, or specific consumer refund/notice-window remedy located; §§ 47-1-22/47-1-23 penalties are enforced by the Commissioner of Labor with no confirmed consumer payout.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "W. Va. Code § 46A-6-104 (West Virginia Consumer Credit and Protection Act, Art. 6 - General Consumer Protection)",
+          "url": "https://code.wvlegislature.gov/46A-6-104/"
+        },
+        "verification_note": "Confirm current §§ 47-1-13, 46A-6-104, 47-1-22/23 text; check Division of Labor/Agriculture scanner rules; confirm § 46A-6-106 private-claim pathway; reconcile peer-map citation § 47-1-7 plus its HB 130 unit-pricing incorporation note (complementary sections of the same article).",
+        "weights_measures_law": {
+          "citation": "W. Va. Code ch. 47, art. 1 (§§ 47-1-1 et seq.)",
+          "url": "https://code.wvlegislature.gov/47-1/"
+        }
+      },
+      "name": "West Virginia",
+      "source_kind": "official_nist_compilation_of_state_text"
+    },
+    {
+      "authority_focus": "Scanner overcharge difference refunds, consumer signage, and false price representations.",
+      "authority_url": "https://docs.legis.wisconsin.gov/statutes/statutes/98/08",
+      "citation": "Wis. Stat. §§ 98.08, 98.26",
+      "code": "WI",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "high",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Wis. Stat. § 98.08",
+          "kind": "statute",
+          "operative_summary": "A retailer who uses an electronic scanner to record a commodity's price and sells it at a price higher than the posted or advertised price must refund the purchaser the difference, and must conspicuously post a sign disclosing this refund requirement.",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/98/08"
+        },
+        "proposed_consumer_remedy": "A customer overcharged by a scanner is entitled to a refund of the difference between the posted/advertised price and the price charged, under Wis. Stat. § 98.08(1), with signage of that right required by § 98.08(2).",
+        "proposed_price_standard": "A retailer using an electronic scanner may not charge more than its posted or advertised price and must post a sign disclosing the § 98.08 refund requirement; the obligation is codified directly in the weights-and-measures statute, not in ATCP 91 (weight/measure/count sales) or ATCP 124 (price-comparison advertising).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://docs.legis.wisconsin.gov/statutes/statutes/98/08",
+          "https://docs.legis.wisconsin.gov/statutes/statutes/98",
+          "https://docs.legis.wisconsin.gov/statutes/statutes/100/18",
+          "https://docs.legis.wisconsin.gov/statutes/statutes/100/20",
+          "https://docs.legis.wisconsin.gov/document/administrativecode/ATCP%2091",
+          "https://docs.legis.wisconsin.gov/document/administrativecode/ATCP%20124"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": "Wis. Stat. § 98.08(1)-(2)",
+          "description": "Where a retailer's electronic scanner charges more than the posted or advertised price, the retailer must refund the purchaser the difference; conspicuous signage disclosing the refund right is required. No fixed bonus or free-item component beyond the difference.",
+          "exists": true,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/98/08"
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Wis. Stat. § 100.18 (Fraudulent representations; private remedy at § 100.18(11)(b)2) and § 100.20 (trade practices; double damages under § 100.20(5))",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/100/18"
+        },
+        "verification_note": "Confirm no amendment adds a claim deadline, minimum-overcharge threshold, or DATCP implementing rule to § 98.08; confirm whether a claim proceeds under § 100.18(11) (single damages plus fees) or § 100.20(5) (double damages plus fees); ATCP 91 and ATCP 124 confirmed NOT to govern scanner pricing.",
+        "weights_measures_law": {
+          "citation": "Wis. Stat. ch. 98 (Weights and Measures), including § 98.26 (penalties/injunctions)",
+          "url": "https://docs.legis.wisconsin.gov/statutes/statutes/98"
+        }
+      },
+      "name": "Wisconsin",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Prohibits misleading price representations for commodities sold by weight, measure, or count.",
+      "authority_url": "https://wyoleg.gov/statutes/compress/title40.pdf",
+      "citation": "Wyo. Stat. § 40-10-125",
+      "code": "WY",
+      "deep_triage": {
+        "attorney_validation_required": true,
+        "confidence": "medium",
+        "item_pricing_requirement": {
+          "citation": null,
+          "exists": false
+        },
+        "price_accuracy_law": {
+          "citation": "Wyo. Stat. §§ 40-10-125(b), 40-10-122(a)(xviii)",
+          "kind": "statute",
+          "operative_summary": "Wyoming law prohibits misrepresenting the price of any commodity offered, exposed, or advertised for sale (§ 40-10-125(b)) and directs the Department of Agriculture to verify the accuracy of advertised, shelf, and scanner/point-of-sale prices using NIST Handbook 130 price-verification examination procedures (§ 40-10-122(a)(xviii)).",
+          "url": "https://www.wyoleg.gov/statutes/compress/title40.pdf"
+        },
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
+        "proposed_price_standard": "Retailers must not misrepresent the price of any commodity offered, exposed, or advertised for sale, and the Department of Agriculture verifies that scanner/point-of-sale charged prices match advertised and shelf prices using NIST Handbook 130 examination procedures (Wyo. Stat. §§ 40-10-125(b), 40-10-122(a)(xviii)).",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
+        "sources": [
+          "https://www.wyoleg.gov/statutes/compress/title40.pdf",
+          "https://codes.findlaw.com/wy/title-40-trade-and-commerce/",
+          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state",
+          "https://agriculture.wy.gov/"
+        ],
+        "specific_overcharge_remedy": {
+          "citation": null,
+          "description": "No statutory free-item, bonus-payment, or fixed refund-window remedy found. § 40-10-125(b) violations are enforced through Department of Agriculture administrative powers (stop-use, seizure, injunction, §§ 40-10-121-123) and misdemeanor penalties (§ 40-10-133), not a direct consumer payment.",
+          "exists": false,
+          "notice_window_days": null,
+          "payment_window_days": null,
+          "url": null
+        },
+        "substantive_legal_opinion": false,
+        "udap_law": {
+          "citation": "Wyoming Consumer Protection Act, Wyo. Stat. § 40-12-101 et seq.",
+          "url": "https://www.wyoleg.gov/statutes/compress/title40.pdf"
+        },
+        "verification_note": "Core citations read directly from the official wyoleg.gov Title 40 compiled PDF. Read §§ 40-12-105 through 40-12-114 in full for the complete unlawful-practices list and § 40-12-109 notice-and-cure mechanics; locate Dept. of Agriculture implementing rules under § 40-10-122; note the NIST state index lists Wyoming as n/a, inconsistent with the codified provisions found — treat the NIST compilation as outdated for this state; confirm no amendments postdate the PDF snapshot.",
+        "weights_measures_law": {
+          "citation": "Wyo. Stat. §§ 40-10-117 through 40-10-136 (Title 40, ch. 10 - Weights and Measures)",
+          "url": "https://www.wyoleg.gov/statutes/compress/title40.pdf"
+        }
+      },
+      "name": "Wyoming",
+      "source_kind": "official_state_statute"
+    },
+    {
+      "authority_focus": "Material price representations, deceptive practices, and unit-pricing requirements.",
+      "authority_url": "https://code.dccouncil.gov/us/dc/council/code/sections/28-3904",
+      "citation": "D.C. Code §§ 28-3904, 28-5207",
+      "code": "DC",
+      "name": "District of Columbia",
+      "source_kind": "official_district_statute"
+    }
+  ],
+  "research_method": {
+    "limitations": [
+      "This is an issue-spotting and operational-control map, not a legal opinion.",
+      "It does not encode private remedies, penalties, notice periods, limitations periods, local overlays, preemption, or class-action availability.",
+      "Counsel must validate current text, applicability, effective dates, remedies, and local law before deployment.",
+      "No receipt, contract, policy, or control can guarantee that litigation will not occur."
+    ],
+    "national_control_reference": "https://www.nist.gov/pml/owm/nist-handbook-130-current-edition",
+    "national_index": "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state",
+    "national_index_updated": "2025-04-07",
+    "source_preference": [
+      "current official state code or regulation",
+      "official state enforcement program",
+      "official NIST compilation of state text"
+    ]
+  },
+  "schema_version": 2,
+  "scope": "Operational retail price-accuracy authority map for the 50 states and District of Columbia."
+}

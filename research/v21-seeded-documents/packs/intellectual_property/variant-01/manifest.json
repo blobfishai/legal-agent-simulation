@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7917,
+      "bytes": 8017,
       "path": "evidence-register.xlsx",
-      "sha256": "762c9a42ed27f928580298f3e37a2f26c0d9a93a2317d22fea5d9ddfb6a8a850"
+      "sha256": "6532aed6f0828365b25551b2666daacea5229d7c31261689e20a209cc722069c"
     },
     {
       "bytes": 39515,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in trademarks",
     "item_count": 27,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IP-1061",
     "mutation_parent": null,
     "pack_id": "pack-intellectual_property-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1550,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Intellectual Property Control Review 01",
     "total_amount": 1267.65,
@@ -40,7 +46,7 @@
     "unit_rate": 46.95,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

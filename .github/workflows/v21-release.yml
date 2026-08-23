@@ -65,7 +65,8 @@ jobs:
           set -euo pipefail
           npm run v21:build
           npm run v21:check
-          jq -e '.world_sha256 == "55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394"' \
+          python3 -m unittest tools.tests.test_v21_document_rendering -v
+          jq -e '.world_sha256 == "76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab"' \
             world/v21/build-report.json
 
       - name: Hydrate checksum-pinned production evidence
@@ -113,6 +114,10 @@ jobs:
             --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
             --tag "$LAB_CANDIDATE" \
             dist/harbor-v21-release/lab-agent-image
+          docker run --rm --network none --volume "$GITHUB_WORKSPACE:/repo:ro" "$LAB_CANDIDATE" \
+            python /repo/tools/check_v21_document_rendering.py \
+              --root /repo/research/v21-seeded-documents \
+              --no-contact-sheets --workers 4
           docker build \
             --build-arg "ORACLE_PROOF_SHA256=$token_hash" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
@@ -179,12 +184,6 @@ jobs:
           docker buildx imagetools inspect "$LAB_IMAGE:$TAG"
           docker buildx imagetools inspect "$WORLD_IMAGE:$TAG"
 
-      - name: Require anonymous production pulls
-        run: >-
-          python3 tools/check_ghcr_public.py
-          "$LAB_IMAGE@$LAB_DIGEST"
-          "$WORLD_IMAGE@$WORLD_DIGEST"
-
       - name: Record release summary
         run: |
           {
@@ -197,6 +196,12 @@ jobs:
             echo "- Validated candidate: \`$WORLD_CANDIDATE\`"
             echo "- Harbor oracle/no-op production gate: 5/5 pass and 5/5 reject"
             echo "- Commit: \`${{ github.sha }}\`"
-            echo '- World SHA-256: `55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394`'
+            echo '- World SHA-256: `76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab`'
             echo '- Exhaustive v21 checker: passed before publication'
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Require anonymous production pulls
+        run: >-
+          python3 tools/check_ghcr_public.py
+          "$LAB_IMAGE@$LAB_DIGEST"
+          "$WORLD_IMAGE@$WORLD_DIGEST"

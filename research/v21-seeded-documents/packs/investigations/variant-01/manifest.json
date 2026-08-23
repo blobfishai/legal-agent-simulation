@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7900,
+      "bytes": 7999,
       "path": "evidence-register.xlsx",
-      "sha256": "3f24e25ef4d1e60970cb3d47ed7ca1c82d4eced7e77de59cc1fd6724a9c468ba"
+      "sha256": "ec421fe276a173f5b94f043c7a9bc9b1c68092b6e36206f653960db50ab9b645"
     },
     {
       "bytes": 39499,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in findings",
     "item_count": 72,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IV-1211",
     "mutation_parent": null,
     "pack_id": "pack-investigations-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3425,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Internal Investigations Control Review 01",
     "total_amount": 8078.4,
@@ -40,7 +46,7 @@
     "unit_rate": 112.2,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

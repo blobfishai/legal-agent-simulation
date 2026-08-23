@@ -1,0 +1,97 @@
+[
+  {
+    "type": "acronym_company",
+    "name": "Vantage Meridian Holdings",
+    "role": "holdings",
+    "acronym": "VMH",
+    "tail_options": [
+      "Financial Holdings"
+    ],
+    "domain": "vmh.com"
+  },
+  {
+    "type": "acronym_company",
+    "name": "Vantage Capital Markets",
+    "role": "company",
+    "acronym": "VCM",
+    "tail_options": [
+      "Capital Markets"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Vantage Securities",
+    "role": "company",
+    "tail_options": [
+      "Securities"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Vantage Advisory Services",
+    "role": "advisory",
+    "tail_options": [
+      "Advisory Services"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Thornfield & Beckett",
+    "role": "lawfirm",
+    "fragments": [
+      "Thornfield",
+      "Beckett"
+    ],
+    "domain": "thornfieldbeckett.com"
+  },
+  {
+    "type": "company",
+    "name": "Redford",
+    "role": "accounting"
+  },
+  {
+    "type": "company",
+    "name": "Haldane Compliance Group",
+    "role": "advisory",
+    "tail_options": [
+      "Compliance Group"
+    ]
+  },
+  {
+    "type": "person",
+    "name": "Richard Hargreaves"
+  },
+  {
+    "type": "person",
+    "name": "Priya Chandrasekaran"
+  },
+  {
+    "type": "person",
+    "name": "David Whitmore"
+  },
+  {
+    "type": "person",
+    "name": "Margaret Forsythe"
+  },
+  {
+    "type": "person",
+    "name": "Jordan Whitaker"
+  },
+  {
+    "type": "person",
+    "name": "Elena Vasquez"
+  },
+  {
+    "type": "person",
+    "name": "Katherine Luo"
+  },
+  {
+    "type": "person",
+    "name": "Sarah Linden"
+  },
+  {
+    "type": "person",
+    "name": "Thomas Haldane",
+    "pronouns": "he"
+  }
+]

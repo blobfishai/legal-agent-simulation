@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7902,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "879669b763dfe7f13b79f640ff1392aea07b1df3c7d7a4423c947a45eb18d26f"
+      "sha256": "c9d7b3fb54d4dd2d3dc0b9b734c5cdba53c326d082fb7d85ba0ef7ab71317de8"
     },
     {
       "bytes": 39509,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in notifications",
     "item_count": 28,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-CY-1053",
     "mutation_parent": "pack-cybersecurity-01",
     "pack_id": "pack-cybersecurity-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1525,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Cybersecurity Response Control Review 03",
     "total_amount": 1310.4,
@@ -40,7 +46,7 @@
     "unit_rate": 46.8,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

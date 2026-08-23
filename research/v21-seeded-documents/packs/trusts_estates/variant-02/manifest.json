@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7915,
+      "bytes": 8016,
       "path": "evidence-register.xlsx",
-      "sha256": "966d03a539315cbbb80e7d751915bad1a4ae2d00552980408466f37bd940ec98"
+      "sha256": "bf9dd2a799631f3410a9df29a881079b84da611c219af29074cd5e32fdfb22e6"
     },
     {
       "bytes": 39512,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in distributions",
     "item_count": 62,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-TE-1172",
     "mutation_parent": "pack-trusts_estates-01",
     "pack_id": "pack-trusts_estates-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2975,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Trusts and Estates Control Review 02",
     "total_amount": 6007.8,
@@ -40,7 +46,7 @@
     "unit_rate": 96.9,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

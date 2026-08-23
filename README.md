@@ -8,7 +8,7 @@
 An executable law-firm simulation world (matter intake → conflicts → research →
 file → docket → discovery → deadlines → hearing → billing, plus
 document review-and-draft deliverable work) with **deterministic VCode
-verifiers**, **per-product MCP servers mirroring real vendor APIs** (Clio,
+verifiers**, **vendor-shaped MCP servers with explicit conformance gaps** (Clio,
 CourtListener, iManage, Relativity, LEDES, Google Workspace dialects — see
 `docs/MCP-JUSTIFICATION.md`), a **multi-model leaderboard**, and **per-model
 failure-mode reports**. Originally generated via [blobfish.ai](https://blobfish.ai/studio);
@@ -20,8 +20,10 @@ The current executable release is `world/blobfish/world-v21.json`: **23,310
 tasks**, **1,111 total operations / 1,100 agent-visible product tools**, 32
 systems, 254 tables, and one deterministic verifier per task. It preserves the
 **2,010/2,010 hosted Harvey LAB tasks**, retail, capstone, and multi-step lanes,
-then adds 20,963 stateful task variants, 990 task-exercised tools, and 198
-synthetic DOCX/XLSX/PDF inputs across 22 practice domains. See the measured
+then adds 20,963 stateful task variants, 990 task-exercised tools, and 351
+synthetic DOCX/XLSX/PDF inputs across 22 practice domains plus a 51-jurisdiction
+retail price-accuracy evidence lane whose exact citations and official URLs are
+reachable through the executable retail tools. See the measured
 [v21 release record](docs/V21-10X-WORLD.md).
 
 The [Harvey parity audit](docs/HARVEY-PARITY-AUDIT.md) separates exact-copy,
@@ -62,7 +64,7 @@ Three things live here:
 2. **The evidence and eval supply chain** — task packs, real source documents,
    and a 46-repository legal-domain research corpus under `research/repos/`.
    World v20 imports all Harvey LAB task shapes into executable state and file
-   lanes; v21 adds 198 structure-preserving synthetic Office/PDF inputs while
+   lanes; v21 adds 351 structure-preserving synthetic Office/PDF inputs while
    deterministic state/grounding checks remain the headline score. The
    completed evidence/file-lane gate and its measured parse caveats
    are in [`docs/V17A-EVIDENCE-AND-FILE-LANE.md`](docs/V17A-EVIDENCE-AND-FILE-LANE.md).
@@ -201,10 +203,14 @@ itself is [`data/research/legal-eval-inventory.md`](data/research/legal-eval-inv
 | Answer keys | rubric prose | CUAD/MAUD/LegalBench/TaxCalcBench-anchored pinned values |
 | Runs offline | no (judge API) | yes (stdlib Python + Node) |
 
-World v20 does not erase the honest converse: 46,200/111,814 practice rubric
-criteria remain outside the deterministic subset, and 45/51 retail
-jurisdictions are explicitly research-queue rows pending substantive counsel
-review. Those gaps are listed individually in the parity audit.
+World v21 does not erase the honest converse: 46,200/111,814 practice rubric
+criteria remain outside the deterministic subset. All 51 retail jurisdictions
+now have a specific authority map, matched evidence pack, and executable v21
+authority row, but only six retain benchmark rule fields and none of the v2
+maps is a deployment-ready legal opinion. Current-law, remedy, local-overlay,
+and effective-date review remains
+qualified-counsel work. Those boundaries are listed individually in the parity
+audit.
 
 And the honest converse: LAB has expert-written rubrics, human-guided
 documents, prose-quality judgment, and nearly 7× the canonical v16 task

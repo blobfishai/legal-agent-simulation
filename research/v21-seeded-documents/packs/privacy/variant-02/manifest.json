@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7897,
+      "bytes": 7997,
       "path": "evidence-register.xlsx",
-      "sha256": "6fddd3d9507dbb256da452c0d47ca6e00710aa214ec4d3e0e274cbc367c2d9fe"
+      "sha256": "2c896ef483b2179b1f7e4dc670cba9052e4ace688553cf1ed74ffc283e7120d3"
     },
     {
       "bytes": 39495,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in data subject requests",
     "item_count": 23,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-PV-1042",
     "mutation_parent": "pack-privacy-01",
     "pack_id": "pack-privacy-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1350,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Privacy Control Review 02",
     "total_amount": 928.05,
@@ -40,7 +46,7 @@
     "unit_rate": 40.35,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7890,
+      "bytes": 7992,
       "path": "evidence-register.xlsx",
-      "sha256": "e5c4ca09d6eadad6a5989a7f6d33649e78b598a153bfb139e32e90e4e33ae165"
+      "sha256": "3ad4cc8d7f44ebbaced427cafdec278b567b001b6e76cae15da062b6a8852ff6"
     },
     {
       "bytes": 39496,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in debtors",
     "item_count": 40,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-BK-1093",
     "mutation_parent": "pack-bankruptcy-01",
     "pack_id": "pack-bankruptcy-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2025,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Bankruptcy Control Review 03",
     "total_amount": 2568.0,
@@ -40,7 +46,7 @@
     "unit_rate": 64.2,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

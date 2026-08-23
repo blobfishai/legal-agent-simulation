@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7909,
+      "bytes": 8008,
       "path": "evidence-register.xlsx",
-      "sha256": "805b0d65a9b804dbf2c703788bb743d3a38a168216c5d763578dec539e86567b"
+      "sha256": "623fc5b68e56022f38e5230819831d733e32ca5bb366a78aee8cfc017a20e3da"
     },
     {
       "bytes": 39509,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in distributions",
     "item_count": 51,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-FM-1141",
     "mutation_parent": null,
     "pack_id": "pack-investment_funds-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2550,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Investment Funds Control Review 01",
     "total_amount": 4169.25,
@@ -40,7 +46,7 @@
     "unit_rate": 81.75,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

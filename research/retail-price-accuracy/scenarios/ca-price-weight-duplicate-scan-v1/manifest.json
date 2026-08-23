@@ -16,6 +16,11 @@
       "sha256": "09febbcb36099da60ef57a0f83347c93b2d40fe8f6a067baf19559f3aa48c791"
     },
     {
+      "bytes": 14776,
+      "path": "jurisdiction-authority-map-v2.xlsx",
+      "sha256": "14126c224dede5d5bf15fc951ae5fd1c524d7e96ab9182b677fc6f3e9b42211a"
+    },
+    {
       "bytes": 13985,
       "path": "jurisdiction-source-register.xlsx",
       "sha256": "56a6334401147fdd1b0e70ee69a2db8483d29e95fbda3aa08c9f17f4f9722e6a"
@@ -29,7 +34,7 @@
   "jurisdiction_code": "CA",
   "mutation_dimensions": [],
   "scenario_id": "CA-PRICE-001",
-  "schema_version": 1,
+  "schema_version": 2,
   "source_scenario": null,
   "structure_signature": {
     "docx": {
@@ -58,6 +63,7 @@
       "checkout-event-log.xlsx",
       "customer-price-accuracy-policy.docx",
       "incident-report.docx",
+      "jurisdiction-authority-map-v2.xlsx",
       "jurisdiction-source-register.xlsx",
       "sample-receipts.pdf"
     ],
@@ -77,6 +83,18 @@
           "Line Items",
           "Control Tests",
           "Data Dictionary"
+        ]
+      },
+      "jurisdiction-authority-map-v2.xlsx": {
+        "columns": {
+          "Authority Map": 13,
+          "Control Baseline": 4,
+          "Methodology": 2
+        },
+        "sheets": [
+          "Authority Map",
+          "Control Baseline",
+          "Methodology"
         ]
       },
       "jurisdiction-source-register.xlsx": {

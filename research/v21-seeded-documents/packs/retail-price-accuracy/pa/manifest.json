@@ -1,0 +1,153 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 8115,
+      "path": "evidence-register.xlsx",
+      "sha256": "9e1962e8fd73ac782586aeeaa7c18fa0cc53f45d19a62608910441454b477097"
+    },
+    {
+      "bytes": 39563,
+      "path": "matter-brief.docx",
+      "sha256": "6a0b8fea3bf0481840cf01db66bda679d951ba473a4a3ccaef8dba3a5ccdce72"
+    },
+    {
+      "bytes": 2882,
+      "path": "source-extract.pdf",
+      "sha256": "faa72b12f9093db5f4205991a745e33fd21ae7e6a5a80b25e5993aa0489fab5b"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-RETAIL-PA-38",
+    "attorney_validation_required": true,
+    "authority_focus": "Weights-and-measures price verification and misleading price representations.",
+    "domain": "retail-price-accuracy",
+    "domain_label": "Retail Price Accuracy",
+    "due_date": "2026-09-06",
+    "evidence_date": "2026-08-07",
+    "expected_status": "retail-authority-mapped-pa",
+    "issue": "checkout control gap mapped to 3 Pa. Cons. Stat. \u00a7 4133",
+    "item_count": 86,
+    "jurisdiction": "PA",
+    "legal_research_status": "specific_authority_mapped_attorney_validation_required",
+    "matter_ref": "MAT-RPA-2038",
+    "mutation_parent": "pack-retail-price-accuracy-al",
+    "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
+    "pack_id": "pack-retail-price-accuracy-pa",
+    "private_remedy_encoded": false,
+    "research_authority": "3 Pa. Cons. Stat. \u00a7 4133",
+    "research_authority_url": "https://www.palegis.us/statutes/consolidated/view-statute&txtType=PDF&ttl=3&div=00.&chpt=041.",
+    "research_source_kind": "official_state_statute",
+    "reserve_amount": 2325.0,
+    "risk_level": "high",
+    "substantive_legal_opinion": false,
+    "synthetic": true,
+    "title": "Retail Price Accuracy Review - PA",
+    "total_amount": 1619.38,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 18.83,
+    "variant": 38
+  },
+  "schema_version": 2,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          12,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$12",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

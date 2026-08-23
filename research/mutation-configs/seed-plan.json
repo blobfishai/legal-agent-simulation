@@ -1,72 +1,120 @@
 {
-  "schema_version": 1,
-  "variants": [
-    {
-      "task": "banking-finance/identify-issues-in-compliance-certificate",
-      "entities": "banking-finance/identify-issues-in-compliance-certificate/entities.json",
-      "seeds": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
-      "task": "banking-finance/compare-borrower-covenant-compliance-analysis",
-      "entities": "banking-finance/compare-borrower-covenant-compliance-analysis/entities.json",
-      "seeds": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
-      "task": "banking-finance/compare-credit-agreement-against-term-sheet",
-      "entities": "banking-finance/compare-credit-agreement-against-term-sheet/entities.json",
-      "seeds": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
-      "task": "corporate-ma/analyze-counterparty-spa-markup",
-      "entities": "corporate-ma/analyze-counterparty-spa-markup/entities.json",
-      "seeds": [
-        1,
-        2
-      ]
-    },
-    {
-      "task": "employment-labor/analyze-counterparty-markup-of-executive-employment-agreement",
-      "entities": "employment-labor/analyze-counterparty-markup-of-executive-employment-agreement/entities.json",
-      "seeds": [
-        1,
-        2
-      ]
-    },
-    {
-      "task": "real-estate/analyze-counterparty-markup-of-commercial-lease-agreement",
-      "entities": "real-estate/analyze-counterparty-markup-of-commercial-lease-agreement/entities.json",
-      "seeds": [
-        1,
-        2
-      ]
-    },
-    {
-      "task": "tax/analyze-counterparty-markup-of-tax-closing-agreement",
-      "entities": "tax/analyze-counterparty-markup-of-tax-closing-agreement/entities.json",
-      "seeds": [
-        1,
-        2
-      ]
-    },
-    {
-      "task": "funds-asset-management/analyze-counterparty-markup-of-limited-partnership-agreement",
-      "entities": "funds-asset-management/analyze-counterparty-markup-of-limited-partnership-agreement/entities.json",
-      "seeds": [
-        1,
-        2
-      ]
-    }
-  ]
+ "schema_version": 1,
+ "variants": [
+  {
+   "task": "banking-finance/identify-issues-in-compliance-certificate",
+   "entities": "banking-finance/identify-issues-in-compliance-certificate/entities.json",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "task": "banking-finance/compare-borrower-covenant-compliance-analysis",
+   "entities": "banking-finance/compare-borrower-covenant-compliance-analysis/entities.json",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "task": "banking-finance/compare-credit-agreement-against-term-sheet",
+   "entities": "banking-finance/compare-credit-agreement-against-term-sheet/entities.json",
+   "seeds": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "task": "corporate-ma/analyze-counterparty-spa-markup",
+   "entities": "corporate-ma/analyze-counterparty-spa-markup/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "employment-labor/analyze-counterparty-markup-of-executive-employment-agreement",
+   "entities": "employment-labor/analyze-counterparty-markup-of-executive-employment-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "real-estate/analyze-counterparty-markup-of-commercial-lease-agreement",
+   "entities": "real-estate/analyze-counterparty-markup-of-commercial-lease-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "tax/analyze-counterparty-markup-of-tax-closing-agreement",
+   "entities": "tax/analyze-counterparty-markup-of-tax-closing-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "funds-asset-management/analyze-counterparty-markup-of-limited-partnership-agreement",
+   "entities": "funds-asset-management/analyze-counterparty-markup-of-limited-partnership-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "intellectual-property/analyze-counterparty-markup-of-ip-assignment-agreement",
+   "entities": "intellectual-property/analyze-counterparty-markup-of-ip-assignment-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "capital-markets/analyze-counterparty-markup-of-underwriting-agreement",
+   "entities": "capital-markets/analyze-counterparty-markup-of-underwriting-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "bankruptcy-restructuring/analyze-counterparty-markup-of-restructuring-support-agreement",
+   "entities": "bankruptcy-restructuring/analyze-counterparty-markup-of-restructuring-support-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement",
+   "entities": "data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "emerging-companies-venture-capital/analyze-counterparty-markup-of-stock-purchase-agreement",
+   "entities": "emerging-companies-venture-capital/analyze-counterparty-markup-of-stock-purchase-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "insurance/analyze-counterparty-markup-of-reinsurance-treaty",
+   "entities": "insurance/analyze-counterparty-markup-of-reinsurance-treaty/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  }
+ ]
 }

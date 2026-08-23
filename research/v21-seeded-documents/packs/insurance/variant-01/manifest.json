@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7902,
+      "bytes": 8002,
       "path": "evidence-register.xlsx",
-      "sha256": "d1826600af335be5076d6da8d8f876121d490953752bca67f2409c5568a698f7"
+      "sha256": "b008145f461da2dd9896e21a7faa987c6527048f6f77b14ad0f3f6eb827d072b"
     },
     {
       "bytes": 39490,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in policies",
     "item_count": 54,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IN-1151",
     "mutation_parent": null,
     "pack_id": "pack-insurance-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2675,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Insurance Coverage Control Review 01",
     "total_amount": 4649.4,
@@ -40,7 +46,7 @@
     "unit_rate": 86.1,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

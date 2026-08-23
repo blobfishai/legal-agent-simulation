@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7893,
+      "bytes": 7993,
       "path": "evidence-register.xlsx",
-      "sha256": "7f8aba89d00632fcd29f8af980d0add93c4d47c4d2b76d348a82fcdd32abef7c"
+      "sha256": "9d1ec0573a9fff57bdb9f96d98c24cd50156a080d2e6b05fa5b0c52c36e61ebf"
     },
     {
       "bytes": 39484,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in protests",
     "item_count": 35,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-TX-1082",
     "mutation_parent": "pack-tax-01",
     "pack_id": "pack-tax-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1850,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Tax Controversy Control Review 02",
     "total_amount": 2021.25,
@@ -40,7 +46,7 @@
     "unit_rate": 57.75,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

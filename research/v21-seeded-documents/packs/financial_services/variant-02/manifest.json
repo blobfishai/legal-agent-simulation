@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7906,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "03647b2b1d9838d84e0b3923d950635a22164cbf4cdabff27267b93699f518c4"
+      "sha256": "0e0806b1d41fa022f3a67d811f5b4c1b6fd879eee5ed003f9b6fdb2d4db563bd"
     },
     {
       "bytes": 39513,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in products",
     "item_count": 50,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-FS-1132",
     "mutation_parent": "pack-financial_services-01",
     "pack_id": "pack-financial_services-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2475,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Financial Services Control Review 02",
     "total_amount": 3975.0,
@@ -40,7 +46,7 @@
     "unit_rate": 79.5,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

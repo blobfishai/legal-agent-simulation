@@ -41,6 +41,11 @@ from reportlab.pdfgen import canvas
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_ROOT = ROOT / "research" / "retail-price-accuracy"
 CONTRACT = ROOT / "mcp" / "v4" / "contracts" / "retail-compliance.json"
+# Committed research input (not a build output): AI-assisted primary-source
+# triage of the 45 research-queue jurisdictions.  Its rows never overwrite the
+# frozen rc_jurisdiction_rules seed table; they feed only the separate
+# register-v2 evidence pack and remain pending attorney validation.
+RESEARCH_V2 = OUTPUT_ROOT / "jurisdiction-research-v2.json"
 BUILD_DATE = "2026-08-22"
 FIXED_DATETIME = datetime(2026, 8, 22, 12, 0, 0)
 FIXED_ZIP_TIME = (2026, 8, 22, 12, 0, 0)
@@ -229,6 +234,8 @@ SCENARIOS = [
         "tax": 4.12,
     },
 ]
+
+
 
 
 def sha256(path: Path) -> str:
@@ -538,6 +545,36 @@ def jurisdiction_rows() -> list[dict[str, Any]]:
     return rows
 
 
+def jurisdiction_research_v2_rows() -> list[dict[str, Any]]:
+    """Load the committed authority map without promoting it into legal rules."""
+    payload = json.loads(RESEARCH_V2.read_text("utf-8"))
+    defaults = payload.get("defaults") or {}
+    source_rows = payload.get("jurisdictions") or []
+    rows = [{**defaults, **row} for row in source_rows]
+    expected_codes = {code for code, _name, _portal in JURISDICTIONS}
+    actual_codes = {row.get("code") for row in rows}
+    if payload.get("schema_version") != 2 or len(rows) != 51 or actual_codes != expected_codes:
+        raise RuntimeError("jurisdiction research v2 must map exactly 50 states plus District of Columbia")
+    required = {
+        "code", "name", "citation", "authority_url", "source_kind", "authority_focus",
+        "mapping_status", "operational_baseline", "substantive_legal_opinion",
+        "private_remedy_encoded", "current_text_and_local_overlays_validated",
+        "attorney_validation_required",
+    }
+    for row in rows:
+        missing = sorted(required - row.keys())
+        if missing:
+            raise RuntimeError(f"jurisdiction research v2 {row.get('code')} missing {missing}")
+        if not str(row["authority_url"]).startswith("https://"):
+            raise RuntimeError(f"jurisdiction research v2 {row['code']} must use an HTTPS authority URL")
+        if row["substantive_legal_opinion"] or row["private_remedy_encoded"]:
+            raise RuntimeError(f"jurisdiction research v2 {row['code']} improperly encodes legal conclusions")
+        if row["current_text_and_local_overlays_validated"] or not row["attorney_validation_required"]:
+            raise RuntimeError(f"jurisdiction research v2 {row['code']} bypasses the attorney gate")
+    order = {code: index for index, (code, _name, _portal) in enumerate(JURISDICTIONS)}
+    return sorted(rows, key=lambda row: order[row["code"]])
+
+
 def build_jurisdiction_register(path: Path, scenario: dict[str, Any]) -> None:
     workbook = Workbook()
     workbook.properties.created = FIXED_DATETIME
@@ -586,6 +623,75 @@ def build_jurisdiction_register(path: Path, scenario: dict[str, Any]) -> None:
     ]:
         method.append(row)
     style_sheet(method)
+    workbook.save(path)
+    normalize_ooxml(path)
+
+
+def build_jurisdiction_register_v2(path: Path, scenario: dict[str, Any]) -> None:
+    """Build a 51-jurisdiction issue-spotting register with an explicit legal gate."""
+    payload = json.loads(RESEARCH_V2.read_text("utf-8"))
+    rows = jurisdiction_research_v2_rows()
+    workbook = Workbook()
+    workbook.properties.created = FIXED_DATETIME
+    workbook.properties.modified = FIXED_DATETIME
+    sheet = workbook.active
+    sheet.title = "Authority Map"
+    headers = [
+        "jurisdiction_code", "jurisdiction_name", "citation", "authority_focus",
+        "authority_url", "source_kind", "mapping_status", "operational_baseline",
+        "substantive_legal_opinion", "private_remedy_encoded",
+        "current_text_and_local_overlays_validated", "attorney_validation_required",
+        "scenario_relevance",
+    ]
+    sheet.append(headers)
+    for row in rows:
+        values = {
+            "jurisdiction_code": row["code"],
+            "jurisdiction_name": row["name"],
+            **row,
+            "scenario_relevance": (
+                "primary scenario authority map"
+                if row["code"] == scenario["jurisdiction_code"]
+                else "national comparison authority map"
+            ),
+        }
+        sheet.append([values[header] for header in headers])
+    style_sheet(sheet)
+    sheet.auto_filter.ref = f"A1:M{sheet.max_row}"
+    for row_number in range(2, sheet.max_row + 1):
+        sheet.cell(row_number, 7).fill = PatternFill("solid", fgColor=PALE_GOLD)
+        sheet.cell(row_number, 12).fill = PatternFill("solid", fgColor=PALE_RED)
+
+    controls = workbook.create_sheet("Control Baseline")
+    controls.append(["control_id", "control", "verification_evidence", "legal_boundary"])
+    control_rows = [
+        ("POS-01", "Debounce or challenge rapid duplicate scans.", "immutable scan-event sequence and override log", "technical control; no legal conclusion"),
+        ("POS-02", "Reconcile shelf, promotion, catalog, and checkout prices before sale.", "versioned price feed and mismatch alert", "apply controlling lowest-price rule only after counsel validation"),
+        ("POS-03", "Use calibrated devices and reconcile label and charged weight.", "device certificate, raw weight event, label record", "local weights-and-measures rules may add duties"),
+        ("POS-04", "Issue an intelligible itemized receipt and preserve transaction evidence.", "receipt, transaction export, content hashes", "state receipt requirements and retention periods require validation"),
+        ("POS-05", "Promptly correct a verified overcharge without requiring a release.", "refund ledger and customer notice", "do not infer a bonus, free-item remedy, notice period, waiver, or release"),
+        ("POS-06", "Escalate patterns, repeat failures, and jurisdiction-specific remedy questions.", "incident, audit, and counsel-approval records", "qualified counsel approves deployment"),
+    ]
+    for row in control_rows:
+        controls.append(row)
+    style_sheet(controls)
+
+    methodology = workbook.create_sheet("Methodology")
+    methodology.append(["field", "value"])
+    method_rows = [
+        ("as_of", payload["as_of"]),
+        ("scope", payload["scope"]),
+        ("national_index", payload["research_method"]["national_index"]),
+        ("source_preference", " > ".join(payload["research_method"]["source_preference"])),
+        ("mapped_rows", len(rows)),
+        ("substantive_legal_opinions", 0),
+        ("private_remedies_encoded", 0),
+        ("attorney_validation_required", "all rows"),
+        ("no_guarantee", "Controls and wording reduce operational risk; they cannot prevent or preclude litigation."),
+    ]
+    for row in method_rows:
+        methodology.append(row)
+    style_sheet(methodology)
     workbook.save(path)
     normalize_ooxml(path)
 
@@ -755,6 +861,7 @@ def build(output_root: Path) -> dict[str, Any]:
         build_receipts(documents / "sample-receipts.pdf", scenario)
         build_policy_doc(documents / "customer-price-accuracy-policy.docx", scenario)
         build_jurisdiction_register(documents / "jurisdiction-source-register.xlsx", scenario)
+        build_jurisdiction_register_v2(documents / "jurisdiction-authority-map-v2.xlsx", scenario)
         signature = structure_signature(documents)
         signatures.append(signature)
         files = [
@@ -762,7 +869,7 @@ def build(output_root: Path) -> dict[str, Any]:
             for path in sorted(documents.iterdir()) if path.is_file()
         ]
         record = {
-            "schema_version": 1,
+            "schema_version": 2,
             "scenario_id": scenario["scenario_id"],
             "synthetic": True,
             "jurisdiction_code": scenario["jurisdiction_code"],
@@ -777,16 +884,26 @@ def build(output_root: Path) -> dict[str, Any]:
         raise RuntimeError("mutated scenario structures do not match the base scenario")
     seeds = seed_data()
     (output_root / "seed-data.json").write_text(json.dumps({"schema_version": 1, "tables": seeds}, indent=2, sort_keys=True) + "\n", "utf-8")
+    research_v2 = jurisdiction_research_v2_rows()
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "built_at": BUILD_DATE,
         "synthetic": True,
         "scenarios": len(SCENARIOS),
         "documents": sum(len(record["files"]) for record in scenario_records),
-        "formats": {"docx": 6, "xlsx": 6, "pdf": 3},
+        "formats": {"docx": 6, "xlsx": 9, "pdf": 3},
         "jurisdictions": len(JURISDICTIONS),
         "primary_source_triaged_jurisdictions": sorted(PRIMARY_RULES),
         "pending_substantive_validation_jurisdictions": len(JURISDICTIONS) - len(PRIMARY_RULES),
+        "authority_map_v2_jurisdictions": len(research_v2),
+        "authority_map_v2_specific_authorities": sum(bool(row["citation"]) for row in research_v2),
+        "authority_map_v2_substantive_legal_opinions": sum(bool(row["substantive_legal_opinion"]) for row in research_v2),
+        "authority_map_v2_private_remedies_encoded": sum(bool(row["private_remedy_encoded"]) for row in research_v2),
+        "authority_map_v2_all_attorney_validation_required": all(row["attorney_validation_required"] for row in research_v2),
+        "authority_map_v2_source_kinds": {
+            source_kind: sum(row["source_kind"] == source_kind for row in research_v2)
+            for source_kind in sorted({row["source_kind"] for row in research_v2})
+        },
         "all_attorney_validation_required": all(row["attorney_validation_required"] for row in seeds["rc_jurisdiction_rules"]),
         "shared_structure_signature": signatures[0],
         "scenario_manifests": [str((output_root / scenario["slug"] / "manifest.json").relative_to(ROOT)) for scenario in SCENARIOS],

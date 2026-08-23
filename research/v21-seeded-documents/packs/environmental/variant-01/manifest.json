@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7903,
+      "bytes": 8001,
       "path": "evidence-register.xlsx",
-      "sha256": "12d7cdcae7e4ab90c7d22c2ed2b68dd06d0fde1eed2019efa11e5341c1cd0e65"
+      "sha256": "5fda0801b187912fb62aaa7bae10bb3c4471e7b0be51cdde4f101abce328e6c1"
     },
     {
       "bytes": 39495,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in remediation projects",
     "item_count": 45,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-EN-1121",
     "mutation_parent": null,
     "pack_id": "pack-environmental-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2300,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Environmental Control Review 01",
     "total_amount": 3287.25,
@@ -40,7 +46,7 @@
     "unit_rate": 73.05,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7892,
+      "bytes": 7993,
       "path": "evidence-register.xlsx",
-      "sha256": "459d7070214c5e8f6ca810c712290e21198175691d5e55e3259e417015b0dead"
+      "sha256": "2860ca7a7996a1ca34fdf26554f6b36e37cf34d5e54e91f5776d26e8c4f9f6c2"
     },
     {
       "bytes": 39494,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in leases",
     "item_count": 30,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-RE-1071",
     "mutation_parent": null,
     "pack_id": "pack-real_estate-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1675,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Real Estate Control Review 01",
     "total_amount": 1539.0,
@@ -40,7 +46,7 @@
     "unit_rate": 51.3,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

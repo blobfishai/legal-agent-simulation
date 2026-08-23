@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7904,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "42ab493640b83bba96d7dc043b9711f2921748aeb8d838739e8004876bec5417"
+      "sha256": "5223a7196c17f07318dc23e3ae90af8dc19e743781fdf917e47f323eb8832f1f"
     },
     {
       "bytes": 39498,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in recalls",
     "item_count": 69,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-PS-1201",
     "mutation_parent": null,
     "pack_id": "pack-product_safety-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3300,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Product Safety Control Review 01",
     "total_amount": 7441.65,
@@ -40,7 +46,7 @@
     "unit_rate": 107.85,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

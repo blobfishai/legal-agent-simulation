@@ -1,5 +1,11 @@
 # Parity audit — how much of the downloaded corpus do we host?
 
+> Historical v19 admission record retained for lineage. It does not describe
+> the current release denominator. See
+> [`HARVEY-PARITY-AUDIT.md`](HARVEY-PARITY-AUDIT.md) for the v21 audit:
+> 2,010/2,010 Harvey tasks inside 23,310 total tasks, 1,100 visible tools,
+> 23,310 deterministic verifiers, and 351 new seeded Office/PDF inputs.
+
 `HOSTED` means we read the benchmark's own task definitions and/or documents out of
 `research/repos/` and run them: their data, their ground truth. `INSPIRED` means we wrote
 tasks in that benchmark's shape from our own knowledge — defensible content, but **not**

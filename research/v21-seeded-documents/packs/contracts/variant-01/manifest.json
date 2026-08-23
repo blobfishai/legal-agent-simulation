@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7895,
+      "bytes": 7997,
       "path": "evidence-register.xlsx",
-      "sha256": "443a4170a1de623ae3beae115802e6ba2128c1401cc8b515dac057c57b8b0549"
+      "sha256": "2f3f9b23c8a00eb43f8f18ad0fb4aba8c9581746b56f4693897522dbbfe1c78d"
     },
     {
       "bytes": 39488,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in amendments",
     "item_count": 15,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-CC-1021",
     "mutation_parent": null,
     "pack_id": "pack-contracts-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1050,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Commercial Contracts Control Review 01",
     "total_amount": 443.25,
@@ -40,7 +46,7 @@
     "unit_rate": 29.55,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

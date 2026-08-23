@@ -8,10 +8,10 @@ Harbor packaging/runtime, clean rebuilds, and production image publication.
 
 V21 is a reproducible executable extension of the canonical v20 world. The
 release contains 23,310 tasks, 23,310 deterministic verifiers, 1,100
-agent-visible tools, 11 internal operations, 32 contracts, 254 tables, and 198
-new synthetic source documents. The canonical world is 255,222,487 bytes with
-SHA-256 `55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394`.
-An isolated rebuild produced the same bytes.
+agent-visible tools, 11 internal operations, 32 contracts, 254 tables, and 351
+new synthetic source documents. The canonical world is 263,108,165 bytes with
+SHA-256 `76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab`.
+A second clean-process rebuild produced the same bytes.
 
 This audit found and closed eleven release-blocking or publication-integrity
 defects:
@@ -67,11 +67,11 @@ defects:
 | Task configurations / hosted tasks | 2,010 | 2,010/2,010 preserved inside 23,310 total tasks |
 | Tracked upstream paths | 63,074 | exact local nested mirror, plus local extensions |
 | Physical upstream inputs | 60,971 / 3,206,739,638 bytes | exact local mirror; 15 release-critical inputs narrowly vendored for clean rebuilds |
-| Upstream PDFs | 0 | 66 new synthetic evidence PDFs plus provenance-tracked research PDFs |
+| Upstream PDFs | 0 | 117 new synthetic evidence PDFs plus provenance-tracked research PDFs |
 | Deterministic per-task verifiers | 0 | 23,310 |
 | Generic / product tools | 6 generic shell/file tools | 1,100 visible + 11 internal operations |
 | Product contracts / tables | none | 32 / 254 |
-| New structured evidence | none | 66 packs: 66 DOCX, 66 XLSX, 66 PDF |
+| New structured evidence | none | 117 packs: 117 DOCX, 117 XLSX, 117 PDF |
 
 The exact Harvey tree remains at the pinned commit
 `7be41d57fd5a6e97b5f246a029e810f83d09cd96` under the gitignored local research
@@ -86,14 +86,15 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Gate | Result |
 | --- | --- |
 | V20 canonical rebuild | 2,331 tasks/verifiers; deterministic report |
-| V21 isolated rebuild | byte-identical world SHA-256 |
+| V21 second-process rebuild | byte-identical world SHA-256 |
 | Generated positive paths | 20,963/20,963 passed |
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
 | Unit suites | 43/43 passed (manifest, port, local runtime, anonymous GHCR) |
-| Seed reproducibility | 198/198 files byte-identical in isolated rebuild |
-| Visual document audit | 330/330 rendered pages inspected: 66 DOCX, 198 worksheet pages, 66 PDF |
+| Seed reproducibility | 351/351 files byte-identical in isolated rebuild |
+| Retail authority reachability | 51/51 citations and official URLs projected into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated |
+| Visual document audit | 585/585 rendered pages: 117 DOCX, 351 worksheet pages, 117 PDF |
 | Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,592 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies |
 | Harvey runtime recovery | 34/34 files, 113,081 bytes, tree SHA-256 `bbdcf02717bf2ad491bf5ebbe028ebd5d69f5427609fddb0aaca3ad8d4e88d5a` |
 | Locked LAB image context | 10/10 source/lock files, tree SHA-256 `de22a672df02ecfcac25087c236f5733bf0121a4f937da3c40a508bccb59f512` |
@@ -132,7 +133,7 @@ against it, and candidate promotion requires live oracle success against the
 image's corresponding token hash.
 
 The workflow fixes Python at 3.12.13, installs the seeded-document closure with
-binary SHA-256 enforcement, materializes Harbor 0.21.0 from `uv.lock`, and
+binary SHA-256 enforcement, materializes Harbor 0.22.0 from `uv.lock`, and
 builds the LAB derivative from the pinned base, dated Debian snapshot, pip
 hashes, and npm integrity lock. Before push it imports every document library
 and parses real DOCX/XLSX/PDF fixtures with networking disabled. Candidate tags
@@ -173,9 +174,11 @@ external publication state pending for the configured public execution path.
 
 These are not hidden or represented as completed legal conclusions:
 
-- The retail register has official portals for all 50 states and D.C., but
-  only CA, CT, DC, MA, MI, and NY have benchmark-level primary-source triage.
-  The other 45 rows explicitly require substantive review by licensed counsel.
+- The retail v2 register maps a specific statute, regulation, or official
+  enforcement program for all 50 states and D.C., and 51 matched evidence
+  packs and executable authority rows are admitted into v21. Only CA, CT, DC,
+  MA, MI, and NY have benchmark legal-rule fields. Every new map still rejects substantive-opinion and
+  private-remedy encoding and requires current-law review by licensed counsel.
 - No receipt wording, contract term, refund policy, software control, or
   benchmark can guarantee that a retailer will not be sued. The synthetic
   scenarios test evidence preservation, correction, escalation, and controlled

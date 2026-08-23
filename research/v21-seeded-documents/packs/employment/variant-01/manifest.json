@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7904,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "4d514d225e83f78656f2ef21117ba906c2e5274f4b4426e5518404cac1b2467f"
+      "sha256": "8aef81b0bbb6f36f8d0add24b47b6c762bfe37102740e48a3c11d203ffe3af71"
     },
     {
       "bytes": 39496,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in discipline actions",
     "item_count": 18,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-EL-1031",
     "mutation_parent": null,
     "pack_id": "pack-employment-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1175,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Employment and Labor Control Review 01",
     "total_amount": 610.2,
@@ -40,7 +46,7 @@
     "unit_rate": 33.9,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

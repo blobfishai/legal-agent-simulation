@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7893,
+      "bytes": 7992,
       "path": "evidence-register.xlsx",
-      "sha256": "07e8e30f3878194ecc471ee2611947f9c9255deb1cb29ee1f798148fee8f9e53"
+      "sha256": "878d0b4e04f034aaeb70f848880921a2f1bfdd1feb0748863e656f5b573438d0"
     },
     {
       "bytes": 39480,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in audits",
     "item_count": 33,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-TX-1081",
     "mutation_parent": null,
     "pack_id": "pack-tax-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1800,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Tax Controversy Control Review 01",
     "total_amount": 1836.45,
@@ -40,7 +46,7 @@
     "unit_rate": 55.65,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

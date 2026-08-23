@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7904,
+      "bytes": 8006,
       "path": "evidence-register.xlsx",
-      "sha256": "0c7f6be4d874320cdfc77f69c66804494882d429732740b1369b9c169427fae8"
+      "sha256": "a6407f142e8b1fe3ac4ee0a80f207e4ff04f5301e44076c5999741a214994c6a"
     },
     {
       "bytes": 39504,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in postmortems",
     "item_count": 24,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-CY-1051",
     "mutation_parent": null,
     "pack_id": "pack-cybersecurity-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1425,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Cybersecurity Response Control Review 01",
     "total_amount": 1022.4,
@@ -40,7 +46,7 @@
     "unit_rate": 42.6,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

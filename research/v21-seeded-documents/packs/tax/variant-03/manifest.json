@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7891,
+      "bytes": 7992,
       "path": "evidence-register.xlsx",
-      "sha256": "3c541840f89babd3af4141359ddecb5145a56a4648346d3a3cdc6c8003303d3f"
+      "sha256": "6290c45b9b833fd1bd7c21c89966c49b6524ac3c160b0782cae49b97f818ff64"
     },
     {
       "bytes": 39485,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in payments",
     "item_count": 37,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-TX-1083",
     "mutation_parent": "pack-tax-01",
     "pack_id": "pack-tax-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1900,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Tax Controversy Control Review 03",
     "total_amount": 2214.45,
@@ -40,7 +46,7 @@
     "unit_rate": 59.85,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

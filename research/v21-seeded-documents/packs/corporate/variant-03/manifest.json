@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7890,
+      "bytes": 7991,
       "path": "evidence-register.xlsx",
-      "sha256": "8f0b4e2e3bd733a501e059b1ac16a257e17f0dcfd5f961b86645d5751f856890"
+      "sha256": "072c372ae03ae9d5f7de3cf23f5a90fd0587bcbaf710b3257294394112cd27f8"
     },
     {
       "bytes": 39493,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in directors",
     "item_count": 16,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-CG-1013",
     "mutation_parent": "pack-corporate-01",
     "pack_id": "pack-corporate-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1025,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Corporate Governance Control Review 03",
     "total_amount": 470.4,
@@ -40,7 +46,7 @@
     "unit_rate": 29.4,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

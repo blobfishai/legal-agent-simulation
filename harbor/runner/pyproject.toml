@@ -3,7 +3,7 @@ name = "legal-agent-simulation-harbor-runner"
 version = "21.0.0"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-  "harbor==0.21.0",
+  "harbor==0.22.0",
 ]
 
 [tool.uv]

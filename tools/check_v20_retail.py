@@ -113,6 +113,25 @@ def main() -> int:
     assert sum(row["research_status"] == "primary_source_triaged" for row in rules) == 6
     assert sum(row["research_status"] == "official_portal_identified_not_substantively_validated" for row in rules) == 45
     assert all(row["attorney_validation_required"] == 1 for row in rules)
+    authority_map = json.loads((RETAIL_ROOT / "jurisdiction-research-v2.json").read_text("utf-8"))
+    authority_defaults = authority_map["defaults"]
+    authority_rows = [{**authority_defaults, **row} for row in authority_map["jurisdictions"]]
+    assert authority_map["schema_version"] == 2
+    assert len(authority_rows) == len({row["code"] for row in authority_rows}) == 51
+    assert {row["code"] for row in authority_rows} == {row["jurisdiction_code"] for row in rules}
+    assert all(row["citation"] and row["authority_url"].startswith("https://") for row in authority_rows)
+    assert not any(row["substantive_legal_opinion"] for row in authority_rows)
+    assert not any(row["private_remedy_encoded"] for row in authority_rows)
+    assert not any(row["current_text_and_local_overlays_validated"] for row in authority_rows)
+    assert all(row["attorney_validation_required"] for row in authority_rows)
+    retail_report = json.loads((RETAIL_ROOT / "build-report.json").read_text("utf-8"))
+    assert retail_report["documents"] == 18
+    assert retail_report["formats"] == {"docx": 6, "xlsx": 9, "pdf": 3}
+    assert retail_report["authority_map_v2_jurisdictions"] == 51
+    assert retail_report["authority_map_v2_specific_authorities"] == 51
+    assert retail_report["authority_map_v2_substantive_legal_opinions"] == 0
+    assert retail_report["authority_map_v2_private_remedies_encoded"] == 0
+    assert retail_report["authority_map_v2_all_attorney_validation_required"] is True
 
     visible_tools = set(runtime.tools)
     exercised_retail_tools: set[str] = set()
@@ -129,6 +148,7 @@ def main() -> int:
             "checkout-event-log.xlsx",
             "customer-price-accuracy-policy.docx",
             "incident-report.docx",
+            "jurisdiction-authority-map-v2.xlsx",
             "jurisdiction-source-register.xlsx",
             "sample-receipts.pdf",
         ]
@@ -172,7 +192,7 @@ def main() -> int:
     print(
         "v20 retail gate: 2331 canonical + 16 real-world = 2347 merged draft; "
         "Harvey 2010/2010; "
-        "110 tools (19 RetailGuard); 51 jurisdictions; 15 matched input documents"
+        "110 tools (19 RetailGuard); 51 mapped authorities; 18 matched input documents"
     )
     return 0
 

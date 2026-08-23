@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7914,
+      "bytes": 8012,
       "path": "evidence-register.xlsx",
-      "sha256": "997a3ec3ac2d0eecfe741977bf1e0da5f8409b62974b70622d78ee98869a083e"
+      "sha256": "7a8e4fb5b49fdcd12dc003c9f46171d2e17cdc712d0a44181d69c4f5b228eae8"
     },
     {
       "bytes": 39513,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in modifications",
     "item_count": 66,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-GC-1191",
     "mutation_parent": null,
     "pack_id": "pack-government_contracts-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3175,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Government Contracts Control Review 01",
     "total_amount": 6831.0,
@@ -40,7 +46,7 @@
     "unit_rate": 103.5,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

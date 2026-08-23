@@ -1,0 +1,153 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 8076,
+      "path": "evidence-register.xlsx",
+      "sha256": "11c16fe362aac9a095950292cad9a6eb452ff5e0ebd4c519d2f0abcfc1edb5d0"
+    },
+    {
+      "bytes": 39561,
+      "path": "matter-brief.docx",
+      "sha256": "96e94943259561b88cb69e666c82e01fca5e39a9b4c91de8b57c1f3b5897a48c"
+    },
+    {
+      "bytes": 2886,
+      "path": "source-extract.pdf",
+      "sha256": "e1c0f688d47c56856ed40f383e731b0d98285ad39400b86daa4545d75bc7bf04"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-RETAIL-GA-10",
+    "attorney_validation_required": true,
+    "authority_focus": "Retail price representations and accurate quantity/price information.",
+    "domain": "retail-price-accuracy",
+    "domain_label": "Retail Price Accuracy",
+    "due_date": "2026-08-09",
+    "evidence_date": "2026-07-10",
+    "expected_status": "retail-authority-mapped-ga",
+    "issue": "checkout control gap mapped to Ga. Comp. R. & Regs. 40-15-3-.13",
+    "item_count": 30,
+    "jurisdiction": "GA",
+    "legal_research_status": "specific_authority_mapped_attorney_validation_required",
+    "matter_ref": "MAT-RPA-2010",
+    "mutation_parent": "pack-retail-price-accuracy-al",
+    "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
+    "pack_id": "pack-retail-price-accuracy-ga",
+    "private_remedy_encoded": false,
+    "research_authority": "Ga. Comp. R. & Regs. 40-15-3-.13",
+    "research_authority_url": "https://rules.sos.ga.gov/GAC/40-15-3",
+    "research_source_kind": "official_state_regulation",
+    "reserve_amount": 1275.0,
+    "risk_level": "high",
+    "substantive_legal_opinion": false,
+    "synthetic": true,
+    "title": "Retail Price Accuracy Review - GA",
+    "total_amount": 220.5,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 7.35,
+    "variant": 10
+  },
+  "schema_version": 2,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          12,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$12",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

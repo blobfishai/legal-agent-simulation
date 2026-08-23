@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7894,
+      "bytes": 7993,
       "path": "evidence-register.xlsx",
-      "sha256": "1e2bc30fa31e66c1014e30eca4317708a2107b12fc8574e8e1631d2ab69143ab"
+      "sha256": "eedb75e31317e16c439a4811e018ed783df2574f91864221299651d6ede656e2"
     },
     {
       "bytes": 39499,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in filings",
     "item_count": 65,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-NP-1182",
     "mutation_parent": "pack-nonprofit-01",
     "pack_id": "pack-nonprofit-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 3100,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Nonprofit Governance Control Review 02",
     "total_amount": 6581.25,
@@ -40,7 +46,7 @@
     "unit_rate": 101.25,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

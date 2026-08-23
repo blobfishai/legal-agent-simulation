@@ -1,0 +1,207 @@
+[
+  {
+    "type": "company",
+    "name": "Ridgeline Hospitality Group",
+    "role": "company",
+    "tail_options": [
+      "Hospitality Group"
+    ],
+    "fragments": [
+      "Ridgeline"
+    ],
+    "domain": "ridgelinehospitality.com"
+  },
+  {
+    "type": "company",
+    "name": "Ashford Pierce",
+    "role": "lawfirm",
+    "fragments": [
+      "Ashford",
+      "Pierce"
+    ],
+    "domain": "ashfordpierce.com"
+  },
+  {
+    "type": "company",
+    "name": "Sternwick & Calloway",
+    "role": "lawfirm",
+    "fragments": [
+      "Sternwick",
+      "Calloway"
+    ],
+    "domain": "sternwickcalloway.com"
+  },
+  {
+    "type": "company",
+    "name": "Greystone Whitaker",
+    "role": "lawfirm",
+    "fragments": [
+      "Greystone",
+      "Whitaker"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Kelton Harris & Roe",
+    "role": "lawfirm",
+    "fragments": [
+      "Kelton",
+      "Roe"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Pendleton Hargrave",
+    "role": "advisory",
+    "tail_options": [
+      "& Co."
+    ],
+    "fragments": [
+      "Pendleton",
+      "Hargrave"
+    ],
+    "domain": "pendletonhargrave.com"
+  },
+  {
+    "type": "company",
+    "name": "Clearbridge Advisory Group",
+    "role": "advisory",
+    "tail_options": [
+      "Advisory Group"
+    ],
+    "fragments": [
+      "Clearbridge"
+    ],
+    "domain": "clearbridgeadvisory.com"
+  },
+  {
+    "type": "company",
+    "name": "Briarwood Commercial Bank",
+    "role": "company",
+    "tail_options": [
+      "Commercial Bank"
+    ],
+    "fragments": [
+      "Briarwood"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Commonwealth National Trust Company",
+    "role": "company",
+    "tail_options": [
+      "National Trust Company"
+    ],
+    "fragments": [
+      "Commonwealth"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Atlas Fiduciary Services",
+    "role": "company",
+    "tail_options": [
+      "Fiduciary Services"
+    ],
+    "fragments": [
+      "Atlas"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Hartfield & Dunn",
+    "role": "accounting",
+    "tail_options": [
+      "Auditors"
+    ],
+    "fragments": [
+      "Hartfield"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Redstone Capital Management",
+    "role": "company",
+    "tail_options": [
+      "Capital Management"
+    ],
+    "fragments": [
+      "Redstone"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Garrison Creek Asset Partners",
+    "role": "company",
+    "tail_options": [
+      "Asset Partners"
+    ],
+    "fragments": [
+      "Garrison"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Northvane Investment Group",
+    "role": "company",
+    "tail_options": [
+      "Investment Group"
+    ],
+    "fragments": [
+      "Northvane"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Hollcroft Capital Management",
+    "role": "company",
+    "tail_options": [
+      "Capital Management"
+    ],
+    "fragments": [
+      "Hollcroft"
+    ]
+  },
+  {
+    "type": "person",
+    "name": "Claire Vasquez"
+  },
+  {
+    "type": "person",
+    "name": "Michael Sorensen"
+  },
+  {
+    "type": "person",
+    "name": "Priya Chandrasekaran"
+  },
+  {
+    "type": "person",
+    "name": "James Whitfield"
+  },
+  {
+    "type": "person",
+    "name": "Jonathan Garvey"
+  },
+  {
+    "type": "person",
+    "name": "Thomas Birch",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Allison Cheng"
+  },
+  {
+    "type": "person",
+    "name": "Margaret Holloway"
+  },
+  {
+    "type": "person",
+    "name": "David Nakamura"
+  },
+  {
+    "type": "person",
+    "name": "Susan Pratt",
+    "pronouns": "she"
+  }
+]

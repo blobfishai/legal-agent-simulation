@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7895,
+      "bytes": 7995,
       "path": "evidence-register.xlsx",
-      "sha256": "4a1c5e7e01d102313cf3dd9bbacdb1b9a48d0d43c751a639fbed2b3398270ac5"
+      "sha256": "1d009b7feb83c37ffd3f061cd9df2b2cda4102fa6d313dde8ffd57ab8745444c"
     },
     {
       "bytes": 39491,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in playbooks",
     "item_count": 17,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-CC-1022",
     "mutation_parent": "pack-contracts-01",
     "pack_id": "pack-contracts-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1100,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Commercial Contracts Control Review 02",
     "total_amount": 538.05,
@@ -40,7 +46,7 @@
     "unit_rate": 31.65,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7899,
+      "bytes": 7999,
       "path": "evidence-register.xlsx",
-      "sha256": "30f3634b93246beb954ac32732c46cf83d010f14fafc029b9a99f31a0ddb1b65"
+      "sha256": "76aa1681f8dcc4012c98448d11d208f0f38a2619e3d747c97a13e73d7548d537"
     },
     {
       "bytes": 39497,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in employers",
     "item_count": 61,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IM-1163",
     "mutation_parent": "pack-immigration-01",
     "pack_id": "pack-immigration-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2900,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Business Immigration Control Review 03",
     "total_amount": 5773.65,
@@ -40,7 +46,7 @@
     "unit_rate": 94.65,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

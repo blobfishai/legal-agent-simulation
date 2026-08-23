@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7903,
+      "bytes": 8003,
       "path": "evidence-register.xlsx",
-      "sha256": "5a765c62472578b3c73b46d88e1c3a2e8b782eb82b6ac9abf0809c9fce9a5e89"
+      "sha256": "ffed51f90fc61f266a0baf552732f71615986e7a531938b7193d25deb64975ab"
     },
     {
       "bytes": 39494,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in coverage positions",
     "item_count": 56,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IN-1152",
     "mutation_parent": "pack-insurance-01",
     "pack_id": "pack-insurance-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2725,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Insurance Coverage Control Review 02",
     "total_amount": 4939.2,
@@ -40,7 +46,7 @@
     "unit_rate": 88.2,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

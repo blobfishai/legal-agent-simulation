@@ -234,6 +234,8 @@ def main() -> int:
     parser.add_argument("--lab-image", required=True)
     parser.add_argument("--require-all-world-tasks", action="store_true")
     parser.add_argument("--verify-evidence", action="store_true")
+    parser.add_argument("--report", type=Path,
+                        help="Optionally write the successful machine-readable audit report")
     args = parser.parse_args()
 
     export_root = args.root.resolve()
@@ -321,6 +323,9 @@ def main() -> int:
         "agent_world_leaks": 0,
         "package_symlinks": 0,
     }
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", "utf-8")
     print(json.dumps(report, sort_keys=True))
     return 0
 

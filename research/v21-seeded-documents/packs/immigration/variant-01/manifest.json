@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7901,
+      "bytes": 8002,
       "path": "evidence-register.xlsx",
-      "sha256": "86afd729b8683a7e8775291d67c0d6ee527f111a688704c0ab4a1f3c4b7c54e7"
+      "sha256": "f45fedbada04961f81798288a21d4a79b4234595ae922dbd3e5bf3f9667733eb"
     },
     {
       "bytes": 39490,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in petitions",
     "item_count": 57,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IM-1161",
     "mutation_parent": null,
     "pack_id": "pack-immigration-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2800,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Business Immigration Control Review 01",
     "total_amount": 5155.65,
@@ -40,7 +46,7 @@
     "unit_rate": 90.45,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

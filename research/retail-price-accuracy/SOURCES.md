@@ -60,8 +60,52 @@ rights, and procedural requirements must be validated by qualified counsel.
   <https://www.mass.gov/regulations/202-CMR-700-price-disclosure>
 - Connecticut General Statutes, Chapter 417:
   <https://www.cga.ct.gov/current/pub/chap_417.htm>
+- Arizona Revised Statutes § 3-3431(C), current sale-of-commodities price
+  provision: <https://www.azleg.gov/ars/3/03431.htm>. The Arizona Legislative
+  Council's official table records the 2016 transfer from former § 41-2081 to
+  § 3-3431:
+  <https://www.azleg.gov/alisPDFs/council/TOSA_52nd_1st_Regular_and_1st_Special.pdf>.
+- Arkansas Department of Agriculture, current Bureau of Standards page:
+  <https://agriculture.arkansas.gov/crops-industry/bureau-of-standards/>. That
+  page links the state's weights-and-measures compilation, including
+  § 4-18-316, from the official Arkansas media host:
+  <https://media.ark.org/agri/Weights_and_Measures.pdf>.
 
-The generated jurisdiction workbook lists an official code portal for every
-state and D.C. Rows outside the six-jurisdiction triaged subset are research
-queue entries, not encoded legal conclusions.
+## Fifty-state-plus-D.C. authority map
 
+`jurisdiction-research-v2.json` now maps one specific statute, regulation, or
+official enforcement program for every state and D.C. The national index is
+NIST's current state-by-state page, updated April 7, 2025:
+<https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state>.
+The map records the exact citation, source URL, source type, authority focus,
+and a common operational baseline. Eight rows use an official NIST compilation
+of state text because a stable current state deep-link was not established;
+that provenance is stated rather than presented as direct state-code review.
+
+An outbound availability probe on August 22, 2026 followed redirects for all
+51 mapped URLs: 48 returned HTTP 200. Massachusetts and New York returned HTTP
+403 to the automated client while remaining publicly indexed, and Tennessee
+reset the automated connection while its current agency page remained publicly
+indexed with the cited statute and UPC-verification program. URL availability
+is recorded as research evidence, not made a deterministic CI gate: state sites
+can apply bot controls or change transport behavior without changing the legal
+source. Arkansas's retired path was replaced with the live compilation linked
+by its current Bureau of Standards page, and Arizona's transferred citation was
+updated to current § 3-3431(C).
+
+The v2 map deliberately does **not** alter the frozen v20 legal-rule table.
+V21 projects each exact citation and official URL into the executable
+`rc_jurisdiction_rules` issue-spotting table without promoting the 45 research
+rows into legal rules or remedies. All 51 map rows keep these gates:
+
+- `substantive_legal_opinion: false`;
+- `private_remedy_encoded: false`;
+- `current_text_and_local_overlays_validated: false`; and
+- `attorney_validation_required: true`.
+
+The original six-jurisdiction triage remains the only subset with benchmark
+rule fields. The other 45 rows have advanced from portal-only research queues
+to specific authority maps, but not to deployment-ready legal conclusions.
+The generated v2 workbook and 51 new structure-matched evidence packs preserve
+that distinction. Counsel still must validate current text, scope, local
+overlays, remedies, effective dates, and procedural requirements.

@@ -1,0 +1,153 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 8119,
+      "path": "evidence-register.xlsx",
+      "sha256": "a047ce27c5ddf438a1ae4820daaa4fa6aba5499eaf90f656b1b35cf4a3d93e0e"
+    },
+    {
+      "bytes": 39573,
+      "path": "matter-brief.docx",
+      "sha256": "45aa7fa76d03660b9646294f93ba56e38e3e3007b00ab2fc7a6920ceed12129c"
+    },
+    {
+      "bytes": 2892,
+      "path": "source-extract.pdf",
+      "sha256": "a7a2311ba28601b44ee7d5e4b27c439a54fb74f590cd979d02892e54654f16fa"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-RETAIL-CA-05",
+    "attorney_validation_required": true,
+    "authority_focus": "Prohibits charging more than an advertised, posted, marked, displayed, or quoted price and generally requires the lowest displayed price.",
+    "domain": "retail-price-accuracy",
+    "domain_label": "Retail Price Accuracy",
+    "due_date": "2026-08-04",
+    "evidence_date": "2026-07-05",
+    "expected_status": "retail-authority-mapped-ca",
+    "issue": "checkout control gap mapped to Cal. Bus. & Prof. Code \u00a7 12024.2",
+    "item_count": 20,
+    "jurisdiction": "CA",
+    "legal_research_status": "specific_authority_mapped_attorney_validation_required",
+    "matter_ref": "MAT-RPA-2005",
+    "mutation_parent": "pack-retail-price-accuracy-al",
+    "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
+    "pack_id": "pack-retail-price-accuracy-ca",
+    "private_remedy_encoded": false,
+    "research_authority": "Cal. Bus. & Prof. Code \u00a7 12024.2",
+    "research_authority_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=12024.2",
+    "research_source_kind": "official_state_statute",
+    "reserve_amount": 1087.5,
+    "risk_level": "critical",
+    "substantive_legal_opinion": false,
+    "synthetic": true,
+    "title": "Retail Price Accuracy Review - CA",
+    "total_amount": 106.0,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 5.3,
+    "variant": 5
+  },
+  "schema_version": 2,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          12,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$12",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

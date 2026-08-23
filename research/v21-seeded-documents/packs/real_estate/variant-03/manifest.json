@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7891,
+      "bytes": 7990,
       "path": "evidence-register.xlsx",
-      "sha256": "1e6c47647a141428fda0b242fd769edb7f9f3dee580c516ce09f2ef5adf4cd64"
+      "sha256": "c021971351b10ba2213160d7f441c202763a2c16c344600b56c2577054cca257"
     },
     {
       "bytes": 39503,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in closings",
     "item_count": 34,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-RE-1073",
     "mutation_parent": "pack-real_estate-01",
     "pack_id": "pack-real_estate-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1775,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Real Estate Control Review 03",
     "total_amount": 1887.0,
@@ -40,7 +46,7 @@
     "unit_rate": 55.5,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7892,
+      "bytes": 7992,
       "path": "evidence-register.xlsx",
-      "sha256": "b17f07c00c7f131e8423c21e599e66fc11e92797cb09e0786fb81a66a33778b8"
+      "sha256": "0f91ce2816f1c6f530ce67fc2519cb2d5d4945f4967caea4804dae64bcc9c22e"
     },
     {
       "bytes": 39491,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in resolutions",
     "item_count": 12,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-CG-1011",
     "mutation_parent": null,
     "pack_id": "pack-corporate-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 925,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Corporate Governance Control Review 01",
     "total_amount": 302.4,
@@ -40,7 +46,7 @@
     "unit_rate": 25.2,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

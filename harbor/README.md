@@ -53,7 +53,7 @@ the deterministic state reward and adds separate file/state diagnostics; the
 lanes are never averaged. `python3 tools/check_harbor_file_lane.py` gates path
 confinement and this contract.
 
-V21's 198 seeded DOCX/XLSX/PDF fixtures are input-only file lanes: they stage
+V21's 351 seeded DOCX/XLSX/PDF fixtures are input-only file lanes: they stage
 the evidence read-only but intentionally request no authoring skills or fake
 deliverable path. Their stateful MCP workflow is the graded output. The
 generator preserves an explicit empty `skills` list, so these lanes do not
@@ -86,7 +86,7 @@ memory before increasing `-n`; the release smoke is deliberately serial on a
 The GitHub Actions workflow publishes convenient `:v21` tags, but publishable
 tasks embed the promoted world and file-lane images by immutable digest. This
 makes every task self-sufficient without trusting either mutable tag. Harbor
-0.21.0 and its complete 91-package runner graph are likewise frozen in
+0.22.0 and its complete 91-package runner graph are likewise frozen in
 `harbor/runner/uv.lock`.
 
 Harbor is the local evaluation framework and does not require a Harbor API,

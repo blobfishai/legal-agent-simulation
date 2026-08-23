@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7913,
+      "bytes": 8013,
       "path": "evidence-register.xlsx",
-      "sha256": "59f8940c7b68b0832247fe8cc7a24248ba36cc584ce8b3bfa293e98caec722ba"
+      "sha256": "b8b4c08deaca1369562676ec33cf619f306bf2179069017d87450e7bfbedcab1"
     },
     {
       "bytes": 39514,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in subscriptions",
     "item_count": 53,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-FM-1142",
     "mutation_parent": "pack-investment_funds-01",
     "pack_id": "pack-investment_funds-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 2600,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Investment Funds Control Review 02",
     "total_amount": 4444.05,
@@ -40,7 +46,7 @@
     "unit_rate": 83.85,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

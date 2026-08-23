@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7888,
+      "bytes": 7989,
       "path": "evidence-register.xlsx",
-      "sha256": "9a32b011f4a7f29bc70a20015bb8ad54c90802deed11d6820af56b9a6d4582f4"
+      "sha256": "11e088c19db61c6aa29cd8b7c3e807a5f2fe507721dc8cd407100a6060f0facb"
     },
     {
       "bytes": 39487,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in schedules",
     "item_count": 36,
     "jurisdiction": "CA",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-BK-1091",
     "mutation_parent": null,
     "pack_id": "pack-bankruptcy-01",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1925,
     "risk_level": "high",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Bankruptcy Control Review 01",
     "total_amount": 2160.0,
@@ -40,7 +46,7 @@
     "unit_rate": 60.0,
     "variant": 1
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

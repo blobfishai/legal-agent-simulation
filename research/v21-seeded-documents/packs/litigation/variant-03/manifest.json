@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7883,
+      "bytes": 7983,
       "path": "evidence-register.xlsx",
-      "sha256": "a4b41ed9a46c011ab01e903ad60d6c9d097f083b8cac46bdde454aadfab72b56"
+      "sha256": "e2a2e2befa7584e34b9b1de567818ffa3b508ab0de31d3d5c1c50f173814a7c1"
     },
     {
       "bytes": 39484,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in matters",
     "item_count": 13,
     "jurisdiction": "DC",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-LT-1003",
     "mutation_parent": "pack-litigation-01",
     "pack_id": "pack-litigation-03",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 900,
     "risk_level": "critical",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Litigation Control Review 03",
     "total_amount": 325.65,
@@ -40,7 +46,7 @@
     "unit_rate": 25.05,
     "variant": 3
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

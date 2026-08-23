@@ -82,6 +82,11 @@ Both lanes leave the Harvey mirror immutable and record mutation provenance.
 The broad lane copies its exact entity config into each seed and provides a
 `--check` mode that independently re-derives every output byte.
 
+These strict and broad outputs are generator regression assets, not silently
+counted production tasks. The release-admission boundary and exact counts are
+recorded in [`ADMISSION.md`](ADMISSION.md); v21 task counts include only fixtures
+with stable task IDs, acceptance contracts, and Harbor packages.
+
 The committed seed plan reproduces the local high-volume variants:
 
 ```bash
@@ -95,10 +100,9 @@ Seed outputs remain ignored because they are fully reproducible from the pinned
 Harvey commit, the committed entity config, and the integer seed. The plan makes
 the intended seed set explicit and rejects missing or orphaned variants.
 
-The committed plan currently covers eight source tasks across six practice
-areas (banking-finance ×3, corporate-ma, employment-labor, real-estate, tax,
-funds-asset-management) for nineteen seeded variants; per-task entity maps and
-validation status are tabulated in
+The committed plan currently covers fourteen source tasks across twelve
+practice areas for thirty-one seeded variants; per-task entity maps, seed
+counts, formats, and validation status are tabulated in
 [`../mutation-configs/COVERAGE.md`](../mutation-configs/COVERAGE.md).
 
 ## Pinned upstream source defects

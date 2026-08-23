@@ -111,6 +111,12 @@ jurisdictions are primary-source triaged; the other 45 are marked
 `official_portal_identified_not_substantively_validated` and every row carries
 `attorney_validation_required`.
 
+That paragraph describes the frozen v20 lane. V21 preserves the six benchmark
+rules but replaces the 45 portal-only executable rows with exact issue-spotting
+citations and official URLs from `jurisdiction-research-v2.json`; their status
+is `specific_authority_mapped_attorney_validation_required`, and no new remedy,
+deadline, applicability conclusion, or local overlay is encoded.
+
 ## Recovered Harvey LAB task (1)
 
 `labp_b50165c2a9cd39db` recovers the one quarantined LAB practice task

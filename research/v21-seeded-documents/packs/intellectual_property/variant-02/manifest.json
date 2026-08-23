@@ -2,9 +2,9 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 7915,
+      "bytes": 8015,
       "path": "evidence-register.xlsx",
-      "sha256": "eb9a2321ef7a43d052a134dbb277e72b9a1a5d1e768bb8f5afea6e6b73bf3d34"
+      "sha256": "1a9c48630a9c85a8204c500e295536d75697142faea90d61a617e31fcec344cf"
     },
     {
       "bytes": 39512,
@@ -28,11 +28,17 @@
     "issue": "control discrepancy in licenses",
     "item_count": 29,
     "jurisdiction": "NY",
+    "legal_research_status": "not_applicable",
     "matter_ref": "MAT-IP-1062",
     "mutation_parent": "pack-intellectual_property-01",
     "pack_id": "pack-intellectual_property-02",
+    "private_remedy_encoded": false,
+    "research_authority": "synthetic benchmark source; no external authority asserted",
+    "research_authority_url": "not_applicable",
+    "research_source_kind": "synthetic_fixture",
     "reserve_amount": 1600,
     "risk_level": "medium",
+    "substantive_legal_opinion": false,
     "synthetic": true,
     "title": "Intellectual Property Control Review 02",
     "total_amount": 1422.45,
@@ -40,7 +46,7 @@
     "unit_rate": 49.05,
     "variant": 2
   },
-  "schema_version": 1,
+  "schema_version": 2,
   "structure_signature": {
     "docx": {
       "headings": [
@@ -99,7 +105,7 @@
           8
         ],
         "Instructions": [
-          9,
+          12,
           2
         ]
       },
@@ -128,7 +134,7 @@
           "paper_size": 1
         },
         "Instructions": {
-          "area": "'Instructions'!$A$1:$B$9",
+          "area": "'Instructions'!$A$1:$B$12",
           "fit_to_height": 1,
           "fit_to_width": 1,
           "orientation": "landscape",

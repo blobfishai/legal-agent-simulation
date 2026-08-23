@@ -1,0 +1,98 @@
+[
+  {
+    "type": "company",
+    "name": "Cascade Mutual Insurance Company",
+    "role": "company",
+    "tail_options": [
+      "Mutual Insurance Company"
+    ],
+    "fragments": [
+      "Cascade"
+    ],
+    "domain": "cascademutual.com"
+  },
+  {
+    "type": "company",
+    "name": "Pinnacle Re Ltd",
+    "role": "company",
+    "tail_options": [
+      "Re Ltd"
+    ],
+    "domain": "pinnaclere.bm"
+  },
+  {
+    "type": "company",
+    "name": "Hargrove Sinclair",
+    "role": "lawfirm",
+    "domain": "hargrovesinclair.com"
+  },
+  {
+    "type": "company",
+    "name": "Thornfield & Rowe",
+    "role": "lawfirm",
+    "fragments": [
+      "Thornfield",
+      "Rowe"
+    ],
+    "domain": "thornfieldrowe.com"
+  },
+  {
+    "type": "company",
+    "name": "Grayline Intermediaries",
+    "role": "company",
+    "tail_options": [
+      "Intermediaries"
+    ],
+    "fragments": [
+      "Grayline"
+    ]
+  },
+  {
+    "type": "company",
+    "name": "Wyndham Thorpe",
+    "role": "accounting"
+  },
+  {
+    "type": "company",
+    "name": "Oakvale Point Assurance",
+    "role": "accounting",
+    "tail_options": [
+      "Assurance"
+    ]
+  },
+  {
+    "type": "person",
+    "name": "Margaret Ellsworth"
+  },
+  {
+    "type": "person",
+    "name": "David Nakata"
+  },
+  {
+    "type": "person",
+    "name": "Theresa Colvin",
+    "pronouns": "she"
+  },
+  {
+    "type": "person",
+    "name": "Patricia Engel"
+  },
+  {
+    "type": "person",
+    "name": "Ryan Whitmore",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Charles Adekunle",
+    "pronouns": "he"
+  },
+  {
+    "type": "person",
+    "name": "Jonathan Firth"
+  },
+  {
+    "type": "person",
+    "name": "Marcus Reilly"
+  }
+]
