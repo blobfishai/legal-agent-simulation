@@ -438,3 +438,4 @@ jobs:
           python3 tools/check_v20_retail.py
           python3 tools/check_v21_scale.py
           python3 -m unittest tools.tests.test_harvey_mutations -v
+          python3 -m unittest tools.tests.test_v21_document_rendering -v
