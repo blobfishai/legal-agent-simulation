@@ -1,0 +1,340 @@
+{
+  "document_sets": 1760,
+  "duplicate_input_occurrences": 430,
+  "extensions": {
+    ".docx": {
+      "bytes": 2213266091,
+      "files": 33954
+    },
+    ".eml": {
+      "bytes": 46982834,
+      "files": 5169
+    },
+    ".json": {
+      "bytes": 133617,
+      "files": 5
+    },
+    ".pptx": {
+      "bytes": 99745377,
+      "files": 1091
+    },
+    ".txt": {
+      "bytes": 55575066,
+      "files": 889
+    },
+    ".xlsx": {
+      "bytes": 270192197,
+      "files": 10575
+    }
+  },
+  "format_validation": {
+    "errors": [
+      "tasks/contracts/financing/credit-lending-subsequent-turn-redline/scenario-03/documents/.!33830!commitment-schedule.xlsx: ValueError: zero-byte input"
+    ],
+    "legacy_office_checked": 0,
+    "lfs_pointers": 0,
+    "ooxml_crc_checked": 45620,
+    "ooxml_xml_parts_failed": 9,
+    "ooxml_xml_parts_parsed": 948922,
+    "pdfs_checked": 0,
+    "zero_byte_inputs": 1
+  },
+  "known_source_defects": {
+    "allowlist": "reports/harvey-v1.0-known-defects.json",
+    "allowlist_sha256": "726589466f042cef4b134e705a22747e437c726f5797df354c518103d79b6d0c",
+    "count": 9,
+    "items": [
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 2,
+        "part": "word/document.xml",
+        "path": "tasks/antitrust-competition/extract-competitive-overlap-data-from-joint-venture-business-plan/documents/jv-business-plan-final.docx",
+        "sha256": "fa325c8e50c03f8129d32b7bb05d97597e5a07e883089d45fd144b3de5db27cc"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "xl/worksheets/sheet4.xml",
+        "path": "tasks/corporate-ma/compare-merger-filing-requirements-across-multiple-jurisdictions/documents/market-share-analysis.xlsx",
+        "sha256": "afe306487e19de55f732fbf92b42ea2b930a74fa884452c6a31ec9b9a55cc388"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/corporate-ma/draft-asset-purchase-agreement/scenario-01/documents/assumed-and-excluded-liabilities-schedule.docx",
+        "sha256": "5417b7ea7afe56d1250ed922735cdc91395707f15a7d4c78eae0e89824a0d3ad"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/corporate-ma/draft-asset-purchase-agreement/scenario-01/documents/employee-census.docx",
+        "sha256": "aae0e6d1da74a926b3595528db84af82719f733caffe318fe5f47e0d4df2613c"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "xl/worksheets/sheet1.xml",
+        "path": "tasks/emerging-companies-venture-capital/draft-merger-agreement/documents/veridia-cap-table.xlsx",
+        "sha256": "4be300666ebcf58543764b073daee0c21b97bac387056c0694cb21339454c6b1"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/funds-asset-management/draft-code-of-ethics-for-registered-investment-adviser/documents/info-barrier-notes.docx",
+        "sha256": "0b4b435506163ef77dd00e4d0851fe2180be3c9cf3c81ec9004b76665918be78"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 2,
+        "part": "xl/worksheets/sheet1.xml",
+        "path": "tasks/funds-asset-management/draft-compliance-manual/documents/proxy-voting-records-2024.xlsx",
+        "sha256": "24a288b12dc38c6532e408d06591f697d18436ca2d949a8109430b53e8b2944a"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 2,
+        "part": "word/document.xml",
+        "path": "tasks/funds-asset-management/draft-fund-ppm/documents/team-bios-and-track-record-data.docx",
+        "sha256": "5277001258ad2ea3184f593898a80e82995c09faa603b3d358d6fa51809232e5"
+      },
+      {
+        "kind": "unescaped_ampersand",
+        "occurrences": 1,
+        "part": "word/document.xml",
+        "path": "tasks/international-trade-sanctions/identify-issues-in-cfius-mandatory-declaration/documents/draft-cfius-declaration.docx",
+        "sha256": "9e9d738ba060b37d5a5d360580089ef55df2b2559b45f33607fdcef21a2b8a18"
+      }
+    ],
+    "matched": true
+  },
+  "largest_document_sets": [
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/rail-horizontal-merger/documents",
+      "physical_files": 4061,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents",
+      "physical_files": 3858,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/oil-gas-horizontal-merger/documents",
+      "physical_files": 3781,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/enterprise-software-diversification/documents",
+      "physical_files": 3633,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/cybersecurity-tuck-in/documents",
+      "physical_files": 3513,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/gaming-strategic-acquisition/documents",
+      "physical_files": 3391,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/restaurant-pe-buyout/documents",
+      "physical_files": 3378,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/sports-media-consolidation/documents",
+      "physical_files": 3355,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents",
+      "physical_files": 3190,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/aerospace-vertical-integration/documents",
+      "physical_files": 2863,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/diligence/media-recap/documents",
+      "physical_files": 2600,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/litigation-dispute-resolution/review-privilege-log-clawback-review/documents",
+      "physical_files": 55,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/corporate-ma/draft-acquisition-due-diligence/documents",
+      "physical_files": 31,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/litigation-dispute-resolution/categorize-document-production-set-by-relevance-and-privilege/documents",
+      "physical_files": 25,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/tax/draft-transfer-pricing-documentation/documents",
+      "physical_files": 25,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/corporate-governance/assess-impact-of-new-gdpr-adequacy-decision-on-cross/documents",
+      "physical_files": 24,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/litigation-dispute-resolution/draft-motion-to-dismiss-brief/documents",
+      "physical_files": 24,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/corporate-governance/assess-impact-of-ftc-noncompete-ban-on-existing-employment-agreements/documents",
+      "physical_files": 22,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/tax/draft-cross-border-acquisition-tax-memo/documents",
+      "physical_files": 22,
+      "shared": false
+    },
+    {
+      "consumer_tasks": 1,
+      "path": "tasks/contracts/corporate-ma/asset-purchase-agreement-first-draft/documents",
+      "physical_files": 20,
+      "shared": false
+    }
+  ],
+  "largest_inputs": [
+    {
+      "bytes": 422858,
+      "path": "tasks/funds-asset-management/respond-to-comment-memo/documents/02-precedent-fund-iii/fund-iii-comment-compendium.docx"
+    },
+    {
+      "bytes": 373956,
+      "path": "tasks/funds-asset-management/respond-to-comment-memo/documents/03-precedent-fund-ii/fund-ii-comment-compendium.docx"
+    },
+    {
+      "bytes": 336038,
+      "path": "tasks/funds-asset-management/respond-to-comment-memo/documents/04-precedent-fund-i/fund-i-comment-compendium.docx"
+    },
+    {
+      "bytes": 304926,
+      "path": "tasks/diligence/aerospace-vertical-integration/documents/11.0 Privacy Cybersecurity and IT/11.2 Systems Access Retention and Data Flows/engineering-skills-matrix-sharepoint-audit-export-esm-2024-05.txt"
+    },
+    {
+      "bytes": 228636,
+      "path": "tasks/diligence/restaurant-pe-buyout/documents/5.0 Franchise System and Franchise Regulatory/5.1 Franchise Agreement Templates and Contract Database/boardwalknext-pos-services-addendum-standard-form-v2019-1.docx"
+    },
+    {
+      "bytes": 221542,
+      "path": "tasks/antitrust-competition/prepare-antitrust-risk-assessment/documents/project-lighthouse-strategic-rationale-presentation.pptx"
+    },
+    {
+      "bytes": 221132,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents/10.0 Manufacturing Quality and Supply Operations/10.1 Internal Manufacturing and Batch Release/cerviax-antibody-ds-process-characterization-report-longview-commercia.docx"
+    },
+    {
+      "bytes": 214898,
+      "path": "tasks/diligence/enterprise-software-diversification/documents/6.0 Intellectual Property and Product Technology/6.4 Product Roadmaps Source Mapping and Repository Evidence/onyxguard-sensor-core-source-export-2022-migration-window.txt"
+    },
+    {
+      "bytes": 203857,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents/9.0 R&D Clinical and Regulatory/9.3 Clinical Operations and Trial Records/protocol-hrtb-304-herantib-brain-metastases-cohort.docx"
+    },
+    {
+      "bytes": 203514,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/2.0 Corporate Organization and Governance/2.2 Board Committees and Approval Record/2023-09-08-merrimack-apa-approval-presentation.pptx"
+    },
+    {
+      "bytes": 198901,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/10.0 Litigation Investigations and Regulatory Proceedings/10.1 Antitrust Litigation/declaration-of-denise-kartchner-regarding-colorado-store-operations-an.docx"
+    },
+    {
+      "bytes": 198874,
+      "path": "tasks/diligence/pharma-pipeline-acquisition/documents/9.0 R&D Clinical and Regulatory/9.1 Pipeline Development Plans and R&D Governance/herantib-adjuvant-snda-readiness-project-charter.docx"
+    },
+    {
+      "bytes": 191706,
+      "path": "tasks/diligence/media-recap/documents/8.0 Employment Labor and Benefits/8.1 Workforce Employment and Retention/employee-privacy-systems-monitoring-and-data-handling-policy-2024.docx"
+    },
+    {
+      "bytes": 186009,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/7.0 Intellectual Property Technology and Data/7.3 Invention Assignments Contractors and Restrictive Covenants/specialtyrx-contractor-pharmacist-agreements-clinical-protocol-contrib.docx"
+    },
+    {
+      "bytes": 184394,
+      "path": "tasks/diligence/oil-gas-horizontal-merger/documents/13.0 Intellectual Property Technology and Data Assets/13.5 IT Escrow Repositories and Operational Systems/kestrelconnect-v4-6-0-major-release-build-and-deployment-runbook.txt"
+    },
+    {
+      "bytes": 177574,
+      "path": "tasks/corporate-ma/draft-confidential-information-memorandum/documents/apex-management-presentation.pptx"
+    },
+    {
+      "bytes": 176266,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/2.0 Corporate Organization and Governance/2.2 Board Committees and Approval Record/2023-03-22-fy2022-close-and-integration-readiness-update.pptx"
+    },
+    {
+      "bytes": 175973,
+      "path": "tasks/antitrust-competition/prepare-antitrust-risk-assessment/documents/market-data-report-north-american-specialty-coatings-and-adhesives-industry.docx"
+    },
+    {
+      "bytes": 175710,
+      "path": "tasks/diligence/grocery-horizontal-merger/documents/2.0 Corporate Organization and Governance/2.2 Board Committees and Approval Record/2023-12-12-fy2024-operating-plan-and-capital-allocation.pptx"
+    },
+    {
+      "bytes": 174027,
+      "path": "tasks/diligence/rail-horizontal-merger/documents/11. Safety & Operations/11.3 Track & Infrastructure Condition/bridge-inspection-reports-major-structures-25.docx"
+    }
+  ],
+  "physical_input_bytes": 2685895182,
+  "physical_input_tree_sha256": "d9af7c1f64333f45c3b3b2ff01c16ce38245eb5cfd3952c227cf1c96a3e4ec6e",
+  "physical_inputs": 51684,
+  "schema_version": 3,
+  "shared_document_sets": 0,
+  "source_commit": "1da4750171bc5a534960b3d82d15ba7fd2cf653f",
+  "source_commit_time": "2026-07-24T10:13:00-07:00",
+  "source_expected_commit": "1da4750171bc5a534960b3d82d15ba7fd2cf653f",
+  "source_git_clean": true,
+  "source_remote": "https://github.com/harveyai/harvey-labs.git",
+  "source_repo": "harveyai/harvey-labs",
+  "task_tree_coverage": {
+    "all_tracked_task_files_classified": true,
+    "other_tracked_files": [
+      "tasks/funds-asset-management/respond-to-comment-memo/grader/gold/rubric.json"
+    ],
+    "referenced_inputs": 51684,
+    "tracked_files": 53445,
+    "tracked_task_configs": 1760
+  },
+  "tasks": 1760,
+  "tracked_files": 53537,
+  "unique_input_blobs": 51253
+}

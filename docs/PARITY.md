@@ -33,11 +33,23 @@ to the headline determinate score.
 
 World artifact audited: `world/blobfish/world-v19.json`.
 
+## Upstream release audit (harvey-labs v1.0)
+
+Upstream tagged a public **v1.0** release (`1da4750`, 2026-07-24) on a squash-rooted
+lineage disjoint from the pinned `main` history. The tree-level audit
+([`docs/AUDIT-V1.0.md`](AUDIT-V1.0.md), `research/harvey-v1.0-delta.json`) proves the
+pin `7be41d5` is a **strict content superset** of v1.0: 0 task definitions exist at
+v1.0 that the pin lacks, the pin additionally carries the 250-task firm-knowledge lane
+(9,538 files) plus 6 rubric fixes and 44 document fixes newer than the release, and
+v1.0's only unique file is a zero-byte stray artifact. The parity table above is
+therefore unaffected by the release; v1.0 is the public compatibility point, not a
+content source.
+
 ## Harvey LAB deterministic coverage (world-v19)
 
 - Practice source tasks accounted for: **1,760 / 1,760**
 - Practice tasks quarantined with a published reason: **1**
-- Criteria compiled to source-grounded assertions: **65,596 / 111,814 (58.7%)**
+- Criteria compiled to source-grounded assertions: **65,614 / 111,814 (58.7%)**
 - Residual prose criteria are dropped and counted; no LLM judge contributes to the deterministic score.
 
 ## What this corrects

@@ -1,0 +1,71 @@
+{
+  "defects": [
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 2,
+      "part": "word/document.xml",
+      "path": "tasks/antitrust-competition/extract-competitive-overlap-data-from-joint-venture-business-plan/documents/jv-business-plan-final.docx",
+      "sha256": "fa325c8e50c03f8129d32b7bb05d97597e5a07e883089d45fd144b3de5db27cc"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 1,
+      "part": "xl/worksheets/sheet4.xml",
+      "path": "tasks/corporate-ma/compare-merger-filing-requirements-across-multiple-jurisdictions/documents/market-share-analysis.xlsx",
+      "sha256": "afe306487e19de55f732fbf92b42ea2b930a74fa884452c6a31ec9b9a55cc388"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 1,
+      "part": "word/document.xml",
+      "path": "tasks/corporate-ma/draft-asset-purchase-agreement/scenario-01/documents/assumed-and-excluded-liabilities-schedule.docx",
+      "sha256": "5417b7ea7afe56d1250ed922735cdc91395707f15a7d4c78eae0e89824a0d3ad"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 1,
+      "part": "word/document.xml",
+      "path": "tasks/corporate-ma/draft-asset-purchase-agreement/scenario-01/documents/employee-census.docx",
+      "sha256": "aae0e6d1da74a926b3595528db84af82719f733caffe318fe5f47e0d4df2613c"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 1,
+      "part": "xl/worksheets/sheet1.xml",
+      "path": "tasks/emerging-companies-venture-capital/draft-merger-agreement/documents/veridia-cap-table.xlsx",
+      "sha256": "4be300666ebcf58543764b073daee0c21b97bac387056c0694cb21339454c6b1"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 1,
+      "part": "word/document.xml",
+      "path": "tasks/funds-asset-management/draft-code-of-ethics-for-registered-investment-adviser/documents/info-barrier-notes.docx",
+      "sha256": "0b4b435506163ef77dd00e4d0851fe2180be3c9cf3c81ec9004b76665918be78"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 2,
+      "part": "xl/worksheets/sheet1.xml",
+      "path": "tasks/funds-asset-management/draft-compliance-manual/documents/proxy-voting-records-2024.xlsx",
+      "sha256": "24a288b12dc38c6532e408d06591f697d18436ca2d949a8109430b53e8b2944a"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 2,
+      "part": "word/document.xml",
+      "path": "tasks/funds-asset-management/draft-fund-ppm/documents/team-bios-and-track-record-data.docx",
+      "sha256": "5277001258ad2ea3184f593898a80e82995c09faa603b3d358d6fa51809232e5"
+    },
+    {
+      "kind": "unescaped_ampersand",
+      "occurrences": 1,
+      "part": "word/document.xml",
+      "path": "tasks/international-trade-sanctions/identify-issues-in-cfius-mandatory-declaration/documents/draft-cfius-declaration.docx",
+      "sha256": "9e9d738ba060b37d5a5d360580089ef55df2b2559b45f33607fdcef21a2b8a18"
+    }
+  ],
+  "note": "Same nine upstream OOXML defects as the 7be41d5 allowlist; every listed blob is bit-identical (same SHA-256) at the v1.0 tag.",
+  "schema_version": 1,
+  "source_commit": "1da4750171bc5a534960b3d82d15ba7fd2cf653f",
+  "source_repo": "harveyai/harvey-labs"
+}
