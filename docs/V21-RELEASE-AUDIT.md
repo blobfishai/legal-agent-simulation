@@ -13,7 +13,7 @@ new synthetic source documents. The canonical world is 255,222,487 bytes with
 SHA-256 `55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394`.
 An isolated rebuild produced the same bytes.
 
-This audit found and closed ten release-blocking or publication-integrity
+This audit found and closed eleven release-blocking or publication-integrity
 defects:
 
 1. Generated DOCX briefs could orphan the validation boundary on a second
@@ -55,6 +55,10 @@ defects:
     dataset manifest was not part of the exhaustive gate. Production commands
     now reject non-digest or cross-repository images and recompute all 23,310
     Harbor package hashes, names, symlink constraints, and dataset entries.
+11. A successful GHCR push did not prove that first-published container
+    packages were public. Release and full-export checks now obtain anonymous
+    pull tokens, require exact production manifest digests, and reject private
+    packages even when the operator has local registry credentials.
 
 ## Measured inventory
 
@@ -87,7 +91,7 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
-| Unit suites | 39/39 passed (manifest, port, local runtime) |
+| Unit suites | 43/43 passed (manifest, port, local runtime, anonymous GHCR) |
 | Seed reproducibility | 198/198 files byte-identical in isolated rebuild |
 | Visual document audit | 330/330 rendered pages inspected: 66 DOCX, 198 worksheet pages, 66 PDF |
 | Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,592 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies |
@@ -97,6 +101,8 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Harbor schema 1.4 steps | 36 multi-step tasks, 89 step test/solution fixtures |
 | Harbor oracle canary | 5/5 representative tasks reward 1.0; zero exceptions |
 | Harbor discrimination | no-op task reward 0.0; zero harness exceptions |
+| Production image release | workflow `32614596061` passed; exact candidate-to-production manifest equality |
+| Digest-pinned dataset | 23,310/23,310 package hashes; 23,310 unique digests; manifest SHA-256 `6493cf4864d33730d9968e4c09d5c3d170317ba6e62595e93f35bc4def255271` |
 
 The five-task Harbor canary spans the legacy scripted-turn, v20 researched
 consumer-protection, v20 retail multi-step, v21 generated state, and v21 seeded
@@ -131,6 +137,18 @@ hashes, and npm integrity lock. Before push it imports every document library
 and parses real DOCX/XLSX/PDF fixtures with networking disabled. Candidate tags
 include commit, run ID, and attempt; only candidates that pass five oracle and
 five no-op trials are carbon-copied to production with exact digest equality.
+The validated production workflow is
+[`32614596061`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32614596061)
+at runtime source commit `b4473f12a1d27db6be4b7bc1fc899f6778412a3d`.
+It promoted these exact single-manifest images:
+
+- world: `ghcr.io/blobfishai/legal-agent-sim-world@sha256:1608f5df62775d6c7c0eb1341d26ee8dfef9fc5c5ae1ce4aaf1abfa63aa77155`
+- LAB agent: `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:3898548e7cfa3fd4853b820d92fd8fb04f42b645794f9211ca25fd5839f7ad80`
+
+Post-release hardening is green in
+[`32616206854`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32616206854):
+the deterministic trust chain, exhaustive v21 gate, and Harbor oracle/no-op
+smoke all passed with the anonymous-access checker included.
 
 The full generated Harbor release is `dist/harbor-v21-prod`: 23,310 task
 packages plus the `legal-agent-simulation/v21` dataset. Its production wrapper
@@ -139,6 +157,15 @@ then recomputes every Harbor package content hash and compares all 23,310
 unique names/digests with `dataset/dataset.toml` before registry publication.
 Authenticated publication and public download/runtime checks are documented in
 `harbor/README.md`.
+
+At this audit checkpoint, the promoted GHCR manifests still return HTTP 401 to
+an anonymous token request because GitHub initializes new container packages
+as private. The Harbor CLI also has neither a stored credential nor a
+`HARBOR_API_KEY`. Public visibility requires the package administrator's
+one-time settings confirmation; Harbor publication requires the user's OAuth
+callback code or API key. These external states are deliberately reported as
+pending, and the active release goal must not be closed until both public
+pullability and public Harbor registry download/runtime trials pass.
 
 ## Explicit boundaries and remaining external work
 
