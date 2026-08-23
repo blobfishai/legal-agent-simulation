@@ -186,6 +186,16 @@ def main() -> int:
     if args.action == "generate":
         rebuild_dataset(output)
     else:
+        subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "tools" / "check_ghcr_public.py"),
+                world_image,
+                lab_image,
+            ],
+            cwd=ROOT,
+            check=True,
+        )
         verify_oracle_proof(world_image, output)
         subprocess.run(
             locked_harbor_command(

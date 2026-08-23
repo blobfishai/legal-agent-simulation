@@ -19,7 +19,9 @@ npm run v21:harbor-check  # exact packages, digests, inputs, skills, images, cor
 
 The production wrapper rejects tags and cross-repository references. Both
 images must be the promoted `@sha256` manifests, so a registry task cannot
-silently move after its dataset digest is computed.
+silently move after its dataset digest is computed. The check also acquires an
+anonymous GHCR pull token for each manifest and rejects private packages or a
+registry digest mismatch before Harbor publication.
 
 The structural gate checks all 23,310 task directories against the canonical
 world, including 22,813 file lanes, 126,592 staged document instances, 5,544

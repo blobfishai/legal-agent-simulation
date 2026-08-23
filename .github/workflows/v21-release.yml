@@ -180,25 +180,10 @@ jobs:
           docker buildx imagetools inspect "$WORLD_IMAGE:$TAG"
 
       - name: Require anonymous production pulls
-        run: |
-          set -euo pipefail
-          check_public_manifest() {
-            local repository="$1"
-            local digest="$2"
-            local token headers actual
-            token=$(curl --fail --silent --show-error \
-              "https://ghcr.io/token?service=ghcr.io&scope=repository:${repository}:pull" \
-              | jq --exit-status --raw-output '.token')
-            headers=$(curl --fail --silent --show-error --head \
-              --header "Authorization: Bearer $token" \
-              --header 'Accept: application/vnd.oci.image.manifest.v1+json' \
-              "https://ghcr.io/v2/${repository}/manifests/${digest}")
-            actual=$(printf '%s\n' "$headers" | awk -F': ' \
-              'tolower($1) == "docker-content-digest" {print $2}' | tr -d '\r')
-            [[ "$actual" == "$digest" ]]
-          }
-          check_public_manifest "blobfishai/legal-agent-sim-agent-lab" "$LAB_DIGEST"
-          check_public_manifest "blobfishai/legal-agent-sim-world" "$WORLD_DIGEST"
+        run: >-
+          python3 tools/check_ghcr_public.py
+          "$LAB_IMAGE@$LAB_DIGEST"
+          "$WORLD_IMAGE@$WORLD_DIGEST"
 
       - name: Record release summary
         run: |

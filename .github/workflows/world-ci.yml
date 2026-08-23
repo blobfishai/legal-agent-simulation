@@ -81,6 +81,7 @@ jobs:
             tools/check_lab_ingest.py \
             tools/check_harbor_file_lane.py \
             tools/check_harbor_export.py \
+            tools/check_ghcr_public.py \
             tools/hydrate_v21_evidence.py \
             tools/check_lab_port.py \
             tools/check_lab_extractor_parity.py \
@@ -148,6 +149,7 @@ jobs:
           python3 tools/check_atomic_seed.py
           python3 tools/check_lab_ingest.py
           python3 tools/check_harbor_file_lane.py
+          python3 -m unittest discover -s tools/tests -p 'test_ghcr_public.py' -v
           python3 tools/check_lab_port.py
           python3 tools/check_lab_extractor_parity.py --check
           python3 tools/check_external_evidence.py
