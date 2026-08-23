@@ -158,7 +158,7 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
-| Unit suites | 104/104 passed (manifest, port, local runtime, assertion guards, Harbor byte/topology and dataset integrity including cache-artifact rejection, Harvey mutation v3 including cross-process serialization and bounded DOCX/residual scans, anonymous GHCR, production-wrapper trust boundary) |
+| Unit suites | 106/106 passed (manifest, port, local runtime, assertion guards, exact-mirror hydration provenance, Harbor byte/topology and dataset integrity including cache-artifact rejection, Harvey mutation v3 including cross-process serialization and bounded DOCX/residual scans, anonymous GHCR, production-wrapper trust boundary) |
 | Document-render adversarial suite | 8/8 passed: full-bleed header accepted, clipped body rejected, catalog hash substitution rejected, traversal rejected, transient LibreOffice abort retried with a fresh profile, stale output rejected, retained renders require an explicit output directory, and the default check cannot overwrite the attested report; LibreOffice conversion is serialized while raster inspection remains parallel |
 | Seed reproducibility | 351/351 files byte-identical in isolated rebuild |
 | Retail authority projection | 51/51 mapped citations and URLs projected byte-exactly into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated. This is not a claim that every external URL or law was revalidated live at build time. |
@@ -172,8 +172,8 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Core Harbor execution model | Local task paths and Docker runtime; no Harbor API, account, OAuth, or hosted publication required |
 | Harbor oracle canary | 5/5 representative tasks reward 1.0; zero exceptions |
 | Harbor discrimination | no-op task reward 0.0; zero harness exceptions |
-| Production image release | workflow `32624207755`: rebuild, candidate build/push, Harbor oracle/no-op validation, and exact candidate-to-production promotion passed; final anonymous-pull gate failed 0/2 |
-| Digest-pinned dataset | 23,310/23,310 package hashes; 23,310 unique digests; manifest SHA-256 `9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d` |
+| Production image release | workflow `32663226234`: rebuild, candidate build/push, Harbor oracle/no-op validation, and exact candidate-to-production promotion passed; final anonymous-pull gate failed 0/2 |
+| Digest-pinned dataset | 23,310/23,310 package hashes; 23,310 unique digests; manifest SHA-256 `7f5eb4cf057e741b3195314631c59a02a395e4f917d67d4e408374fc3595dc49` |
 
 The five-task Harbor canary spans the legacy scripted-turn, v20 researched
 consumer-protection, v20 retail multi-step, v21 generated state, and v21 seeded
@@ -209,15 +209,15 @@ and parses real DOCX/XLSX/PDF fixtures with networking disabled. Candidate tags
 include commit, run ID, and attempt; only candidates that pass five oracle and
 five no-op trials are carbon-copied to production with exact digest equality.
 The latest production promotion is workflow
-[`32624207755`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32624207755)
-at runtime source commit `b06e0f74bc3f22215f853af49bf4191ee99dd621`.
+[`32663226234`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32663226234)
+at runtime source commit `45c0f89d0d38d4e36ecd6513e120c397cf8a3abf`.
 Steps 1–16 passed, including rebuild, exhaustive verification, evidence
 hydration, candidate publication, real Harbor oracle/no-op validation, and
 exact candidate-to-production promotion. Step 17 then failed the independent
 anonymous-pull gate. The run promoted these exact single-manifest images:
 
-- world: `ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f`
-- LAB agent: `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a`
+- world: `ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524`
+- LAB agent: `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:1664abf1b6f3e0571d9cc071a26a89dee0c1f978db0197f2a649c9cba46849f0`
 
 The local full-export audit is bound to those exact digests. It passed all
 23,310 task packages, all 23,310 unique dataset digests, and the canonical

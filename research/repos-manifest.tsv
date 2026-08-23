@@ -1,5 +1,6 @@
 status	category	repo	size	note
-OK	eval	harveyai/harvey-labs	5.0G	
+OK	framework	harbor-framework/harbor	88M	present@b37833221e27
+OK	eval	harveyai/harvey-labs	5.0G	present@7be41d57fd5a
 OK	eval	HazyResearch/legalbench	19M	
 OK	eval	TheAtticusProject/cuad	36M	
 OK	eval	TheAtticusProject/maud	65M	

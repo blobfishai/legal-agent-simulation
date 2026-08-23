@@ -39,6 +39,10 @@ PY
   if [ -d "$dir/.git" ]; then
     local actual; actual="$(git -C "$dir" rev-parse HEAD 2>/dev/null || true)"
     if [[ "$actual" == "$locked"* ]]; then
+      if ! git -C "$dir" update-ref refs/remotes/origin/pinned "$actual"; then
+        printf 'FAIL\t%s\t%s\t-\tcannot persist origin/pinned at %s\n' "$cat" "$repo" "$actual" >> "$MANIFEST"
+        echo "FAIL  $repo — cannot persist origin/pinned"; return
+      fi
       printf 'OK\t%s\t%s\t%s\tpresent@%s\n' "$cat" "$repo" "$(du -sh "$dir" | cut -f1 | tr -d ' ')" "$locked" >> "$MANIFEST"
       echo "SKIP  $repo@$locked"; return
     fi
@@ -57,8 +61,11 @@ PY
     printf 'FAIL\t%s\t%s\t-\tcannot resolve pinned revision %s\n' "$cat" "$repo" "$locked" >> "$MANIFEST"
     echo "FAIL  $repo — cannot resolve $locked"; return
   fi
-  if timeout 900 git -C "$dir" fetch --depth 1 --quiet origin "$resolved" 2>/tmp/clone_err \
-      && git -C "$dir" checkout --detach --quiet FETCH_HEAD; then
+  # Persist the resolved object under a stable ref; FETCH_HEAD alone is not a
+  # reproducible provenance boundary after a fresh hydration.
+  if timeout 900 git -C "$dir" fetch --depth 1 --quiet origin \
+      "$resolved:refs/remotes/origin/pinned" 2>/tmp/clone_err \
+      && git -C "$dir" checkout --detach --quiet refs/remotes/origin/pinned; then
     local actual; actual="$(git -C "$dir" rev-parse HEAD)"
     if [[ "$actual" != "$locked"* ]]; then
       printf 'FAIL\t%s\t%s\t-\trevision mismatch: got %s expected %s\n' "$cat" "$repo" "$actual" "$locked" >> "$MANIFEST"
@@ -72,6 +79,9 @@ PY
     echo "FAIL  $repo — $err"
   fi
 }
+
+# ---- 0. evaluation framework source ---------------------------------------
+clone framework harbor-framework/harbor
 
 # ---- 1. domain evals / benchmarks (what tasks are likely) -----------------
 clone eval harveyai/harvey-labs

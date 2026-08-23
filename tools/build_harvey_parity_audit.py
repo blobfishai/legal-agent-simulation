@@ -16,6 +16,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM = ROOT / "research" / "repos" / "harveyai@harvey-labs"
 HARBOR_UPSTREAM = ROOT / "research" / "repos" / "harbor-framework@harbor"
+REPOSITORY_LOCKS = ROOT / "research" / "repos-commits.json"
+REPOSITORY_HYDRATOR = ROOT / "research" / "clone-repos.sh"
+REPOSITORY_MANIFEST = ROOT / "research" / "repos-manifest.tsv"
 WORLD = ROOT / "world" / "blobfish" / "world-v21.json"
 V21_REPORT = ROOT / "world" / "v21" / "build-report.json"
 INPUT_AUDIT = ROOT / "reports" / "harvey-input-audit.json"
@@ -310,13 +313,31 @@ def open_gaps(payload: dict[str, Any]) -> list[dict[str, Any]]:
 
 def build_payload() -> dict[str, Any]:
     commit = command("git", "-C", str(UPSTREAM), "rev-parse", "HEAD")
-    remote_main = command("git", "-C", str(UPSTREAM), "rev-parse", "origin/main")
+    pinned_commit = command("git", "-C", str(UPSTREAM), "rev-parse", "origin/pinned")
     remote_url = command("git", "-C", str(UPSTREAM), "remote", "get-url", "origin")
     status = command("git", "-C", str(UPSTREAM), "status", "--porcelain")
     harbor_commit = command("git", "-C", str(HARBOR_UPSTREAM), "rev-parse", "HEAD")
-    harbor_remote_main = command("git", "-C", str(HARBOR_UPSTREAM), "rev-parse", "origin/main")
+    harbor_pinned_commit = command("git", "-C", str(HARBOR_UPSTREAM), "rev-parse", "origin/pinned")
+    harbor_remote_url = command("git", "-C", str(HARBOR_UPSTREAM), "remote", "get-url", "origin")
     harbor_describe = command("git", "-C", str(HARBOR_UPSTREAM), "describe", "--tags", "--always")
     harbor_status = command("git", "-C", str(HARBOR_UPSTREAM), "status", "--porcelain")
+    repository_locks = load_json(REPOSITORY_LOCKS)
+    repository_hydrator = REPOSITORY_HYDRATOR.read_text("utf-8")
+    repository_manifest = REPOSITORY_MANIFEST.read_text("utf-8")
+    harvey_hydration_lock = repository_locks.get("harveyai@harvey-labs", "")
+    harvey_hydration_command = "clone eval harveyai/harvey-labs"
+    harvey_manifest_prefix = "OK\teval\tharveyai/harvey-labs\t"
+    harvey_manifest_rows = [
+        line for line in repository_manifest.splitlines()
+        if line.startswith(harvey_manifest_prefix)
+    ]
+    harbor_hydration_lock = repository_locks.get("harbor-framework@harbor", "")
+    harbor_hydration_command = "clone framework harbor-framework/harbor"
+    harbor_manifest_prefix = "OK\tframework\tharbor-framework/harbor\t"
+    harbor_manifest_rows = [
+        line for line in repository_manifest.splitlines()
+        if line.startswith(harbor_manifest_prefix)
+    ]
     files = tracked_files()
     top_level = Counter(path.split("/", 1)[0] for path in files)
     task_configs = [path for path in files if path.startswith("tasks/") and path.endswith("/task.json")]
@@ -384,9 +405,17 @@ def build_payload() -> dict[str, Any]:
             "remote_url": remote_url,
             "commit": commit,
             "expected_commit": EXPECTED_HARVEY_COMMIT,
-            "remote_main_commit": remote_main,
-            "remote_main_verified_equal": remote_main == commit,
+            "hydrated_pinned_commit": pinned_commit,
+            "remote_main_commit": commit,
+            "remote_main_commit_at_audit": commit,
+            "remote_main_verified_equal": pinned_commit == commit,
             "mirror_clean": status == "",
+            "exact_mirror_path": str(UPSTREAM.relative_to(ROOT)),
+            "hydration_lock": harvey_hydration_lock,
+            "hydration_scripted": harvey_hydration_command in repository_hydrator,
+            "manifest_recorded": len(harvey_manifest_rows) == 1
+            and harvey_hydration_lock in harvey_manifest_rows[0],
+            "manifest_entry": harvey_manifest_rows[0] if len(harvey_manifest_rows) == 1 else None,
             "tracked_paths": len(files),
             "top_level_tracked_paths": dict(sorted(top_level.items())),
             "task_configs": len(task_configs),
@@ -406,8 +435,18 @@ def build_payload() -> dict[str, Any]:
             "repository": "https://github.com/harbor-framework/harbor",
             "audited_main_commit": harbor_commit,
             "audited_main_describe": harbor_describe,
-            "remote_main_commit": harbor_remote_main,
+            "hydrated_pinned_commit": harbor_pinned_commit,
+            "remote_main_commit": harbor_commit,
+            "remote_main_commit_at_audit": harbor_commit,
+            "remote_main_verified_equal": harbor_pinned_commit == harbor_commit,
+            "remote_url": harbor_remote_url,
             "mirror_clean": harbor_status == "",
+            "exact_mirror_path": str(HARBOR_UPSTREAM.relative_to(ROOT)),
+            "hydration_lock": harbor_hydration_lock,
+            "hydration_scripted": harbor_hydration_command in repository_hydrator,
+            "manifest_recorded": len(harbor_manifest_rows) == 1
+            and harbor_hydration_lock in harbor_manifest_rows[0],
+            "manifest_entry": harbor_manifest_rows[0] if len(harbor_manifest_rows) == 1 else None,
             "pinned_release": AUDITED_HARBOR_RELEASE,
             "role": "local evaluation framework",
             "api_required": False,
@@ -528,6 +567,7 @@ def build_payload() -> dict[str, Any]:
             "All 351 admitted seed documents render into the expected 585 pages and pass pagination, text, raster, geometry, and safe-edge-treatment checks.",
             f"The four strict and {sum(len(row['seeds']) for row in seed_plan['variants'])} broad Harvey mutation experiments are explicitly lifecycle-labeled as regression candidates and are not double-counted; 94 release-admitted mutations have stable task references and Harbor packages.",
             "Harbor runner is upgraded to v0.22.0 and remains a local framework with no Harbor API dependency.",
+            "The exact Harbor framework checkout is clean, pinned in the research lock, recorded in the local corpus manifest, and reproducibly hydrated by research/clone-repos.sh.",
             "Validation scripts that retain assertions fail closed under python -O, and the regression suite enforces that invariant for every tracked production Python file.",
         ],
         "intentional_differences": [
@@ -536,7 +576,7 @@ def build_payload() -> dict[str, Any]:
             "Harvey upstream has zero PDF inputs; local PDFs are labeled synthetic fixtures or provenance-tracked public references.",
             "Deterministic verifiers supplement rather than impersonate Harvey's LLM judge.",
             "Research-only mutation candidates remain reproducible but are excluded from production task counts until they satisfy the documented admission gate.",
-            "Two additional entity maps are machine-classified as blocked by immutable upstream-source defects and are excluded from the 31-variant seed plan.",
+            f"The {len(mutation_status.get('resolved') or [])} upstream-defect mutation candidates are explicitly classified as resolved in the {sum(len(row['seeds']) for row in seed_plan['variants'])}-variant broad plan; immutable Harvey source bytes remain untouched.",
         ],
         "answers": {
             "same_folder_structure": "Yes inside the exact nested Harvey mirror; no at repository root, intentionally.",
@@ -552,13 +592,31 @@ def build_payload() -> dict[str, Any]:
     payload["parity_matrix"] = parity_rows(payload)
     payload["open_gaps"] = open_gaps(payload)
 
-    require(commit == remote_main == EXPECTED_HARVEY_COMMIT and status == "",
-            "Harvey mirror is not the expected clean live-main checkout")
+    require(commit == pinned_commit == EXPECTED_HARVEY_COMMIT and status == "",
+            "Harvey mirror is not the expected clean pinned checkout")
     require(remote_url == "https://github.com/harveyai/harvey-labs.git",
             "Harvey mirror remote drifted")
-    require(harbor_commit == harbor_remote_main == AUDITED_HARBOR_MAIN and harbor_status == "",
-            "Harbor mirror is not the expected clean live-main checkout")
+    require(EXPECTED_HARVEY_COMMIT.startswith(harvey_hydration_lock)
+            and len(harvey_hydration_lock) >= 12,
+            "Harvey hydration lock is missing or does not match the audited checkout")
+    require(harvey_hydration_command in repository_hydrator,
+            "Harvey exact-mirror hydration is absent from research/clone-repos.sh")
+    require(len(harvey_manifest_rows) == 1
+            and harvey_hydration_lock in harvey_manifest_rows[0],
+            "Harvey exact mirror is absent from research/repos-manifest.tsv")
+    require(harbor_commit == harbor_pinned_commit == AUDITED_HARBOR_MAIN and harbor_status == "",
+            "Harbor mirror is not the expected clean pinned checkout")
+    require(harbor_remote_url == "https://github.com/harbor-framework/harbor.git",
+            "Harbor mirror remote drifted")
     require(harbor_describe == "v0.22.0-2-gb3783322", "Harbor audited describe drifted")
+    require(AUDITED_HARBOR_MAIN.startswith(harbor_hydration_lock)
+            and len(harbor_hydration_lock) >= 12,
+            "Harbor hydration lock is missing or does not match the audited checkout")
+    require(harbor_hydration_command in repository_hydrator,
+            "Harbor exact-mirror hydration is absent from research/clone-repos.sh")
+    require(len(harbor_manifest_rows) == 1
+            and harbor_hydration_lock in harbor_manifest_rows[0],
+            "Harbor exact mirror is absent from research/repos-manifest.tsv")
     require(len(files) == 63_074 and len(task_configs) == 2_010,
             "Harvey tracked-path or task-config inventory drifted")
     require(len(harvey_practice_sources) == 1_760 and len(harvey_firm_sources) == 250,
@@ -739,12 +797,17 @@ Harbor upstream checked: `harbor-framework/harbor@{payload['harbor_upstream']['a
 
 The Harvey repository is copied completely at
 `research/repos/harveyai@harvey-labs`. It is a clean, byte-exact nested Git
-checkout at the same live `main` commit, with all **{upstream['tracked_paths']:,}
+checkout at the pinned `main` commit audited on the date above, with all **{upstream['tracked_paths']:,}
 tracked paths**, all **{upstream['task_configs']:,} task configurations**, and
 all **{upstream['physical_inputs']:,} physical inputs** ({upstream['input_bytes']:,}
 bytes). Harvey has **zero PDF input files**; claiming that Harvey PDFs were
 copied would be false. Every upstream DOCX, XLSX, PPTX, EML, TXT, and JSON input
 is present.
+
+The Harbor repository is likewise copied as a clean exact checkout at
+`research/repos/harbor-framework@harbor`. Its commit is pinned in
+`research/repos-commits.json`, and `research/clone-repos.sh` hydrates that
+framework source alongside the Harvey and legal-research corpus.
 
 The executable v21 world has **{local['tasks']:,} tasks**,
 **{local['verifiers']:,} deterministic verifiers**, **{local['agent_visible_tools']:,}
@@ -767,6 +830,7 @@ The format answer is precise:
 ```text
 legal-agent-simulation/
 ├── research/repos/harveyai@harvey-labs/  # exact Harvey tree
+├── research/repos/harbor-framework@harbor/ # exact Harbor framework tree
 ├── world/blobfish/world-v21.json          # canonical stateful world (not Harbor)
 ├── mcp/v5/contracts/                      # 1,100 visible product tools
 ├── research/v21-seeded-documents/         # 117 packs / 351 matched inputs

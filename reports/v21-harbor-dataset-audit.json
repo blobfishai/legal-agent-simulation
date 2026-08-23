@@ -1,7 +1,11 @@
 {
+  "checker_sha256": "5d84fc381148e5d0271599e86719c022264ec3f1fc03a01a63f2172384249c1f",
   "dataset": "legal-agent-simulation/v21",
-  "dataset_sha256": "9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d",
-  "schema_version": 1,
+  "dataset_sha256": "7f5eb4cf057e741b3195314631c59a02a395e4f917d67d4e408374fc3595dc49",
+  "harbor_lock_sha256": "e26cc5d0f1339a78ca4d62c60c207f5526ee5cc6b353486599182f935f363f57",
+  "schema_version": 2,
+  "task_digest_manifest_sha256": "7112905a61d6b0404b2d4a6379fef9a5a1d5272444ac349915b7dcd8d236d023",
+  "task_package_files": 343517,
   "tasks": 23310,
   "unique_digests": 23310
 }

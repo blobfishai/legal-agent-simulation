@@ -1,17 +1,22 @@
 {
   "agent_world_leaks": 0,
+  "checker_sha256": "6a545e1547bd69b279d3acef4fbcc7515fae77eeda6f29bad60c88a62ce678d8",
   "file_lanes": 22813,
+  "generator_sha256": "b2add5ce222815a2936bed9977b829fce6e085e3553ad5e0792701f6788ce696",
   "lab_agent_context_files": 10,
   "lab_agent_context_sha256": "de22a672df02ecfcac25087c236f5733bf0121a4f937da3c40a508bccb59f512",
-  "lab_image": "ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a",
+  "lab_image": "ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:1664abf1b6f3e0571d9cc071a26a89dee0c1f978db0197f2a649c9cba46849f0",
   "multistep_phases": 89,
   "multistep_tasks": 36,
   "package_symlinks": 0,
-  "schema_version": 1,
+  "schema_version": 2,
   "solve_token_sha256": "0ec8ef4f69a8d6cde646d7f44ab70128b29db704bf80afd4b86132463d3ab87d",
   "staged_documents": 126598,
   "staged_skill_trees": 5544,
+  "task_package_files": 343517,
+  "task_package_topology_sha256": "46fc43bcd3e104921f14d7e0af46bbec0dd3d3964b440b5ef97d8382d98fb519",
   "tasks": 23310,
-  "world_image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f",
-  "world_sha256": "76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab"
+  "world_image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524",
+  "world_image_context_files": 50,
+  "world_sha256": "7cb5f9ccb36ea1e3ce27bf86554550ba73a01b1e04be35ca6a3e6e15a38702c6"
 }

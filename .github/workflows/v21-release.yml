@@ -69,6 +69,7 @@ jobs:
           python3 -m unittest tools.tests.test_v21_document_rendering -v
           python3 -m unittest \
             tools.tests.test_assertion_guards \
+            tools.tests.test_repository_hydration \
             tools.tests.test_harbor_dataset_integrity \
             tools.tests.test_harbor_generation \
             tools.tests.test_harvey_mutations \

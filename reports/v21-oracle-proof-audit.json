@@ -1,9 +1,10 @@
 {
-  "error": "cannot inspect immutable production image ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f",
+  "error": "cannot inspect immutable production image ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524",
   "export_solve_token_sha256": "0ec8ef4f69a8d6cde646d7f44ab70128b29db704bf80afd4b86132463d3ab87d",
   "failure_class": "remote_image_inspection_unavailable",
   "image_oracle_proof_sha256": null,
   "matched": false,
-  "schema_version": 1,
-  "world_image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f"
+  "runner_sha256": "c5bf8bdd130d3adb819b4162dcf3e17ecac41607994889d973a3d4e63d6bb572",
+  "schema_version": 2,
+  "world_image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524"
 }

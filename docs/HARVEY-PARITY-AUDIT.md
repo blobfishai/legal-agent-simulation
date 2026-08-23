@@ -10,12 +10,17 @@ Harbor upstream checked: `harbor-framework/harbor@b37833221e27435a18d7acdd41d875
 
 The Harvey repository is copied completely at
 `research/repos/harveyai@harvey-labs`. It is a clean, byte-exact nested Git
-checkout at the same live `main` commit, with all **63,074
+checkout at the pinned `main` commit audited on the date above, with all **63,074
 tracked paths**, all **2,010 task configurations**, and
 all **60,971 physical inputs** (3,206,739,638
 bytes). Harvey has **zero PDF input files**; claiming that Harvey PDFs were
 copied would be false. Every upstream DOCX, XLSX, PPTX, EML, TXT, and JSON input
 is present.
+
+The Harbor repository is likewise copied as a clean exact checkout at
+`research/repos/harbor-framework@harbor`. Its commit is pinned in
+`research/repos-commits.json`, and `research/clone-repos.sh` hydrates that
+framework source alongside the Harvey and legal-research corpus.
 
 The executable v21 world has **23,310 tasks**,
 **23,310 deterministic verifiers**, **1,100
@@ -38,6 +43,7 @@ The format answer is precise:
 ```text
 legal-agent-simulation/
 ├── research/repos/harveyai@harvey-labs/  # exact Harvey tree
+├── research/repos/harbor-framework@harbor/ # exact Harbor framework tree
 ├── world/blobfish/world-v21.json          # canonical stateful world (not Harbor)
 ├── mcp/v5/contracts/                      # 1,100 visible product tools
 ├── research/v21-seeded-documents/         # 117 packs / 351 matched inputs
@@ -59,7 +65,7 @@ complete local copy with deterministic hydration, not an ordinary-Git bundle.
 | --- | ---: | ---: |
 | Task configs / hosted Harvey tasks | 2,010 | 2,010/2,010 |
 | Task-path manifest SHA-256 | `ff9b848518885cfc8e9714c4cd637a1f852c51c5608cb05f439d241c1e7a0f14` | `ff9b848518885cfc8e9714c4cd637a1f852c51c5608cb05f439d241c1e7a0f14` |
-| Broad mutation candidates | — | 31 variants across 14 tasks / 12 practice areas; 2 separately classified upstream-defect candidates; plan `fc2282f0e37246dda328e402bc1ccd5df620681dbac6fe34b96b43a5386557ba` |
+| Broad mutation candidates | — | 35 variants across 16 tasks / 14 practice areas; 0 blocked and 2 resolved upstream-defect candidates; plan `45b2a1d8b24bc9384e47857529132c80cc26043b2d977d36e2d14ba48fc46917` |
 | Total executable tasks | — | 23,310 |
 | Physical upstream inputs | 60,971 | 60,971 exact local copies |
 | Input bytes | 3,206,739,638 | same exact bytes |
@@ -74,6 +80,7 @@ complete local copy with deterministic hydration, not an ordinary-Git bundle.
 | Authority maps represented as legal opinions/remedies | — | 0 / 0 |
 | Retail authority packs / admitted tasks | — | 51 / 9,129 |
 | Harbor packages / unique content digests | — | 23,310 / 23,310 |
+| Harbor package files / exact topology hash | — | 343,517 / `46fc43bcd3e104921f14d7e0af46bbec0dd3d3964b440b5ef97d8382d98fb519` |
 | Harbor file lanes / staged document instances | — | 22,813 / 126,598 |
 | Harbor multi-step tasks / phases | — | 36 / 89 |
 | Anonymous production image pulls | — | 0/2 exact digests |
@@ -175,11 +182,14 @@ statute, regulation, or official enforcement-program map. Every row still sets
 
 The export contains **23,310/23,310 tasks**,
 **23,310 unique package digests**,
+**343,517 byte-checked package files**,
 **22,813 file lanes**, **126,598 staged
 document instances**, and **zero agent-side world leaks or package symlinks**.
-Dataset SHA-256: `9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d`. The locked runner uses Harbor
+Package topology SHA-256: `46fc43bcd3e104921f14d7e0af46bbec0dd3d3964b440b5ef97d8382d98fb519`. Dataset
+task-digest manifest SHA-256: `7112905a61d6b0404b2d4a6379fef9a5a1d5272444ac349915b7dcd8d236d023`. Dataset
+SHA-256: `7f5eb4cf057e741b3195314631c59a02a395e4f917d67d4e408374fc3595dc49`. The locked runner uses Harbor
 0.22.0 with a 91-package graph. The export is bound to
-`ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f` and `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a`; the independent
+`ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524` and `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:1664abf1b6f3e0571d9cc071a26a89dee0c1f978db0197f2a649c9cba46849f0`; the independent
 anonymous registry audit passes 0/2 exact digests.
 Local remote-metadata comparison of the export oracle proof is
 `false` with failure
@@ -192,11 +202,13 @@ production proof. Harbor Hub is optional.
 
 - All 2,010 Harvey task configurations are hosted path-for-path with a matching provenance-manifest hash; all 60,971 upstream inputs are present in the exact pinned mirror.
 - The v21 world contains 23,310 tasks, 23,310 deterministic verifiers, 1,100 visible tools, and 254 tables.
-- All 23,310 tasks have native Harbor packages and dataset content hashes; full structural export validation is recorded.
+- All 23,310 tasks have native Harbor packages whose generated text bytes, staged inputs, skills, world-image context, root topology, and publishable Harbor dataset file sets are checked exactly; package and digest manifests are recorded.
 - Fifty-one specific retail authorities now drive 51 matched seed packs and admitted document-grounded tasks without encoding legal opinions or remedies.
 - All 351 admitted seed documents render into the expected 585 pages and pass pagination, text, raster, geometry, and safe-edge-treatment checks.
-- The four strict and 31 broad Harvey mutation experiments are explicitly lifecycle-labeled as regression candidates and are not double-counted; 94 release-admitted mutations have stable task references and Harbor packages.
+- The four strict and 35 broad Harvey mutation experiments are explicitly lifecycle-labeled as regression candidates and are not double-counted; 94 release-admitted mutations have stable task references and Harbor packages.
 - Harbor runner is upgraded to v0.22.0 and remains a local framework with no Harbor API dependency.
+- The exact Harbor framework checkout is clean, pinned in the research lock, recorded in the local corpus manifest, and reproducibly hydrated by research/clone-repos.sh.
+- Validation scripts that retain assertions fail closed under python -O, and the regression suite enforces that invariant for every tracked production Python file.
 
 ## Intentional differences, not hidden parity claims
 
@@ -205,7 +217,7 @@ production proof. Harbor Hub is optional.
 - Harvey upstream has zero PDF inputs; local PDFs are labeled synthetic fixtures or provenance-tracked public references.
 - Deterministic verifiers supplement rather than impersonate Harvey's LLM judge.
 - Research-only mutation candidates remain reproducible but are excluded from production task counts until they satisfy the documented admission gate.
-- Two additional entity maps are machine-classified as blocked by immutable upstream-source defects and are excluded from the 31-variant seed plan.
+- The 2 upstream-defect mutation candidates are explicitly classified as resolved in the 35-variant broad plan; immutable Harvey source bytes remain untouched.
 
 ## All remaining gaps and external boundaries
 
@@ -237,9 +249,9 @@ python3 tools/build_retail_price_accuracy_pack.py --check
 python3 tools/build_v21_seed_documents.py --check
 npm run v21:check
 npm run v21:document-render-check
-python3 tools/run_harbor_production.py generate   --world-image ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f   --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a
+python3 tools/run_harbor_production.py generate   --world-image ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524   --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:1664abf1b6f3e0571d9cc071a26a89dee0c1f978db0197f2a649c9cba46849f0
 # This exits 1 while G9 remains; structural and dataset reports are still written first.
-python3 tools/run_harbor_production.py check   --world-image ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f   --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a
+python3 tools/run_harbor_production.py check   --world-image ghcr.io/blobfishai/legal-agent-sim-world@sha256:8ff066a70e0d3d6ea6e7c705bd14948d663daadfed64e5fcbbf5e4b265557524   --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:1664abf1b6f3e0571d9cc071a26a89dee0c1f978db0197f2a649c9cba46849f0
 uv run --project harbor/runner --locked harbor --version
 ```
 
