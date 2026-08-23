@@ -70,17 +70,17 @@ Exactness is fail-closed and per tool. Only direct wire-parameter tools whose su
 | `dockets_get` | `courtlistener-v4` | `live_diff` | `live-diff-conformant-to-pinned-source` | get · /api/rest/v4/dockets/{id}/ |
 | `dockets_list` | `courtlistener-v4` | `live_diff` | `live-diff-conformant-to-pinned-source` | get · /api/rest/v4/dockets/ |
 | `dockets_search` | `courtlistener-v4` | `live_diff` | `live-diff-conformant-to-pinned-source` | get · /api/rest/v4/search/ |
-| `document_versions_list` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API version listing |
+| `document_versions_list` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API version listing; connector GetDocumentVersions matches the capability but conformant adoption requires connector-shaped wire schemas — a world-version remap candidate (verified 2026-08-22) |
 | `documents_checkin` | `imanage-work` | `imanage_connector` | `public-connector-conformant-fidelity-ceiling` | UpdateOrCreateNewDocVersion |
-| `documents_checkout` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API checkout lifecycle |
+| `documents_checkout` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API checkout lifecycle; no public machine-readable spec (connector 4.0 has no checkout or unlock operation; verified 2026-08-22) |
 | `documents_code` | `relativity-rest` | `documentation_fixture` | `documentation-fixture-conformant` | documents_code |
 | `documents_create` | `imanage-work` | `imanage_connector` | `public-connector-conformant-fidelity-ceiling` | UploadDocument |
 | `documents_download` | `imanage-work` | `imanage_connector` | `public-connector-conformant-fidelity-ceiling` | DownloadDocument |
 | `documents_get` | `imanage-work` | `imanage_connector` | `public-connector-conformant-fidelity-ceiling` | GetDocumentProfile |
-| `documents_list` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API folder-document listing |
+| `documents_list` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API folder-document listing; no public machine-readable spec (connector 4.0 has no folder-contents operation; verified 2026-08-22) |
 | `documents_query` | `relativity-rest` | `documentation_fixture` | `documentation-fixture-conformant` | documents_query |
-| `documents_search` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API document search |
-| `documents_search_fulltext` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API full-text search |
+| `documents_search` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API document search; no public machine-readable spec (connector 4.0 has no document-search operation; Universal API docs registration-gated; verified 2026-08-22) |
+| `documents_search_fulltext` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API full-text search; no public machine-readable spec, and 159 frozen world walks depend on the current wire shape (verified 2026-08-22) |
 | `drive_files_get` | `google-drive-v3` | `google_discovery` | `exact-to-pinned-public-contract` | drive.files.get |
 | `drive_files_list` | `google-drive-v3` | `google_discovery` | `exact-to-pinned-public-contract` | drive.files.list |
 | `efiling_cases_get` | `cmecf-nextgen` | `documentation_fixture` | `documentation-fixture-conformant` | case-selection |
@@ -134,7 +134,7 @@ Exactness is fail-closed and per tool. Only direct wire-parameter tools whose su
 | `trust_transactions_list` | `clio-manage-v4` | `openapi` | `exact-to-pinned-public-contract` | get · /allocations.json |
 | `users_list` | `clio-manage-v4` | `openapi` | `exact-to-pinned-public-contract` | get · /users.json |
 | `utbms_codes_list` | `utbms` | `published_standard` | `published-standard-conformant` | utbms-code-set |
-| `workspaces_list` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API workspace listing |
+| `workspaces_list` | `imanage-work` | `partner_gated` | `unverifiable-partner-gated` | private Work API workspace listing; connector SearchWorkspaces is the nearest public capability — a world-version remap candidate (verified 2026-08-22) |
 | `workspaces_search` | `imanage-work` | `imanage_connector` | `public-connector-conformant-fidelity-ceiling` | SearchWorkspaces |
 
 ## Reproduce

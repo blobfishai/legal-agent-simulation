@@ -911,7 +911,7 @@
     },
     {
       "behavior_fixture_validated": false,
-      "ceiling": "private Work API version listing",
+      "ceiling": "private Work API version listing; connector GetDocumentVersions matches the capability but conformant adoption requires connector-shaped wire schemas \u2014 a world-version remap candidate (verified 2026-08-22)",
       "contract": "dms.json",
       "dialect": "imanage",
       "errors_validated": true,
@@ -932,7 +932,7 @@
       "status": "unverifiable-partner-gated",
       "success_response_schema_applicable": false,
       "target": [
-        "private Work API version listing"
+        "private Work API version listing; connector GetDocumentVersions matches the capability but conformant adoption requires connector-shaped wire schemas \u2014 a world-version remap candidate (verified 2026-08-22)"
       ],
       "target_resolved": false,
       "verification_passed": false
@@ -970,7 +970,7 @@
     },
     {
       "behavior_fixture_validated": false,
-      "ceiling": "private Work API checkout lifecycle",
+      "ceiling": "private Work API checkout lifecycle; no public machine-readable spec (connector 4.0 has no checkout or unlock operation; verified 2026-08-22)",
       "contract": "dms.json",
       "dialect": "imanage",
       "errors_validated": true,
@@ -991,7 +991,7 @@
       "status": "unverifiable-partner-gated",
       "success_response_schema_applicable": false,
       "target": [
-        "private Work API checkout lifecycle"
+        "private Work API checkout lifecycle; no public machine-readable spec (connector 4.0 has no checkout or unlock operation; verified 2026-08-22)"
       ],
       "target_resolved": false,
       "verification_passed": false
@@ -1119,7 +1119,7 @@
     },
     {
       "behavior_fixture_validated": false,
-      "ceiling": "private Work API folder-document listing",
+      "ceiling": "private Work API folder-document listing; no public machine-readable spec (connector 4.0 has no folder-contents operation; verified 2026-08-22)",
       "contract": "dms.json",
       "dialect": "imanage",
       "errors_validated": true,
@@ -1140,7 +1140,7 @@
       "status": "unverifiable-partner-gated",
       "success_response_schema_applicable": false,
       "target": [
-        "private Work API folder-document listing"
+        "private Work API folder-document listing; no public machine-readable spec (connector 4.0 has no folder-contents operation; verified 2026-08-22)"
       ],
       "target_resolved": false,
       "verification_passed": false
@@ -1175,7 +1175,7 @@
     },
     {
       "behavior_fixture_validated": false,
-      "ceiling": "private Work API document search",
+      "ceiling": "private Work API document search; no public machine-readable spec (connector 4.0 has no document-search operation; Universal API docs registration-gated; verified 2026-08-22)",
       "contract": "dms.json",
       "dialect": "imanage",
       "errors_validated": true,
@@ -1196,14 +1196,14 @@
       "status": "unverifiable-partner-gated",
       "success_response_schema_applicable": false,
       "target": [
-        "private Work API document search"
+        "private Work API document search; no public machine-readable spec (connector 4.0 has no document-search operation; Universal API docs registration-gated; verified 2026-08-22)"
       ],
       "target_resolved": false,
       "verification_passed": false
     },
     {
       "behavior_fixture_validated": false,
-      "ceiling": "private Work API full-text search",
+      "ceiling": "private Work API full-text search; no public machine-readable spec, and 159 frozen world walks depend on the current wire shape (verified 2026-08-22)",
       "contract": "dms.json",
       "dialect": "imanage",
       "errors_validated": true,
@@ -1224,7 +1224,7 @@
       "status": "unverifiable-partner-gated",
       "success_response_schema_applicable": false,
       "target": [
-        "private Work API full-text search"
+        "private Work API full-text search; no public machine-readable spec, and 159 frozen world walks depend on the current wire shape (verified 2026-08-22)"
       ],
       "target_resolved": false,
       "verification_passed": false
@@ -2931,7 +2931,7 @@
     },
     {
       "behavior_fixture_validated": false,
-      "ceiling": "private Work API workspace listing",
+      "ceiling": "private Work API workspace listing; connector SearchWorkspaces is the nearest public capability \u2014 a world-version remap candidate (verified 2026-08-22)",
       "contract": "dms.json",
       "dialect": "imanage",
       "errors_validated": true,
@@ -2952,7 +2952,7 @@
       "status": "unverifiable-partner-gated",
       "success_response_schema_applicable": false,
       "target": [
-        "private Work API workspace listing"
+        "private Work API workspace listing; connector SearchWorkspaces is the nearest public capability \u2014 a world-version remap candidate (verified 2026-08-22)"
       ],
       "target_resolved": false,
       "verification_passed": false

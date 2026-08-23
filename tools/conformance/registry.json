@@ -3,7 +3,8 @@
   "policy": {
     "exactness": "A tool is exact only after its request, success response, pagination, and documented error fixtures all pass against the pinned source. Endpoint presence alone is spec-mapped, not exact.",
     "non_vendor": "Derived helpers and simulator extensions are reported separately and can never count toward vendor conformance.",
-    "partner_gated": "The public Microsoft iManage connector is a fidelity ceiling, not a substitute for the partner-gated Work API contract."
+    "partner_gated": "The public Microsoft iManage connector is a fidelity ceiling, not a substitute for the partner-gated Work API contract.",
+    "partner_gated_reverified": "2026-08-22: certified connector 4.0 re-fetched from microsoft/PowerPlatformConnectors (operation-identical to the pinned copy, 44 operations); iManage Universal API v2 documentation remains registration-gated (registration.imanage.com). Four of the six partner-gated rows have no public machine-readable target at all; two (document_versions_list, workspaces_list) have capability-matching connector operations (GetDocumentVersions, SearchWorkspaces) whose adoption requires connector-shaped agent-visible wire schemas and is therefore a world-version remap, not a registry edit."
   },
   "products": {
     "clio-manage-v4": {
@@ -151,12 +152,12 @@
       ["documents_download", "imanage-work", "DownloadDocument"]
     ],
     "partner_gated": [
-      ["documents_search", "imanage-work", "private Work API document search"],
-      ["documents_list", "imanage-work", "private Work API folder-document listing"],
-      ["documents_checkout", "imanage-work", "private Work API checkout lifecycle"],
-      ["document_versions_list", "imanage-work", "private Work API version listing"],
-      ["workspaces_list", "imanage-work", "private Work API workspace listing"],
-      ["documents_search_fulltext", "imanage-work", "private Work API full-text search"]
+      ["documents_search", "imanage-work", "private Work API document search; no public machine-readable spec (connector 4.0 has no document-search operation; Universal API docs registration-gated; verified 2026-08-22)"],
+      ["documents_list", "imanage-work", "private Work API folder-document listing; no public machine-readable spec (connector 4.0 has no folder-contents operation; verified 2026-08-22)"],
+      ["documents_checkout", "imanage-work", "private Work API checkout lifecycle; no public machine-readable spec (connector 4.0 has no checkout or unlock operation; verified 2026-08-22)"],
+      ["document_versions_list", "imanage-work", "private Work API version listing; connector GetDocumentVersions matches the capability but conformant adoption requires connector-shaped wire schemas — a world-version remap candidate (verified 2026-08-22)"],
+      ["workspaces_list", "imanage-work", "private Work API workspace listing; connector SearchWorkspaces is the nearest public capability — a world-version remap candidate (verified 2026-08-22)"],
+      ["documents_search_fulltext", "imanage-work", "private Work API full-text search; no public machine-readable spec, and 159 frozen world walks depend on the current wire shape (verified 2026-08-22)"]
     ],
     "documentation_fixture": [
       ["efiling_cases_get", "cmecf-nextgen", "case-selection"],
