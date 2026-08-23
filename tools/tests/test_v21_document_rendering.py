@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import contextlib
 import hashlib
+import io
+import json
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 import unittest
@@ -9,7 +13,10 @@ from unittest import mock
 
 from PIL import Image, ImageDraw
 
-from tools.check_v21_document_rendering import _convert_office, _page_metric, _render_pack
+from tools.check_v21_document_rendering import _convert_office, _page_metric, _render_pack, main
+
+
+ROOT = Path(__file__).resolve().parents[2]
 
 
 class V21DocumentRenderingTests(unittest.TestCase):
@@ -143,6 +150,19 @@ class V21DocumentRenderingTests(unittest.TestCase):
 
             self.assertEqual(runner.call_count, 2)
             self.assertFalse(target.exists())
+
+    def test_keep_renders_requires_an_explicit_output_directory(self) -> None:
+        with contextlib.redirect_stderr(io.StringIO()):
+            with mock.patch.object(sys, "argv", ["check_v21_document_rendering.py", "--keep-renders"]):
+                with self.assertRaises(SystemExit) as raised:
+                    main()
+        self.assertEqual(raised.exception.code, 2)
+
+    def test_default_npm_render_check_cannot_overwrite_attested_report(self) -> None:
+        scripts = json.loads((ROOT / "package.json").read_text())["scripts"]
+        command = scripts["v21:document-render-check"]
+        self.assertIn("--no-contact-sheets", command)
+        self.assertNotIn("--report", command)
 
 
 if __name__ == "__main__":

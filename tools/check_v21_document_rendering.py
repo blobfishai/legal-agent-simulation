@@ -363,6 +363,8 @@ def main() -> int:
     parser.add_argument("--no-contact-sheets", action="store_true")
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
+    if args.keep_renders and args.output_dir is None:
+        parser.error("--keep-renders requires --output-dir so retained evidence has an explicit path")
 
     corpus_root = args.root.resolve()
     catalog_path = corpus_root / "catalog.json"
