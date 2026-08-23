@@ -8,9 +8,9 @@
     "sane_page_geometry": true
   },
   "catalog_file_bytes_and_hashes_verified": true,
-  "catalog_sha256": "7acc1882ef5cde1f39ebbf0337da9af15c0550179839dcf59ecbf946878cf346",
+  "catalog_sha256": "4df5f14859c13029f25a477e286828b5e172dcd5363d9e5987a9245425e28c14",
   "contact_sheet_visual_review": "pending",
-  "contact_sheets_generated": 0,
+  "contact_sheets_generated": 37,
   "packs": 117,
   "page_metrics": [
     {
@@ -11668,11 +11668,11 @@
         33
       ],
       "edge_treatment": "clear_margin",
-      "extractable_text_chars": 1169,
+      "extractable_text_chars": 1201,
       "failures": [],
       "height_px": 1210,
       "id": "pack-retail-price-accuracy-or/docx",
-      "ink_fraction": 0.117434,
+      "ink_fraction": 0.118955,
       "orientation": "portrait",
       "page": 1,
       "width_px": 935
@@ -11692,11 +11692,11 @@
         62
       ],
       "edge_treatment": "intentional_full_bleed_header",
-      "extractable_text_chars": 984,
+      "extractable_text_chars": 1000,
       "failures": [],
       "height_px": 1210,
       "id": "pack-retail-price-accuracy-or/pdf",
-      "ink_fraction": 0.168627,
+      "ink_fraction": 0.169203,
       "orientation": "portrait",
       "page": 1,
       "width_px": 935
@@ -11740,11 +11740,11 @@
         726
       ],
       "edge_treatment": "clear_margin",
-      "extractable_text_chars": 288,
+      "extractable_text_chars": 304,
       "failures": [],
       "height_px": 935,
       "id": "pack-retail-price-accuracy-or/xlsx",
-      "ink_fraction": 0.050979,
+      "ink_fraction": 0.05156,
       "orientation": "landscape",
       "page": 2,
       "width_px": 1210
@@ -11764,11 +11764,11 @@
         283
       ],
       "edge_treatment": "clear_margin",
-      "extractable_text_chars": 464,
+      "extractable_text_chars": 491,
       "failures": [],
       "height_px": 935,
       "id": "pack-retail-price-accuracy-or/xlsx",
-      "ink_fraction": 0.075692,
+      "ink_fraction": 0.076858,
       "orientation": "landscape",
       "page": 3,
       "width_px": 1210
@@ -12272,7 +12272,7 @@
       "failures": [],
       "height_px": 1210,
       "id": "pack-retail-price-accuracy-tn/docx",
-      "ink_fraction": 0.11671,
+      "ink_fraction": 0.116692,
       "orientation": "portrait",
       "page": 1,
       "width_px": 935
@@ -12296,7 +12296,7 @@
       "failures": [],
       "height_px": 1210,
       "id": "pack-retail-price-accuracy-tn/pdf",
-      "ink_fraction": 0.168269,
+      "ink_fraction": 0.168267,
       "orientation": "portrait",
       "page": 1,
       "width_px": 935
@@ -12344,7 +12344,7 @@
       "failures": [],
       "height_px": 935,
       "id": "pack-retail-price-accuracy-tn/xlsx",
-      "ink_fraction": 0.050769,
+      "ink_fraction": 0.050767,
       "orientation": "landscape",
       "page": 2,
       "width_px": 1210
@@ -12364,11 +12364,11 @@
         283
       ],
       "edge_treatment": "clear_margin",
-      "extractable_text_chars": 453,
+      "extractable_text_chars": 513,
       "failures": [],
       "height_px": 935,
       "id": "pack-retail-price-accuracy-tn/xlsx",
-      "ink_fraction": 0.075211,
+      "ink_fraction": 0.078031,
       "orientation": "landscape",
       "page": 3,
       "width_px": 1210
@@ -12872,7 +12872,7 @@
       "failures": [],
       "height_px": 1210,
       "id": "pack-retail-price-accuracy-wa/docx",
-      "ink_fraction": 0.117195,
+      "ink_fraction": 0.117208,
       "orientation": "portrait",
       "page": 1,
       "width_px": 935
@@ -12896,7 +12896,7 @@
       "failures": [],
       "height_px": 1210,
       "id": "pack-retail-price-accuracy-wa/pdf",
-      "ink_fraction": 0.168652,
+      "ink_fraction": 0.16866,
       "orientation": "portrait",
       "page": 1,
       "width_px": 935
@@ -12944,7 +12944,7 @@
       "failures": [],
       "height_px": 935,
       "id": "pack-retail-price-accuracy-wa/xlsx",
-      "ink_fraction": 0.050964,
+      "ink_fraction": 0.050971,
       "orientation": "landscape",
       "page": 2,
       "width_px": 1210
@@ -12968,7 +12968,7 @@
       "failures": [],
       "height_px": 935,
       "id": "pack-retail-price-accuracy-wa/xlsx",
-      "ink_fraction": 0.07544,
+      "ink_fraction": 0.075467,
       "orientation": "landscape",
       "page": 3,
       "width_px": 1210

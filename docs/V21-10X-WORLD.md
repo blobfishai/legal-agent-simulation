@@ -45,7 +45,7 @@ official URL; the frozen v20 snapshot is unchanged.
 
 The v21 VCode compiler emits a unique integrity-bound verifier configuration
 for every generated task. Compact per-task stubs import one shared deterministic
-runtime, keeping the canonical JSON at 263,108,165 bytes instead of duplicating
+runtime, keeping the canonical JSON at 263,127,521 bytes instead of duplicating
 the evaluator 20,963 times. Gates include ordered calls, exact arguments,
 observation anchors, exact created state, before/after update state, row-count
 deltas, no deletes, forbidden-text vetoes, and no collateral mutation. The
@@ -85,8 +85,8 @@ runs through the local locked LAB renderer image with networking disabled.
 
 ## Release evidence
 
-The 2026-08-22 release gate produced SHA-256
-`76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab`
+The 2026-08-23 release candidate produced SHA-256
+`7cb5f9ccb36ea1e3ce27bf86554550ba73a01b1e04be35ca6a3e6e15a38702c6`
 for `world-v21.json`; a second clean-process rebuild matched byte-for-byte. The exhaustive
 checker executed all 20,963 generated positive paths plus four adversarial
 modes for each of the 990 added tools. A live HTTP oracle independently passed

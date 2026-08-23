@@ -37,7 +37,7 @@ machine-readable designs: `research/realworld-tasks/task-designs.json`.
 
 | Real anchor | Synthetic matter | Tasks |
 |---|---|---|
-| *Kukorinis v. Walmart*, No. 8:22-cv-02402 (M.D. Fla.) ($45M weighted-goods/self-checkout settlement) + MI Scanner Law / MA item pricing / CT free-item rule / NIST HB130 EPPV | *Delgado v. Halvorsen Market Group, Inc.* — $42.5M settlement; §7.3 51-jurisdiction survey; §7.4 receipt footer; §7.5 T&C/receipt/signage remediation | cp_001–cp_005, cp_008, cp_009 |
+| *Kukorinis v. Walmart*, No. 8:22-cv-02402 (M.D. Fla.) ($45M weighted-goods and bagged-citrus settlement) + MI Scanner Law / MA item pricing / CT free-item rule / NIST HB130 EPPV | *Delgado v. Halvorsen Market Group, Inc.* — $42.5M settlement; §7.3 51-jurisdiction survey; §7.4 receipt footer; §7.5 T&C/receipt/signage remediation | cp_001–cp_005, cp_008, cp_009 |
 | People v. Walmart CA weights-and-measures consent judgments (quarterly audits, $3-or-free guarantee; penalties count overcharges only) | Halvorsen San Bernal County stipulated judgment CIVSB-2024-118822 — Q3 audit scorecard, rider matrix | cp_006, cp_007 |
 | FTC v. Amazon (Prime) $2.5B negative-option settlement + 8th Cir. click-to-cancel vacatur (7/8/2025) + CA/NY/VT/IL/DC ARL variance | Cobalt Peak Media / PeakStream+ FCB consent order — 51-jurisdiction ARL matrix + enrollment/cancel remediation | cp_010, cp_011 |
 | FTC Fees Rule 16 CFR 464 (in effect 5/12/2025) + CA SB 478/SB 1524 + MN + MA 940 CMR 38 + Marriott PA AVC | Bluewater Lodge & Resorts AG CID — all-in pricing exhibit + drip-pricing matrix | cp_012 |
@@ -48,7 +48,11 @@ The Walmart shape the program asked for — "settled in California, review all
 other jurisdictions' law, implement changes across receipt, contract, wording"
 — is exactly cp_001 (51-row survey matrix), cp_002 (remediation rollout +
 deadline), cp_004 (T&C redline), cp_005 (receipt spec), and cp_007
-(guarantee-conflict riders).
+(guarantee-conflict riders). That prompt conflates separate matters: the
+`Kukorinis` settlement was a Florida federal weighted-goods case, while
+California separately brought checkout-price and price/weight enforcement
+actions. The benchmark preserves the operational pattern without presenting a
+California accidental-double-scan class settlement as a verified fact.
 
 ## Task inventory
 

@@ -32,6 +32,33 @@ RETAIL_TASK_IDS = {
     "task_v20_retail_control_remediation",
     "task_v20_retail_national_closeout",
 }
+REVIEWED_AUTHORITY_ANCHORS = {
+    "AR": (
+        "Ark. Code Ann. § 4-18-316",
+        "https://media.ark.org/agri/Weights_and_Measures.pdf",
+        "official_state_agency_compilation",
+    ),
+    "AZ": (
+        "Ariz. Rev. Stat. § 3-3431(C)",
+        "https://www.azleg.gov/ars/3/03431.htm",
+        "official_state_statute",
+    ),
+    "OR": (
+        "OAR 603-027-0180; Or. Rev. Stat. §§ 616.850–616.890",
+        "https://secure.sos.state.or.us/oard/view.action?ruleNumber=603-027-0180",
+        "official_state_regulation_and_statute",
+    ),
+    "TN": (
+        "Tenn. Code Ann. § 47-26-913",
+        "https://capitol.tn.gov/Archives/Joint/committees/gov-opps/RulesPackets/Rule%20Review%20Packet%20-%20July%202026.pdf",
+        "official_state_rule_packet_plus_secondary_code_text",
+    ),
+    "WA": (
+        "Wash. Rev. Code § 19.94.390",
+        "https://app.leg.wa.gov/RCW/default.aspx?cite=19.94.390",
+        "official_state_statute",
+    ),
+}
 
 
 def sha256(path: Path) -> str:
@@ -123,6 +150,10 @@ def main() -> int:
     assert len(authority_rows) == len({row["code"] for row in authority_rows}) == 51
     assert {row["code"] for row in authority_rows} == {row["jurisdiction_code"] for row in rules}
     assert all(row["citation"] and row["authority_url"].startswith("https://") for row in authority_rows)
+    authority_by_code = {row["code"]: row for row in authority_rows}
+    for code, expected in REVIEWED_AUTHORITY_ANCHORS.items():
+        row = authority_by_code[code]
+        assert (row["citation"], row["authority_url"], row["source_kind"]) == expected
     assert not any(row["substantive_legal_opinion"] for row in authority_rows)
     assert not any(row["private_remedy_encoded"] for row in authority_rows)
     assert not any(row["current_text_and_local_overlays_validated"] for row in authority_rows)

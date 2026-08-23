@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "review_date": "2026-08-22",
+  "review_date": "2026-08-23",
   "automated_report": "reports/v21-document-render-audit.json",
-  "automated_report_sha256": "9819af168cc99e4bdab99fe9d1e7ee9ec98a79fae23f0beb3396befd26a6ca1d",
+  "automated_report_sha256": "9ab6c27a02c2ef0d12cc5591a5dde2e8c5b8ed7f02f0db851dc6e96d06a4e5ec",
   "contact_sheets_reviewed": 37,
   "pages_represented": 585,
   "original_resolution_samples": [
@@ -14,7 +14,10 @@
     "pack-retail-price-accuracy-ar/xlsx/pages-1-3",
     "pack-retail-price-accuracy-az/docx/page-1",
     "pack-retail-price-accuracy-az/pdf/page-1",
-    "pack-retail-price-accuracy-az/xlsx/pages-1-3"
+    "pack-retail-price-accuracy-az/xlsx/pages-1-3",
+    "pack-retail-price-accuracy-or/docx/page-1",
+    "pack-retail-price-accuracy-tn/pdf/page-1",
+    "pack-retail-price-accuracy-wa/xlsx/page-3"
   ],
   "checks": [
     "clipped text",
@@ -27,5 +30,5 @@
   ],
   "defects": [],
   "status": "passed",
-  "method_note": "Every rendered page was reviewed through the 37 all-page contact sheets; representative DOCX, XLSX, and PDF pages were additionally inspected at original raster resolution. After the Arkansas source-path and Arizona citation updates, all ten affected AR/AZ rendered pages were re-reviewed at original raster resolution. The current automated report re-renders the unchanged documents and adds exhaustive catalog byte/SHA-256 binding, symlink rejection, and a narrowed body-clipping check for full-bleed PDF headers."
+  "method_note": "Every rendered page was reviewed through the 37 all-page contact sheets; representative DOCX, XLSX, and PDF pages were additionally inspected at original raster resolution. The prior all-page review remains valid for unchanged source bytes. After the Oregon, Tennessee, and Washington authority corrections, all 15 affected OR/TN/WA rendered pages were re-reviewed at high raster detail, with representative pages from each jurisdiction and file type re-reviewed at original raster resolution. No clipping, overlap, broken characters, truncated authority text, or malformed tables were observed. The current automated report re-renders all documents and retains exhaustive catalog byte/SHA-256 binding, symlink rejection, and a narrowed body-clipping check for full-bleed PDF headers."
 }

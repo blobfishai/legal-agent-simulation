@@ -8,9 +8,11 @@
     "official_nist_compilation_of_state_text": 8,
     "official_state_agency_compilation": 1,
     "official_state_code_portal": 1,
-    "official_state_program": 2,
+    "official_state_program": 1,
     "official_state_regulation": 2,
-    "official_state_statute": 34,
+    "official_state_regulation_and_statute": 1,
+    "official_state_rule_packet_plus_secondary_code_text": 1,
+    "official_state_statute": 33,
     "official_state_statute_compilation": 1,
     "official_state_statute_portal": 1
   },

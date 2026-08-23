@@ -1,10 +1,9 @@
 {
-  "as_of": "2026-08-22",
+  "as_of": "2026-08-23",
   "deep_triage_method": {
     "confidence_distribution": {
-      "high": 21,
-      "low": 2,
-      "medium": 22
+      "high": 25,
+      "medium": 20
     },
     "coverage": "45 jurisdictions (the six v1 primary-source-triaged rows CA/CT/DC/MA/MI/NY are carried by the v1 register and rc_jurisdiction_rules)",
     "fields": "each researched row's deep_triage: price_accuracy_law, udap_law, weights_measures_law, specific_overcharge_remedy, item_pricing_requirement, proposed_rule_tier, proposed_price_standard, proposed_consumer_remedy, confidence, verification_note, sources",
@@ -12,12 +11,16 @@
     "method": "five parallel 9-state web-research batches preferring official legislature and agency sources; NIST retail-pricing compilations used as an index; citation invention prohibited; per-row confidence and residual-attorney-work notes recorded",
     "performed": "2026-08-22",
     "tier_distribution": {
-      "enhanced_item_pricing": 4,
+      "enhanced_item_pricing": 5,
       "enhanced_lowest_price": 3,
       "enhanced_price_disclosure": 1,
-      "enhanced_scanner_accuracy": 20,
-      "udap_and_unit_price": 3,
-      "udap_wm_baseline": 14
+      "enhanced_scanner_accuracy": 21,
+      "udap_and_unit_price": 2,
+      "udap_wm_baseline": 13
+    },
+    "verification_pass": {
+      "performed": "2026-08-23",
+      "scope": "UT and VT re-researched to high confidence on primary text; GA conflict resolved (rule exists: rain-check); ND corrected (scanner item-pricing statute found in Title 51); WA/PA/OR/TN authority-map splits reconciled against fetched official text."
     }
   },
   "defaults": {
@@ -401,20 +404,21 @@
           "exists": false
         },
         "price_accuracy_law": {
-          "citation": null,
-          "kind": "none_found",
-          "operative_summary": "No Georgia statute or regulation specifically governing scanner accuracy, item pricing, or display-vs-charged price was located; the NIST compendium lists Georgia as having no pricing laws, and the AG Consumer Protection Division's price-scanning guidance cites no pricing-specific statute.",
-          "url": "https://consumer.georgia.gov/consumer-topics/price-scanning"
+          "citation": "Ga. Comp. R. & Regs. 40-15-3-.13 (Retail Price Representations)",
+          "kind": "regulation",
+          "operative_summary": "Georgia's Dept. of Agriculture Weights and Measures method-of-sale rules include a Retail Price Representations rule codifying the NIST Handbook 130 rain-check model: when an advertised item is unavailable, the seller must issue a 30-day rain check honoring the advertised price; it is a price-representation/rain-check rule, not a scanner-accuracy testing standard.",
+          "url": "https://rules.sos.ga.gov/gac/40-15-3-.13"
         },
         "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
         "proposed_price_standard": "Charge no more than the represented shelf or advertised price, since deceptive pricing and false or misleading price-reduction statements are unlawful consumer practices under O.C.G.A. § 10-1-393.",
         "proposed_rule_tier": "udap_wm_baseline",
         "sources": [
           "https://consumer.georgia.gov/consumer-topics/price-scanning",
-          "https://www.nist.gov/document/us-pricing-laws-all-states2pdf",
+          "https://consumer.georgia.gov/document/document/fbpa-february-2024pdf/download",
           "https://law.justia.com/codes/georgia/title-10/chapter-1/article-15/part-2/section-10-1-393/",
           "https://law.justia.com/codes/georgia/title-10/chapter-2/",
-          "https://consumer.georgia.gov/document/document/fbpa-february-2024pdf/download"
+          "https://rules.sos.ga.gov/gac/40-15-3-.13",
+          "https://www.nist.gov/document/us-pricing-laws-all-states2pdf"
         ],
         "specific_overcharge_remedy": {
           "citation": null,
@@ -429,7 +433,7 @@
           "citation": "O.C.G.A. § 10-1-393 (Fair Business Practices Act, §§ 10-1-390 to 10-1-408; includes false or misleading statements concerning price reductions)",
           "url": "https://law.justia.com/codes/georgia/title-10/chapter-1/article-15/part-2/section-10-1-393/"
         },
-        "verification_note": "Absence finding rests on the 2009 NIST compendium and the current AG guidance page; counsel must confirm no recent enactment (a price-scanning bill, GA HB 1439, appeared in bill-tracking results and its status should be checked) and review Department of Agriculture weights-and-measures rules for any price-verification program. CROSS-REFERENCE CONFLICT: a parallel authority-mapping pass cites Ga. Comp. R. & Regs. 40-15-3-.13 as a specific pricing authority, which this batch did not locate — counsel must resolve whether that Dept. of Agriculture rule governs retail price verification before treating Georgia as none_found.",
+        "verification_note": "Cross-reference conflict RESOLVED 2026-08-23: Ga. Comp. R. & Regs. 40-15-3-.13 verified on the official rules.sos.ga.gov — it exists and is Georgia's retail-price-representation (rain-check) authority, correcting this row's earlier none_found; it is not a scanner-accuracy analog. Counsel should still confirm no other ch. 40-15 rule adds price-verification inspection standards, check GA HB 1439's status, and verify current FBPA text.",
         "weights_measures_law": {
           "citation": "O.C.G.A. §§ 10-2-1 to 10-2-54 (Weights and Measures)",
           "url": "https://law.justia.com/codes/georgia/title-10/chapter-2/"
@@ -1444,26 +1448,27 @@
       "code": "ND",
       "deep_triage": {
         "attorney_validation_required": true,
-        "confidence": "medium",
+        "confidence": "high",
         "item_pricing_requirement": {
-          "citation": null,
-          "exists": false
+          "citation": "N.D. Cent. Code § 51-07-15",
+          "exists": true
         },
         "price_accuracy_law": {
-          "citation": null,
-          "kind": "none_found",
-          "operative_summary": "No North Dakota statute or regulation was found that specifically addresses retail scanner/point-of-sale price accuracy, UPC/PLU verification, or a price-related method-of-sale standard; N.D. Cent. Code ch. 64-02 governs only device testing, licensing, and bonding, and ch. 64-03 covers only false-weight/device criminal offenses.",
-          "url": "https://ndlegis.gov/cencode/t64c02.html"
+          "citation": "N.D. Cent. Code § 51-07-15 (Use of electronic or magnetic scanners in retail foodstores — item pricing required)",
+          "kind": "statute",
+          "operative_summary": "Retail foodstores using electronic or magnetic scanners must clearly post each item's price (with a shelf-edge-label exception), and violation is an infraction; the provision sits in Title 51 (Sales and Exchanges), which is why a Title 64-only weights-and-measures sweep missed it.",
+          "url": "https://ndlegis.gov/cencode/t51c07.pdf"
         },
         "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
-        "proposed_price_standard": "No North Dakota-specific price-accuracy standard was located; retail pricing conduct is governed by the Consumer Fraud Act's prohibition on deceptive, false, or unconscionable practices (N.D. Cent. Code § 51-15-02) and general device oversight (Title 64).",
-        "proposed_rule_tier": "udap_wm_baseline",
+        "proposed_price_standard": "Retail foodstores using electronic/magnetic scanners must clearly post the price of each item offered for sale (shelf-edge-label exception; infraction penalty) under N.D. Cent. Code § 51-07-15, alongside the Consumer Fraud Act's general deception ban (§ 51-15-02).",
+        "proposed_rule_tier": "enhanced_item_pricing",
         "sources": [
+          "https://ndlegis.gov/cencode/t51c07.pdf",
+          "https://ndlegis.gov/cencode/t51c15.html",
+          "https://ndlegis.gov/cencode/t64.html",
           "https://ndlegis.gov/cencode/t64c02.html",
           "https://ndlegis.gov/cencode/t64c02.pdf",
           "https://ndlegis.gov/cencode/t64c03.pdf",
-          "https://ndlegis.gov/cencode/t64.html",
-          "https://ndlegis.gov/cencode/t51c15.html",
           "https://www.psc.nd.gov/jurisdictions/weights-measures"
         ],
         "specific_overcharge_remedy": {
@@ -1479,7 +1484,7 @@
           "citation": "N.D. Cent. Code ch. 51-15 (Unlawful Sales or Advertising Practices / Consumer Fraud Act), § 51-15-02",
           "url": "https://ndlegis.gov/cencode/t51c15.html"
         },
-        "verification_note": "Negative finding reached twice (dedicated research + direct section-list reads of ch. 64-02/64-03). N.D. Admin Code ch. 69-10-02 (Scales) and 69-10-04 (Service Regulations) identified but not full-text reviewed; counsel should also check PSC bulletins for HB 130 price-verification adoption, and reconcile the separate peer-map lead N.D.C.C. § 51-07-15 (Title 51 ch. 7) which this pass did not review.",
+        "verification_note": "Corrected 2026-08-23: § 51-07-15 verified on the official ndlegis.gov Title 51 ch. 07 PDF — the earlier none_found searched only Title 64. Counsel: confirm current text/exceptions of § 51-07-15, the N.D. Admin Code 69-10 chapters, and any PSC HB 130 price-verification adoption.",
         "weights_measures_law": {
           "citation": "N.D. Cent. Code Title 64 (Weights, Measures, and Grades), chs. 64-01 through 64-04",
           "url": "https://ndlegis.gov/cencode/t64.html"
@@ -1590,9 +1595,9 @@
       "source_kind": "official_state_statute_compilation"
     },
     {
-      "authority_focus": "Unit and total retail price disclosure for covered grocery commodities.",
-      "authority_url": "https://www.oregonlegislature.gov/bills_laws/ors/ors616.html",
-      "citation": "Or. Rev. Stat. §§ 616.850–616.890",
+      "authority_focus": "UPC/PLU scanner price-verification examinations and complementary unit-price disclosure.",
+      "authority_url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=603-027-0180",
+      "citation": "OAR 603-027-0180; Or. Rev. Stat. §§ 616.850–616.890",
       "code": "OR",
       "deep_triage": {
         "attorney_validation_required": true,
@@ -1605,18 +1610,16 @@
           "citation": "OAR 603-027-0180 (Examination Procedures for Price Verification); ORS 618.236 (price misrepresentation)",
           "kind": "regulation",
           "operative_summary": "Oregon requires that price-verification/accuracy examinations at any store using UPC scanners or price-look-up codes follow NCWM procedures contained in NIST Handbook 130 (2009 ed.), and separately bars misrepresenting the price of any commodity or service sold by weight, measure, or count.",
-          "url": "https://oregon.public.law/rules/oar_603-027-0180"
+          "url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=603-027-0180"
         },
         "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under ORS 646.608.",
         "proposed_price_standard": "Any Oregon store using UPC scanners or price-look-up codes must have its price accuracy examined under NCWM procedures in NIST Handbook 130, 2009 ed. (OAR 603-027-0180), and no seller may misrepresent the price of a commodity or service (ORS 618.236).",
         "proposed_rule_tier": "enhanced_scanner_accuracy",
         "sources": [
-          "https://oregon.public.law/rules/oar_603-027-0180",
-          "https://oregon.public.law/statutes/ors_618.236",
-          "https://oregon.public.law/statutes/ors_618.016",
-          "https://oregon.public.law/statutes/ors_646.608",
-          "https://oregon.public.law/statutes/ors_616.860",
-          "https://secure.sos.state.or.us/oard/displayDivisionRules.action?selectedDivision=2716"
+          "https://secure.sos.state.or.us/oard/view.action?ruleNumber=603-027-0180",
+          "https://www.oregonlegislature.gov/bills_laws/ors/ors618.html",
+          "https://www.oregonlegislature.gov/bills_laws/ors/ors646.html",
+          "https://www.oregonlegislature.gov/bills_laws/ors/ors616.html"
         ],
         "specific_overcharge_remedy": {
           "citation": null,
@@ -1631,14 +1634,14 @@
           "citation": "ORS 646.605-646.652 (Unlawful Trade Practices Act), incl. ORS 646.608(1)(j),(s)",
           "url": "https://oregon.public.law/statutes/ors_646.608"
         },
-        "verification_note": "oregon.public.law mirror used (official sites resisted fetch); confirm current text on oregonlegislature.gov/OARD, whether the HB 130 adoption was updated past the 2009 edition, and reconcile the peer-map lead ORS 616.850-616.890 (advertising/pricing provisions) which this pass did not review.",
+        "verification_note": "Reconciled 2026-08-23 against Oregon's official OARD rule page and Legislature chapter publications: OAR 603-027-0180 is the scanner/price-verification examination rule; ORS 616.850-616.890 is a separate unit-pricing disclosure block; and ORS 618.236 supplies the complementary price-misrepresentation rule. Counsel should confirm whether OAR 603-027-0180 has been updated past its express incorporation of the 2009 Handbook 130 edition.",
         "weights_measures_law": {
           "citation": "ORS Chapter 618 (Weights and Measures)",
-          "url": "https://oregon.public.law/statutes/ors_618.016"
+          "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors618.html"
         }
       },
       "name": "Oregon",
-      "source_kind": "official_state_statute"
+      "source_kind": "official_state_regulation_and_statute"
     },
     {
       "authority_focus": "Weights-and-measures price verification and misleading price representations.",
@@ -1682,7 +1685,7 @@
           "citation": "73 P.S. §§ 201-1 to 201-9.3 (Unfair Trade Practices and Consumer Protection Law)",
           "url": "https://codes.findlaw.com/pa/title-73-ps-trade-and-commerce/pa-st-sect-73-201-1/"
         },
-        "verification_note": "Confirmed via two research passes and direct fetches of pacodeandbulletin.gov, legis.state.pa.us, and FindLaw. Confirm current § 4112(c) and 70 Pa. Code Ch. 5 amendments, NCWM Publication 19 status, and PA case law applying § 201-9.2 to scanner overcharges. Peer map cites 3 Pa.C.S. § 4133 (a related W&M provision) — reconcile.",
+        "verification_note": "Confirmed via two research passes and direct fetches of pacodeandbulletin.gov, legis.state.pa.us, and FindLaw. Confirm current § 4112(c) and 70 Pa. Code Ch. 5 amendments, NCWM Publication 19 status, and PA case law applying § 201-9.2 to scanner overcharges. Peer map cites 3 Pa.C.S. § 4133 (a related W&M provision) — reconcile. Reconciled 2026-08-23: 3 Pa.C.S. § 4133 ('Misrepresentation of price'; fractional-cent unit-price display) verified on the official statute site — complementary to § 4112(c)/70 Pa. Code ch. 5, which supply the scanner-testing 98% standard § 4133 lacks; record both.",
         "weights_measures_law": {
           "citation": "3 Pa.C.S. Chapter 41 (Weights and Measures), including § 4112",
           "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/03/00.041..HTM"
@@ -1842,9 +1845,9 @@
       "source_kind": "official_state_statute"
     },
     {
-      "authority_focus": "State inspection program verifies UPC charges against advertisements, labels, and shelf prices.",
-      "authority_url": "https://www.tn.gov/agriculture/consumers/standards.html",
-      "citation": "Tenn. Code Ann. § 47-26-907",
+      "authority_focus": "Prohibits misleading price representations for commodities or services sold by weight, measure, or count.",
+      "authority_url": "https://capitol.tn.gov/Archives/Joint/committees/gov-opps/RulesPackets/Rule%20Review%20Packet%20-%20July%202026.pdf",
+      "citation": "Tenn. Code Ann. § 47-26-913",
       "code": "TN",
       "deep_triage": {
         "attorney_validation_required": true,
@@ -1866,7 +1869,9 @@
           "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-913/",
           "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-907/",
           "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-26-914/",
-          "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-18-109/"
+          "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-18-109/",
+          "https://capitol.tn.gov/Archives/Joint/committees/gov-opps/RulesPackets/Rule%20Review%20Packet%20-%20July%202026.pdf",
+          "https://www.tn.gov/agriculture/news/2024/3/4/tennessee-observes-national-weights-and-measures-week.html"
         ],
         "specific_overcharge_remedy": {
           "citation": null,
@@ -1881,14 +1886,14 @@
           "citation": "Tenn. Code Ann. § 47-18-101 et seq. (Tennessee Consumer Protection Act of 1977); general prohibition at § 47-18-104, private remedy at § 47-18-109",
           "url": "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/tn-code-sect-47-18-104/"
         },
-        "verification_note": "Tennessee's official code sits behind a Lexis/Michie's contract; all TN citations were confirmed only via FindLaw, so counsel must verify current text on Lexis/Westlaw, confirm the administering agency for Ch. 26, and confirm no implementing rule adds scanner/item-pricing/overcharge duties. Peer-map citation § 47-26-907 verified to be a standards-adoption section, not a pricing rule.",
+        "verification_note": "Tennessee's official code text sits behind a Lexis/Michie's contract, so the operative text of §§ 47-26-907/913 remains secondary-source verified and requires counsel confirmation. The official July 2026 rule-review packet independently identifies § 47-26-913 within the civil-penalty schedule, and TDA confirms its weights-and-measures inspection program. Reconciled 2026-08-23: § 47-26-907 is a NIST standards-incorporation clause, while § 47-26-913—not § 47-26-907—is the on-point price-misrepresentation authority; no scanner-specific customer remedy was found.",
         "weights_measures_law": {
           "citation": "Tenn. Code Ann. Title 47, Chapter 26 (Weights and Measures)",
           "url": "https://codes.findlaw.com/tn/title-47-commercial-instruments-and-transactions/"
         }
       },
       "name": "Tennessee",
-      "source_kind": "official_state_program"
+      "source_kind": "official_state_rule_packet_plus_secondary_code_text"
     },
     {
       "authority_focus": "False, misleading, or deceptive trade practices, including advertising goods without intent to sell as advertised and misleading price-reduction statements.",
@@ -1945,29 +1950,33 @@
       "code": "UT",
       "deep_triage": {
         "attorney_validation_required": true,
-        "confidence": "low",
+        "confidence": "high",
         "item_pricing_requirement": {
           "citation": null,
           "exists": false
         },
         "price_accuracy_law": {
-          "citation": "Utah Code Title 4, Ch. 9 (Weights and Measures Act), implemented via the Utah Dept. of Agriculture and Food Weights & Measures checkout-register/scanner inspection program",
-          "kind": "regulation",
-          "operative_summary": "UDAF inspects retail checkout registers/scanners and requires at least 98% accuracy between the displayed/shelf price and the price actually charged at the point of sale.",
-          "url": "https://ag.utah.gov/regulatory-services/weights-and-measures/"
+          "citation": "Utah Code §§ 4-9-106, 4-9-108, 4-9-116(2) (Weights and Measures; enforced via § 4-9-111)",
+          "kind": "statute",
+          "operative_summary": "Utah adopts NIST Handbook 44 device tolerances (§ 4-9-106) and Handbook 130 method-of-sale provisions (§ 4-9-108) directly by statute, and § 4-9-116(2) prohibits misrepresenting the price of a commodity sold, advertised, exposed, or offered for sale by weight, measure, or count, with UDAF checkout-scanner inspection enforced through §§ 4-9-111/116.",
+          "url": "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S116.html"
         },
         "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
-        "proposed_price_standard": "Retailers using checkout scanners are subject to state inspection and must maintain at least 98% accuracy between displayed and charged prices, under Utah's Weights and Measures Act (Title 4, Ch. 9) as administered by UDAF.",
+        "proposed_price_standard": "Charge no more than the represented price — § 4-9-116(2) bans price misrepresentation for commodities sold by weight, measure, or count — with device and method-of-sale conformity to NIST HB 44/130 required directly by §§ 4-9-106/4-9-108 and UDAF checkout-scanner inspections enforcing the standard.",
         "proposed_rule_tier": "enhanced_scanner_accuracy",
         "sources": [
-          "https://ag.utah.gov/regulatory-services/weights-and-measures/",
-          "https://codes.findlaw.com/ut/title-13-commerce-and-trade/ut-code-sect-13-11-1.html",
-          "https://codes.findlaw.com/ut/title-4-utah-agricultural-code/",
-          "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S116.html"
+          "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S116.html",
+          "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S106.html",
+          "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S108.html",
+          "https://le.utah.gov/xcode/Title4/Chapter9/4-9-S111.html",
+          "https://le.utah.gov/xcode/Title13/Chapter11/13-11.html",
+          "https://le.utah.gov/~1999/bills/sbillint/SB0180.htm",
+          "https://le.utah.gov/~1999/status/sbillsta/SB0180.txt",
+          "https://web.archive.org/web/20030506141512/http://www.rules.utah.gov/publicat/code/r070/r070-930.htm"
         ],
         "specific_overcharge_remedy": {
           "citation": null,
-          "description": "No confirmed statutory consumer bonus/free-item remedy. §§ 13-11a-3 through -6 individually checked and ruled out (13-11a-6 is truth-in-music-advertising); free-item policies described by secondary sources as voluntary; agency fines run to the state. Trace S.B. 180 (1999) 'retail merchant overcharges' to any current codification.",
+          "description": "Definitively none: 1999 S.B. 180 would have enacted § 13-11a-6 requiring the item free or the difference plus $3 for scanner overcharges, but its enacting clause was struck in the Senate Rules Committee on 3/3/1999 and it never became law; § 13-11a-6 was later reused for the unrelated 2024 truth-in-music-advertising amendment. Recourse runs through the general UCSPA (§ 13-11-4) and UDAF enforcement (§ 4-9-111) only.",
           "exists": false,
           "notice_window_days": null,
           "payment_window_days": null,
@@ -1975,13 +1984,13 @@
         },
         "substantive_legal_opinion": false,
         "udap_law": {
-          "citation": "Utah Code § 13-11-1 et seq. (Utah Consumer Sales Practices Act)",
-          "url": "https://codes.findlaw.com/ut/title-13-commerce-and-trade/ut-code-sect-13-11-1.html"
+          "citation": "Utah Code § 13-11-4 (Utah Consumer Sales Practices Act, deceptive act or practice by supplier)",
+          "url": "https://le.utah.gov/xcode/Title13/Chapter11/13-11.html"
         },
-        "verification_note": "Pull the Utah Admin. Code rule number behind UDAF's 98% program; peer map cites Utah Code § 4-9-116 as the specific statutory basis — verify that section's text as the likely anchor; independently confirm whether any Utah statute grants a private overcharge remedy (research interrupted); confirm 2026 H.B. 29 total-price disclosure bill status.",
+        "verification_note": "Verified on le.utah.gov primary text (§§ 4-9-106/108/111/116; § 13-11-4; 1999 S.B. 180 status record). Remaining: confirm whether Utah Admin. Code R70-930/920/950 were formally repealed when 2025 Utah Laws ch. 91 amended §§ 4-9-106/108 (adminrules.utah.gov is fetch-gated; the 2003 archived R70-930 text adopted HB 130 by reference), and confirm no post-1999 bill revived a consumer overcharge remedy.",
         "weights_measures_law": {
-          "citation": "Utah Code Title 4, Chapter 9 (Weights and Measures)",
-          "url": "https://codes.findlaw.com/ut/title-4-utah-agricultural-code/"
+          "citation": "Utah Code Title 4, Chapter 9 (Weights and Measures), administered by UDAF",
+          "url": "https://le.utah.gov/xcode/Title4/Chapter9/4-9.html"
         }
       },
       "name": "Utah",
@@ -1994,29 +2003,29 @@
       "code": "VT",
       "deep_triage": {
         "attorney_validation_required": true,
-        "confidence": "low",
+        "confidence": "high",
         "item_pricing_requirement": {
           "citation": null,
           "exists": false
         },
         "price_accuracy_law": {
-          "citation": "6 V.S.A. ch. 37 (§§ 681-687, unit pricing)",
+          "citation": "9 V.S.A. § 2643 (retail point-of-sale laser-scanning systems; licensing and price verification), with unit pricing separately at 6 V.S.A. ch. 37 (§§ 681-687)",
           "kind": "statute",
-          "operative_summary": "Per NIST's official state-by-state retail-pricing index, Vermont's retail-pricing-specific law is a unit-pricing statute (6 V.S.A. ch. 37) requiring per-unit price disclosure on certain goods, not a scanner-accuracy, item-pricing, or checkout-price-verification mandate; no Vermont AG rule on item/scanner pricing accuracy could be located.",
-          "url": "https://legislature.vermont.gov/statutes/chapter/06/037"
+          "operative_summary": "Vermont licenses stores operating more than two scanning checkout points and requires the Secretary of Agriculture, Food and Markets to periodically test point-of-sale scanning systems by comparing the programmed computer price against the price printed on or advertised for the item, with license denial/revocation/suspension or 6 V.S.A. § 15 administrative penalties for overcharge errors in more than two percent of commodities reviewed.",
+          "url": "https://legislature.vermont.gov/statutes/chapter/09/073"
         },
-        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis.",
-        "proposed_price_standard": "Vermont's only confirmed retail-pricing-specific rule is a unit-pricing disclosure statute (6 V.S.A. ch. 37); absent a confirmed scanner-accuracy or item-pricing mandate, checkout price accuracy is governed by the Consumer Fraud Act's general UDAP prohibition.",
-        "proposed_rule_tier": "udap_and_unit_price",
+        "proposed_consumer_remedy": "No pricing-specific statutory remedy located; prompt refund practice plus UDAP exposure analysis under 9 V.S.A. § 2453.",
+        "proposed_price_standard": "Scanner-charged prices must match printed/advertised prices under the Secretary's § 2643 testing program, with store licensing required beyond two scanning points and penalties above a 2% overcharge-error rate; unit-price disclosure applies separately to large retailers under 6 V.S.A. ch. 37.",
+        "proposed_rule_tier": "enhanced_scanner_accuracy",
         "sources": [
-          "https://www.nist.gov/pml/owm/us-retail-pricing-laws-and-regulations-state",
-          "https://ago.vermont.gov/",
-          "https://codes.findlaw.com/vt/title-9-commerce-and-trade/",
-          "https://legislature.vermont.gov/statutes/chapter/06/037"
+          "https://legislature.vermont.gov/statutes/chapter/09/073",
+          "https://legislature.vermont.gov/statutes/fullchapter/09/073",
+          "https://legislature.vermont.gov/statutes/fullchapter/06/037",
+          "https://legislature.vermont.gov/statutes/section/09/063/02453"
         ],
         "specific_overcharge_remedy": {
           "citation": null,
-          "description": "No Vermont-specific statutory overcharge, scanner-bonus, or free-item remedy found; a pricing-accuracy violation would presumptively proceed under the general Consumer Fraud Act.",
+          "description": "No private consumer remedy: § 2643(b)'s consequences (license denial/revocation/suspension; 6 V.S.A. § 15 administrative penalties above a 2% overcharge-error rate) run to the state, not the customer.",
           "exists": false,
           "notice_window_days": null,
           "payment_window_days": null,
@@ -2024,13 +2033,13 @@
         },
         "substantive_legal_opinion": false,
         "udap_law": {
-          "citation": "Vermont Consumer Protection Act, Title 9, Part 4 (widely cited as 9 V.S.A. ch. 63, § 2453; specific section not independently verified this session)",
-          "url": "https://codes.findlaw.com/vt/title-9-commerce-and-trade/"
+          "citation": "9 V.S.A. § 2453 (Consumer Protection Act, ch. 63)",
+          "url": "https://legislature.vermont.gov/statutes/section/09/063/02453"
         },
-        "verification_note": "legislature.vermont.gov returned TLS errors on every attempt; pull 6 V.S.A. ch. 37 full text and the exact CFA citation (9 V.S.A. § 2453) directly; check the AG's Code of Vermont Rules for any pricing-accuracy rule (a 'CP 104' lead could not be confirmed and should be treated as likely mis-cited); confirm the general weights-and-measures chapter in Title 6 (peer map cites 6 V.S.A. §§ 681-687 for ch. 37).",
+        "verification_note": "Verified on legislature.vermont.gov primary text (9 V.S.A. § 2643; ch. 37 full text; § 2453; ch. 73). Remaining: whether the AG adopted a pricing rule under § 2453(c) — the 'CP 104' lead — requires the Lexis-gated Code of Vermont Rules or direct AG contact; pull the current 6 V.S.A. § 15 penalty schedule.",
         "weights_measures_law": {
-          "citation": "Title 6 (Agriculture) weights-and-measures provisions; specific general chapter not confirmed this session",
-          "url": null
+          "citation": "9 V.S.A. ch. 73 (Weights and Measures) — Title 9, not Title 6",
+          "url": "https://legislature.vermont.gov/statutes/chapter/09/073"
         }
       },
       "name": "Vermont",
@@ -2087,13 +2096,13 @@
       "source_kind": "official_state_statute"
     },
     {
-      "authority_focus": "Prohibits misleading price representations for commodities sold by weight, measure, or count.",
-      "authority_url": "https://app.leg.wa.gov/RCW/default.aspx?cite=19.94.230",
-      "citation": "Wash. Rev. Code § 19.94.230",
+      "authority_focus": "Prohibits misleading price representations, adopts scanner price-verification procedures, and requires consumer-visible scanner screens.",
+      "authority_url": "https://app.leg.wa.gov/RCW/default.aspx?cite=19.94.390",
+      "citation": "Wash. Rev. Code § 19.94.390",
       "code": "WA",
       "deep_triage": {
         "attorney_validation_required": true,
-        "confidence": "medium",
+        "confidence": "high",
         "item_pricing_requirement": {
           "citation": null,
           "exists": false
@@ -2126,7 +2135,7 @@
           "citation": "RCW 19.86 (Unfair Business Practices—Consumer Protection Act; private action at RCW 19.86.090)",
           "url": "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.86"
         },
-        "verification_note": "Confirm current RCW 19.94.390 text (last amended 2000 c 171 s 64); locate the WAC chapter implementing the price-verification examination procedures (WSDA page 404'd); reconcile peer-map citation RCW 19.94.230 (a different section of the same chapter); confirm whether a 19.94.390 violation is per se actionable under RCW 19.86.",
+        "verification_note": "Verified 2026-08-23 on the current official Washington Legislature text: RCW 19.94.390 is the on-point price/scanner authority, while RCW 19.94.230 is only general inspection/off-sale-order authority. Remaining counsel work: locate any WAC implementation detail and determine whether a § 19.94.390 violation is independently actionable under RCW 19.86.",
         "weights_measures_law": {
           "citation": "RCW 19.94 (Weights and Measures)",
           "url": "https://apps.leg.wa.gov/rcw/default.aspx?Cite=19.94"

@@ -2,31 +2,31 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 8086,
+      "bytes": 8087,
       "path": "evidence-register.xlsx",
-      "sha256": "16c996fd3d85818a8957075d390c1004d488175dcfb5d070e690391c4e6481ea"
+      "sha256": "92120904afbc89e4741e879aa71cad13b565c6942a43fc0876fee8bdc766a89f"
     },
     {
       "bytes": 39571,
       "path": "matter-brief.docx",
-      "sha256": "6d3ff45fe23fecbc027de4b4eb420dd6e5950f4380346429f16dace3b98740a1"
+      "sha256": "7f851365f554ece9b7dda60e2a7a9acb8b3f38edff9045da09da27bf8448b9e7"
     },
     {
       "bytes": 2890,
       "path": "source-extract.pdf",
-      "sha256": "edbd5d3cf588fac04f5641cbf6e41001e079cc7f57efbc641dd994c103697689"
+      "sha256": "763bf13055eefe6f9a9e63bf8c09ebcd6f56554fb77e31969d609ea7b53d6378"
     }
   ],
   "pack": {
     "anchor": "V21-RETAIL-WA-47",
     "attorney_validation_required": true,
-    "authority_focus": "Prohibits misleading price representations for commodities sold by weight, measure, or count.",
+    "authority_focus": "Prohibits misleading price representations, adopts scanner price-verification procedures, and requires consumer-visible scanner screens.",
     "domain": "retail-price-accuracy",
     "domain_label": "Retail Price Accuracy",
     "due_date": "2026-09-15",
     "evidence_date": "2026-08-16",
     "expected_status": "retail-authority-mapped-wa",
-    "issue": "checkout control gap mapped to Wash. Rev. Code \u00a7 19.94.230",
+    "issue": "checkout control gap mapped to Wash. Rev. Code \u00a7 19.94.390",
     "item_count": 104,
     "jurisdiction": "WA",
     "legal_research_status": "specific_authority_mapped_attorney_validation_required",
@@ -35,8 +35,8 @@
     "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
     "pack_id": "pack-retail-price-accuracy-wa",
     "private_remedy_encoded": false,
-    "research_authority": "Wash. Rev. Code \u00a7 19.94.230",
-    "research_authority_url": "https://app.leg.wa.gov/RCW/default.aspx?cite=19.94.230",
+    "research_authority": "Wash. Rev. Code \u00a7 19.94.390",
+    "research_authority_url": "https://app.leg.wa.gov/RCW/default.aspx?cite=19.94.390",
     "research_source_kind": "official_state_statute",
     "reserve_amount": 2662.5,
     "risk_level": "medium",

@@ -2,31 +2,31 @@
   "build_date": "2026-08-22",
   "files": [
     {
-      "bytes": 8117,
+      "bytes": 8152,
       "path": "evidence-register.xlsx",
-      "sha256": "c1a7db380a31ab7acc7da446ed59927280e9c10dd475286e3280dccf0b178d40"
+      "sha256": "5494436d242bfc9a8c6739f81905cabd8a33712cdbc3532e37452f058b9865df"
     },
     {
-      "bytes": 39587,
+      "bytes": 39602,
       "path": "matter-brief.docx",
-      "sha256": "7cb076e44a7849695e429a5e1e942bf3c7f524914b04ae2ead1697f985c5e5ac"
+      "sha256": "20a0cf61e128e2786af6edef82326090aceb2175d808122c927a9f5d3b5c5f09"
     },
     {
-      "bytes": 2901,
+      "bytes": 2919,
       "path": "source-extract.pdf",
-      "sha256": "6c38df7f9cdedce340633d196e36da2c945e3b2f99774b6d753ba2d2ba07d961"
+      "sha256": "905245bf90d939cda8e4c702c8c24435a2fb57b020d6216e47a4621ec5691396"
     }
   ],
   "pack": {
     "anchor": "V21-RETAIL-OR-37",
     "attorney_validation_required": true,
-    "authority_focus": "Unit and total retail price disclosure for covered grocery commodities.",
+    "authority_focus": "UPC/PLU scanner price-verification examinations and complementary unit-price disclosure.",
     "domain": "retail-price-accuracy",
     "domain_label": "Retail Price Accuracy",
     "due_date": "2026-09-05",
     "evidence_date": "2026-08-06",
     "expected_status": "retail-authority-mapped-or",
-    "issue": "checkout control gap mapped to Or. Rev. Stat. \u00a7\u00a7 616.850\u2013616.890",
+    "issue": "checkout control gap mapped to OAR 603-027-0180; Or. Rev. Stat. \u00a7\u00a7 616.850\u2013616.890",
     "item_count": 84,
     "jurisdiction": "OR",
     "legal_research_status": "specific_authority_mapped_attorney_validation_required",
@@ -35,9 +35,9 @@
     "operational_baseline": "Prevent duplicate scans; reconcile shelf, promotion, catalog, and checkout prices; use accurate weights and measures; show an intelligible itemized receipt; promptly correct a verified overcharge; preserve immutable evidence; never condition an ordinary correction on a release or waiver of nonwaivable rights.",
     "pack_id": "pack-retail-price-accuracy-or",
     "private_remedy_encoded": false,
-    "research_authority": "Or. Rev. Stat. \u00a7\u00a7 616.850\u2013616.890",
-    "research_authority_url": "https://www.oregonlegislature.gov/bills_laws/ors/ors616.html",
-    "research_source_kind": "official_state_statute",
+    "research_authority": "OAR 603-027-0180; Or. Rev. Stat. \u00a7\u00a7 616.850\u2013616.890",
+    "research_authority_url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=603-027-0180",
+    "research_source_kind": "official_state_regulation_and_statute",
     "reserve_amount": 2287.5,
     "risk_level": "critical",
     "substantive_legal_opinion": false,
