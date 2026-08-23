@@ -268,6 +268,9 @@ def main() -> int:
     names: set[str] = set()
     file_lanes = multistep_tasks = phase_count = document_count = skill_count = 0
     for directory in task_directories:
+        symlink = next((path for path in directory.rglob("*") if path.is_symlink()), None)
+        if symlink is not None:
+            fail(f"symlink forbidden in Harbor task package: {symlink}")
         manifest = tomllib.loads((directory / "task.toml").read_text("utf-8"))
         name = str((manifest.get("task") or {}).get("name"))
         if not name or name in names:
@@ -316,6 +319,7 @@ def main() -> int:
         "world_sha256": sha256_file(world_path),
         "solve_token_sha256": hashlib.sha256(solve_token.encode()).hexdigest(),
         "agent_world_leaks": 0,
+        "package_symlinks": 0,
     }
     print(json.dumps(report, sort_keys=True))
     return 0

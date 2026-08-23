@@ -16,6 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GENERATOR_PATH = ROOT / "harbor" / "generate.py"
+PRODUCTION_RUNNER_PATH = ROOT / "tools" / "run_harbor_production.py"
 RECOVERY_TREE_FILES = 34
 RECOVERY_TREE_BYTES = 113081
 RECOVERY_TREE_SHA256 = "bbdcf02717bf2ad491bf5ebbe028ebd5d69f5427609fddb0aaca3ad8d4e88d5a"
@@ -51,8 +52,39 @@ def load_generator():
     return module
 
 
+def load_production_runner():
+    spec = importlib.util.spec_from_file_location(
+        "harbor_production_runner", PRODUCTION_RUNNER_PATH
+    )
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def main() -> int:
     generator = load_generator()
+    production = load_production_runner()
+    world_digest = production.WORLD_REPOSITORY + "@sha256:" + "ab" * 32
+    lab_digest = production.LAB_REPOSITORY + "@sha256:" + "cd" * 32
+    assert production.immutable_reference(
+        world_digest, production.WORLD_REPOSITORY, "world image"
+    ) == world_digest
+    assert production.immutable_reference(
+        lab_digest, production.LAB_REPOSITORY, "LAB image"
+    ) == lab_digest
+    for invalid in (
+        production.WORLD_REPOSITORY + ":v21",
+        production.WORLD_REPOSITORY + "@sha256:" + "AB" * 32,
+        production.LAB_REPOSITORY + "@sha256:" + "ab" * 32,
+    ):
+        try:
+            production.immutable_reference(
+                invalid, production.WORLD_REPOSITORY, "world image"
+            )
+            raise AssertionError("mutable or cross-repository production image accepted")
+        except ValueError:
+            pass
     commit = json.loads((ROOT / "research" / "repos-commits.json").read_text())["harveyai@harvey-labs"]
     assert recovery_tree_fingerprint() == (
         RECOVERY_TREE_FILES,

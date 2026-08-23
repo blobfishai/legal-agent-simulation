@@ -11,14 +11,21 @@ which now writes to `dist/harbor-legacy`.)
 ## Generate + build
 
 ```bash
-npm run v21:harbor-prod   # 23,310 tasks -> dist/harbor-v21-prod/tasks
-npm run v21:harbor-check  # exact manifests, inputs, skills, images, steps, corpus
+export V21_WORLD_IMAGE='ghcr.io/blobfishai/legal-agent-sim-world@sha256:<world-digest>'
+export V21_LAB_IMAGE='ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:<lab-digest>'
+npm run v21:harbor-prod   # 23,310 tasks + dataset -> dist/harbor-v21-prod
+npm run v21:harbor-check  # exact packages, digests, inputs, skills, images, corpus
 ```
+
+The production wrapper rejects tags and cross-repository references. Both
+images must be the promoted `@sha256` manifests, so a registry task cannot
+silently move after its dataset digest is computed.
 
 The structural gate checks all 23,310 task directories against the canonical
 world, including 22,813 file lanes, 126,592 staged document instances, 5,544
 skill trees, 36 multi-step tasks/89 phases, both evidence-index hashes, and zero
-agent-side `world.json` copies.
+agent-side `world.json` copies. It also checks all 23,310 Harbor package hashes
+against `dataset/dataset.toml` and requires unique names and content digests.
 
 LAB-imported tasks carry a `file_lane` block. For those tasks the generator
 also stages the exact commit-pinned input tree at `/workspace/documents`
@@ -29,6 +36,12 @@ manuals, and uses the heavier LibreOffice+pandoc agent base:
 python3 harbor/generate.py --build-lab-agent-image \
   --lab-agent-image ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21
 ```
+
+The tracked upstream sandbox stays byte-exact. Production assembles a separate
+derivative with a digest-pinned Python base, the base image's 2026-08-03 Debian
+snapshot, a hash-locked 48-package Python closure, and an integrity-locked npm
+closure. The release runs imports and parses real DOCX/XLSX/PDF fixtures with
+networking disabled before it pushes that image.
 
 The verifier copies non-symlink output files to `/logs/artifacts` and emits
 `file-lane.json`. Determinate file tasks check source-grounded anchor groups
@@ -46,14 +59,14 @@ silently inherit the legacy authoring defaults.
 
 `dist/` is gitignored; the generated tree is a build artifact. Regeneration is
 deterministic (the `/solve` token persists in
-`dist/harbor/world-image/solve-token.txt`).
+`dist/harbor-v21-prod/world-image/solve-token.txt`).
 
 ## Run
 
 ```bash
-uvx harbor run -p "dist/harbor/tasks/task_v21_lt_matters_00001" -a oracle
-uvx harbor run -p "dist/harbor/tasks/task_v21_lt_matters_00001" -a claude-code -m anthropic/claude-sonnet-5
-uvx harbor run -p "dist/harbor/tasks" -a oracle -n 1                     # safe on a 2 GiB local VM
+uvx harbor run -p "dist/harbor-v21-prod/tasks/task_v21_lt_matters_00001" -a oracle
+uvx harbor run -p "dist/harbor-v21-prod/tasks/task_v21_lt_matters_00001" -a claude-code -m anthropic/claude-sonnet-5
+uvx harbor run -p "dist/harbor-v21-prod/tasks" -a oracle -n 1            # safe on a 2 GiB local VM
 ```
 
 Multi-container tasks need Harbor's **docker** environment provider (compose
@@ -64,12 +77,12 @@ memory before increasing `-n`; the release smoke is deliberately serial on a
 
 ## Ship
 
-Tasks reference the world image as `ghcr.io/blobfishai/legal-agent-sim-world:v21`,
-so a published image makes every task dir self-sufficient (no local build).
-File-lane tasks likewise reference
-`ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21`. The GitHub Actions release
-workflow rebuilds and publishes both images; Harbor registry publication still
-needs its own interactive OAuth token:
+The GitHub Actions workflow publishes convenient `:v21` tags, but publishable
+tasks embed the promoted world and file-lane images by immutable digest. This
+makes every task self-sufficient without trusting either mutable tag. Harbor
+0.21.0 and its complete 91-package runner graph are likewise frozen in
+`harbor/runner/uv.lock`. Harbor registry publication still needs its own
+interactive OAuth token:
 
 The 4.7 GB materialized LAB/C&H search indexes are intentionally outside
 ordinary Git history. `world/corpus/v21-production-evidence.json` pins their
@@ -96,7 +109,8 @@ docker push ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21
 
 # Publish tasks to the Harbor registry (hub.harborframework.com)
 uvx harbor auth login          # GitHub sign-in flow
-uvx harbor publish "dist/harbor-v21-prod/tasks"
+uvx harbor publish "dist/harbor-v21-prod/tasks" --public --tag v21 --concurrency 50
+uvx harbor publish "dist/harbor-v21-prod/dataset" --public --tag v21
 ```
 
 ## Architecture
@@ -105,7 +119,7 @@ Two containers per trial (compose merge, like Harbor's `hello-mcp` example):
 
 ```
 main (agent)                          world (shared image, TASK_ID env)
-  python + curl + `tool` CLI    ──►     shim.py :8972
+  pinned python + `tool` CLI    ──►     shim.py :8972
   no world doc, no verifiers            ├─ POST /mcp     JSON-RPC proxy + trace
   MCP config: lawfirm →                 ├─ POST /verify  VCode verdict
     http://world:8972/mcp               └─ POST /solve   oracle walk (token-gated)
