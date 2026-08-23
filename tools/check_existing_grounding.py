@@ -2,6 +2,9 @@
 """Hermetic gate for v17 grounding of the 117 legacy graph tasks."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import copy
 import json
 import sys

@@ -2,6 +2,9 @@
 """Fail-closed scale, determinism, document, and adversarial checks for v21."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import argparse
 import ast
 import copy

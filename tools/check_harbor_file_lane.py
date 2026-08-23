@@ -2,6 +2,9 @@
 """Gate the LAB file-lane staging and lane-split artifact contract."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import importlib.util
 import hashlib
 import http.server

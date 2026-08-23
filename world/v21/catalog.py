@@ -6,6 +6,9 @@ commercial product or making jurisdiction-specific legal conclusions.
 """
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 from typing import Final
 
 

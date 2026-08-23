@@ -9,6 +9,9 @@ claim primary-source triage.
 """
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import argparse
 from datetime import datetime
 import hashlib

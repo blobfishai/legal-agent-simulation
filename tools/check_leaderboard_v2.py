@@ -2,6 +2,9 @@
 """M7.3 fixture gate and byte-identical rebuild proof."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import gzip
 import json
 from pathlib import Path

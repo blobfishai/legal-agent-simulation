@@ -2,6 +2,9 @@
 """Executable acceptance checks for the three M3 product systems."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import json
 from pathlib import Path
 import sqlite3

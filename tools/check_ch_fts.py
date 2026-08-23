@@ -2,6 +2,9 @@
 """Hermetic build/query gate for the C&H FTS compiler."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import json
 import sqlite3
 import sys

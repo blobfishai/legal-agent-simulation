@@ -2,6 +2,9 @@
 """Gate exact P/R, over-inclusion, empty-set, and structural veto behavior."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import sys
 from pathlib import Path
 

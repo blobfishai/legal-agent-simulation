@@ -2,6 +2,9 @@
 """Release gate for v19 capstones and multi-turn tasks."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import hashlib
 import json
 from pathlib import Path

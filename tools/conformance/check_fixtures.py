@@ -2,6 +2,9 @@
 """Validate the committed M2 pagination and HTTP-error golden fixtures."""
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("validation requires assertions; Python optimization is unsupported")
+
 import json
 from pathlib import Path
 import sys
