@@ -86,6 +86,12 @@ extended rather than weakened. These changes advance generated provenance to
   generation/check invocations can no longer observe or publish a partially
   replaced variant; each individual variant still uses its validated sibling
   staging directory and atomic directory replacement.
+- Plan execution captures one clean, pinned source attestation and rechecks it
+  at closeout while retaining per-task, per-document, license, entity-map, and
+  generated-byte validation. It no longer runs a full 60,971-file Git status
+  scan for every generated or re-derived variant (up to 210 scans for the
+  35-variant generate-and-check CLI path); a regression freezes the
+  source-cleanliness scan count at two per complete plan operation.
 
 ## Tool capability note (2026-08-22)
 

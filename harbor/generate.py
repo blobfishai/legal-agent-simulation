@@ -110,6 +110,8 @@ def validate_project_source_tree(path: Path, label: str) -> Path:
         raise RuntimeError(f"{label} is missing or resolves outside the repository: {path}")
     if resolved not in _VALIDATED_SOURCE_TREES:
         for member in resolved.rglob("*"):
+            if member.name == "__pycache__" or member.suffix in {".pyc", ".pyo"}:
+                raise RuntimeError(f"{label} contains a Python cache artifact: {member}")
             if member.is_symlink():
                 raise RuntimeError(f"{label} contains a symlink: {member}")
             if not member.is_dir() and not member.is_file():

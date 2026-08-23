@@ -11,6 +11,7 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 from docx import Document
 from openpyxl import Workbook
@@ -331,12 +332,32 @@ class BroadMutationTests(HarveyMutationFixture):
         })
         (plan.parent / "entities.json").write_bytes(self.entities.read_bytes())
         output = self.workspace / "generated-plan"
-        first = BROAD.generate_seed_plan(plan, self.source, output)
-        second = BROAD.generate_seed_plan(
-            plan, self.source, output, replace_generated=True
-        )
-        self.assertEqual(first, second)
-        BROAD.check_seed_plan(plan, self.source, output)
+        with patch.object(BROAD, "git_clean", wraps=BROAD.git_clean) as clean:
+            first = BROAD.generate_seed_plan(plan, self.source, output)
+            self.assertEqual(clean.call_count, 2)
+            second = BROAD.generate_seed_plan(
+                plan, self.source, output, replace_generated=True
+            )
+            self.assertEqual(clean.call_count, 4)
+            self.assertEqual(first, second)
+            BROAD.check_seed_plan(plan, self.source, output)
+            self.assertEqual(clean.call_count, 6)
+            attestation = BROAD.attest_source(self.source)
+            BROAD.generate_seed_plan(
+                plan,
+                self.source,
+                output,
+                replace_generated=True,
+                source_attestation=attestation,
+            )
+            BROAD.check_seed_plan(
+                plan,
+                self.source,
+                output,
+                source_attestation=attestation,
+            )
+            BROAD.verify_source_attestation(attestation)
+            self.assertEqual(clean.call_count, 8)
 
     def test_output_lock_serializes_independent_processes(self) -> None:
         output = self.workspace / "shared-output"

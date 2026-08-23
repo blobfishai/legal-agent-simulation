@@ -109,7 +109,11 @@ def main() -> int:
         RECOVERY_TREE_SHA256,
     )
     live_checked = False
-    with tempfile.TemporaryDirectory(prefix="harbor-file-lane-") as temporary:
+    confined_temporary_root = ROOT / "dist"
+    confined_temporary_root.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(
+        prefix="harbor-file-lane-", dir=confined_temporary_root
+    ) as temporary:
         base = Path(temporary)
         token_path = base / "solve-token.txt"
         token_path.write_text("cd" * 16)

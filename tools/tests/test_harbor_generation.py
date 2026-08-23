@@ -156,6 +156,16 @@ class HarborGenerationTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "contains a symlink"):
                 GENERATOR.validate_project_source_tree(source, "test source")
 
+    def test_source_tree_rejects_python_cache_artifacts(self) -> None:
+        (ROOT / "dist").mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=ROOT / "dist") as temporary:
+            source = Path(temporary) / "source"
+            cache = source / "nested" / "__pycache__"
+            cache.mkdir(parents=True)
+            (cache / "tool.cpython-312.pyc").write_bytes(b"cache")
+            with self.assertRaisesRegex(RuntimeError, "Python cache artifact"):
+                GENERATOR.validate_project_source_tree(source, "test source")
+
     def test_generated_write_replaces_hardlink_without_mutating_its_source(self) -> None:
         with tempfile.TemporaryDirectory(prefix="harbor-atomic-write-") as temporary:
             root = Path(temporary)

@@ -45,7 +45,7 @@ from collections import Counter
 from email import policy
 from email.parser import BytesParser
 from pathlib import Path, PurePosixPath
-from typing import Any
+from typing import Any, NamedTuple
 from xml.etree import ElementTree
 
 
@@ -189,6 +189,68 @@ def validate_source_identity(source: Path, commit: str, remote: str) -> str | No
     if not commit.startswith(expected):
         raise ValueError(f"source commit mismatch: expected {expected}, got {commit}")
     return expected
+
+
+class SourceAttestation(NamedTuple):
+    root: Path
+    commit: str
+    remote: str
+    expected_commit: str | None
+    license_sha256: str
+
+
+def attest_source(source_root: Path) -> SourceAttestation:
+    """Capture one clean, pinned source identity for a bounded operation."""
+    source_root = source_root.resolve()
+    if not git_clean(source_root):
+        raise ValueError("source Harvey worktree is dirty")
+    commit = git_commit(source_root)
+    remote = git_remote(source_root)
+    expected_commit = validate_source_identity(source_root, commit, remote)
+    source_license = source_root / "LICENSE"
+    if not source_license.is_file() or source_license.is_symlink():
+        raise ValueError("source Harvey license is missing or unsafe")
+    return SourceAttestation(
+        root=source_root,
+        commit=commit,
+        remote=remote,
+        expected_commit=expected_commit,
+        license_sha256=sha256_file(source_license),
+    )
+
+
+def use_source_attestation(
+    source_root: Path, attestation: SourceAttestation | None
+) -> tuple[SourceAttestation, bool]:
+    source_root = source_root.resolve()
+    if attestation is None:
+        return attest_source(source_root), True
+    if attestation.root != source_root:
+        raise ValueError("source attestation belongs to a different mirror")
+    return attestation, False
+
+
+def verify_source_attestation(attestation: SourceAttestation) -> None:
+    """Prove a shared plan/check attestation is still current at closeout."""
+    source_root = attestation.root
+    current_commit = git_commit(source_root)
+    current_remote = git_remote(source_root)
+    if current_commit != attestation.commit or current_remote != attestation.remote:
+        raise ValueError("source Harvey identity changed during operation")
+    if (
+        validate_source_identity(source_root, current_commit, current_remote)
+        != attestation.expected_commit
+    ):
+        raise ValueError("source Harvey pin changed during operation")
+    source_license = source_root / "LICENSE"
+    if (
+        not source_license.is_file()
+        or source_license.is_symlink()
+        or sha256_file(source_license) != attestation.license_sha256
+    ):
+        raise ValueError("source Harvey license changed during operation")
+    if not git_clean(source_root):
+        raise ValueError("source Harvey worktree changed during operation")
 
 
 def validate_seed(seed: Any) -> int:
@@ -981,11 +1043,19 @@ def validate_existing_target(target: Path, task: str, seed: int) -> None:
         raise ValueError(f"existing output manifest does not identify {task!r} seed {seed}")
 
 
-def check_generated(task_dir: Path, source_root: Path = LAB, quiet: bool = False) -> None:
+def check_generated(
+    task_dir: Path,
+    source_root: Path = LAB,
+    quiet: bool = False,
+    source_attestation: SourceAttestation | None = None,
+) -> None:
     if task_dir.is_symlink():
         raise ValueError(f"generated task directory is a symlink: {task_dir}")
     task_dir = task_dir.resolve()
     source_root = source_root.resolve()
+    source_attestation, owns_attestation = use_source_attestation(
+        source_root, source_attestation
+    )
     manifest_path = task_dir / "mutation-manifest.json"
     task_path = task_dir / "task.json"
     entities_path = task_dir / "mutation-entities.json"
@@ -1027,17 +1097,15 @@ def check_generated(task_dir: Path, source_root: Path = LAB, quiet: bool = False
         if manifest.get(field) != expected_value:
             raise ValueError(f"mutation manifest has invalid {field}")
 
-    if not git_clean(source_root):
-        raise ValueError("source Harvey worktree is dirty")
-    current_commit = git_commit(source_root)
+    current_commit = source_attestation.commit
     if current_commit != manifest.get("source_commit"):
         raise ValueError(
             f"source mirror moved: expected {manifest.get('source_commit')}, got {current_commit}"
         )
-    current_remote = git_remote(source_root)
+    current_remote = source_attestation.remote
     if current_remote != manifest.get("source_remote"):
         raise ValueError("source mirror remote differs from manifest")
-    expected_commit = validate_source_identity(source_root, current_commit, current_remote)
+    expected_commit = source_attestation.expected_commit
     if manifest.get("source_expected_commit") != expected_commit:
         raise ValueError("source pin differs from mutation manifest")
     source_license = source_root / "LICENSE"
@@ -1171,8 +1239,8 @@ def check_generated(task_dir: Path, source_root: Path = LAB, quiet: bool = False
         raise ValueError("generated tree contains missing or unexpected files")
     if residual_terms(task_path.read_text(encoding="utf-8"), pairs):
         raise ValueError("generated task.json contains residual source terms")
-    if not git_clean(source_root):
-        raise ValueError("source Harvey worktree changed during validation")
+    if owns_attestation:
+        verify_source_attestation(source_attestation)
     if not quiet:
         print(
             f"seeded Harvey task valid: {source_task_name} seed {seed:03d} "
@@ -1187,22 +1255,22 @@ def generate(
     source_root: Path,
     output_root: Path,
     replace_generated: bool = False,
+    source_attestation: SourceAttestation | None = None,
 ) -> Path:
     validate_seed(seed)
     task_relative = safe_relative(task_name, "task")
     source_root = source_root.resolve()
     output_root = output_root.resolve()
-    if not git_clean(source_root):
-        raise ValueError("source Harvey worktree is dirty")
-    source_commit = git_commit(source_root)
-    source_remote = git_remote(source_root)
-    source_expected_commit = validate_source_identity(
-        source_root, source_commit, source_remote
+    source_attestation, owns_attestation = use_source_attestation(
+        source_root, source_attestation
     )
+    source_commit = source_attestation.commit
+    source_remote = source_attestation.remote
+    source_expected_commit = source_attestation.expected_commit
     source_license = source_root / "LICENSE"
     if not source_license.is_file() or source_license.is_symlink():
         raise ValueError("source Harvey license is missing or unsafe")
-    source_license_hash = sha256_file(source_license)
+    source_license_hash = source_attestation.license_sha256
 
     tasks_root = (source_root / "tasks").resolve()
     task_dir = source_root / "tasks" / Path(*task_relative.parts)
@@ -1322,10 +1390,15 @@ def generate(
                 raise RuntimeError(f"source changed during generation: {source_path}")
         if sha256_bytes(canonical_json(json.loads(entities_path.read_text(encoding="utf-8")))) != entities_sha256:
             raise RuntimeError("entities config changed during generation")
-        if git_commit(source_root) != source_commit or not git_clean(source_root):
-            raise RuntimeError("source Harvey worktree changed during generation")
+        if owns_attestation:
+            verify_source_attestation(source_attestation)
 
-        check_generated(staging, source_root, quiet=True)
+        check_generated(
+            staging,
+            source_root,
+            quiet=True,
+            source_attestation=source_attestation,
+        )
         if output_task_dir.exists():
             validate_existing_target(output_task_dir, task_name, seed)
             backup = temporary_root / "previous-generated-output"
@@ -1395,7 +1468,11 @@ def generate_seed_plan(
     source_root: Path,
     output_root: Path,
     replace_generated: bool = False,
+    source_attestation: SourceAttestation | None = None,
 ) -> list[Path]:
+    source_attestation, owns_attestation = use_source_attestation(
+        source_root, source_attestation
+    )
     outputs = []
     for task, entities_path, seeds in load_seed_plan(plan_path):
         for seed in seeds:
@@ -1407,8 +1484,11 @@ def generate_seed_plan(
                     source_root,
                     output_root,
                     replace_generated,
+                    source_attestation=source_attestation,
                 )
             )
+    if owns_attestation:
+        verify_source_attestation(source_attestation)
     return outputs
 
 
@@ -1416,7 +1496,11 @@ def check_seed_plan(
     plan_path: Path = DEFAULT_PLAN,
     source_root: Path = LAB,
     output_root: Path = DEFAULT_OUTPUT,
+    source_attestation: SourceAttestation | None = None,
 ) -> None:
+    source_attestation, owns_attestation = use_source_attestation(
+        source_root, source_attestation
+    )
     plan_rows = load_seed_plan(plan_path)
     output_root = output_root.resolve()
     expected: dict[Path, Path] = {}
@@ -1444,7 +1528,12 @@ def check_seed_plan(
         orphaned = sorted(str(path) for path in manifest_dirs - set(expected))
         raise ValueError(f"seed-plan output mismatch; missing={missing}, orphaned={orphaned}")
     for task_dir in sorted(expected, key=str):
-        check_generated(task_dir, source_root, quiet=True)
+        check_generated(
+            task_dir,
+            source_root,
+            quiet=True,
+            source_attestation=source_attestation,
+        )
     loose_files = [
         path for path in output_root.rglob("*")
         if path.is_file() and not any(path.is_relative_to(task_dir) for task_dir in expected)
@@ -1454,9 +1543,11 @@ def check_seed_plan(
             "seed output root contains files outside planned tasks: "
             + ", ".join(str(path.relative_to(output_root)) for path in loose_files)
         )
+    if owns_attestation:
+        verify_source_attestation(source_attestation)
     print(
         f"seeded Harvey mutation plan valid: {len(expected)} variants, "
-        f"source {git_commit(source_root.resolve())[:12]}"
+        f"source {source_attestation.commit[:12]}"
     )
 
 
@@ -1492,18 +1583,27 @@ def main() -> int:
         if args.plan:
             if args.entities is not None or args.seed is not None:
                 parser.error("--plan reads entities and seeds from the plan file")
+            source_attestation = attest_source(args.source)
             outputs = generate_seed_plan(
                 args.plan,
                 args.source,
                 args.out,
                 args.replace_generated,
+                source_attestation=source_attestation,
             )
             for output in outputs:
                 print(f"generated Harvey task: {output}")
-            check_seed_plan(args.plan, args.source, args.out)
+            check_seed_plan(
+                args.plan,
+                args.source,
+                args.out,
+                source_attestation=source_attestation,
+            )
+            verify_source_attestation(source_attestation)
             return 0
         if args.entities is None or args.seed is None:
             parser.error("--task requires --entities and --seed")
+        source_attestation = attest_source(args.source)
         output = generate(
             args.task,
             args.entities,
@@ -1511,9 +1611,15 @@ def main() -> int:
             args.source,
             args.out,
             args.replace_generated,
+            source_attestation=source_attestation,
         )
         print(f"generated Harvey task: {output}")
-        check_generated(output, args.source)
+        check_generated(
+            output,
+            args.source,
+            source_attestation=source_attestation,
+        )
+        verify_source_attestation(source_attestation)
         return 0
 
 

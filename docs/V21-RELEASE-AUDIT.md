@@ -13,7 +13,7 @@ new synthetic source documents. The canonical world is 263,127,521 bytes with
 SHA-256 `7cb5f9ccb36ea1e3ce27bf86554550ba73a01b1e04be35ca6a3e6e15a38702c6`.
 A second clean-process rebuild produced the same bytes.
 
-This audit found and closed twenty-four release-blocking or publication-integrity
+This audit found and closed twenty-five release-blocking or publication-integrity
 defects:
 
 1. Generated DOCX briefs could orphan the validation boundary on a second
@@ -101,7 +101,9 @@ defects:
     duplicate-member order, treated `FAIL only if` as malformed, and allowed
     concurrent plans to race. Mutation engine v3 preserves archive structure,
     rejects unsupported data-descriptor changes, and serializes output through
-    a hardened owner-only lock.
+    a hardened owner-only lock. Full plans now attest the 60,971-file source
+    mirror once at start and once at closeout while retaining per-file hashes,
+    eliminating up to 210 redundant full-tree scans.
 24. Oregon, Tennessee, and Washington retail rows contained mismatched or weak
     top-level anchors. The corpus now maps OAR 603-027-0180 with Oregon
     statutes, Tenn. Code Ann. § 47-26-913 with the official 2026 rule-review
@@ -110,6 +112,12 @@ defects:
     freezes those reviewed anchors together with the prior Arkansas and Arizona
     corrections so a byte-reproducible rebuild cannot normalize a future legal
     citation regression into a passing artifact.
+25. Ignored Python bytecode caches in the Harvey mirror/recovery directories
+    could contaminate copied skill and image contexts, while the local
+    file-lane probe used a temporary source outside the generator's confinement
+    boundary. Generated caches were removed, source-tree validation now rejects
+    `__pycache__`, `.pyc`, and `.pyo` artifacts, and the probe creates its
+    fixture beneath the confined repository `dist` root.
 
 ## Measured inventory
 
@@ -142,10 +150,10 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
-| Unit suites | 99/99 passed (manifest, port, local runtime, assertion guards, Harbor byte/topology and dataset integrity, Harvey mutation v3, anonymous GHCR, production-wrapper trust boundary) |
+| Unit suites | 101/101 passed (manifest, port, local runtime, assertion guards, Harbor byte/topology and dataset integrity including cache-artifact rejection, Harvey mutation v3 including cross-process serialization, anonymous GHCR, production-wrapper trust boundary) |
 | Document-render adversarial suite | 4/4 passed: full-bleed header accepted, clipped body rejected, catalog hash substitution rejected, traversal rejected |
 | Seed reproducibility | 351/351 files byte-identical in isolated rebuild |
-| Retail authority reachability | 51/51 citations and official URLs projected into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated |
+| Retail authority projection | 51/51 mapped citations and URLs projected byte-exactly into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated. This is not a claim that every external URL or law was revalidated live at build time. |
 | Visual document audit | 351/351 source files and 585/585 rendered pages: 117 DOCX, 351 worksheet pages, 117 PDF; exact catalog bytes/hashes and safe body geometry verified |
 | Harvey mutation inventory | 35 byte-reproducible variants across 16 source tasks and 14 practice areas; 85 task-relative source-document occurrences produce 182 generated document instances; 0 blocked and 2 resolved source-defect candidates classified |
 | Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,598 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies or package symlinks |
