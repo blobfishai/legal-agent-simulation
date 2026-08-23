@@ -27,11 +27,16 @@ Usage:
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
+import os
 import random
 import re
 import shutil
+import stat
+import struct
 import subprocess
 import sys
 import tempfile
@@ -51,7 +56,7 @@ DEFAULT_PLAN = ROOT / "research" / "mutation-configs" / "seed-plan.json"
 DEFAULT_PIN_FILE = ROOT / "research" / "repos-commits.json"
 PIN_KEY = "harveyai@harvey-labs"
 SOURCE_REPO = "harveyai/harvey-labs"
-TOOL_VERSION = 2
+TOOL_VERSION = 3
 OOXML_EXTENSIONS = {".docx", ".docm", ".xlsx", ".xlsm", ".pptx", ".pptm"}
 WORD_EXTENSIONS = {".docx", ".docm"}
 PLAIN_EXTENSIONS = {".txt", ".md", ".json", ".csv", ".xml", ".html", ".htm"}
@@ -190,6 +195,34 @@ def validate_seed(seed: Any) -> int:
     if isinstance(seed, bool) or not isinstance(seed, int) or seed < 0:
         raise ValueError("seed must be a non-negative integer")
     return seed
+
+
+@contextmanager
+def mutation_output_lock(output_root: Path):
+    """Serialize generators and checkers that share one mutation output tree."""
+    identity = hashlib.sha256(str(output_root.resolve()).encode()).hexdigest()[:24]
+    lock_path = Path(tempfile.gettempdir()) / (
+        f"legal-agent-mutations-{os.getuid()}-{identity}.lock"
+    )
+    flags = os.O_CREAT | os.O_RDWR
+    if hasattr(os, "O_NOFOLLOW"):
+        flags |= os.O_NOFOLLOW
+    descriptor = os.open(lock_path, flags, 0o600)
+    metadata = os.fstat(descriptor)
+    if (
+        not stat.S_ISREG(metadata.st_mode)
+        or metadata.st_uid != os.getuid()
+        or metadata.st_nlink != 1
+    ):
+        os.close(descriptor)
+        raise RuntimeError(f"unsafe mutation lock file: {lock_path}")
+    os.fchmod(descriptor, 0o600)
+    with os.fdopen(descriptor, "a+", encoding="utf-8") as handle:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
 
 def kebab(value: str) -> str:
@@ -610,10 +643,81 @@ DOCX_CONTENT_PART_RE = re.compile(
     r"word/(document|header\d*|footer\d*|footnotes|endnotes|comments)\.xml"
 )
 
+FAIL_CLAUSE_RE = re.compile(r"\bFAIL (?:only )?if\b")
+
+# Local-file-header offset of the general-purpose bit flag (2 bytes, LE).
+_LOCAL_HEADER_FLAG_OFFSET = 6
+# Bit 3: sizes/CRC deferred to a data descriptor. Restoring a mismatch on this
+# bit would desynchronize the member layout, so it fails closed instead.
+_DATA_DESCRIPTOR_FLAG = 0x08
+
+
+def snapshot_zip_member_metadata(
+    archive: zipfile.ZipFile,
+) -> list[tuple[str, int, int]]:
+    """Capture (flag_bits, external_attr) per member BEFORE any write.
+
+    ``ZipFile.writestr`` mutates the very ZipInfo objects handed to it, so the
+    restoration pass must compare against copied values, not the objects.
+    """
+    # Preserve archive order instead of keying by filename: ZIP permits
+    # duplicate member names, and collapsing those entries would restore the
+    # wrong metadata to one of them.
+    return [
+        (info.filename, info.flag_bits, info.external_attr)
+        for info in archive.infolist()
+    ]
+
+
+def restore_zip_member_metadata(
+    output_archive: zipfile.ZipFile, source_infos: list[tuple[str, int, int]]
+) -> None:
+    """Round-trip ZIP member metadata that Python's writer normalizes.
+
+    ``ZipFile.writestr`` resets each member's general-purpose flag bits and
+    promotes a zero ``external_attr`` to ``0o600 << 16``; most upstream
+    documents already carry exactly those normalized values, but one known
+    upstream package (the white-collar negotiation memo) was authored by a
+    different pipeline with ``flag_bits=0x802`` and ``external_attr=0``, so an
+    otherwise byte-faithful copy failed the package-topology equality check.
+    This pass restores the source values: ``external_attr`` lives only in the
+    central directory (rewritten from these ZipInfo objects at close), while
+    ``flag_bits`` is additionally patched into the already-written local
+    header so the archive stays internally consistent. Members whose metadata
+    already matches are untouched, which keeps every previously passing
+    document re-deriving byte-identically.
+    """
+    if len(output_archive.filelist) != len(source_infos):
+        raise ValueError("ZIP member count changed before metadata restoration")
+    stream = output_archive.fp
+    if stream is None:
+        raise ValueError("ZIP output stream is closed before metadata restoration")
+    for zinfo, (source_name, source_flag_bits, source_external_attr) in zip(
+        output_archive.filelist, source_infos, strict=True
+    ):
+        if zinfo.filename != source_name:
+            raise ValueError(
+                "ZIP member order changed before metadata restoration: "
+                f"expected {source_name!r}, got {zinfo.filename!r}"
+            )
+        if zinfo.external_attr != source_external_attr:
+            zinfo.external_attr = source_external_attr
+        if zinfo.flag_bits != source_flag_bits:
+            if (zinfo.flag_bits ^ source_flag_bits) & _DATA_DESCRIPTOR_FLAG:
+                raise ValueError(
+                    f"cannot restore data-descriptor flag for {zinfo.filename}"
+                )
+            position = stream.tell()
+            stream.seek(zinfo.header_offset + _LOCAL_HEADER_FLAG_OFFSET)
+            stream.write(struct.pack("<H", source_flag_bits))
+            stream.seek(position)
+            zinfo.flag_bits = source_flag_bits
+
 
 def mutate_docx(source: Path, destination: Path, pairs: list[tuple[str, str]]) -> None:
     with zipfile.ZipFile(source) as input_archive, zipfile.ZipFile(destination, "w") as output_archive:
         output_archive.comment = input_archive.comment
+        source_metadata = snapshot_zip_member_metadata(input_archive)
         for info in input_archive.infolist():
             payload = input_archive.read(info.filename)
             if DOCX_CONTENT_PART_RE.fullmatch(info.filename):
@@ -624,6 +728,7 @@ def mutate_docx(source: Path, destination: Path, pairs: list[tuple[str, str]]) -
                     payload.decode("utf-8"), pairs
                 ).encode("utf-8")
             output_archive.writestr(info, payload)
+        restore_zip_member_metadata(output_archive, source_metadata)
     if package_topology(source) != package_topology(destination):
         raise ValueError(f"DOCX package topology changed: {source.name}")
     validate_ooxml(destination)
@@ -632,6 +737,7 @@ def mutate_docx(source: Path, destination: Path, pairs: list[tuple[str, str]]) -
 def mutate_ooxml_raw(source: Path, destination: Path, pairs: list[tuple[str, str]]) -> None:
     with zipfile.ZipFile(source) as input_archive, zipfile.ZipFile(destination, "w") as output_archive:
         output_archive.comment = input_archive.comment
+        source_metadata = snapshot_zip_member_metadata(input_archive)
         for info in input_archive.infolist():
             payload = input_archive.read(info.filename)
             if is_xml_part(info.filename):
@@ -641,6 +747,7 @@ def mutate_ooxml_raw(source: Path, destination: Path, pairs: list[tuple[str, str
                         xml_escape(new).encode("utf-8"),
                     )
             output_archive.writestr(info, payload)
+        restore_zip_member_metadata(output_archive, source_metadata)
     if package_topology(source) != package_topology(destination):
         raise ValueError(f"OOXML package topology changed: {source.name}")
     validate_ooxml(destination)
@@ -757,7 +864,11 @@ def validate_task(task: dict[str, Any]) -> None:
         ):
             raise ValueError(f"criterion {criterion['id']} references an unknown deliverable")
         match_criteria = criterion["match_criteria"]
-        if not match_criteria.startswith("PASS if") or "FAIL if" not in match_criteria:
+        # "FAIL if" and "FAIL only if" are both explicit fail triggers; the
+        # upstream corpus uses the "only if" form (e.g. litigation
+        # motion-to-dismiss C-021), which is fail-closed in the same sense —
+        # a rubric with no FAIL clause is still rejected.
+        if not match_criteria.startswith("PASS if") or not FAIL_CLAUSE_RE.search(match_criteria):
             raise ValueError(f"criterion {criterion['id']} requires fail-closed PASS/FAIL text")
 
 
@@ -1367,42 +1478,43 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if args.check:
-        if args.entities is not None or args.seed is not None or args.replace_generated:
-            parser.error("--check cannot be combined with generation-only options")
-        check_generated(args.check, args.source)
-        return 0
-    if args.check_plan:
-        if args.entities is not None or args.seed is not None or args.replace_generated:
-            parser.error("--check-plan cannot be combined with generation-only options")
-        check_seed_plan(args.check_plan, args.source, args.out)
-        return 0
-    if args.plan:
-        if args.entities is not None or args.seed is not None:
-            parser.error("--plan reads entities and seeds from the plan file")
-        outputs = generate_seed_plan(
-            args.plan,
+    with mutation_output_lock(args.out):
+        if args.check:
+            if args.entities is not None or args.seed is not None or args.replace_generated:
+                parser.error("--check cannot be combined with generation-only options")
+            check_generated(args.check, args.source)
+            return 0
+        if args.check_plan:
+            if args.entities is not None or args.seed is not None or args.replace_generated:
+                parser.error("--check-plan cannot be combined with generation-only options")
+            check_seed_plan(args.check_plan, args.source, args.out)
+            return 0
+        if args.plan:
+            if args.entities is not None or args.seed is not None:
+                parser.error("--plan reads entities and seeds from the plan file")
+            outputs = generate_seed_plan(
+                args.plan,
+                args.source,
+                args.out,
+                args.replace_generated,
+            )
+            for output in outputs:
+                print(f"generated Harvey task: {output}")
+            check_seed_plan(args.plan, args.source, args.out)
+            return 0
+        if args.entities is None or args.seed is None:
+            parser.error("--task requires --entities and --seed")
+        output = generate(
+            args.task,
+            args.entities,
+            args.seed,
             args.source,
             args.out,
             args.replace_generated,
         )
-        for output in outputs:
-            print(f"generated Harvey task: {output}")
-        check_seed_plan(args.plan, args.source, args.out)
+        print(f"generated Harvey task: {output}")
+        check_generated(output, args.source)
         return 0
-    if args.entities is None or args.seed is None:
-        parser.error("--task requires --entities and --seed")
-    output = generate(
-        args.task,
-        args.entities,
-        args.seed,
-        args.source,
-        args.out,
-        args.replace_generated,
-    )
-    print(f"generated Harvey task: {output}")
-    check_generated(output, args.source)
-    return 0
 
 
 if __name__ == "__main__":

@@ -1,19 +1,24 @@
 {
-  "schema_version": 1,
-  "blocked": [
-    {
-      "task": "litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss",
-      "entities": "litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss/entities.json",
-      "status": "blocked_upstream_source_defect",
-      "reason_code": "unsupported_fail_only_if_rubric_form",
-      "reason": "Upstream criterion C-021 uses a FAIL-only-if form that the fail-closed rubric validator intentionally rejects."
-    },
-    {
-      "task": "white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement",
-      "entities": "white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement/entities.json",
-      "status": "blocked_upstream_source_defect",
-      "reason_code": "non_roundtrippable_ooxml_member_metadata",
-      "reason": "The upstream negotiation strategy DOCX has anomalous ZIP member metadata that the byte-preserving generator cannot reproduce."
-    }
-  ]
+ "schema_version": 1,
+ "blocked": [],
+ "resolved": [
+  {
+   "task": "litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss",
+   "entities": "litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss/entities.json",
+   "status": "resolved_by_tool_extension",
+   "reason_code": "unsupported_fail_only_if_rubric_form",
+   "reason": "Upstream criterion C-021 uses a FAIL-only-if form that the fail-closed rubric validator intentionally rejects.",
+   "resolved": "2026-08-23",
+   "resolution": "lab_mutate.validate_task now accepts the explicit 'FAIL only if' trigger alongside 'FAIL if' (FAIL_CLAUSE_RE); rubrics with no FAIL clause are still rejected."
+  },
+  {
+   "task": "white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement",
+   "entities": "white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement/entities.json",
+   "status": "resolved_by_tool_extension",
+   "reason_code": "non_roundtrippable_ooxml_member_metadata",
+   "reason": "The upstream negotiation strategy DOCX has anomalous ZIP member metadata that the byte-preserving generator cannot reproduce.",
+   "resolved": "2026-08-23",
+   "resolution": "lab_mutate's OOXML writers snapshot and restore ZIP member metadata (flag_bits via local-header patch, external_attr via central directory) that Python's writer normalizes, so the anomalous package round-trips byte-faithfully; a data-descriptor flag mismatch still fails closed."
+  }
+ ]
 }

@@ -4,6 +4,8 @@ import copy
 import hashlib
 import importlib.util
 import json
+import select
+import struct
 import subprocess
 import tempfile
 import unittest
@@ -76,6 +78,19 @@ def rewrite_zip_copy(
             output_archive.writestr(info, payload)
     if replacements < 1:
         raise AssertionError(f"fixture token {old!r} missing from {member}")
+
+
+def patch_single_zip_member_metadata(
+    path: Path, *, flag_bits: int, external_attr: int
+) -> None:
+    """Patch one-member ZIP headers to emulate archives from other writers."""
+    payload = bytearray(path.read_bytes())
+    local = payload.index(b"PK\x03\x04")
+    central = payload.index(b"PK\x01\x02")
+    struct.pack_into("<H", payload, local + 6, flag_bits)
+    struct.pack_into("<H", payload, central + 8, flag_bits)
+    struct.pack_into("<I", payload, central + 38, external_attr)
+    path.write_bytes(payload)
 
 
 class HarveyMutationFixture(unittest.TestCase):
@@ -249,6 +264,131 @@ class BroadMutationTests(HarveyMutationFixture):
         task["criteria"][0]["deliverables"] = ["unknown.docx"]
         with self.assertRaisesRegex(ValueError, "unknown deliverable"):
             BROAD.validate_task(task)
+
+    def test_task_validation_accepts_fail_only_if_and_rejects_no_fail_clause(self) -> None:
+        task = json.loads((self.task_dir / "task.json").read_text(encoding="utf-8"))
+        task["criteria"][0]["match_criteria"] = (
+            "PASS if the Memo uses the Oregon record. "
+            "FAIL only if the record is absent."
+        )
+        BROAD.validate_task(task)
+        task["criteria"][0]["match_criteria"] = "PASS if the Memo is complete."
+        with self.assertRaisesRegex(ValueError, "fail-closed"):
+            BROAD.validate_task(task)
+
+    def test_zip_metadata_round_trips_nondefault_flags_and_attributes(self) -> None:
+        source = self.workspace / "source.zip"
+        destination = self.workspace / "destination.zip"
+        with zipfile.ZipFile(source, "w") as archive:
+            archive.writestr("member.xml", "Oregon")
+        patch_single_zip_member_metadata(source, flag_bits=0x802, external_attr=0)
+
+        with zipfile.ZipFile(source) as input_archive, zipfile.ZipFile(
+            destination, "w"
+        ) as output_archive:
+            metadata = BROAD.snapshot_zip_member_metadata(input_archive)
+            for info in input_archive.infolist():
+                output_archive.writestr(info, input_archive.read(info.filename))
+            BROAD.restore_zip_member_metadata(output_archive, metadata)
+
+        self.assertEqual(BROAD.package_topology(source), BROAD.package_topology(destination))
+
+    def test_zip_metadata_restoration_preserves_duplicate_member_order(self) -> None:
+        destination = self.workspace / "duplicates.zip"
+        with zipfile.ZipFile(destination, "w") as output_archive:
+            output_archive.writestr("member.xml", "first")
+            with self.assertWarns(UserWarning):
+                output_archive.writestr("member.xml", "second")
+            BROAD.restore_zip_member_metadata(
+                output_archive,
+                [("member.xml", 0, 0), ("member.xml", 0, 0o100644 << 16)],
+            )
+        with zipfile.ZipFile(destination) as archive:
+            self.assertEqual(
+                [info.external_attr for info in archive.infolist()],
+                [0, 0o100644 << 16],
+            )
+
+    def test_zip_metadata_restoration_rejects_data_descriptor_change(self) -> None:
+        destination = self.workspace / "destination.zip"
+        with zipfile.ZipFile(destination, "w") as output_archive:
+            output_archive.writestr("member.xml", "Oregon")
+            with self.assertRaisesRegex(ValueError, "data-descriptor"):
+                BROAD.restore_zip_member_metadata(
+                    output_archive,
+                    [("member.xml", 0x08, output_archive.filelist[0].external_attr)],
+                )
+
+    def test_multi_seed_plan_can_be_transactionally_replaced(self) -> None:
+        plan = self.workspace / "seed-plan.json"
+        write_json(plan, {
+            "schema_version": 1,
+            "variants": [{
+                "task": self.task_name,
+                "entities": "entities.json",
+                "seeds": [1, 2],
+            }],
+        })
+        (plan.parent / "entities.json").write_bytes(self.entities.read_bytes())
+        output = self.workspace / "generated-plan"
+        first = BROAD.generate_seed_plan(plan, self.source, output)
+        second = BROAD.generate_seed_plan(
+            plan, self.source, output, replace_generated=True
+        )
+        self.assertEqual(first, second)
+        BROAD.check_seed_plan(plan, self.source, output)
+
+    def test_output_lock_serializes_independent_processes(self) -> None:
+        output = self.workspace / "shared-output"
+        script = """
+import importlib.util
+from pathlib import Path
+import sys
+
+spec = importlib.util.spec_from_file_location("lab_mutate_lock_probe", sys.argv[1])
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+with module.mutation_output_lock(Path(sys.argv[2])):
+    print("locked", flush=True)
+    sys.stdin.readline()
+"""
+        command = [
+            "python3",
+            "-c",
+            script,
+            str(ROOT / "research" / "lab_mutate.py"),
+            str(output),
+        ]
+        first = subprocess.Popen(
+            command,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        second = None
+        try:
+            self.assertEqual(first.stdout.readline().strip(), "locked")
+            second = subprocess.Popen(
+                command,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+            ready, _, _ = select.select([second.stdout], [], [], 0.25)
+            self.assertEqual(ready, [], "second process bypassed the output lock")
+            first.communicate(input="\n", timeout=5)
+            second_stdout, second_stderr = second.communicate(input="\n", timeout=5)
+            self.assertEqual(second.returncode, 0, second_stderr)
+            self.assertEqual(second_stdout.strip(), "locked")
+        finally:
+            if first.poll() is None:
+                first.kill()
+                first.wait(timeout=5)
+            if second is not None and second.poll() is None:
+                second.kill()
+                second.wait(timeout=5)
 
 
 class StrictMutationTests(HarveyMutationFixture):

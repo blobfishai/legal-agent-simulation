@@ -115,6 +115,22 @@
     1,
     2
    ]
+  },
+  {
+   "task": "litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss",
+   "entities": "litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
+  },
+  {
+   "task": "white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement",
+   "entities": "white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement/entities.json",
+   "seeds": [
+    1,
+    2
+   ]
   }
  ]
 }

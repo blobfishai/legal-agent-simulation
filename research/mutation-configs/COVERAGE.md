@@ -30,27 +30,19 @@ reproduction check runs.
 | 12 | data-privacy-cybersecurity/analyze-counterparty-markup-of-data-processing-agreement | 5 | 4 docx, eml | 18 | 1, 2 | pass |
 | 13 | emerging-companies-venture-capital/analyze-counterparty-markup-of-stock-purchase-agreement | 6 | 4 docx, xlsx, eml | 23 | 1, 2 | pass |
 | 14 | insurance/analyze-counterparty-markup-of-reinsurance-treaty | 6 | 3 docx, xlsx, 2 eml | 15 | 1, 2 | pass |
+| 15 | litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss | 6 | 4 docx, 2 eml | 16 | 1, 2 | pass |
+| 16 | white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement | 6 | 5 docx, eml | 16 | 1, 2 | pass |
 
-Totals: 14 source tasks, 12 practice areas, 31 seeded variants (28 beyond the
-pilot), 73 task-relative source document occurrences, and 158 generated
-document instances. `--check-plan` verdict: **31/31 valid** at source
+Totals: 16 source tasks, 14 practice areas, 35 seeded variants (32 beyond the
+pilot), 85 task-relative source document occurrences, and 182 generated
+document instances. `--check-plan` verdict: **35/35 valid** at source
 `7be41d57fd5a`.
 
-Two additional candidates were attempted and are blocked by newly identified
-upstream source defects rather than mapping gaps; their validated
-`entities.json` configs are retained as staged work product, and they are
-deliberately NOT in `seed-plan.json` (the plan checker would fail closed):
-
-- `litigation-dispute-resolution/analyze-counterparty-motion-to-dismiss` —
-  upstream criterion C-021 reads "FAIL only if …", which fails the tool's
-  fail-closed requirement for literal "FAIL if" rubric text. Reproduced on the
-  unmodified source task.json, so it is entity-independent.
-- `white-collar-defense-investigations/analyze-counterparty-markup-of-deferred-prosecution-agreement`
-  — `negotiation-strategy-memo.docx` carries anomalous ZIP member metadata
-  (`flag_bits=2050`, `external_attr=0`, empty `dc:creator`, unlike every
-  sibling document) that Python's `zipfile` cannot round-trip byte-for-byte,
-  so the mandatory package-topology equality check fails even for an
-  identity copy (verified with an empty-substitution control run).
+Rows 15 and 16 were initially blocked by two newly identified upstream source
+defects (each reproduced on the unmodified source, so entity-independent) and
+were unblocked on 2026-08-23 by extending the tool — see the 2026-08-23
+capability note below. The defect records and their resolutions are kept in
+`candidate-status.json` under `resolved`.
 
 Known tool limitation recorded during row 9: `.eml` headers that carry raw
 UTF-8 (not RFC-2047 encoded-words) are surrogate-escaped by Python's header
@@ -58,12 +50,42 @@ parser, so non-ASCII names there ("Derek Muñoz") cannot be substituted; the
 residual scan correctly flags them, and such names are left unmapped with the
 choice documented.
 
-Admission status: these thirty-one outputs are reproducible mutation and
-regression fixtures, not thirty-one independently graded v21 tasks. See
+Admission status: these thirty-five outputs are reproducible mutation and
+regression fixtures, not thirty-five independently graded v21 tasks. See
 [`../harvey-augmentation/ADMISSION.md`](../harvey-augmentation/ADMISSION.md) for
 the release boundary. The canonical v21 scale claim instead counts 117 admitted
 packs, 351 documents, and 94 mutations that are referenced by stable tasks and
 native Harbor packages.
+
+## Tool capability note (2026-08-23)
+
+Rows 15 and 16 failed closed against two upstream source defects that were
+entity-independent (each reproduced on unmodified source). The tool was again
+extended rather than weakened. These changes advance generated provenance to
+`research/lab_mutate.py v3`:
+
+- `validate_task` accepts the explicit "FAIL only if" trigger alongside
+  "FAIL if" (`FAIL_CLAUSE_RE`). The upstream litigation criterion C-021 is
+  written "PASS if … FAIL only if …", which is fail-closed in the same sense;
+  a rubric with no FAIL clause is still rejected (probe-tested).
+- The OOXML writers snapshot each source member's ZIP metadata before writing
+  and restore what Python's `zipfile` normalizes (`flag_bits` reset to 0,
+  zero `external_attr` promoted to `0o600 << 16`): `external_attr` via the
+  central directory, `flag_bits` by patching the already-written local header
+  so the archive stays internally consistent. The white-collar
+  `negotiation-strategy-memo.docx` (flag_bits `0x802`, external_attr 0,
+  authored by a different upstream pipeline than its siblings) now
+  round-trips byte-faithfully; a data-descriptor flag mismatch still fails
+  closed. Metadata is retained in archive order, so duplicate ZIP member names
+  cannot collapse into one dictionary entry. Members whose metadata already
+  matches are untouched, so every
+  previously passing document re-derives byte-identically — verified by the
+  full 35-variant `--check-plan` re-derivation.
+- CLI generation and checking now share an ownership-checked, non-symlink,
+  mode-0600 advisory lock keyed to the resolved output tree. Concurrent plan
+  generation/check invocations can no longer observe or publish a partially
+  replaced variant; each individual variant still uses its validated sibling
+  staging directory and atomic directory replacement.
 
 ## Tool capability note (2026-08-22)
 

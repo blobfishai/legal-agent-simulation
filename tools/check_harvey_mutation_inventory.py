@@ -44,14 +44,32 @@ def main() -> int:
 
     planned_rows = plan.get("variants") or []
     blocked_rows = status.get("blocked") or []
+    resolved_rows = status.get("resolved") or []
     planned = {row.get("entities") for row in planned_rows}
     blocked = {row.get("entities") for row in blocked_rows}
-    if None in planned or None in blocked:
+    resolved = {row.get("entities") for row in resolved_rows}
+    if None in planned or None in blocked or None in resolved:
         fail("every mutation candidate requires an entities path")
-    if len(planned) != len(planned_rows) or len(blocked) != len(blocked_rows):
+    if (
+        len(planned) != len(planned_rows)
+        or len(blocked) != len(blocked_rows)
+        or len(resolved) != len(resolved_rows)
+    ):
         fail("mutation candidate paths must be unique")
     if planned & blocked:
         fail(f"planned and blocked candidates overlap: {sorted(planned & blocked)}")
+    # A resolved record documents a formerly blocked candidate whose upstream
+    # defect the generator now handles; the candidate must have re-entered the
+    # plan, and its resolution must be recorded.
+    if resolved - planned:
+        fail(f"resolved candidates missing from the seed plan: {sorted(resolved - planned)}")
+    if resolved & blocked:
+        fail(f"resolved and blocked candidates overlap: {sorted(resolved & blocked)}")
+    for row in resolved_rows:
+        if row.get("status") != "resolved_by_tool_extension":
+            fail(f"resolved candidate has an unsupported status: {row}")
+        if not row.get("reason_code") or not row.get("reason") or not row.get("resolution"):
+            fail(f"resolved candidate lacks a documented resolution: {row.get('task')}")
 
     entity_paths = list(CONFIG_ROOT.rglob("entities.json"))
     unsafe = [path for path in entity_paths if path.is_symlink() or not path.is_file()]
@@ -99,8 +117,9 @@ def main() -> int:
     practice_areas = {str(row["task"]).split("/", 1)[0] for row in planned_rows}
     if (
         len(planned_rows), len(practice_areas), seed_count,
-        source_document_occurrences, generated_document_instances, len(blocked_rows),
-    ) != (14, 12, 31, 73, 158, 2):
+        source_document_occurrences, generated_document_instances,
+        len(blocked_rows), len(resolved_rows),
+    ) != (16, 14, 35, 85, 182, 0, 2):
         fail("frozen mutation inventory totals drifted")
 
     print(json.dumps({
@@ -110,6 +129,7 @@ def main() -> int:
         "source_document_occurrences": source_document_occurrences,
         "generated_document_instances": generated_document_instances,
         "blocked_candidates": len(blocked_rows),
+        "resolved_candidates": len(resolved_rows),
         "classified_entity_maps": len(discovered),
     }, sort_keys=True))
     return 0
