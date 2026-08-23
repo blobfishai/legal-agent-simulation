@@ -16,25 +16,24 @@ now **fully self-hosting** — the entire world runs offline from this repo.
 
 ## Current LAB-Superset program status
 
-The latest local augmentation is `world/blobfish/world-v20.json`: **2,331
-tasks**, **121 total operations / 110 agent-visible product tools**, ten
-systems, **2,010/2,010 Harvey LAB tasks hosted**, six executable retail
-price-accuracy workflows, five 50-call capstones, and 31 load-bearing
-multi-step/multi-turn tasks. The frozen v19 deterministic implementation gates
-M0–M6 and M8 pass. M7 is externally blocked at 856/6,972 reference-model
-episodes because the pinned DeepSeek account has insufficient balance; the
-partial observations are not published as a pass³ result.
+The current executable release is `world/blobfish/world-v21.json`: **23,310
+tasks**, **1,111 total operations / 1,100 agent-visible product tools**, 32
+systems, 254 tables, and one deterministic verifier per task. It preserves the
+**2,010/2,010 hosted Harvey LAB tasks**, retail, capstone, and multi-step lanes,
+then adds 20,963 stateful task variants, 990 task-exercised tools, and 198
+synthetic DOCX/XLSX/PDF inputs across 22 practice domains. See the measured
+[v21 release record](docs/V21-10X-WORLD.md).
 
 The [Harvey parity audit](docs/HARVEY-PARITY-AUDIT.md) separates exact-copy,
 operational-parity, extension, and open-gap claims. The generated [program
 status](docs/PROGRAM-STATUS.md) maps every M0–M8 gate to
 its proof and exact verification command. `world-v16.json` remains the
-lightweight product-only default until the frozen v19 calibration completes;
-this prevents a release candidate with an unfinished denominator from silently
-becoming the default benchmark.
+lightweight product-only benchmark; Harbor export and the v21 scripts default
+to the current v21 release. Frozen historical model scores are not silently
+generalized to the expanded task denominator.
 
 The charter's `~150–170` tool count was a planning estimate, not an acceptance
-threshold. The v20 task-driven surface has 110 agent-visible tools, plus 11
+threshold. The v21 task-driven surface has 1,100 agent-visible tools, plus 11
 non-discoverable runtime operations.
 The T2 rule remains in force: endpoints no admitted task exercises are not added
 merely to increase the count.
@@ -62,9 +61,10 @@ Three things live here:
 
 2. **The evidence and eval supply chain** — task packs, real source documents,
    and a 46-repository legal-domain research corpus under `research/repos/`.
-   World v20 imports all Harvey LAB documents and task shapes into a separate
-   file lane while deterministic state/grounding checks remain the headline
-   score. The completed evidence/file-lane gate and its measured parse caveats
+   World v20 imports all Harvey LAB task shapes into executable state and file
+   lanes; v21 adds 198 structure-preserving synthetic Office/PDF inputs while
+   deterministic state/grounding checks remain the headline score. The
+   completed evidence/file-lane gate and its measured parse caveats
    are in [`docs/V17A-EVIDENCE-AND-FILE-LANE.md`](docs/V17A-EVIDENCE-AND-FILE-LANE.md).
 3. **Audited measurements** — deterministic episode traces, pass^k,
    discrimination artifacts, and per-model failure-mode reports. Historical

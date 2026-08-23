@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7901,
+      "path": "evidence-register.xlsx",
+      "sha256": "86afd729b8683a7e8775291d67c0d6ee527f111a688704c0ab4a1f3c4b7c54e7"
+    },
+    {
+      "bytes": 39490,
+      "path": "matter-brief.docx",
+      "sha256": "5f74d7c3d65ca9575d19fec0701bb5727ff4371638dc2244fc0653aeeea9e0e6"
+    },
+    {
+      "bytes": 2839,
+      "path": "source-extract.pdf",
+      "sha256": "db957b7a824ee6ed3ee21a8759154ec19bb8fa08a95e023335454d123f63566b"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-IM-01-057",
+    "attorney_validation_required": true,
+    "domain": "immigration",
+    "domain_label": "Business Immigration",
+    "due_date": "2026-10-08",
+    "evidence_date": "2026-09-03",
+    "expected_status": "remediated-im-01",
+    "issue": "control discrepancy in petitions",
+    "item_count": 57,
+    "jurisdiction": "CA",
+    "matter_ref": "MAT-IM-1161",
+    "mutation_parent": null,
+    "pack_id": "pack-immigration-01",
+    "reserve_amount": 2800,
+    "risk_level": "high",
+    "synthetic": true,
+    "title": "Business Immigration Control Review 01",
+    "total_amount": 5155.65,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 90.45,
+    "variant": 1
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

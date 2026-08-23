@@ -1,0 +1,13 @@
+{
+  "added_systems": 22,
+  "added_tables": 198,
+  "added_visible_tools": 990,
+  "contracts": 32,
+  "internal_tools": 11,
+  "output": "mcp/v5",
+  "schema_version": 1,
+  "source": "mcp/v4",
+  "tables": 254,
+  "tools": 1111,
+  "visible_tools": 1100
+}

@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Privacy (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-privacy-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_processing_activities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-PROCESSING_ACTIVITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-PROCESSING_ACTIVITIES-001 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-PROCESSING_ACTIVITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-PROCESSING_ACTIVITIES-002 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-PROCESSING_ACTIVITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-PROCESSING_ACTIVITIES-003 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-PROCESSING_ACTIVITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-PROCESSING_ACTIVITIES-004 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-PROCESSING_ACTIVITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-PROCESSING_ACTIVITIES-005 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-PROCESSING_ACTIVITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-PROCESSING_ACTIVITIES-006 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-PROCESSING_ACTIVITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-PROCESSING_ACTIVITIES-007 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-PROCESSING_ACTIVITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-PROCESSING_ACTIVITIES-008 | synthetic processing activities fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Processing Activities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_data_subject_requests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-001 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-002 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-003 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-004 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-005 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-006 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-007 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-DATA_SUBJECT_REQUESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-DATA_SUBJECT_REQUESTS-008 | synthetic data subject requests fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Data Subject Requests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_consents",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-CONSENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-CONSENTS-001 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-CONSENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-CONSENTS-002 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-CONSENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-CONSENTS-003 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-CONSENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-CONSENTS-004 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-CONSENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-CONSENTS-005 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-CONSENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-CONSENTS-006 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-CONSENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-CONSENTS-007 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-CONSENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-CONSENTS-008 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Consents Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_assessments",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-ASSESSMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-ASSESSMENTS-001 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-ASSESSMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-ASSESSMENTS-002 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-ASSESSMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-ASSESSMENTS-003 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-ASSESSMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-ASSESSMENTS-004 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-ASSESSMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-ASSESSMENTS-005 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-ASSESSMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-ASSESSMENTS-006 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-ASSESSMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-ASSESSMENTS-007 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-ASSESSMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-ASSESSMENTS-008 | synthetic assessments fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Assessments Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_vendors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-VENDORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-VENDORS-001 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-VENDORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-VENDORS-002 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-VENDORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-VENDORS-003 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-VENDORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-VENDORS-004 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-VENDORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-VENDORS-005 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-VENDORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-VENDORS-006 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-VENDORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-VENDORS-007 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-VENDORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-VENDORS-008 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Vendors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_transfers",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-TRANSFERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-TRANSFERS-001 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-TRANSFERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-TRANSFERS-002 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-TRANSFERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-TRANSFERS-003 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-TRANSFERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-TRANSFERS-004 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-TRANSFERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-TRANSFERS-005 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-TRANSFERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-TRANSFERS-006 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-TRANSFERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-TRANSFERS-007 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-TRANSFERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-TRANSFERS-008 | synthetic transfers fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Transfers Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_incidents",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-INCIDENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-INCIDENTS-001 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-INCIDENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-INCIDENTS-002 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-INCIDENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-INCIDENTS-003 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-INCIDENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-INCIDENTS-004 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-INCIDENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-INCIDENTS-005 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-INCIDENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-INCIDENTS-006 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-INCIDENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-INCIDENTS-007 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-INCIDENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-INCIDENTS-008 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Incidents Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_notices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-NOTICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-NOTICES-001 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-NOTICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-NOTICES-002 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-NOTICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-NOTICES-003 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-NOTICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-NOTICES-004 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-NOTICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-NOTICES-005 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-NOTICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-NOTICES-006 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-NOTICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-NOTICES-007 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-NOTICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-NOTICES-008 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Notices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_pv_retention_rules",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PV-RETENTION_RULES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-01",
+            "status": "open",
+            "summary": "pack-privacy-01 | ANCHOR-PV-RETENTION_RULES-001 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PV-RETENTION_RULES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-RETENTION_RULES-002 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PV-RETENTION_RULES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-03",
+            "status": "review",
+            "summary": "pack-privacy-03 | ANCHOR-PV-RETENTION_RULES-003 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PV-RETENTION_RULES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-01",
+            "status": "pending",
+            "summary": "pack-privacy-01 | ANCHOR-PV-RETENTION_RULES-004 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PV-RETENTION_RULES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-privacy-02",
+            "status": "review",
+            "summary": "pack-privacy-02 | ANCHOR-PV-RETENTION_RULES-005 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PV-RETENTION_RULES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-privacy-03",
+            "status": "pending",
+            "summary": "pack-privacy-03 | ANCHOR-PV-RETENTION_RULES-006 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PV-RETENTION_RULES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-privacy-01",
+            "status": "review",
+            "summary": "pack-privacy-01 | ANCHOR-PV-RETENTION_RULES-007 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PV-RETENTION_RULES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-privacy-02",
+            "status": "pending",
+            "summary": "pack-privacy-02 | ANCHOR-PV-RETENTION_RULES-008 | synthetic retention rules fact pattern; attorney validation required before external use.",
+            "title": "Privacy - Retention Rules Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List processing activities with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy processing activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Processing Activities collection",
+      "name": "privacy_processing_activities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_processing_activities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete processing activities record by integer id. Synthetic documentation-fixture operation for privacy processing activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Processing Activities detail",
+      "name": "privacy_processing_activities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_processing_activities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search processing activities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy processing activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Processing Activities search",
+      "name": "privacy_processing_activities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_processing_activities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-PROCESSING_ACTIVITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Processing Activities",
+        "version": 1
+      },
+      "description": "Create a fully attributed processing activities record. Synthetic documentation-fixture operation for privacy processing activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Processing Activities filing workflow",
+      "name": "privacy_processing_activities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_processing_activities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing processing activities record with explicit change fields. Synthetic documentation-fixture operation for privacy processing activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Processing Activities change-control workflow",
+      "name": "privacy_processing_activities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_processing_activities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List data subject requests with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy data subject requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Data Subject Requests collection",
+      "name": "privacy_data_subject_requests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_data_subject_requests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete data subject requests record by integer id. Synthetic documentation-fixture operation for privacy data subject requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Data Subject Requests detail",
+      "name": "privacy_data_subject_requests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_data_subject_requests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search data subject requests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy data subject requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Data Subject Requests search",
+      "name": "privacy_data_subject_requests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_data_subject_requests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-DATA_SUBJECT_REQUESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Data Subject Requests",
+        "version": 1
+      },
+      "description": "Create a fully attributed data subject requests record. Synthetic documentation-fixture operation for privacy data subject requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Data Subject Requests filing workflow",
+      "name": "privacy_data_subject_requests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_data_subject_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing data subject requests record with explicit change fields. Synthetic documentation-fixture operation for privacy data subject requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Data Subject Requests change-control workflow",
+      "name": "privacy_data_subject_requests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_data_subject_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List consents with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Consents collection",
+      "name": "privacy_consents_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_consents"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete consents record by integer id. Synthetic documentation-fixture operation for privacy consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Consents detail",
+      "name": "privacy_consents_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_consents"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search consents keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Consents search",
+      "name": "privacy_consents_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_consents"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-CONSENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Consents",
+        "version": 1
+      },
+      "description": "Create a fully attributed consents record. Synthetic documentation-fixture operation for privacy consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Consents filing workflow",
+      "name": "privacy_consents_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_consents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing consents record with explicit change fields. Synthetic documentation-fixture operation for privacy consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Consents change-control workflow",
+      "name": "privacy_consents_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_consents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List assessments with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy assessments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Assessments collection",
+      "name": "privacy_assessments_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_assessments"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete assessments record by integer id. Synthetic documentation-fixture operation for privacy assessments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Assessments detail",
+      "name": "privacy_assessments_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_assessments"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search assessments keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy assessments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Assessments search",
+      "name": "privacy_assessments_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_assessments"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-ASSESSMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Assessments",
+        "version": 1
+      },
+      "description": "Create a fully attributed assessments record. Synthetic documentation-fixture operation for privacy assessments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Assessments filing workflow",
+      "name": "privacy_assessments_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_assessments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing assessments record with explicit change fields. Synthetic documentation-fixture operation for privacy assessments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Assessments change-control workflow",
+      "name": "privacy_assessments_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_assessments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List vendors with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Vendors collection",
+      "name": "privacy_vendors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_vendors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete vendors record by integer id. Synthetic documentation-fixture operation for privacy vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Vendors detail",
+      "name": "privacy_vendors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_vendors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search vendors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Vendors search",
+      "name": "privacy_vendors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_vendors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-VENDORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Vendors",
+        "version": 1
+      },
+      "description": "Create a fully attributed vendors record. Synthetic documentation-fixture operation for privacy vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Vendors filing workflow",
+      "name": "privacy_vendors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_vendors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing vendors record with explicit change fields. Synthetic documentation-fixture operation for privacy vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Vendors change-control workflow",
+      "name": "privacy_vendors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_vendors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List transfers with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy transfers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Transfers collection",
+      "name": "privacy_transfers_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_transfers"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete transfers record by integer id. Synthetic documentation-fixture operation for privacy transfers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Transfers detail",
+      "name": "privacy_transfers_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_transfers"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search transfers keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy transfers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Transfers search",
+      "name": "privacy_transfers_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_transfers"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-TRANSFERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Transfers",
+        "version": 1
+      },
+      "description": "Create a fully attributed transfers record. Synthetic documentation-fixture operation for privacy transfers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Transfers filing workflow",
+      "name": "privacy_transfers_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_transfers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing transfers record with explicit change fields. Synthetic documentation-fixture operation for privacy transfers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Transfers change-control workflow",
+      "name": "privacy_transfers_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_transfers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List incidents with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Incidents collection",
+      "name": "privacy_incidents_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_incidents"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete incidents record by integer id. Synthetic documentation-fixture operation for privacy incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Incidents detail",
+      "name": "privacy_incidents_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_incidents"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search incidents keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Incidents search",
+      "name": "privacy_incidents_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_incidents"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-INCIDENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Incidents",
+        "version": 1
+      },
+      "description": "Create a fully attributed incidents record. Synthetic documentation-fixture operation for privacy incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Incidents filing workflow",
+      "name": "privacy_incidents_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_incidents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing incidents record with explicit change fields. Synthetic documentation-fixture operation for privacy incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Incidents change-control workflow",
+      "name": "privacy_incidents_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_incidents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notices with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Notices collection",
+      "name": "privacy_notices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_notices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notices record by integer id. Synthetic documentation-fixture operation for privacy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Notices detail",
+      "name": "privacy_notices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_notices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search notices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Notices search",
+      "name": "privacy_notices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_notices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-NOTICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notices",
+        "version": 1
+      },
+      "description": "Create a fully attributed notices record. Synthetic documentation-fixture operation for privacy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Notices filing workflow",
+      "name": "privacy_notices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notices record with explicit change fields. Synthetic documentation-fixture operation for privacy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Notices change-control workflow",
+      "name": "privacy_notices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List retention rules with deterministic filters and pagination. Synthetic documentation-fixture operation for privacy retention rules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Retention Rules collection",
+      "name": "privacy_retention_rules_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_pv_retention_rules"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete retention rules record by integer id. Synthetic documentation-fixture operation for privacy retention rules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Retention Rules detail",
+      "name": "privacy_retention_rules_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_pv_retention_rules"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-privacy-01"
+      },
+      "description": "Search retention rules keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for privacy retention rules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Retention Rules search",
+      "name": "privacy_retention_rules_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_pv_retention_rules"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PV-RETENTION_RULES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-privacy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Retention Rules",
+        "version": 1
+      },
+      "description": "Create a fully attributed retention rules record. Synthetic documentation-fixture operation for privacy retention rules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Retention Rules filing workflow",
+      "name": "privacy_retention_rules_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_pv_retention_rules"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing retention rules record with explicit change fields. Synthetic documentation-fixture operation for privacy retention rules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Privacy synthetic Retention Rules change-control workflow",
+      "name": "privacy_retention_rules_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_pv_retention_rules"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

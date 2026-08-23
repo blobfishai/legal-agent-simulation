@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Healthcare Regulatory (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-healthcare-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_providers",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-PROVIDERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-PROVIDERS-001 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-PROVIDERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-PROVIDERS-002 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-PROVIDERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-PROVIDERS-003 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-PROVIDERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-PROVIDERS-004 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-PROVIDERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-PROVIDERS-005 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-PROVIDERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-PROVIDERS-006 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-PROVIDERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-PROVIDERS-007 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-PROVIDERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-PROVIDERS-008 | synthetic providers fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Providers Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_facilities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-FACILITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-FACILITIES-001 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-FACILITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-FACILITIES-002 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-FACILITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-FACILITIES-003 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-FACILITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-FACILITIES-004 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-FACILITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-FACILITIES-005 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-FACILITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-FACILITIES-006 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-FACILITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-FACILITIES-007 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-FACILITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-FACILITIES-008 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Facilities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_licenses",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-LICENSES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-LICENSES-001 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-LICENSES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-LICENSES-002 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-LICENSES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-LICENSES-003 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-LICENSES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-LICENSES-004 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-LICENSES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-LICENSES-005 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-LICENSES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-LICENSES-006 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-LICENSES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-LICENSES-007 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-LICENSES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-LICENSES-008 | synthetic licenses fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Licenses Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_payor_contracts",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-PAYOR_CONTRACTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-PAYOR_CONTRACTS-001 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-PAYOR_CONTRACTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-PAYOR_CONTRACTS-002 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-PAYOR_CONTRACTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-PAYOR_CONTRACTS-003 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-PAYOR_CONTRACTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-PAYOR_CONTRACTS-004 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-PAYOR_CONTRACTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-PAYOR_CONTRACTS-005 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-PAYOR_CONTRACTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-PAYOR_CONTRACTS-006 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-PAYOR_CONTRACTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-PAYOR_CONTRACTS-007 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-PAYOR_CONTRACTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-PAYOR_CONTRACTS-008 | synthetic payor contracts fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Payor Contracts Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_claims_audits",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-CLAIMS_AUDITS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-CLAIMS_AUDITS-001 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-CLAIMS_AUDITS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-CLAIMS_AUDITS-002 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-CLAIMS_AUDITS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-CLAIMS_AUDITS-003 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-CLAIMS_AUDITS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-CLAIMS_AUDITS-004 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-CLAIMS_AUDITS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-CLAIMS_AUDITS-005 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-CLAIMS_AUDITS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-CLAIMS_AUDITS-006 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-CLAIMS_AUDITS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-CLAIMS_AUDITS-007 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-CLAIMS_AUDITS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-CLAIMS_AUDITS-008 | synthetic claims audits fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Claims Audits Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_compliance_events",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-COMPLIANCE_EVENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-COMPLIANCE_EVENTS-001 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-COMPLIANCE_EVENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-COMPLIANCE_EVENTS-002 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-COMPLIANCE_EVENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-COMPLIANCE_EVENTS-003 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-COMPLIANCE_EVENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-COMPLIANCE_EVENTS-004 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-COMPLIANCE_EVENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-COMPLIANCE_EVENTS-005 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-COMPLIANCE_EVENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-COMPLIANCE_EVENTS-006 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-COMPLIANCE_EVENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-COMPLIANCE_EVENTS-007 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-COMPLIANCE_EVENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-COMPLIANCE_EVENTS-008 | synthetic compliance events fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Compliance Events Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_disclosures",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-DISCLOSURES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-DISCLOSURES-001 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-DISCLOSURES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-DISCLOSURES-002 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-DISCLOSURES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-DISCLOSURES-003 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-DISCLOSURES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-DISCLOSURES-004 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-DISCLOSURES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-DISCLOSURES-005 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-DISCLOSURES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-DISCLOSURES-006 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-DISCLOSURES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-DISCLOSURES-007 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-DISCLOSURES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-DISCLOSURES-008 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Disclosures Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_investigations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-INVESTIGATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-INVESTIGATIONS-001 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-INVESTIGATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-INVESTIGATIONS-002 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-INVESTIGATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-INVESTIGATIONS-003 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-INVESTIGATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-INVESTIGATIONS-004 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-INVESTIGATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-INVESTIGATIONS-005 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-INVESTIGATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-INVESTIGATIONS-006 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-INVESTIGATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-INVESTIGATIONS-007 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-INVESTIGATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-INVESTIGATIONS-008 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Investigations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_hc_corrective_actions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "HC-CORRECTIVE_ACTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-HC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-01",
+            "status": "open",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-CORRECTIVE_ACTIONS-001 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "HC-CORRECTIVE_ACTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-HC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-CORRECTIVE_ACTIONS-002 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "HC-CORRECTIVE_ACTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-HC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-03",
+            "status": "review",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-CORRECTIVE_ACTIONS-003 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "HC-CORRECTIVE_ACTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-HC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-01",
+            "status": "pending",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-CORRECTIVE_ACTIONS-004 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "HC-CORRECTIVE_ACTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-HC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-healthcare-02",
+            "status": "review",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-CORRECTIVE_ACTIONS-005 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "HC-CORRECTIVE_ACTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-HC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-healthcare-03",
+            "status": "pending",
+            "summary": "pack-healthcare-03 | ANCHOR-HC-CORRECTIVE_ACTIONS-006 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "HC-CORRECTIVE_ACTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-HC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-healthcare-01",
+            "status": "review",
+            "summary": "pack-healthcare-01 | ANCHOR-HC-CORRECTIVE_ACTIONS-007 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "HC-CORRECTIVE_ACTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-HC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-healthcare-02",
+            "status": "pending",
+            "summary": "pack-healthcare-02 | ANCHOR-HC-CORRECTIVE_ACTIONS-008 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Healthcare Regulatory - Corrective Actions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List providers with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory providers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Providers collection",
+      "name": "healthcare_providers_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_providers"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete providers record by integer id. Synthetic documentation-fixture operation for healthcare regulatory providers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Providers detail",
+      "name": "healthcare_providers_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_providers"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search providers keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory providers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Providers search",
+      "name": "healthcare_providers_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_providers"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-PROVIDERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Providers",
+        "version": 1
+      },
+      "description": "Create a fully attributed providers record. Synthetic documentation-fixture operation for healthcare regulatory providers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Providers filing workflow",
+      "name": "healthcare_providers_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_providers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing providers record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory providers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Providers change-control workflow",
+      "name": "healthcare_providers_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_providers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List facilities with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Facilities collection",
+      "name": "healthcare_facilities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_facilities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete facilities record by integer id. Synthetic documentation-fixture operation for healthcare regulatory facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Facilities detail",
+      "name": "healthcare_facilities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_facilities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search facilities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Facilities search",
+      "name": "healthcare_facilities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_facilities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-FACILITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Facilities",
+        "version": 1
+      },
+      "description": "Create a fully attributed facilities record. Synthetic documentation-fixture operation for healthcare regulatory facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Facilities filing workflow",
+      "name": "healthcare_facilities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_facilities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing facilities record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Facilities change-control workflow",
+      "name": "healthcare_facilities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_facilities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List licenses with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory licenses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Licenses collection",
+      "name": "healthcare_licenses_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_licenses"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete licenses record by integer id. Synthetic documentation-fixture operation for healthcare regulatory licenses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Licenses detail",
+      "name": "healthcare_licenses_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_licenses"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search licenses keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory licenses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Licenses search",
+      "name": "healthcare_licenses_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_licenses"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-LICENSES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Licenses",
+        "version": 1
+      },
+      "description": "Create a fully attributed licenses record. Synthetic documentation-fixture operation for healthcare regulatory licenses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Licenses filing workflow",
+      "name": "healthcare_licenses_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_licenses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing licenses record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory licenses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Licenses change-control workflow",
+      "name": "healthcare_licenses_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_licenses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List payor contracts with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory payor contracts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Payor Contracts collection",
+      "name": "healthcare_payor_contracts_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_payor_contracts"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete payor contracts record by integer id. Synthetic documentation-fixture operation for healthcare regulatory payor contracts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Payor Contracts detail",
+      "name": "healthcare_payor_contracts_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_payor_contracts"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search payor contracts keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory payor contracts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Payor Contracts search",
+      "name": "healthcare_payor_contracts_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_payor_contracts"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-PAYOR_CONTRACTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Payor Contracts",
+        "version": 1
+      },
+      "description": "Create a fully attributed payor contracts record. Synthetic documentation-fixture operation for healthcare regulatory payor contracts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Payor Contracts filing workflow",
+      "name": "healthcare_payor_contracts_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_payor_contracts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing payor contracts record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory payor contracts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Payor Contracts change-control workflow",
+      "name": "healthcare_payor_contracts_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_payor_contracts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List claims audits with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory claims audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Claims Audits collection",
+      "name": "healthcare_claims_audits_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_claims_audits"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete claims audits record by integer id. Synthetic documentation-fixture operation for healthcare regulatory claims audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Claims Audits detail",
+      "name": "healthcare_claims_audits_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_claims_audits"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search claims audits keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory claims audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Claims Audits search",
+      "name": "healthcare_claims_audits_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_claims_audits"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-CLAIMS_AUDITS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Claims Audits",
+        "version": 1
+      },
+      "description": "Create a fully attributed claims audits record. Synthetic documentation-fixture operation for healthcare regulatory claims audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Claims Audits filing workflow",
+      "name": "healthcare_claims_audits_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_claims_audits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing claims audits record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory claims audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Claims Audits change-control workflow",
+      "name": "healthcare_claims_audits_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_claims_audits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List compliance events with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory compliance events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Compliance Events collection",
+      "name": "healthcare_compliance_events_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_compliance_events"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete compliance events record by integer id. Synthetic documentation-fixture operation for healthcare regulatory compliance events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Compliance Events detail",
+      "name": "healthcare_compliance_events_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_compliance_events"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search compliance events keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory compliance events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Compliance Events search",
+      "name": "healthcare_compliance_events_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_compliance_events"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-COMPLIANCE_EVENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Compliance Events",
+        "version": 1
+      },
+      "description": "Create a fully attributed compliance events record. Synthetic documentation-fixture operation for healthcare regulatory compliance events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Compliance Events filing workflow",
+      "name": "healthcare_compliance_events_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_compliance_events"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing compliance events record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory compliance events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Compliance Events change-control workflow",
+      "name": "healthcare_compliance_events_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_compliance_events"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List disclosures with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Disclosures collection",
+      "name": "healthcare_disclosures_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_disclosures"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete disclosures record by integer id. Synthetic documentation-fixture operation for healthcare regulatory disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Disclosures detail",
+      "name": "healthcare_disclosures_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_disclosures"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search disclosures keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Disclosures search",
+      "name": "healthcare_disclosures_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_disclosures"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-DISCLOSURES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Disclosures",
+        "version": 1
+      },
+      "description": "Create a fully attributed disclosures record. Synthetic documentation-fixture operation for healthcare regulatory disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Disclosures filing workflow",
+      "name": "healthcare_disclosures_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_disclosures"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing disclosures record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Disclosures change-control workflow",
+      "name": "healthcare_disclosures_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_disclosures"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List investigations with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Investigations collection",
+      "name": "healthcare_investigations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_investigations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete investigations record by integer id. Synthetic documentation-fixture operation for healthcare regulatory investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Investigations detail",
+      "name": "healthcare_investigations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_investigations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search investigations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Investigations search",
+      "name": "healthcare_investigations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_investigations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-INVESTIGATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Investigations",
+        "version": 1
+      },
+      "description": "Create a fully attributed investigations record. Synthetic documentation-fixture operation for healthcare regulatory investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Investigations filing workflow",
+      "name": "healthcare_investigations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_investigations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing investigations record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Investigations change-control workflow",
+      "name": "healthcare_investigations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_investigations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List corrective actions with deterministic filters and pagination. Synthetic documentation-fixture operation for healthcare regulatory corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Corrective Actions collection",
+      "name": "healthcare_corrective_actions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_hc_corrective_actions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete corrective actions record by integer id. Synthetic documentation-fixture operation for healthcare regulatory corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Corrective Actions detail",
+      "name": "healthcare_corrective_actions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_hc_corrective_actions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-healthcare-01"
+      },
+      "description": "Search corrective actions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for healthcare regulatory corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Corrective Actions search",
+      "name": "healthcare_corrective_actions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_hc_corrective_actions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-HC-CORRECTIVE_ACTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-HC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-healthcare-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Corrective Actions",
+        "version": 1
+      },
+      "description": "Create a fully attributed corrective actions record. Synthetic documentation-fixture operation for healthcare regulatory corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Corrective Actions filing workflow",
+      "name": "healthcare_corrective_actions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_hc_corrective_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing corrective actions record with explicit change fields. Synthetic documentation-fixture operation for healthcare regulatory corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Healthcare Regulatory synthetic Corrective Actions change-control workflow",
+      "name": "healthcare_corrective_actions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_hc_corrective_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

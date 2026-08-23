@@ -68,6 +68,28 @@ def main() -> int:
         dockerfile = generator.lab_agent_dockerfile("lab-agent:v17")
         assert dockerfile.startswith("# File-lane") and "FROM lab-agent:v17" in dockerfile
 
+        input_only = {
+            **task,
+            "task_id": "v21_input_only_gate",
+            "file_lane": {
+                **task["file_lane"],
+                "inputs_only": True,
+                "deliverables": [],
+                "skills": [],
+                "assertions": [],
+                "grading": "determinate-state-and-trace",
+            },
+        }
+        input_only_dir = base / "input-only-task"
+        generator.stage_file_lane(input_only, str(input_only_dir))
+        assert len(list((input_only_dir / "environment" / "documents").glob("*.txt"))) == 9
+        assert not list((input_only_dir / "environment" / "skills").rglob("SKILL.md"))
+        input_instruction = generator.instruction_md(input_only)
+        assert "## Input-document lane" in input_instruction
+        assert "do not create a separate filesystem deliverable" in " ".join(input_instruction.split())
+        assert "Follow the exact output filename" not in input_instruction
+        assert generator.validated_deliverables(input_only) == []
+
         output = base / "output"
         logs = base / "logs"
         output.mkdir()

@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7898,
+      "path": "evidence-register.xlsx",
+      "sha256": "e377f0db4af35074c109279c232dd6e8eb3ac825e1480de8ea17d62b947a3b3e"
+    },
+    {
+      "bytes": 39500,
+      "path": "matter-brief.docx",
+      "sha256": "de1fe90812839f6c323619bb59e8b7d6b14956604b0fc3b0c444f7eae4d31bc3"
+    },
+    {
+      "bytes": 2850,
+      "path": "source-extract.pdf",
+      "sha256": "b94f7ec56b12b87c4c8373d15fc6716d8566dbeb12b1c8f93dd94555005d47c1"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-IV-03-076",
+    "attorney_validation_required": true,
+    "domain": "investigations",
+    "domain_label": "Internal Investigations",
+    "due_date": "2026-10-30",
+    "evidence_date": "2026-09-15",
+    "expected_status": "remediated-iv-03",
+    "issue": "control discrepancy in interviews",
+    "item_count": 76,
+    "jurisdiction": "DC",
+    "matter_ref": "MAT-IV-1213",
+    "mutation_parent": "pack-investigations-01",
+    "pack_id": "pack-investigations-03",
+    "reserve_amount": 3525,
+    "risk_level": "critical",
+    "synthetic": true,
+    "title": "Internal Investigations Control Review 03",
+    "total_amount": 8846.4,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 116.4,
+    "variant": 3
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

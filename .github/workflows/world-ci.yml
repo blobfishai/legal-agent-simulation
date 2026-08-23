@@ -364,3 +364,44 @@ jobs:
             --job jobs/world-ci/m0-harbor-nop \
             --tasks task_003 task_v3_001 task_194 \
             --reward 0 --passed 0
+
+  v21-scale:
+    name: v21 10x rebuild and exhaustive verifier gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install pinned v21 document dependencies
+        run: python3 -m pip install --disable-pip-version-check -r tools/v21-requirements.txt
+
+      - name: Validate v20/v21 sources
+        run: |
+          python3 -m py_compile \
+            world/v20/build.py \
+            world/v20/build_retail.py \
+            world/v21/catalog.py \
+            world/v21/build_contracts.py \
+            world/v21/build.py \
+            world/v21/verifiers.py \
+            world/local/v21_verifier_runtime.py \
+            tools/build_v21_seed_documents.py \
+            tools/check_v20_retail.py \
+            tools/check_v21_scale.py
+
+      - name: Rebuild v20 and v21 from tracked inputs
+        run: |
+          python3 world/v20/build_retail.py
+          python3 world/v20/build.py \
+            --base world/blobfish/world-v20.json \
+            --out world/blobfish/world-v20-draft.json
+          python3 world/v21/build_contracts.py
+          python3 tools/build_v21_seed_documents.py
+          python3 tools/build_v21_seed_documents.py --check
+          python3 world/v21/build.py
+
+      - name: Run exhaustive scale, state, trace, and adversarial gates
+        run: |
+          python3 tools/check_v20_retail.py
+          python3 tools/check_v21_scale.py

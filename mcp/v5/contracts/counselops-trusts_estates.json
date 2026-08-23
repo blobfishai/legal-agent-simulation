@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Trusts and Estates (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-trusts_estates-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_estates",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-ESTATES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ESTATES-001 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-ESTATES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ESTATES-002 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-ESTATES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-ESTATES-003 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-ESTATES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ESTATES-004 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-ESTATES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ESTATES-005 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-ESTATES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-ESTATES-006 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-ESTATES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ESTATES-007 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-ESTATES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ESTATES-008 | synthetic estates fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Estates Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_trusts",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-TRUSTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-TRUSTS-001 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-TRUSTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-TRUSTS-002 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-TRUSTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-TRUSTS-003 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-TRUSTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-TRUSTS-004 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-TRUSTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-TRUSTS-005 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-TRUSTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-TRUSTS-006 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-TRUSTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-TRUSTS-007 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-TRUSTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-TRUSTS-008 | synthetic trusts fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Trusts Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_fiduciaries",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-FIDUCIARIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-FIDUCIARIES-001 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-FIDUCIARIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-FIDUCIARIES-002 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-FIDUCIARIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-FIDUCIARIES-003 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-FIDUCIARIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-FIDUCIARIES-004 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-FIDUCIARIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-FIDUCIARIES-005 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-FIDUCIARIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-FIDUCIARIES-006 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-FIDUCIARIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-FIDUCIARIES-007 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-FIDUCIARIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-FIDUCIARIES-008 | synthetic fiduciaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Fiduciaries Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_beneficiaries",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-BENEFICIARIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-BENEFICIARIES-001 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-BENEFICIARIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-BENEFICIARIES-002 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-BENEFICIARIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-BENEFICIARIES-003 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-BENEFICIARIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-BENEFICIARIES-004 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-BENEFICIARIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-BENEFICIARIES-005 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-BENEFICIARIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-BENEFICIARIES-006 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-BENEFICIARIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-BENEFICIARIES-007 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-BENEFICIARIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-BENEFICIARIES-008 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Beneficiaries Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_assets",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-ASSETS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ASSETS-001 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-ASSETS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ASSETS-002 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-ASSETS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-ASSETS-003 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-ASSETS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ASSETS-004 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-ASSETS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ASSETS-005 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-ASSETS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-ASSETS-006 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-ASSETS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ASSETS-007 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-ASSETS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ASSETS-008 | synthetic assets fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Assets Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_distributions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-DISTRIBUTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-DISTRIBUTIONS-001 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-DISTRIBUTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-DISTRIBUTIONS-002 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-DISTRIBUTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-DISTRIBUTIONS-003 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-DISTRIBUTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-DISTRIBUTIONS-004 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-DISTRIBUTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-DISTRIBUTIONS-005 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-DISTRIBUTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-DISTRIBUTIONS-006 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-DISTRIBUTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-DISTRIBUTIONS-007 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-DISTRIBUTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-DISTRIBUTIONS-008 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Distributions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_accountings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-ACCOUNTINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ACCOUNTINGS-001 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-ACCOUNTINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ACCOUNTINGS-002 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-ACCOUNTINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-ACCOUNTINGS-003 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-ACCOUNTINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ACCOUNTINGS-004 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-ACCOUNTINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ACCOUNTINGS-005 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-ACCOUNTINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-ACCOUNTINGS-006 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-ACCOUNTINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-ACCOUNTINGS-007 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-ACCOUNTINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-ACCOUNTINGS-008 | synthetic accountings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Accountings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_tax_filings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-TAX_FILINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-TAX_FILINGS-001 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-TAX_FILINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-TAX_FILINGS-002 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-TAX_FILINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-TAX_FILINGS-003 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-TAX_FILINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-TAX_FILINGS-004 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-TAX_FILINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-TAX_FILINGS-005 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-TAX_FILINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-TAX_FILINGS-006 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-TAX_FILINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-TAX_FILINGS-007 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-TAX_FILINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-TAX_FILINGS-008 | synthetic tax filings fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Tax Filings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_te_court_petitions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TE-COURT_PETITIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "open",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-COURT_PETITIONS-001 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TE-COURT_PETITIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-COURT_PETITIONS-002 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TE-COURT_PETITIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "review",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-COURT_PETITIONS-003 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TE-COURT_PETITIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "pending",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-COURT_PETITIONS-004 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TE-COURT_PETITIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "review",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-COURT_PETITIONS-005 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TE-COURT_PETITIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-trusts_estates-03",
+            "status": "pending",
+            "summary": "pack-trusts_estates-03 | ANCHOR-TE-COURT_PETITIONS-006 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TE-COURT_PETITIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-trusts_estates-01",
+            "status": "review",
+            "summary": "pack-trusts_estates-01 | ANCHOR-TE-COURT_PETITIONS-007 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TE-COURT_PETITIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-trusts_estates-02",
+            "status": "pending",
+            "summary": "pack-trusts_estates-02 | ANCHOR-TE-COURT_PETITIONS-008 | synthetic court petitions fact pattern; attorney validation required before external use.",
+            "title": "Trusts and Estates - Court Petitions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List estates with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates estates records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Estates collection",
+      "name": "trusts_estates_estates_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_estates"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete estates record by integer id. Synthetic documentation-fixture operation for trusts and estates estates records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Estates detail",
+      "name": "trusts_estates_estates_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_estates"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search estates keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates estates records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Estates search",
+      "name": "trusts_estates_estates_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_estates"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-ESTATES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Estates",
+        "version": 1
+      },
+      "description": "Create a fully attributed estates record. Synthetic documentation-fixture operation for trusts and estates estates records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Estates filing workflow",
+      "name": "trusts_estates_estates_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_estates"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing estates record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates estates records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Estates change-control workflow",
+      "name": "trusts_estates_estates_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_estates"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List trusts with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates trusts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Trusts collection",
+      "name": "trusts_estates_trusts_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_trusts"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete trusts record by integer id. Synthetic documentation-fixture operation for trusts and estates trusts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Trusts detail",
+      "name": "trusts_estates_trusts_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_trusts"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search trusts keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates trusts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Trusts search",
+      "name": "trusts_estates_trusts_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_trusts"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-TRUSTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Trusts",
+        "version": 1
+      },
+      "description": "Create a fully attributed trusts record. Synthetic documentation-fixture operation for trusts and estates trusts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Trusts filing workflow",
+      "name": "trusts_estates_trusts_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_trusts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing trusts record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates trusts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Trusts change-control workflow",
+      "name": "trusts_estates_trusts_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_trusts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List fiduciaries with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates fiduciaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Fiduciaries collection",
+      "name": "trusts_estates_fiduciaries_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_fiduciaries"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete fiduciaries record by integer id. Synthetic documentation-fixture operation for trusts and estates fiduciaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Fiduciaries detail",
+      "name": "trusts_estates_fiduciaries_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_fiduciaries"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search fiduciaries keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates fiduciaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Fiduciaries search",
+      "name": "trusts_estates_fiduciaries_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_fiduciaries"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-FIDUCIARIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Fiduciaries",
+        "version": 1
+      },
+      "description": "Create a fully attributed fiduciaries record. Synthetic documentation-fixture operation for trusts and estates fiduciaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Fiduciaries filing workflow",
+      "name": "trusts_estates_fiduciaries_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_fiduciaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing fiduciaries record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates fiduciaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Fiduciaries change-control workflow",
+      "name": "trusts_estates_fiduciaries_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_fiduciaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List beneficiaries with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Beneficiaries collection",
+      "name": "trusts_estates_beneficiaries_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_beneficiaries"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete beneficiaries record by integer id. Synthetic documentation-fixture operation for trusts and estates beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Beneficiaries detail",
+      "name": "trusts_estates_beneficiaries_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_beneficiaries"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search beneficiaries keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Beneficiaries search",
+      "name": "trusts_estates_beneficiaries_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_beneficiaries"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-BENEFICIARIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Beneficiaries",
+        "version": 1
+      },
+      "description": "Create a fully attributed beneficiaries record. Synthetic documentation-fixture operation for trusts and estates beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Beneficiaries filing workflow",
+      "name": "trusts_estates_beneficiaries_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_beneficiaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing beneficiaries record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Beneficiaries change-control workflow",
+      "name": "trusts_estates_beneficiaries_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_beneficiaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List assets with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Assets collection",
+      "name": "trusts_estates_assets_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_assets"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete assets record by integer id. Synthetic documentation-fixture operation for trusts and estates assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Assets detail",
+      "name": "trusts_estates_assets_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_assets"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search assets keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Assets search",
+      "name": "trusts_estates_assets_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_assets"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-ASSETS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Assets",
+        "version": 1
+      },
+      "description": "Create a fully attributed assets record. Synthetic documentation-fixture operation for trusts and estates assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Assets filing workflow",
+      "name": "trusts_estates_assets_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_assets"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing assets record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Assets change-control workflow",
+      "name": "trusts_estates_assets_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_assets"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List distributions with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Distributions collection",
+      "name": "trusts_estates_distributions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_distributions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete distributions record by integer id. Synthetic documentation-fixture operation for trusts and estates distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Distributions detail",
+      "name": "trusts_estates_distributions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_distributions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search distributions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Distributions search",
+      "name": "trusts_estates_distributions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_distributions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-DISTRIBUTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Distributions",
+        "version": 1
+      },
+      "description": "Create a fully attributed distributions record. Synthetic documentation-fixture operation for trusts and estates distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Distributions filing workflow",
+      "name": "trusts_estates_distributions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_distributions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing distributions record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Distributions change-control workflow",
+      "name": "trusts_estates_distributions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_distributions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List accountings with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates accountings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Accountings collection",
+      "name": "trusts_estates_accountings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_accountings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete accountings record by integer id. Synthetic documentation-fixture operation for trusts and estates accountings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Accountings detail",
+      "name": "trusts_estates_accountings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_accountings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search accountings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates accountings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Accountings search",
+      "name": "trusts_estates_accountings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_accountings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-ACCOUNTINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Accountings",
+        "version": 1
+      },
+      "description": "Create a fully attributed accountings record. Synthetic documentation-fixture operation for trusts and estates accountings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Accountings filing workflow",
+      "name": "trusts_estates_accountings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_accountings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing accountings record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates accountings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Accountings change-control workflow",
+      "name": "trusts_estates_accountings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_accountings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List tax filings with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates tax filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Tax Filings collection",
+      "name": "trusts_estates_tax_filings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_tax_filings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete tax filings record by integer id. Synthetic documentation-fixture operation for trusts and estates tax filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Tax Filings detail",
+      "name": "trusts_estates_tax_filings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_tax_filings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search tax filings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates tax filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Tax Filings search",
+      "name": "trusts_estates_tax_filings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_tax_filings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-TAX_FILINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Tax Filings",
+        "version": 1
+      },
+      "description": "Create a fully attributed tax filings record. Synthetic documentation-fixture operation for trusts and estates tax filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Tax Filings filing workflow",
+      "name": "trusts_estates_tax_filings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_tax_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing tax filings record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates tax filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Tax Filings change-control workflow",
+      "name": "trusts_estates_tax_filings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_tax_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List court petitions with deterministic filters and pagination. Synthetic documentation-fixture operation for trusts and estates court petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Court Petitions collection",
+      "name": "trusts_estates_court_petitions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_te_court_petitions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete court petitions record by integer id. Synthetic documentation-fixture operation for trusts and estates court petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Court Petitions detail",
+      "name": "trusts_estates_court_petitions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_te_court_petitions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-trusts_estates-01"
+      },
+      "description": "Search court petitions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for trusts and estates court petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Court Petitions search",
+      "name": "trusts_estates_court_petitions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_te_court_petitions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TE-COURT_PETITIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-trusts_estates-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Court Petitions",
+        "version": 1
+      },
+      "description": "Create a fully attributed court petitions record. Synthetic documentation-fixture operation for trusts and estates court petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Court Petitions filing workflow",
+      "name": "trusts_estates_court_petitions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_te_court_petitions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing court petitions record with explicit change fields. Synthetic documentation-fixture operation for trusts and estates court petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Trusts and Estates synthetic Court Petitions change-control workflow",
+      "name": "trusts_estates_court_petitions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_te_court_petitions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

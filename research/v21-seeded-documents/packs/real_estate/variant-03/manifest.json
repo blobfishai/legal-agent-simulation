@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7891,
+      "path": "evidence-register.xlsx",
+      "sha256": "1e6c47647a141428fda0b242fd769edb7f9f3dee580c516ce09f2ef5adf4cd64"
+    },
+    {
+      "bytes": 39503,
+      "path": "matter-brief.docx",
+      "sha256": "34c0a08b3f0a9ca5a8421ce6d7924aac4f150917cc964392eb4e7bb73a36ab67"
+    },
+    {
+      "bytes": 2837,
+      "path": "source-extract.pdf",
+      "sha256": "6f0d8d786cade48e925e78d87c48addfba5ae1ab50ab4265b85660fadf80377d"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-RE-03-034",
+    "attorney_validation_required": true,
+    "domain": "real_estate",
+    "domain_label": "Real Estate",
+    "due_date": "2026-10-02",
+    "evidence_date": "2026-08-18",
+    "expected_status": "remediated-re-03",
+    "issue": "control discrepancy in closings",
+    "item_count": 34,
+    "jurisdiction": "DC",
+    "matter_ref": "MAT-RE-1073",
+    "mutation_parent": "pack-real_estate-01",
+    "pack_id": "pack-real_estate-03",
+    "reserve_amount": 1775,
+    "risk_level": "critical",
+    "synthetic": true,
+    "title": "Real Estate Control Review 03",
+    "total_amount": 1887.0,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 55.5,
+    "variant": 3
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

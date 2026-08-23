@@ -11,8 +11,8 @@ which now writes to `dist/harbor-legacy`.)
 ## Generate + build
 
 ```bash
-python3 harbor/generate.py --build-image   # 2,331 tasks -> dist/harbor/tasks/,
-                                           # shared image legal-agent-sim-world:v20
+python3 harbor/generate.py --build-image   # 23,310 v21 tasks -> dist/harbor/tasks/,
+                                           # shared image legal-agent-sim-world:v21
 ```
 
 LAB-imported tasks carry a `file_lane` block. For those tasks the generator
@@ -33,6 +33,12 @@ the deterministic state reward and adds separate file/state diagnostics; the
 lanes are never averaged. `python3 tools/check_harbor_file_lane.py` gates path
 confinement and this contract.
 
+V21's 198 seeded DOCX/XLSX/PDF fixtures are input-only file lanes: they stage
+the evidence read-only but intentionally request no authoring skills or fake
+deliverable path. Their stateful MCP workflow is the graded output. The
+generator preserves an explicit empty `skills` list, so these lanes do not
+silently inherit the legacy authoring defaults.
+
 `dist/` is gitignored; the generated tree is a build artifact. Regeneration is
 deterministic (the `/solve` token persists in
 `dist/harbor/world-image/solve-token.txt`).
@@ -40,17 +46,20 @@ deterministic (the `/solve` token persists in
 ## Run
 
 ```bash
-uvx harbor run -p "dist/harbor/tasks/task_005" -a oracle                 # sanity: reward 1.0
-uvx harbor run -p "dist/harbor/tasks/task_005" -a claude-code -m anthropic/claude-sonnet-5
-uvx harbor run -p "dist/harbor/tasks" -a oracle -n 4                     # the whole dataset
+uvx harbor run -p "dist/harbor/tasks/task_v21_lt_matters_00001" -a oracle
+uvx harbor run -p "dist/harbor/tasks/task_v21_lt_matters_00001" -a claude-code -m anthropic/claude-sonnet-5
+uvx harbor run -p "dist/harbor/tasks" -a oracle -n 1                     # safe on a 2 GiB local VM
 ```
 
 Multi-container tasks need Harbor's **docker** environment provider (compose
 networking); cloud providers (Daytona/Modal/E2B) are not supported for these.
+Each concurrent v21 trial starts a world container, so increase Docker/runner
+memory before increasing `-n`; the release smoke is deliberately serial on a
+2 GiB Colima VM.
 
 ## Ship
 
-Tasks reference the world image as `ghcr.io/blobfishai/legal-agent-sim-world:v20`,
+Tasks reference the world image as `ghcr.io/blobfishai/legal-agent-sim-world:v21`,
 so a published image makes every task dir self-sufficient (no local build).
 Both shipping steps need interactive auth, so they are manual:
 
@@ -58,12 +67,12 @@ Both shipping steps need interactive auth, so they are manual:
 # 1. Push the world image (one-time; needs the write:packages scope)
 gh auth refresh -h github.com -s write:packages
 gh auth token | docker login ghcr.io -u <github-user> --password-stdin
-docker push ghcr.io/blobfishai/legal-agent-sim-world:v20
+docker push ghcr.io/blobfishai/legal-agent-sim-world:v21
 # then make the package public: https://github.com/orgs/blobfishai/packages
 
 # 2. Publish tasks to the Harbor registry (hub.harborframework.com)
 uvx harbor auth login          # GitHub sign-in flow
-uvx harbor publish "dist/harbor/tasks"
+uvx harbor publish "dist/harbor-v21-prod/tasks"
 ```
 
 ## Architecture
@@ -85,15 +94,17 @@ main (agent)                          world (shared image, TASK_ID env)
   every `tools/call` into the trace exactly as `sim/run-simulation.mjs` does,
   and runs verification server-side — so the agent container never contains
   `world.json` (tasks, walks, verifier code, answer keys). The canonical source
-  is `world/blobfish/world-v20.json`; historical worlds automatically retain
-  their matching v3 contract suite.
+  is `world/blobfish/world-v21.json`; historical worlds automatically retain
+  their matching contract suite. The co-resident shim fetches only its task
+  context from a loopback-only endpoint, avoiding a second parse of the large
+  world document without exposing answer keys to the agent network.
 - `tests/test.sh` writes `reward.json` with `reward` (the
   verifier's graded fraction, anti-hack vetoes to 0) and `passed` (strict
   pass/fail — the world's headline metric). File-lane tasks add separate
   diagnostic fields and preserve every produced artifact under
   `/logs/artifacts`.
 - `solution/solve.sh` triggers the same reference walk that
-  `world/local/oracle.py` proves against all 2,331 tasks; the solve endpoint is gated by a
+  `world/local/oracle.py` proves against the selected task; the solve endpoint is gated by a
   token that exists only in the world image and in `solution/` (which Harbor
   copies in only for Oracle-agent runs).
 - Native multi-step tasks use Harbor schema 1.4 `[[steps]]` and checkpoint

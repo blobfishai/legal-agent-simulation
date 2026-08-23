@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Tax Controversy (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-tax-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_taxpayers",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-TAXPAYERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-TAXPAYERS-001 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-TAXPAYERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-TAXPAYERS-002 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-TAXPAYERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-TAXPAYERS-003 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-TAXPAYERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-TAXPAYERS-004 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-TAXPAYERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-TAXPAYERS-005 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-TAXPAYERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-TAXPAYERS-006 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-TAXPAYERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-TAXPAYERS-007 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-TAXPAYERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-TAXPAYERS-008 | synthetic taxpayers fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Taxpayers Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_returns",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-RETURNS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-RETURNS-001 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-RETURNS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-RETURNS-002 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-RETURNS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-RETURNS-003 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-RETURNS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-RETURNS-004 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-RETURNS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-RETURNS-005 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-RETURNS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-RETURNS-006 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-RETURNS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-RETURNS-007 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-RETURNS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-RETURNS-008 | synthetic returns fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Returns Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_audits",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-AUDITS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-AUDITS-001 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-AUDITS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-AUDITS-002 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-AUDITS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-AUDITS-003 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-AUDITS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-AUDITS-004 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-AUDITS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-AUDITS-005 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-AUDITS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-AUDITS-006 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-AUDITS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-AUDITS-007 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-AUDITS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-AUDITS-008 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Audits Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_adjustments",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-ADJUSTMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-ADJUSTMENTS-001 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-ADJUSTMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-ADJUSTMENTS-002 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-ADJUSTMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-ADJUSTMENTS-003 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-ADJUSTMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-ADJUSTMENTS-004 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-ADJUSTMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-ADJUSTMENTS-005 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-ADJUSTMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-ADJUSTMENTS-006 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-ADJUSTMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-ADJUSTMENTS-007 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-ADJUSTMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-ADJUSTMENTS-008 | synthetic adjustments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Adjustments Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_notices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-NOTICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-NOTICES-001 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-NOTICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-NOTICES-002 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-NOTICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-NOTICES-003 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-NOTICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-NOTICES-004 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-NOTICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-NOTICES-005 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-NOTICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-NOTICES-006 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-NOTICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-NOTICES-007 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-NOTICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-NOTICES-008 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Notices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_protests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-PROTESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-PROTESTS-001 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-PROTESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-PROTESTS-002 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-PROTESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-PROTESTS-003 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-PROTESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-PROTESTS-004 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-PROTESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-PROTESTS-005 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-PROTESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-PROTESTS-006 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-PROTESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-PROTESTS-007 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-PROTESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-PROTESTS-008 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Protests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_authorities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-AUTHORITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-AUTHORITIES-001 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-AUTHORITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-AUTHORITIES-002 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-AUTHORITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-AUTHORITIES-003 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-AUTHORITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-AUTHORITIES-004 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-AUTHORITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-AUTHORITIES-005 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-AUTHORITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-AUTHORITIES-006 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-AUTHORITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-AUTHORITIES-007 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-AUTHORITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-AUTHORITIES-008 | synthetic authorities fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Authorities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_deadlines",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-DEADLINES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-DEADLINES-001 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-DEADLINES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-DEADLINES-002 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-DEADLINES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-DEADLINES-003 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-DEADLINES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-DEADLINES-004 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-DEADLINES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-DEADLINES-005 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-DEADLINES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-DEADLINES-006 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-DEADLINES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-DEADLINES-007 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-DEADLINES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-DEADLINES-008 | synthetic deadlines fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Deadlines Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_tx_payments",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "TX-PAYMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-TX-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-01",
+            "status": "open",
+            "summary": "pack-tax-01 | ANCHOR-TX-PAYMENTS-001 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "TX-PAYMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-TX-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-PAYMENTS-002 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "TX-PAYMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-TX-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-03",
+            "status": "review",
+            "summary": "pack-tax-03 | ANCHOR-TX-PAYMENTS-003 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "TX-PAYMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-TX-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-tax-01",
+            "status": "pending",
+            "summary": "pack-tax-01 | ANCHOR-TX-PAYMENTS-004 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "TX-PAYMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-TX-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-tax-02",
+            "status": "review",
+            "summary": "pack-tax-02 | ANCHOR-TX-PAYMENTS-005 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "TX-PAYMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-TX-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-tax-03",
+            "status": "pending",
+            "summary": "pack-tax-03 | ANCHOR-TX-PAYMENTS-006 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "TX-PAYMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-TX-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-tax-01",
+            "status": "review",
+            "summary": "pack-tax-01 | ANCHOR-TX-PAYMENTS-007 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "TX-PAYMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-TX-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-tax-02",
+            "status": "pending",
+            "summary": "pack-tax-02 | ANCHOR-TX-PAYMENTS-008 | synthetic payments fact pattern; attorney validation required before external use.",
+            "title": "Tax Controversy - Payments Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List taxpayers with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy taxpayers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Taxpayers collection",
+      "name": "tax_taxpayers_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_taxpayers"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete taxpayers record by integer id. Synthetic documentation-fixture operation for tax controversy taxpayers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Taxpayers detail",
+      "name": "tax_taxpayers_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_taxpayers"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search taxpayers keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy taxpayers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Taxpayers search",
+      "name": "tax_taxpayers_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_taxpayers"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-TAXPAYERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Taxpayers",
+        "version": 1
+      },
+      "description": "Create a fully attributed taxpayers record. Synthetic documentation-fixture operation for tax controversy taxpayers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Taxpayers filing workflow",
+      "name": "tax_taxpayers_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_taxpayers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing taxpayers record with explicit change fields. Synthetic documentation-fixture operation for tax controversy taxpayers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Taxpayers change-control workflow",
+      "name": "tax_taxpayers_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_taxpayers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List returns with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy returns records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Returns collection",
+      "name": "tax_returns_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_returns"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete returns record by integer id. Synthetic documentation-fixture operation for tax controversy returns records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Returns detail",
+      "name": "tax_returns_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_returns"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search returns keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy returns records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Returns search",
+      "name": "tax_returns_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_returns"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-RETURNS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Returns",
+        "version": 1
+      },
+      "description": "Create a fully attributed returns record. Synthetic documentation-fixture operation for tax controversy returns records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Returns filing workflow",
+      "name": "tax_returns_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_returns"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing returns record with explicit change fields. Synthetic documentation-fixture operation for tax controversy returns records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Returns change-control workflow",
+      "name": "tax_returns_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_returns"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List audits with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Audits collection",
+      "name": "tax_audits_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_audits"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete audits record by integer id. Synthetic documentation-fixture operation for tax controversy audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Audits detail",
+      "name": "tax_audits_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_audits"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search audits keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Audits search",
+      "name": "tax_audits_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_audits"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-AUDITS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Audits",
+        "version": 1
+      },
+      "description": "Create a fully attributed audits record. Synthetic documentation-fixture operation for tax controversy audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Audits filing workflow",
+      "name": "tax_audits_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_audits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing audits record with explicit change fields. Synthetic documentation-fixture operation for tax controversy audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Audits change-control workflow",
+      "name": "tax_audits_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_audits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List adjustments with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy adjustments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Adjustments collection",
+      "name": "tax_adjustments_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_adjustments"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete adjustments record by integer id. Synthetic documentation-fixture operation for tax controversy adjustments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Adjustments detail",
+      "name": "tax_adjustments_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_adjustments"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search adjustments keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy adjustments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Adjustments search",
+      "name": "tax_adjustments_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_adjustments"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-ADJUSTMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Adjustments",
+        "version": 1
+      },
+      "description": "Create a fully attributed adjustments record. Synthetic documentation-fixture operation for tax controversy adjustments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Adjustments filing workflow",
+      "name": "tax_adjustments_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_adjustments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing adjustments record with explicit change fields. Synthetic documentation-fixture operation for tax controversy adjustments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Adjustments change-control workflow",
+      "name": "tax_adjustments_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_adjustments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notices with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Notices collection",
+      "name": "tax_notices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_notices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notices record by integer id. Synthetic documentation-fixture operation for tax controversy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Notices detail",
+      "name": "tax_notices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_notices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search notices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Notices search",
+      "name": "tax_notices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_notices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-NOTICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notices",
+        "version": 1
+      },
+      "description": "Create a fully attributed notices record. Synthetic documentation-fixture operation for tax controversy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Notices filing workflow",
+      "name": "tax_notices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notices record with explicit change fields. Synthetic documentation-fixture operation for tax controversy notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Notices change-control workflow",
+      "name": "tax_notices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List protests with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Protests collection",
+      "name": "tax_protests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_protests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete protests record by integer id. Synthetic documentation-fixture operation for tax controversy protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Protests detail",
+      "name": "tax_protests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_protests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search protests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Protests search",
+      "name": "tax_protests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_protests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-PROTESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Protests",
+        "version": 1
+      },
+      "description": "Create a fully attributed protests record. Synthetic documentation-fixture operation for tax controversy protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Protests filing workflow",
+      "name": "tax_protests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_protests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing protests record with explicit change fields. Synthetic documentation-fixture operation for tax controversy protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Protests change-control workflow",
+      "name": "tax_protests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_protests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List authorities with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy authorities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Authorities collection",
+      "name": "tax_authorities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_authorities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete authorities record by integer id. Synthetic documentation-fixture operation for tax controversy authorities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Authorities detail",
+      "name": "tax_authorities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_authorities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search authorities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy authorities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Authorities search",
+      "name": "tax_authorities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_authorities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-AUTHORITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Authorities",
+        "version": 1
+      },
+      "description": "Create a fully attributed authorities record. Synthetic documentation-fixture operation for tax controversy authorities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Authorities filing workflow",
+      "name": "tax_authorities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_authorities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing authorities record with explicit change fields. Synthetic documentation-fixture operation for tax controversy authorities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Authorities change-control workflow",
+      "name": "tax_authorities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_authorities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List deadlines with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy deadlines records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Deadlines collection",
+      "name": "tax_deadlines_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_deadlines"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete deadlines record by integer id. Synthetic documentation-fixture operation for tax controversy deadlines records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Deadlines detail",
+      "name": "tax_deadlines_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_deadlines"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search deadlines keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy deadlines records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Deadlines search",
+      "name": "tax_deadlines_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_deadlines"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-DEADLINES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Deadlines",
+        "version": 1
+      },
+      "description": "Create a fully attributed deadlines record. Synthetic documentation-fixture operation for tax controversy deadlines records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Deadlines filing workflow",
+      "name": "tax_deadlines_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_deadlines"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing deadlines record with explicit change fields. Synthetic documentation-fixture operation for tax controversy deadlines records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Deadlines change-control workflow",
+      "name": "tax_deadlines_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_deadlines"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List payments with deterministic filters and pagination. Synthetic documentation-fixture operation for tax controversy payments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Payments collection",
+      "name": "tax_payments_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_tx_payments"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete payments record by integer id. Synthetic documentation-fixture operation for tax controversy payments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Payments detail",
+      "name": "tax_payments_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_tx_payments"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-tax-01"
+      },
+      "description": "Search payments keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for tax controversy payments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Payments search",
+      "name": "tax_payments_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_tx_payments"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-TX-PAYMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-TX-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-tax-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Payments",
+        "version": 1
+      },
+      "description": "Create a fully attributed payments record. Synthetic documentation-fixture operation for tax controversy payments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Payments filing workflow",
+      "name": "tax_payments_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_tx_payments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing payments record with explicit change fields. Synthetic documentation-fixture operation for tax controversy payments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Tax Controversy synthetic Payments change-control workflow",
+      "name": "tax_payments_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_tx_payments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

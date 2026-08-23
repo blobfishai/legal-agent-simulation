@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7891,
+      "path": "evidence-register.xlsx",
+      "sha256": "3c541840f89babd3af4141359ddecb5145a56a4648346d3a3cdc6c8003303d3f"
+    },
+    {
+      "bytes": 39485,
+      "path": "matter-brief.docx",
+      "sha256": "0f4737f5698eb3eb21a6be8822eda94a4c690d272e1b043a9c61c4a36e15a297"
+    },
+    {
+      "bytes": 2819,
+      "path": "source-extract.pdf",
+      "sha256": "8ef799776c5cc772f999709e19b0b1c4c7eeca51bfa066a19cc4c8e097a95af1"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-TX-03-037",
+    "attorney_validation_required": true,
+    "domain": "tax",
+    "domain_label": "Tax Controversy",
+    "due_date": "2026-10-04",
+    "evidence_date": "2026-08-20",
+    "expected_status": "remediated-tx-03",
+    "issue": "control discrepancy in payments",
+    "item_count": 37,
+    "jurisdiction": "DC",
+    "matter_ref": "MAT-TX-1083",
+    "mutation_parent": "pack-tax-01",
+    "pack_id": "pack-tax-03",
+    "reserve_amount": 1900,
+    "risk_level": "critical",
+    "synthetic": true,
+    "title": "Tax Controversy Control Review 03",
+    "total_amount": 2214.45,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 59.85,
+    "variant": 3
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

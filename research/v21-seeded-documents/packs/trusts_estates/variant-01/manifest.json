@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7902,
+      "path": "evidence-register.xlsx",
+      "sha256": "16ab81b3ff0440c5c014b0528702f761fe176bdedb091e417f573b603922e710"
+    },
+    {
+      "bytes": 39506,
+      "path": "matter-brief.docx",
+      "sha256": "c60ff9e8113253b94ee47c1ce4294039b2b460e0cf36737cd952b8848ebf321b"
+    },
+    {
+      "bytes": 2844,
+      "path": "source-extract.pdf",
+      "sha256": "2adc0c72177669b1473dfedc496a2f8de82e9eff161048784f43fcb8fc3c6841"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-TE-01-060",
+    "attorney_validation_required": true,
+    "domain": "trusts_estates",
+    "domain_label": "Trusts and Estates",
+    "due_date": "2026-10-10",
+    "evidence_date": "2026-09-05",
+    "expected_status": "remediated-te-01",
+    "issue": "control discrepancy in fiduciaries",
+    "item_count": 60,
+    "jurisdiction": "CA",
+    "matter_ref": "MAT-TE-1171",
+    "mutation_parent": null,
+    "pack_id": "pack-trusts_estates-01",
+    "reserve_amount": 2925,
+    "risk_level": "high",
+    "synthetic": true,
+    "title": "Trusts and Estates Control Review 01",
+    "total_amount": 5688.0,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 94.8,
+    "variant": 1
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

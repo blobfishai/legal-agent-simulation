@@ -357,6 +357,25 @@ def make_handler(world: dict, friction: Friction, initial_state: dict,
                     "internal_operations": len(v2.tools) - visible_tool_count,
                     "tasks": len(world["tasks"]),
                 })
+            context = re.match(r"^/internal/task-context/([\w\-]+)$", self.path)
+            if context:
+                task_id = context.group(1)
+                task = tasks_by_id.get(task_id)
+                verifier = verifiers.get(task_id)
+                if task is None or verifier is None:
+                    return self._json(404, {"error": "task_context_not_found"})
+                # The server binds 127.0.0.1 inside the world container, so
+                # this endpoint is reachable by the co-resident shim only,
+                # never by the agent container. It prevents the shim from
+                # parsing a second 250+ MB copy of the v21 world document.
+                return self._json(200, {
+                    "task": task,
+                    "verifier": verifier,
+                    "world": {
+                        "tables": [{"name": table["name"]} for table in world["tables"]],
+                        "tools": world.get("tools") or [],
+                    },
+                })
             return self._json(404, {"error": "not_found"})
 
         # ---------------------------------------------------------- DELETE
@@ -529,9 +548,9 @@ def main():
     ap.add_argument("--port", type=int, default=8971)
     ap.add_argument("--world", default=os.path.join(
         ROOT, "world", "blobfish", "world-v16.json"))
-    ap.add_argument("--v2-contracts", default=os.path.join(
-        ROOT, "mcp", "v3", "contracts"),
-        help="directory of the required product contracts")
+    ap.add_argument("--v2-contracts", default="",
+        help="directory of product contracts; inferred as v5 for world v21+, "
+             "v4 for world v20, and v3 for historical worlds")
     args = ap.parse_args()
 
     set_state_dir(args.world.replace(".json", "-product.json"))
@@ -541,9 +560,15 @@ def main():
             "product runtime refuses embedded synthesized tools; migrate with "
             "world/migrate/gen1_to_v16.py"
         )
+    if args.v2_contracts:
+        contracts_dir = args.v2_contracts
+    else:
+        version = int(world.get("version") or 0)
+        suite = "v5" if version >= 21 else ("v4" if version >= 20 else "v3")
+        contracts_dir = os.path.join(ROOT, "mcp", suite, "contracts")
     print(f"[local-world] loading {args.world} (state: {STATE_DIR})", file=sys.stderr)
     from v2runtime import V2Runtime
-    v2 = V2Runtime(args.v2_contracts)
+    v2 = V2Runtime(contracts_dir)
     build_seed_db(world, v2=v2)
     visible_tool_count = len(v2.mcp_tools())
     print(f"[local-world] product contracts: {len(v2.contracts)} products, "

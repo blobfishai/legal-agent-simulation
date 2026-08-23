@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Litigation (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-litigation-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_matters",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-MATTERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-MATTERS-001 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-MATTERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-MATTERS-002 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-MATTERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-MATTERS-003 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-MATTERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-MATTERS-004 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-MATTERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-MATTERS-005 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-MATTERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-MATTERS-006 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-MATTERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-MATTERS-007 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-MATTERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-MATTERS-008 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Matters Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_parties",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-PARTIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-PARTIES-001 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-PARTIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-PARTIES-002 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-PARTIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-PARTIES-003 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-PARTIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-PARTIES-004 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-PARTIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-PARTIES-005 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-PARTIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-PARTIES-006 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-PARTIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-PARTIES-007 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-PARTIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-PARTIES-008 | synthetic parties fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Parties Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_claims",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-CLAIMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-CLAIMS-001 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-CLAIMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-CLAIMS-002 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-CLAIMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-CLAIMS-003 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-CLAIMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-CLAIMS-004 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-CLAIMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-CLAIMS-005 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-CLAIMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-CLAIMS-006 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-CLAIMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-CLAIMS-007 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-CLAIMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-CLAIMS-008 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Claims Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_pleadings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-PLEADINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-PLEADINGS-001 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-PLEADINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-PLEADINGS-002 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-PLEADINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-PLEADINGS-003 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-PLEADINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-PLEADINGS-004 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-PLEADINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-PLEADINGS-005 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-PLEADINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-PLEADINGS-006 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-PLEADINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-PLEADINGS-007 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-PLEADINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-PLEADINGS-008 | synthetic pleadings fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Pleadings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_motions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-MOTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-MOTIONS-001 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-MOTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-MOTIONS-002 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-MOTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-MOTIONS-003 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-MOTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-MOTIONS-004 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-MOTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-MOTIONS-005 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-MOTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-MOTIONS-006 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-MOTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-MOTIONS-007 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-MOTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-MOTIONS-008 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Motions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_discovery_requests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-DISCOVERY_REQUESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-DISCOVERY_REQUESTS-001 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-DISCOVERY_REQUESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-DISCOVERY_REQUESTS-002 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-DISCOVERY_REQUESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-DISCOVERY_REQUESTS-003 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-DISCOVERY_REQUESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-DISCOVERY_REQUESTS-004 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-DISCOVERY_REQUESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-DISCOVERY_REQUESTS-005 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-DISCOVERY_REQUESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-DISCOVERY_REQUESTS-006 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-DISCOVERY_REQUESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-DISCOVERY_REQUESTS-007 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-DISCOVERY_REQUESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-DISCOVERY_REQUESTS-008 | synthetic discovery requests fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Discovery Requests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_depositions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-DEPOSITIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-DEPOSITIONS-001 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-DEPOSITIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-DEPOSITIONS-002 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-DEPOSITIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-DEPOSITIONS-003 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-DEPOSITIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-DEPOSITIONS-004 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-DEPOSITIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-DEPOSITIONS-005 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-DEPOSITIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-DEPOSITIONS-006 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-DEPOSITIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-DEPOSITIONS-007 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-DEPOSITIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-DEPOSITIONS-008 | synthetic depositions fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Depositions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_exhibits",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-EXHIBITS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-EXHIBITS-001 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-EXHIBITS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-EXHIBITS-002 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-EXHIBITS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-EXHIBITS-003 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-EXHIBITS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-EXHIBITS-004 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-EXHIBITS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-EXHIBITS-005 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-EXHIBITS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-EXHIBITS-006 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-EXHIBITS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-EXHIBITS-007 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-EXHIBITS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-EXHIBITS-008 | synthetic exhibits fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Exhibits Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_lt_settlements",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "LT-SETTLEMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-LT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-01",
+            "status": "open",
+            "summary": "pack-litigation-01 | ANCHOR-LT-SETTLEMENTS-001 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "LT-SETTLEMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-LT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-SETTLEMENTS-002 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "LT-SETTLEMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-LT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-03",
+            "status": "review",
+            "summary": "pack-litigation-03 | ANCHOR-LT-SETTLEMENTS-003 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "LT-SETTLEMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-LT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-01",
+            "status": "pending",
+            "summary": "pack-litigation-01 | ANCHOR-LT-SETTLEMENTS-004 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "LT-SETTLEMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-LT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-litigation-02",
+            "status": "review",
+            "summary": "pack-litigation-02 | ANCHOR-LT-SETTLEMENTS-005 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "LT-SETTLEMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-LT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-litigation-03",
+            "status": "pending",
+            "summary": "pack-litigation-03 | ANCHOR-LT-SETTLEMENTS-006 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "LT-SETTLEMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-LT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-litigation-01",
+            "status": "review",
+            "summary": "pack-litigation-01 | ANCHOR-LT-SETTLEMENTS-007 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "LT-SETTLEMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-LT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-litigation-02",
+            "status": "pending",
+            "summary": "pack-litigation-02 | ANCHOR-LT-SETTLEMENTS-008 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Litigation - Settlements Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List matters with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Matters collection",
+      "name": "litigation_matters_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_matters"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete matters record by integer id. Synthetic documentation-fixture operation for litigation matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Matters detail",
+      "name": "litigation_matters_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_matters"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search matters keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Matters search",
+      "name": "litigation_matters_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_matters"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-MATTERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Matters",
+        "version": 1
+      },
+      "description": "Create a fully attributed matters record. Synthetic documentation-fixture operation for litigation matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Matters filing workflow",
+      "name": "litigation_matters_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_matters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing matters record with explicit change fields. Synthetic documentation-fixture operation for litigation matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Matters change-control workflow",
+      "name": "litigation_matters_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_matters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List parties with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation parties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Parties collection",
+      "name": "litigation_parties_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_parties"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete parties record by integer id. Synthetic documentation-fixture operation for litigation parties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Parties detail",
+      "name": "litigation_parties_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_parties"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search parties keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation parties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Parties search",
+      "name": "litigation_parties_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_parties"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-PARTIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Parties",
+        "version": 1
+      },
+      "description": "Create a fully attributed parties record. Synthetic documentation-fixture operation for litigation parties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Parties filing workflow",
+      "name": "litigation_parties_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_parties"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing parties record with explicit change fields. Synthetic documentation-fixture operation for litigation parties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Parties change-control workflow",
+      "name": "litigation_parties_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_parties"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List claims with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Claims collection",
+      "name": "litigation_claims_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_claims"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete claims record by integer id. Synthetic documentation-fixture operation for litigation claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Claims detail",
+      "name": "litigation_claims_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_claims"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search claims keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Claims search",
+      "name": "litigation_claims_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_claims"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-CLAIMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Claims",
+        "version": 1
+      },
+      "description": "Create a fully attributed claims record. Synthetic documentation-fixture operation for litigation claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Claims filing workflow",
+      "name": "litigation_claims_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_claims"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing claims record with explicit change fields. Synthetic documentation-fixture operation for litigation claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Claims change-control workflow",
+      "name": "litigation_claims_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_claims"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List pleadings with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation pleadings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Pleadings collection",
+      "name": "litigation_pleadings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_pleadings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete pleadings record by integer id. Synthetic documentation-fixture operation for litigation pleadings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Pleadings detail",
+      "name": "litigation_pleadings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_pleadings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search pleadings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation pleadings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Pleadings search",
+      "name": "litigation_pleadings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_pleadings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-PLEADINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Pleadings",
+        "version": 1
+      },
+      "description": "Create a fully attributed pleadings record. Synthetic documentation-fixture operation for litigation pleadings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Pleadings filing workflow",
+      "name": "litigation_pleadings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_pleadings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing pleadings record with explicit change fields. Synthetic documentation-fixture operation for litigation pleadings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Pleadings change-control workflow",
+      "name": "litigation_pleadings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_pleadings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List motions with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Motions collection",
+      "name": "litigation_motions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_motions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete motions record by integer id. Synthetic documentation-fixture operation for litigation motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Motions detail",
+      "name": "litigation_motions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_motions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search motions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Motions search",
+      "name": "litigation_motions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_motions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-MOTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Motions",
+        "version": 1
+      },
+      "description": "Create a fully attributed motions record. Synthetic documentation-fixture operation for litigation motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Motions filing workflow",
+      "name": "litigation_motions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_motions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing motions record with explicit change fields. Synthetic documentation-fixture operation for litigation motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Motions change-control workflow",
+      "name": "litigation_motions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_motions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List discovery requests with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation discovery requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Discovery Requests collection",
+      "name": "litigation_discovery_requests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_discovery_requests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete discovery requests record by integer id. Synthetic documentation-fixture operation for litigation discovery requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Discovery Requests detail",
+      "name": "litigation_discovery_requests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_discovery_requests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search discovery requests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation discovery requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Discovery Requests search",
+      "name": "litigation_discovery_requests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_discovery_requests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-DISCOVERY_REQUESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Discovery Requests",
+        "version": 1
+      },
+      "description": "Create a fully attributed discovery requests record. Synthetic documentation-fixture operation for litigation discovery requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Discovery Requests filing workflow",
+      "name": "litigation_discovery_requests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_discovery_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing discovery requests record with explicit change fields. Synthetic documentation-fixture operation for litigation discovery requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Discovery Requests change-control workflow",
+      "name": "litigation_discovery_requests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_discovery_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List depositions with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation depositions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Depositions collection",
+      "name": "litigation_depositions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_depositions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete depositions record by integer id. Synthetic documentation-fixture operation for litigation depositions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Depositions detail",
+      "name": "litigation_depositions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_depositions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search depositions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation depositions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Depositions search",
+      "name": "litigation_depositions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_depositions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-DEPOSITIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Depositions",
+        "version": 1
+      },
+      "description": "Create a fully attributed depositions record. Synthetic documentation-fixture operation for litigation depositions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Depositions filing workflow",
+      "name": "litigation_depositions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_depositions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing depositions record with explicit change fields. Synthetic documentation-fixture operation for litigation depositions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Depositions change-control workflow",
+      "name": "litigation_depositions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_depositions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List exhibits with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation exhibits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Exhibits collection",
+      "name": "litigation_exhibits_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_exhibits"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete exhibits record by integer id. Synthetic documentation-fixture operation for litigation exhibits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Exhibits detail",
+      "name": "litigation_exhibits_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_exhibits"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search exhibits keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation exhibits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Exhibits search",
+      "name": "litigation_exhibits_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_exhibits"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-EXHIBITS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Exhibits",
+        "version": 1
+      },
+      "description": "Create a fully attributed exhibits record. Synthetic documentation-fixture operation for litigation exhibits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Exhibits filing workflow",
+      "name": "litigation_exhibits_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_exhibits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing exhibits record with explicit change fields. Synthetic documentation-fixture operation for litigation exhibits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Exhibits change-control workflow",
+      "name": "litigation_exhibits_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_exhibits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List settlements with deterministic filters and pagination. Synthetic documentation-fixture operation for litigation settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Settlements collection",
+      "name": "litigation_settlements_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_lt_settlements"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete settlements record by integer id. Synthetic documentation-fixture operation for litigation settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Settlements detail",
+      "name": "litigation_settlements_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_lt_settlements"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-litigation-01"
+      },
+      "description": "Search settlements keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for litigation settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Settlements search",
+      "name": "litigation_settlements_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_lt_settlements"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-LT-SETTLEMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-LT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-litigation-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Settlements",
+        "version": 1
+      },
+      "description": "Create a fully attributed settlements record. Synthetic documentation-fixture operation for litigation settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Settlements filing workflow",
+      "name": "litigation_settlements_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_lt_settlements"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing settlements record with explicit change fields. Synthetic documentation-fixture operation for litigation settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Litigation synthetic Settlements change-control workflow",
+      "name": "litigation_settlements_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_lt_settlements"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

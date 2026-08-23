@@ -1,0 +1,2777 @@
+{
+  "packs": [
+    {
+      "anchor": "V21-EVIDENCE-LT-01-009",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/litigation/variant-01/documents",
+      "domain": "litigation",
+      "domain_label": "Litigation",
+      "due_date": "2026-09-06",
+      "evidence_date": "2026-08-02",
+      "expected_status": "remediated-lt-01",
+      "files": [
+        {
+          "bytes": 7888,
+          "path": "evidence-register.xlsx",
+          "sha256": "cddaf629365b0ad7d09e347d8d0a08ad875f702090a5570e46432c88ae0b5fd3"
+        },
+        {
+          "bytes": 39480,
+          "path": "matter-brief.docx",
+          "sha256": "8dab89d9217e8410f341a5972040fbdc4b59b0e3b34a5ee44e1be29bd8690436"
+        },
+        {
+          "bytes": 2824,
+          "path": "source-extract.pdf",
+          "sha256": "065c3e73971e58d7cd558f580ef5719a53e4445974a9441a841ba38652acd24e"
+        }
+      ],
+      "issue": "control discrepancy in pleadings",
+      "item_count": 9,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/litigation/variant-01/manifest.json",
+      "matter_ref": "MAT-LT-1001",
+      "mutation_parent": null,
+      "pack_id": "pack-litigation-01",
+      "reserve_amount": 800,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Litigation Control Review 01",
+      "total_amount": 187.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 20.85,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-LT-02-011",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/litigation/variant-02/documents",
+      "domain": "litigation",
+      "domain_label": "Litigation",
+      "due_date": "2026-09-12",
+      "evidence_date": "2026-08-03",
+      "expected_status": "remediated-lt-02",
+      "files": [
+        {
+          "bytes": 7889,
+          "path": "evidence-register.xlsx",
+          "sha256": "6f0818ee39f03bcf8623b086916f5d5fe31088f6c9b3eb20bc876c9a8a7c4e5e"
+        },
+        {
+          "bytes": 39487,
+          "path": "matter-brief.docx",
+          "sha256": "368f96014dd83fa75e272eba9c9e823bd5be1deac9286c72660c54d919c89f16"
+        },
+        {
+          "bytes": 2824,
+          "path": "source-extract.pdf",
+          "sha256": "7f35060127a75564d3dbef86bc8ec26d3073496e014dad39b1019a7ddde8a511"
+        }
+      ],
+      "issue": "control discrepancy in depositions",
+      "item_count": 11,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/litigation/variant-02/manifest.json",
+      "matter_ref": "MAT-LT-1002",
+      "mutation_parent": "pack-litigation-01",
+      "pack_id": "pack-litigation-02",
+      "reserve_amount": 850,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Litigation Control Review 02",
+      "total_amount": 252.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 22.95,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-LT-03-013",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/litigation/variant-03/documents",
+      "domain": "litigation",
+      "domain_label": "Litigation",
+      "due_date": "2026-09-18",
+      "evidence_date": "2026-08-04",
+      "expected_status": "remediated-lt-03",
+      "files": [
+        {
+          "bytes": 7883,
+          "path": "evidence-register.xlsx",
+          "sha256": "a4b41ed9a46c011ab01e903ad60d6c9d097f083b8cac46bdde454aadfab72b56"
+        },
+        {
+          "bytes": 39484,
+          "path": "matter-brief.docx",
+          "sha256": "b2a57b029a7cb571cecfdfbcd7d26826ea6f1604a7bebdfa88aa51ec461920e3"
+        },
+        {
+          "bytes": 2826,
+          "path": "source-extract.pdf",
+          "sha256": "b827319b03007d23ce32ade50e660ec6605928756fa8aacbc2d3c6835a75b942"
+        }
+      ],
+      "issue": "control discrepancy in matters",
+      "item_count": 13,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/litigation/variant-03/manifest.json",
+      "matter_ref": "MAT-LT-1003",
+      "mutation_parent": "pack-litigation-01",
+      "pack_id": "pack-litigation-03",
+      "reserve_amount": 900,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Litigation Control Review 03",
+      "total_amount": 325.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 25.05,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-CG-01-012",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/corporate/variant-01/documents",
+      "domain": "corporate",
+      "domain_label": "Corporate Governance",
+      "due_date": "2026-09-08",
+      "evidence_date": "2026-08-04",
+      "expected_status": "remediated-cg-01",
+      "files": [
+        {
+          "bytes": 7892,
+          "path": "evidence-register.xlsx",
+          "sha256": "b17f07c00c7f131e8423c21e599e66fc11e92797cb09e0786fb81a66a33778b8"
+        },
+        {
+          "bytes": 39491,
+          "path": "matter-brief.docx",
+          "sha256": "b1b3bcf5b3886d5b4838bdabd979747a2b71e893cf2e9363a5fbb64d2ee26192"
+        },
+        {
+          "bytes": 2835,
+          "path": "source-extract.pdf",
+          "sha256": "68e79006b82f3e4faaf3cec9b370514659805bd8a66b96af3f3a659d348530ec"
+        }
+      ],
+      "issue": "control discrepancy in resolutions",
+      "item_count": 12,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/corporate/variant-01/manifest.json",
+      "matter_ref": "MAT-CG-1011",
+      "mutation_parent": null,
+      "pack_id": "pack-corporate-01",
+      "reserve_amount": 925,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Corporate Governance Control Review 01",
+      "total_amount": 302.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 25.2,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-CG-02-014",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/corporate/variant-02/documents",
+      "domain": "corporate",
+      "domain_label": "Corporate Governance",
+      "due_date": "2026-09-14",
+      "evidence_date": "2026-08-05",
+      "expected_status": "remediated-cg-02",
+      "files": [
+        {
+          "bytes": 7893,
+          "path": "evidence-register.xlsx",
+          "sha256": "485608e1758686f7cc354af9d8dd6634d8f9d3e29608b1dfddc8a7fb1f0fc590"
+        },
+        {
+          "bytes": 39499,
+          "path": "matter-brief.docx",
+          "sha256": "9a22a280aeb91a705ccea5cf4fa76d3ef8332265f36c6216c3b49494f3e81c38"
+        },
+        {
+          "bytes": 2839,
+          "path": "source-extract.pdf",
+          "sha256": "e930abb8b8c20e99542b4e004ca83b1fdd411d202f39331331d8d34e2ff11522"
+        }
+      ],
+      "issue": "control discrepancy in securities",
+      "item_count": 14,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/corporate/variant-02/manifest.json",
+      "matter_ref": "MAT-CG-1012",
+      "mutation_parent": "pack-corporate-01",
+      "pack_id": "pack-corporate-02",
+      "reserve_amount": 975,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Corporate Governance Control Review 02",
+      "total_amount": 382.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 27.3,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-CG-03-016",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/corporate/variant-03/documents",
+      "domain": "corporate",
+      "domain_label": "Corporate Governance",
+      "due_date": "2026-09-20",
+      "evidence_date": "2026-08-06",
+      "expected_status": "remediated-cg-03",
+      "files": [
+        {
+          "bytes": 7890,
+          "path": "evidence-register.xlsx",
+          "sha256": "8f0b4e2e3bd733a501e059b1ac16a257e17f0dcfd5f961b86645d5751f856890"
+        },
+        {
+          "bytes": 39493,
+          "path": "matter-brief.docx",
+          "sha256": "a036fa9a64a347e6542cdb8e48454c0b56d7c273ed169bb0cfd5ecc2454f7a5c"
+        },
+        {
+          "bytes": 2838,
+          "path": "source-extract.pdf",
+          "sha256": "a8317c4c120c8e4736280b322340993c08bf1d8280863f37a2bfa2600bde303f"
+        }
+      ],
+      "issue": "control discrepancy in directors",
+      "item_count": 16,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/corporate/variant-03/manifest.json",
+      "matter_ref": "MAT-CG-1013",
+      "mutation_parent": "pack-corporate-01",
+      "pack_id": "pack-corporate-03",
+      "reserve_amount": 1025,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Corporate Governance Control Review 03",
+      "total_amount": 470.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 29.4,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-CC-01-015",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/contracts/variant-01/documents",
+      "domain": "contracts",
+      "domain_label": "Commercial Contracts",
+      "due_date": "2026-09-10",
+      "evidence_date": "2026-08-06",
+      "expected_status": "remediated-cc-01",
+      "files": [
+        {
+          "bytes": 7895,
+          "path": "evidence-register.xlsx",
+          "sha256": "443a4170a1de623ae3beae115802e6ba2128c1401cc8b515dac057c57b8b0549"
+        },
+        {
+          "bytes": 39488,
+          "path": "matter-brief.docx",
+          "sha256": "2375730fe1811ac6c7574e0f5f9f627c22acb35c55e2ba12ebf906a210f1899f"
+        },
+        {
+          "bytes": 2829,
+          "path": "source-extract.pdf",
+          "sha256": "f1ed7a4537fefe4b998faafb7388798dfbf7ab71e307f97587afec539d1f070b"
+        }
+      ],
+      "issue": "control discrepancy in amendments",
+      "item_count": 15,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/contracts/variant-01/manifest.json",
+      "matter_ref": "MAT-CC-1021",
+      "mutation_parent": null,
+      "pack_id": "pack-contracts-01",
+      "reserve_amount": 1050,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Commercial Contracts Control Review 01",
+      "total_amount": 443.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 29.55,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-CC-02-017",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/contracts/variant-02/documents",
+      "domain": "contracts",
+      "domain_label": "Commercial Contracts",
+      "due_date": "2026-09-16",
+      "evidence_date": "2026-08-07",
+      "expected_status": "remediated-cc-02",
+      "files": [
+        {
+          "bytes": 7895,
+          "path": "evidence-register.xlsx",
+          "sha256": "4a1c5e7e01d102313cf3dd9bbacdb1b9a48d0d43c751a639fbed2b3398270ac5"
+        },
+        {
+          "bytes": 39491,
+          "path": "matter-brief.docx",
+          "sha256": "849062cb53af79629f8d24f9eb3a068a587c2f9dbb80d8310b0022851ceaeaae"
+        },
+        {
+          "bytes": 2832,
+          "path": "source-extract.pdf",
+          "sha256": "96b0edb49673a814779dc86511bfb3670f1dcfeb919f5570e40381ea9759ba64"
+        }
+      ],
+      "issue": "control discrepancy in playbooks",
+      "item_count": 17,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/contracts/variant-02/manifest.json",
+      "matter_ref": "MAT-CC-1022",
+      "mutation_parent": "pack-contracts-01",
+      "pack_id": "pack-contracts-02",
+      "reserve_amount": 1100,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Commercial Contracts Control Review 02",
+      "total_amount": 538.05,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 31.65,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-CC-03-019",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/contracts/variant-03/documents",
+      "domain": "contracts",
+      "domain_label": "Commercial Contracts",
+      "due_date": "2026-09-22",
+      "evidence_date": "2026-08-08",
+      "expected_status": "remediated-cc-03",
+      "files": [
+        {
+          "bytes": 7893,
+          "path": "evidence-register.xlsx",
+          "sha256": "391b3615b558124efc858e08e6f7a2ded008788893fd4d0b15d57a6a9e029b18"
+        },
+        {
+          "bytes": 39491,
+          "path": "matter-brief.docx",
+          "sha256": "9bf7751bde69e9429748a7500a3a1c1833568d71615bdeda8a5593481697c4a9"
+        },
+        {
+          "bytes": 2833,
+          "path": "source-extract.pdf",
+          "sha256": "57d377df3e24bd5e9bdd5d420a6881985d6eefdc2ae17630a5631c08e4b4c594"
+        }
+      ],
+      "issue": "control discrepancy in clauses",
+      "item_count": 19,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/contracts/variant-03/manifest.json",
+      "matter_ref": "MAT-CC-1023",
+      "mutation_parent": "pack-contracts-01",
+      "pack_id": "pack-contracts-03",
+      "reserve_amount": 1150,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Commercial Contracts Control Review 03",
+      "total_amount": 641.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 33.75,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-EL-01-018",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/employment/variant-01/documents",
+      "domain": "employment",
+      "domain_label": "Employment and Labor",
+      "due_date": "2026-09-12",
+      "evidence_date": "2026-08-08",
+      "expected_status": "remediated-el-01",
+      "files": [
+        {
+          "bytes": 7904,
+          "path": "evidence-register.xlsx",
+          "sha256": "4d514d225e83f78656f2ef21117ba906c2e5274f4b4426e5518404cac1b2467f"
+        },
+        {
+          "bytes": 39496,
+          "path": "matter-brief.docx",
+          "sha256": "be43807e6ff8ff2577a27e067d19caa35493b58849ffabc886ae16128b2e69c8"
+        },
+        {
+          "bytes": 2834,
+          "path": "source-extract.pdf",
+          "sha256": "52395f2c027e808e2bdf3140376f6948d6e8502c33fd1ca890dc34d192b92b18"
+        }
+      ],
+      "issue": "control discrepancy in discipline actions",
+      "item_count": 18,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/employment/variant-01/manifest.json",
+      "matter_ref": "MAT-EL-1031",
+      "mutation_parent": null,
+      "pack_id": "pack-employment-01",
+      "reserve_amount": 1175,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Employment and Labor Control Review 01",
+      "total_amount": 610.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 33.9,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-EL-02-020",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/employment/variant-02/documents",
+      "domain": "employment",
+      "domain_label": "Employment and Labor",
+      "due_date": "2026-09-18",
+      "evidence_date": "2026-08-09",
+      "expected_status": "remediated-el-02",
+      "files": [
+        {
+          "bytes": 7893,
+          "path": "evidence-register.xlsx",
+          "sha256": "04276f7c17e8899ad117e3a170dc938ca28f7e86ca44824ede5c7a3164f7fc20"
+        },
+        {
+          "bytes": 39493,
+          "path": "matter-brief.docx",
+          "sha256": "59a0ca071bae1d9512e2fcaa7694f574b01b563bdff5961fb7a496f89d3626dd"
+        },
+        {
+          "bytes": 2831,
+          "path": "source-extract.pdf",
+          "sha256": "bd1bd2d1f8fe9e0ef7d68079321211a5b104c920910841cf46cc631933f67398"
+        }
+      ],
+      "issue": "control discrepancy in employees",
+      "item_count": 20,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/employment/variant-02/manifest.json",
+      "matter_ref": "MAT-EL-1032",
+      "mutation_parent": "pack-employment-01",
+      "pack_id": "pack-employment-02",
+      "reserve_amount": 1225,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Employment and Labor Control Review 02",
+      "total_amount": 720.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 36.0,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-EL-03-022",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/employment/variant-03/documents",
+      "domain": "employment",
+      "domain_label": "Employment and Labor",
+      "due_date": "2026-09-24",
+      "evidence_date": "2026-08-10",
+      "expected_status": "remediated-el-03",
+      "files": [
+        {
+          "bytes": 7897,
+          "path": "evidence-register.xlsx",
+          "sha256": "81b54a895005a98e7857f18b246a080536a48abc3be8533001a634a15feb6deb"
+        },
+        {
+          "bytes": 39495,
+          "path": "matter-brief.docx",
+          "sha256": "e24b63ce824075adb11b9ea5047f8f971410401429cbab2143e68da6adac319d"
+        },
+        {
+          "bytes": 2836,
+          "path": "source-extract.pdf",
+          "sha256": "06cf33e05b6348084f49db6a0090558d7681fba0a65f356a74e8a820e499d701"
+        }
+      ],
+      "issue": "control discrepancy in interviews",
+      "item_count": 22,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/employment/variant-03/manifest.json",
+      "matter_ref": "MAT-EL-1033",
+      "mutation_parent": "pack-employment-01",
+      "pack_id": "pack-employment-03",
+      "reserve_amount": 1275,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Employment and Labor Control Review 03",
+      "total_amount": 838.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 38.1,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-PV-01-021",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/privacy/variant-01/documents",
+      "domain": "privacy",
+      "domain_label": "Privacy",
+      "due_date": "2026-09-14",
+      "evidence_date": "2026-08-10",
+      "expected_status": "remediated-pv-01",
+      "files": [
+        {
+          "bytes": 7880,
+          "path": "evidence-register.xlsx",
+          "sha256": "1524d3e7347f7a863f27e71ada1e6abacb1669009f41be3bc173c2b10219e380"
+        },
+        {
+          "bytes": 39478,
+          "path": "matter-brief.docx",
+          "sha256": "9678df6a54e5561d48907308a7b10bf061f5260ece505c47af7bdcc0a9713d51"
+        },
+        {
+          "bytes": 2811,
+          "path": "source-extract.pdf",
+          "sha256": "7a8bf6af202d00017736174f5a22e8f30335ac5d89b154be2eaa14a5aef34b7a"
+        }
+      ],
+      "issue": "control discrepancy in notices",
+      "item_count": 21,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/privacy/variant-01/manifest.json",
+      "matter_ref": "MAT-PV-1041",
+      "mutation_parent": null,
+      "pack_id": "pack-privacy-01",
+      "reserve_amount": 1300,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Privacy Control Review 01",
+      "total_amount": 803.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 38.25,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-PV-02-023",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/privacy/variant-02/documents",
+      "domain": "privacy",
+      "domain_label": "Privacy",
+      "due_date": "2026-09-20",
+      "evidence_date": "2026-08-11",
+      "expected_status": "remediated-pv-02",
+      "files": [
+        {
+          "bytes": 7897,
+          "path": "evidence-register.xlsx",
+          "sha256": "6fddd3d9507dbb256da452c0d47ca6e00710aa214ec4d3e0e274cbc367c2d9fe"
+        },
+        {
+          "bytes": 39495,
+          "path": "matter-brief.docx",
+          "sha256": "56582866ca7659de161d601f0750c08ca346313afc114020123f77fcff224bcb"
+        },
+        {
+          "bytes": 2833,
+          "path": "source-extract.pdf",
+          "sha256": "ea53e11d84ba4899dfcce159191c072077d206a6e3cd67140e1751c6df408822"
+        }
+      ],
+      "issue": "control discrepancy in data subject requests",
+      "item_count": 23,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/privacy/variant-02/manifest.json",
+      "matter_ref": "MAT-PV-1042",
+      "mutation_parent": "pack-privacy-01",
+      "pack_id": "pack-privacy-02",
+      "reserve_amount": 1350,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Privacy Control Review 02",
+      "total_amount": 928.05,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 40.35,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-PV-03-025",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/privacy/variant-03/documents",
+      "domain": "privacy",
+      "domain_label": "Privacy",
+      "due_date": "2026-09-26",
+      "evidence_date": "2026-08-12",
+      "expected_status": "remediated-pv-03",
+      "files": [
+        {
+          "bytes": 7880,
+          "path": "evidence-register.xlsx",
+          "sha256": "ba08f921ddc1f1b61c45b0321d4c6c4f9bb1e5a39d19afafa69970af777b1196"
+        },
+        {
+          "bytes": 39488,
+          "path": "matter-brief.docx",
+          "sha256": "da089bcea903906a836a18113af270cdd784e95164dc11b13d529f95e78a6d79"
+        },
+        {
+          "bytes": 2826,
+          "path": "source-extract.pdf",
+          "sha256": "58057c8a455ada980115f7061ff5b50eeebfdd2a3ab62bdc51920f1a1c5389c5"
+        }
+      ],
+      "issue": "control discrepancy in vendors",
+      "item_count": 25,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/privacy/variant-03/manifest.json",
+      "matter_ref": "MAT-PV-1043",
+      "mutation_parent": "pack-privacy-01",
+      "pack_id": "pack-privacy-03",
+      "reserve_amount": 1400,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Privacy Control Review 03",
+      "total_amount": 1061.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 42.45,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-CY-01-024",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/cybersecurity/variant-01/documents",
+      "domain": "cybersecurity",
+      "domain_label": "Cybersecurity Response",
+      "due_date": "2026-09-16",
+      "evidence_date": "2026-08-12",
+      "expected_status": "remediated-cy-01",
+      "files": [
+        {
+          "bytes": 7904,
+          "path": "evidence-register.xlsx",
+          "sha256": "0c7f6be4d874320cdfc77f69c66804494882d429732740b1369b9c169427fae8"
+        },
+        {
+          "bytes": 39504,
+          "path": "matter-brief.docx",
+          "sha256": "6a91cd3b1f0c1b2bbe90beea05bd6fe80b74ed384113e409544f24363e1bbe8e"
+        },
+        {
+          "bytes": 2841,
+          "path": "source-extract.pdf",
+          "sha256": "7d775d4880f7456289106574e78afbe0aebfa07f92fbce46c01436d5dce912e9"
+        }
+      ],
+      "issue": "control discrepancy in postmortems",
+      "item_count": 24,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/cybersecurity/variant-01/manifest.json",
+      "matter_ref": "MAT-CY-1051",
+      "mutation_parent": null,
+      "pack_id": "pack-cybersecurity-01",
+      "reserve_amount": 1425,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Cybersecurity Response Control Review 01",
+      "total_amount": 1022.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 42.6,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-CY-02-026",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/cybersecurity/variant-02/documents",
+      "domain": "cybersecurity",
+      "domain_label": "Cybersecurity Response",
+      "due_date": "2026-09-22",
+      "evidence_date": "2026-08-13",
+      "expected_status": "remediated-cy-02",
+      "files": [
+        {
+          "bytes": 7910,
+          "path": "evidence-register.xlsx",
+          "sha256": "018eb40d8a636055d3e66f481b0907eac39a1bf9a8e75c3ac96053a4c5d49187"
+        },
+        {
+          "bytes": 39506,
+          "path": "matter-brief.docx",
+          "sha256": "c992fb7e9c3ffcf30239e868d0aebc3b8218695d116bcc1ee0a3ee7e6203e3d2"
+        },
+        {
+          "bytes": 2839,
+          "path": "source-extract.pdf",
+          "sha256": "4676d2ae7dea514d1b242c28d4860a1b12fdd3fa436801dcbacac265dcf05c36"
+        }
+      ],
+      "issue": "control discrepancy in forensic images",
+      "item_count": 26,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/cybersecurity/variant-02/manifest.json",
+      "matter_ref": "MAT-CY-1052",
+      "mutation_parent": "pack-cybersecurity-01",
+      "pack_id": "pack-cybersecurity-02",
+      "reserve_amount": 1475,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Cybersecurity Response Control Review 02",
+      "total_amount": 1162.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 44.7,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-CY-03-028",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/cybersecurity/variant-03/documents",
+      "domain": "cybersecurity",
+      "domain_label": "Cybersecurity Response",
+      "due_date": "2026-09-28",
+      "evidence_date": "2026-08-14",
+      "expected_status": "remediated-cy-03",
+      "files": [
+        {
+          "bytes": 7902,
+          "path": "evidence-register.xlsx",
+          "sha256": "879669b763dfe7f13b79f640ff1392aea07b1df3c7d7a4423c947a45eb18d26f"
+        },
+        {
+          "bytes": 39509,
+          "path": "matter-brief.docx",
+          "sha256": "d8f36ed8feed931ef1b17f417ef59f3f66f6057941ef657ebffd581ce3b1ab27"
+        },
+        {
+          "bytes": 2838,
+          "path": "source-extract.pdf",
+          "sha256": "ec3eb68f728562f6f8a52f58b3a2d8a42138bdd5d32d92648e121272dbabbf85"
+        }
+      ],
+      "issue": "control discrepancy in notifications",
+      "item_count": 28,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/cybersecurity/variant-03/manifest.json",
+      "matter_ref": "MAT-CY-1053",
+      "mutation_parent": "pack-cybersecurity-01",
+      "pack_id": "pack-cybersecurity-03",
+      "reserve_amount": 1525,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Cybersecurity Response Control Review 03",
+      "total_amount": 1310.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 46.8,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-IP-01-027",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/intellectual_property/variant-01/documents",
+      "domain": "intellectual_property",
+      "domain_label": "Intellectual Property",
+      "due_date": "2026-09-18",
+      "evidence_date": "2026-08-14",
+      "expected_status": "remediated-ip-01",
+      "files": [
+        {
+          "bytes": 7917,
+          "path": "evidence-register.xlsx",
+          "sha256": "762c9a42ed27f928580298f3e37a2f26c0d9a93a2317d22fea5d9ddfb6a8a850"
+        },
+        {
+          "bytes": 39515,
+          "path": "matter-brief.docx",
+          "sha256": "f4fb80e454a9205d08a71aa2770c81eb5ca2f976eff9c43741d2bcb25804d8b2"
+        },
+        {
+          "bytes": 2857,
+          "path": "source-extract.pdf",
+          "sha256": "2c4d650b8199bae78c22fd607ead0eaf7ff1b36ce8d9f9db513e0abead229a1d"
+        }
+      ],
+      "issue": "control discrepancy in trademarks",
+      "item_count": 27,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/intellectual_property/variant-01/manifest.json",
+      "matter_ref": "MAT-IP-1061",
+      "mutation_parent": null,
+      "pack_id": "pack-intellectual_property-01",
+      "reserve_amount": 1550,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Intellectual Property Control Review 01",
+      "total_amount": 1267.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 46.95,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-IP-02-029",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/intellectual_property/variant-02/documents",
+      "domain": "intellectual_property",
+      "domain_label": "Intellectual Property",
+      "due_date": "2026-09-24",
+      "evidence_date": "2026-08-15",
+      "expected_status": "remediated-ip-02",
+      "files": [
+        {
+          "bytes": 7915,
+          "path": "evidence-register.xlsx",
+          "sha256": "eb9a2321ef7a43d052a134dbb277e72b9a1a5d1e768bb8f5afea6e6b73bf3d34"
+        },
+        {
+          "bytes": 39512,
+          "path": "matter-brief.docx",
+          "sha256": "633f49cff82052cfc1e8989a9f83d3d9ae533c7ea538a3502242d0a0c2a73e0c"
+        },
+        {
+          "bytes": 2856,
+          "path": "source-extract.pdf",
+          "sha256": "097ee7c487ddce4e362f5c691449adc9a3087ece09b9ee43ee498fd5eebe4abf"
+        }
+      ],
+      "issue": "control discrepancy in licenses",
+      "item_count": 29,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/intellectual_property/variant-02/manifest.json",
+      "matter_ref": "MAT-IP-1062",
+      "mutation_parent": "pack-intellectual_property-01",
+      "pack_id": "pack-intellectual_property-02",
+      "reserve_amount": 1600,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Intellectual Property Control Review 02",
+      "total_amount": 1422.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 49.05,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-IP-03-031",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/intellectual_property/variant-03/documents",
+      "domain": "intellectual_property",
+      "domain_label": "Intellectual Property",
+      "due_date": "2026-09-30",
+      "evidence_date": "2026-08-16",
+      "expected_status": "remediated-ip-03",
+      "files": [
+        {
+          "bytes": 7917,
+          "path": "evidence-register.xlsx",
+          "sha256": "fdb5fdf6713210952c270a85a4c750bc739f05d1741cfbc70a8a25620580f79a"
+        },
+        {
+          "bytes": 39520,
+          "path": "matter-brief.docx",
+          "sha256": "86f381df930bdffa265cb567394d70b59c1d0ff4ad0dd1e183708121f5f8c373"
+        },
+        {
+          "bytes": 2864,
+          "path": "source-extract.pdf",
+          "sha256": "76601ad843b3c5888e5f0854a8f1194053740b6c147478b94e6a402fc1f28b2d"
+        }
+      ],
+      "issue": "control discrepancy in assignments",
+      "item_count": 31,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/intellectual_property/variant-03/manifest.json",
+      "matter_ref": "MAT-IP-1063",
+      "mutation_parent": "pack-intellectual_property-01",
+      "pack_id": "pack-intellectual_property-03",
+      "reserve_amount": 1650,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Intellectual Property Control Review 03",
+      "total_amount": 1585.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 51.15,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-RE-01-030",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/real_estate/variant-01/documents",
+      "domain": "real_estate",
+      "domain_label": "Real Estate",
+      "due_date": "2026-09-20",
+      "evidence_date": "2026-08-16",
+      "expected_status": "remediated-re-01",
+      "files": [
+        {
+          "bytes": 7892,
+          "path": "evidence-register.xlsx",
+          "sha256": "459d7070214c5e8f6ca810c712290e21198175691d5e55e3259e417015b0dead"
+        },
+        {
+          "bytes": 39494,
+          "path": "matter-brief.docx",
+          "sha256": "a6da004f8b6709bc90bfaa701acd3fdc59af87e6fab798fccda121b3e709d2b1"
+        },
+        {
+          "bytes": 2834,
+          "path": "source-extract.pdf",
+          "sha256": "30620ec2b6afdd8aff8dab607ae900e24fd59746b2337d03fd182c8e775f5a24"
+        }
+      ],
+      "issue": "control discrepancy in leases",
+      "item_count": 30,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/real_estate/variant-01/manifest.json",
+      "matter_ref": "MAT-RE-1071",
+      "mutation_parent": null,
+      "pack_id": "pack-real_estate-01",
+      "reserve_amount": 1675,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Real Estate Control Review 01",
+      "total_amount": 1539.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 51.3,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-RE-02-032",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/real_estate/variant-02/documents",
+      "domain": "real_estate",
+      "domain_label": "Real Estate",
+      "due_date": "2026-09-26",
+      "evidence_date": "2026-08-17",
+      "expected_status": "remediated-re-02",
+      "files": [
+        {
+          "bytes": 7894,
+          "path": "evidence-register.xlsx",
+          "sha256": "51aa4eb5bdd514204d6abf7b4158c04e4428082db63204e3a592a2da33f2df4b"
+        },
+        {
+          "bytes": 39501,
+          "path": "matter-brief.docx",
+          "sha256": "85f61541dd4f9103ea5704834a5a9db25bbc3e58265270a24be06a191581d8a4"
+        },
+        {
+          "bytes": 2836,
+          "path": "source-extract.pdf",
+          "sha256": "bc0dc39d6cdd317d7bcdb4e5835dee739fafeb11cd824df2e6f2d18523e6f45b"
+        }
+      ],
+      "issue": "control discrepancy in estoppels",
+      "item_count": 32,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/real_estate/variant-02/manifest.json",
+      "matter_ref": "MAT-RE-1072",
+      "mutation_parent": "pack-real_estate-01",
+      "pack_id": "pack-real_estate-02",
+      "reserve_amount": 1725,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Real Estate Control Review 02",
+      "total_amount": 1708.8,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 53.4,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-RE-03-034",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/real_estate/variant-03/documents",
+      "domain": "real_estate",
+      "domain_label": "Real Estate",
+      "due_date": "2026-10-02",
+      "evidence_date": "2026-08-18",
+      "expected_status": "remediated-re-03",
+      "files": [
+        {
+          "bytes": 7891,
+          "path": "evidence-register.xlsx",
+          "sha256": "1e6c47647a141428fda0b242fd769edb7f9f3dee580c516ce09f2ef5adf4cd64"
+        },
+        {
+          "bytes": 39503,
+          "path": "matter-brief.docx",
+          "sha256": "34c0a08b3f0a9ca5a8421ce6d7924aac4f150917cc964392eb4e7bb73a36ab67"
+        },
+        {
+          "bytes": 2837,
+          "path": "source-extract.pdf",
+          "sha256": "6f0d8d786cade48e925e78d87c48addfba5ae1ab50ab4265b85660fadf80377d"
+        }
+      ],
+      "issue": "control discrepancy in closings",
+      "item_count": 34,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/real_estate/variant-03/manifest.json",
+      "matter_ref": "MAT-RE-1073",
+      "mutation_parent": "pack-real_estate-01",
+      "pack_id": "pack-real_estate-03",
+      "reserve_amount": 1775,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Real Estate Control Review 03",
+      "total_amount": 1887.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 55.5,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-TX-01-033",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/tax/variant-01/documents",
+      "domain": "tax",
+      "domain_label": "Tax Controversy",
+      "due_date": "2026-09-22",
+      "evidence_date": "2026-08-18",
+      "expected_status": "remediated-tx-01",
+      "files": [
+        {
+          "bytes": 7893,
+          "path": "evidence-register.xlsx",
+          "sha256": "07e8e30f3878194ecc471ee2611947f9c9255deb1cb29ee1f798148fee8f9e53"
+        },
+        {
+          "bytes": 39480,
+          "path": "matter-brief.docx",
+          "sha256": "f977fc69d05d134046fc9750905c2656a8b79a5bb929b0ee895247ee51eaccf7"
+        },
+        {
+          "bytes": 2814,
+          "path": "source-extract.pdf",
+          "sha256": "5a852b2d6a98b9a1166984610d657ee9965e6d894bc78011457f035a30b201e7"
+        }
+      ],
+      "issue": "control discrepancy in audits",
+      "item_count": 33,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/tax/variant-01/manifest.json",
+      "matter_ref": "MAT-TX-1081",
+      "mutation_parent": null,
+      "pack_id": "pack-tax-01",
+      "reserve_amount": 1800,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Tax Controversy Control Review 01",
+      "total_amount": 1836.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 55.65,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-TX-02-035",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/tax/variant-02/documents",
+      "domain": "tax",
+      "domain_label": "Tax Controversy",
+      "due_date": "2026-09-28",
+      "evidence_date": "2026-08-19",
+      "expected_status": "remediated-tx-02",
+      "files": [
+        {
+          "bytes": 7893,
+          "path": "evidence-register.xlsx",
+          "sha256": "7f8aba89d00632fcd29f8af980d0add93c4d47c4d2b76d348a82fcdd32abef7c"
+        },
+        {
+          "bytes": 39484,
+          "path": "matter-brief.docx",
+          "sha256": "576ecac3b39bc584921512d1eb0bf84c703bbe3e263d31a4f8449a2041df8a86"
+        },
+        {
+          "bytes": 2817,
+          "path": "source-extract.pdf",
+          "sha256": "50a7a0bcde7b6a6755660e7f2f98e099b7210e1dba46e5ae642b6a62801ce8e6"
+        }
+      ],
+      "issue": "control discrepancy in protests",
+      "item_count": 35,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/tax/variant-02/manifest.json",
+      "matter_ref": "MAT-TX-1082",
+      "mutation_parent": "pack-tax-01",
+      "pack_id": "pack-tax-02",
+      "reserve_amount": 1850,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Tax Controversy Control Review 02",
+      "total_amount": 2021.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 57.75,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-TX-03-037",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/tax/variant-03/documents",
+      "domain": "tax",
+      "domain_label": "Tax Controversy",
+      "due_date": "2026-10-04",
+      "evidence_date": "2026-08-20",
+      "expected_status": "remediated-tx-03",
+      "files": [
+        {
+          "bytes": 7891,
+          "path": "evidence-register.xlsx",
+          "sha256": "3c541840f89babd3af4141359ddecb5145a56a4648346d3a3cdc6c8003303d3f"
+        },
+        {
+          "bytes": 39485,
+          "path": "matter-brief.docx",
+          "sha256": "0f4737f5698eb3eb21a6be8822eda94a4c690d272e1b043a9c61c4a36e15a297"
+        },
+        {
+          "bytes": 2819,
+          "path": "source-extract.pdf",
+          "sha256": "8ef799776c5cc772f999709e19b0b1c4c7eeca51bfa066a19cc4c8e097a95af1"
+        }
+      ],
+      "issue": "control discrepancy in payments",
+      "item_count": 37,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/tax/variant-03/manifest.json",
+      "matter_ref": "MAT-TX-1083",
+      "mutation_parent": "pack-tax-01",
+      "pack_id": "pack-tax-03",
+      "reserve_amount": 1900,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Tax Controversy Control Review 03",
+      "total_amount": 2214.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 59.85,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-BK-01-036",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/bankruptcy/variant-01/documents",
+      "domain": "bankruptcy",
+      "domain_label": "Bankruptcy",
+      "due_date": "2026-09-24",
+      "evidence_date": "2026-08-20",
+      "expected_status": "remediated-bk-01",
+      "files": [
+        {
+          "bytes": 7888,
+          "path": "evidence-register.xlsx",
+          "sha256": "9a32b011f4a7f29bc70a20015bb8ad54c90802deed11d6820af56b9a6d4582f4"
+        },
+        {
+          "bytes": 39487,
+          "path": "matter-brief.docx",
+          "sha256": "9a9ba89fbe01049320b2cd3baf7098afdbe2e78d521a0db6409e87bd58884faf"
+        },
+        {
+          "bytes": 2830,
+          "path": "source-extract.pdf",
+          "sha256": "f8c252bb10c756b484674d8c737a98ede96cb0ffeee491ac691312778cf3ff30"
+        }
+      ],
+      "issue": "control discrepancy in schedules",
+      "item_count": 36,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/bankruptcy/variant-01/manifest.json",
+      "matter_ref": "MAT-BK-1091",
+      "mutation_parent": null,
+      "pack_id": "pack-bankruptcy-01",
+      "reserve_amount": 1925,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Bankruptcy Control Review 01",
+      "total_amount": 2160.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 60.0,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-BK-02-038",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/bankruptcy/variant-02/documents",
+      "domain": "bankruptcy",
+      "domain_label": "Bankruptcy",
+      "due_date": "2026-09-30",
+      "evidence_date": "2026-08-21",
+      "expected_status": "remediated-bk-02",
+      "files": [
+        {
+          "bytes": 7887,
+          "path": "evidence-register.xlsx",
+          "sha256": "88fc0ab869076f8ff92b32bfb5a95dac18eb71dd0535ee2140b71741adccd9d8"
+        },
+        {
+          "bytes": 39490,
+          "path": "matter-brief.docx",
+          "sha256": "78bbba9ef26a7741de3cca9ed01f026c30b9f48b8e2b2107424147e3041125a0"
+        },
+        {
+          "bytes": 2833,
+          "path": "source-extract.pdf",
+          "sha256": "2e0346485e9287d246ebf4fdbcf0071234b4edeb2dfe7a894945a62cafc4b6d4"
+        }
+      ],
+      "issue": "control discrepancy in plans",
+      "item_count": 38,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/bankruptcy/variant-02/manifest.json",
+      "matter_ref": "MAT-BK-1092",
+      "mutation_parent": "pack-bankruptcy-01",
+      "pack_id": "pack-bankruptcy-02",
+      "reserve_amount": 1975,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Bankruptcy Control Review 02",
+      "total_amount": 2359.8,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 62.1,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-BK-03-040",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/bankruptcy/variant-03/documents",
+      "domain": "bankruptcy",
+      "domain_label": "Bankruptcy",
+      "due_date": "2026-10-06",
+      "evidence_date": "2026-08-22",
+      "expected_status": "remediated-bk-03",
+      "files": [
+        {
+          "bytes": 7890,
+          "path": "evidence-register.xlsx",
+          "sha256": "e5c4ca09d6eadad6a5989a7f6d33649e78b598a153bfb139e32e90e4e33ae165"
+        },
+        {
+          "bytes": 39496,
+          "path": "matter-brief.docx",
+          "sha256": "8d1ba4e43793bd60d3818c28b48a0c7aedc1e6e518b375d7709b1fc8ca9f0be2"
+        },
+        {
+          "bytes": 2834,
+          "path": "source-extract.pdf",
+          "sha256": "4c4647b601a80a461fcf9242d55a9d82e5799fd83e0d1cb10ffa219c1270bc14"
+        }
+      ],
+      "issue": "control discrepancy in debtors",
+      "item_count": 40,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/bankruptcy/variant-03/manifest.json",
+      "matter_ref": "MAT-BK-1093",
+      "mutation_parent": "pack-bankruptcy-01",
+      "pack_id": "pack-bankruptcy-03",
+      "reserve_amount": 2025,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Bankruptcy Control Review 03",
+      "total_amount": 2568.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 64.2,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-AT-01-039",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/antitrust/variant-01/documents",
+      "domain": "antitrust",
+      "domain_label": "Antitrust",
+      "due_date": "2026-09-26",
+      "evidence_date": "2026-08-22",
+      "expected_status": "remediated-at-01",
+      "files": [
+        {
+          "bytes": 7896,
+          "path": "evidence-register.xlsx",
+          "sha256": "6ca20a03b1b9ba9867851aca0bcb45200db21d1391e4a2b4f4275af6b67bf7d9"
+        },
+        {
+          "bytes": 39485,
+          "path": "matter-brief.docx",
+          "sha256": "4d66acc72105719adfaf6f59879d9f149c49fc6025dd86c0fdcb952f6ed2bc38"
+        },
+        {
+          "bytes": 2828,
+          "path": "source-extract.pdf",
+          "sha256": "318f0d013d48eabcc0be1f57a0ca2c46ea2830b5208ed8cf2035b8d3d82dbf6e"
+        }
+      ],
+      "issue": "control discrepancy in second requests",
+      "item_count": 39,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/antitrust/variant-01/manifest.json",
+      "matter_ref": "MAT-AT-1101",
+      "mutation_parent": null,
+      "pack_id": "pack-antitrust-01",
+      "reserve_amount": 2050,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Antitrust Control Review 01",
+      "total_amount": 2509.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 64.35,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-AT-02-041",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/antitrust/variant-02/documents",
+      "domain": "antitrust",
+      "domain_label": "Antitrust",
+      "due_date": "2026-10-02",
+      "evidence_date": "2026-08-23",
+      "expected_status": "remediated-at-02",
+      "files": [
+        {
+          "bytes": 7883,
+          "path": "evidence-register.xlsx",
+          "sha256": "62bed8464f3f9873325bd5b547ccf2c4808b8584d8fc29dc60a5e86377a752cf"
+        },
+        {
+          "bytes": 39488,
+          "path": "matter-brief.docx",
+          "sha256": "64f5df6616a6f5194ecd7cf0b88fa1c741f7d77f9e74879e7426ce78b8b04b67"
+        },
+        {
+          "bytes": 2823,
+          "path": "source-extract.pdf",
+          "sha256": "1cf96d78c1871af59bd76e330907d0e6930df03c69d6bcd1fc815353cc891bdb"
+        }
+      ],
+      "issue": "control discrepancy in remedies",
+      "item_count": 41,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/antitrust/variant-02/manifest.json",
+      "matter_ref": "MAT-AT-1102",
+      "mutation_parent": "pack-antitrust-01",
+      "pack_id": "pack-antitrust-02",
+      "reserve_amount": 2100,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Antitrust Control Review 02",
+      "total_amount": 2724.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 66.45,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-AT-03-043",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/antitrust/variant-03/documents",
+      "domain": "antitrust",
+      "domain_label": "Antitrust",
+      "due_date": "2026-10-08",
+      "evidence_date": "2026-08-24",
+      "expected_status": "remediated-at-03",
+      "files": [
+        {
+          "bytes": 7885,
+          "path": "evidence-register.xlsx",
+          "sha256": "a10ed6be5314e8a968e1f34776216adde702e85c1bf912b90307127a71176403"
+        },
+        {
+          "bytes": 39491,
+          "path": "matter-brief.docx",
+          "sha256": "b29f1a1138cbcde85ec35c1bd70f30cc6361f25552bec3293633c4e162dfcc5d"
+        },
+        {
+          "bytes": 2830,
+          "path": "source-extract.pdf",
+          "sha256": "65b39cb2438b5138dcf58a04276f099ee79a6c7f1ef26aa0ea3c188aae34ba19"
+        }
+      ],
+      "issue": "control discrepancy in markets",
+      "item_count": 43,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/antitrust/variant-03/manifest.json",
+      "matter_ref": "MAT-AT-1103",
+      "mutation_parent": "pack-antitrust-01",
+      "pack_id": "pack-antitrust-03",
+      "reserve_amount": 2150,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Antitrust Control Review 03",
+      "total_amount": 2947.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 68.55,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-HC-01-042",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/healthcare/variant-01/documents",
+      "domain": "healthcare",
+      "domain_label": "Healthcare Regulatory",
+      "due_date": "2026-09-28",
+      "evidence_date": "2026-08-24",
+      "expected_status": "remediated-hc-01",
+      "files": [
+        {
+          "bytes": 7904,
+          "path": "evidence-register.xlsx",
+          "sha256": "7711e732d52602d45fe5401a88cd192b0c2159e4b6dc8133980e830a0b057447"
+        },
+        {
+          "bytes": 39500,
+          "path": "matter-brief.docx",
+          "sha256": "830dee2877fd38ea18a71f99dd93cf4376108474ba9953e03628714679efe734"
+        },
+        {
+          "bytes": 2844,
+          "path": "source-extract.pdf",
+          "sha256": "2425cfe5555504d394d58442d5210f750379e84d2181504c5d119c948ce7f334"
+        }
+      ],
+      "issue": "control discrepancy in compliance events",
+      "item_count": 42,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/healthcare/variant-01/manifest.json",
+      "matter_ref": "MAT-HC-1111",
+      "mutation_parent": null,
+      "pack_id": "pack-healthcare-01",
+      "reserve_amount": 2175,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Healthcare Regulatory Control Review 01",
+      "total_amount": 2885.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 68.7,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-HC-02-044",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/healthcare/variant-02/documents",
+      "domain": "healthcare",
+      "domain_label": "Healthcare Regulatory",
+      "due_date": "2026-10-04",
+      "evidence_date": "2026-08-25",
+      "expected_status": "remediated-hc-02",
+      "files": [
+        {
+          "bytes": 7907,
+          "path": "evidence-register.xlsx",
+          "sha256": "4eff699d3fabaa6a6c4544491d2e250f235f24a3966158dec61137ab12f3d7f8"
+        },
+        {
+          "bytes": 39504,
+          "path": "matter-brief.docx",
+          "sha256": "2591c780db52e8eaba2aae0a15b13accb2ef7283ff7642796b2a16b646ca6f32"
+        },
+        {
+          "bytes": 2846,
+          "path": "source-extract.pdf",
+          "sha256": "b82ac484b5c6d4b68ffea5f6a6adfcfd515031e2b3456665b6ad2994965b03cf"
+        }
+      ],
+      "issue": "control discrepancy in corrective actions",
+      "item_count": 44,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/healthcare/variant-02/manifest.json",
+      "matter_ref": "MAT-HC-1112",
+      "mutation_parent": "pack-healthcare-01",
+      "pack_id": "pack-healthcare-02",
+      "reserve_amount": 2225,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Healthcare Regulatory Control Review 02",
+      "total_amount": 3115.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 70.8,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-HC-03-046",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/healthcare/variant-03/documents",
+      "domain": "healthcare",
+      "domain_label": "Healthcare Regulatory",
+      "due_date": "2026-10-10",
+      "evidence_date": "2026-08-26",
+      "expected_status": "remediated-hc-03",
+      "files": [
+        {
+          "bytes": 7905,
+          "path": "evidence-register.xlsx",
+          "sha256": "410aa99d9265ff72aa69fb6affe3ef2467aa41b178bffcecdd642d0338e44309"
+        },
+        {
+          "bytes": 39495,
+          "path": "matter-brief.docx",
+          "sha256": "05037f4f3b61cbc320c1647d5bb4c84ae9e06ee65a671a71ade6a1733f4526ba"
+        },
+        {
+          "bytes": 2844,
+          "path": "source-extract.pdf",
+          "sha256": "4c7c2a300ca7ba9bd25b7cba79a49c12ddbee4d09c3d106200eda0a0cfaf6c0f"
+        }
+      ],
+      "issue": "control discrepancy in licenses",
+      "item_count": 46,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/healthcare/variant-03/manifest.json",
+      "matter_ref": "MAT-HC-1113",
+      "mutation_parent": "pack-healthcare-01",
+      "pack_id": "pack-healthcare-03",
+      "reserve_amount": 2275,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Healthcare Regulatory Control Review 03",
+      "total_amount": 3353.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 72.9,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-EN-01-045",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/environmental/variant-01/documents",
+      "domain": "environmental",
+      "domain_label": "Environmental",
+      "due_date": "2026-09-30",
+      "evidence_date": "2026-08-26",
+      "expected_status": "remediated-en-01",
+      "files": [
+        {
+          "bytes": 7903,
+          "path": "evidence-register.xlsx",
+          "sha256": "12d7cdcae7e4ab90c7d22c2ed2b68dd06d0fde1eed2019efa11e5341c1cd0e65"
+        },
+        {
+          "bytes": 39495,
+          "path": "matter-brief.docx",
+          "sha256": "9840ac73c1bda33227390c1c08dff342564d6250532dc02459693e606f479d9c"
+        },
+        {
+          "bytes": 2837,
+          "path": "source-extract.pdf",
+          "sha256": "7b07c8a5062adfe29f4172217e8c5fbc3a7da6652285ddceff65b7c2db7e9960"
+        }
+      ],
+      "issue": "control discrepancy in remediation projects",
+      "item_count": 45,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/environmental/variant-01/manifest.json",
+      "matter_ref": "MAT-EN-1121",
+      "mutation_parent": null,
+      "pack_id": "pack-environmental-01",
+      "reserve_amount": 2300,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Environmental Control Review 01",
+      "total_amount": 3287.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 73.05,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-EN-02-047",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/environmental/variant-02/documents",
+      "domain": "environmental",
+      "domain_label": "Environmental",
+      "due_date": "2026-10-06",
+      "evidence_date": "2026-08-27",
+      "expected_status": "remediated-en-02",
+      "files": [
+        {
+          "bytes": 7906,
+          "path": "evidence-register.xlsx",
+          "sha256": "3bb73111e2dd93753be78409fb5a7bb4e59dff90a79ee08ffcb3b1c3bbf61342"
+        },
+        {
+          "bytes": 39497,
+          "path": "matter-brief.docx",
+          "sha256": "5e48f38a63189601e127212776d8dc8a8e8f478a0be9f1566b07341c0b1700cd"
+        },
+        {
+          "bytes": 2836,
+          "path": "source-extract.pdf",
+          "sha256": "0875e6bc7af83b179faf9ff4f5f116055a68d7709468fff90771f34489063428"
+        }
+      ],
+      "issue": "control discrepancy in facilities",
+      "item_count": 47,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/environmental/variant-02/manifest.json",
+      "matter_ref": "MAT-EN-1122",
+      "mutation_parent": "pack-environmental-01",
+      "pack_id": "pack-environmental-02",
+      "reserve_amount": 2350,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Environmental Control Review 02",
+      "total_amount": 3532.05,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 75.15,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-EN-03-049",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/environmental/variant-03/documents",
+      "domain": "environmental",
+      "domain_label": "Environmental",
+      "due_date": "2026-10-12",
+      "evidence_date": "2026-08-28",
+      "expected_status": "remediated-en-03",
+      "files": [
+        {
+          "bytes": 7890,
+          "path": "evidence-register.xlsx",
+          "sha256": "fccdb561b36035856250283334e3b4bcec73b38ae42eab03f05af3bb3da4af2e"
+        },
+        {
+          "bytes": 39496,
+          "path": "matter-brief.docx",
+          "sha256": "4837dbe8f292432622df913b27ec1e276a1447af745d44de3d4a4b1e13bce028"
+        },
+        {
+          "bytes": 2836,
+          "path": "source-extract.pdf",
+          "sha256": "5d725c1bb1adf1c31caf4df210a9bef5b2f36bc0fa7ba10d402bf94449c4f667"
+        }
+      ],
+      "issue": "control discrepancy in spills",
+      "item_count": 49,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/environmental/variant-03/manifest.json",
+      "matter_ref": "MAT-EN-1123",
+      "mutation_parent": "pack-environmental-01",
+      "pack_id": "pack-environmental-03",
+      "reserve_amount": 2400,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Environmental Control Review 03",
+      "total_amount": 3785.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 77.25,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-FS-01-048",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/financial_services/variant-01/documents",
+      "domain": "financial_services",
+      "domain_label": "Financial Services",
+      "due_date": "2026-10-02",
+      "evidence_date": "2026-08-28",
+      "expected_status": "remediated-fs-01",
+      "files": [
+        {
+          "bytes": 7915,
+          "path": "evidence-register.xlsx",
+          "sha256": "9879064a0c3d6885efdd6a3628ded4565e297f9346c2264b22869f075fee91de"
+        },
+        {
+          "bytes": 39509,
+          "path": "matter-brief.docx",
+          "sha256": "ea066d0d2c0f5e1d62b81da1f7e628a26c8d78bfcec20b5bb15923fbf64ec30c"
+        },
+        {
+          "bytes": 2846,
+          "path": "source-extract.pdf",
+          "sha256": "4380a21c97d76b89d6c560373c0c35971f54b0a1fc66cc1220fac0222f7dfc19"
+        }
+      ],
+      "issue": "control discrepancy in controls",
+      "item_count": 48,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/financial_services/variant-01/manifest.json",
+      "matter_ref": "MAT-FS-1131",
+      "mutation_parent": null,
+      "pack_id": "pack-financial_services-01",
+      "reserve_amount": 2425,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Financial Services Control Review 01",
+      "total_amount": 3715.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 77.4,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-FS-02-050",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/financial_services/variant-02/documents",
+      "domain": "financial_services",
+      "domain_label": "Financial Services",
+      "due_date": "2026-10-08",
+      "evidence_date": "2026-08-29",
+      "expected_status": "remediated-fs-02",
+      "files": [
+        {
+          "bytes": 7906,
+          "path": "evidence-register.xlsx",
+          "sha256": "03647b2b1d9838d84e0b3923d950635a22164cbf4cdabff27267b93699f518c4"
+        },
+        {
+          "bytes": 39513,
+          "path": "matter-brief.docx",
+          "sha256": "f59fd0cd29339a12c67cab51382defbe43d2827cc6e8bdfbedcc41f6ec5327be"
+        },
+        {
+          "bytes": 2846,
+          "path": "source-extract.pdf",
+          "sha256": "9221fbf995d47c388ef46b2fd4124b0bbe4e7721022489d0557bb7e20c087ab9"
+        }
+      ],
+      "issue": "control discrepancy in products",
+      "item_count": 50,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/financial_services/variant-02/manifest.json",
+      "matter_ref": "MAT-FS-1132",
+      "mutation_parent": "pack-financial_services-01",
+      "pack_id": "pack-financial_services-02",
+      "reserve_amount": 2475,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Financial Services Control Review 02",
+      "total_amount": 3975.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 79.5,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-FS-03-052",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/financial_services/variant-03/documents",
+      "domain": "financial_services",
+      "domain_label": "Financial Services",
+      "due_date": "2026-10-14",
+      "evidence_date": "2026-08-30",
+      "expected_status": "remediated-fs-03",
+      "files": [
+        {
+          "bytes": 7916,
+          "path": "evidence-register.xlsx",
+          "sha256": "d5d4df98c8fca581bc756ff319b102dce5b64ee2ce04788a04033fd51275aceb"
+        },
+        {
+          "bytes": 39517,
+          "path": "matter-brief.docx",
+          "sha256": "11986a53ed886bc2050349b9bde2e09f2b38bd5f44bd0156e8c7994fd1b44580"
+        },
+        {
+          "bytes": 2853,
+          "path": "source-extract.pdf",
+          "sha256": "bcb96da4dec91b432af2072bca2c05c62018e31d20484ed68591a3746e563542"
+        }
+      ],
+      "issue": "control discrepancy in findings",
+      "item_count": 52,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/financial_services/variant-03/manifest.json",
+      "matter_ref": "MAT-FS-1133",
+      "mutation_parent": "pack-financial_services-01",
+      "pack_id": "pack-financial_services-03",
+      "reserve_amount": 2525,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Financial Services Control Review 03",
+      "total_amount": 4243.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 81.6,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-FM-01-051",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/investment_funds/variant-01/documents",
+      "domain": "investment_funds",
+      "domain_label": "Investment Funds",
+      "due_date": "2026-10-04",
+      "evidence_date": "2026-08-30",
+      "expected_status": "remediated-fm-01",
+      "files": [
+        {
+          "bytes": 7909,
+          "path": "evidence-register.xlsx",
+          "sha256": "805b0d65a9b804dbf2c703788bb743d3a38a168216c5d763578dec539e86567b"
+        },
+        {
+          "bytes": 39509,
+          "path": "matter-brief.docx",
+          "sha256": "7da454fa7fc21491f511d960873ef9068b497c4e3621176a49f34fa9665a727a"
+        },
+        {
+          "bytes": 2849,
+          "path": "source-extract.pdf",
+          "sha256": "371ed49de3dd9d2fa6acdc020d1ef0a3f3a7b46a68b06567ac7bc05f062eba2a"
+        }
+      ],
+      "issue": "control discrepancy in distributions",
+      "item_count": 51,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/investment_funds/variant-01/manifest.json",
+      "matter_ref": "MAT-FM-1141",
+      "mutation_parent": null,
+      "pack_id": "pack-investment_funds-01",
+      "reserve_amount": 2550,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Investment Funds Control Review 01",
+      "total_amount": 4169.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 81.75,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-FM-02-053",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/investment_funds/variant-02/documents",
+      "domain": "investment_funds",
+      "domain_label": "Investment Funds",
+      "due_date": "2026-10-10",
+      "evidence_date": "2026-08-31",
+      "expected_status": "remediated-fm-02",
+      "files": [
+        {
+          "bytes": 7913,
+          "path": "evidence-register.xlsx",
+          "sha256": "59f8940c7b68b0832247fe8cc7a24248ba36cc584ce8b3bfa293e98caec722ba"
+        },
+        {
+          "bytes": 39514,
+          "path": "matter-brief.docx",
+          "sha256": "70a2ff8496ac3fa0d560915881e2681467cca437135ae0b7ccbf6d3336188c15"
+        },
+        {
+          "bytes": 2847,
+          "path": "source-extract.pdf",
+          "sha256": "16b97d0a41cd18af8d8c7315ce99399f0a77ff42ae30a1dc382f90b42ba80545"
+        }
+      ],
+      "issue": "control discrepancy in subscriptions",
+      "item_count": 53,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/investment_funds/variant-02/manifest.json",
+      "matter_ref": "MAT-FM-1142",
+      "mutation_parent": "pack-investment_funds-01",
+      "pack_id": "pack-investment_funds-02",
+      "reserve_amount": 2600,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Investment Funds Control Review 02",
+      "total_amount": 4444.05,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 83.85,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-FM-03-055",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/investment_funds/variant-03/documents",
+      "domain": "investment_funds",
+      "domain_label": "Investment Funds",
+      "due_date": "2026-10-16",
+      "evidence_date": "2026-09-01",
+      "expected_status": "remediated-fm-03",
+      "files": [
+        {
+          "bytes": 7905,
+          "path": "evidence-register.xlsx",
+          "sha256": "78c0f1c076e82c7bd6548e3cdc730ba6b07ad3e3ac82e0d9c299c10424dbe4fc"
+        },
+        {
+          "bytes": 39511,
+          "path": "matter-brief.docx",
+          "sha256": "d10e745c603fcab339e00329c5b4e203f339389ebf168e55d6a8a7bc14608d1a"
+        },
+        {
+          "bytes": 2852,
+          "path": "source-extract.pdf",
+          "sha256": "20f8f71977768902deaaf4e3a504d058c0689e049b73540af59ee21d480a8ddd"
+        }
+      ],
+      "issue": "control discrepancy in trades",
+      "item_count": 55,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/investment_funds/variant-03/manifest.json",
+      "matter_ref": "MAT-FM-1143",
+      "mutation_parent": "pack-investment_funds-01",
+      "pack_id": "pack-investment_funds-03",
+      "reserve_amount": 2650,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Investment Funds Control Review 03",
+      "total_amount": 4727.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 85.95,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-IN-01-054",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/insurance/variant-01/documents",
+      "domain": "insurance",
+      "domain_label": "Insurance Coverage",
+      "due_date": "2026-10-06",
+      "evidence_date": "2026-09-01",
+      "expected_status": "remediated-in-01",
+      "files": [
+        {
+          "bytes": 7902,
+          "path": "evidence-register.xlsx",
+          "sha256": "d1826600af335be5076d6da8d8f876121d490953752bca67f2409c5568a698f7"
+        },
+        {
+          "bytes": 39490,
+          "path": "matter-brief.docx",
+          "sha256": "13d1825f222614ede7e30879014a254accab70452f3085ede0c6de8796fa1324"
+        },
+        {
+          "bytes": 2834,
+          "path": "source-extract.pdf",
+          "sha256": "f15aa199e035c72b9d3026ed9f410a1e65e6eed1ee8dca99958100c9a35ee70c"
+        }
+      ],
+      "issue": "control discrepancy in policies",
+      "item_count": 54,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/insurance/variant-01/manifest.json",
+      "matter_ref": "MAT-IN-1151",
+      "mutation_parent": null,
+      "pack_id": "pack-insurance-01",
+      "reserve_amount": 2675,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Insurance Coverage Control Review 01",
+      "total_amount": 4649.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 86.1,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-IN-02-056",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/insurance/variant-02/documents",
+      "domain": "insurance",
+      "domain_label": "Insurance Coverage",
+      "due_date": "2026-10-12",
+      "evidence_date": "2026-09-02",
+      "expected_status": "remediated-in-02",
+      "files": [
+        {
+          "bytes": 7903,
+          "path": "evidence-register.xlsx",
+          "sha256": "5a765c62472578b3c73b46d88e1c3a2e8b782eb82b6ac9abf0809c9fce9a5e89"
+        },
+        {
+          "bytes": 39494,
+          "path": "matter-brief.docx",
+          "sha256": "1e7a80524b1d6fc45cfa7df234c2358b31f2feab7d00add88f2f0aefcf78b9f9"
+        },
+        {
+          "bytes": 2838,
+          "path": "source-extract.pdf",
+          "sha256": "25b8475bcbab1b36d07594c523f810211dae2ac98207b1ed5d4f9ab5ad4835bc"
+        }
+      ],
+      "issue": "control discrepancy in coverage positions",
+      "item_count": 56,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/insurance/variant-02/manifest.json",
+      "matter_ref": "MAT-IN-1152",
+      "mutation_parent": "pack-insurance-01",
+      "pack_id": "pack-insurance-02",
+      "reserve_amount": 2725,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Insurance Coverage Control Review 02",
+      "total_amount": 4939.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 88.2,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-IN-03-058",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/insurance/variant-03/documents",
+      "domain": "insurance",
+      "domain_label": "Insurance Coverage",
+      "due_date": "2026-10-18",
+      "evidence_date": "2026-09-03",
+      "expected_status": "remediated-in-03",
+      "files": [
+        {
+          "bytes": 7904,
+          "path": "evidence-register.xlsx",
+          "sha256": "a41c34c4319ce504308940b76f060d34de41f773203883d77b89f640cd66d42f"
+        },
+        {
+          "bytes": 39493,
+          "path": "matter-brief.docx",
+          "sha256": "12a047316a44fd137c7acf1f7e7bd9d37f28965df44cfc6d490d0998a9d87b10"
+        },
+        {
+          "bytes": 2839,
+          "path": "source-extract.pdf",
+          "sha256": "a5525457f1c0e6173cd1f6c209b1091cd0ee57984d46c7a37d3150d405c7d240"
+        }
+      ],
+      "issue": "control discrepancy in demands",
+      "item_count": 58,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/insurance/variant-03/manifest.json",
+      "matter_ref": "MAT-IN-1153",
+      "mutation_parent": "pack-insurance-01",
+      "pack_id": "pack-insurance-03",
+      "reserve_amount": 2775,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Insurance Coverage Control Review 03",
+      "total_amount": 5237.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 90.3,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-IM-01-057",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/immigration/variant-01/documents",
+      "domain": "immigration",
+      "domain_label": "Business Immigration",
+      "due_date": "2026-10-08",
+      "evidence_date": "2026-09-03",
+      "expected_status": "remediated-im-01",
+      "files": [
+        {
+          "bytes": 7901,
+          "path": "evidence-register.xlsx",
+          "sha256": "86afd729b8683a7e8775291d67c0d6ee527f111a688704c0ab4a1f3c4b7c54e7"
+        },
+        {
+          "bytes": 39490,
+          "path": "matter-brief.docx",
+          "sha256": "5f74d7c3d65ca9575d19fec0701bb5727ff4371638dc2244fc0653aeeea9e0e6"
+        },
+        {
+          "bytes": 2839,
+          "path": "source-extract.pdf",
+          "sha256": "db957b7a824ee6ed3ee21a8759154ec19bb8fa08a95e023335454d123f63566b"
+        }
+      ],
+      "issue": "control discrepancy in petitions",
+      "item_count": 57,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/immigration/variant-01/manifest.json",
+      "matter_ref": "MAT-IM-1161",
+      "mutation_parent": null,
+      "pack_id": "pack-immigration-01",
+      "reserve_amount": 2800,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Business Immigration Control Review 01",
+      "total_amount": 5155.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 90.45,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-IM-02-059",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/immigration/variant-02/documents",
+      "domain": "immigration",
+      "domain_label": "Business Immigration",
+      "due_date": "2026-10-14",
+      "evidence_date": "2026-09-04",
+      "expected_status": "remediated-im-02",
+      "files": [
+        {
+          "bytes": 7914,
+          "path": "evidence-register.xlsx",
+          "sha256": "c5e7a38b9fb7dbc6448ee52087d2e67a1235365b27a4fe0cc5de3a7d1956cc24"
+        },
+        {
+          "bytes": 39497,
+          "path": "matter-brief.docx",
+          "sha256": "d30fa0e03dbd90f7b144d54603463eba8b9c2686bcdd7cf16b645553588d1c05"
+        },
+        {
+          "bytes": 2844,
+          "path": "source-extract.pdf",
+          "sha256": "ecb086454a56a279a48e57a15d64630b6dcaaaab9d8dc999f9a5389eef168b24"
+        }
+      ],
+      "issue": "control discrepancy in evidence requests",
+      "item_count": 59,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/immigration/variant-02/manifest.json",
+      "matter_ref": "MAT-IM-1162",
+      "mutation_parent": "pack-immigration-01",
+      "pack_id": "pack-immigration-02",
+      "reserve_amount": 2850,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Business Immigration Control Review 02",
+      "total_amount": 5460.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 92.55,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-IM-03-061",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/immigration/variant-03/documents",
+      "domain": "immigration",
+      "domain_label": "Business Immigration",
+      "due_date": "2026-10-20",
+      "evidence_date": "2026-09-05",
+      "expected_status": "remediated-im-03",
+      "files": [
+        {
+          "bytes": 7899,
+          "path": "evidence-register.xlsx",
+          "sha256": "30f3634b93246beb954ac32732c46cf83d010f14fafc029b9a99f31a0ddb1b65"
+        },
+        {
+          "bytes": 39497,
+          "path": "matter-brief.docx",
+          "sha256": "ce57d2eeaa38d9b9443da9f6b62b5dbca7bb70a320017983c7a41473b7a4701f"
+        },
+        {
+          "bytes": 2842,
+          "path": "source-extract.pdf",
+          "sha256": "f8bc563703def32ec33864c5af7c6b8bd1b066f17fa96cb90df488b2d243e825"
+        }
+      ],
+      "issue": "control discrepancy in employers",
+      "item_count": 61,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/immigration/variant-03/manifest.json",
+      "matter_ref": "MAT-IM-1163",
+      "mutation_parent": "pack-immigration-01",
+      "pack_id": "pack-immigration-03",
+      "reserve_amount": 2900,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Business Immigration Control Review 03",
+      "total_amount": 5773.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 94.65,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-TE-01-060",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/trusts_estates/variant-01/documents",
+      "domain": "trusts_estates",
+      "domain_label": "Trusts and Estates",
+      "due_date": "2026-10-10",
+      "evidence_date": "2026-09-05",
+      "expected_status": "remediated-te-01",
+      "files": [
+        {
+          "bytes": 7902,
+          "path": "evidence-register.xlsx",
+          "sha256": "16ab81b3ff0440c5c014b0528702f761fe176bdedb091e417f573b603922e710"
+        },
+        {
+          "bytes": 39506,
+          "path": "matter-brief.docx",
+          "sha256": "c60ff9e8113253b94ee47c1ce4294039b2b460e0cf36737cd952b8848ebf321b"
+        },
+        {
+          "bytes": 2844,
+          "path": "source-extract.pdf",
+          "sha256": "2adc0c72177669b1473dfedc496a2f8de82e9eff161048784f43fcb8fc3c6841"
+        }
+      ],
+      "issue": "control discrepancy in fiduciaries",
+      "item_count": 60,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/trusts_estates/variant-01/manifest.json",
+      "matter_ref": "MAT-TE-1171",
+      "mutation_parent": null,
+      "pack_id": "pack-trusts_estates-01",
+      "reserve_amount": 2925,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Trusts and Estates Control Review 01",
+      "total_amount": 5688.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 94.8,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-TE-02-062",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/trusts_estates/variant-02/documents",
+      "domain": "trusts_estates",
+      "domain_label": "Trusts and Estates",
+      "due_date": "2026-10-16",
+      "evidence_date": "2026-09-06",
+      "expected_status": "remediated-te-02",
+      "files": [
+        {
+          "bytes": 7915,
+          "path": "evidence-register.xlsx",
+          "sha256": "966d03a539315cbbb80e7d751915bad1a4ae2d00552980408466f37bd940ec98"
+        },
+        {
+          "bytes": 39512,
+          "path": "matter-brief.docx",
+          "sha256": "235ec47578ca830d244f4cdc0d340070df9c55b3e980842787107dbab8bea159"
+        },
+        {
+          "bytes": 2845,
+          "path": "source-extract.pdf",
+          "sha256": "70c9b9ba08446d9caaf0180495358c3458cdcb6b952f60932f41342651e0a5b0"
+        }
+      ],
+      "issue": "control discrepancy in distributions",
+      "item_count": 62,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/trusts_estates/variant-02/manifest.json",
+      "matter_ref": "MAT-TE-1172",
+      "mutation_parent": "pack-trusts_estates-01",
+      "pack_id": "pack-trusts_estates-02",
+      "reserve_amount": 2975,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Trusts and Estates Control Review 02",
+      "total_amount": 6007.8,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 96.9,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-TE-03-064",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/trusts_estates/variant-03/documents",
+      "domain": "trusts_estates",
+      "domain_label": "Trusts and Estates",
+      "due_date": "2026-10-22",
+      "evidence_date": "2026-09-07",
+      "expected_status": "remediated-te-03",
+      "files": [
+        {
+          "bytes": 7906,
+          "path": "evidence-register.xlsx",
+          "sha256": "ca7a99b10f02a0639e0fbeb7f061ce6ca732a04265fac8362171df3fd04c3bad"
+        },
+        {
+          "bytes": 39515,
+          "path": "matter-brief.docx",
+          "sha256": "cdddb88623a0a155270cd310ff9286106f91d7c55838bfe9908c1a39bfad2cde"
+        },
+        {
+          "bytes": 2852,
+          "path": "source-extract.pdf",
+          "sha256": "08392992291134a568172bac8b43940c1bc4a638cb135581df43e0dfd289e9d6"
+        }
+      ],
+      "issue": "control discrepancy in court petitions",
+      "item_count": 64,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/trusts_estates/variant-03/manifest.json",
+      "matter_ref": "MAT-TE-1173",
+      "mutation_parent": "pack-trusts_estates-01",
+      "pack_id": "pack-trusts_estates-03",
+      "reserve_amount": 3025,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Trusts and Estates Control Review 03",
+      "total_amount": 6336.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 99.0,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-NP-01-063",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/nonprofit/variant-01/documents",
+      "domain": "nonprofit",
+      "domain_label": "Nonprofit Governance",
+      "due_date": "2026-10-12",
+      "evidence_date": "2026-09-07",
+      "expected_status": "remediated-np-01",
+      "files": [
+        {
+          "bytes": 7909,
+          "path": "evidence-register.xlsx",
+          "sha256": "3274217bf90ff7d69a1d697770c117069dfda62edcf188f2b5bc5fa3daa992fa"
+        },
+        {
+          "bytes": 39497,
+          "path": "matter-brief.docx",
+          "sha256": "2f8600e9a189681db7407d9a4e3c21ade6f8d75c2458bb5df2bca92976b397f7"
+        },
+        {
+          "bytes": 2840,
+          "path": "source-extract.pdf",
+          "sha256": "116b38658271e8235051010d4ac433518571977df18f398ff539114599800c3b"
+        }
+      ],
+      "issue": "control discrepancy in donations",
+      "item_count": 63,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/nonprofit/variant-01/manifest.json",
+      "matter_ref": "MAT-NP-1181",
+      "mutation_parent": null,
+      "pack_id": "pack-nonprofit-01",
+      "reserve_amount": 3050,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Nonprofit Governance Control Review 01",
+      "total_amount": 6246.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 99.15,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-NP-02-065",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/nonprofit/variant-02/documents",
+      "domain": "nonprofit",
+      "domain_label": "Nonprofit Governance",
+      "due_date": "2026-10-18",
+      "evidence_date": "2026-09-08",
+      "expected_status": "remediated-np-02",
+      "files": [
+        {
+          "bytes": 7894,
+          "path": "evidence-register.xlsx",
+          "sha256": "1e2bc30fa31e66c1014e30eca4317708a2107b12fc8574e8e1631d2ab69143ab"
+        },
+        {
+          "bytes": 39499,
+          "path": "matter-brief.docx",
+          "sha256": "811b574362bcdef9d9cd3db6ab0045e5a807cd3f91358032115019d7098e8c83"
+        },
+        {
+          "bytes": 2840,
+          "path": "source-extract.pdf",
+          "sha256": "4c29b478c46562d38ff3e26f2bc56355ff59477a2fa872b1bba31c8df17f5dee"
+        }
+      ],
+      "issue": "control discrepancy in filings",
+      "item_count": 65,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/nonprofit/variant-02/manifest.json",
+      "matter_ref": "MAT-NP-1182",
+      "mutation_parent": "pack-nonprofit-01",
+      "pack_id": "pack-nonprofit-02",
+      "reserve_amount": 3100,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Nonprofit Governance Control Review 02",
+      "total_amount": 6581.25,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 101.25,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-NP-03-067",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/nonprofit/variant-03/documents",
+      "domain": "nonprofit",
+      "domain_label": "Nonprofit Governance",
+      "due_date": "2026-10-24",
+      "evidence_date": "2026-09-09",
+      "expected_status": "remediated-np-03",
+      "files": [
+        {
+          "bytes": 7905,
+          "path": "evidence-register.xlsx",
+          "sha256": "ec285ccba2797bad073be3a93ceb0b121f2046a4c343106d47086cd889b3d51c"
+        },
+        {
+          "bytes": 39503,
+          "path": "matter-brief.docx",
+          "sha256": "b2ea5e699540b7bbec38d5d5bc23b920a414a624e94d81cd4c258f0861467b4e"
+        },
+        {
+          "bytes": 2850,
+          "path": "source-extract.pdf",
+          "sha256": "69177bdb89b8d25bca1a9d462c2c6441f5c1644165d4757b8ca59b2ac2b37be6"
+        }
+      ],
+      "issue": "control discrepancy in organizations",
+      "item_count": 67,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/nonprofit/variant-03/manifest.json",
+      "matter_ref": "MAT-NP-1183",
+      "mutation_parent": "pack-nonprofit-01",
+      "pack_id": "pack-nonprofit-03",
+      "reserve_amount": 3150,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Nonprofit Governance Control Review 03",
+      "total_amount": 6924.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 103.35,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-GC-01-066",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/government_contracts/variant-01/documents",
+      "domain": "government_contracts",
+      "domain_label": "Government Contracts",
+      "due_date": "2026-10-14",
+      "evidence_date": "2026-09-09",
+      "expected_status": "remediated-gc-01",
+      "files": [
+        {
+          "bytes": 7914,
+          "path": "evidence-register.xlsx",
+          "sha256": "997a3ec3ac2d0eecfe741977bf1e0da5f8409b62974b70622d78ee98869a083e"
+        },
+        {
+          "bytes": 39513,
+          "path": "matter-brief.docx",
+          "sha256": "bab6f75a45ecdb29ff1335b8725abf813c915922f1d19b749f6608547b96bcd7"
+        },
+        {
+          "bytes": 2854,
+          "path": "source-extract.pdf",
+          "sha256": "665fee157d381211d5ff4515c55df81fa8ad972f93d3a5f8149bedcc3f5030d8"
+        }
+      ],
+      "issue": "control discrepancy in modifications",
+      "item_count": 66,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/government_contracts/variant-01/manifest.json",
+      "matter_ref": "MAT-GC-1191",
+      "mutation_parent": null,
+      "pack_id": "pack-government_contracts-01",
+      "reserve_amount": 3175,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Government Contracts Control Review 01",
+      "total_amount": 6831.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 103.5,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-GC-02-068",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/government_contracts/variant-02/documents",
+      "domain": "government_contracts",
+      "domain_label": "Government Contracts",
+      "due_date": "2026-10-20",
+      "evidence_date": "2026-09-10",
+      "expected_status": "remediated-gc-02",
+      "files": [
+        {
+          "bytes": 7914,
+          "path": "evidence-register.xlsx",
+          "sha256": "7e2d7bc8c7aecddf499c1c9a85114401a876ad30aa790716fde94f0e6eaf7465"
+        },
+        {
+          "bytes": 39508,
+          "path": "matter-brief.docx",
+          "sha256": "434a703a4a3e2213a5eeedc6537fae34962678c0ba6fddef4acc93a7736b64ef"
+        },
+        {
+          "bytes": 2850,
+          "path": "source-extract.pdf",
+          "sha256": "a7ab7a84bf4d7f02f75ce666adcd9b652459b325c8d8f8c9ea03010073e3cb15"
+        }
+      ],
+      "issue": "control discrepancy in audits",
+      "item_count": 68,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/government_contracts/variant-02/manifest.json",
+      "matter_ref": "MAT-GC-1192",
+      "mutation_parent": "pack-government_contracts-01",
+      "pack_id": "pack-government_contracts-02",
+      "reserve_amount": 3225,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Government Contracts Control Review 02",
+      "total_amount": 7180.8,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 105.6,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-GC-03-070",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/government_contracts/variant-03/documents",
+      "domain": "government_contracts",
+      "domain_label": "Government Contracts",
+      "due_date": "2026-10-26",
+      "evidence_date": "2026-09-11",
+      "expected_status": "remediated-gc-03",
+      "files": [
+        {
+          "bytes": 7912,
+          "path": "evidence-register.xlsx",
+          "sha256": "1ace3549462252aae85d8a48425944676da53897261cf73ac61a7915dab56b60"
+        },
+        {
+          "bytes": 39513,
+          "path": "matter-brief.docx",
+          "sha256": "001f39c434f8c57724a0a78a2798ef2db88202e1f6113cffbc38d14f273671d1"
+        },
+        {
+          "bytes": 2856,
+          "path": "source-extract.pdf",
+          "sha256": "e5fc58d9221f49c08267c68c25c897af7788add9bae36c8b19003e805e870e22"
+        }
+      ],
+      "issue": "control discrepancy in bids",
+      "item_count": 70,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/government_contracts/variant-03/manifest.json",
+      "matter_ref": "MAT-GC-1193",
+      "mutation_parent": "pack-government_contracts-01",
+      "pack_id": "pack-government_contracts-03",
+      "reserve_amount": 3275,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Government Contracts Control Review 03",
+      "total_amount": 7539.0,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 107.7,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-PS-01-069",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/product_safety/variant-01/documents",
+      "domain": "product_safety",
+      "domain_label": "Product Safety",
+      "due_date": "2026-10-16",
+      "evidence_date": "2026-09-11",
+      "expected_status": "remediated-ps-01",
+      "files": [
+        {
+          "bytes": 7904,
+          "path": "evidence-register.xlsx",
+          "sha256": "42ab493640b83bba96d7dc043b9711f2921748aeb8d838739e8004876bec5417"
+        },
+        {
+          "bytes": 39498,
+          "path": "matter-brief.docx",
+          "sha256": "c6252ae635d3d415c3573bf578858c15795871270fab50f1ac0c092b5b794937"
+        },
+        {
+          "bytes": 2840,
+          "path": "source-extract.pdf",
+          "sha256": "f168bc0d28e914923d1f6377a830c8024a8a4b04972ffddbc2a66575136285bd"
+        }
+      ],
+      "issue": "control discrepancy in recalls",
+      "item_count": 69,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/product_safety/variant-01/manifest.json",
+      "matter_ref": "MAT-PS-1201",
+      "mutation_parent": null,
+      "pack_id": "pack-product_safety-01",
+      "reserve_amount": 3300,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Product Safety Control Review 01",
+      "total_amount": 7441.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 107.85,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-PS-02-071",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/product_safety/variant-02/documents",
+      "domain": "product_safety",
+      "domain_label": "Product Safety",
+      "due_date": "2026-10-22",
+      "evidence_date": "2026-09-12",
+      "expected_status": "remediated-ps-02",
+      "files": [
+        {
+          "bytes": 7905,
+          "path": "evidence-register.xlsx",
+          "sha256": "c8eba48c909b85b741ba96c085d55735fc5e8de820dcfd08baab7f4c11cee80b"
+        },
+        {
+          "bytes": 39502,
+          "path": "matter-brief.docx",
+          "sha256": "e765f47fcd02d4df678fab5ed3e9e03eafe14b78e73df71e88bd9287a99cba1d"
+        },
+        {
+          "bytes": 2842,
+          "path": "source-extract.pdf",
+          "sha256": "2be280b2241464252d891410e0d3d2358237665391f3c9652c978f0fdc0f759d"
+        }
+      ],
+      "issue": "control discrepancy in notices",
+      "item_count": 71,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/product_safety/variant-02/manifest.json",
+      "matter_ref": "MAT-PS-1202",
+      "mutation_parent": "pack-product_safety-01",
+      "pack_id": "pack-product_safety-02",
+      "reserve_amount": 3350,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Product Safety Control Review 02",
+      "total_amount": 7806.45,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 109.95,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-PS-03-073",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/product_safety/variant-03/documents",
+      "domain": "product_safety",
+      "domain_label": "Product Safety",
+      "due_date": "2026-10-28",
+      "evidence_date": "2026-09-13",
+      "expected_status": "remediated-ps-03",
+      "files": [
+        {
+          "bytes": 7905,
+          "path": "evidence-register.xlsx",
+          "sha256": "e16461e96af7f3f65bb309e3ad2629a8a11236753065d502c88800f143705d60"
+        },
+        {
+          "bytes": 39507,
+          "path": "matter-brief.docx",
+          "sha256": "284b03f35c16e53e19186863e0c0c41093ea930704f74699b4b122ac3ecff670"
+        },
+        {
+          "bytes": 2848,
+          "path": "source-extract.pdf",
+          "sha256": "026ddebfb7cace68d04efeeb03736f947a3f476cbfeac42adbe2c2515d917cd1"
+        }
+      ],
+      "issue": "control discrepancy in complaints",
+      "item_count": 73,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/product_safety/variant-03/manifest.json",
+      "matter_ref": "MAT-PS-1203",
+      "mutation_parent": "pack-product_safety-01",
+      "pack_id": "pack-product_safety-03",
+      "reserve_amount": 3400,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Product Safety Control Review 03",
+      "total_amount": 8179.65,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 112.05,
+      "variant": 3
+    },
+    {
+      "anchor": "V21-EVIDENCE-IV-01-072",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/investigations/variant-01/documents",
+      "domain": "investigations",
+      "domain_label": "Internal Investigations",
+      "due_date": "2026-10-18",
+      "evidence_date": "2026-09-13",
+      "expected_status": "remediated-iv-01",
+      "files": [
+        {
+          "bytes": 7900,
+          "path": "evidence-register.xlsx",
+          "sha256": "3f24e25ef4d1e60970cb3d47ed7ca1c82d4eced7e77de59cc1fd6724a9c468ba"
+        },
+        {
+          "bytes": 39499,
+          "path": "matter-brief.docx",
+          "sha256": "f137cd98c92d54b8f52a822dff7d1fafb6bab4d48b3177a47826f61ed534669a"
+        },
+        {
+          "bytes": 2845,
+          "path": "source-extract.pdf",
+          "sha256": "d19aa52662f65d1c1b70c04e849f4a31bb249df4cf8fbcab08a51bbb5d59ef4f"
+        }
+      ],
+      "issue": "control discrepancy in findings",
+      "item_count": 72,
+      "jurisdiction": "CA",
+      "manifest": "research/v21-seeded-documents/packs/investigations/variant-01/manifest.json",
+      "matter_ref": "MAT-IV-1211",
+      "mutation_parent": null,
+      "pack_id": "pack-investigations-01",
+      "reserve_amount": 3425,
+      "risk_level": "high",
+      "synthetic": true,
+      "title": "Internal Investigations Control Review 01",
+      "total_amount": 8078.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 112.2,
+      "variant": 1
+    },
+    {
+      "anchor": "V21-EVIDENCE-IV-02-074",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/investigations/variant-02/documents",
+      "domain": "investigations",
+      "domain_label": "Internal Investigations",
+      "due_date": "2026-10-24",
+      "evidence_date": "2026-09-14",
+      "expected_status": "remediated-iv-02",
+      "files": [
+        {
+          "bytes": 7912,
+          "path": "evidence-register.xlsx",
+          "sha256": "a204afeaeb8a9525499ca7fd8a35b31c88e84f885e7a00e380edbbad3b0e3733"
+        },
+        {
+          "bytes": 39501,
+          "path": "matter-brief.docx",
+          "sha256": "ba1c92b8cd1b7aab52f65f8c03ab4d7825cdb8c204f9d0c8923e6a40475cf0d6"
+        },
+        {
+          "bytes": 2845,
+          "path": "source-extract.pdf",
+          "sha256": "7e8f78f6a779eb6d0f0e137181d836109aa3f6da3fe7d292725354507067ab41"
+        }
+      ],
+      "issue": "control discrepancy in matters",
+      "item_count": 74,
+      "jurisdiction": "NY",
+      "manifest": "research/v21-seeded-documents/packs/investigations/variant-02/manifest.json",
+      "matter_ref": "MAT-IV-1212",
+      "mutation_parent": "pack-investigations-01",
+      "pack_id": "pack-investigations-02",
+      "reserve_amount": 3475,
+      "risk_level": "medium",
+      "synthetic": true,
+      "title": "Internal Investigations Control Review 02",
+      "total_amount": 8458.2,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 114.3,
+      "variant": 2
+    },
+    {
+      "anchor": "V21-EVIDENCE-IV-03-076",
+      "attorney_validation_required": true,
+      "documents_source": "research/v21-seeded-documents/packs/investigations/variant-03/documents",
+      "domain": "investigations",
+      "domain_label": "Internal Investigations",
+      "due_date": "2026-10-30",
+      "evidence_date": "2026-09-15",
+      "expected_status": "remediated-iv-03",
+      "files": [
+        {
+          "bytes": 7898,
+          "path": "evidence-register.xlsx",
+          "sha256": "e377f0db4af35074c109279c232dd6e8eb3ac825e1480de8ea17d62b947a3b3e"
+        },
+        {
+          "bytes": 39500,
+          "path": "matter-brief.docx",
+          "sha256": "de1fe90812839f6c323619bb59e8b7d6b14956604b0fc3b0c444f7eae4d31bc3"
+        },
+        {
+          "bytes": 2850,
+          "path": "source-extract.pdf",
+          "sha256": "b94f7ec56b12b87c4c8373d15fc6716d8566dbeb12b1c8f93dd94555005d47c1"
+        }
+      ],
+      "issue": "control discrepancy in interviews",
+      "item_count": 76,
+      "jurisdiction": "DC",
+      "manifest": "research/v21-seeded-documents/packs/investigations/variant-03/manifest.json",
+      "matter_ref": "MAT-IV-1213",
+      "mutation_parent": "pack-investigations-01",
+      "pack_id": "pack-investigations-03",
+      "reserve_amount": 3525,
+      "risk_level": "critical",
+      "synthetic": true,
+      "title": "Internal Investigations Control Review 03",
+      "total_amount": 8846.4,
+      "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+      "unit_rate": 116.4,
+      "variant": 3
+    }
+  ],
+  "schema_version": 1
+}

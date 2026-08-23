@@ -142,7 +142,7 @@
    "file_lane": {
     "source_task": "contracts/commercial-vendor-customer/vendor-services-agreement-term-negotiation/scenario-03",
     "source_commit": "7be41d57fd5a",
-    "documents_source": "research/repos/harveyai@harvey-labs/tasks/contracts/commercial-vendor-customer/vendor-services-agreement-term-negotiation/scenario-03/documents",
+    "documents_source": "research/harvey-recovery/vendor-services-agreement-term-negotiation-scenario-03/documents",
     "deliverables": [
      "response.md"
     ],

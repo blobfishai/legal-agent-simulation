@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Environmental (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-environmental-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_facilities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-FACILITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-FACILITIES-001 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-FACILITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-FACILITIES-002 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-FACILITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-FACILITIES-003 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-FACILITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-FACILITIES-004 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-FACILITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-FACILITIES-005 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-FACILITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-FACILITIES-006 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-FACILITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-FACILITIES-007 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-FACILITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-FACILITIES-008 | synthetic facilities fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Facilities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_permits",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-PERMITS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-PERMITS-001 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-PERMITS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-PERMITS-002 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-PERMITS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-PERMITS-003 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-PERMITS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-PERMITS-004 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-PERMITS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-PERMITS-005 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-PERMITS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-PERMITS-006 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-PERMITS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-PERMITS-007 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-PERMITS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-PERMITS-008 | synthetic permits fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Permits Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_emissions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-EMISSIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-EMISSIONS-001 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-EMISSIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-EMISSIONS-002 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-EMISSIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-EMISSIONS-003 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-EMISSIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-EMISSIONS-004 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-EMISSIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-EMISSIONS-005 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-EMISSIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-EMISSIONS-006 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-EMISSIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-EMISSIONS-007 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-EMISSIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-EMISSIONS-008 | synthetic emissions fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Emissions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_spills",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-SPILLS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-SPILLS-001 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-SPILLS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-SPILLS-002 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-SPILLS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-SPILLS-003 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-SPILLS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-SPILLS-004 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-SPILLS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-SPILLS-005 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-SPILLS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-SPILLS-006 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-SPILLS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-SPILLS-007 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-SPILLS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-SPILLS-008 | synthetic spills fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Spills Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_inspections",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-INSPECTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-INSPECTIONS-001 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-INSPECTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-INSPECTIONS-002 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-INSPECTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-INSPECTIONS-003 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-INSPECTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-INSPECTIONS-004 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-INSPECTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-INSPECTIONS-005 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-INSPECTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-INSPECTIONS-006 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-INSPECTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-INSPECTIONS-007 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-INSPECTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-INSPECTIONS-008 | synthetic inspections fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Inspections Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_notices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-NOTICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-NOTICES-001 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-NOTICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-NOTICES-002 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-NOTICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-NOTICES-003 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-NOTICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-NOTICES-004 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-NOTICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-NOTICES-005 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-NOTICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-NOTICES-006 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-NOTICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-NOTICES-007 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-NOTICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-NOTICES-008 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Notices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_remediation_projects",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-REMEDIATION_PROJECTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-REMEDIATION_PROJECTS-001 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-REMEDIATION_PROJECTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-REMEDIATION_PROJECTS-002 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-REMEDIATION_PROJECTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-REMEDIATION_PROJECTS-003 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-REMEDIATION_PROJECTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-REMEDIATION_PROJECTS-004 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-REMEDIATION_PROJECTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-REMEDIATION_PROJECTS-005 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-REMEDIATION_PROJECTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-REMEDIATION_PROJECTS-006 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-REMEDIATION_PROJECTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-REMEDIATION_PROJECTS-007 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-REMEDIATION_PROJECTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-REMEDIATION_PROJECTS-008 | synthetic remediation projects fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Remediation Projects Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_sampling_events",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-SAMPLING_EVENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-SAMPLING_EVENTS-001 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-SAMPLING_EVENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-SAMPLING_EVENTS-002 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-SAMPLING_EVENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-SAMPLING_EVENTS-003 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-SAMPLING_EVENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-SAMPLING_EVENTS-004 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-SAMPLING_EVENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-SAMPLING_EVENTS-005 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-SAMPLING_EVENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-SAMPLING_EVENTS-006 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-SAMPLING_EVENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-SAMPLING_EVENTS-007 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-SAMPLING_EVENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-SAMPLING_EVENTS-008 | synthetic sampling events fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Sampling Events Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_en_agency_filings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EN-AGENCY_FILINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-01",
+            "status": "open",
+            "summary": "pack-environmental-01 | ANCHOR-EN-AGENCY_FILINGS-001 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EN-AGENCY_FILINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-AGENCY_FILINGS-002 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EN-AGENCY_FILINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-03",
+            "status": "review",
+            "summary": "pack-environmental-03 | ANCHOR-EN-AGENCY_FILINGS-003 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EN-AGENCY_FILINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-01",
+            "status": "pending",
+            "summary": "pack-environmental-01 | ANCHOR-EN-AGENCY_FILINGS-004 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EN-AGENCY_FILINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-environmental-02",
+            "status": "review",
+            "summary": "pack-environmental-02 | ANCHOR-EN-AGENCY_FILINGS-005 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EN-AGENCY_FILINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-environmental-03",
+            "status": "pending",
+            "summary": "pack-environmental-03 | ANCHOR-EN-AGENCY_FILINGS-006 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EN-AGENCY_FILINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-environmental-01",
+            "status": "review",
+            "summary": "pack-environmental-01 | ANCHOR-EN-AGENCY_FILINGS-007 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EN-AGENCY_FILINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-environmental-02",
+            "status": "pending",
+            "summary": "pack-environmental-02 | ANCHOR-EN-AGENCY_FILINGS-008 | synthetic agency filings fact pattern; attorney validation required before external use.",
+            "title": "Environmental - Agency Filings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List facilities with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Facilities collection",
+      "name": "environmental_facilities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_facilities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete facilities record by integer id. Synthetic documentation-fixture operation for environmental facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Facilities detail",
+      "name": "environmental_facilities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_facilities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search facilities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Facilities search",
+      "name": "environmental_facilities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_facilities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-FACILITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Facilities",
+        "version": 1
+      },
+      "description": "Create a fully attributed facilities record. Synthetic documentation-fixture operation for environmental facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Facilities filing workflow",
+      "name": "environmental_facilities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_facilities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing facilities record with explicit change fields. Synthetic documentation-fixture operation for environmental facilities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Facilities change-control workflow",
+      "name": "environmental_facilities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_facilities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List permits with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental permits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Permits collection",
+      "name": "environmental_permits_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_permits"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete permits record by integer id. Synthetic documentation-fixture operation for environmental permits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Permits detail",
+      "name": "environmental_permits_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_permits"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search permits keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental permits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Permits search",
+      "name": "environmental_permits_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_permits"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-PERMITS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Permits",
+        "version": 1
+      },
+      "description": "Create a fully attributed permits record. Synthetic documentation-fixture operation for environmental permits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Permits filing workflow",
+      "name": "environmental_permits_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_permits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing permits record with explicit change fields. Synthetic documentation-fixture operation for environmental permits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Permits change-control workflow",
+      "name": "environmental_permits_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_permits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List emissions with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental emissions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Emissions collection",
+      "name": "environmental_emissions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_emissions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete emissions record by integer id. Synthetic documentation-fixture operation for environmental emissions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Emissions detail",
+      "name": "environmental_emissions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_emissions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search emissions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental emissions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Emissions search",
+      "name": "environmental_emissions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_emissions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-EMISSIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Emissions",
+        "version": 1
+      },
+      "description": "Create a fully attributed emissions record. Synthetic documentation-fixture operation for environmental emissions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Emissions filing workflow",
+      "name": "environmental_emissions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_emissions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing emissions record with explicit change fields. Synthetic documentation-fixture operation for environmental emissions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Emissions change-control workflow",
+      "name": "environmental_emissions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_emissions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List spills with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental spills records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Spills collection",
+      "name": "environmental_spills_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_spills"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete spills record by integer id. Synthetic documentation-fixture operation for environmental spills records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Spills detail",
+      "name": "environmental_spills_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_spills"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search spills keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental spills records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Spills search",
+      "name": "environmental_spills_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_spills"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-SPILLS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Spills",
+        "version": 1
+      },
+      "description": "Create a fully attributed spills record. Synthetic documentation-fixture operation for environmental spills records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Spills filing workflow",
+      "name": "environmental_spills_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_spills"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing spills record with explicit change fields. Synthetic documentation-fixture operation for environmental spills records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Spills change-control workflow",
+      "name": "environmental_spills_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_spills"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List inspections with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental inspections records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Inspections collection",
+      "name": "environmental_inspections_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_inspections"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete inspections record by integer id. Synthetic documentation-fixture operation for environmental inspections records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Inspections detail",
+      "name": "environmental_inspections_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_inspections"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search inspections keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental inspections records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Inspections search",
+      "name": "environmental_inspections_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_inspections"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-INSPECTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Inspections",
+        "version": 1
+      },
+      "description": "Create a fully attributed inspections record. Synthetic documentation-fixture operation for environmental inspections records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Inspections filing workflow",
+      "name": "environmental_inspections_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_inspections"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing inspections record with explicit change fields. Synthetic documentation-fixture operation for environmental inspections records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Inspections change-control workflow",
+      "name": "environmental_inspections_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_inspections"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notices with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Notices collection",
+      "name": "environmental_notices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_notices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notices record by integer id. Synthetic documentation-fixture operation for environmental notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Notices detail",
+      "name": "environmental_notices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_notices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search notices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Notices search",
+      "name": "environmental_notices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_notices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-NOTICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notices",
+        "version": 1
+      },
+      "description": "Create a fully attributed notices record. Synthetic documentation-fixture operation for environmental notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Notices filing workflow",
+      "name": "environmental_notices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notices record with explicit change fields. Synthetic documentation-fixture operation for environmental notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Notices change-control workflow",
+      "name": "environmental_notices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List remediation projects with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental remediation projects records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Remediation Projects collection",
+      "name": "environmental_remediation_projects_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_remediation_projects"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete remediation projects record by integer id. Synthetic documentation-fixture operation for environmental remediation projects records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Remediation Projects detail",
+      "name": "environmental_remediation_projects_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_remediation_projects"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search remediation projects keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental remediation projects records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Remediation Projects search",
+      "name": "environmental_remediation_projects_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_remediation_projects"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-REMEDIATION_PROJECTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Remediation Projects",
+        "version": 1
+      },
+      "description": "Create a fully attributed remediation projects record. Synthetic documentation-fixture operation for environmental remediation projects records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Remediation Projects filing workflow",
+      "name": "environmental_remediation_projects_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_remediation_projects"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing remediation projects record with explicit change fields. Synthetic documentation-fixture operation for environmental remediation projects records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Remediation Projects change-control workflow",
+      "name": "environmental_remediation_projects_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_remediation_projects"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List sampling events with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental sampling events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Sampling Events collection",
+      "name": "environmental_sampling_events_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_sampling_events"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete sampling events record by integer id. Synthetic documentation-fixture operation for environmental sampling events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Sampling Events detail",
+      "name": "environmental_sampling_events_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_sampling_events"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search sampling events keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental sampling events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Sampling Events search",
+      "name": "environmental_sampling_events_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_sampling_events"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-SAMPLING_EVENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Sampling Events",
+        "version": 1
+      },
+      "description": "Create a fully attributed sampling events record. Synthetic documentation-fixture operation for environmental sampling events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Sampling Events filing workflow",
+      "name": "environmental_sampling_events_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_sampling_events"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing sampling events record with explicit change fields. Synthetic documentation-fixture operation for environmental sampling events records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Sampling Events change-control workflow",
+      "name": "environmental_sampling_events_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_sampling_events"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List agency filings with deterministic filters and pagination. Synthetic documentation-fixture operation for environmental agency filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Agency Filings collection",
+      "name": "environmental_agency_filings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_en_agency_filings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete agency filings record by integer id. Synthetic documentation-fixture operation for environmental agency filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Agency Filings detail",
+      "name": "environmental_agency_filings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_en_agency_filings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-environmental-01"
+      },
+      "description": "Search agency filings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for environmental agency filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Agency Filings search",
+      "name": "environmental_agency_filings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_en_agency_filings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EN-AGENCY_FILINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-environmental-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Agency Filings",
+        "version": 1
+      },
+      "description": "Create a fully attributed agency filings record. Synthetic documentation-fixture operation for environmental agency filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Agency Filings filing workflow",
+      "name": "environmental_agency_filings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_en_agency_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing agency filings record with explicit change fields. Synthetic documentation-fixture operation for environmental agency filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Environmental synthetic Agency Filings change-control workflow",
+      "name": "environmental_agency_filings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_en_agency_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

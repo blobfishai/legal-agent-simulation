@@ -1,0 +1,28 @@
+{
+  "added_generated_tasks": 20963,
+  "added_tables": 198,
+  "added_tools_with_focus_tasks": 990,
+  "base": "world/blobfish/world-v20.json",
+  "base_tasks": 2331,
+  "contracts": 32,
+  "generated_unique_verifier_configs": 20963,
+  "internal_tools": 11,
+  "legacy_tools_newly_exercised": 36,
+  "merged_realworld": {
+    "rows": 72,
+    "tasks": 16,
+    "verifiers": 16
+  },
+  "schema_version": 1,
+  "seed_documents": 198,
+  "seed_pack_reference_max": 318,
+  "seed_pack_reference_min": 317,
+  "seed_packs": 66,
+  "tables": 254,
+  "total_tasks": 23310,
+  "total_verifiers": 23310,
+  "visible_tools": 1100,
+  "visible_tools_exercised": 1100,
+  "world_bytes": 255222487,
+  "world_sha256": "55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394"
+}

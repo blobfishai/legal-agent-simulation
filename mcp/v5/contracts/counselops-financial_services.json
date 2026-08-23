@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Financial Services (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-financial_services-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_institutions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-INSTITUTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-INSTITUTIONS-001 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-INSTITUTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-INSTITUTIONS-002 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-INSTITUTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-INSTITUTIONS-003 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-INSTITUTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-INSTITUTIONS-004 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-INSTITUTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-INSTITUTIONS-005 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-INSTITUTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-INSTITUTIONS-006 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-INSTITUTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-INSTITUTIONS-007 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-INSTITUTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-INSTITUTIONS-008 | synthetic institutions fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Institutions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_products",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-PRODUCTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-PRODUCTS-001 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-PRODUCTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-PRODUCTS-002 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-PRODUCTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-PRODUCTS-003 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-PRODUCTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-PRODUCTS-004 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-PRODUCTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-PRODUCTS-005 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-PRODUCTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-PRODUCTS-006 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-PRODUCTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-PRODUCTS-007 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-PRODUCTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-PRODUCTS-008 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Products Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_complaints",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-COMPLAINTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-COMPLAINTS-001 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-COMPLAINTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-COMPLAINTS-002 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-COMPLAINTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-COMPLAINTS-003 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-COMPLAINTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-COMPLAINTS-004 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-COMPLAINTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-COMPLAINTS-005 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-COMPLAINTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-COMPLAINTS-006 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-COMPLAINTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-COMPLAINTS-007 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-COMPLAINTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-COMPLAINTS-008 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Complaints Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_examinations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-EXAMINATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-EXAMINATIONS-001 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-EXAMINATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-EXAMINATIONS-002 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-EXAMINATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-EXAMINATIONS-003 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-EXAMINATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-EXAMINATIONS-004 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-EXAMINATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-EXAMINATIONS-005 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-EXAMINATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-EXAMINATIONS-006 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-EXAMINATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-EXAMINATIONS-007 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-EXAMINATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-EXAMINATIONS-008 | synthetic examinations fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Examinations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_findings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-FINDINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-FINDINGS-001 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-FINDINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-FINDINGS-002 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-FINDINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-FINDINGS-003 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-FINDINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-FINDINGS-004 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-FINDINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-FINDINGS-005 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-FINDINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-FINDINGS-006 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-FINDINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-FINDINGS-007 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-FINDINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-FINDINGS-008 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Findings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_suspicious_activities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-001 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-002 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-003 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-004 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-005 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-006 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-007 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-SUSPICIOUS_ACTIVITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-SUSPICIOUS_ACTIVITIES-008 | synthetic suspicious activities fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Suspicious Activities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_disclosures",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-DISCLOSURES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-DISCLOSURES-001 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-DISCLOSURES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-DISCLOSURES-002 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-DISCLOSURES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-DISCLOSURES-003 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-DISCLOSURES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-DISCLOSURES-004 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-DISCLOSURES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-DISCLOSURES-005 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-DISCLOSURES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-DISCLOSURES-006 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-DISCLOSURES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-DISCLOSURES-007 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-DISCLOSURES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-DISCLOSURES-008 | synthetic disclosures fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Disclosures Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_controls",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-CONTROLS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-CONTROLS-001 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-CONTROLS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-CONTROLS-002 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-CONTROLS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-CONTROLS-003 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-CONTROLS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-CONTROLS-004 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-CONTROLS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-CONTROLS-005 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-CONTROLS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-CONTROLS-006 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-CONTROLS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-CONTROLS-007 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-CONTROLS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-CONTROLS-008 | synthetic controls fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Controls Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fs_remediation_items",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FS-REMEDIATION_ITEMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-01",
+            "status": "open",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-REMEDIATION_ITEMS-001 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FS-REMEDIATION_ITEMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-REMEDIATION_ITEMS-002 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FS-REMEDIATION_ITEMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-03",
+            "status": "review",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-REMEDIATION_ITEMS-003 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FS-REMEDIATION_ITEMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-01",
+            "status": "pending",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-REMEDIATION_ITEMS-004 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FS-REMEDIATION_ITEMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-financial_services-02",
+            "status": "review",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-REMEDIATION_ITEMS-005 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FS-REMEDIATION_ITEMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-financial_services-03",
+            "status": "pending",
+            "summary": "pack-financial_services-03 | ANCHOR-FS-REMEDIATION_ITEMS-006 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FS-REMEDIATION_ITEMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-financial_services-01",
+            "status": "review",
+            "summary": "pack-financial_services-01 | ANCHOR-FS-REMEDIATION_ITEMS-007 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FS-REMEDIATION_ITEMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-financial_services-02",
+            "status": "pending",
+            "summary": "pack-financial_services-02 | ANCHOR-FS-REMEDIATION_ITEMS-008 | synthetic remediation items fact pattern; attorney validation required before external use.",
+            "title": "Financial Services - Remediation Items Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List institutions with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services institutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Institutions collection",
+      "name": "financial_services_institutions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_institutions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete institutions record by integer id. Synthetic documentation-fixture operation for financial services institutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Institutions detail",
+      "name": "financial_services_institutions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_institutions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search institutions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services institutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Institutions search",
+      "name": "financial_services_institutions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_institutions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-INSTITUTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Institutions",
+        "version": 1
+      },
+      "description": "Create a fully attributed institutions record. Synthetic documentation-fixture operation for financial services institutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Institutions filing workflow",
+      "name": "financial_services_institutions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_institutions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing institutions record with explicit change fields. Synthetic documentation-fixture operation for financial services institutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Institutions change-control workflow",
+      "name": "financial_services_institutions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_institutions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List products with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Products collection",
+      "name": "financial_services_products_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_products"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete products record by integer id. Synthetic documentation-fixture operation for financial services products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Products detail",
+      "name": "financial_services_products_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_products"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search products keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Products search",
+      "name": "financial_services_products_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_products"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-PRODUCTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Products",
+        "version": 1
+      },
+      "description": "Create a fully attributed products record. Synthetic documentation-fixture operation for financial services products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Products filing workflow",
+      "name": "financial_services_products_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_products"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing products record with explicit change fields. Synthetic documentation-fixture operation for financial services products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Products change-control workflow",
+      "name": "financial_services_products_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_products"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List complaints with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Complaints collection",
+      "name": "financial_services_complaints_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_complaints"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete complaints record by integer id. Synthetic documentation-fixture operation for financial services complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Complaints detail",
+      "name": "financial_services_complaints_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_complaints"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search complaints keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Complaints search",
+      "name": "financial_services_complaints_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_complaints"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-COMPLAINTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Complaints",
+        "version": 1
+      },
+      "description": "Create a fully attributed complaints record. Synthetic documentation-fixture operation for financial services complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Complaints filing workflow",
+      "name": "financial_services_complaints_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_complaints"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing complaints record with explicit change fields. Synthetic documentation-fixture operation for financial services complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Complaints change-control workflow",
+      "name": "financial_services_complaints_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_complaints"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List examinations with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services examinations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Examinations collection",
+      "name": "financial_services_examinations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_examinations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete examinations record by integer id. Synthetic documentation-fixture operation for financial services examinations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Examinations detail",
+      "name": "financial_services_examinations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_examinations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search examinations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services examinations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Examinations search",
+      "name": "financial_services_examinations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_examinations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-EXAMINATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Examinations",
+        "version": 1
+      },
+      "description": "Create a fully attributed examinations record. Synthetic documentation-fixture operation for financial services examinations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Examinations filing workflow",
+      "name": "financial_services_examinations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_examinations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing examinations record with explicit change fields. Synthetic documentation-fixture operation for financial services examinations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Examinations change-control workflow",
+      "name": "financial_services_examinations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_examinations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List findings with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Findings collection",
+      "name": "financial_services_findings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_findings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete findings record by integer id. Synthetic documentation-fixture operation for financial services findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Findings detail",
+      "name": "financial_services_findings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_findings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search findings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Findings search",
+      "name": "financial_services_findings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_findings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-FINDINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Findings",
+        "version": 1
+      },
+      "description": "Create a fully attributed findings record. Synthetic documentation-fixture operation for financial services findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Findings filing workflow",
+      "name": "financial_services_findings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_findings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing findings record with explicit change fields. Synthetic documentation-fixture operation for financial services findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Findings change-control workflow",
+      "name": "financial_services_findings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_findings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List suspicious activities with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services suspicious activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Suspicious Activities collection",
+      "name": "financial_services_suspicious_activities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_suspicious_activities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete suspicious activities record by integer id. Synthetic documentation-fixture operation for financial services suspicious activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Suspicious Activities detail",
+      "name": "financial_services_suspicious_activities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_suspicious_activities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search suspicious activities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services suspicious activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Suspicious Activities search",
+      "name": "financial_services_suspicious_activities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_suspicious_activities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-SUSPICIOUS_ACTIVITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Suspicious Activities",
+        "version": 1
+      },
+      "description": "Create a fully attributed suspicious activities record. Synthetic documentation-fixture operation for financial services suspicious activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Suspicious Activities filing workflow",
+      "name": "financial_services_suspicious_activities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_suspicious_activities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing suspicious activities record with explicit change fields. Synthetic documentation-fixture operation for financial services suspicious activities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Suspicious Activities change-control workflow",
+      "name": "financial_services_suspicious_activities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_suspicious_activities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List disclosures with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Disclosures collection",
+      "name": "financial_services_disclosures_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_disclosures"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete disclosures record by integer id. Synthetic documentation-fixture operation for financial services disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Disclosures detail",
+      "name": "financial_services_disclosures_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_disclosures"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search disclosures keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Disclosures search",
+      "name": "financial_services_disclosures_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_disclosures"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-DISCLOSURES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Disclosures",
+        "version": 1
+      },
+      "description": "Create a fully attributed disclosures record. Synthetic documentation-fixture operation for financial services disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Disclosures filing workflow",
+      "name": "financial_services_disclosures_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_disclosures"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing disclosures record with explicit change fields. Synthetic documentation-fixture operation for financial services disclosures records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Disclosures change-control workflow",
+      "name": "financial_services_disclosures_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_disclosures"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List controls with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services controls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Controls collection",
+      "name": "financial_services_controls_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_controls"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete controls record by integer id. Synthetic documentation-fixture operation for financial services controls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Controls detail",
+      "name": "financial_services_controls_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_controls"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search controls keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services controls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Controls search",
+      "name": "financial_services_controls_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_controls"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-CONTROLS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Controls",
+        "version": 1
+      },
+      "description": "Create a fully attributed controls record. Synthetic documentation-fixture operation for financial services controls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Controls filing workflow",
+      "name": "financial_services_controls_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_controls"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing controls record with explicit change fields. Synthetic documentation-fixture operation for financial services controls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Controls change-control workflow",
+      "name": "financial_services_controls_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_controls"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List remediation items with deterministic filters and pagination. Synthetic documentation-fixture operation for financial services remediation items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Remediation Items collection",
+      "name": "financial_services_remediation_items_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fs_remediation_items"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete remediation items record by integer id. Synthetic documentation-fixture operation for financial services remediation items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Remediation Items detail",
+      "name": "financial_services_remediation_items_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fs_remediation_items"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-financial_services-01"
+      },
+      "description": "Search remediation items keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for financial services remediation items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Remediation Items search",
+      "name": "financial_services_remediation_items_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fs_remediation_items"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FS-REMEDIATION_ITEMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-financial_services-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Remediation Items",
+        "version": 1
+      },
+      "description": "Create a fully attributed remediation items record. Synthetic documentation-fixture operation for financial services remediation items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Remediation Items filing workflow",
+      "name": "financial_services_remediation_items_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fs_remediation_items"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing remediation items record with explicit change fields. Synthetic documentation-fixture operation for financial services remediation items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Financial Services synthetic Remediation Items change-control workflow",
+      "name": "financial_services_remediation_items_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fs_remediation_items"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

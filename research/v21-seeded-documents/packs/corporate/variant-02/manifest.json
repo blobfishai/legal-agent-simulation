@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7893,
+      "path": "evidence-register.xlsx",
+      "sha256": "485608e1758686f7cc354af9d8dd6634d8f9d3e29608b1dfddc8a7fb1f0fc590"
+    },
+    {
+      "bytes": 39499,
+      "path": "matter-brief.docx",
+      "sha256": "9a22a280aeb91a705ccea5cf4fa76d3ef8332265f36c6216c3b49494f3e81c38"
+    },
+    {
+      "bytes": 2839,
+      "path": "source-extract.pdf",
+      "sha256": "e930abb8b8c20e99542b4e004ca83b1fdd411d202f39331331d8d34e2ff11522"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-CG-02-014",
+    "attorney_validation_required": true,
+    "domain": "corporate",
+    "domain_label": "Corporate Governance",
+    "due_date": "2026-09-14",
+    "evidence_date": "2026-08-05",
+    "expected_status": "remediated-cg-02",
+    "issue": "control discrepancy in securities",
+    "item_count": 14,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-CG-1012",
+    "mutation_parent": "pack-corporate-01",
+    "pack_id": "pack-corporate-02",
+    "reserve_amount": 975,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Corporate Governance Control Review 02",
+    "total_amount": 382.2,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 27.3,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

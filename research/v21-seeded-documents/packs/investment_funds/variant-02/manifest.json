@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7913,
+      "path": "evidence-register.xlsx",
+      "sha256": "59f8940c7b68b0832247fe8cc7a24248ba36cc584ce8b3bfa293e98caec722ba"
+    },
+    {
+      "bytes": 39514,
+      "path": "matter-brief.docx",
+      "sha256": "70a2ff8496ac3fa0d560915881e2681467cca437135ae0b7ccbf6d3336188c15"
+    },
+    {
+      "bytes": 2847,
+      "path": "source-extract.pdf",
+      "sha256": "16b97d0a41cd18af8d8c7315ce99399f0a77ff42ae30a1dc382f90b42ba80545"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-FM-02-053",
+    "attorney_validation_required": true,
+    "domain": "investment_funds",
+    "domain_label": "Investment Funds",
+    "due_date": "2026-10-10",
+    "evidence_date": "2026-08-31",
+    "expected_status": "remediated-fm-02",
+    "issue": "control discrepancy in subscriptions",
+    "item_count": 53,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-FM-1142",
+    "mutation_parent": "pack-investment_funds-01",
+    "pack_id": "pack-investment_funds-02",
+    "reserve_amount": 2600,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Investment Funds Control Review 02",
+    "total_amount": 4444.05,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 83.85,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

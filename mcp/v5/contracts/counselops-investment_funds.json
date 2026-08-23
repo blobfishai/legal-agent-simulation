@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Investment Funds (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-investment_funds-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_funds",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-FUNDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-FUNDS-001 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-FUNDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-FUNDS-002 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-FUNDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-FUNDS-003 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-FUNDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-FUNDS-004 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-FUNDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-FUNDS-005 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-FUNDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-FUNDS-006 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-FUNDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-FUNDS-007 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-FUNDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-FUNDS-008 | synthetic funds fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Funds Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_investors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-INVESTORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-INVESTORS-001 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-INVESTORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-INVESTORS-002 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-INVESTORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-INVESTORS-003 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-INVESTORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-INVESTORS-004 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-INVESTORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-INVESTORS-005 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-INVESTORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-INVESTORS-006 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-INVESTORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-INVESTORS-007 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-INVESTORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-INVESTORS-008 | synthetic investors fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Investors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_subscriptions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-SUBSCRIPTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-SUBSCRIPTIONS-001 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-SUBSCRIPTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-SUBSCRIPTIONS-002 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-SUBSCRIPTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-SUBSCRIPTIONS-003 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-SUBSCRIPTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-SUBSCRIPTIONS-004 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-SUBSCRIPTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-SUBSCRIPTIONS-005 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-SUBSCRIPTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-SUBSCRIPTIONS-006 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-SUBSCRIPTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-SUBSCRIPTIONS-007 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-SUBSCRIPTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-SUBSCRIPTIONS-008 | synthetic subscriptions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Subscriptions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_side_letters",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-SIDE_LETTERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-SIDE_LETTERS-001 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-SIDE_LETTERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-SIDE_LETTERS-002 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-SIDE_LETTERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-SIDE_LETTERS-003 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-SIDE_LETTERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-SIDE_LETTERS-004 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-SIDE_LETTERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-SIDE_LETTERS-005 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-SIDE_LETTERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-SIDE_LETTERS-006 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-SIDE_LETTERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-SIDE_LETTERS-007 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-SIDE_LETTERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-SIDE_LETTERS-008 | synthetic side letters fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Side Letters Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_valuations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-VALUATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-VALUATIONS-001 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-VALUATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-VALUATIONS-002 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-VALUATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-VALUATIONS-003 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-VALUATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-VALUATIONS-004 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-VALUATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-VALUATIONS-005 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-VALUATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-VALUATIONS-006 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-VALUATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-VALUATIONS-007 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-VALUATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-VALUATIONS-008 | synthetic valuations fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Valuations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_trades",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-TRADES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-TRADES-001 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-TRADES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-TRADES-002 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-TRADES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-TRADES-003 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-TRADES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-TRADES-004 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-TRADES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-TRADES-005 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-TRADES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-TRADES-006 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-TRADES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-TRADES-007 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-TRADES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-TRADES-008 | synthetic trades fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Trades Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_compliance_tests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-COMPLIANCE_TESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-COMPLIANCE_TESTS-001 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-COMPLIANCE_TESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-COMPLIANCE_TESTS-002 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-COMPLIANCE_TESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-COMPLIANCE_TESTS-003 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-COMPLIANCE_TESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-COMPLIANCE_TESTS-004 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-COMPLIANCE_TESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-COMPLIANCE_TESTS-005 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-COMPLIANCE_TESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-COMPLIANCE_TESTS-006 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-COMPLIANCE_TESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-COMPLIANCE_TESTS-007 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-COMPLIANCE_TESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-COMPLIANCE_TESTS-008 | synthetic compliance tests fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Compliance Tests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_filings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-FILINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-FILINGS-001 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-FILINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-FILINGS-002 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-FILINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-FILINGS-003 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-FILINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-FILINGS-004 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-FILINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-FILINGS-005 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-FILINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-FILINGS-006 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-FILINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-FILINGS-007 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-FILINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-FILINGS-008 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Filings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_fm_distributions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "FM-DISTRIBUTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-FM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-01",
+            "status": "open",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-DISTRIBUTIONS-001 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "FM-DISTRIBUTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-FM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-DISTRIBUTIONS-002 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "FM-DISTRIBUTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-FM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-03",
+            "status": "review",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-DISTRIBUTIONS-003 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "FM-DISTRIBUTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-FM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-01",
+            "status": "pending",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-DISTRIBUTIONS-004 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "FM-DISTRIBUTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-FM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investment_funds-02",
+            "status": "review",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-DISTRIBUTIONS-005 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "FM-DISTRIBUTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-FM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investment_funds-03",
+            "status": "pending",
+            "summary": "pack-investment_funds-03 | ANCHOR-FM-DISTRIBUTIONS-006 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "FM-DISTRIBUTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-FM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investment_funds-01",
+            "status": "review",
+            "summary": "pack-investment_funds-01 | ANCHOR-FM-DISTRIBUTIONS-007 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "FM-DISTRIBUTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-FM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investment_funds-02",
+            "status": "pending",
+            "summary": "pack-investment_funds-02 | ANCHOR-FM-DISTRIBUTIONS-008 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Investment Funds - Distributions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List funds with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds funds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Funds collection",
+      "name": "investment_funds_funds_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_funds"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete funds record by integer id. Synthetic documentation-fixture operation for investment funds funds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Funds detail",
+      "name": "investment_funds_funds_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_funds"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search funds keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds funds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Funds search",
+      "name": "investment_funds_funds_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_funds"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-FUNDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Funds",
+        "version": 1
+      },
+      "description": "Create a fully attributed funds record. Synthetic documentation-fixture operation for investment funds funds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Funds filing workflow",
+      "name": "investment_funds_funds_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_funds"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing funds record with explicit change fields. Synthetic documentation-fixture operation for investment funds funds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Funds change-control workflow",
+      "name": "investment_funds_funds_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_funds"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List investors with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds investors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Investors collection",
+      "name": "investment_funds_investors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_investors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete investors record by integer id. Synthetic documentation-fixture operation for investment funds investors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Investors detail",
+      "name": "investment_funds_investors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_investors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search investors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds investors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Investors search",
+      "name": "investment_funds_investors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_investors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-INVESTORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Investors",
+        "version": 1
+      },
+      "description": "Create a fully attributed investors record. Synthetic documentation-fixture operation for investment funds investors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Investors filing workflow",
+      "name": "investment_funds_investors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_investors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing investors record with explicit change fields. Synthetic documentation-fixture operation for investment funds investors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Investors change-control workflow",
+      "name": "investment_funds_investors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_investors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List subscriptions with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds subscriptions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Subscriptions collection",
+      "name": "investment_funds_subscriptions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_subscriptions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete subscriptions record by integer id. Synthetic documentation-fixture operation for investment funds subscriptions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Subscriptions detail",
+      "name": "investment_funds_subscriptions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_subscriptions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search subscriptions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds subscriptions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Subscriptions search",
+      "name": "investment_funds_subscriptions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_subscriptions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-SUBSCRIPTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Subscriptions",
+        "version": 1
+      },
+      "description": "Create a fully attributed subscriptions record. Synthetic documentation-fixture operation for investment funds subscriptions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Subscriptions filing workflow",
+      "name": "investment_funds_subscriptions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_subscriptions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing subscriptions record with explicit change fields. Synthetic documentation-fixture operation for investment funds subscriptions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Subscriptions change-control workflow",
+      "name": "investment_funds_subscriptions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_subscriptions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List side letters with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds side letters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Side Letters collection",
+      "name": "investment_funds_side_letters_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_side_letters"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete side letters record by integer id. Synthetic documentation-fixture operation for investment funds side letters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Side Letters detail",
+      "name": "investment_funds_side_letters_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_side_letters"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search side letters keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds side letters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Side Letters search",
+      "name": "investment_funds_side_letters_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_side_letters"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-SIDE_LETTERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Side Letters",
+        "version": 1
+      },
+      "description": "Create a fully attributed side letters record. Synthetic documentation-fixture operation for investment funds side letters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Side Letters filing workflow",
+      "name": "investment_funds_side_letters_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_side_letters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing side letters record with explicit change fields. Synthetic documentation-fixture operation for investment funds side letters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Side Letters change-control workflow",
+      "name": "investment_funds_side_letters_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_side_letters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List valuations with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds valuations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Valuations collection",
+      "name": "investment_funds_valuations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_valuations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete valuations record by integer id. Synthetic documentation-fixture operation for investment funds valuations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Valuations detail",
+      "name": "investment_funds_valuations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_valuations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search valuations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds valuations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Valuations search",
+      "name": "investment_funds_valuations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_valuations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-VALUATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Valuations",
+        "version": 1
+      },
+      "description": "Create a fully attributed valuations record. Synthetic documentation-fixture operation for investment funds valuations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Valuations filing workflow",
+      "name": "investment_funds_valuations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_valuations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing valuations record with explicit change fields. Synthetic documentation-fixture operation for investment funds valuations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Valuations change-control workflow",
+      "name": "investment_funds_valuations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_valuations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List trades with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds trades records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Trades collection",
+      "name": "investment_funds_trades_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_trades"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete trades record by integer id. Synthetic documentation-fixture operation for investment funds trades records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Trades detail",
+      "name": "investment_funds_trades_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_trades"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search trades keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds trades records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Trades search",
+      "name": "investment_funds_trades_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_trades"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-TRADES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Trades",
+        "version": 1
+      },
+      "description": "Create a fully attributed trades record. Synthetic documentation-fixture operation for investment funds trades records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Trades filing workflow",
+      "name": "investment_funds_trades_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_trades"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing trades record with explicit change fields. Synthetic documentation-fixture operation for investment funds trades records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Trades change-control workflow",
+      "name": "investment_funds_trades_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_trades"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List compliance tests with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds compliance tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Compliance Tests collection",
+      "name": "investment_funds_compliance_tests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_compliance_tests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete compliance tests record by integer id. Synthetic documentation-fixture operation for investment funds compliance tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Compliance Tests detail",
+      "name": "investment_funds_compliance_tests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_compliance_tests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search compliance tests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds compliance tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Compliance Tests search",
+      "name": "investment_funds_compliance_tests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_compliance_tests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-COMPLIANCE_TESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Compliance Tests",
+        "version": 1
+      },
+      "description": "Create a fully attributed compliance tests record. Synthetic documentation-fixture operation for investment funds compliance tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Compliance Tests filing workflow",
+      "name": "investment_funds_compliance_tests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_compliance_tests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing compliance tests record with explicit change fields. Synthetic documentation-fixture operation for investment funds compliance tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Compliance Tests change-control workflow",
+      "name": "investment_funds_compliance_tests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_compliance_tests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List filings with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Filings collection",
+      "name": "investment_funds_filings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_filings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete filings record by integer id. Synthetic documentation-fixture operation for investment funds filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Filings detail",
+      "name": "investment_funds_filings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_filings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search filings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Filings search",
+      "name": "investment_funds_filings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_filings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-FILINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Filings",
+        "version": 1
+      },
+      "description": "Create a fully attributed filings record. Synthetic documentation-fixture operation for investment funds filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Filings filing workflow",
+      "name": "investment_funds_filings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing filings record with explicit change fields. Synthetic documentation-fixture operation for investment funds filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Filings change-control workflow",
+      "name": "investment_funds_filings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List distributions with deterministic filters and pagination. Synthetic documentation-fixture operation for investment funds distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Distributions collection",
+      "name": "investment_funds_distributions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_fm_distributions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete distributions record by integer id. Synthetic documentation-fixture operation for investment funds distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Distributions detail",
+      "name": "investment_funds_distributions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_fm_distributions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investment_funds-01"
+      },
+      "description": "Search distributions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for investment funds distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Distributions search",
+      "name": "investment_funds_distributions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_fm_distributions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-FM-DISTRIBUTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-FM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investment_funds-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Distributions",
+        "version": 1
+      },
+      "description": "Create a fully attributed distributions record. Synthetic documentation-fixture operation for investment funds distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Distributions filing workflow",
+      "name": "investment_funds_distributions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_fm_distributions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing distributions record with explicit change fields. Synthetic documentation-fixture operation for investment funds distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Investment Funds synthetic Distributions change-control workflow",
+      "name": "investment_funds_distributions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_fm_distributions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+ "$schema": "lawfirm-qwen.mcp-contract.v3",
+ "system": "sealpoint-esign-v3",
+ "product": "SealPoint eSign (SIMULATED) — API surface mirrors Docusign eSignature REST API v2.1",
+ "provenance": "https://github.com/docusign/OpenAPI-Specifications/blob/master/esignature.rest.swagger-v2.1.json",
+ "fidelity": "Four vendor operations map to the official Swagger. The recipient-completion hook is an explicitly excluded simulator extension.",
+ "tables": [
+  {
+   "name": "es_envelopes",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "account_id",
+     "type": "TEXT"
+    },
+    {
+     "name": "email_subject",
+     "type": "TEXT"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    },
+    {
+     "name": "document_name",
+     "type": "TEXT"
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "sent_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "completed_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "current_routing_order",
+     "type": "INTEGER"
+    },
+    {
+     "name": "poll_count",
+     "type": "INTEGER"
+    }
+   ],
+   "seed": {
+    "rows": [
+     {
+      "account_id": "sim-account-001",
+      "email_subject": "Seed draft",
+      "status": "created",
+      "document_name": "seed-draft.pdf",
+      "created_at": "2026-08-12T16:00:00Z",
+      "sent_at": null,
+      "completed_at": null,
+      "current_routing_order": 1,
+      "poll_count": 0
+     },
+     {
+      "account_id": "sim-account-001",
+      "email_subject": "Seed routed envelope",
+      "status": "sent",
+      "document_name": "seed-routed.pdf",
+      "created_at": "2026-08-12T16:00:00Z",
+      "sent_at": "2026-08-12T16:00:00Z",
+      "completed_at": null,
+      "current_routing_order": 1,
+      "poll_count": 0
+     }
+    ]
+   }
+  },
+  {
+   "name": "es_recipients",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "envelope_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "email",
+     "type": "TEXT"
+    },
+    {
+     "name": "recipient_id",
+     "type": "TEXT"
+    },
+    {
+     "name": "routing_order",
+     "type": "INTEGER"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "rows": [
+     {
+      "envelope_id": 1,
+      "name": "Draft Signer",
+      "email": "draft@example.com",
+      "recipient_id": "1",
+      "routing_order": 1,
+      "status": "created"
+     },
+     {
+      "envelope_id": 2,
+      "name": "First Signer",
+      "email": "first@example.com",
+      "recipient_id": "1",
+      "routing_order": 1,
+      "status": "sent"
+     },
+     {
+      "envelope_id": 2,
+      "name": "Second Signer",
+      "email": "second@example.com",
+      "recipient_id": "2",
+      "routing_order": 2,
+      "status": "sent"
+     }
+    ]
+   }
+  },
+  {
+   "name": "es_events",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "envelope_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "event_type",
+     "type": "TEXT"
+    },
+    {
+     "name": "event_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "detail",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "rows": [
+     {
+      "envelope_id": 1,
+      "event_type": "created",
+      "event_at": "2026-08-12T16:00:00Z",
+      "detail": "Seed draft"
+     },
+     {
+      "envelope_id": 2,
+      "event_type": "sent",
+      "event_at": "2026-08-12T16:00:00Z",
+      "detail": "Seed routed envelope"
+     }
+    ]
+   }
+  }
+ ],
+ "tools": [
+  {
+   "name": "esign_envelopes_create",
+   "mirrors": "POST /v2.1/accounts/{accountId}/envelopes — Envelopes_PostEnvelopes",
+   "description": "Create a draft or sent eSignature envelope with ordered signers.",
+   "op": {
+    "kind": "docusign_create",
+    "table": "es_envelopes",
+    "required": [
+     "accountId",
+     "emailSubject",
+     "documentName",
+     "recipients"
+    ]
+   },
+   "params": {
+    "accountId": "string",
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "conformance_args": {
+    "accountId": "sim-account-001",
+    "body": {
+     "emailSubject": "Conformance envelope",
+     "status": "created",
+     "documents": [
+      {
+       "documentId": "1",
+       "name": "agreement.pdf",
+       "documentBase64": "Y29uZm9ybWFuY2U="
+      }
+     ],
+     "recipients": {
+      "signers": [
+       {
+        "name": "Signer",
+        "email": "signer@example.com",
+        "recipientId": "1",
+        "routingOrder": "1"
+       }
+      ]
+     }
+    }
+   },
+   "request_map": {
+    "body.emailSubject": "emailSubject",
+    "body.status": "status",
+    "body.documents": "documentName",
+    "body.recipients.signers": "recipients"
+   },
+   "request_transforms": {
+    "body.documents": "first_document_name",
+    "body.recipients.signers": "json"
+   }
+  },
+  {
+   "name": "esign_envelopes_get",
+   "mirrors": "GET /v2.1/accounts/{accountId}/envelopes/{envelopeId} — Envelopes_GetEnvelope",
+   "description": "Get envelope status. In the simulator, polling deterministically admits external delivery/signing events in routing order.",
+   "op": {
+    "kind": "docusign_get",
+    "table": "es_envelopes",
+    "required": [
+     "accountId",
+     "envelopeId"
+    ],
+    "advance_lifecycle": true
+   },
+   "params": {
+    "accountId": "string",
+    "envelopeId": "string"
+   },
+   "conformance_args": {
+    "accountId": "sim-account-001",
+    "envelopeId": "2"
+   }
+  },
+  {
+   "name": "esign_envelopes_send",
+   "mirrors": "PUT /v2.1/accounts/{accountId}/envelopes/{envelopeId} — Envelopes_PutEnvelope",
+   "description": "Send a draft by updating its status to sent.",
+   "op": {
+    "kind": "docusign_update",
+    "table": "es_envelopes",
+    "required": [
+     "accountId",
+     "envelopeId",
+     "status"
+    ]
+   },
+   "params": {
+    "accountId": "string",
+    "envelopeId": "string",
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "conformance_args": {
+    "accountId": "sim-account-001",
+    "envelopeId": "1",
+    "body": {
+     "status": "sent"
+    }
+   },
+   "request_map": {
+    "body.status": "status"
+   }
+  },
+  {
+   "name": "esign_recipients_list",
+   "mirrors": "GET /v2.1/accounts/{accountId}/envelopes/{envelopeId}/recipients — Recipients_GetRecipients",
+   "description": "List envelope recipients, routing order, and lifecycle status.",
+   "op": {
+    "kind": "docusign_recipients",
+    "table": "es_recipients",
+    "required": [
+     "accountId",
+     "envelopeId"
+    ]
+   },
+   "params": {
+    "accountId": "string",
+    "envelopeId": "string"
+   },
+   "conformance_args": {
+    "accountId": "sim-account-001",
+    "envelopeId": "2"
+   }
+  },
+  {
+   "name": "esign_simulate_recipient_complete",
+   "mirrors": "SIMULATOR EXTENSION — no Docusign signing endpoint; represents an external recipient event",
+   "description": "Test-only external-event hook. Completing a later routing-order recipient first returns an explicit error.",
+   "op": {
+    "kind": "docusign_recipient_complete",
+    "table": "es_recipients",
+    "required": [
+     "accountId",
+     "envelopeId",
+     "recipientId"
+    ]
+   },
+   "params": {
+    "accountId": "string",
+    "envelopeId": "string",
+    "recipientId": "string"
+   },
+   "conformance_args": {
+    "accountId": "sim-account-001",
+    "envelopeId": "2",
+    "recipientId": "1"
+   },
+   "agent_visible": false
+  }
+ ],
+ "dialect": "docusign"
+}

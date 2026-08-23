@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Product Safety (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-product_safety-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_products",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-PRODUCTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-PRODUCTS-001 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-PRODUCTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-PRODUCTS-002 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-PRODUCTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-PRODUCTS-003 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-PRODUCTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-PRODUCTS-004 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-PRODUCTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-PRODUCTS-005 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-PRODUCTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-PRODUCTS-006 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-PRODUCTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-PRODUCTS-007 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-PRODUCTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-PRODUCTS-008 | synthetic products fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Products Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_incidents",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-INCIDENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-INCIDENTS-001 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-INCIDENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-INCIDENTS-002 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-INCIDENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-INCIDENTS-003 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-INCIDENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-INCIDENTS-004 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-INCIDENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-INCIDENTS-005 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-INCIDENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-INCIDENTS-006 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-INCIDENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-INCIDENTS-007 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-INCIDENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-INCIDENTS-008 | synthetic incidents fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Incidents Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_complaints",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-COMPLAINTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-COMPLAINTS-001 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-COMPLAINTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-COMPLAINTS-002 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-COMPLAINTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-COMPLAINTS-003 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-COMPLAINTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-COMPLAINTS-004 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-COMPLAINTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-COMPLAINTS-005 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-COMPLAINTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-COMPLAINTS-006 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-COMPLAINTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-COMPLAINTS-007 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-COMPLAINTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-COMPLAINTS-008 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Complaints Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_tests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-TESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-TESTS-001 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-TESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-TESTS-002 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-TESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-TESTS-003 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-TESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-TESTS-004 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-TESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-TESTS-005 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-TESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-TESTS-006 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-TESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-TESTS-007 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-TESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-TESTS-008 | synthetic tests fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Tests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_hazards",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-HAZARDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-HAZARDS-001 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-HAZARDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-HAZARDS-002 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-HAZARDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-HAZARDS-003 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-HAZARDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-HAZARDS-004 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-HAZARDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-HAZARDS-005 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-HAZARDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-HAZARDS-006 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-HAZARDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-HAZARDS-007 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-HAZARDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-HAZARDS-008 | synthetic hazards fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Hazards Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_recalls",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-RECALLS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-RECALLS-001 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-RECALLS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-RECALLS-002 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-RECALLS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-RECALLS-003 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-RECALLS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-RECALLS-004 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-RECALLS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-RECALLS-005 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-RECALLS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-RECALLS-006 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-RECALLS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-RECALLS-007 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-RECALLS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-RECALLS-008 | synthetic recalls fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Recalls Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_reports",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-REPORTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-REPORTS-001 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-REPORTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-REPORTS-002 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-REPORTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-REPORTS-003 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-REPORTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-REPORTS-004 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-REPORTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-REPORTS-005 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-REPORTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-REPORTS-006 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-REPORTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-REPORTS-007 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-REPORTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-REPORTS-008 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Reports Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_corrective_actions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-CORRECTIVE_ACTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-CORRECTIVE_ACTIONS-001 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-CORRECTIVE_ACTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-CORRECTIVE_ACTIONS-002 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-CORRECTIVE_ACTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-CORRECTIVE_ACTIONS-003 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-CORRECTIVE_ACTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-CORRECTIVE_ACTIONS-004 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-CORRECTIVE_ACTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-CORRECTIVE_ACTIONS-005 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-CORRECTIVE_ACTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-CORRECTIVE_ACTIONS-006 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-CORRECTIVE_ACTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-CORRECTIVE_ACTIONS-007 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-CORRECTIVE_ACTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-CORRECTIVE_ACTIONS-008 | synthetic corrective actions fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Corrective Actions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_ps_notices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "PS-NOTICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-PS-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-01",
+            "status": "open",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-NOTICES-001 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "PS-NOTICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-PS-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-NOTICES-002 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "PS-NOTICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-PS-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-03",
+            "status": "review",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-NOTICES-003 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "PS-NOTICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-PS-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-01",
+            "status": "pending",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-NOTICES-004 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "PS-NOTICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-PS-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-product_safety-02",
+            "status": "review",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-NOTICES-005 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "PS-NOTICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-PS-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-product_safety-03",
+            "status": "pending",
+            "summary": "pack-product_safety-03 | ANCHOR-PS-NOTICES-006 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "PS-NOTICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-PS-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-product_safety-01",
+            "status": "review",
+            "summary": "pack-product_safety-01 | ANCHOR-PS-NOTICES-007 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "PS-NOTICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-PS-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-product_safety-02",
+            "status": "pending",
+            "summary": "pack-product_safety-02 | ANCHOR-PS-NOTICES-008 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Product Safety - Notices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List products with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Products collection",
+      "name": "product_safety_products_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_products"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete products record by integer id. Synthetic documentation-fixture operation for product safety products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Products detail",
+      "name": "product_safety_products_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_products"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search products keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Products search",
+      "name": "product_safety_products_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_products"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-PRODUCTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Products",
+        "version": 1
+      },
+      "description": "Create a fully attributed products record. Synthetic documentation-fixture operation for product safety products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Products filing workflow",
+      "name": "product_safety_products_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_products"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing products record with explicit change fields. Synthetic documentation-fixture operation for product safety products records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Products change-control workflow",
+      "name": "product_safety_products_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_products"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List incidents with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Incidents collection",
+      "name": "product_safety_incidents_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_incidents"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete incidents record by integer id. Synthetic documentation-fixture operation for product safety incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Incidents detail",
+      "name": "product_safety_incidents_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_incidents"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search incidents keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Incidents search",
+      "name": "product_safety_incidents_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_incidents"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-INCIDENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Incidents",
+        "version": 1
+      },
+      "description": "Create a fully attributed incidents record. Synthetic documentation-fixture operation for product safety incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Incidents filing workflow",
+      "name": "product_safety_incidents_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_incidents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing incidents record with explicit change fields. Synthetic documentation-fixture operation for product safety incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Incidents change-control workflow",
+      "name": "product_safety_incidents_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_incidents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List complaints with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Complaints collection",
+      "name": "product_safety_complaints_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_complaints"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete complaints record by integer id. Synthetic documentation-fixture operation for product safety complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Complaints detail",
+      "name": "product_safety_complaints_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_complaints"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search complaints keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Complaints search",
+      "name": "product_safety_complaints_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_complaints"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-COMPLAINTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Complaints",
+        "version": 1
+      },
+      "description": "Create a fully attributed complaints record. Synthetic documentation-fixture operation for product safety complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Complaints filing workflow",
+      "name": "product_safety_complaints_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_complaints"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing complaints record with explicit change fields. Synthetic documentation-fixture operation for product safety complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Complaints change-control workflow",
+      "name": "product_safety_complaints_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_complaints"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List tests with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Tests collection",
+      "name": "product_safety_tests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_tests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete tests record by integer id. Synthetic documentation-fixture operation for product safety tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Tests detail",
+      "name": "product_safety_tests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_tests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search tests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Tests search",
+      "name": "product_safety_tests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_tests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-TESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Tests",
+        "version": 1
+      },
+      "description": "Create a fully attributed tests record. Synthetic documentation-fixture operation for product safety tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Tests filing workflow",
+      "name": "product_safety_tests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_tests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing tests record with explicit change fields. Synthetic documentation-fixture operation for product safety tests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Tests change-control workflow",
+      "name": "product_safety_tests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_tests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List hazards with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety hazards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Hazards collection",
+      "name": "product_safety_hazards_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_hazards"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete hazards record by integer id. Synthetic documentation-fixture operation for product safety hazards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Hazards detail",
+      "name": "product_safety_hazards_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_hazards"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search hazards keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety hazards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Hazards search",
+      "name": "product_safety_hazards_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_hazards"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-HAZARDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Hazards",
+        "version": 1
+      },
+      "description": "Create a fully attributed hazards record. Synthetic documentation-fixture operation for product safety hazards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Hazards filing workflow",
+      "name": "product_safety_hazards_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_hazards"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing hazards record with explicit change fields. Synthetic documentation-fixture operation for product safety hazards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Hazards change-control workflow",
+      "name": "product_safety_hazards_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_hazards"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List recalls with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety recalls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Recalls collection",
+      "name": "product_safety_recalls_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_recalls"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete recalls record by integer id. Synthetic documentation-fixture operation for product safety recalls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Recalls detail",
+      "name": "product_safety_recalls_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_recalls"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search recalls keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety recalls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Recalls search",
+      "name": "product_safety_recalls_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_recalls"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-RECALLS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Recalls",
+        "version": 1
+      },
+      "description": "Create a fully attributed recalls record. Synthetic documentation-fixture operation for product safety recalls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Recalls filing workflow",
+      "name": "product_safety_recalls_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_recalls"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing recalls record with explicit change fields. Synthetic documentation-fixture operation for product safety recalls records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Recalls change-control workflow",
+      "name": "product_safety_recalls_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_recalls"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List reports with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Reports collection",
+      "name": "product_safety_reports_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_reports"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete reports record by integer id. Synthetic documentation-fixture operation for product safety reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Reports detail",
+      "name": "product_safety_reports_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_reports"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search reports keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Reports search",
+      "name": "product_safety_reports_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_reports"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-REPORTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Reports",
+        "version": 1
+      },
+      "description": "Create a fully attributed reports record. Synthetic documentation-fixture operation for product safety reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Reports filing workflow",
+      "name": "product_safety_reports_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_reports"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing reports record with explicit change fields. Synthetic documentation-fixture operation for product safety reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Reports change-control workflow",
+      "name": "product_safety_reports_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_reports"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List corrective actions with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Corrective Actions collection",
+      "name": "product_safety_corrective_actions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_corrective_actions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete corrective actions record by integer id. Synthetic documentation-fixture operation for product safety corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Corrective Actions detail",
+      "name": "product_safety_corrective_actions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_corrective_actions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search corrective actions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Corrective Actions search",
+      "name": "product_safety_corrective_actions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_corrective_actions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-CORRECTIVE_ACTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Corrective Actions",
+        "version": 1
+      },
+      "description": "Create a fully attributed corrective actions record. Synthetic documentation-fixture operation for product safety corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Corrective Actions filing workflow",
+      "name": "product_safety_corrective_actions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_corrective_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing corrective actions record with explicit change fields. Synthetic documentation-fixture operation for product safety corrective actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Corrective Actions change-control workflow",
+      "name": "product_safety_corrective_actions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_corrective_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notices with deterministic filters and pagination. Synthetic documentation-fixture operation for product safety notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Notices collection",
+      "name": "product_safety_notices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_ps_notices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notices record by integer id. Synthetic documentation-fixture operation for product safety notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Notices detail",
+      "name": "product_safety_notices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_ps_notices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-product_safety-01"
+      },
+      "description": "Search notices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for product safety notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Notices search",
+      "name": "product_safety_notices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_ps_notices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-PS-NOTICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-PS-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-product_safety-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notices",
+        "version": 1
+      },
+      "description": "Create a fully attributed notices record. Synthetic documentation-fixture operation for product safety notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Notices filing workflow",
+      "name": "product_safety_notices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_ps_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notices record with explicit change fields. Synthetic documentation-fixture operation for product safety notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Product Safety synthetic Notices change-control workflow",
+      "name": "product_safety_notices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_ps_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

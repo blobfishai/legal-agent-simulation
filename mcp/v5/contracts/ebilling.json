@@ -1,0 +1,504 @@
+{
+ "$schema": "lawfirm-qwen.mcp-contract.v3",
+ "system": "ebilling-v3",
+ "product": "LedgerBill (SIMULATED) — API surface mirrors LEDES 1998B e-billing exchange",
+ "provenance": "https://ledes.org/ledes-98b-format/ (LEDES 1998B: ASCII, pipe-delimited, 24 fields; UTBMS codes at utbms.com)",
+ "tables": [
+  {
+   "name": "eb_utbms_codes",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "code",
+     "type": "TEXT"
+    },
+    {
+     "name": "kind",
+     "type": "TEXT"
+    },
+    {
+     "name": "description",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "rows": [
+     {
+      "code": "L110",
+      "kind": "task",
+      "description": "Fact Investigation/Development"
+     },
+     {
+      "code": "L120",
+      "kind": "task",
+      "description": "Analysis/Strategy"
+     },
+     {
+      "code": "L190",
+      "kind": "task",
+      "description": "Other Case Assessment"
+     },
+     {
+      "code": "L210",
+      "kind": "task",
+      "description": "Pleadings"
+     },
+     {
+      "code": "L240",
+      "kind": "task",
+      "description": "Dispositive Motions"
+     },
+     {
+      "code": "L310",
+      "kind": "task",
+      "description": "Written Discovery"
+     },
+     {
+      "code": "L330",
+      "kind": "task",
+      "description": "Depositions"
+     },
+     {
+      "code": "L390",
+      "kind": "task",
+      "description": "Other Discovery"
+     },
+     {
+      "code": "L430",
+      "kind": "task",
+      "description": "Trial and Hearing Attendance"
+     },
+     {
+      "code": "L450",
+      "kind": "task",
+      "description": "Trial and Hearing Preparation"
+     },
+     {
+      "code": "A101",
+      "kind": "activity",
+      "description": "Plan and prepare for"
+     },
+     {
+      "code": "A102",
+      "kind": "activity",
+      "description": "Research"
+     },
+     {
+      "code": "A103",
+      "kind": "activity",
+      "description": "Draft/revise"
+     },
+     {
+      "code": "A104",
+      "kind": "activity",
+      "description": "Review/analyze"
+     },
+     {
+      "code": "A105",
+      "kind": "activity",
+      "description": "Communicate (in firm)"
+     },
+     {
+      "code": "E101",
+      "kind": "expense",
+      "description": "Copying"
+     },
+     {
+      "code": "E107",
+      "kind": "expense",
+      "description": "Delivery services"
+     },
+     {
+      "code": "E108",
+      "kind": "expense",
+      "description": "Postage"
+     },
+     {
+      "code": "E110",
+      "kind": "expense",
+      "description": "Out-of-town travel"
+     },
+     {
+      "code": "E112",
+      "kind": "expense",
+      "description": "Court fees"
+     }
+    ]
+   }
+  },
+  {
+   "name": "eb_invoices",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "invoice_number",
+     "type": "TEXT"
+    },
+    {
+     "name": "matter_number",
+     "type": "TEXT"
+    },
+    {
+     "name": "client_matter_id",
+     "type": "TEXT"
+    },
+    {
+     "name": "billing_start",
+     "type": "TEXT"
+    },
+    {
+     "name": "billing_end",
+     "type": "TEXT"
+    },
+    {
+     "name": "total",
+     "type": "REAL"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    },
+    {
+     "name": "validation_errors",
+     "type": "TEXT"
+    },
+    {
+     "name": "submitted_at",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 12,
+    "template": {
+     "invoice_number": "@bill_number",
+     "matter_number": "@matter_number",
+     "client_matter_id": "@matter_number",
+     "billing_start": "@date:2026-05-01,2026-06-01",
+     "billing_end": "@date:2026-06-02,2026-07-31",
+     "total": "@money:2400,140000",
+     "status": "@pick:draft,validated,submitted,rejected,appealed,paid",
+     "validation_errors": null,
+     "submitted_at": "@date:2026-06-01,2026-08-01"
+    }
+   }
+  },
+  {
+   "name": "eb_invoice_lines",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "invoice_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "line_date",
+     "type": "TEXT"
+    },
+    {
+     "name": "timekeeper",
+     "type": "TEXT"
+    },
+    {
+     "name": "task_code",
+     "type": "TEXT"
+    },
+    {
+     "name": "activity_code",
+     "type": "TEXT"
+    },
+    {
+     "name": "hours",
+     "type": "REAL"
+    },
+    {
+     "name": "rate",
+     "type": "REAL"
+    },
+    {
+     "name": "amount",
+     "type": "REAL"
+    },
+    {
+     "name": "narrative",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 70,
+    "template": {
+     "invoice_id": "@ref:eb_invoices",
+     "line_date": "@date:2026-05-01,2026-07-31",
+     "timekeeper": "@person",
+     "task_code": "@pick:L110,L120,L210,L240,L310,L330,L430,L450",
+     "activity_code": "@pick:A101,A102,A103,A104,A105",
+     "hours": "@money:0.2,9.5",
+     "rate": "@money:180,650",
+     "amount": "@derived:hours*rate",
+     "narrative": "@time_narrative"
+    }
+   }
+  },
+  {
+   "name": "eb_appeals",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "invoice_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "line_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "reason",
+     "type": "TEXT"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 5,
+    "template": {
+     "invoice_id": "@ref:eb_invoices",
+     "line_id": "@ref:eb_invoice_lines",
+     "reason": "@pick:block billing,vague narrative,rate exceeds OCG,travel billed at full rate,intra-office conference",
+     "status": "@pick:open,granted,denied",
+     "created_at": "@date:2026-06-15,2026-08-01"
+    }
+   }
+  }
+ ],
+ "tools": [
+  {
+   "name": "utbms_codes_list",
+   "mirrors": "UTBMS code sets (utbms.com)",
+   "description": "List UTBMS task/activity/expense codes.",
+   "op": {
+    "kind": "list",
+    "table": "eb_utbms_codes",
+    "filters": [
+     "kind",
+     "code"
+    ]
+   },
+   "params": {
+    "kind": "string",
+    "code": "string",
+    "limit": "integer"
+   },
+   "scenario": "A new associate looks up the right L-code before entering time."
+  },
+  {
+   "name": "invoices_list",
+   "mirrors": "LEDES exchange: invoice inventory",
+   "description": "List e-billing invoices by status/matter.",
+   "op": {
+    "kind": "list",
+    "table": "eb_invoices",
+    "filters": [
+     "status",
+     "matter_number"
+    ]
+   },
+   "params": {
+    "status": "string",
+    "matter_number": "string",
+    "limit": "integer"
+   },
+   "scenario": "The e-billing coordinator lists rejected invoices to rework this week.",
+   "field_map": {
+    "id": "INVOICE_ID",
+    "invoice_number": "INVOICE_NUMBER",
+    "matter_number": "LAW_FIRM_MATTER_ID",
+    "client_matter_id": "CLIENT_MATTER_ID",
+    "billing_start": "BILLING_START_DATE",
+    "billing_end": "BILLING_END_DATE",
+    "total": "INVOICE_TOTAL",
+    "status": "INVOICE_STATUS",
+    "validation_errors": "VALIDATION_ERRORS",
+    "submitted_at": "SUBMITTED_AT"
+   },
+   "agent_visible": false
+  },
+  {
+   "name": "invoices_get",
+   "mirrors": "LEDES invoice detail",
+   "description": "Fetch one invoice with validation state.",
+   "op": {
+    "kind": "get",
+    "table": "eb_invoices"
+   },
+   "params": {
+    "id": "integer"
+   },
+   "scenario": "She opens one invoice to read the client's validation errors.",
+   "field_map": {
+    "id": "INVOICE_ID",
+    "invoice_number": "INVOICE_NUMBER",
+    "matter_number": "LAW_FIRM_MATTER_ID",
+    "client_matter_id": "CLIENT_MATTER_ID",
+    "billing_start": "BILLING_START_DATE",
+    "billing_end": "BILLING_END_DATE",
+    "total": "INVOICE_TOTAL",
+    "status": "INVOICE_STATUS",
+    "validation_errors": "VALIDATION_ERRORS",
+    "submitted_at": "SUBMITTED_AT"
+   },
+   "agent_visible": false
+  },
+  {
+   "name": "invoice_lines_list",
+   "mirrors": "LEDES 1998B line items",
+   "description": "List an invoice's LEDES lines (timekeeper, codes, amounts).",
+   "op": {
+    "kind": "list",
+    "table": "eb_invoice_lines",
+    "filters": [
+     "invoice_id",
+     "task_code",
+     "timekeeper"
+    ]
+   },
+   "params": {
+    "invoice_id": "integer",
+    "task_code": "string",
+    "timekeeper": "string",
+    "limit": "integer"
+   },
+   "scenario": "The client reduced three lines; the coordinator finds them by task code.",
+   "field_map": {
+    "id": "LINE_ITEM_NUMBER",
+    "invoice_id": "INVOICE_ID",
+    "line_date": "LINE_ITEM_DATE",
+    "timekeeper": "TIMEKEEPER_NAME",
+    "task_code": "LINE_ITEM_TASK_CODE",
+    "activity_code": "LINE_ITEM_ACTIVITY_CODE",
+    "hours": "LINE_ITEM_NUMBER_OF_UNITS",
+    "rate": "LINE_ITEM_UNIT_COST",
+    "amount": "LINE_ITEM_TOTAL",
+    "narrative": "LINE_ITEM_DESCRIPTION"
+   },
+   "agent_visible": false
+  },
+  {
+   "name": "invoices_submit",
+   "mirrors": "LEDES 1998B file serialization — https://ledes.org/ledes-98b-format/",
+   "description": "Serialize one invoice as the exact 24-field ASCII, pipe-delimited LEDES 1998B exchange file and mark it submitted.",
+   "op": {
+    "kind": "ledes_submit",
+    "table": "eb_invoices",
+    "required": [
+     "id"
+    ]
+   },
+   "params": {
+    "id": "integer"
+   },
+   "conformance_args": {
+    "id": 1
+   },
+   "scenario": "After validation passes, she submits the LEDES file to the client's system.",
+   "output_media_type": "text/plain; charset=us-ascii"
+  },
+  {
+   "name": "invoice_total_check",
+   "mirrors": "derived: sum lines vs invoice total",
+   "description": "Sum an invoice's line amounts (reconcile against header total).",
+   "op": {
+    "kind": "aggregate",
+    "table": "eb_invoice_lines",
+    "agg": "sum",
+    "field": "amount",
+    "filters": [
+     "invoice_id"
+    ]
+   },
+   "params": {
+    "invoice_id": "integer"
+   },
+   "scenario": "Before submitting, she reconciles the line-item sum against the header total.",
+   "field_map": {
+    "id": "LINE_ITEM_NUMBER",
+    "invoice_id": "INVOICE_ID",
+    "line_date": "LINE_ITEM_DATE",
+    "timekeeper": "TIMEKEEPER_NAME",
+    "task_code": "LINE_ITEM_TASK_CODE",
+    "activity_code": "LINE_ITEM_ACTIVITY_CODE",
+    "hours": "LINE_ITEM_NUMBER_OF_UNITS",
+    "rate": "LINE_ITEM_UNIT_COST",
+    "amount": "LINE_ITEM_TOTAL",
+    "narrative": "LINE_ITEM_DESCRIPTION"
+   },
+   "agent_visible": false
+  },
+  {
+   "name": "appeals_list",
+   "mirrors": "e-billing appeals",
+   "description": "List billing appeals/reductions.",
+   "op": {
+    "kind": "list",
+    "table": "eb_appeals",
+    "filters": [
+     "invoice_id",
+     "status"
+    ]
+   },
+   "params": {
+    "invoice_id": "integer",
+    "status": "string",
+    "limit": "integer"
+   },
+   "scenario": "Month-end: the billing partner reviews open appeals and their status.",
+   "agent_visible": false
+  },
+  {
+   "name": "appeals_create",
+   "mirrors": "file an appeal",
+   "description": "Appeal a rejected/reduced line.",
+   "op": {
+    "kind": "create",
+    "table": "eb_appeals",
+    "required": [
+     "invoice_id",
+     "line_id",
+     "reason"
+    ],
+    "defaults": {
+     "status": "open"
+    }
+   },
+   "params": {
+    "invoice_id": "integer",
+    "line_id": "integer",
+    "reason": "string"
+   },
+   "scenario": "The firm appeals the 'block billing' reduction with the corrected narrative.",
+   "agent_visible": false
+  }
+ ],
+ "dialect": "ledes",
+ "fidelity": "v3: 1:1 external parameter names + real response envelopes per the cited API docs"
+}

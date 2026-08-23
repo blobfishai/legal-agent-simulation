@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Government Contracts (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-government_contracts-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_solicitations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-SOLICITATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-SOLICITATIONS-001 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-SOLICITATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-SOLICITATIONS-002 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-SOLICITATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-SOLICITATIONS-003 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-SOLICITATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-SOLICITATIONS-004 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-SOLICITATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-SOLICITATIONS-005 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-SOLICITATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-SOLICITATIONS-006 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-SOLICITATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-SOLICITATIONS-007 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-SOLICITATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-SOLICITATIONS-008 | synthetic solicitations fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Solicitations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_bids",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-BIDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-BIDS-001 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-BIDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-BIDS-002 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-BIDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-BIDS-003 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-BIDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-BIDS-004 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-BIDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-BIDS-005 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-BIDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-BIDS-006 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-BIDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-BIDS-007 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-BIDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-BIDS-008 | synthetic bids fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Bids Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_awards",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-AWARDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-AWARDS-001 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-AWARDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-AWARDS-002 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-AWARDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-AWARDS-003 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-AWARDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-AWARDS-004 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-AWARDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-AWARDS-005 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-AWARDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-AWARDS-006 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-AWARDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-AWARDS-007 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-AWARDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-AWARDS-008 | synthetic awards fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Awards Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_clauses",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-CLAUSES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-CLAUSES-001 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-CLAUSES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-CLAUSES-002 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-CLAUSES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-CLAUSES-003 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-CLAUSES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-CLAUSES-004 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-CLAUSES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-CLAUSES-005 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-CLAUSES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-CLAUSES-006 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-CLAUSES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-CLAUSES-007 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-CLAUSES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-CLAUSES-008 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Clauses Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_modifications",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-MODIFICATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-MODIFICATIONS-001 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-MODIFICATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-MODIFICATIONS-002 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-MODIFICATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-MODIFICATIONS-003 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-MODIFICATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-MODIFICATIONS-004 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-MODIFICATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-MODIFICATIONS-005 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-MODIFICATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-MODIFICATIONS-006 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-MODIFICATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-MODIFICATIONS-007 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-MODIFICATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-MODIFICATIONS-008 | synthetic modifications fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Modifications Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_deliverables",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-DELIVERABLES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-DELIVERABLES-001 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-DELIVERABLES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-DELIVERABLES-002 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-DELIVERABLES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-DELIVERABLES-003 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-DELIVERABLES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-DELIVERABLES-004 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-DELIVERABLES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-DELIVERABLES-005 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-DELIVERABLES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-DELIVERABLES-006 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-DELIVERABLES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-DELIVERABLES-007 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-DELIVERABLES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-DELIVERABLES-008 | synthetic deliverables fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Deliverables Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_invoices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-INVOICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-INVOICES-001 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-INVOICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-INVOICES-002 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-INVOICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-INVOICES-003 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-INVOICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-INVOICES-004 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-INVOICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-INVOICES-005 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-INVOICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-INVOICES-006 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-INVOICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-INVOICES-007 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-INVOICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-INVOICES-008 | synthetic invoices fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Invoices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_audits",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-AUDITS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-AUDITS-001 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-AUDITS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-AUDITS-002 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-AUDITS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-AUDITS-003 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-AUDITS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-AUDITS-004 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-AUDITS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-AUDITS-005 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-AUDITS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-AUDITS-006 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-AUDITS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-AUDITS-007 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-AUDITS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-AUDITS-008 | synthetic audits fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Audits Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_gc_protests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "GC-PROTESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-GC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-01",
+            "status": "open",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-PROTESTS-001 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "GC-PROTESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-GC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-PROTESTS-002 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "GC-PROTESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-GC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-03",
+            "status": "review",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-PROTESTS-003 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "GC-PROTESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-GC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-01",
+            "status": "pending",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-PROTESTS-004 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "GC-PROTESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-GC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-government_contracts-02",
+            "status": "review",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-PROTESTS-005 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "GC-PROTESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-GC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-government_contracts-03",
+            "status": "pending",
+            "summary": "pack-government_contracts-03 | ANCHOR-GC-PROTESTS-006 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "GC-PROTESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-GC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-government_contracts-01",
+            "status": "review",
+            "summary": "pack-government_contracts-01 | ANCHOR-GC-PROTESTS-007 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "GC-PROTESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-GC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-government_contracts-02",
+            "status": "pending",
+            "summary": "pack-government_contracts-02 | ANCHOR-GC-PROTESTS-008 | synthetic protests fact pattern; attorney validation required before external use.",
+            "title": "Government Contracts - Protests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List solicitations with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts solicitations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Solicitations collection",
+      "name": "government_contracts_solicitations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_solicitations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete solicitations record by integer id. Synthetic documentation-fixture operation for government contracts solicitations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Solicitations detail",
+      "name": "government_contracts_solicitations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_solicitations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search solicitations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts solicitations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Solicitations search",
+      "name": "government_contracts_solicitations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_solicitations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-SOLICITATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Solicitations",
+        "version": 1
+      },
+      "description": "Create a fully attributed solicitations record. Synthetic documentation-fixture operation for government contracts solicitations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Solicitations filing workflow",
+      "name": "government_contracts_solicitations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_solicitations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing solicitations record with explicit change fields. Synthetic documentation-fixture operation for government contracts solicitations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Solicitations change-control workflow",
+      "name": "government_contracts_solicitations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_solicitations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List bids with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts bids records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Bids collection",
+      "name": "government_contracts_bids_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_bids"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete bids record by integer id. Synthetic documentation-fixture operation for government contracts bids records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Bids detail",
+      "name": "government_contracts_bids_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_bids"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search bids keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts bids records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Bids search",
+      "name": "government_contracts_bids_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_bids"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-BIDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Bids",
+        "version": 1
+      },
+      "description": "Create a fully attributed bids record. Synthetic documentation-fixture operation for government contracts bids records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Bids filing workflow",
+      "name": "government_contracts_bids_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_bids"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing bids record with explicit change fields. Synthetic documentation-fixture operation for government contracts bids records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Bids change-control workflow",
+      "name": "government_contracts_bids_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_bids"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List awards with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts awards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Awards collection",
+      "name": "government_contracts_awards_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_awards"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete awards record by integer id. Synthetic documentation-fixture operation for government contracts awards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Awards detail",
+      "name": "government_contracts_awards_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_awards"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search awards keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts awards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Awards search",
+      "name": "government_contracts_awards_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_awards"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-AWARDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Awards",
+        "version": 1
+      },
+      "description": "Create a fully attributed awards record. Synthetic documentation-fixture operation for government contracts awards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Awards filing workflow",
+      "name": "government_contracts_awards_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_awards"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing awards record with explicit change fields. Synthetic documentation-fixture operation for government contracts awards records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Awards change-control workflow",
+      "name": "government_contracts_awards_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_awards"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List clauses with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Clauses collection",
+      "name": "government_contracts_clauses_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_clauses"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete clauses record by integer id. Synthetic documentation-fixture operation for government contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Clauses detail",
+      "name": "government_contracts_clauses_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_clauses"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search clauses keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Clauses search",
+      "name": "government_contracts_clauses_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_clauses"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-CLAUSES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Clauses",
+        "version": 1
+      },
+      "description": "Create a fully attributed clauses record. Synthetic documentation-fixture operation for government contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Clauses filing workflow",
+      "name": "government_contracts_clauses_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_clauses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing clauses record with explicit change fields. Synthetic documentation-fixture operation for government contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Clauses change-control workflow",
+      "name": "government_contracts_clauses_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_clauses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List modifications with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts modifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Modifications collection",
+      "name": "government_contracts_modifications_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_modifications"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete modifications record by integer id. Synthetic documentation-fixture operation for government contracts modifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Modifications detail",
+      "name": "government_contracts_modifications_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_modifications"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search modifications keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts modifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Modifications search",
+      "name": "government_contracts_modifications_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_modifications"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-MODIFICATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Modifications",
+        "version": 1
+      },
+      "description": "Create a fully attributed modifications record. Synthetic documentation-fixture operation for government contracts modifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Modifications filing workflow",
+      "name": "government_contracts_modifications_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_modifications"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing modifications record with explicit change fields. Synthetic documentation-fixture operation for government contracts modifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Modifications change-control workflow",
+      "name": "government_contracts_modifications_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_modifications"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List deliverables with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts deliverables records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Deliverables collection",
+      "name": "government_contracts_deliverables_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_deliverables"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete deliverables record by integer id. Synthetic documentation-fixture operation for government contracts deliverables records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Deliverables detail",
+      "name": "government_contracts_deliverables_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_deliverables"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search deliverables keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts deliverables records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Deliverables search",
+      "name": "government_contracts_deliverables_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_deliverables"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-DELIVERABLES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Deliverables",
+        "version": 1
+      },
+      "description": "Create a fully attributed deliverables record. Synthetic documentation-fixture operation for government contracts deliverables records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Deliverables filing workflow",
+      "name": "government_contracts_deliverables_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_deliverables"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing deliverables record with explicit change fields. Synthetic documentation-fixture operation for government contracts deliverables records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Deliverables change-control workflow",
+      "name": "government_contracts_deliverables_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_deliverables"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List invoices with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts invoices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Invoices collection",
+      "name": "government_contracts_invoices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_invoices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete invoices record by integer id. Synthetic documentation-fixture operation for government contracts invoices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Invoices detail",
+      "name": "government_contracts_invoices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_invoices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search invoices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts invoices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Invoices search",
+      "name": "government_contracts_invoices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_invoices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-INVOICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Invoices",
+        "version": 1
+      },
+      "description": "Create a fully attributed invoices record. Synthetic documentation-fixture operation for government contracts invoices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Invoices filing workflow",
+      "name": "government_contracts_invoices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_invoices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing invoices record with explicit change fields. Synthetic documentation-fixture operation for government contracts invoices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Invoices change-control workflow",
+      "name": "government_contracts_invoices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_invoices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List audits with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Audits collection",
+      "name": "government_contracts_audits_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_audits"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete audits record by integer id. Synthetic documentation-fixture operation for government contracts audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Audits detail",
+      "name": "government_contracts_audits_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_audits"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search audits keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Audits search",
+      "name": "government_contracts_audits_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_audits"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-AUDITS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Audits",
+        "version": 1
+      },
+      "description": "Create a fully attributed audits record. Synthetic documentation-fixture operation for government contracts audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Audits filing workflow",
+      "name": "government_contracts_audits_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_audits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing audits record with explicit change fields. Synthetic documentation-fixture operation for government contracts audits records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Audits change-control workflow",
+      "name": "government_contracts_audits_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_audits"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List protests with deterministic filters and pagination. Synthetic documentation-fixture operation for government contracts protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Protests collection",
+      "name": "government_contracts_protests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_gc_protests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete protests record by integer id. Synthetic documentation-fixture operation for government contracts protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Protests detail",
+      "name": "government_contracts_protests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_gc_protests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-government_contracts-01"
+      },
+      "description": "Search protests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for government contracts protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Protests search",
+      "name": "government_contracts_protests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_gc_protests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-GC-PROTESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-GC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-government_contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Protests",
+        "version": 1
+      },
+      "description": "Create a fully attributed protests record. Synthetic documentation-fixture operation for government contracts protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Protests filing workflow",
+      "name": "government_contracts_protests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_gc_protests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing protests record with explicit change fields. Synthetic documentation-fixture operation for government contracts protests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Government Contracts synthetic Protests change-control workflow",
+      "name": "government_contracts_protests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_gc_protests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

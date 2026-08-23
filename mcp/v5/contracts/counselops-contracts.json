@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Commercial Contracts (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-contracts-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_agreements",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-AGREEMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-AGREEMENTS-001 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-AGREEMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-AGREEMENTS-002 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-AGREEMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-AGREEMENTS-003 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-AGREEMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-AGREEMENTS-004 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-AGREEMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-AGREEMENTS-005 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-AGREEMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-AGREEMENTS-006 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-AGREEMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-AGREEMENTS-007 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-AGREEMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-AGREEMENTS-008 | synthetic agreements fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Agreements Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_counterparties",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-COUNTERPARTIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-COUNTERPARTIES-001 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-COUNTERPARTIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-COUNTERPARTIES-002 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-COUNTERPARTIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-COUNTERPARTIES-003 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-COUNTERPARTIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-COUNTERPARTIES-004 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-COUNTERPARTIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-COUNTERPARTIES-005 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-COUNTERPARTIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-COUNTERPARTIES-006 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-COUNTERPARTIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-COUNTERPARTIES-007 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-COUNTERPARTIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-COUNTERPARTIES-008 | synthetic counterparties fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Counterparties Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_clauses",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-CLAUSES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-CLAUSES-001 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-CLAUSES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-CLAUSES-002 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-CLAUSES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-CLAUSES-003 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-CLAUSES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-CLAUSES-004 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-CLAUSES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-CLAUSES-005 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-CLAUSES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-CLAUSES-006 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-CLAUSES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-CLAUSES-007 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-CLAUSES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-CLAUSES-008 | synthetic clauses fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Clauses Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_obligations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-OBLIGATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-OBLIGATIONS-001 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-OBLIGATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-OBLIGATIONS-002 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-OBLIGATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-OBLIGATIONS-003 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-OBLIGATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-OBLIGATIONS-004 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-OBLIGATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-OBLIGATIONS-005 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-OBLIGATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-OBLIGATIONS-006 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-OBLIGATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-OBLIGATIONS-007 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-OBLIGATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-OBLIGATIONS-008 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Obligations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_renewals",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-RENEWALS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-RENEWALS-001 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-RENEWALS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-RENEWALS-002 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-RENEWALS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-RENEWALS-003 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-RENEWALS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-RENEWALS-004 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-RENEWALS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-RENEWALS-005 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-RENEWALS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-RENEWALS-006 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-RENEWALS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-RENEWALS-007 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-RENEWALS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-RENEWALS-008 | synthetic renewals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Renewals Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_amendments",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-AMENDMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-AMENDMENTS-001 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-AMENDMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-AMENDMENTS-002 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-AMENDMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-AMENDMENTS-003 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-AMENDMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-AMENDMENTS-004 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-AMENDMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-AMENDMENTS-005 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-AMENDMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-AMENDMENTS-006 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-AMENDMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-AMENDMENTS-007 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-AMENDMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-AMENDMENTS-008 | synthetic amendments fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Amendments Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_approvals",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-APPROVALS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-APPROVALS-001 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-APPROVALS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-APPROVALS-002 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-APPROVALS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-APPROVALS-003 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-APPROVALS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-APPROVALS-004 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-APPROVALS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-APPROVALS-005 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-APPROVALS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-APPROVALS-006 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-APPROVALS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-APPROVALS-007 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-APPROVALS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-APPROVALS-008 | synthetic approvals fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Approvals Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_notices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-NOTICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-NOTICES-001 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-NOTICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-NOTICES-002 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-NOTICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-NOTICES-003 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-NOTICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-NOTICES-004 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-NOTICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-NOTICES-005 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-NOTICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-NOTICES-006 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-NOTICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-NOTICES-007 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-NOTICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-NOTICES-008 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Notices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cc_playbooks",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CC-PLAYBOOKS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CC-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-01",
+            "status": "open",
+            "summary": "pack-contracts-01 | ANCHOR-CC-PLAYBOOKS-001 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CC-PLAYBOOKS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CC-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-PLAYBOOKS-002 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CC-PLAYBOOKS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CC-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-03",
+            "status": "review",
+            "summary": "pack-contracts-03 | ANCHOR-CC-PLAYBOOKS-003 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CC-PLAYBOOKS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CC-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-01",
+            "status": "pending",
+            "summary": "pack-contracts-01 | ANCHOR-CC-PLAYBOOKS-004 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CC-PLAYBOOKS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CC-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-contracts-02",
+            "status": "review",
+            "summary": "pack-contracts-02 | ANCHOR-CC-PLAYBOOKS-005 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CC-PLAYBOOKS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CC-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-contracts-03",
+            "status": "pending",
+            "summary": "pack-contracts-03 | ANCHOR-CC-PLAYBOOKS-006 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CC-PLAYBOOKS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CC-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-contracts-01",
+            "status": "review",
+            "summary": "pack-contracts-01 | ANCHOR-CC-PLAYBOOKS-007 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CC-PLAYBOOKS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CC-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-contracts-02",
+            "status": "pending",
+            "summary": "pack-contracts-02 | ANCHOR-CC-PLAYBOOKS-008 | synthetic playbooks fact pattern; attorney validation required before external use.",
+            "title": "Commercial Contracts - Playbooks Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List agreements with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts agreements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Agreements collection",
+      "name": "contracts_agreements_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_agreements"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete agreements record by integer id. Synthetic documentation-fixture operation for commercial contracts agreements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Agreements detail",
+      "name": "contracts_agreements_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_agreements"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search agreements keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts agreements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Agreements search",
+      "name": "contracts_agreements_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_agreements"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-AGREEMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Agreements",
+        "version": 1
+      },
+      "description": "Create a fully attributed agreements record. Synthetic documentation-fixture operation for commercial contracts agreements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Agreements filing workflow",
+      "name": "contracts_agreements_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_agreements"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing agreements record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts agreements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Agreements change-control workflow",
+      "name": "contracts_agreements_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_agreements"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List counterparties with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts counterparties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Counterparties collection",
+      "name": "contracts_counterparties_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_counterparties"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete counterparties record by integer id. Synthetic documentation-fixture operation for commercial contracts counterparties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Counterparties detail",
+      "name": "contracts_counterparties_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_counterparties"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search counterparties keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts counterparties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Counterparties search",
+      "name": "contracts_counterparties_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_counterparties"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-COUNTERPARTIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Counterparties",
+        "version": 1
+      },
+      "description": "Create a fully attributed counterparties record. Synthetic documentation-fixture operation for commercial contracts counterparties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Counterparties filing workflow",
+      "name": "contracts_counterparties_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_counterparties"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing counterparties record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts counterparties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Counterparties change-control workflow",
+      "name": "contracts_counterparties_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_counterparties"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List clauses with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Clauses collection",
+      "name": "contracts_clauses_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_clauses"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete clauses record by integer id. Synthetic documentation-fixture operation for commercial contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Clauses detail",
+      "name": "contracts_clauses_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_clauses"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search clauses keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Clauses search",
+      "name": "contracts_clauses_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_clauses"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-CLAUSES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Clauses",
+        "version": 1
+      },
+      "description": "Create a fully attributed clauses record. Synthetic documentation-fixture operation for commercial contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Clauses filing workflow",
+      "name": "contracts_clauses_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_clauses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing clauses record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts clauses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Clauses change-control workflow",
+      "name": "contracts_clauses_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_clauses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List obligations with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Obligations collection",
+      "name": "contracts_obligations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_obligations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete obligations record by integer id. Synthetic documentation-fixture operation for commercial contracts obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Obligations detail",
+      "name": "contracts_obligations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_obligations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search obligations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Obligations search",
+      "name": "contracts_obligations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_obligations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-OBLIGATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Obligations",
+        "version": 1
+      },
+      "description": "Create a fully attributed obligations record. Synthetic documentation-fixture operation for commercial contracts obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Obligations filing workflow",
+      "name": "contracts_obligations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_obligations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing obligations record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Obligations change-control workflow",
+      "name": "contracts_obligations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_obligations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List renewals with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts renewals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Renewals collection",
+      "name": "contracts_renewals_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_renewals"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete renewals record by integer id. Synthetic documentation-fixture operation for commercial contracts renewals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Renewals detail",
+      "name": "contracts_renewals_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_renewals"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search renewals keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts renewals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Renewals search",
+      "name": "contracts_renewals_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_renewals"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-RENEWALS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Renewals",
+        "version": 1
+      },
+      "description": "Create a fully attributed renewals record. Synthetic documentation-fixture operation for commercial contracts renewals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Renewals filing workflow",
+      "name": "contracts_renewals_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_renewals"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing renewals record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts renewals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Renewals change-control workflow",
+      "name": "contracts_renewals_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_renewals"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List amendments with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts amendments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Amendments collection",
+      "name": "contracts_amendments_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_amendments"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete amendments record by integer id. Synthetic documentation-fixture operation for commercial contracts amendments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Amendments detail",
+      "name": "contracts_amendments_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_amendments"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search amendments keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts amendments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Amendments search",
+      "name": "contracts_amendments_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_amendments"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-AMENDMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Amendments",
+        "version": 1
+      },
+      "description": "Create a fully attributed amendments record. Synthetic documentation-fixture operation for commercial contracts amendments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Amendments filing workflow",
+      "name": "contracts_amendments_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_amendments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing amendments record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts amendments records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Amendments change-control workflow",
+      "name": "contracts_amendments_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_amendments"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List approvals with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts approvals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Approvals collection",
+      "name": "contracts_approvals_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_approvals"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete approvals record by integer id. Synthetic documentation-fixture operation for commercial contracts approvals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Approvals detail",
+      "name": "contracts_approvals_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_approvals"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search approvals keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts approvals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Approvals search",
+      "name": "contracts_approvals_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_approvals"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-APPROVALS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Approvals",
+        "version": 1
+      },
+      "description": "Create a fully attributed approvals record. Synthetic documentation-fixture operation for commercial contracts approvals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Approvals filing workflow",
+      "name": "contracts_approvals_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_approvals"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing approvals record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts approvals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Approvals change-control workflow",
+      "name": "contracts_approvals_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_approvals"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notices with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Notices collection",
+      "name": "contracts_notices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_notices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notices record by integer id. Synthetic documentation-fixture operation for commercial contracts notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Notices detail",
+      "name": "contracts_notices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_notices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search notices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Notices search",
+      "name": "contracts_notices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_notices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-NOTICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notices",
+        "version": 1
+      },
+      "description": "Create a fully attributed notices record. Synthetic documentation-fixture operation for commercial contracts notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Notices filing workflow",
+      "name": "contracts_notices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notices record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Notices change-control workflow",
+      "name": "contracts_notices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List playbooks with deterministic filters and pagination. Synthetic documentation-fixture operation for commercial contracts playbooks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Playbooks collection",
+      "name": "contracts_playbooks_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cc_playbooks"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete playbooks record by integer id. Synthetic documentation-fixture operation for commercial contracts playbooks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Playbooks detail",
+      "name": "contracts_playbooks_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cc_playbooks"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-contracts-01"
+      },
+      "description": "Search playbooks keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for commercial contracts playbooks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Playbooks search",
+      "name": "contracts_playbooks_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cc_playbooks"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CC-PLAYBOOKS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CC-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-contracts-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Playbooks",
+        "version": 1
+      },
+      "description": "Create a fully attributed playbooks record. Synthetic documentation-fixture operation for commercial contracts playbooks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Playbooks filing workflow",
+      "name": "contracts_playbooks_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cc_playbooks"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing playbooks record with explicit change fields. Synthetic documentation-fixture operation for commercial contracts playbooks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Commercial Contracts synthetic Playbooks change-control workflow",
+      "name": "contracts_playbooks_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cc_playbooks"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

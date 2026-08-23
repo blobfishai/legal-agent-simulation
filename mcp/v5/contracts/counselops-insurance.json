@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Insurance Coverage (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-insurance-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_policies",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-POLICIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-POLICIES-001 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-POLICIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-POLICIES-002 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-POLICIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-POLICIES-003 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-POLICIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-POLICIES-004 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-POLICIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-POLICIES-005 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-POLICIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-POLICIES-006 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-POLICIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-POLICIES-007 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-POLICIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-POLICIES-008 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Policies Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_insureds",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-INSUREDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-INSUREDS-001 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-INSUREDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-INSUREDS-002 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-INSUREDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-INSUREDS-003 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-INSUREDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-INSUREDS-004 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-INSUREDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-INSUREDS-005 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-INSUREDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-INSUREDS-006 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-INSUREDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-INSUREDS-007 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-INSUREDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-INSUREDS-008 | synthetic insureds fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Insureds Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_claims",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-CLAIMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-CLAIMS-001 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-CLAIMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-CLAIMS-002 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-CLAIMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-CLAIMS-003 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-CLAIMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-CLAIMS-004 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-CLAIMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-CLAIMS-005 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-CLAIMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-CLAIMS-006 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-CLAIMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-CLAIMS-007 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-CLAIMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-CLAIMS-008 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Claims Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_coverage_positions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-COVERAGE_POSITIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-COVERAGE_POSITIONS-001 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-COVERAGE_POSITIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-COVERAGE_POSITIONS-002 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-COVERAGE_POSITIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-COVERAGE_POSITIONS-003 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-COVERAGE_POSITIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-COVERAGE_POSITIONS-004 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-COVERAGE_POSITIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-COVERAGE_POSITIONS-005 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-COVERAGE_POSITIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-COVERAGE_POSITIONS-006 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-COVERAGE_POSITIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-COVERAGE_POSITIONS-007 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-COVERAGE_POSITIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-COVERAGE_POSITIONS-008 | synthetic coverage positions fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Coverage Positions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_reservations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-RESERVATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-RESERVATIONS-001 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-RESERVATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-RESERVATIONS-002 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-RESERVATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-RESERVATIONS-003 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-RESERVATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-RESERVATIONS-004 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-RESERVATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-RESERVATIONS-005 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-RESERVATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-RESERVATIONS-006 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-RESERVATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-RESERVATIONS-007 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-RESERVATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-RESERVATIONS-008 | synthetic reservations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Reservations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_adjusters",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-ADJUSTERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-ADJUSTERS-001 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-ADJUSTERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-ADJUSTERS-002 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-ADJUSTERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-ADJUSTERS-003 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-ADJUSTERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-ADJUSTERS-004 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-ADJUSTERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-ADJUSTERS-005 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-ADJUSTERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-ADJUSTERS-006 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-ADJUSTERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-ADJUSTERS-007 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-ADJUSTERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-ADJUSTERS-008 | synthetic adjusters fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Adjusters Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_demands",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-DEMANDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-DEMANDS-001 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-DEMANDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-DEMANDS-002 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-DEMANDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-DEMANDS-003 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-DEMANDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-DEMANDS-004 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-DEMANDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-DEMANDS-005 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-DEMANDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-DEMANDS-006 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-DEMANDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-DEMANDS-007 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-DEMANDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-DEMANDS-008 | synthetic demands fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Demands Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_settlements",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-SETTLEMENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-SETTLEMENTS-001 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-SETTLEMENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-SETTLEMENTS-002 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-SETTLEMENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-SETTLEMENTS-003 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-SETTLEMENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-SETTLEMENTS-004 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-SETTLEMENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-SETTLEMENTS-005 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-SETTLEMENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-SETTLEMENTS-006 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-SETTLEMENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-SETTLEMENTS-007 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-SETTLEMENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-SETTLEMENTS-008 | synthetic settlements fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Settlements Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_in_subrogations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IN-SUBROGATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IN-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-01",
+            "status": "open",
+            "summary": "pack-insurance-01 | ANCHOR-IN-SUBROGATIONS-001 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IN-SUBROGATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IN-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-SUBROGATIONS-002 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IN-SUBROGATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IN-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-03",
+            "status": "review",
+            "summary": "pack-insurance-03 | ANCHOR-IN-SUBROGATIONS-003 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IN-SUBROGATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IN-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-01",
+            "status": "pending",
+            "summary": "pack-insurance-01 | ANCHOR-IN-SUBROGATIONS-004 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IN-SUBROGATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IN-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-insurance-02",
+            "status": "review",
+            "summary": "pack-insurance-02 | ANCHOR-IN-SUBROGATIONS-005 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IN-SUBROGATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IN-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-insurance-03",
+            "status": "pending",
+            "summary": "pack-insurance-03 | ANCHOR-IN-SUBROGATIONS-006 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IN-SUBROGATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IN-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-insurance-01",
+            "status": "review",
+            "summary": "pack-insurance-01 | ANCHOR-IN-SUBROGATIONS-007 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IN-SUBROGATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IN-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-insurance-02",
+            "status": "pending",
+            "summary": "pack-insurance-02 | ANCHOR-IN-SUBROGATIONS-008 | synthetic subrogations fact pattern; attorney validation required before external use.",
+            "title": "Insurance Coverage - Subrogations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List policies with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Policies collection",
+      "name": "insurance_policies_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_policies"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete policies record by integer id. Synthetic documentation-fixture operation for insurance coverage policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Policies detail",
+      "name": "insurance_policies_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_policies"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search policies keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Policies search",
+      "name": "insurance_policies_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_policies"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-POLICIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Policies",
+        "version": 1
+      },
+      "description": "Create a fully attributed policies record. Synthetic documentation-fixture operation for insurance coverage policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Policies filing workflow",
+      "name": "insurance_policies_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_policies"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing policies record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Policies change-control workflow",
+      "name": "insurance_policies_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_policies"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List insureds with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage insureds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Insureds collection",
+      "name": "insurance_insureds_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_insureds"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete insureds record by integer id. Synthetic documentation-fixture operation for insurance coverage insureds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Insureds detail",
+      "name": "insurance_insureds_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_insureds"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search insureds keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage insureds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Insureds search",
+      "name": "insurance_insureds_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_insureds"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-INSUREDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Insureds",
+        "version": 1
+      },
+      "description": "Create a fully attributed insureds record. Synthetic documentation-fixture operation for insurance coverage insureds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Insureds filing workflow",
+      "name": "insurance_insureds_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_insureds"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing insureds record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage insureds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Insureds change-control workflow",
+      "name": "insurance_insureds_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_insureds"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List claims with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Claims collection",
+      "name": "insurance_claims_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_claims"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete claims record by integer id. Synthetic documentation-fixture operation for insurance coverage claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Claims detail",
+      "name": "insurance_claims_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_claims"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search claims keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Claims search",
+      "name": "insurance_claims_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_claims"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-CLAIMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Claims",
+        "version": 1
+      },
+      "description": "Create a fully attributed claims record. Synthetic documentation-fixture operation for insurance coverage claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Claims filing workflow",
+      "name": "insurance_claims_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_claims"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing claims record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Claims change-control workflow",
+      "name": "insurance_claims_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_claims"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List coverage positions with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage coverage positions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Coverage Positions collection",
+      "name": "insurance_coverage_positions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_coverage_positions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete coverage positions record by integer id. Synthetic documentation-fixture operation for insurance coverage coverage positions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Coverage Positions detail",
+      "name": "insurance_coverage_positions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_coverage_positions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search coverage positions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage coverage positions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Coverage Positions search",
+      "name": "insurance_coverage_positions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_coverage_positions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-COVERAGE_POSITIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Coverage Positions",
+        "version": 1
+      },
+      "description": "Create a fully attributed coverage positions record. Synthetic documentation-fixture operation for insurance coverage coverage positions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Coverage Positions filing workflow",
+      "name": "insurance_coverage_positions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_coverage_positions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing coverage positions record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage coverage positions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Coverage Positions change-control workflow",
+      "name": "insurance_coverage_positions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_coverage_positions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List reservations with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage reservations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Reservations collection",
+      "name": "insurance_reservations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_reservations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete reservations record by integer id. Synthetic documentation-fixture operation for insurance coverage reservations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Reservations detail",
+      "name": "insurance_reservations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_reservations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search reservations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage reservations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Reservations search",
+      "name": "insurance_reservations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_reservations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-RESERVATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Reservations",
+        "version": 1
+      },
+      "description": "Create a fully attributed reservations record. Synthetic documentation-fixture operation for insurance coverage reservations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Reservations filing workflow",
+      "name": "insurance_reservations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_reservations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing reservations record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage reservations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Reservations change-control workflow",
+      "name": "insurance_reservations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_reservations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List adjusters with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage adjusters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Adjusters collection",
+      "name": "insurance_adjusters_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_adjusters"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete adjusters record by integer id. Synthetic documentation-fixture operation for insurance coverage adjusters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Adjusters detail",
+      "name": "insurance_adjusters_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_adjusters"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search adjusters keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage adjusters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Adjusters search",
+      "name": "insurance_adjusters_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_adjusters"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-ADJUSTERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Adjusters",
+        "version": 1
+      },
+      "description": "Create a fully attributed adjusters record. Synthetic documentation-fixture operation for insurance coverage adjusters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Adjusters filing workflow",
+      "name": "insurance_adjusters_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_adjusters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing adjusters record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage adjusters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Adjusters change-control workflow",
+      "name": "insurance_adjusters_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_adjusters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List demands with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage demands records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Demands collection",
+      "name": "insurance_demands_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_demands"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete demands record by integer id. Synthetic documentation-fixture operation for insurance coverage demands records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Demands detail",
+      "name": "insurance_demands_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_demands"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search demands keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage demands records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Demands search",
+      "name": "insurance_demands_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_demands"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-DEMANDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Demands",
+        "version": 1
+      },
+      "description": "Create a fully attributed demands record. Synthetic documentation-fixture operation for insurance coverage demands records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Demands filing workflow",
+      "name": "insurance_demands_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_demands"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing demands record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage demands records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Demands change-control workflow",
+      "name": "insurance_demands_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_demands"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List settlements with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Settlements collection",
+      "name": "insurance_settlements_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_settlements"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete settlements record by integer id. Synthetic documentation-fixture operation for insurance coverage settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Settlements detail",
+      "name": "insurance_settlements_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_settlements"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search settlements keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Settlements search",
+      "name": "insurance_settlements_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_settlements"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-SETTLEMENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Settlements",
+        "version": 1
+      },
+      "description": "Create a fully attributed settlements record. Synthetic documentation-fixture operation for insurance coverage settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Settlements filing workflow",
+      "name": "insurance_settlements_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_settlements"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing settlements record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage settlements records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Settlements change-control workflow",
+      "name": "insurance_settlements_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_settlements"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List subrogations with deterministic filters and pagination. Synthetic documentation-fixture operation for insurance coverage subrogations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Subrogations collection",
+      "name": "insurance_subrogations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_in_subrogations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete subrogations record by integer id. Synthetic documentation-fixture operation for insurance coverage subrogations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Subrogations detail",
+      "name": "insurance_subrogations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_in_subrogations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-insurance-01"
+      },
+      "description": "Search subrogations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for insurance coverage subrogations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Subrogations search",
+      "name": "insurance_subrogations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_in_subrogations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IN-SUBROGATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IN-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-insurance-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Subrogations",
+        "version": 1
+      },
+      "description": "Create a fully attributed subrogations record. Synthetic documentation-fixture operation for insurance coverage subrogations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Subrogations filing workflow",
+      "name": "insurance_subrogations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_in_subrogations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing subrogations record with explicit change fields. Synthetic documentation-fixture operation for insurance coverage subrogations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Insurance Coverage synthetic Subrogations change-control workflow",
+      "name": "insurance_subrogations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_in_subrogations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7912,
+      "path": "evidence-register.xlsx",
+      "sha256": "1ace3549462252aae85d8a48425944676da53897261cf73ac61a7915dab56b60"
+    },
+    {
+      "bytes": 39513,
+      "path": "matter-brief.docx",
+      "sha256": "001f39c434f8c57724a0a78a2798ef2db88202e1f6113cffbc38d14f273671d1"
+    },
+    {
+      "bytes": 2856,
+      "path": "source-extract.pdf",
+      "sha256": "e5fc58d9221f49c08267c68c25c897af7788add9bae36c8b19003e805e870e22"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-GC-03-070",
+    "attorney_validation_required": true,
+    "domain": "government_contracts",
+    "domain_label": "Government Contracts",
+    "due_date": "2026-10-26",
+    "evidence_date": "2026-09-11",
+    "expected_status": "remediated-gc-03",
+    "issue": "control discrepancy in bids",
+    "item_count": 70,
+    "jurisdiction": "DC",
+    "matter_ref": "MAT-GC-1193",
+    "mutation_parent": "pack-government_contracts-01",
+    "pack_id": "pack-government_contracts-03",
+    "reserve_amount": 3275,
+    "risk_level": "critical",
+    "synthetic": true,
+    "title": "Government Contracts Control Review 03",
+    "total_amount": 7539.0,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 107.7,
+    "variant": 3
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

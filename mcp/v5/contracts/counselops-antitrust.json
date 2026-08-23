@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Antitrust (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-antitrust-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_transactions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-TRANSACTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-TRANSACTIONS-001 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-TRANSACTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-TRANSACTIONS-002 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-TRANSACTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-TRANSACTIONS-003 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-TRANSACTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-TRANSACTIONS-004 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-TRANSACTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-TRANSACTIONS-005 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-TRANSACTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-TRANSACTIONS-006 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-TRANSACTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-TRANSACTIONS-007 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-TRANSACTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-TRANSACTIONS-008 | synthetic transactions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Transactions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_markets",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-MARKETS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-MARKETS-001 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-MARKETS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-MARKETS-002 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-MARKETS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-MARKETS-003 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-MARKETS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-MARKETS-004 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-MARKETS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-MARKETS-005 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-MARKETS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-MARKETS-006 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-MARKETS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-MARKETS-007 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-MARKETS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-MARKETS-008 | synthetic markets fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Markets Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_competitors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-COMPETITORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-COMPETITORS-001 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-COMPETITORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-COMPETITORS-002 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-COMPETITORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-COMPETITORS-003 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-COMPETITORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-COMPETITORS-004 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-COMPETITORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-COMPETITORS-005 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-COMPETITORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-COMPETITORS-006 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-COMPETITORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-COMPETITORS-007 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-COMPETITORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-COMPETITORS-008 | synthetic competitors fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Competitors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_hsr_filings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-HSR_FILINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-HSR_FILINGS-001 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-HSR_FILINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-HSR_FILINGS-002 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-HSR_FILINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-HSR_FILINGS-003 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-HSR_FILINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-HSR_FILINGS-004 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-HSR_FILINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-HSR_FILINGS-005 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-HSR_FILINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-HSR_FILINGS-006 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-HSR_FILINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-HSR_FILINGS-007 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-HSR_FILINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-HSR_FILINGS-008 | synthetic hsr filings fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Hsr Filings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_second_requests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-SECOND_REQUESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-SECOND_REQUESTS-001 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-SECOND_REQUESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-SECOND_REQUESTS-002 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-SECOND_REQUESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-SECOND_REQUESTS-003 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-SECOND_REQUESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-SECOND_REQUESTS-004 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-SECOND_REQUESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-SECOND_REQUESTS-005 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-SECOND_REQUESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-SECOND_REQUESTS-006 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-SECOND_REQUESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-SECOND_REQUESTS-007 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-SECOND_REQUESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-SECOND_REQUESTS-008 | synthetic second requests fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Second Requests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_custodians",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-CUSTODIANS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-CUSTODIANS-001 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-CUSTODIANS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-CUSTODIANS-002 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-CUSTODIANS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-CUSTODIANS-003 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-CUSTODIANS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-CUSTODIANS-004 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-CUSTODIANS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-CUSTODIANS-005 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-CUSTODIANS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-CUSTODIANS-006 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-CUSTODIANS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-CUSTODIANS-007 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-CUSTODIANS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-CUSTODIANS-008 | synthetic custodians fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Custodians Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_productions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-PRODUCTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-PRODUCTIONS-001 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-PRODUCTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-PRODUCTIONS-002 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-PRODUCTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-PRODUCTIONS-003 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-PRODUCTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-PRODUCTIONS-004 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-PRODUCTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-PRODUCTIONS-005 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-PRODUCTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-PRODUCTIONS-006 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-PRODUCTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-PRODUCTIONS-007 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-PRODUCTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-PRODUCTIONS-008 | synthetic productions fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Productions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_remedies",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-REMEDIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-REMEDIES-001 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-REMEDIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-REMEDIES-002 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-REMEDIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-REMEDIES-003 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-REMEDIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-REMEDIES-004 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-REMEDIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-REMEDIES-005 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-REMEDIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-REMEDIES-006 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-REMEDIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-REMEDIES-007 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-REMEDIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-REMEDIES-008 | synthetic remedies fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Remedies Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_at_agency_contacts",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "AT-AGENCY_CONTACTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-AT-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-01",
+            "status": "open",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-AGENCY_CONTACTS-001 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "AT-AGENCY_CONTACTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-AT-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-AGENCY_CONTACTS-002 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "AT-AGENCY_CONTACTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-AT-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-03",
+            "status": "review",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-AGENCY_CONTACTS-003 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "AT-AGENCY_CONTACTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-AT-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-01",
+            "status": "pending",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-AGENCY_CONTACTS-004 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "AT-AGENCY_CONTACTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-AT-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-antitrust-02",
+            "status": "review",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-AGENCY_CONTACTS-005 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "AT-AGENCY_CONTACTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-AT-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-antitrust-03",
+            "status": "pending",
+            "summary": "pack-antitrust-03 | ANCHOR-AT-AGENCY_CONTACTS-006 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "AT-AGENCY_CONTACTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-AT-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-antitrust-01",
+            "status": "review",
+            "summary": "pack-antitrust-01 | ANCHOR-AT-AGENCY_CONTACTS-007 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "AT-AGENCY_CONTACTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-AT-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-antitrust-02",
+            "status": "pending",
+            "summary": "pack-antitrust-02 | ANCHOR-AT-AGENCY_CONTACTS-008 | synthetic agency contacts fact pattern; attorney validation required before external use.",
+            "title": "Antitrust - Agency Contacts Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List transactions with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust transactions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Transactions collection",
+      "name": "antitrust_transactions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_transactions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete transactions record by integer id. Synthetic documentation-fixture operation for antitrust transactions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Transactions detail",
+      "name": "antitrust_transactions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_transactions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search transactions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust transactions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Transactions search",
+      "name": "antitrust_transactions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_transactions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-TRANSACTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Transactions",
+        "version": 1
+      },
+      "description": "Create a fully attributed transactions record. Synthetic documentation-fixture operation for antitrust transactions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Transactions filing workflow",
+      "name": "antitrust_transactions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_transactions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing transactions record with explicit change fields. Synthetic documentation-fixture operation for antitrust transactions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Transactions change-control workflow",
+      "name": "antitrust_transactions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_transactions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List markets with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust markets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Markets collection",
+      "name": "antitrust_markets_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_markets"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete markets record by integer id. Synthetic documentation-fixture operation for antitrust markets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Markets detail",
+      "name": "antitrust_markets_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_markets"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search markets keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust markets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Markets search",
+      "name": "antitrust_markets_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_markets"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-MARKETS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Markets",
+        "version": 1
+      },
+      "description": "Create a fully attributed markets record. Synthetic documentation-fixture operation for antitrust markets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Markets filing workflow",
+      "name": "antitrust_markets_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_markets"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing markets record with explicit change fields. Synthetic documentation-fixture operation for antitrust markets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Markets change-control workflow",
+      "name": "antitrust_markets_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_markets"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List competitors with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust competitors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Competitors collection",
+      "name": "antitrust_competitors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_competitors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete competitors record by integer id. Synthetic documentation-fixture operation for antitrust competitors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Competitors detail",
+      "name": "antitrust_competitors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_competitors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search competitors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust competitors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Competitors search",
+      "name": "antitrust_competitors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_competitors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-COMPETITORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Competitors",
+        "version": 1
+      },
+      "description": "Create a fully attributed competitors record. Synthetic documentation-fixture operation for antitrust competitors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Competitors filing workflow",
+      "name": "antitrust_competitors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_competitors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing competitors record with explicit change fields. Synthetic documentation-fixture operation for antitrust competitors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Competitors change-control workflow",
+      "name": "antitrust_competitors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_competitors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List hsr filings with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust hsr filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Hsr Filings collection",
+      "name": "antitrust_hsr_filings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_hsr_filings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete hsr filings record by integer id. Synthetic documentation-fixture operation for antitrust hsr filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Hsr Filings detail",
+      "name": "antitrust_hsr_filings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_hsr_filings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search hsr filings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust hsr filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Hsr Filings search",
+      "name": "antitrust_hsr_filings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_hsr_filings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-HSR_FILINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Hsr Filings",
+        "version": 1
+      },
+      "description": "Create a fully attributed hsr filings record. Synthetic documentation-fixture operation for antitrust hsr filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Hsr Filings filing workflow",
+      "name": "antitrust_hsr_filings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_hsr_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing hsr filings record with explicit change fields. Synthetic documentation-fixture operation for antitrust hsr filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Hsr Filings change-control workflow",
+      "name": "antitrust_hsr_filings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_hsr_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List second requests with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust second requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Second Requests collection",
+      "name": "antitrust_second_requests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_second_requests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete second requests record by integer id. Synthetic documentation-fixture operation for antitrust second requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Second Requests detail",
+      "name": "antitrust_second_requests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_second_requests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search second requests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust second requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Second Requests search",
+      "name": "antitrust_second_requests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_second_requests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-SECOND_REQUESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Second Requests",
+        "version": 1
+      },
+      "description": "Create a fully attributed second requests record. Synthetic documentation-fixture operation for antitrust second requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Second Requests filing workflow",
+      "name": "antitrust_second_requests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_second_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing second requests record with explicit change fields. Synthetic documentation-fixture operation for antitrust second requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Second Requests change-control workflow",
+      "name": "antitrust_second_requests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_second_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List custodians with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust custodians records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Custodians collection",
+      "name": "antitrust_custodians_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_custodians"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete custodians record by integer id. Synthetic documentation-fixture operation for antitrust custodians records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Custodians detail",
+      "name": "antitrust_custodians_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_custodians"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search custodians keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust custodians records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Custodians search",
+      "name": "antitrust_custodians_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_custodians"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-CUSTODIANS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Custodians",
+        "version": 1
+      },
+      "description": "Create a fully attributed custodians record. Synthetic documentation-fixture operation for antitrust custodians records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Custodians filing workflow",
+      "name": "antitrust_custodians_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_custodians"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing custodians record with explicit change fields. Synthetic documentation-fixture operation for antitrust custodians records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Custodians change-control workflow",
+      "name": "antitrust_custodians_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_custodians"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List productions with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust productions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Productions collection",
+      "name": "antitrust_productions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_productions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete productions record by integer id. Synthetic documentation-fixture operation for antitrust productions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Productions detail",
+      "name": "antitrust_productions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_productions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search productions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust productions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Productions search",
+      "name": "antitrust_productions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_productions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-PRODUCTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Productions",
+        "version": 1
+      },
+      "description": "Create a fully attributed productions record. Synthetic documentation-fixture operation for antitrust productions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Productions filing workflow",
+      "name": "antitrust_productions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_productions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing productions record with explicit change fields. Synthetic documentation-fixture operation for antitrust productions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Productions change-control workflow",
+      "name": "antitrust_productions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_productions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List remedies with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust remedies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Remedies collection",
+      "name": "antitrust_remedies_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_remedies"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete remedies record by integer id. Synthetic documentation-fixture operation for antitrust remedies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Remedies detail",
+      "name": "antitrust_remedies_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_remedies"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search remedies keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust remedies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Remedies search",
+      "name": "antitrust_remedies_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_remedies"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-REMEDIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Remedies",
+        "version": 1
+      },
+      "description": "Create a fully attributed remedies record. Synthetic documentation-fixture operation for antitrust remedies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Remedies filing workflow",
+      "name": "antitrust_remedies_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_remedies"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing remedies record with explicit change fields. Synthetic documentation-fixture operation for antitrust remedies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Remedies change-control workflow",
+      "name": "antitrust_remedies_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_remedies"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List agency contacts with deterministic filters and pagination. Synthetic documentation-fixture operation for antitrust agency contacts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Agency Contacts collection",
+      "name": "antitrust_agency_contacts_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_at_agency_contacts"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete agency contacts record by integer id. Synthetic documentation-fixture operation for antitrust agency contacts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Agency Contacts detail",
+      "name": "antitrust_agency_contacts_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_at_agency_contacts"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-antitrust-01"
+      },
+      "description": "Search agency contacts keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for antitrust agency contacts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Agency Contacts search",
+      "name": "antitrust_agency_contacts_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_at_agency_contacts"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-AT-AGENCY_CONTACTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-AT-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-antitrust-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Agency Contacts",
+        "version": 1
+      },
+      "description": "Create a fully attributed agency contacts record. Synthetic documentation-fixture operation for antitrust agency contacts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Agency Contacts filing workflow",
+      "name": "antitrust_agency_contacts_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_at_agency_contacts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing agency contacts record with explicit change fields. Synthetic documentation-fixture operation for antitrust agency contacts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Antitrust synthetic Agency Contacts change-control workflow",
+      "name": "antitrust_agency_contacts_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_at_agency_contacts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

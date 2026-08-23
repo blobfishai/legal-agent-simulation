@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Business Immigration (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-immigration-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_beneficiaries",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-BENEFICIARIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-BENEFICIARIES-001 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-BENEFICIARIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-BENEFICIARIES-002 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-BENEFICIARIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-BENEFICIARIES-003 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-BENEFICIARIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-BENEFICIARIES-004 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-BENEFICIARIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-BENEFICIARIES-005 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-BENEFICIARIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-BENEFICIARIES-006 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-BENEFICIARIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-BENEFICIARIES-007 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-BENEFICIARIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-BENEFICIARIES-008 | synthetic beneficiaries fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Beneficiaries Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_petitions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-PETITIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-PETITIONS-001 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-PETITIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-PETITIONS-002 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-PETITIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-PETITIONS-003 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-PETITIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-PETITIONS-004 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-PETITIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-PETITIONS-005 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-PETITIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-PETITIONS-006 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-PETITIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-PETITIONS-007 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-PETITIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-PETITIONS-008 | synthetic petitions fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Petitions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_filings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-FILINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-FILINGS-001 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-FILINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-FILINGS-002 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-FILINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-FILINGS-003 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-FILINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-FILINGS-004 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-FILINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-FILINGS-005 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-FILINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-FILINGS-006 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-FILINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-FILINGS-007 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-FILINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-FILINGS-008 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Filings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_notices",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-NOTICES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-NOTICES-001 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-NOTICES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-NOTICES-002 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-NOTICES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-NOTICES-003 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-NOTICES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-NOTICES-004 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-NOTICES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-NOTICES-005 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-NOTICES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-NOTICES-006 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-NOTICES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-NOTICES-007 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-NOTICES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-NOTICES-008 | synthetic notices fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Notices Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_evidence_requests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-EVIDENCE_REQUESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EVIDENCE_REQUESTS-001 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-EVIDENCE_REQUESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EVIDENCE_REQUESTS-002 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-EVIDENCE_REQUESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-EVIDENCE_REQUESTS-003 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-EVIDENCE_REQUESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EVIDENCE_REQUESTS-004 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-EVIDENCE_REQUESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EVIDENCE_REQUESTS-005 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-EVIDENCE_REQUESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-EVIDENCE_REQUESTS-006 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-EVIDENCE_REQUESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EVIDENCE_REQUESTS-007 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-EVIDENCE_REQUESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EVIDENCE_REQUESTS-008 | synthetic evidence requests fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Evidence Requests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_interviews",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-INTERVIEWS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-INTERVIEWS-001 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-INTERVIEWS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-INTERVIEWS-002 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-INTERVIEWS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-INTERVIEWS-003 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-INTERVIEWS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-INTERVIEWS-004 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-INTERVIEWS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-INTERVIEWS-005 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-INTERVIEWS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-INTERVIEWS-006 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-INTERVIEWS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-INTERVIEWS-007 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-INTERVIEWS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-INTERVIEWS-008 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Interviews Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_expirations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-EXPIRATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EXPIRATIONS-001 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-EXPIRATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EXPIRATIONS-002 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-EXPIRATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-EXPIRATIONS-003 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-EXPIRATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EXPIRATIONS-004 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-EXPIRATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EXPIRATIONS-005 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-EXPIRATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-EXPIRATIONS-006 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-EXPIRATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EXPIRATIONS-007 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-EXPIRATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EXPIRATIONS-008 | synthetic expirations fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Expirations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_employers",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-EMPLOYERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EMPLOYERS-001 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-EMPLOYERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EMPLOYERS-002 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-EMPLOYERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-EMPLOYERS-003 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-EMPLOYERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EMPLOYERS-004 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-EMPLOYERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EMPLOYERS-005 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-EMPLOYERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-EMPLOYERS-006 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-EMPLOYERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-EMPLOYERS-007 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-EMPLOYERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-EMPLOYERS-008 | synthetic employers fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Employers Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_im_dependents",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IM-DEPENDENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IM-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-01",
+            "status": "open",
+            "summary": "pack-immigration-01 | ANCHOR-IM-DEPENDENTS-001 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IM-DEPENDENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IM-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-DEPENDENTS-002 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IM-DEPENDENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IM-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-03",
+            "status": "review",
+            "summary": "pack-immigration-03 | ANCHOR-IM-DEPENDENTS-003 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IM-DEPENDENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IM-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-01",
+            "status": "pending",
+            "summary": "pack-immigration-01 | ANCHOR-IM-DEPENDENTS-004 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IM-DEPENDENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IM-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-immigration-02",
+            "status": "review",
+            "summary": "pack-immigration-02 | ANCHOR-IM-DEPENDENTS-005 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IM-DEPENDENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IM-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-immigration-03",
+            "status": "pending",
+            "summary": "pack-immigration-03 | ANCHOR-IM-DEPENDENTS-006 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IM-DEPENDENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IM-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-immigration-01",
+            "status": "review",
+            "summary": "pack-immigration-01 | ANCHOR-IM-DEPENDENTS-007 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IM-DEPENDENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IM-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-immigration-02",
+            "status": "pending",
+            "summary": "pack-immigration-02 | ANCHOR-IM-DEPENDENTS-008 | synthetic dependents fact pattern; attorney validation required before external use.",
+            "title": "Business Immigration - Dependents Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List beneficiaries with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Beneficiaries collection",
+      "name": "immigration_beneficiaries_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_beneficiaries"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete beneficiaries record by integer id. Synthetic documentation-fixture operation for business immigration beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Beneficiaries detail",
+      "name": "immigration_beneficiaries_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_beneficiaries"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search beneficiaries keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Beneficiaries search",
+      "name": "immigration_beneficiaries_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_beneficiaries"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-BENEFICIARIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Beneficiaries",
+        "version": 1
+      },
+      "description": "Create a fully attributed beneficiaries record. Synthetic documentation-fixture operation for business immigration beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Beneficiaries filing workflow",
+      "name": "immigration_beneficiaries_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_beneficiaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing beneficiaries record with explicit change fields. Synthetic documentation-fixture operation for business immigration beneficiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Beneficiaries change-control workflow",
+      "name": "immigration_beneficiaries_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_beneficiaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List petitions with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Petitions collection",
+      "name": "immigration_petitions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_petitions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete petitions record by integer id. Synthetic documentation-fixture operation for business immigration petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Petitions detail",
+      "name": "immigration_petitions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_petitions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search petitions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Petitions search",
+      "name": "immigration_petitions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_petitions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-PETITIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Petitions",
+        "version": 1
+      },
+      "description": "Create a fully attributed petitions record. Synthetic documentation-fixture operation for business immigration petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Petitions filing workflow",
+      "name": "immigration_petitions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_petitions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing petitions record with explicit change fields. Synthetic documentation-fixture operation for business immigration petitions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Petitions change-control workflow",
+      "name": "immigration_petitions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_petitions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List filings with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Filings collection",
+      "name": "immigration_filings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_filings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete filings record by integer id. Synthetic documentation-fixture operation for business immigration filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Filings detail",
+      "name": "immigration_filings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_filings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search filings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Filings search",
+      "name": "immigration_filings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_filings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-FILINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Filings",
+        "version": 1
+      },
+      "description": "Create a fully attributed filings record. Synthetic documentation-fixture operation for business immigration filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Filings filing workflow",
+      "name": "immigration_filings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing filings record with explicit change fields. Synthetic documentation-fixture operation for business immigration filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Filings change-control workflow",
+      "name": "immigration_filings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notices with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Notices collection",
+      "name": "immigration_notices_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_notices"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notices record by integer id. Synthetic documentation-fixture operation for business immigration notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Notices detail",
+      "name": "immigration_notices_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_notices"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search notices keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Notices search",
+      "name": "immigration_notices_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_notices"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-NOTICES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notices",
+        "version": 1
+      },
+      "description": "Create a fully attributed notices record. Synthetic documentation-fixture operation for business immigration notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Notices filing workflow",
+      "name": "immigration_notices_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notices record with explicit change fields. Synthetic documentation-fixture operation for business immigration notices records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Notices change-control workflow",
+      "name": "immigration_notices_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_notices"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List evidence requests with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration evidence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Evidence Requests collection",
+      "name": "immigration_evidence_requests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_evidence_requests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete evidence requests record by integer id. Synthetic documentation-fixture operation for business immigration evidence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Evidence Requests detail",
+      "name": "immigration_evidence_requests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_evidence_requests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search evidence requests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration evidence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Evidence Requests search",
+      "name": "immigration_evidence_requests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_evidence_requests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-EVIDENCE_REQUESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Evidence Requests",
+        "version": 1
+      },
+      "description": "Create a fully attributed evidence requests record. Synthetic documentation-fixture operation for business immigration evidence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Evidence Requests filing workflow",
+      "name": "immigration_evidence_requests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_evidence_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing evidence requests record with explicit change fields. Synthetic documentation-fixture operation for business immigration evidence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Evidence Requests change-control workflow",
+      "name": "immigration_evidence_requests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_evidence_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List interviews with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Interviews collection",
+      "name": "immigration_interviews_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_interviews"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete interviews record by integer id. Synthetic documentation-fixture operation for business immigration interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Interviews detail",
+      "name": "immigration_interviews_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_interviews"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search interviews keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Interviews search",
+      "name": "immigration_interviews_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_interviews"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-INTERVIEWS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Interviews",
+        "version": 1
+      },
+      "description": "Create a fully attributed interviews record. Synthetic documentation-fixture operation for business immigration interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Interviews filing workflow",
+      "name": "immigration_interviews_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_interviews"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing interviews record with explicit change fields. Synthetic documentation-fixture operation for business immigration interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Interviews change-control workflow",
+      "name": "immigration_interviews_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_interviews"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List expirations with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration expirations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Expirations collection",
+      "name": "immigration_expirations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_expirations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete expirations record by integer id. Synthetic documentation-fixture operation for business immigration expirations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Expirations detail",
+      "name": "immigration_expirations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_expirations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search expirations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration expirations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Expirations search",
+      "name": "immigration_expirations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_expirations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-EXPIRATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Expirations",
+        "version": 1
+      },
+      "description": "Create a fully attributed expirations record. Synthetic documentation-fixture operation for business immigration expirations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Expirations filing workflow",
+      "name": "immigration_expirations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_expirations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing expirations record with explicit change fields. Synthetic documentation-fixture operation for business immigration expirations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Expirations change-control workflow",
+      "name": "immigration_expirations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_expirations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List employers with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration employers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Employers collection",
+      "name": "immigration_employers_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_employers"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete employers record by integer id. Synthetic documentation-fixture operation for business immigration employers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Employers detail",
+      "name": "immigration_employers_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_employers"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search employers keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration employers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Employers search",
+      "name": "immigration_employers_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_employers"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-EMPLOYERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Employers",
+        "version": 1
+      },
+      "description": "Create a fully attributed employers record. Synthetic documentation-fixture operation for business immigration employers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Employers filing workflow",
+      "name": "immigration_employers_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_employers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing employers record with explicit change fields. Synthetic documentation-fixture operation for business immigration employers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Employers change-control workflow",
+      "name": "immigration_employers_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_employers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List dependents with deterministic filters and pagination. Synthetic documentation-fixture operation for business immigration dependents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Dependents collection",
+      "name": "immigration_dependents_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_im_dependents"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete dependents record by integer id. Synthetic documentation-fixture operation for business immigration dependents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Dependents detail",
+      "name": "immigration_dependents_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_im_dependents"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-immigration-01"
+      },
+      "description": "Search dependents keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for business immigration dependents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Dependents search",
+      "name": "immigration_dependents_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_im_dependents"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IM-DEPENDENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IM-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-immigration-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Dependents",
+        "version": 1
+      },
+      "description": "Create a fully attributed dependents record. Synthetic documentation-fixture operation for business immigration dependents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Dependents filing workflow",
+      "name": "immigration_dependents_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_im_dependents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing dependents record with explicit change fields. Synthetic documentation-fixture operation for business immigration dependents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Business Immigration synthetic Dependents change-control workflow",
+      "name": "immigration_dependents_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_im_dependents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Bankruptcy (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-bankruptcy-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_debtors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-DEBTORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-DEBTORS-001 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-DEBTORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-DEBTORS-002 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-DEBTORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-DEBTORS-003 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-DEBTORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-DEBTORS-004 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-DEBTORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-DEBTORS-005 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-DEBTORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-DEBTORS-006 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-DEBTORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-DEBTORS-007 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-DEBTORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-DEBTORS-008 | synthetic debtors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Debtors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_creditors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-CREDITORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-CREDITORS-001 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-CREDITORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-CREDITORS-002 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-CREDITORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-CREDITORS-003 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-CREDITORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-CREDITORS-004 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-CREDITORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-CREDITORS-005 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-CREDITORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-CREDITORS-006 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-CREDITORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-CREDITORS-007 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-CREDITORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-CREDITORS-008 | synthetic creditors fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Creditors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_claims",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-CLAIMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-CLAIMS-001 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-CLAIMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-CLAIMS-002 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-CLAIMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-CLAIMS-003 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-CLAIMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-CLAIMS-004 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-CLAIMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-CLAIMS-005 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-CLAIMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-CLAIMS-006 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-CLAIMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-CLAIMS-007 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-CLAIMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-CLAIMS-008 | synthetic claims fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Claims Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_schedules",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-SCHEDULES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-SCHEDULES-001 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-SCHEDULES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-SCHEDULES-002 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-SCHEDULES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-SCHEDULES-003 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-SCHEDULES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-SCHEDULES-004 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-SCHEDULES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-SCHEDULES-005 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-SCHEDULES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-SCHEDULES-006 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-SCHEDULES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-SCHEDULES-007 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-SCHEDULES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-SCHEDULES-008 | synthetic schedules fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Schedules Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_motions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-MOTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-MOTIONS-001 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-MOTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-MOTIONS-002 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-MOTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-MOTIONS-003 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-MOTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-MOTIONS-004 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-MOTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-MOTIONS-005 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-MOTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-MOTIONS-006 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-MOTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-MOTIONS-007 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-MOTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-MOTIONS-008 | synthetic motions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Motions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_orders",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-ORDERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-ORDERS-001 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-ORDERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-ORDERS-002 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-ORDERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-ORDERS-003 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-ORDERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-ORDERS-004 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-ORDERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-ORDERS-005 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-ORDERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-ORDERS-006 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-ORDERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-ORDERS-007 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-ORDERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-ORDERS-008 | synthetic orders fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Orders Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_plans",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-PLANS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-PLANS-001 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-PLANS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-PLANS-002 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-PLANS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-PLANS-003 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-PLANS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-PLANS-004 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-PLANS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-PLANS-005 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-PLANS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-PLANS-006 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-PLANS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-PLANS-007 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-PLANS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-PLANS-008 | synthetic plans fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Plans Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_ballots",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-BALLOTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-BALLOTS-001 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-BALLOTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-BALLOTS-002 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-BALLOTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-BALLOTS-003 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-BALLOTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-BALLOTS-004 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-BALLOTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-BALLOTS-005 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-BALLOTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-BALLOTS-006 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-BALLOTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-BALLOTS-007 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-BALLOTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-BALLOTS-008 | synthetic ballots fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Ballots Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_bk_distributions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "BK-DISTRIBUTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-BK-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "open",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-DISTRIBUTIONS-001 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "BK-DISTRIBUTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-BK-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-DISTRIBUTIONS-002 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "BK-DISTRIBUTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-BK-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "review",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-DISTRIBUTIONS-003 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "BK-DISTRIBUTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-BK-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "pending",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-DISTRIBUTIONS-004 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "BK-DISTRIBUTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-BK-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "review",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-DISTRIBUTIONS-005 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "BK-DISTRIBUTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-BK-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-bankruptcy-03",
+            "status": "pending",
+            "summary": "pack-bankruptcy-03 | ANCHOR-BK-DISTRIBUTIONS-006 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "BK-DISTRIBUTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-BK-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-bankruptcy-01",
+            "status": "review",
+            "summary": "pack-bankruptcy-01 | ANCHOR-BK-DISTRIBUTIONS-007 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "BK-DISTRIBUTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-BK-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-bankruptcy-02",
+            "status": "pending",
+            "summary": "pack-bankruptcy-02 | ANCHOR-BK-DISTRIBUTIONS-008 | synthetic distributions fact pattern; attorney validation required before external use.",
+            "title": "Bankruptcy - Distributions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List debtors with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy debtors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Debtors collection",
+      "name": "bankruptcy_debtors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_debtors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete debtors record by integer id. Synthetic documentation-fixture operation for bankruptcy debtors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Debtors detail",
+      "name": "bankruptcy_debtors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_debtors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search debtors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy debtors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Debtors search",
+      "name": "bankruptcy_debtors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_debtors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-DEBTORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Debtors",
+        "version": 1
+      },
+      "description": "Create a fully attributed debtors record. Synthetic documentation-fixture operation for bankruptcy debtors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Debtors filing workflow",
+      "name": "bankruptcy_debtors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_debtors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing debtors record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy debtors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Debtors change-control workflow",
+      "name": "bankruptcy_debtors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_debtors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List creditors with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy creditors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Creditors collection",
+      "name": "bankruptcy_creditors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_creditors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete creditors record by integer id. Synthetic documentation-fixture operation for bankruptcy creditors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Creditors detail",
+      "name": "bankruptcy_creditors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_creditors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search creditors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy creditors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Creditors search",
+      "name": "bankruptcy_creditors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_creditors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-CREDITORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Creditors",
+        "version": 1
+      },
+      "description": "Create a fully attributed creditors record. Synthetic documentation-fixture operation for bankruptcy creditors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Creditors filing workflow",
+      "name": "bankruptcy_creditors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_creditors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing creditors record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy creditors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Creditors change-control workflow",
+      "name": "bankruptcy_creditors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_creditors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List claims with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Claims collection",
+      "name": "bankruptcy_claims_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_claims"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete claims record by integer id. Synthetic documentation-fixture operation for bankruptcy claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Claims detail",
+      "name": "bankruptcy_claims_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_claims"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search claims keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Claims search",
+      "name": "bankruptcy_claims_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_claims"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-CLAIMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Claims",
+        "version": 1
+      },
+      "description": "Create a fully attributed claims record. Synthetic documentation-fixture operation for bankruptcy claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Claims filing workflow",
+      "name": "bankruptcy_claims_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_claims"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing claims record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy claims records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Claims change-control workflow",
+      "name": "bankruptcy_claims_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_claims"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List schedules with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy schedules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Schedules collection",
+      "name": "bankruptcy_schedules_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_schedules"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete schedules record by integer id. Synthetic documentation-fixture operation for bankruptcy schedules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Schedules detail",
+      "name": "bankruptcy_schedules_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_schedules"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search schedules keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy schedules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Schedules search",
+      "name": "bankruptcy_schedules_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_schedules"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-SCHEDULES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Schedules",
+        "version": 1
+      },
+      "description": "Create a fully attributed schedules record. Synthetic documentation-fixture operation for bankruptcy schedules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Schedules filing workflow",
+      "name": "bankruptcy_schedules_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_schedules"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing schedules record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy schedules records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Schedules change-control workflow",
+      "name": "bankruptcy_schedules_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_schedules"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List motions with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Motions collection",
+      "name": "bankruptcy_motions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_motions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete motions record by integer id. Synthetic documentation-fixture operation for bankruptcy motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Motions detail",
+      "name": "bankruptcy_motions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_motions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search motions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Motions search",
+      "name": "bankruptcy_motions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_motions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-MOTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Motions",
+        "version": 1
+      },
+      "description": "Create a fully attributed motions record. Synthetic documentation-fixture operation for bankruptcy motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Motions filing workflow",
+      "name": "bankruptcy_motions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_motions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing motions record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy motions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Motions change-control workflow",
+      "name": "bankruptcy_motions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_motions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List orders with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy orders records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Orders collection",
+      "name": "bankruptcy_orders_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_orders"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete orders record by integer id. Synthetic documentation-fixture operation for bankruptcy orders records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Orders detail",
+      "name": "bankruptcy_orders_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_orders"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search orders keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy orders records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Orders search",
+      "name": "bankruptcy_orders_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_orders"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-ORDERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Orders",
+        "version": 1
+      },
+      "description": "Create a fully attributed orders record. Synthetic documentation-fixture operation for bankruptcy orders records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Orders filing workflow",
+      "name": "bankruptcy_orders_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_orders"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing orders record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy orders records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Orders change-control workflow",
+      "name": "bankruptcy_orders_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_orders"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List plans with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy plans records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Plans collection",
+      "name": "bankruptcy_plans_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_plans"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete plans record by integer id. Synthetic documentation-fixture operation for bankruptcy plans records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Plans detail",
+      "name": "bankruptcy_plans_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_plans"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search plans keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy plans records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Plans search",
+      "name": "bankruptcy_plans_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_plans"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-PLANS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Plans",
+        "version": 1
+      },
+      "description": "Create a fully attributed plans record. Synthetic documentation-fixture operation for bankruptcy plans records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Plans filing workflow",
+      "name": "bankruptcy_plans_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_plans"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing plans record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy plans records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Plans change-control workflow",
+      "name": "bankruptcy_plans_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_plans"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List ballots with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy ballots records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Ballots collection",
+      "name": "bankruptcy_ballots_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_ballots"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete ballots record by integer id. Synthetic documentation-fixture operation for bankruptcy ballots records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Ballots detail",
+      "name": "bankruptcy_ballots_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_ballots"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search ballots keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy ballots records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Ballots search",
+      "name": "bankruptcy_ballots_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_ballots"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-BALLOTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Ballots",
+        "version": 1
+      },
+      "description": "Create a fully attributed ballots record. Synthetic documentation-fixture operation for bankruptcy ballots records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Ballots filing workflow",
+      "name": "bankruptcy_ballots_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_ballots"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing ballots record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy ballots records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Ballots change-control workflow",
+      "name": "bankruptcy_ballots_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_ballots"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List distributions with deterministic filters and pagination. Synthetic documentation-fixture operation for bankruptcy distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Distributions collection",
+      "name": "bankruptcy_distributions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_bk_distributions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete distributions record by integer id. Synthetic documentation-fixture operation for bankruptcy distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Distributions detail",
+      "name": "bankruptcy_distributions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_bk_distributions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-bankruptcy-01"
+      },
+      "description": "Search distributions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for bankruptcy distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Distributions search",
+      "name": "bankruptcy_distributions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_bk_distributions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-BK-DISTRIBUTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-BK-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-bankruptcy-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Distributions",
+        "version": 1
+      },
+      "description": "Create a fully attributed distributions record. Synthetic documentation-fixture operation for bankruptcy distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Distributions filing workflow",
+      "name": "bankruptcy_distributions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_bk_distributions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing distributions record with explicit change fields. Synthetic documentation-fixture operation for bankruptcy distributions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Bankruptcy synthetic Distributions change-control workflow",
+      "name": "bankruptcy_distributions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_bk_distributions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

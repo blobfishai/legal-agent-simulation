@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Internal Investigations (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-investigations-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_matters",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-MATTERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-MATTERS-001 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-MATTERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-MATTERS-002 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-MATTERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-MATTERS-003 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-MATTERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-MATTERS-004 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-MATTERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-MATTERS-005 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-MATTERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-MATTERS-006 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-MATTERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-MATTERS-007 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-MATTERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-MATTERS-008 | synthetic matters fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Matters Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_allegations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-ALLEGATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-ALLEGATIONS-001 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-ALLEGATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-ALLEGATIONS-002 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-ALLEGATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-ALLEGATIONS-003 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-ALLEGATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-ALLEGATIONS-004 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-ALLEGATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-ALLEGATIONS-005 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-ALLEGATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-ALLEGATIONS-006 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-ALLEGATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-ALLEGATIONS-007 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-ALLEGATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-ALLEGATIONS-008 | synthetic allegations fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Allegations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_witnesses",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-WITNESSES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-WITNESSES-001 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-WITNESSES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-WITNESSES-002 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-WITNESSES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-WITNESSES-003 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-WITNESSES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-WITNESSES-004 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-WITNESSES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-WITNESSES-005 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-WITNESSES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-WITNESSES-006 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-WITNESSES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-WITNESSES-007 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-WITNESSES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-WITNESSES-008 | synthetic witnesses fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Witnesses Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_interviews",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-INTERVIEWS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-INTERVIEWS-001 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-INTERVIEWS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-INTERVIEWS-002 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-INTERVIEWS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-INTERVIEWS-003 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-INTERVIEWS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-INTERVIEWS-004 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-INTERVIEWS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-INTERVIEWS-005 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-INTERVIEWS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-INTERVIEWS-006 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-INTERVIEWS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-INTERVIEWS-007 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-INTERVIEWS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-INTERVIEWS-008 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Interviews Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_evidence_items",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-EVIDENCE_ITEMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-EVIDENCE_ITEMS-001 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-EVIDENCE_ITEMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-EVIDENCE_ITEMS-002 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-EVIDENCE_ITEMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-EVIDENCE_ITEMS-003 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-EVIDENCE_ITEMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-EVIDENCE_ITEMS-004 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-EVIDENCE_ITEMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-EVIDENCE_ITEMS-005 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-EVIDENCE_ITEMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-EVIDENCE_ITEMS-006 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-EVIDENCE_ITEMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-EVIDENCE_ITEMS-007 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-EVIDENCE_ITEMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-EVIDENCE_ITEMS-008 | synthetic evidence items fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Evidence Items Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_holds",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-HOLDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-HOLDS-001 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-HOLDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-HOLDS-002 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-HOLDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-HOLDS-003 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-HOLDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-HOLDS-004 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-HOLDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-HOLDS-005 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-HOLDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-HOLDS-006 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-HOLDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-HOLDS-007 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-HOLDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-HOLDS-008 | synthetic holds fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Holds Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_findings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-FINDINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-FINDINGS-001 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-FINDINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-FINDINGS-002 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-FINDINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-FINDINGS-003 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-FINDINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-FINDINGS-004 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-FINDINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-FINDINGS-005 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-FINDINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-FINDINGS-006 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-FINDINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-FINDINGS-007 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-FINDINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-FINDINGS-008 | synthetic findings fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Findings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_referrals",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-REFERRALS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-REFERRALS-001 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-REFERRALS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-REFERRALS-002 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-REFERRALS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-REFERRALS-003 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-REFERRALS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-REFERRALS-004 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-REFERRALS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-REFERRALS-005 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-REFERRALS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-REFERRALS-006 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-REFERRALS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-REFERRALS-007 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-REFERRALS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-REFERRALS-008 | synthetic referrals fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Referrals Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_iv_reports",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "IV-REPORTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-IV-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-01",
+            "status": "open",
+            "summary": "pack-investigations-01 | ANCHOR-IV-REPORTS-001 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "IV-REPORTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-IV-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-REPORTS-002 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "IV-REPORTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-IV-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-03",
+            "status": "review",
+            "summary": "pack-investigations-03 | ANCHOR-IV-REPORTS-003 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "IV-REPORTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-IV-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-01",
+            "status": "pending",
+            "summary": "pack-investigations-01 | ANCHOR-IV-REPORTS-004 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "IV-REPORTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-IV-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-investigations-02",
+            "status": "review",
+            "summary": "pack-investigations-02 | ANCHOR-IV-REPORTS-005 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "IV-REPORTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-IV-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-investigations-03",
+            "status": "pending",
+            "summary": "pack-investigations-03 | ANCHOR-IV-REPORTS-006 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "IV-REPORTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-IV-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-investigations-01",
+            "status": "review",
+            "summary": "pack-investigations-01 | ANCHOR-IV-REPORTS-007 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "IV-REPORTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-IV-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-investigations-02",
+            "status": "pending",
+            "summary": "pack-investigations-02 | ANCHOR-IV-REPORTS-008 | synthetic reports fact pattern; attorney validation required before external use.",
+            "title": "Internal Investigations - Reports Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List matters with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Matters collection",
+      "name": "investigations_matters_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_matters"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete matters record by integer id. Synthetic documentation-fixture operation for internal investigations matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Matters detail",
+      "name": "investigations_matters_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_matters"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search matters keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Matters search",
+      "name": "investigations_matters_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_matters"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-MATTERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Matters",
+        "version": 1
+      },
+      "description": "Create a fully attributed matters record. Synthetic documentation-fixture operation for internal investigations matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Matters filing workflow",
+      "name": "investigations_matters_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_matters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing matters record with explicit change fields. Synthetic documentation-fixture operation for internal investigations matters records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Matters change-control workflow",
+      "name": "investigations_matters_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_matters"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List allegations with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations allegations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Allegations collection",
+      "name": "investigations_allegations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_allegations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete allegations record by integer id. Synthetic documentation-fixture operation for internal investigations allegations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Allegations detail",
+      "name": "investigations_allegations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_allegations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search allegations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations allegations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Allegations search",
+      "name": "investigations_allegations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_allegations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-ALLEGATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Allegations",
+        "version": 1
+      },
+      "description": "Create a fully attributed allegations record. Synthetic documentation-fixture operation for internal investigations allegations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Allegations filing workflow",
+      "name": "investigations_allegations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_allegations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing allegations record with explicit change fields. Synthetic documentation-fixture operation for internal investigations allegations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Allegations change-control workflow",
+      "name": "investigations_allegations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_allegations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List witnesses with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations witnesses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Witnesses collection",
+      "name": "investigations_witnesses_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_witnesses"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete witnesses record by integer id. Synthetic documentation-fixture operation for internal investigations witnesses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Witnesses detail",
+      "name": "investigations_witnesses_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_witnesses"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search witnesses keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations witnesses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Witnesses search",
+      "name": "investigations_witnesses_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_witnesses"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-WITNESSES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Witnesses",
+        "version": 1
+      },
+      "description": "Create a fully attributed witnesses record. Synthetic documentation-fixture operation for internal investigations witnesses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Witnesses filing workflow",
+      "name": "investigations_witnesses_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_witnesses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing witnesses record with explicit change fields. Synthetic documentation-fixture operation for internal investigations witnesses records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Witnesses change-control workflow",
+      "name": "investigations_witnesses_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_witnesses"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List interviews with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Interviews collection",
+      "name": "investigations_interviews_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_interviews"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete interviews record by integer id. Synthetic documentation-fixture operation for internal investigations interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Interviews detail",
+      "name": "investigations_interviews_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_interviews"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search interviews keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Interviews search",
+      "name": "investigations_interviews_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_interviews"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-INTERVIEWS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Interviews",
+        "version": 1
+      },
+      "description": "Create a fully attributed interviews record. Synthetic documentation-fixture operation for internal investigations interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Interviews filing workflow",
+      "name": "investigations_interviews_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_interviews"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing interviews record with explicit change fields. Synthetic documentation-fixture operation for internal investigations interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Interviews change-control workflow",
+      "name": "investigations_interviews_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_interviews"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List evidence items with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations evidence items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Evidence Items collection",
+      "name": "investigations_evidence_items_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_evidence_items"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete evidence items record by integer id. Synthetic documentation-fixture operation for internal investigations evidence items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Evidence Items detail",
+      "name": "investigations_evidence_items_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_evidence_items"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search evidence items keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations evidence items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Evidence Items search",
+      "name": "investigations_evidence_items_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_evidence_items"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-EVIDENCE_ITEMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Evidence Items",
+        "version": 1
+      },
+      "description": "Create a fully attributed evidence items record. Synthetic documentation-fixture operation for internal investigations evidence items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Evidence Items filing workflow",
+      "name": "investigations_evidence_items_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_evidence_items"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing evidence items record with explicit change fields. Synthetic documentation-fixture operation for internal investigations evidence items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Evidence Items change-control workflow",
+      "name": "investigations_evidence_items_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_evidence_items"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List holds with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations holds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Holds collection",
+      "name": "investigations_holds_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_holds"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete holds record by integer id. Synthetic documentation-fixture operation for internal investigations holds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Holds detail",
+      "name": "investigations_holds_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_holds"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search holds keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations holds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Holds search",
+      "name": "investigations_holds_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_holds"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-HOLDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Holds",
+        "version": 1
+      },
+      "description": "Create a fully attributed holds record. Synthetic documentation-fixture operation for internal investigations holds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Holds filing workflow",
+      "name": "investigations_holds_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_holds"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing holds record with explicit change fields. Synthetic documentation-fixture operation for internal investigations holds records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Holds change-control workflow",
+      "name": "investigations_holds_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_holds"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List findings with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Findings collection",
+      "name": "investigations_findings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_findings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete findings record by integer id. Synthetic documentation-fixture operation for internal investigations findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Findings detail",
+      "name": "investigations_findings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_findings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search findings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Findings search",
+      "name": "investigations_findings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_findings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-FINDINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Findings",
+        "version": 1
+      },
+      "description": "Create a fully attributed findings record. Synthetic documentation-fixture operation for internal investigations findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Findings filing workflow",
+      "name": "investigations_findings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_findings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing findings record with explicit change fields. Synthetic documentation-fixture operation for internal investigations findings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Findings change-control workflow",
+      "name": "investigations_findings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_findings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List referrals with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations referrals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Referrals collection",
+      "name": "investigations_referrals_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_referrals"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete referrals record by integer id. Synthetic documentation-fixture operation for internal investigations referrals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Referrals detail",
+      "name": "investigations_referrals_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_referrals"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search referrals keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations referrals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Referrals search",
+      "name": "investigations_referrals_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_referrals"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-REFERRALS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Referrals",
+        "version": 1
+      },
+      "description": "Create a fully attributed referrals record. Synthetic documentation-fixture operation for internal investigations referrals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Referrals filing workflow",
+      "name": "investigations_referrals_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_referrals"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing referrals record with explicit change fields. Synthetic documentation-fixture operation for internal investigations referrals records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Referrals change-control workflow",
+      "name": "investigations_referrals_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_referrals"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List reports with deterministic filters and pagination. Synthetic documentation-fixture operation for internal investigations reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Reports collection",
+      "name": "investigations_reports_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_iv_reports"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete reports record by integer id. Synthetic documentation-fixture operation for internal investigations reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Reports detail",
+      "name": "investigations_reports_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_iv_reports"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-investigations-01"
+      },
+      "description": "Search reports keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for internal investigations reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Reports search",
+      "name": "investigations_reports_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_iv_reports"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-IV-REPORTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-IV-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-investigations-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Reports",
+        "version": 1
+      },
+      "description": "Create a fully attributed reports record. Synthetic documentation-fixture operation for internal investigations reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Reports filing workflow",
+      "name": "investigations_reports_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_iv_reports"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing reports record with explicit change fields. Synthetic documentation-fixture operation for internal investigations reports records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Internal Investigations synthetic Reports change-control workflow",
+      "name": "investigations_reports_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_iv_reports"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

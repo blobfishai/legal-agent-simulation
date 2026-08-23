@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7887,
+      "path": "evidence-register.xlsx",
+      "sha256": "88fc0ab869076f8ff92b32bfb5a95dac18eb71dd0535ee2140b71741adccd9d8"
+    },
+    {
+      "bytes": 39490,
+      "path": "matter-brief.docx",
+      "sha256": "78bbba9ef26a7741de3cca9ed01f026c30b9f48b8e2b2107424147e3041125a0"
+    },
+    {
+      "bytes": 2833,
+      "path": "source-extract.pdf",
+      "sha256": "2e0346485e9287d246ebf4fdbcf0071234b4edeb2dfe7a894945a62cafc4b6d4"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-BK-02-038",
+    "attorney_validation_required": true,
+    "domain": "bankruptcy",
+    "domain_label": "Bankruptcy",
+    "due_date": "2026-09-30",
+    "evidence_date": "2026-08-21",
+    "expected_status": "remediated-bk-02",
+    "issue": "control discrepancy in plans",
+    "item_count": 38,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-BK-1092",
+    "mutation_parent": "pack-bankruptcy-01",
+    "pack_id": "pack-bankruptcy-02",
+    "reserve_amount": 1975,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Bankruptcy Control Review 02",
+    "total_amount": 2359.8,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 62.1,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

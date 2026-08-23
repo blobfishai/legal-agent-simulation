@@ -27,7 +27,7 @@
     "v20:check": "python3 tools/check_v20_retail.py",
     "v21:contracts": "python3 world/v21/build_contracts.py",
     "v21:documents": "python3 tools/build_v21_seed_documents.py",
-    "v21:build": "python3 world/v21/build_contracts.py && python3 tools/build_v21_seed_documents.py && python3 world/v21/build.py",
+    "v21:build": "python3 world/v20/build_retail.py && python3 world/v20/build.py --base world/blobfish/world-v20.json --out world/blobfish/world-v20-draft.json && python3 world/v21/build_contracts.py && python3 tools/build_v21_seed_documents.py && python3 world/v21/build.py",
     "v21:check": "python3 tools/build_v21_seed_documents.py --check && python3 tools/check_v21_scale.py",
     "v21:serve": "python3 world/local/server.py --world world/blobfish/world-v21.json",
     "v21:harbor": "python3 harbor/generate.py --world world/blobfish/world-v21.json --contracts mcp/v5/contracts --image-tag ghcr.io/blobfishai/legal-agent-sim-world:v21",

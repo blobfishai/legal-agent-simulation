@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7903,
+      "path": "evidence-register.xlsx",
+      "sha256": "12d7cdcae7e4ab90c7d22c2ed2b68dd06d0fde1eed2019efa11e5341c1cd0e65"
+    },
+    {
+      "bytes": 39495,
+      "path": "matter-brief.docx",
+      "sha256": "9840ac73c1bda33227390c1c08dff342564d6250532dc02459693e606f479d9c"
+    },
+    {
+      "bytes": 2837,
+      "path": "source-extract.pdf",
+      "sha256": "7b07c8a5062adfe29f4172217e8c5fbc3a7da6652285ddceff65b7c2db7e9960"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-EN-01-045",
+    "attorney_validation_required": true,
+    "domain": "environmental",
+    "domain_label": "Environmental",
+    "due_date": "2026-09-30",
+    "evidence_date": "2026-08-26",
+    "expected_status": "remediated-en-01",
+    "issue": "control discrepancy in remediation projects",
+    "item_count": 45,
+    "jurisdiction": "CA",
+    "matter_ref": "MAT-EN-1121",
+    "mutation_parent": null,
+    "pack_id": "pack-environmental-01",
+    "reserve_amount": 2300,
+    "risk_level": "high",
+    "synthetic": true,
+    "title": "Environmental Control Review 01",
+    "total_amount": 3287.25,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 73.05,
+    "variant": 1
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7914,
+      "path": "evidence-register.xlsx",
+      "sha256": "7e2d7bc8c7aecddf499c1c9a85114401a876ad30aa790716fde94f0e6eaf7465"
+    },
+    {
+      "bytes": 39508,
+      "path": "matter-brief.docx",
+      "sha256": "434a703a4a3e2213a5eeedc6537fae34962678c0ba6fddef4acc93a7736b64ef"
+    },
+    {
+      "bytes": 2850,
+      "path": "source-extract.pdf",
+      "sha256": "a7ab7a84bf4d7f02f75ce666adcd9b652459b325c8d8f8c9ea03010073e3cb15"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-GC-02-068",
+    "attorney_validation_required": true,
+    "domain": "government_contracts",
+    "domain_label": "Government Contracts",
+    "due_date": "2026-10-20",
+    "evidence_date": "2026-09-10",
+    "expected_status": "remediated-gc-02",
+    "issue": "control discrepancy in audits",
+    "item_count": 68,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-GC-1192",
+    "mutation_parent": "pack-government_contracts-01",
+    "pack_id": "pack-government_contracts-02",
+    "reserve_amount": 3225,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Government Contracts Control Review 02",
+    "total_amount": 7180.8,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 105.6,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

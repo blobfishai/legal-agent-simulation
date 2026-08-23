@@ -2010,7 +2010,7 @@
         "deliverables": [
           "response.md"
         ],
-        "documents_source": "research/repos/harveyai@harvey-labs/tasks/contracts/commercial-vendor-customer/vendor-services-agreement-term-negotiation/scenario-03/documents",
+        "documents_source": "research/harvey-recovery/vendor-services-agreement-term-negotiation-scenario-03/documents",
         "grading": "determinate",
         "skills": [
           "docx",

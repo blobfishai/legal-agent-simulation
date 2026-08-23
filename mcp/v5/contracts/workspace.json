@@ -1,0 +1,532 @@
+{
+ "$schema": "lawfirm-qwen.mcp-contract.v3",
+ "system": "workspace-v3",
+ "product": "Fieldstone Workspace (SIMULATED) — API surface mirrors Google Workspace (Sheets/Drive/Gmail/Calendar)",
+ "provenance": "https://developers.google.com/sheets/api | drive/api | gmail/api | calendar/api",
+ "tables": [
+  {
+   "name": "ws_spreadsheets",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "title",
+     "type": "TEXT"
+    },
+    {
+     "name": "owner",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 6,
+    "template": {
+     "title": "@pick:Matter Budget Tracker,Litigation Deadlines Master,Billable Hours Q3,Settlement Model,Closing Checklist,Conflicts Intake Log",
+     "owner": "@person"
+    }
+   }
+  },
+  {
+   "name": "ws_sheet_values",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "spreadsheet_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "sheet_name",
+     "type": "TEXT"
+    },
+    {
+     "name": "cell_range",
+     "type": "TEXT"
+    },
+    {
+     "name": "value",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 80,
+    "template": {
+     "spreadsheet_id": "@ref:ws_spreadsheets",
+     "sheet_name": "@pick:Sheet1,Summary,Q3,Detail",
+     "cell_range": "@cell",
+     "value": "@sheet_value"
+    }
+   }
+  },
+  {
+   "name": "ws_files",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "mime_type",
+     "type": "TEXT"
+    },
+    {
+     "name": "parent_folder",
+     "type": "TEXT"
+    },
+    {
+     "name": "owner",
+     "type": "TEXT"
+    },
+    {
+     "name": "modified_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "content",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 24,
+    "template": {
+     "name": "@doc_name",
+     "mime_type": "@pick:application/pdf,application/vnd.google-apps.document,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+     "parent_folder": "@pick:Matters,Templates,Admin,Client Shares",
+     "owner": "@person",
+     "modified_at": "@date:2026-05-01,2026-08-01",
+     "content": "@filing_text"
+    }
+   }
+  },
+  {
+   "name": "ws_messages",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "thread_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "from_addr",
+     "type": "TEXT"
+    },
+    {
+     "name": "to_addr",
+     "type": "TEXT"
+    },
+    {
+     "name": "subject",
+     "type": "TEXT"
+    },
+    {
+     "name": "body",
+     "type": "TEXT"
+    },
+    {
+     "name": "sent_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "label",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 40,
+    "template": {
+     "thread_id": "@int:1,15",
+     "from_addr": "@email",
+     "to_addr": "@email",
+     "subject": "@comm_subject",
+     "body": "@comm_body",
+     "sent_at": "@date:2026-06-01,2026-08-01",
+     "label": "@pick:INBOX,INBOX,SENT,IMPORTANT"
+    }
+   }
+  },
+  {
+   "name": "ws_events",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "calendar",
+     "type": "TEXT"
+    },
+    {
+     "name": "summary",
+     "type": "TEXT"
+    },
+    {
+     "name": "start_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "end_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "attendees",
+     "type": "TEXT"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 20,
+    "template": {
+     "calendar": "@pick:firm,litigation,personal",
+     "summary": "@event_summary",
+     "start_at": "@date:2026-08-05,2026-10-01",
+     "end_at": "@date:2026-08-05,2026-10-01",
+     "attendees": "@email",
+     "status": "@pick:confirmed,confirmed,tentative"
+    }
+   }
+  }
+ ],
+ "tools": [
+  {
+   "name": "sheets_values_get",
+   "mirrors": "GET /v4/spreadsheets/{id}/values/{range}",
+   "description": "Read values from a sheet range.",
+   "op": {
+    "kind": "list",
+    "table": "ws_sheet_values",
+    "filters": [
+     "spreadsheet_id",
+     "sheet_name",
+     "cell_range"
+    ]
+   },
+   "params": {
+    "spreadsheetId": "string",
+    "range": "string"
+   },
+   "scenario": "The practice manager reads the Q3 billable-hours tab for the compensation meeting.",
+   "param_map": {
+    "spreadsheetId": "spreadsheet_id"
+   },
+   "conformance_args": {
+    "spreadsheetId": "1",
+    "range": "Sheet1!A1"
+   }
+  },
+  {
+   "name": "sheets_values_update",
+   "mirrors": "PUT /v4/spreadsheets/{id}/values/{range}",
+   "description": "Write a value to a cell/range.",
+   "op": {
+    "kind": "create",
+    "table": "ws_sheet_values",
+    "required": [
+     "spreadsheet_id",
+     "sheet_name",
+     "cell_range",
+     "value"
+    ]
+   },
+   "params": {
+    "spreadsheetId": "string",
+    "range": "string",
+    "valueInputOption": "string",
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "After the bill issues, the clerk updates the matter-budget tracker cell.",
+   "param_map": {
+    "spreadsheetId": "spreadsheet_id"
+   },
+   "conformance_args": {
+    "spreadsheetId": "1",
+    "range": "Sheet1!A1",
+    "valueInputOption": "RAW",
+    "body": {
+     "range": "Sheet1!A1",
+     "majorDimension": "ROWS",
+     "values": [
+      [
+       "conformance"
+      ]
+     ]
+    }
+   },
+   "request_map": {
+    "body.values": "value"
+   },
+   "request_transforms": {
+    "body.values": "first_cell"
+   }
+  },
+  {
+   "name": "spreadsheets_list",
+   "mirrors": "Drive files.list mimeType=spreadsheet",
+   "description": "List spreadsheets.",
+   "op": {
+    "kind": "list",
+    "table": "ws_spreadsheets",
+    "filters": [
+     "owner"
+    ]
+   },
+   "params": {
+    "q": "string",
+    "pageSize": "integer"
+   },
+   "scenario": "The ops manager inventories the firm's tracking spreadsheets during systems cleanup.",
+   "conformance_args": {
+    "q": "mimeType='application/vnd.google-apps.spreadsheet'",
+    "pageSize": 10
+   },
+   "param_map": {
+    "q": "query",
+    "pageSize": "limit"
+   }
+  },
+  {
+   "name": "drive_files_list",
+   "mirrors": "GET /drive/v3/files?q=",
+   "description": "List/search Drive files.",
+   "op": {
+    "kind": "search",
+    "table": "ws_files",
+    "fields": [
+     "name",
+     "parent_folder",
+     "owner"
+    ]
+   },
+   "params": {
+    "q": "string",
+    "pageSize": "integer"
+   },
+   "scenario": "An associate searches the client share for the security questionnaire.",
+   "param_map": {
+    "q": "query",
+    "pageSize": "limit"
+   }
+  },
+  {
+   "name": "drive_files_get",
+   "mirrors": "GET /drive/v3/files/{id}?alt=media",
+   "description": "Fetch a file with content.",
+   "op": {
+    "kind": "get",
+    "table": "ws_files"
+   },
+   "params": {
+    "fileId": "string"
+   },
+   "conformance_args": {
+    "fileId": "1"
+   },
+   "scenario": "She opens the questionnaire to copy the firm's standard answers.",
+   "param_map": {
+    "fileId": "id"
+   }
+  },
+  {
+   "name": "gmail_messages_list",
+   "mirrors": "GET /gmail/v1/users/me/messages?q=",
+   "description": "Search mail (subject/body/participants).",
+   "op": {
+    "kind": "search",
+    "table": "ws_messages",
+    "query_dsl": "gmail",
+    "fields": [
+     "subject",
+     "body",
+     "from_addr",
+     "to_addr"
+    ],
+    "preview": [
+     "body"
+    ]
+   },
+   "params": {
+    "userId": "string",
+    "q": "string",
+    "maxResults": "integer"
+   },
+   "scenario": "Preparing the chronology, the paralegal searches mail for the settlement thread.",
+   "param_map": {
+    "q": "query",
+    "maxResults": "limit"
+   },
+   "conformance_args": {
+    "userId": "me",
+    "q": "a",
+    "maxResults": 10
+   }
+  },
+  {
+   "name": "gmail_messages_get",
+   "mirrors": "GET /gmail/v1/users/me/messages/{id}",
+   "description": "Fetch one message in full.",
+   "op": {
+    "kind": "get",
+    "table": "ws_messages"
+   },
+   "params": {
+    "userId": "string",
+    "id": "string"
+   },
+   "scenario": "He opens the key message where the client authorized the offer.",
+   "param_map": {},
+   "conformance_args": {
+    "userId": "me",
+    "id": "1"
+   }
+  },
+  {
+   "name": "gmail_messages_send",
+   "mirrors": "POST /gmail/v1/users/me/messages/send",
+   "description": "Send a message (records to SENT).",
+   "op": {
+    "kind": "create",
+    "table": "ws_messages",
+    "required": [
+     "from_addr",
+     "to_addr",
+     "subject",
+     "body"
+    ],
+    "defaults": {
+     "label": "SENT"
+    }
+   },
+   "params": {
+    "userId": "string",
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "The associate emails the executed agreement to the client with the closing summary.",
+   "conformance_args": {
+    "userId": "me",
+    "body": {
+     "raw": "RnJvbTogY29uZm9ybWFuY2VAZXhhbXBsZS5jb20NClRvOiByZWNpcGllbnRAZXhhbXBsZS5jb20NClN1YmplY3Q6IENvbmZvcm1hbmNlIG1lc3NhZ2UNCkNvbnRlbnQtVHlwZTogdGV4dC9wbGFpbjsgY2hhcnNldD11dGYtOA0KDQpDb25mb3JtYW5jZSBib2R5"
+    }
+   },
+   "request_map": {
+    "body.threadId": "thread_id"
+   },
+   "request_adapter": "gmail_raw"
+  },
+  {
+   "name": "calendar_events_list",
+   "mirrors": "GET /calendar/v3/calendars/{id}/events",
+   "description": "List events with date range.",
+   "op": {
+    "kind": "list",
+    "table": "ws_events",
+    "filters": [
+     "calendar",
+     "status"
+    ],
+    "range": {
+     "field": "start_at",
+     "from_param": "time_min",
+     "to_param": "time_max"
+    }
+   },
+   "params": {
+    "calendarId": "string",
+    "timeMin": "string",
+    "timeMax": "string",
+    "maxResults": "integer"
+   },
+   "conformance_args": {
+    "calendarId": "primary"
+   },
+   "scenario": "The docketing clerk cross-checks firm calendar events against court deadlines.",
+   "param_map": {
+    "calendarId": "calendar",
+    "timeMin": "time_min",
+    "timeMax": "time_max",
+    "maxResults": "limit"
+   }
+  },
+  {
+   "name": "calendar_events_insert",
+   "mirrors": "POST /calendar/v3/calendars/{id}/events",
+   "description": "Create an event.",
+   "op": {
+    "kind": "create",
+    "table": "ws_events",
+    "required": [
+     "calendar",
+     "summary",
+     "start_at"
+    ],
+    "defaults": {
+     "status": "confirmed"
+    }
+   },
+   "params": {
+    "calendarId": "string",
+    "sendUpdates": "string",
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "The secretary schedules the all-hands closing call for Thursday.",
+   "param_map": {
+    "calendarId": "calendar"
+   },
+   "conformance_args": {
+    "calendarId": "primary",
+    "sendUpdates": "none",
+    "body": {
+     "summary": "Conformance event",
+     "start": {
+      "dateTime": "2026-08-12T12:00:00Z"
+     },
+     "end": {
+      "dateTime": "2026-08-12T13:00:00Z"
+     },
+     "attendees": [
+      {
+       "email": "conformance@example.com"
+      }
+     ]
+    }
+   },
+   "request_map": {
+    "body.summary": "summary",
+    "body.start.dateTime": "start_at",
+    "body.end.dateTime": "end_at",
+    "body.attendees": "attendees"
+   },
+   "request_transforms": {
+    "body.attendees": "emails_csv"
+   }
+  }
+ ],
+ "dialect": "google",
+ "fidelity": "v3: 1:1 external parameter names + real response envelopes per the cited API docs"
+}

@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7904,
+      "path": "evidence-register.xlsx",
+      "sha256": "0c7f6be4d874320cdfc77f69c66804494882d429732740b1369b9c169427fae8"
+    },
+    {
+      "bytes": 39504,
+      "path": "matter-brief.docx",
+      "sha256": "6a91cd3b1f0c1b2bbe90beea05bd6fe80b74ed384113e409544f24363e1bbe8e"
+    },
+    {
+      "bytes": 2841,
+      "path": "source-extract.pdf",
+      "sha256": "7d775d4880f7456289106574e78afbe0aebfa07f92fbce46c01436d5dce912e9"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-CY-01-024",
+    "attorney_validation_required": true,
+    "domain": "cybersecurity",
+    "domain_label": "Cybersecurity Response",
+    "due_date": "2026-09-16",
+    "evidence_date": "2026-08-12",
+    "expected_status": "remediated-cy-01",
+    "issue": "control discrepancy in postmortems",
+    "item_count": 24,
+    "jurisdiction": "CA",
+    "matter_ref": "MAT-CY-1051",
+    "mutation_parent": null,
+    "pack_id": "pack-cybersecurity-01",
+    "reserve_amount": 1425,
+    "risk_level": "high",
+    "synthetic": true,
+    "title": "Cybersecurity Response Control Review 01",
+    "total_amount": 1022.4,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 42.6,
+    "variant": 1
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

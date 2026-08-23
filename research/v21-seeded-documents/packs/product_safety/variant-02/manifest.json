@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7905,
+      "path": "evidence-register.xlsx",
+      "sha256": "c8eba48c909b85b741ba96c085d55735fc5e8de820dcfd08baab7f4c11cee80b"
+    },
+    {
+      "bytes": 39502,
+      "path": "matter-brief.docx",
+      "sha256": "e765f47fcd02d4df678fab5ed3e9e03eafe14b78e73df71e88bd9287a99cba1d"
+    },
+    {
+      "bytes": 2842,
+      "path": "source-extract.pdf",
+      "sha256": "2be280b2241464252d891410e0d3d2358237665391f3c9652c978f0fdc0f759d"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-PS-02-071",
+    "attorney_validation_required": true,
+    "domain": "product_safety",
+    "domain_label": "Product Safety",
+    "due_date": "2026-10-22",
+    "evidence_date": "2026-09-12",
+    "expected_status": "remediated-ps-02",
+    "issue": "control discrepancy in notices",
+    "item_count": 71,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-PS-1202",
+    "mutation_parent": "pack-product_safety-01",
+    "pack_id": "pack-product_safety-02",
+    "reserve_amount": 3350,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Product Safety Control Review 02",
+    "total_amount": 7806.45,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 109.95,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

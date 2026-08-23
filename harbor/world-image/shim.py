@@ -57,19 +57,6 @@ def http(method: str, path: str, body=None, session: str | None = None,
 
 
 def main() -> None:
-    with open(WORLD_DOC_PATH) as f:
-        raw = json.load(f)
-    world = raw.get("world", raw)
-    task = next((t for t in world["tasks"] if t["task_id"] == TASK_ID), None)
-    if task is None:
-        sys.exit(f"[shim] task {TASK_ID!r} not found in world doc")
-    verifier = next((v for v in world.get("verifiers") or []
-                     if v["task_id"] == TASK_ID), {})
-    phase_defs = ((task.get("multi_step") or {}).get("phases") or [])
-    phase_by_name = {phase["name"]: phase for phase in phase_defs}
-    phase_order = [phase["name"] for phase in phase_defs]
-    completed_phases: list[str] = []
-
     # ---- wait for the world server, then open the trial session ----------
     for _ in range(240):
         try:
@@ -79,6 +66,15 @@ def main() -> None:
             time.sleep(0.5)
     else:
         sys.exit("[shim] world server never became healthy")
+    context = http("GET", f"/internal/task-context/{TASK_ID}")
+    world = context["world"]
+    task = context["task"]
+    verifier = context["verifier"]
+    phase_defs = ((task.get("multi_step") or {}).get("phases") or [])
+    phase_by_name = {phase["name"]: phase for phase in phase_defs}
+    phase_order = [phase["name"] for phase in phase_defs]
+    completed_phases: list[str] = []
+
     opened = http("POST", "/sessions", {"task_id": TASK_ID})
     session_id = opened["session_id"]
     access_token = opened["access_token"]

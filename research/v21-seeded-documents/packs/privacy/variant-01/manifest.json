@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7880,
+      "path": "evidence-register.xlsx",
+      "sha256": "1524d3e7347f7a863f27e71ada1e6abacb1669009f41be3bc173c2b10219e380"
+    },
+    {
+      "bytes": 39478,
+      "path": "matter-brief.docx",
+      "sha256": "9678df6a54e5561d48907308a7b10bf061f5260ece505c47af7bdcc0a9713d51"
+    },
+    {
+      "bytes": 2811,
+      "path": "source-extract.pdf",
+      "sha256": "7a8bf6af202d00017736174f5a22e8f30335ac5d89b154be2eaa14a5aef34b7a"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-PV-01-021",
+    "attorney_validation_required": true,
+    "domain": "privacy",
+    "domain_label": "Privacy",
+    "due_date": "2026-09-14",
+    "evidence_date": "2026-08-10",
+    "expected_status": "remediated-pv-01",
+    "issue": "control discrepancy in notices",
+    "item_count": 21,
+    "jurisdiction": "CA",
+    "matter_ref": "MAT-PV-1041",
+    "mutation_parent": null,
+    "pack_id": "pack-privacy-01",
+    "reserve_amount": 1300,
+    "risk_level": "high",
+    "synthetic": true,
+    "title": "Privacy Control Review 01",
+    "total_amount": 803.25,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 38.25,
+    "variant": 1
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

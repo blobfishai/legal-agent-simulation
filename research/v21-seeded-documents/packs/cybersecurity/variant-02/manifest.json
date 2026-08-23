@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7910,
+      "path": "evidence-register.xlsx",
+      "sha256": "018eb40d8a636055d3e66f481b0907eac39a1bf9a8e75c3ac96053a4c5d49187"
+    },
+    {
+      "bytes": 39506,
+      "path": "matter-brief.docx",
+      "sha256": "c992fb7e9c3ffcf30239e868d0aebc3b8218695d116bcc1ee0a3ee7e6203e3d2"
+    },
+    {
+      "bytes": 2839,
+      "path": "source-extract.pdf",
+      "sha256": "4676d2ae7dea514d1b242c28d4860a1b12fdd3fa436801dcbacac265dcf05c36"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-CY-02-026",
+    "attorney_validation_required": true,
+    "domain": "cybersecurity",
+    "domain_label": "Cybersecurity Response",
+    "due_date": "2026-09-22",
+    "evidence_date": "2026-08-13",
+    "expected_status": "remediated-cy-02",
+    "issue": "control discrepancy in forensic images",
+    "item_count": 26,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-CY-1052",
+    "mutation_parent": "pack-cybersecurity-01",
+    "pack_id": "pack-cybersecurity-02",
+    "reserve_amount": 1475,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Cybersecurity Response Control Review 02",
+    "total_amount": 1162.2,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 44.7,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

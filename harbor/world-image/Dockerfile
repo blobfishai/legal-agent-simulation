@@ -7,7 +7,7 @@ WORKDIR /world
 # code so a verifier/runtime edit does not rebuild and re-export the corpus.
 COPY corpus /world/corpus
 COPY contracts /world/contracts
-COPY server.py oracle.py v2runtime.py v3dialects.py evidence.py paging.py wire_errors.py product_workflows.py query_dsl.py shim.py start.sh world.json /world/
+COPY server.py oracle.py v2runtime.py v3dialects.py evidence.py paging.py wire_errors.py product_workflows.py query_dsl.py v21_verifier_runtime.py shim.py start.sh world.json /world/
 ARG ORACLE_PROOF_SHA256=""
 ENV ORACLE_PROOF_SHA256=${ORACLE_PROOF_SHA256} PYTHONUNBUFFERED=1
 EXPOSE 8972

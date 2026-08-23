@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7907,
+      "path": "evidence-register.xlsx",
+      "sha256": "4eff699d3fabaa6a6c4544491d2e250f235f24a3966158dec61137ab12f3d7f8"
+    },
+    {
+      "bytes": 39504,
+      "path": "matter-brief.docx",
+      "sha256": "2591c780db52e8eaba2aae0a15b13accb2ef7283ff7642796b2a16b646ca6f32"
+    },
+    {
+      "bytes": 2846,
+      "path": "source-extract.pdf",
+      "sha256": "b82ac484b5c6d4b68ffea5f6a6adfcfd515031e2b3456665b6ad2994965b03cf"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-HC-02-044",
+    "attorney_validation_required": true,
+    "domain": "healthcare",
+    "domain_label": "Healthcare Regulatory",
+    "due_date": "2026-10-04",
+    "evidence_date": "2026-08-25",
+    "expected_status": "remediated-hc-02",
+    "issue": "control discrepancy in corrective actions",
+    "item_count": 44,
+    "jurisdiction": "NY",
+    "matter_ref": "MAT-HC-1112",
+    "mutation_parent": "pack-healthcare-01",
+    "pack_id": "pack-healthcare-02",
+    "reserve_amount": 2225,
+    "risk_level": "medium",
+    "synthetic": true,
+    "title": "Healthcare Regulatory Control Review 02",
+    "total_amount": 3115.2,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 70.8,
+    "variant": 2
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

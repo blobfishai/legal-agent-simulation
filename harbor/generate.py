@@ -20,10 +20,10 @@ never contains world.json, so verifier code and reference walks are not
 readable by the agent.
 
 Usage:
-  python3 harbor/generate.py [--world world/blobfish/world-v16.json]
-                             [--contracts mcp/v3/contracts]
+  python3 harbor/generate.py [--world world/blobfish/world-v21.json]
+                             [--contracts mcp/v5/contracts]
                              [--out dist/harbor] [--tasks task_003,task_010]
-                             [--build-image] [--image-tag legal-agent-sim-world:v16]
+                             [--build-image] [--image-tag legal-agent-sim-world:v21]
 """
 from __future__ import annotations
 
@@ -600,7 +600,7 @@ def stage_file_lane(task: dict, task_dir: str) -> None:
         skills_source = Path(ROOT) / skills_source
     skills_source = skills_source.resolve()
     skills_destination = Path(task_dir) / "environment" / "skills"
-    requested = config.get("skills") or ["docx", "xlsx", "pptx"]
+    requested = config["skills"] if "skills" in config else ["docx", "xlsx", "pptx"]
     skills_destination.mkdir(parents=True, exist_ok=True)
     for name in requested:
         source_skill = skills_source / name
@@ -615,7 +615,8 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
     os.makedirs(img, exist_ok=True)
     local = os.path.join(ROOT, "world", "local")
     for name in ("server.py", "oracle.py", "v2runtime.py", "v3dialects.py", "evidence.py",
-                 "paging.py", "wire_errors.py", "product_workflows.py", "query_dsl.py"):
+                 "paging.py", "wire_errors.py", "product_workflows.py", "query_dsl.py",
+                 "v21_verifier_runtime.py"):
         shutil.copyfile(os.path.join(local, name), os.path.join(img, name))
     for name in ("shim.py", "start.sh", "Dockerfile"):
         shutil.copyfile(os.path.join(HERE, "world-image", name),
@@ -650,7 +651,7 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--world", default=os.path.join(ROOT, "world", "blobfish",
-                                                    "world-v16.json"))
+                                                    "world-v21.json"))
     ap.add_argument("--contracts", default="",
                     help="product-contract directory; defaults to mcp/v5 for world v21+, "
                          "mcp/v4 for v20, and mcp/v3 for historical worlds")

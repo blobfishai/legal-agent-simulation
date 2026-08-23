@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Nonprofit Governance (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-nonprofit-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_organizations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-ORGANIZATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-ORGANIZATIONS-001 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-ORGANIZATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-ORGANIZATIONS-002 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-ORGANIZATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-ORGANIZATIONS-003 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-ORGANIZATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-ORGANIZATIONS-004 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-ORGANIZATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-ORGANIZATIONS-005 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-ORGANIZATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-ORGANIZATIONS-006 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-ORGANIZATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-ORGANIZATIONS-007 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-ORGANIZATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-ORGANIZATIONS-008 | synthetic organizations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Organizations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_directors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-DIRECTORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-DIRECTORS-001 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-DIRECTORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-DIRECTORS-002 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-DIRECTORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-DIRECTORS-003 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-DIRECTORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-DIRECTORS-004 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-DIRECTORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-DIRECTORS-005 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-DIRECTORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-DIRECTORS-006 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-DIRECTORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-DIRECTORS-007 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-DIRECTORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-DIRECTORS-008 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Directors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_grants",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-GRANTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-GRANTS-001 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-GRANTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-GRANTS-002 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-GRANTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-GRANTS-003 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-GRANTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-GRANTS-004 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-GRANTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-GRANTS-005 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-GRANTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-GRANTS-006 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-GRANTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-GRANTS-007 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-GRANTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-GRANTS-008 | synthetic grants fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Grants Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_donations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-DONATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-DONATIONS-001 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-DONATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-DONATIONS-002 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-DONATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-DONATIONS-003 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-DONATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-DONATIONS-004 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-DONATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-DONATIONS-005 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-DONATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-DONATIONS-006 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-DONATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-DONATIONS-007 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-DONATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-DONATIONS-008 | synthetic donations fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Donations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_restrictions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-RESTRICTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-RESTRICTIONS-001 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-RESTRICTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-RESTRICTIONS-002 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-RESTRICTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-RESTRICTIONS-003 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-RESTRICTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-RESTRICTIONS-004 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-RESTRICTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-RESTRICTIONS-005 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-RESTRICTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-RESTRICTIONS-006 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-RESTRICTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-RESTRICTIONS-007 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-RESTRICTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-RESTRICTIONS-008 | synthetic restrictions fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Restrictions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_conflicts",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-CONFLICTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-CONFLICTS-001 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-CONFLICTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-CONFLICTS-002 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-CONFLICTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-CONFLICTS-003 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-CONFLICTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-CONFLICTS-004 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-CONFLICTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-CONFLICTS-005 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-CONFLICTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-CONFLICTS-006 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-CONFLICTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-CONFLICTS-007 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-CONFLICTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-CONFLICTS-008 | synthetic conflicts fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Conflicts Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_filings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-FILINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-FILINGS-001 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-FILINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-FILINGS-002 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-FILINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-FILINGS-003 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-FILINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-FILINGS-004 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-FILINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-FILINGS-005 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-FILINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-FILINGS-006 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-FILINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-FILINGS-007 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-FILINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-FILINGS-008 | synthetic filings fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Filings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_programs",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-PROGRAMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-PROGRAMS-001 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-PROGRAMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-PROGRAMS-002 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-PROGRAMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-PROGRAMS-003 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-PROGRAMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-PROGRAMS-004 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-PROGRAMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-PROGRAMS-005 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-PROGRAMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-PROGRAMS-006 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-PROGRAMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-PROGRAMS-007 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-PROGRAMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-PROGRAMS-008 | synthetic programs fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Programs Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_np_minutes",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "NP-MINUTES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-NP-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-01",
+            "status": "open",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-MINUTES-001 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "NP-MINUTES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-NP-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-MINUTES-002 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "NP-MINUTES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-NP-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-03",
+            "status": "review",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-MINUTES-003 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "NP-MINUTES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-NP-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-01",
+            "status": "pending",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-MINUTES-004 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "NP-MINUTES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-NP-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-nonprofit-02",
+            "status": "review",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-MINUTES-005 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "NP-MINUTES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-NP-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-nonprofit-03",
+            "status": "pending",
+            "summary": "pack-nonprofit-03 | ANCHOR-NP-MINUTES-006 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "NP-MINUTES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-NP-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-nonprofit-01",
+            "status": "review",
+            "summary": "pack-nonprofit-01 | ANCHOR-NP-MINUTES-007 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "NP-MINUTES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-NP-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-nonprofit-02",
+            "status": "pending",
+            "summary": "pack-nonprofit-02 | ANCHOR-NP-MINUTES-008 | synthetic minutes fact pattern; attorney validation required before external use.",
+            "title": "Nonprofit Governance - Minutes Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List organizations with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance organizations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Organizations collection",
+      "name": "nonprofit_organizations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_organizations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete organizations record by integer id. Synthetic documentation-fixture operation for nonprofit governance organizations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Organizations detail",
+      "name": "nonprofit_organizations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_organizations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search organizations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance organizations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Organizations search",
+      "name": "nonprofit_organizations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_organizations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-ORGANIZATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Organizations",
+        "version": 1
+      },
+      "description": "Create a fully attributed organizations record. Synthetic documentation-fixture operation for nonprofit governance organizations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Organizations filing workflow",
+      "name": "nonprofit_organizations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_organizations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing organizations record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance organizations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Organizations change-control workflow",
+      "name": "nonprofit_organizations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_organizations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List directors with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Directors collection",
+      "name": "nonprofit_directors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_directors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete directors record by integer id. Synthetic documentation-fixture operation for nonprofit governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Directors detail",
+      "name": "nonprofit_directors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_directors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search directors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Directors search",
+      "name": "nonprofit_directors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_directors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-DIRECTORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Directors",
+        "version": 1
+      },
+      "description": "Create a fully attributed directors record. Synthetic documentation-fixture operation for nonprofit governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Directors filing workflow",
+      "name": "nonprofit_directors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_directors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing directors record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Directors change-control workflow",
+      "name": "nonprofit_directors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_directors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List grants with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance grants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Grants collection",
+      "name": "nonprofit_grants_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_grants"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete grants record by integer id. Synthetic documentation-fixture operation for nonprofit governance grants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Grants detail",
+      "name": "nonprofit_grants_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_grants"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search grants keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance grants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Grants search",
+      "name": "nonprofit_grants_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_grants"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-GRANTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Grants",
+        "version": 1
+      },
+      "description": "Create a fully attributed grants record. Synthetic documentation-fixture operation for nonprofit governance grants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Grants filing workflow",
+      "name": "nonprofit_grants_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_grants"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing grants record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance grants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Grants change-control workflow",
+      "name": "nonprofit_grants_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_grants"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List donations with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance donations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Donations collection",
+      "name": "nonprofit_donations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_donations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete donations record by integer id. Synthetic documentation-fixture operation for nonprofit governance donations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Donations detail",
+      "name": "nonprofit_donations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_donations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search donations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance donations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Donations search",
+      "name": "nonprofit_donations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_donations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-DONATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Donations",
+        "version": 1
+      },
+      "description": "Create a fully attributed donations record. Synthetic documentation-fixture operation for nonprofit governance donations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Donations filing workflow",
+      "name": "nonprofit_donations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_donations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing donations record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance donations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Donations change-control workflow",
+      "name": "nonprofit_donations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_donations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List restrictions with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance restrictions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Restrictions collection",
+      "name": "nonprofit_restrictions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_restrictions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete restrictions record by integer id. Synthetic documentation-fixture operation for nonprofit governance restrictions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Restrictions detail",
+      "name": "nonprofit_restrictions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_restrictions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search restrictions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance restrictions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Restrictions search",
+      "name": "nonprofit_restrictions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_restrictions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-RESTRICTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Restrictions",
+        "version": 1
+      },
+      "description": "Create a fully attributed restrictions record. Synthetic documentation-fixture operation for nonprofit governance restrictions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Restrictions filing workflow",
+      "name": "nonprofit_restrictions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_restrictions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing restrictions record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance restrictions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Restrictions change-control workflow",
+      "name": "nonprofit_restrictions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_restrictions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List conflicts with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance conflicts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Conflicts collection",
+      "name": "nonprofit_conflicts_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_conflicts"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete conflicts record by integer id. Synthetic documentation-fixture operation for nonprofit governance conflicts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Conflicts detail",
+      "name": "nonprofit_conflicts_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_conflicts"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search conflicts keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance conflicts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Conflicts search",
+      "name": "nonprofit_conflicts_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_conflicts"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-CONFLICTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Conflicts",
+        "version": 1
+      },
+      "description": "Create a fully attributed conflicts record. Synthetic documentation-fixture operation for nonprofit governance conflicts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Conflicts filing workflow",
+      "name": "nonprofit_conflicts_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_conflicts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing conflicts record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance conflicts records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Conflicts change-control workflow",
+      "name": "nonprofit_conflicts_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_conflicts"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List filings with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Filings collection",
+      "name": "nonprofit_filings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_filings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete filings record by integer id. Synthetic documentation-fixture operation for nonprofit governance filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Filings detail",
+      "name": "nonprofit_filings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_filings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search filings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Filings search",
+      "name": "nonprofit_filings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_filings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-FILINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Filings",
+        "version": 1
+      },
+      "description": "Create a fully attributed filings record. Synthetic documentation-fixture operation for nonprofit governance filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Filings filing workflow",
+      "name": "nonprofit_filings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing filings record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance filings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Filings change-control workflow",
+      "name": "nonprofit_filings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_filings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List programs with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance programs records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Programs collection",
+      "name": "nonprofit_programs_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_programs"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete programs record by integer id. Synthetic documentation-fixture operation for nonprofit governance programs records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Programs detail",
+      "name": "nonprofit_programs_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_programs"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search programs keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance programs records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Programs search",
+      "name": "nonprofit_programs_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_programs"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-PROGRAMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Programs",
+        "version": 1
+      },
+      "description": "Create a fully attributed programs record. Synthetic documentation-fixture operation for nonprofit governance programs records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Programs filing workflow",
+      "name": "nonprofit_programs_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_programs"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing programs record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance programs records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Programs change-control workflow",
+      "name": "nonprofit_programs_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_programs"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List minutes with deterministic filters and pagination. Synthetic documentation-fixture operation for nonprofit governance minutes records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Minutes collection",
+      "name": "nonprofit_minutes_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_np_minutes"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete minutes record by integer id. Synthetic documentation-fixture operation for nonprofit governance minutes records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Minutes detail",
+      "name": "nonprofit_minutes_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_np_minutes"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-nonprofit-01"
+      },
+      "description": "Search minutes keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for nonprofit governance minutes records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Minutes search",
+      "name": "nonprofit_minutes_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_np_minutes"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-NP-MINUTES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-NP-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-nonprofit-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Minutes",
+        "version": 1
+      },
+      "description": "Create a fully attributed minutes record. Synthetic documentation-fixture operation for nonprofit governance minutes records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Minutes filing workflow",
+      "name": "nonprofit_minutes_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_np_minutes"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing minutes record with explicit change fields. Synthetic documentation-fixture operation for nonprofit governance minutes records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Nonprofit Governance synthetic Minutes change-control workflow",
+      "name": "nonprofit_minutes_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_np_minutes"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

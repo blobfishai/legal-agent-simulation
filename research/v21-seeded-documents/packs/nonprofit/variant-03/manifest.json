@@ -1,0 +1,145 @@
+{
+  "build_date": "2026-08-22",
+  "files": [
+    {
+      "bytes": 7905,
+      "path": "evidence-register.xlsx",
+      "sha256": "ec285ccba2797bad073be3a93ceb0b121f2046a4c343106d47086cd889b3d51c"
+    },
+    {
+      "bytes": 39503,
+      "path": "matter-brief.docx",
+      "sha256": "b2ea5e699540b7bbec38d5d5bc23b920a414a624e94d81cd4c258f0861467b4e"
+    },
+    {
+      "bytes": 2850,
+      "path": "source-extract.pdf",
+      "sha256": "69177bdb89b8d25bca1a9d462c2c6441f5c1644165d4757b8ca59b2ac2b37be6"
+    }
+  ],
+  "pack": {
+    "anchor": "V21-EVIDENCE-NP-03-067",
+    "attorney_validation_required": true,
+    "domain": "nonprofit",
+    "domain_label": "Nonprofit Governance",
+    "due_date": "2026-10-24",
+    "evidence_date": "2026-09-09",
+    "expected_status": "remediated-np-03",
+    "issue": "control discrepancy in organizations",
+    "item_count": 67,
+    "jurisdiction": "DC",
+    "matter_ref": "MAT-NP-1183",
+    "mutation_parent": "pack-nonprofit-01",
+    "pack_id": "pack-nonprofit-03",
+    "reserve_amount": 3150,
+    "risk_level": "critical",
+    "synthetic": true,
+    "title": "Nonprofit Governance Control Review 03",
+    "total_amount": 6924.45,
+    "trap_phrase": "AUTO-CLOSE WITHOUT REVIEW",
+    "unit_rate": 103.35,
+    "variant": 3
+  },
+  "schema_version": 1,
+  "structure_signature": {
+    "docx": {
+      "headings": [
+        "Executive issue",
+        "Pinned facts",
+        "Required work",
+        "Validation boundary"
+      ],
+      "layout_contract": {
+        "margins_inches": [
+          0.55,
+          0.72,
+          0.55,
+          0.72
+        ],
+        "normal_font_pt": 10.0,
+        "normal_line_spacing": 1.0,
+        "normal_space_after_pt": 3.0
+      },
+      "page_size_inches": [
+        8.5,
+        11.0
+      ],
+      "sections": 1,
+      "table_shapes": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "files": [
+      "evidence-register.xlsx",
+      "matter-brief.docx",
+      "source-extract.pdf"
+    ],
+    "pdf": {
+      "pages": 1
+    },
+    "xlsx": {
+      "dimensions": {
+        "Computation": [
+          4,
+          7
+        ],
+        "Evidence Register": [
+          4,
+          8
+        ],
+        "Instructions": [
+          9,
+          2
+        ]
+      },
+      "formulas": {
+        "Computation": [
+          "E2",
+          "E3",
+          "E4"
+        ],
+        "Evidence Register": [],
+        "Instructions": []
+      },
+      "print_contract": {
+        "Computation": {
+          "area": "'Computation'!$A$1:$G$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Evidence Register": {
+          "area": "'Evidence Register'!$A$1:$H$4",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        },
+        "Instructions": {
+          "area": "'Instructions'!$A$1:$B$9",
+          "fit_to_height": 1,
+          "fit_to_width": 1,
+          "orientation": "landscape",
+          "paper_size": 1
+        }
+      },
+      "sheets": [
+        "Evidence Register",
+        "Computation",
+        "Instructions"
+      ]
+    }
+  }
+}

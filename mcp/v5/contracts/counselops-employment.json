@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Employment and Labor (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-employment-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_employees",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-EMPLOYEES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-EMPLOYEES-001 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-EMPLOYEES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-EMPLOYEES-002 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-EMPLOYEES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-EMPLOYEES-003 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-EMPLOYEES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-EMPLOYEES-004 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-EMPLOYEES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-EMPLOYEES-005 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-EMPLOYEES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-EMPLOYEES-006 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-EMPLOYEES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-EMPLOYEES-007 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-EMPLOYEES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-EMPLOYEES-008 | synthetic employees fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Employees Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_complaints",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-COMPLAINTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-COMPLAINTS-001 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-COMPLAINTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-COMPLAINTS-002 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-COMPLAINTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-COMPLAINTS-003 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-COMPLAINTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-COMPLAINTS-004 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-COMPLAINTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-COMPLAINTS-005 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-COMPLAINTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-COMPLAINTS-006 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-COMPLAINTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-COMPLAINTS-007 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-COMPLAINTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-COMPLAINTS-008 | synthetic complaints fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Complaints Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_investigations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-INVESTIGATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-INVESTIGATIONS-001 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-INVESTIGATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-INVESTIGATIONS-002 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-INVESTIGATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-INVESTIGATIONS-003 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-INVESTIGATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-INVESTIGATIONS-004 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-INVESTIGATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-INVESTIGATIONS-005 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-INVESTIGATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-INVESTIGATIONS-006 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-INVESTIGATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-INVESTIGATIONS-007 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-INVESTIGATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-INVESTIGATIONS-008 | synthetic investigations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Investigations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_interviews",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-INTERVIEWS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-INTERVIEWS-001 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-INTERVIEWS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-INTERVIEWS-002 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-INTERVIEWS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-INTERVIEWS-003 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-INTERVIEWS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-INTERVIEWS-004 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-INTERVIEWS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-INTERVIEWS-005 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-INTERVIEWS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-INTERVIEWS-006 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-INTERVIEWS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-INTERVIEWS-007 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-INTERVIEWS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-INTERVIEWS-008 | synthetic interviews fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Interviews Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_accommodations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-ACCOMMODATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-ACCOMMODATIONS-001 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-ACCOMMODATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-ACCOMMODATIONS-002 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-ACCOMMODATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-ACCOMMODATIONS-003 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-ACCOMMODATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-ACCOMMODATIONS-004 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-ACCOMMODATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-ACCOMMODATIONS-005 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-ACCOMMODATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-ACCOMMODATIONS-006 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-ACCOMMODATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-ACCOMMODATIONS-007 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-ACCOMMODATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-ACCOMMODATIONS-008 | synthetic accommodations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Accommodations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_leaves",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-LEAVES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-LEAVES-001 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-LEAVES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-LEAVES-002 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-LEAVES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-LEAVES-003 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-LEAVES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-LEAVES-004 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-LEAVES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-LEAVES-005 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-LEAVES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-LEAVES-006 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-LEAVES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-LEAVES-007 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-LEAVES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-LEAVES-008 | synthetic leaves fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Leaves Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_discipline_actions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-DISCIPLINE_ACTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-DISCIPLINE_ACTIONS-001 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-DISCIPLINE_ACTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-DISCIPLINE_ACTIONS-002 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-DISCIPLINE_ACTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-DISCIPLINE_ACTIONS-003 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-DISCIPLINE_ACTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-DISCIPLINE_ACTIONS-004 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-DISCIPLINE_ACTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-DISCIPLINE_ACTIONS-005 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-DISCIPLINE_ACTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-DISCIPLINE_ACTIONS-006 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-DISCIPLINE_ACTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-DISCIPLINE_ACTIONS-007 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-DISCIPLINE_ACTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-DISCIPLINE_ACTIONS-008 | synthetic discipline actions fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Discipline Actions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_separations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-SEPARATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-SEPARATIONS-001 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-SEPARATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-SEPARATIONS-002 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-SEPARATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-SEPARATIONS-003 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-SEPARATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-SEPARATIONS-004 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-SEPARATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-SEPARATIONS-005 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-SEPARATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-SEPARATIONS-006 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-SEPARATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-SEPARATIONS-007 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-SEPARATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-SEPARATIONS-008 | synthetic separations fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Separations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_el_policies",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "EL-POLICIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-EL-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-01",
+            "status": "open",
+            "summary": "pack-employment-01 | ANCHOR-EL-POLICIES-001 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "EL-POLICIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-EL-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-POLICIES-002 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "EL-POLICIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-EL-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-03",
+            "status": "review",
+            "summary": "pack-employment-03 | ANCHOR-EL-POLICIES-003 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "EL-POLICIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-EL-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-employment-01",
+            "status": "pending",
+            "summary": "pack-employment-01 | ANCHOR-EL-POLICIES-004 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "EL-POLICIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-EL-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-employment-02",
+            "status": "review",
+            "summary": "pack-employment-02 | ANCHOR-EL-POLICIES-005 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "EL-POLICIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-EL-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-employment-03",
+            "status": "pending",
+            "summary": "pack-employment-03 | ANCHOR-EL-POLICIES-006 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "EL-POLICIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-EL-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-employment-01",
+            "status": "review",
+            "summary": "pack-employment-01 | ANCHOR-EL-POLICIES-007 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "EL-POLICIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-EL-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-employment-02",
+            "status": "pending",
+            "summary": "pack-employment-02 | ANCHOR-EL-POLICIES-008 | synthetic policies fact pattern; attorney validation required before external use.",
+            "title": "Employment and Labor - Policies Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List employees with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor employees records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Employees collection",
+      "name": "employment_employees_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_employees"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete employees record by integer id. Synthetic documentation-fixture operation for employment and labor employees records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Employees detail",
+      "name": "employment_employees_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_employees"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search employees keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor employees records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Employees search",
+      "name": "employment_employees_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_employees"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-EMPLOYEES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Employees",
+        "version": 1
+      },
+      "description": "Create a fully attributed employees record. Synthetic documentation-fixture operation for employment and labor employees records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Employees filing workflow",
+      "name": "employment_employees_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_employees"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing employees record with explicit change fields. Synthetic documentation-fixture operation for employment and labor employees records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Employees change-control workflow",
+      "name": "employment_employees_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_employees"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List complaints with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Complaints collection",
+      "name": "employment_complaints_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_complaints"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete complaints record by integer id. Synthetic documentation-fixture operation for employment and labor complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Complaints detail",
+      "name": "employment_complaints_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_complaints"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search complaints keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Complaints search",
+      "name": "employment_complaints_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_complaints"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-COMPLAINTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Complaints",
+        "version": 1
+      },
+      "description": "Create a fully attributed complaints record. Synthetic documentation-fixture operation for employment and labor complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Complaints filing workflow",
+      "name": "employment_complaints_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_complaints"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing complaints record with explicit change fields. Synthetic documentation-fixture operation for employment and labor complaints records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Complaints change-control workflow",
+      "name": "employment_complaints_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_complaints"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List investigations with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Investigations collection",
+      "name": "employment_investigations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_investigations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete investigations record by integer id. Synthetic documentation-fixture operation for employment and labor investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Investigations detail",
+      "name": "employment_investigations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_investigations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search investigations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Investigations search",
+      "name": "employment_investigations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_investigations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-INVESTIGATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Investigations",
+        "version": 1
+      },
+      "description": "Create a fully attributed investigations record. Synthetic documentation-fixture operation for employment and labor investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Investigations filing workflow",
+      "name": "employment_investigations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_investigations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing investigations record with explicit change fields. Synthetic documentation-fixture operation for employment and labor investigations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Investigations change-control workflow",
+      "name": "employment_investigations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_investigations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List interviews with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Interviews collection",
+      "name": "employment_interviews_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_interviews"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete interviews record by integer id. Synthetic documentation-fixture operation for employment and labor interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Interviews detail",
+      "name": "employment_interviews_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_interviews"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search interviews keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Interviews search",
+      "name": "employment_interviews_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_interviews"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-INTERVIEWS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Interviews",
+        "version": 1
+      },
+      "description": "Create a fully attributed interviews record. Synthetic documentation-fixture operation for employment and labor interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Interviews filing workflow",
+      "name": "employment_interviews_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_interviews"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing interviews record with explicit change fields. Synthetic documentation-fixture operation for employment and labor interviews records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Interviews change-control workflow",
+      "name": "employment_interviews_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_interviews"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List accommodations with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor accommodations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Accommodations collection",
+      "name": "employment_accommodations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_accommodations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete accommodations record by integer id. Synthetic documentation-fixture operation for employment and labor accommodations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Accommodations detail",
+      "name": "employment_accommodations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_accommodations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search accommodations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor accommodations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Accommodations search",
+      "name": "employment_accommodations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_accommodations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-ACCOMMODATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Accommodations",
+        "version": 1
+      },
+      "description": "Create a fully attributed accommodations record. Synthetic documentation-fixture operation for employment and labor accommodations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Accommodations filing workflow",
+      "name": "employment_accommodations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_accommodations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing accommodations record with explicit change fields. Synthetic documentation-fixture operation for employment and labor accommodations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Accommodations change-control workflow",
+      "name": "employment_accommodations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_accommodations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List leaves with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor leaves records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Leaves collection",
+      "name": "employment_leaves_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_leaves"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete leaves record by integer id. Synthetic documentation-fixture operation for employment and labor leaves records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Leaves detail",
+      "name": "employment_leaves_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_leaves"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search leaves keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor leaves records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Leaves search",
+      "name": "employment_leaves_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_leaves"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-LEAVES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Leaves",
+        "version": 1
+      },
+      "description": "Create a fully attributed leaves record. Synthetic documentation-fixture operation for employment and labor leaves records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Leaves filing workflow",
+      "name": "employment_leaves_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_leaves"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing leaves record with explicit change fields. Synthetic documentation-fixture operation for employment and labor leaves records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Leaves change-control workflow",
+      "name": "employment_leaves_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_leaves"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List discipline actions with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor discipline actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Discipline Actions collection",
+      "name": "employment_discipline_actions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_discipline_actions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete discipline actions record by integer id. Synthetic documentation-fixture operation for employment and labor discipline actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Discipline Actions detail",
+      "name": "employment_discipline_actions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_discipline_actions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search discipline actions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor discipline actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Discipline Actions search",
+      "name": "employment_discipline_actions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_discipline_actions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-DISCIPLINE_ACTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Discipline Actions",
+        "version": 1
+      },
+      "description": "Create a fully attributed discipline actions record. Synthetic documentation-fixture operation for employment and labor discipline actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Discipline Actions filing workflow",
+      "name": "employment_discipline_actions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_discipline_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing discipline actions record with explicit change fields. Synthetic documentation-fixture operation for employment and labor discipline actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Discipline Actions change-control workflow",
+      "name": "employment_discipline_actions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_discipline_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List separations with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor separations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Separations collection",
+      "name": "employment_separations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_separations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete separations record by integer id. Synthetic documentation-fixture operation for employment and labor separations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Separations detail",
+      "name": "employment_separations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_separations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search separations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor separations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Separations search",
+      "name": "employment_separations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_separations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-SEPARATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Separations",
+        "version": 1
+      },
+      "description": "Create a fully attributed separations record. Synthetic documentation-fixture operation for employment and labor separations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Separations filing workflow",
+      "name": "employment_separations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_separations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing separations record with explicit change fields. Synthetic documentation-fixture operation for employment and labor separations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Separations change-control workflow",
+      "name": "employment_separations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_separations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List policies with deterministic filters and pagination. Synthetic documentation-fixture operation for employment and labor policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Policies collection",
+      "name": "employment_policies_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_el_policies"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete policies record by integer id. Synthetic documentation-fixture operation for employment and labor policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Policies detail",
+      "name": "employment_policies_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_el_policies"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-employment-01"
+      },
+      "description": "Search policies keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for employment and labor policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Policies search",
+      "name": "employment_policies_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_el_policies"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-EL-POLICIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-EL-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-employment-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Policies",
+        "version": 1
+      },
+      "description": "Create a fully attributed policies record. Synthetic documentation-fixture operation for employment and labor policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Policies filing workflow",
+      "name": "employment_policies_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_el_policies"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing policies record with explicit change fields. Synthetic documentation-fixture operation for employment and labor policies records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Employment and Labor synthetic Policies change-control workflow",
+      "name": "employment_policies_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_el_policies"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

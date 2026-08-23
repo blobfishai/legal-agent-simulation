@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Real Estate (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-real_estate-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_properties",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-PROPERTIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-PROPERTIES-001 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-PROPERTIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-PROPERTIES-002 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-PROPERTIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-PROPERTIES-003 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-PROPERTIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-PROPERTIES-004 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-PROPERTIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-PROPERTIES-005 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-PROPERTIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-PROPERTIES-006 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-PROPERTIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-PROPERTIES-007 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-PROPERTIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-PROPERTIES-008 | synthetic properties fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Properties Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_leases",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-LEASES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-LEASES-001 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-LEASES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-LEASES-002 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-LEASES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-LEASES-003 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-LEASES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-LEASES-004 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-LEASES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-LEASES-005 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-LEASES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-LEASES-006 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-LEASES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-LEASES-007 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-LEASES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-LEASES-008 | synthetic leases fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Leases Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_tenants",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-TENANTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-TENANTS-001 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-TENANTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-TENANTS-002 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-TENANTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-TENANTS-003 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-TENANTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-TENANTS-004 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-TENANTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-TENANTS-005 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-TENANTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-TENANTS-006 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-TENANTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-TENANTS-007 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-TENANTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-TENANTS-008 | synthetic tenants fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Tenants Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_landlords",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-LANDLORDS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-LANDLORDS-001 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-LANDLORDS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-LANDLORDS-002 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-LANDLORDS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-LANDLORDS-003 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-LANDLORDS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-LANDLORDS-004 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-LANDLORDS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-LANDLORDS-005 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-LANDLORDS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-LANDLORDS-006 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-LANDLORDS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-LANDLORDS-007 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-LANDLORDS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-LANDLORDS-008 | synthetic landlords fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Landlords Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_estoppels",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-ESTOPPELS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-ESTOPPELS-001 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-ESTOPPELS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-ESTOPPELS-002 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-ESTOPPELS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-ESTOPPELS-003 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-ESTOPPELS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-ESTOPPELS-004 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-ESTOPPELS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-ESTOPPELS-005 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-ESTOPPELS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-ESTOPPELS-006 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-ESTOPPELS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-ESTOPPELS-007 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-ESTOPPELS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-ESTOPPELS-008 | synthetic estoppels fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Estoppels Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_title_items",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-TITLE_ITEMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-TITLE_ITEMS-001 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-TITLE_ITEMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-TITLE_ITEMS-002 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-TITLE_ITEMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-TITLE_ITEMS-003 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-TITLE_ITEMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-TITLE_ITEMS-004 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-TITLE_ITEMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-TITLE_ITEMS-005 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-TITLE_ITEMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-TITLE_ITEMS-006 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-TITLE_ITEMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-TITLE_ITEMS-007 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-TITLE_ITEMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-TITLE_ITEMS-008 | synthetic title items fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Title Items Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_diligence_requests",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-DILIGENCE_REQUESTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-DILIGENCE_REQUESTS-001 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-DILIGENCE_REQUESTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-DILIGENCE_REQUESTS-002 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-DILIGENCE_REQUESTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-DILIGENCE_REQUESTS-003 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-DILIGENCE_REQUESTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-DILIGENCE_REQUESTS-004 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-DILIGENCE_REQUESTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-DILIGENCE_REQUESTS-005 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-DILIGENCE_REQUESTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-DILIGENCE_REQUESTS-006 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-DILIGENCE_REQUESTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-DILIGENCE_REQUESTS-007 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-DILIGENCE_REQUESTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-DILIGENCE_REQUESTS-008 | synthetic diligence requests fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Diligence Requests Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_closings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-CLOSINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-CLOSINGS-001 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-CLOSINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-CLOSINGS-002 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-CLOSINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-CLOSINGS-003 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-CLOSINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-CLOSINGS-004 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-CLOSINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-CLOSINGS-005 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-CLOSINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-CLOSINGS-006 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-CLOSINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-CLOSINGS-007 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-CLOSINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-CLOSINGS-008 | synthetic closings fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Closings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_re_obligations",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "RE-OBLIGATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-RE-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-01",
+            "status": "open",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-OBLIGATIONS-001 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "RE-OBLIGATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-RE-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-OBLIGATIONS-002 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "RE-OBLIGATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-RE-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-03",
+            "status": "review",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-OBLIGATIONS-003 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "RE-OBLIGATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-RE-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-01",
+            "status": "pending",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-OBLIGATIONS-004 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "RE-OBLIGATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-RE-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-real_estate-02",
+            "status": "review",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-OBLIGATIONS-005 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "RE-OBLIGATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-RE-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-real_estate-03",
+            "status": "pending",
+            "summary": "pack-real_estate-03 | ANCHOR-RE-OBLIGATIONS-006 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "RE-OBLIGATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-RE-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-real_estate-01",
+            "status": "review",
+            "summary": "pack-real_estate-01 | ANCHOR-RE-OBLIGATIONS-007 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "RE-OBLIGATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-RE-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-real_estate-02",
+            "status": "pending",
+            "summary": "pack-real_estate-02 | ANCHOR-RE-OBLIGATIONS-008 | synthetic obligations fact pattern; attorney validation required before external use.",
+            "title": "Real Estate - Obligations Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List properties with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate properties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Properties collection",
+      "name": "real_estate_properties_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_properties"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete properties record by integer id. Synthetic documentation-fixture operation for real estate properties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Properties detail",
+      "name": "real_estate_properties_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_properties"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search properties keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate properties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Properties search",
+      "name": "real_estate_properties_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_properties"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-PROPERTIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Properties",
+        "version": 1
+      },
+      "description": "Create a fully attributed properties record. Synthetic documentation-fixture operation for real estate properties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Properties filing workflow",
+      "name": "real_estate_properties_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_properties"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing properties record with explicit change fields. Synthetic documentation-fixture operation for real estate properties records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Properties change-control workflow",
+      "name": "real_estate_properties_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_properties"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List leases with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate leases records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Leases collection",
+      "name": "real_estate_leases_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_leases"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete leases record by integer id. Synthetic documentation-fixture operation for real estate leases records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Leases detail",
+      "name": "real_estate_leases_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_leases"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search leases keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate leases records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Leases search",
+      "name": "real_estate_leases_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_leases"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-LEASES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Leases",
+        "version": 1
+      },
+      "description": "Create a fully attributed leases record. Synthetic documentation-fixture operation for real estate leases records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Leases filing workflow",
+      "name": "real_estate_leases_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_leases"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing leases record with explicit change fields. Synthetic documentation-fixture operation for real estate leases records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Leases change-control workflow",
+      "name": "real_estate_leases_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_leases"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List tenants with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate tenants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Tenants collection",
+      "name": "real_estate_tenants_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_tenants"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete tenants record by integer id. Synthetic documentation-fixture operation for real estate tenants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Tenants detail",
+      "name": "real_estate_tenants_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_tenants"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search tenants keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate tenants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Tenants search",
+      "name": "real_estate_tenants_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_tenants"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-TENANTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Tenants",
+        "version": 1
+      },
+      "description": "Create a fully attributed tenants record. Synthetic documentation-fixture operation for real estate tenants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Tenants filing workflow",
+      "name": "real_estate_tenants_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_tenants"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing tenants record with explicit change fields. Synthetic documentation-fixture operation for real estate tenants records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Tenants change-control workflow",
+      "name": "real_estate_tenants_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_tenants"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List landlords with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate landlords records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Landlords collection",
+      "name": "real_estate_landlords_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_landlords"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete landlords record by integer id. Synthetic documentation-fixture operation for real estate landlords records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Landlords detail",
+      "name": "real_estate_landlords_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_landlords"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search landlords keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate landlords records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Landlords search",
+      "name": "real_estate_landlords_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_landlords"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-LANDLORDS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Landlords",
+        "version": 1
+      },
+      "description": "Create a fully attributed landlords record. Synthetic documentation-fixture operation for real estate landlords records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Landlords filing workflow",
+      "name": "real_estate_landlords_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_landlords"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing landlords record with explicit change fields. Synthetic documentation-fixture operation for real estate landlords records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Landlords change-control workflow",
+      "name": "real_estate_landlords_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_landlords"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List estoppels with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate estoppels records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Estoppels collection",
+      "name": "real_estate_estoppels_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_estoppels"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete estoppels record by integer id. Synthetic documentation-fixture operation for real estate estoppels records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Estoppels detail",
+      "name": "real_estate_estoppels_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_estoppels"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search estoppels keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate estoppels records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Estoppels search",
+      "name": "real_estate_estoppels_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_estoppels"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-ESTOPPELS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Estoppels",
+        "version": 1
+      },
+      "description": "Create a fully attributed estoppels record. Synthetic documentation-fixture operation for real estate estoppels records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Estoppels filing workflow",
+      "name": "real_estate_estoppels_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_estoppels"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing estoppels record with explicit change fields. Synthetic documentation-fixture operation for real estate estoppels records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Estoppels change-control workflow",
+      "name": "real_estate_estoppels_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_estoppels"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List title items with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate title items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Title Items collection",
+      "name": "real_estate_title_items_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_title_items"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete title items record by integer id. Synthetic documentation-fixture operation for real estate title items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Title Items detail",
+      "name": "real_estate_title_items_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_title_items"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search title items keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate title items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Title Items search",
+      "name": "real_estate_title_items_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_title_items"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-TITLE_ITEMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Title Items",
+        "version": 1
+      },
+      "description": "Create a fully attributed title items record. Synthetic documentation-fixture operation for real estate title items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Title Items filing workflow",
+      "name": "real_estate_title_items_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_title_items"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing title items record with explicit change fields. Synthetic documentation-fixture operation for real estate title items records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Title Items change-control workflow",
+      "name": "real_estate_title_items_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_title_items"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List diligence requests with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate diligence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Diligence Requests collection",
+      "name": "real_estate_diligence_requests_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_diligence_requests"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete diligence requests record by integer id. Synthetic documentation-fixture operation for real estate diligence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Diligence Requests detail",
+      "name": "real_estate_diligence_requests_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_diligence_requests"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search diligence requests keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate diligence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Diligence Requests search",
+      "name": "real_estate_diligence_requests_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_diligence_requests"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-DILIGENCE_REQUESTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Diligence Requests",
+        "version": 1
+      },
+      "description": "Create a fully attributed diligence requests record. Synthetic documentation-fixture operation for real estate diligence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Diligence Requests filing workflow",
+      "name": "real_estate_diligence_requests_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_diligence_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing diligence requests record with explicit change fields. Synthetic documentation-fixture operation for real estate diligence requests records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Diligence Requests change-control workflow",
+      "name": "real_estate_diligence_requests_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_diligence_requests"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List closings with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate closings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Closings collection",
+      "name": "real_estate_closings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_closings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete closings record by integer id. Synthetic documentation-fixture operation for real estate closings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Closings detail",
+      "name": "real_estate_closings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_closings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search closings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate closings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Closings search",
+      "name": "real_estate_closings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_closings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-CLOSINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Closings",
+        "version": 1
+      },
+      "description": "Create a fully attributed closings record. Synthetic documentation-fixture operation for real estate closings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Closings filing workflow",
+      "name": "real_estate_closings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_closings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing closings record with explicit change fields. Synthetic documentation-fixture operation for real estate closings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Closings change-control workflow",
+      "name": "real_estate_closings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_closings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List obligations with deterministic filters and pagination. Synthetic documentation-fixture operation for real estate obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Obligations collection",
+      "name": "real_estate_obligations_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_re_obligations"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete obligations record by integer id. Synthetic documentation-fixture operation for real estate obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Obligations detail",
+      "name": "real_estate_obligations_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_re_obligations"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-real_estate-01"
+      },
+      "description": "Search obligations keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for real estate obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Obligations search",
+      "name": "real_estate_obligations_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_re_obligations"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-RE-OBLIGATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-RE-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-real_estate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Obligations",
+        "version": 1
+      },
+      "description": "Create a fully attributed obligations record. Synthetic documentation-fixture operation for real estate obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Obligations filing workflow",
+      "name": "real_estate_obligations_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_re_obligations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing obligations record with explicit change fields. Synthetic documentation-fixture operation for real estate obligations records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Real Estate synthetic Obligations change-control workflow",
+      "name": "real_estate_obligations_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_re_obligations"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

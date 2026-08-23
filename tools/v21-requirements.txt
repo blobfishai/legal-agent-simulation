@@ -1,0 +1,5 @@
+# Pinned authoring dependencies for the deterministic v21 seed corpus.
+python-docx==1.2.0
+openpyxl==3.1.5
+pypdf==6.0.0
+reportlab==5.0.1

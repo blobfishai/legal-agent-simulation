@@ -1,0 +1,87 @@
+name: Publish v21 world image
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: GHCR image tag
+        required: true
+        default: v21
+        type: string
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: v21-production-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Rebuild, verify, and publish v21
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      IMAGE: ghcr.io/blobfishai/legal-agent-sim-world
+      TAG: ${{ inputs.tag }}
+    steps:
+      - name: Check out release commit
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Validate image tag
+        run: |
+          set -euo pipefail
+          [[ "$TAG" =~ ^[a-z0-9][a-z0-9._-]{0,127}$ ]]
+
+      - name: Install pinned document dependencies
+        run: python3 -m pip install --disable-pip-version-check -r tools/v21-requirements.txt
+
+      - name: Rebuild and exhaustively verify v21
+        run: |
+          set -euo pipefail
+          npm run v21:build
+          npm run v21:check
+          jq -e '.world_sha256 == "55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394"' \
+            world/v21/build-report.json
+
+      - name: Assemble the production image context
+        run: |
+          set -euo pipefail
+          python3 harbor/generate.py \
+            --world world/blobfish/world-v21.json \
+            --contracts mcp/v5/contracts \
+            --out dist/harbor-v21-release \
+            --tasks task_003,task_v20_cp_001,task_v20_retail_national_closeout,task_v21_lt_matters_00001,task_v21_lt_matters_00005 \
+            --image-tag "$IMAGE:$TAG"
+
+      - name: Authenticate to GHCR
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "${{ github.actor }}" --password-stdin
+
+      - name: Build and publish immutable release contents
+        run: |
+          set -euo pipefail
+          token_hash=$(tr -d '\n' < dist/harbor-v21-release/world-image/solve-token.txt | sha256sum | cut -d' ' -f1)
+          docker build \
+            --build-arg "ORACLE_PROOF_SHA256=$token_hash" \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --tag "$IMAGE:$TAG" \
+            dist/harbor-v21-release/world-image
+          docker push "$IMAGE:$TAG"
+          docker buildx imagetools inspect "$IMAGE:$TAG"
+
+      - name: Record release summary
+        run: |
+          {
+            echo '### v21 production image'
+            echo
+            echo "- Image: \`$IMAGE:$TAG\`"
+            echo "- Commit: \`${{ github.sha }}\`"
+            echo '- World SHA-256: `55dea9469163b3d0a78594bcb8808cecfd202f01f1f446723cce3470f49d9394`'
+            echo '- Exhaustive v21 checker: passed before publication'
+          } >> "$GITHUB_STEP_SUMMARY"

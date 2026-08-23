@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Corporate Governance (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-corporate-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_entities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-ENTITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-ENTITIES-001 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-ENTITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-ENTITIES-002 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-ENTITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-ENTITIES-003 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-ENTITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-ENTITIES-004 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-ENTITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-ENTITIES-005 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-ENTITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-ENTITIES-006 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-ENTITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-ENTITIES-007 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-ENTITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-ENTITIES-008 | synthetic entities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Entities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_directors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-DIRECTORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-DIRECTORS-001 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-DIRECTORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-DIRECTORS-002 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-DIRECTORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-DIRECTORS-003 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-DIRECTORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-DIRECTORS-004 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-DIRECTORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-DIRECTORS-005 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-DIRECTORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-DIRECTORS-006 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-DIRECTORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-DIRECTORS-007 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-DIRECTORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-DIRECTORS-008 | synthetic directors fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Directors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_officers",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-OFFICERS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-OFFICERS-001 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-OFFICERS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-OFFICERS-002 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-OFFICERS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-OFFICERS-003 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-OFFICERS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-OFFICERS-004 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-OFFICERS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-OFFICERS-005 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-OFFICERS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-OFFICERS-006 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-OFFICERS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-OFFICERS-007 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-OFFICERS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-OFFICERS-008 | synthetic officers fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Officers Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_board_meetings",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-BOARD_MEETINGS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-BOARD_MEETINGS-001 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-BOARD_MEETINGS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-BOARD_MEETINGS-002 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-BOARD_MEETINGS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-BOARD_MEETINGS-003 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-BOARD_MEETINGS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-BOARD_MEETINGS-004 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-BOARD_MEETINGS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-BOARD_MEETINGS-005 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-BOARD_MEETINGS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-BOARD_MEETINGS-006 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-BOARD_MEETINGS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-BOARD_MEETINGS-007 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-BOARD_MEETINGS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-BOARD_MEETINGS-008 | synthetic board meetings fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Board Meetings Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_resolutions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-RESOLUTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-RESOLUTIONS-001 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-RESOLUTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-RESOLUTIONS-002 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-RESOLUTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-RESOLUTIONS-003 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-RESOLUTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-RESOLUTIONS-004 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-RESOLUTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-RESOLUTIONS-005 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-RESOLUTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-RESOLUTIONS-006 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-RESOLUTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-RESOLUTIONS-007 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-RESOLUTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-RESOLUTIONS-008 | synthetic resolutions fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Resolutions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_consents",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-CONSENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-CONSENTS-001 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-CONSENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-CONSENTS-002 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-CONSENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-CONSENTS-003 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-CONSENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-CONSENTS-004 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-CONSENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-CONSENTS-005 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-CONSENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-CONSENTS-006 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-CONSENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-CONSENTS-007 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-CONSENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-CONSENTS-008 | synthetic consents fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Consents Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_subsidiaries",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-SUBSIDIARIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-SUBSIDIARIES-001 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-SUBSIDIARIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-SUBSIDIARIES-002 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-SUBSIDIARIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-SUBSIDIARIES-003 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-SUBSIDIARIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-SUBSIDIARIES-004 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-SUBSIDIARIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-SUBSIDIARIES-005 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-SUBSIDIARIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-SUBSIDIARIES-006 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-SUBSIDIARIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-SUBSIDIARIES-007 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-SUBSIDIARIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-SUBSIDIARIES-008 | synthetic subsidiaries fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Subsidiaries Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_securities",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-SECURITIES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-SECURITIES-001 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-SECURITIES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-SECURITIES-002 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-SECURITIES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-SECURITIES-003 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-SECURITIES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-SECURITIES-004 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-SECURITIES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-SECURITIES-005 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-SECURITIES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-SECURITIES-006 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-SECURITIES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-SECURITIES-007 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-SECURITIES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-SECURITIES-008 | synthetic securities fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Securities Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cg_minute_books",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CG-MINUTE_BOOKS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CG-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-01",
+            "status": "open",
+            "summary": "pack-corporate-01 | ANCHOR-CG-MINUTE_BOOKS-001 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CG-MINUTE_BOOKS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CG-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-MINUTE_BOOKS-002 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CG-MINUTE_BOOKS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CG-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-03",
+            "status": "review",
+            "summary": "pack-corporate-03 | ANCHOR-CG-MINUTE_BOOKS-003 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CG-MINUTE_BOOKS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CG-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-01",
+            "status": "pending",
+            "summary": "pack-corporate-01 | ANCHOR-CG-MINUTE_BOOKS-004 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CG-MINUTE_BOOKS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CG-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-corporate-02",
+            "status": "review",
+            "summary": "pack-corporate-02 | ANCHOR-CG-MINUTE_BOOKS-005 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CG-MINUTE_BOOKS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CG-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-corporate-03",
+            "status": "pending",
+            "summary": "pack-corporate-03 | ANCHOR-CG-MINUTE_BOOKS-006 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CG-MINUTE_BOOKS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CG-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-corporate-01",
+            "status": "review",
+            "summary": "pack-corporate-01 | ANCHOR-CG-MINUTE_BOOKS-007 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CG-MINUTE_BOOKS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CG-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-corporate-02",
+            "status": "pending",
+            "summary": "pack-corporate-02 | ANCHOR-CG-MINUTE_BOOKS-008 | synthetic minute books fact pattern; attorney validation required before external use.",
+            "title": "Corporate Governance - Minute Books Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List entities with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance entities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Entities collection",
+      "name": "corporate_entities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_entities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete entities record by integer id. Synthetic documentation-fixture operation for corporate governance entities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Entities detail",
+      "name": "corporate_entities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_entities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search entities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance entities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Entities search",
+      "name": "corporate_entities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_entities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-ENTITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Entities",
+        "version": 1
+      },
+      "description": "Create a fully attributed entities record. Synthetic documentation-fixture operation for corporate governance entities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Entities filing workflow",
+      "name": "corporate_entities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_entities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing entities record with explicit change fields. Synthetic documentation-fixture operation for corporate governance entities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Entities change-control workflow",
+      "name": "corporate_entities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_entities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List directors with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Directors collection",
+      "name": "corporate_directors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_directors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete directors record by integer id. Synthetic documentation-fixture operation for corporate governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Directors detail",
+      "name": "corporate_directors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_directors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search directors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Directors search",
+      "name": "corporate_directors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_directors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-DIRECTORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Directors",
+        "version": 1
+      },
+      "description": "Create a fully attributed directors record. Synthetic documentation-fixture operation for corporate governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Directors filing workflow",
+      "name": "corporate_directors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_directors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing directors record with explicit change fields. Synthetic documentation-fixture operation for corporate governance directors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Directors change-control workflow",
+      "name": "corporate_directors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_directors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List officers with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance officers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Officers collection",
+      "name": "corporate_officers_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_officers"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete officers record by integer id. Synthetic documentation-fixture operation for corporate governance officers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Officers detail",
+      "name": "corporate_officers_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_officers"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search officers keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance officers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Officers search",
+      "name": "corporate_officers_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_officers"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-OFFICERS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Officers",
+        "version": 1
+      },
+      "description": "Create a fully attributed officers record. Synthetic documentation-fixture operation for corporate governance officers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Officers filing workflow",
+      "name": "corporate_officers_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_officers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing officers record with explicit change fields. Synthetic documentation-fixture operation for corporate governance officers records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Officers change-control workflow",
+      "name": "corporate_officers_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_officers"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List board meetings with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance board meetings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Board Meetings collection",
+      "name": "corporate_board_meetings_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_board_meetings"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete board meetings record by integer id. Synthetic documentation-fixture operation for corporate governance board meetings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Board Meetings detail",
+      "name": "corporate_board_meetings_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_board_meetings"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search board meetings keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance board meetings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Board Meetings search",
+      "name": "corporate_board_meetings_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_board_meetings"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-BOARD_MEETINGS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Board Meetings",
+        "version": 1
+      },
+      "description": "Create a fully attributed board meetings record. Synthetic documentation-fixture operation for corporate governance board meetings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Board Meetings filing workflow",
+      "name": "corporate_board_meetings_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_board_meetings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing board meetings record with explicit change fields. Synthetic documentation-fixture operation for corporate governance board meetings records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Board Meetings change-control workflow",
+      "name": "corporate_board_meetings_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_board_meetings"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List resolutions with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance resolutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Resolutions collection",
+      "name": "corporate_resolutions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_resolutions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete resolutions record by integer id. Synthetic documentation-fixture operation for corporate governance resolutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Resolutions detail",
+      "name": "corporate_resolutions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_resolutions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search resolutions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance resolutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Resolutions search",
+      "name": "corporate_resolutions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_resolutions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-RESOLUTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Resolutions",
+        "version": 1
+      },
+      "description": "Create a fully attributed resolutions record. Synthetic documentation-fixture operation for corporate governance resolutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Resolutions filing workflow",
+      "name": "corporate_resolutions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_resolutions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing resolutions record with explicit change fields. Synthetic documentation-fixture operation for corporate governance resolutions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Resolutions change-control workflow",
+      "name": "corporate_resolutions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_resolutions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List consents with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Consents collection",
+      "name": "corporate_consents_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_consents"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete consents record by integer id. Synthetic documentation-fixture operation for corporate governance consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Consents detail",
+      "name": "corporate_consents_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_consents"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search consents keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Consents search",
+      "name": "corporate_consents_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_consents"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-CONSENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Consents",
+        "version": 1
+      },
+      "description": "Create a fully attributed consents record. Synthetic documentation-fixture operation for corporate governance consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Consents filing workflow",
+      "name": "corporate_consents_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_consents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing consents record with explicit change fields. Synthetic documentation-fixture operation for corporate governance consents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Consents change-control workflow",
+      "name": "corporate_consents_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_consents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List subsidiaries with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance subsidiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Subsidiaries collection",
+      "name": "corporate_subsidiaries_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_subsidiaries"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete subsidiaries record by integer id. Synthetic documentation-fixture operation for corporate governance subsidiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Subsidiaries detail",
+      "name": "corporate_subsidiaries_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_subsidiaries"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search subsidiaries keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance subsidiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Subsidiaries search",
+      "name": "corporate_subsidiaries_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_subsidiaries"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-SUBSIDIARIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Subsidiaries",
+        "version": 1
+      },
+      "description": "Create a fully attributed subsidiaries record. Synthetic documentation-fixture operation for corporate governance subsidiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Subsidiaries filing workflow",
+      "name": "corporate_subsidiaries_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_subsidiaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing subsidiaries record with explicit change fields. Synthetic documentation-fixture operation for corporate governance subsidiaries records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Subsidiaries change-control workflow",
+      "name": "corporate_subsidiaries_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_subsidiaries"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List securities with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance securities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Securities collection",
+      "name": "corporate_securities_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_securities"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete securities record by integer id. Synthetic documentation-fixture operation for corporate governance securities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Securities detail",
+      "name": "corporate_securities_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_securities"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search securities keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance securities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Securities search",
+      "name": "corporate_securities_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_securities"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-SECURITIES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Securities",
+        "version": 1
+      },
+      "description": "Create a fully attributed securities record. Synthetic documentation-fixture operation for corporate governance securities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Securities filing workflow",
+      "name": "corporate_securities_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_securities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing securities record with explicit change fields. Synthetic documentation-fixture operation for corporate governance securities records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Securities change-control workflow",
+      "name": "corporate_securities_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_securities"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List minute books with deterministic filters and pagination. Synthetic documentation-fixture operation for corporate governance minute books records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Minute Books collection",
+      "name": "corporate_minute_books_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cg_minute_books"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete minute books record by integer id. Synthetic documentation-fixture operation for corporate governance minute books records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Minute Books detail",
+      "name": "corporate_minute_books_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cg_minute_books"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-corporate-01"
+      },
+      "description": "Search minute books keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for corporate governance minute books records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Minute Books search",
+      "name": "corporate_minute_books_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cg_minute_books"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CG-MINUTE_BOOKS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CG-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-corporate-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Minute Books",
+        "version": 1
+      },
+      "description": "Create a fully attributed minute books record. Synthetic documentation-fixture operation for corporate governance minute books records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Minute Books filing workflow",
+      "name": "corporate_minute_books_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cg_minute_books"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing minute books record with explicit change fields. Synthetic documentation-fixture operation for corporate governance minute books records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Corporate Governance synthetic Minute Books change-control workflow",
+      "name": "corporate_minute_books_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cg_minute_books"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}

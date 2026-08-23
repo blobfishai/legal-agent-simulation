@@ -1,0 +1,3304 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v5",
+  "product": "CounselOps Cybersecurity Response (SIMULATED)",
+  "provenance": "Synthetic documentation fixture modeled on common legal-operations resource and change-control patterns; no commercial API conformance or legal conclusion is claimed.",
+  "system": "counselops-cybersecurity-v21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_security_incidents",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-SECURITY_INCIDENTS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-SECURITY_INCIDENTS-001 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-SECURITY_INCIDENTS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-SECURITY_INCIDENTS-002 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-SECURITY_INCIDENTS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-SECURITY_INCIDENTS-003 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-SECURITY_INCIDENTS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-SECURITY_INCIDENTS-004 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-SECURITY_INCIDENTS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-SECURITY_INCIDENTS-005 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-SECURITY_INCIDENTS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-SECURITY_INCIDENTS-006 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-SECURITY_INCIDENTS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-SECURITY_INCIDENTS-007 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-SECURITY_INCIDENTS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-SECURITY_INCIDENTS-008 | synthetic security incidents fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Security Incidents Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_affected_assets",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-AFFECTED_ASSETS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-AFFECTED_ASSETS-001 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-AFFECTED_ASSETS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-AFFECTED_ASSETS-002 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-AFFECTED_ASSETS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-AFFECTED_ASSETS-003 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-AFFECTED_ASSETS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-AFFECTED_ASSETS-004 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-AFFECTED_ASSETS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-AFFECTED_ASSETS-005 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-AFFECTED_ASSETS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-AFFECTED_ASSETS-006 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-AFFECTED_ASSETS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-AFFECTED_ASSETS-007 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-AFFECTED_ASSETS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-AFFECTED_ASSETS-008 | synthetic affected assets fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Affected Assets Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_forensic_images",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-FORENSIC_IMAGES-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-FORENSIC_IMAGES-001 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-FORENSIC_IMAGES-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-FORENSIC_IMAGES-002 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-FORENSIC_IMAGES-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-FORENSIC_IMAGES-003 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-FORENSIC_IMAGES-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-FORENSIC_IMAGES-004 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-FORENSIC_IMAGES-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-FORENSIC_IMAGES-005 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-FORENSIC_IMAGES-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-FORENSIC_IMAGES-006 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-FORENSIC_IMAGES-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-FORENSIC_IMAGES-007 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-FORENSIC_IMAGES-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-FORENSIC_IMAGES-008 | synthetic forensic images fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Forensic Images Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_indicators",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-INDICATORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-INDICATORS-001 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-INDICATORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-INDICATORS-002 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-INDICATORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-INDICATORS-003 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-INDICATORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-INDICATORS-004 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-INDICATORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-INDICATORS-005 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-INDICATORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-INDICATORS-006 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-INDICATORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-INDICATORS-007 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-INDICATORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-INDICATORS-008 | synthetic indicators fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Indicators Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_containment_actions",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-CONTAINMENT_ACTIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-CONTAINMENT_ACTIONS-001 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-CONTAINMENT_ACTIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-CONTAINMENT_ACTIONS-002 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-CONTAINMENT_ACTIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-CONTAINMENT_ACTIONS-003 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-CONTAINMENT_ACTIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-CONTAINMENT_ACTIONS-004 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-CONTAINMENT_ACTIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-CONTAINMENT_ACTIONS-005 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-CONTAINMENT_ACTIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-CONTAINMENT_ACTIONS-006 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-CONTAINMENT_ACTIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-CONTAINMENT_ACTIONS-007 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-CONTAINMENT_ACTIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-CONTAINMENT_ACTIONS-008 | synthetic containment actions fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Containment Actions Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_notifications",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-NOTIFICATIONS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-NOTIFICATIONS-001 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-NOTIFICATIONS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-NOTIFICATIONS-002 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-NOTIFICATIONS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-NOTIFICATIONS-003 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-NOTIFICATIONS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-NOTIFICATIONS-004 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-NOTIFICATIONS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-NOTIFICATIONS-005 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-NOTIFICATIONS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-NOTIFICATIONS-006 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-NOTIFICATIONS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-NOTIFICATIONS-007 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-NOTIFICATIONS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-NOTIFICATIONS-008 | synthetic notifications fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Notifications Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_response_tasks",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-RESPONSE_TASKS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-RESPONSE_TASKS-001 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-RESPONSE_TASKS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-RESPONSE_TASKS-002 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-RESPONSE_TASKS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-RESPONSE_TASKS-003 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-RESPONSE_TASKS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-RESPONSE_TASKS-004 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-RESPONSE_TASKS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-RESPONSE_TASKS-005 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-RESPONSE_TASKS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-RESPONSE_TASKS-006 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-RESPONSE_TASKS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-RESPONSE_TASKS-007 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-RESPONSE_TASKS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-RESPONSE_TASKS-008 | synthetic response tasks fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Response Tasks Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_vendors",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-VENDORS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-VENDORS-001 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-VENDORS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-VENDORS-002 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-VENDORS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-VENDORS-003 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-VENDORS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-VENDORS-004 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-VENDORS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-VENDORS-005 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-VENDORS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-VENDORS-006 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-VENDORS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-VENDORS-007 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-VENDORS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-VENDORS-008 | synthetic vendors fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Vendors Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    },
+    {
+      "columns": [
+        {
+          "name": "id",
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "name": "external_key",
+          "type": "TEXT"
+        },
+        {
+          "name": "matter_ref",
+          "type": "TEXT"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "TEXT"
+        },
+        {
+          "name": "status",
+          "type": "TEXT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT"
+        },
+        {
+          "name": "owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "due_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        },
+        {
+          "name": "version",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_pack",
+          "type": "TEXT"
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT"
+        }
+      ],
+      "name": "v21_cy_postmortems",
+      "seed": {
+        "rows": [
+          {
+            "amount": 13875.0,
+            "due_date": "2026-09-06",
+            "external_key": "CY-POSTMORTEMS-001",
+            "id": 1,
+            "jurisdiction": "CA",
+            "matter_ref": "MAT-CY-0001",
+            "owner": "lead-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "open",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-POSTMORTEMS-001 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 001",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 1
+          },
+          {
+            "amount": 15250.0,
+            "due_date": "2026-09-07",
+            "external_key": "CY-POSTMORTEMS-002",
+            "id": 2,
+            "jurisdiction": "NY",
+            "matter_ref": "MAT-CY-0002",
+            "owner": "senior-associate",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-POSTMORTEMS-002 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 002",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 2
+          },
+          {
+            "amount": 16625.0,
+            "due_date": "2026-09-08",
+            "external_key": "CY-POSTMORTEMS-003",
+            "id": 3,
+            "jurisdiction": "TX",
+            "matter_ref": "MAT-CY-0003",
+            "owner": "legal-operations",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "review",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-POSTMORTEMS-003 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 003",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 3
+          },
+          {
+            "amount": 18000.0,
+            "due_date": "2026-09-09",
+            "external_key": "CY-POSTMORTEMS-004",
+            "id": 4,
+            "jurisdiction": "FL",
+            "matter_ref": "MAT-CY-0004",
+            "owner": "compliance-counsel",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "pending",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-POSTMORTEMS-004 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 004",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 4
+          },
+          {
+            "amount": 19375.0,
+            "due_date": "2026-10-10",
+            "external_key": "CY-POSTMORTEMS-005",
+            "id": 5,
+            "jurisdiction": "IL",
+            "matter_ref": "MAT-CY-0005",
+            "owner": "privacy-counsel",
+            "risk_level": "critical",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "review",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-POSTMORTEMS-005 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 005",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 5
+          },
+          {
+            "amount": 20750.0,
+            "due_date": "2026-10-11",
+            "external_key": "CY-POSTMORTEMS-006",
+            "id": 6,
+            "jurisdiction": "DC",
+            "matter_ref": "MAT-CY-0006",
+            "owner": "litigation-support",
+            "risk_level": "high",
+            "source_pack": "pack-cybersecurity-03",
+            "status": "pending",
+            "summary": "pack-cybersecurity-03 | ANCHOR-CY-POSTMORTEMS-006 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 006",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 6
+          },
+          {
+            "amount": 22125.0,
+            "due_date": "2026-10-12",
+            "external_key": "CY-POSTMORTEMS-007",
+            "id": 7,
+            "jurisdiction": "DE",
+            "matter_ref": "MAT-CY-0007",
+            "owner": "docketing",
+            "risk_level": "medium",
+            "source_pack": "pack-cybersecurity-01",
+            "status": "review",
+            "summary": "pack-cybersecurity-01 | ANCHOR-CY-POSTMORTEMS-007 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 007",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 7
+          },
+          {
+            "amount": 23500.0,
+            "due_date": "2026-10-13",
+            "external_key": "CY-POSTMORTEMS-008",
+            "id": 8,
+            "jurisdiction": "WA",
+            "matter_ref": "MAT-CY-0008",
+            "owner": "matter-manager",
+            "risk_level": "low",
+            "source_pack": "pack-cybersecurity-02",
+            "status": "pending",
+            "summary": "pack-cybersecurity-02 | ANCHOR-CY-POSTMORTEMS-008 | synthetic postmortems fact pattern; attorney validation required before external use.",
+            "title": "Cybersecurity Response - Postmortems Record 008",
+            "updated_at": "2026-08-22T12:00:00Z",
+            "version": 8
+          }
+        ]
+      }
+    }
+  ],
+  "tools": [
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List security incidents with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response security incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Security Incidents collection",
+      "name": "cybersecurity_security_incidents_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_security_incidents"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete security incidents record by integer id. Synthetic documentation-fixture operation for cybersecurity response security incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Security Incidents detail",
+      "name": "cybersecurity_security_incidents_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_security_incidents"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search security incidents keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response security incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Security Incidents search",
+      "name": "cybersecurity_security_incidents_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_security_incidents"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-SECURITY_INCIDENTS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Security Incidents",
+        "version": 1
+      },
+      "description": "Create a fully attributed security incidents record. Synthetic documentation-fixture operation for cybersecurity response security incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Security Incidents filing workflow",
+      "name": "cybersecurity_security_incidents_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_security_incidents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing security incidents record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response security incidents records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Security Incidents change-control workflow",
+      "name": "cybersecurity_security_incidents_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_security_incidents"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List affected assets with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response affected assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Affected Assets collection",
+      "name": "cybersecurity_affected_assets_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_affected_assets"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete affected assets record by integer id. Synthetic documentation-fixture operation for cybersecurity response affected assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Affected Assets detail",
+      "name": "cybersecurity_affected_assets_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_affected_assets"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search affected assets keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response affected assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Affected Assets search",
+      "name": "cybersecurity_affected_assets_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_affected_assets"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-AFFECTED_ASSETS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Affected Assets",
+        "version": 1
+      },
+      "description": "Create a fully attributed affected assets record. Synthetic documentation-fixture operation for cybersecurity response affected assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Affected Assets filing workflow",
+      "name": "cybersecurity_affected_assets_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_affected_assets"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing affected assets record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response affected assets records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Affected Assets change-control workflow",
+      "name": "cybersecurity_affected_assets_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_affected_assets"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List forensic images with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response forensic images records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Forensic Images collection",
+      "name": "cybersecurity_forensic_images_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_forensic_images"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete forensic images record by integer id. Synthetic documentation-fixture operation for cybersecurity response forensic images records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Forensic Images detail",
+      "name": "cybersecurity_forensic_images_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_forensic_images"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search forensic images keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response forensic images records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Forensic Images search",
+      "name": "cybersecurity_forensic_images_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_forensic_images"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-FORENSIC_IMAGES-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Forensic Images",
+        "version": 1
+      },
+      "description": "Create a fully attributed forensic images record. Synthetic documentation-fixture operation for cybersecurity response forensic images records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Forensic Images filing workflow",
+      "name": "cybersecurity_forensic_images_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_forensic_images"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing forensic images record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response forensic images records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Forensic Images change-control workflow",
+      "name": "cybersecurity_forensic_images_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_forensic_images"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List indicators with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response indicators records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Indicators collection",
+      "name": "cybersecurity_indicators_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_indicators"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete indicators record by integer id. Synthetic documentation-fixture operation for cybersecurity response indicators records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Indicators detail",
+      "name": "cybersecurity_indicators_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_indicators"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search indicators keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response indicators records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Indicators search",
+      "name": "cybersecurity_indicators_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_indicators"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-INDICATORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Indicators",
+        "version": 1
+      },
+      "description": "Create a fully attributed indicators record. Synthetic documentation-fixture operation for cybersecurity response indicators records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Indicators filing workflow",
+      "name": "cybersecurity_indicators_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_indicators"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing indicators record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response indicators records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Indicators change-control workflow",
+      "name": "cybersecurity_indicators_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_indicators"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List containment actions with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response containment actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Containment Actions collection",
+      "name": "cybersecurity_containment_actions_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_containment_actions"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete containment actions record by integer id. Synthetic documentation-fixture operation for cybersecurity response containment actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Containment Actions detail",
+      "name": "cybersecurity_containment_actions_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_containment_actions"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search containment actions keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response containment actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Containment Actions search",
+      "name": "cybersecurity_containment_actions_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_containment_actions"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-CONTAINMENT_ACTIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Containment Actions",
+        "version": 1
+      },
+      "description": "Create a fully attributed containment actions record. Synthetic documentation-fixture operation for cybersecurity response containment actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Containment Actions filing workflow",
+      "name": "cybersecurity_containment_actions_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_containment_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing containment actions record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response containment actions records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Containment Actions change-control workflow",
+      "name": "cybersecurity_containment_actions_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_containment_actions"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List notifications with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response notifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Notifications collection",
+      "name": "cybersecurity_notifications_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_notifications"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete notifications record by integer id. Synthetic documentation-fixture operation for cybersecurity response notifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Notifications detail",
+      "name": "cybersecurity_notifications_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_notifications"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search notifications keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response notifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Notifications search",
+      "name": "cybersecurity_notifications_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_notifications"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-NOTIFICATIONS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Notifications",
+        "version": 1
+      },
+      "description": "Create a fully attributed notifications record. Synthetic documentation-fixture operation for cybersecurity response notifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Notifications filing workflow",
+      "name": "cybersecurity_notifications_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_notifications"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing notifications record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response notifications records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Notifications change-control workflow",
+      "name": "cybersecurity_notifications_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_notifications"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List response tasks with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response response tasks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Response Tasks collection",
+      "name": "cybersecurity_response_tasks_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_response_tasks"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete response tasks record by integer id. Synthetic documentation-fixture operation for cybersecurity response response tasks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Response Tasks detail",
+      "name": "cybersecurity_response_tasks_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_response_tasks"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search response tasks keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response response tasks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Response Tasks search",
+      "name": "cybersecurity_response_tasks_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_response_tasks"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-RESPONSE_TASKS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Response Tasks",
+        "version": 1
+      },
+      "description": "Create a fully attributed response tasks record. Synthetic documentation-fixture operation for cybersecurity response response tasks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Response Tasks filing workflow",
+      "name": "cybersecurity_response_tasks_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_response_tasks"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing response tasks record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response response tasks records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Response Tasks change-control workflow",
+      "name": "cybersecurity_response_tasks_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_response_tasks"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List vendors with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Vendors collection",
+      "name": "cybersecurity_vendors_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_vendors"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete vendors record by integer id. Synthetic documentation-fixture operation for cybersecurity response vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Vendors detail",
+      "name": "cybersecurity_vendors_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_vendors"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search vendors keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Vendors search",
+      "name": "cybersecurity_vendors_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_vendors"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-VENDORS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Vendors",
+        "version": 1
+      },
+      "description": "Create a fully attributed vendors record. Synthetic documentation-fixture operation for cybersecurity response vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Vendors filing workflow",
+      "name": "cybersecurity_vendors_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_vendors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing vendors record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response vendors records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Vendors change-control workflow",
+      "name": "cybersecurity_vendors_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_vendors"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "status": "open"
+      },
+      "description": "List postmortems with deterministic filters and pagination. Synthetic documentation-fixture operation for cybersecurity response postmortems records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Postmortems collection",
+      "name": "cybersecurity_postmortems_list",
+      "op": {
+        "default_order": "id",
+        "filters": [
+          "status",
+          "jurisdiction",
+          "risk_level",
+          "owner"
+        ],
+        "kind": "list",
+        "table": "v21_cy_postmortems"
+      },
+      "params": {
+        "jurisdiction": "string",
+        "limit": "integer",
+        "offset": "integer",
+        "owner": "string",
+        "risk_level": "string",
+        "status": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1
+      },
+      "description": "Get one complete postmortems record by integer id. Synthetic documentation-fixture operation for cybersecurity response postmortems records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Postmortems detail",
+      "name": "cybersecurity_postmortems_get",
+      "op": {
+        "kind": "get",
+        "table": "v21_cy_postmortems"
+      },
+      "params": {
+        "id": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "limit": 20,
+        "query": "pack-cybersecurity-01"
+      },
+      "description": "Search postmortems keys, titles, summaries, matters, and source packs. Synthetic documentation-fixture operation for cybersecurity response postmortems records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Postmortems search",
+      "name": "cybersecurity_postmortems_search",
+      "op": {
+        "fields": [
+          "external_key",
+          "matter_ref",
+          "title",
+          "summary",
+          "source_pack"
+        ],
+        "kind": "search",
+        "preview": [
+          "summary"
+        ],
+        "table": "v21_cy_postmortems"
+      },
+      "params": {
+        "limit": "integer",
+        "offset": "integer",
+        "query": "string"
+      }
+    },
+    {
+      "conformance_args": {
+        "amount": 1000.0,
+        "due_date": "2026-09-30",
+        "external_key": "CONF-CY-POSTMORTEMS-001",
+        "jurisdiction": "CA",
+        "matter_ref": "MAT-CY-0001",
+        "owner": "legal-operations",
+        "risk_level": "medium",
+        "source_pack": "pack-cybersecurity-01",
+        "status": "draft",
+        "summary": "Synthetic conformance record; attorney validation required.",
+        "title": "Conformance Postmortems",
+        "version": 1
+      },
+      "description": "Create a fully attributed postmortems record. Synthetic documentation-fixture operation for cybersecurity response postmortems records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Postmortems filing workflow",
+      "name": "cybersecurity_postmortems_create",
+      "op": {
+        "defaults": {
+          "updated_at": "2026-08-22T12:00:00Z"
+        },
+        "kind": "create",
+        "required": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack"
+        ],
+        "table": "v21_cy_postmortems"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    },
+    {
+      "conformance_args": {
+        "id": 1,
+        "status": "review",
+        "updated_at": "2026-08-22T12:00:00Z",
+        "version": 2
+      },
+      "description": "Update an existing postmortems record with explicit change fields. Synthetic documentation-fixture operation for cybersecurity response postmortems records; modeled on ordinary legal-operations workflow semantics.",
+      "mirrors": "CounselOps Cybersecurity Response synthetic Postmortems change-control workflow",
+      "name": "cybersecurity_postmortems_update",
+      "op": {
+        "allowed": [
+          "external_key",
+          "matter_ref",
+          "jurisdiction",
+          "status",
+          "title",
+          "summary",
+          "owner",
+          "due_date",
+          "risk_level",
+          "amount",
+          "version",
+          "source_pack",
+          "updated_at"
+        ],
+        "kind": "update",
+        "table": "v21_cy_postmortems"
+      },
+      "params": {
+        "amount": "number",
+        "due_date": "string",
+        "external_key": "string",
+        "id": "integer",
+        "jurisdiction": "string",
+        "matter_ref": "string",
+        "owner": "string",
+        "risk_level": "string",
+        "source_pack": "string",
+        "status": "string",
+        "summary": "string",
+        "title": "string",
+        "updated_at": "string",
+        "version": "integer"
+      }
+    }
+  ]
+}
