@@ -11,13 +11,14 @@ It contains one base scenario and two structurally identical mutations:
 - `mutations/mi-price-weight-duplicate-scan-v1`
 - `mutations/dc-price-weight-duplicate-scan-v1`
 
-Every scenario has the same five input filenames and internal structure:
+Every scenario has the same six input filenames and internal structure:
 
 - `incident-report.docx`
 - `checkout-event-log.xlsx`
 - `sample-receipts.pdf`
 - `customer-price-accuracy-policy.docx`
 - `jurisdiction-source-register.xlsx`
+- `jurisdiction-authority-map-v2.xlsx`
 
 Regenerate them with:
 

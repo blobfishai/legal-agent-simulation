@@ -77,6 +77,7 @@ def main() -> int:
         raise RuntimeError("dataset contains duplicate task content digests")
 
     report = {
+        "schema_version": 1,
         "dataset": "legal-agent-simulation/v21",
         "dataset_sha256": hashlib.sha256(dataset_path.read_bytes()).hexdigest(),
         "tasks": len(actual_records),

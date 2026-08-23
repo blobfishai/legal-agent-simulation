@@ -1,0 +1,7 @@
+{
+  "dataset": "legal-agent-simulation/v21",
+  "dataset_sha256": "9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d",
+  "schema_version": 1,
+  "tasks": 23310,
+  "unique_digests": 23310
+}

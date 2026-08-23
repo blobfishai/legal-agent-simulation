@@ -1,45 +1,122 @@
 {
   "answers": {
-    "all_harvey_documents_copied": "Yes: 60,971/60,971 physical input files are in the clean pinned mirror. Upstream contains zero PDF inputs.",
-    "all_harvey_tasks_hosted": "Yes in world v20: 2,010/2,010, with one disclosed response.md output-contract adapter and no upstream source edit.",
-    "can_create_more_tasks": "Yes: six executable retail workflows and three matched document scenarios demonstrate the pattern.",
-    "can_mutate_documents": "Yes, in a separate synthetic derivative tree with identical structure, hashes, manifests, and visual PDF review; never overwrite the exact source mirror.",
-    "can_research_online": "Yes, with primary-source and rights gates; four official/public reference PDFs are pinned in the retail source manifest.",
+    "all_harvey_documents_copied": "Yes locally: 60,971/60,971 physical inputs. Upstream has zero PDF inputs. A clean Git checkout must hydrate the gitignored 3.207-GB mirror.",
+    "all_harvey_tasks_tools_verifiers_copied": "All upstream source bytes are copied. Harvey supplies 2,010 tasks, six generic tools, an LLM judge, and one gold rubric\u2014not 2,010 deterministic verifier programs. The 23,310 VCodes and 1,100 product tools are local additions.",
+    "can_create_more_tasks": "Yes. v21 admits 20,963 generated document-grounded tasks and references every one of 117 seed packs.",
+    "can_mutate_documents": "Yes. 351 generated DOCX/XLSX/PDF inputs share one structure signature; mutations never overwrite the exact Harvey mirror.",
+    "can_research_online": "Yes, with provenance and rights gates. The retail v2 map records 51 specific official authorities and preserves attorney validation boundaries.",
+    "harbor_api": "None is required. Harbor is the pinned local evaluation framework; Hub/API/OAuth is optional and outside the execution path.",
     "same_folder_structure": "Yes inside the exact nested Harvey mirror; no at repository root, intentionally.",
-    "world_is_harbor_format": "The canonical world JSON is not Harbor. harbor/generate.py exports schema-1.4 Harbor task directories; the selected v20 export was structurally validated."
+    "world_is_harbor_format": "Canonical world-v21.json is not Harbor. The generated dist/harbor-v21-prod task tree is native Harbor schema 1.4."
   },
-  "audit_date": "2026-08-22",
+  "audit_date": "2026-08-23",
+  "closed_repository_gaps": [
+    "All 2,010 Harvey task configurations are hosted path-for-path with a matching provenance-manifest hash; all 60,971 upstream inputs are present in the exact pinned mirror.",
+    "The v21 world contains 23,310 tasks, 23,310 deterministic verifiers, 1,100 visible tools, and 254 tables.",
+    "All 23,310 tasks have native Harbor packages and dataset content hashes; full structural export validation is recorded.",
+    "Fifty-one specific retail authorities now drive 51 matched seed packs and admitted document-grounded tasks without encoding legal opinions or remedies.",
+    "All 351 admitted seed documents render into the expected 585 pages and pass pagination, text, raster, geometry, and safe-edge-treatment checks.",
+    "The four strict and 31 broad Harvey mutation experiments are explicitly lifecycle-labeled as regression candidates and are not double-counted; 94 release-admitted mutations have stable task references and Harbor packages.",
+    "Harbor runner is upgraded to v0.22.0 and remains a local framework with no Harbor API dependency."
+  ],
+  "harbor_upstream": {
+    "api_required": false,
+    "audited_main_commit": "b37833221e27435a18d7acdd41d875cdc2831893",
+    "audited_main_describe": "v0.22.0-2-gb3783322",
+    "hub_required": false,
+    "mirror_clean": true,
+    "pinned_release": "0.22.0",
+    "remote_main_commit": "b37833221e27435a18d7acdd41d875cdc2831893",
+    "repository": "https://github.com/harbor-framework/harbor",
+    "role": "local evaluation framework"
+  },
+  "intentional_differences": [
+    "Only research/repos/harveyai@harvey-labs reproduces Harvey's folder tree; repository root is a strict-superset implementation.",
+    "The canonical world JSON is not Harbor format; the generated task directories and dataset are Harbor format.",
+    "Harvey upstream has zero PDF inputs; local PDFs are labeled synthetic fixtures or provenance-tracked public references.",
+    "Deterministic verifiers supplement rather than impersonate Harvey's LLM judge.",
+    "Research-only mutation candidates remain reproducible but are excluded from production task counts until they satisfy the documented admission gate.",
+    "Two additional entity maps are machine-classified as blocked by immutable upstream-source defects and are excluded from the 31-variant seed plan."
+  ],
   "local": {
-    "agent_visible_tools": 110,
-    "broad_harvey_seed_families": 8,
-    "broad_harvey_seed_variants": 19,
-    "contract_systems": 10,
+    "agent_visible_tools": 1100,
+    "blocked_harvey_mutation_candidates": 2,
+    "broad_harvey_practice_areas": 12,
+    "broad_harvey_seed_plan_sha256": "fc2282f0e37246dda328e402bc1ccd5df620681dbac6fe34b96b43a5386557ba",
+    "broad_harvey_seed_variants": 31,
+    "broad_harvey_source_tasks": 14,
+    "contract_systems": 32,
+    "document_contact_sheet_visual_review": "passed",
+    "document_contact_sheets": 0,
+    "document_render_checks_passed": true,
+    "document_render_pages": 585,
     "exact_mirror_path": "research/repos/harveyai@harvey-labs",
+    "generated_v21_tasks": 20963,
     "harbor": {
-      "export_format": "one Harbor task directory per world task",
-      "native_multistep_retail_task_steps": 4,
+      "agent_world_leaks": 0,
+      "api_required": false,
+      "dataset": "legal-agent-simulation/v21",
+      "dataset_sha256": "9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d",
+      "dataset_tasks": 23310,
+      "dataset_unique_digests": 23310,
+      "export_format": "one native Harbor task directory per world task",
+      "exported_tasks": 23310,
+      "file_lanes": 22813,
+      "images_checked_for_anonymous_pull": 2,
+      "lab_image": "ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a",
+      "local_oracle_proof_failure_class": "remote_image_inspection_unavailable",
+      "local_oracle_proof_metadata_matched": false,
+      "multistep_phases": 89,
+      "multistep_tasks": 36,
+      "package_symlinks": 0,
+      "production_images_public": false,
+      "public_images": 0,
+      "runner_lock_packages": 91,
+      "runner_version": "0.22.0",
       "schema_version": "1.4",
       "source_format": "custom canonical world JSON",
-      "validated_new_task_exports": 7
+      "staged_documents": 126598,
+      "staged_skill_trees": 5544,
+      "world_image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f"
     },
     "harvey_adapter_tasks": 1,
+    "harvey_firm_sources_hosted": 250,
+    "harvey_practice_sources_hosted": 1760,
     "harvey_recovery_discrimination_failures": 0,
     "harvey_recovery_oracle": {
       "pass_rate": 1.0,
       "passed": 1,
       "total": 1
     },
+    "harvey_task_path_manifest_sha256": "ff9b848518885cfc8e9714c4cd637a1f852c51c5608cb05f439d241c1e7a0f14",
+    "harvey_task_paths_missing": [],
+    "harvey_task_paths_unexpected": [],
     "harvey_tasks_hosted": 2010,
     "harvey_tasks_total": 2010,
     "internal_operations": 11,
     "jurisdictions": 51,
-    "jurisdictions_pending_substantive_validation": 45,
-    "jurisdictions_primary_source_triaged": 6,
+    "jurisdictions_all_attorney_gated": true,
+    "jurisdictions_benchmark_rules": 6,
+    "jurisdictions_executable_specific_authority_mapped": 51,
+    "jurisdictions_private_remedies_encoded": 0,
+    "jurisdictions_rule_queue": 45,
+    "jurisdictions_specific_authority_mapped": 51,
+    "jurisdictions_substantive_legal_opinions": 0,
     "practice_criteria_determinized": 65614,
     "practice_criteria_residual": 46200,
     "practice_criteria_total": 111814,
+    "retail_authority_dependent_task_pairs_upgraded": 2,
+    "retail_authority_oracle": {
+      "pass_rate": 1.0,
+      "passed": 2,
+      "total": 2
+    },
+    "retail_authority_packs": 51,
+    "retail_authority_tasks": 9129,
+    "retail_authority_verifier_programs_strengthened": 4,
     "retail_discrimination_failures": 0,
-    "retail_input_documents": 15,
+    "retail_input_documents": 18,
+    "retail_legacy_task_pairs_checked": 6,
     "retail_oracle": {
       "pass_rate": 1.0,
       "passed": 6,
@@ -47,176 +124,210 @@
     },
     "retail_reference_pdfs": 4,
     "retail_tasks": 6,
-    "seed_rows": 2912,
+    "seed_documents": 351,
+    "seed_formats": {
+      "docx": 117,
+      "pdf": 117,
+      "xlsx": 117
+    },
+    "seed_mutations": 94,
+    "seed_packs": 117,
+    "seed_rows": 4496,
     "strict_harvey_derivative_recipes": 4,
     "strict_harvey_generated_tasks": 4,
-    "tables": 56,
-    "tasks": 2347,
-    "verifiers": 2347,
-    "world": "world/blobfish/world-v20-draft.json",
-    "world_version": 20
+    "tables": 254,
+    "tasks": 23310,
+    "verifiers": 23310,
+    "world": "world/blobfish/world-v21.json",
+    "world_sha256": "76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab",
+    "world_version": 21
   },
   "open_gaps": [
     {
-      "closure": "Run the copied LAB dual-judge lane as a separately reported semantic score, or add source-validated deterministic assertions with oracle and corruption gates.",
-      "gap": "46,200 of 111,814 practice rubric criteria remain outside the deterministic assertion subset.",
+      "class": "semantic_evaluation_boundary",
+      "closure": "Report the copied LAB judge independently or add source-grounded assertions with oracle and corruption gates; never infer semantic quality from deterministic state success.",
+      "gap": "46,200 of 111,814 practice criteria remain outside the deterministic assertion subset.",
       "id": "G1",
-      "impact": "VCode does not replace the upstream LLM judge for all prose quality, legal nuance, completeness, or formatting judgments.",
+      "impact": "Exact VCode cannot safely replace legal-nuance, completeness, prose-quality, and professional-format judgment.",
+      "repository_controlled": false,
       "severity": "high"
     },
     {
-      "closure": "Qualified counsel must validate current primary text and applicability for each jurisdiction before deployment; encode each completed review with a version/effective-date pin.",
-      "gap": "The 45 baseline-only state rows are not a completed 51-jurisdiction legal opinion.",
+      "class": "licensed_legal_review",
+      "closure": "Counsel validates and signs a versioned jurisdiction memorandum; only then may a row become an executable legal rule or remedy.",
+      "gap": "All 51 jurisdictions have a specific authority map, but none of the new v2 rows is represented as a deployment-ready 51-jurisdiction legal opinion.",
       "id": "G2",
-      "impact": "They identify official code portals and an operational floor but deliberately do not assert substantive law, remedies, local overlays, or effective dates.",
+      "impact": "Current text, applicability, remedies, notice periods, effective dates, local overlays, preemption, and class-action procedure still require qualified counsel.",
+      "repository_controlled": false,
       "severity": "high"
     },
     {
-      "closure": "Use accurate-charge prevention, rapid detection/refund, nonwaiver wording, evidence preservation, audits, escalation, and current legal review.",
-      "gap": "No receipt, contract term, disclaimer, or control can ensure that the retailer will not be sued.",
+      "class": "risk_claim_boundary",
+      "closure": "Use prevention, rapid correction, nonwaiver language, evidence preservation, audits, escalation, and current legal review; describe residual risk candidly.",
+      "gap": "No receipt, contract term, disclaimer, refund policy, software control, or benchmark can ensure that a retailer will not be sued.",
       "id": "G3",
-      "impact": "A zero-lawsuit guarantee would be misleading; controls reduce frequency, severity, and proof problems but cannot eliminate claims.",
+      "impact": "A zero-lawsuit promise would itself be misleading and would confuse risk reduction with legal immunity.",
+      "repository_controlled": false,
       "severity": "high"
     },
     {
-      "closure": "Fund and resume the exact frozen calibration denominator, or publish a separately versioned replacement protocol.",
-      "gap": "Frozen v19 external reference-model calibration remains incomplete (856/6,972 episodes) because the pinned account lacked funds.",
+      "class": "external_model_calibration",
+      "closure": "Fund and resume the exact frozen denominator or publish a separately versioned replacement protocol.",
+      "gap": "Frozen v19 external reference-model calibration remains incomplete at 856/6,972 episodes because the pinned account lacked funds.",
       "id": "G4",
-      "impact": "Do not publish the partial model result as a completed comparative benchmark or infer model difficulty from deterministic oracle success.",
+      "impact": "The partial run cannot support a completed comparative model benchmark or model-difficulty claim.",
+      "repository_controlled": false,
       "severity": "high"
     },
     {
-      "closure": "Choose a licensed/public retail API specification or partner sandbox, pin it, and add schema/error/pagination conformance tests.",
-      "gap": "RetailGuard is a synthetic documentation-fixture API, not a conformance-tested mirror of a real retail platform.",
+      "class": "proprietary_api_fidelity",
+      "closure": "Pin a licensed or public partner specification and add schema, error, authentication, pagination, and rate-limit conformance tests.",
+      "gap": "The 1,100 product tools are executable synthetic legal-operations contracts, not certified mirrors of proprietary vendor APIs.",
       "id": "G5",
-      "impact": "The workflows are executable and realistic, but request/response fidelity cannot be claimed for an external vendor.",
+      "impact": "Workflow realism and deterministic error behavior do not establish external-vendor request/response parity.",
+      "repository_controlled": false,
       "severity": "medium"
     },
     {
-      "closure": "Build/publish the v20 world and LAB agent images, run the seven-task Harbor oracle canary, then fan out the full task tree with recorded Harbor version and image digests.",
-      "gap": "The seven new/adapted tasks were structurally exported to Harbor, but a full 2,331-task Docker/Harbor fleet run was not repeated in this audit.",
+      "class": "fleet_capacity_measurement",
+      "closure": "Run the frozen dataset at an explicitly sized concurrency and publish agent/model, Harbor version, image digests, costs, failures, and denominator.",
+      "gap": "The full export is structurally and deterministically checked, but a 23,310-trial external model fleet run is not part of this repository audit.",
       "id": "G6",
-      "impact": "Local runtime oracle and discrimination proofs cover all seven new/adapted tasks; container-registry availability and fleet-scale runtime remain separate operational checks.",
+      "impact": "Representative real Harbor canaries prove integration; they do not measure model quality, wall time, registry throughput, or memory at full concurrency.",
+      "repository_controlled": false,
       "severity": "medium"
     },
     {
-      "closure": "Keep the immutable source, exact-hash allowlist, recovery copies, and separate normalized derivatives. Fail on any hash or defect-count drift.",
-      "gap": "The exact upstream mirror contains nine known malformed OOXML XML parts.",
+      "class": "immutable_upstream_defect",
+      "closure": "Keep the immutable source, exact-hash allowlist, recovery copies, and separate normalized derivatives; fail on hash or defect-count drift.",
+      "gap": "The exact upstream mirror contains 9 known malformed OOXML XML parts.",
       "id": "G7",
-      "impact": "Normalizing them would destroy byte identity; some parsers require the exact-hash recovery path.",
+      "impact": "Repairing the source in place would destroy byte parity; strict parsers may require the exact-hash recovery path.",
+      "repository_controlled": false,
       "severity": "medium"
     },
     {
-      "closure": "Add OOXML semantic checks, formula recalculation, render comparisons, and the copied LAB judge as independent channels; never average away lane disagreement.",
-      "gap": "Deterministic anchors do not fully grade visual polish, tracked-change semantics, formula correctness after every application, or professional legal judgment.",
+      "class": "deterministic_grading_boundary",
+      "closure": "Keep render, OOXML semantic, formula-recalculation, file/state, and semantic-judge channels separate and expose disagreement.",
+      "gap": "Deterministic anchors do not completely grade visual polish, tracked-change semantics, recalculated formulas in every office application, or professional legal judgment.",
       "id": "G8",
-      "impact": "An output can satisfy anchors while remaining stylistically weak or legally incomplete.",
+      "impact": "An artifact can satisfy exact anchors while remaining stylistically weak or legally incomplete.",
+      "repository_controlled": false,
       "severity": "medium"
     },
     {
-      "closure": "Use the nested mirror for byte/folder parity and the generated Harbor tree for runnable task parity; do not describe the repository root as an upstream clone.",
-      "gap": "The repository root intentionally does not reproduce Harvey's top-level layout.",
+      "class": "external_registry_visibility",
+      "closure": "A package administrator must change both GHCR container packages to Public; rerun the digest-bound anonymous gate afterward.",
+      "gap": "Only 0/2 digest-bound GHCR production images are anonymously pullable.",
       "id": "G9",
-      "impact": "Only research/repos/harveyai@harvey-labs is an exact upstream tree; root world/mcp/harbor/research additions are local architecture.",
-      "severity": "low"
+      "impact": "An unauthenticated Harbor runner cannot start an otherwise valid exported task.",
+      "repository_controlled": false,
+      "severity": "high"
     },
     {
-      "closure": "Keep the zero-PDF audit fact. Add only clearly labeled synthetic or provenance-tracked public reference PDFs in separate extension lanes.",
-      "gap": "Upstream contains no PDF inputs, so there is nothing upstream to copy in that format.",
+      "class": "large_corpus_distribution",
+      "closure": "Run research/clone-repos.sh and the strict input audit, or publish a license-compatible content-addressed corpus artifact with hash verification.",
+      "gap": "The 3.207-GB Harvey input payload is present locally but intentionally excluded from ordinary Git history.",
       "id": "G10",
-      "impact": "Claims that Harvey PDFs were copied would be false.",
+      "impact": "A clean source checkout has provenance and hydration scripts, not 60,971 inline binary inputs, until hydration runs.",
+      "repository_controlled": false,
       "severity": "low"
-    },
-    {
-      "closure": "Index each derivative evidence set, compile its changed rubric facts, then require world admission, file/state lane agreement, oracle, corruption probes, and Harbor canary before counting it in the 2,331-task world total.",
-      "gap": "Four strict Harvey derivative tasks and 19 broad seeded variants are generator/harness assets, not separately admitted v20 state workflows.",
-      "id": "G11",
-      "impact": "They are reproducible task/document expansions, but they do not yet receive a distinct world task ID, product-state verifier, oracle, discrimination result, and Harbor package.",
-      "severity": "medium"
     }
   ],
   "parity_matrix": [
     {
-      "area": "Repository bytes and folder tree",
-      "local": "Exact nested Git mirror at the pinned commit",
-      "status": "exact_copy",
-      "upstream": "63,074 tracked paths"
+      "area": "Repository bytes and Harvey folder tree",
+      "local": "Exact clean nested Git mirror; repository root intentionally adds runtime architecture",
+      "status": "exact_nested_copy",
+      "upstream": "63,074 tracked paths at 7be41d57fd5a"
     },
     {
       "area": "Task configurations",
-      "local": "All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20-draft adapter",
+      "local": "All 2,010 hosted inside 23,310 total executable tasks",
       "status": "exact_plus_executable",
       "upstream": "2,010 task.json files"
     },
     {
-      "area": "Input documents",
-      "local": "Every physical input is present in the exact mirror; 51,683 task-local documents are indexed for executable retrieval",
-      "status": "exact_copy_and_index",
-      "upstream": "60,971 physical inputs / 3.207 GB"
+      "area": "Physical input documents",
+      "local": "All exact bytes present in the nested mirror; full mirror is gitignored and deterministically hydrated",
+      "status": "exact_local_copy_hydratable_distribution",
+      "upstream": "60,971 files / 3,206,739,638 bytes"
     },
     {
-      "area": "Office/PDF formats",
-      "local": "All upstream formats copied; synthetic retail extension adds 3 PDF receipts and 4 immutable primary-source PDFs",
-      "status": "exact_plus_extension",
-      "upstream": "DOCX/XLSX/PPTX/EML/TXT/JSON; zero PDFs"
+      "area": "DOCX/XLSX/PDF requested by audit",
+      "local": "Every upstream DOCX/XLSX copied; 351 new synthetic inputs include 117 PDFs",
+      "status": "exact_copy_plus_labeled_extension",
+      "upstream": "42,009 DOCX, 11,148 XLSX, 0 PDF"
     },
     {
       "area": "Generic agent tools",
-      "local": "Exact harness/tools.py is copied; Harbor file-lane agents retain a shell and document stack, while state work uses 110 visible product tools",
-      "status": "exact_copy_different_operational_surface",
+      "local": "Exact harness copied; file lanes retain shell/document tooling and state lanes expose 1,100 executable product tools",
+      "status": "exact_copy_plus_realistic_state_tools",
       "upstream": "bash, read, write, edit, glob, grep"
     },
     {
-      "area": "Document skills",
-      "local": "Exact skill trees are copied and staged into each file-lane Harbor task",
+      "area": "Document skills and sandbox",
+      "local": "Exact sources copied and staged into applicable Harbor file lanes; locked derivative image used for execution",
       "status": "exact_and_operational",
-      "upstream": "docx, xlsx, pptx skill trees"
+      "upstream": "DOCX/XLSX/PPTX skills and LibreOffice/pandoc/parsers sandbox"
     },
     {
-      "area": "Sandbox",
-      "local": "Exact sandbox source copied; used as the file-lane agent-image base",
-      "status": "exact_and_operational",
-      "upstream": "LibreOffice/pandoc/parsers image"
+      "area": "Evaluation and graders",
+      "local": "Exact judge copied; 23,310 task-specific deterministic verifiers added as a separate lane",
+      "status": "exact_copy_plus_deterministic_lane",
+      "upstream": "Criterion-level LLM judge, all-pass scoring, one gold rubric; no per-task deterministic programs"
     },
     {
-      "area": "Evaluation",
-      "local": "Exact evaluation code copied; operational headline uses deterministic VCode and separate file/state lanes",
-      "status": "exact_copy_alternative_default",
-      "upstream": "Criterion-by-criterion LLM judge; all-pass task scoring"
-    },
-    {
-      "area": "Gold graders/verifiers",
-      "local": "The one gold file is copied; world v20 ships 2,331 deterministic verifier programs",
-      "status": "exact_plus_extension",
-      "upstream": "One grader/gold/rubric.json; no per-task deterministic verifier programs"
-    },
-    {
-      "area": "Firm knowledge",
-      "local": "All 250 hosted through the indexed shared corpus",
+      "area": "Firm-knowledge tasks",
+      "local": "250/250 hosted against pinned evidence indexes",
       "status": "operational_parity",
       "upstream": "250 tasks over one shared 9,288-file DMS"
     },
     {
       "area": "Practice tasks",
-      "local": "All 1,760 hosted; one task receives the explicit response.md adapter because upstream omitted a filename",
-      "status": "operational_parity_with_disclosed_adapter",
+      "local": "1,760/1,760 hosted; one disclosed response.md adapter repairs a missing upstream output filename",
+      "status": "operational_parity_with_adapter",
       "upstream": "1,760 task-local assignments"
     },
     {
-      "area": "Harbor format",
-      "local": "Schema 1.4 task.toml, isolated agent/world containers, MCP, tests/test.sh, solution/solve.sh, and native multi-step [[steps]]",
+      "area": "Mutated and seeded documents",
+      "local": "117 structure-matched packs / 351 DOCX-XLSX-PDF inputs, including 51 jurisdiction packs",
       "status": "local_extension",
-      "upstream": "Not Harbor; custom filesystem harness"
+      "upstream": "No repository-wide deterministic mutation program"
+    },
+    {
+      "area": "51-jurisdiction retail authority reachability",
+      "local": "51/51 exact citations and official URLs are exposed by executable tools; all remain attorney-gated",
+      "status": "executable_issue_spotting_map",
+      "upstream": "No retail-compliance world or jurisdiction authority map"
+    },
+    {
+      "area": "Harbor task format",
+      "local": "23,310 native Harbor schema-1.4 packages with instruction.md, task.toml, environment, solution, and tests",
+      "status": "native_harbor_export",
+      "upstream": "Harvey LAB uses its own filesystem harness, not Harbor"
     },
     {
       "area": "Canonical world format",
-      "local": "Canonical world-v20-draft.json is the runtime source format; harbor/generate.py exports it to Harbor",
-      "status": "local_extension",
-      "upstream": "No world/ state model"
+      "local": "world-v21.json is the canonical runtime model; generated dist packages are Harbor format",
+      "status": "canonical_not_harbor_export_is_harbor",
+      "upstream": "No stateful world model"
+    },
+    {
+      "area": "Harbor framework dependency",
+      "local": "Local runner pins Harbor 0.22.0; no Harbor API, OAuth, account, or hosted Hub is required",
+      "status": "local_framework_only",
+      "upstream": "Not applicable"
+    },
+    {
+      "area": "Production image reachability",
+      "local": "0/2 immutable production images anonymously pullable",
+      "status": "external_registry_visibility_pending",
+      "upstream": "Not applicable"
     }
   ],
-  "schema_version": 1,
-  "scope": "Harvey LAB exact-copy, executable-port, Harbor, document, verifier, tool, mutation, and retail-research parity",
+  "schema_version": 2,
+  "scope": "Harvey exact-copy, executable world, Harbor packages, tools, verifiers, documents, mutations, retail research, and production-format gaps",
   "upstream": {
     "commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
     "expected_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
@@ -265,8 +376,12 @@
     "pdf_inputs": 0,
     "physical_inputs": 60971,
     "practice_tasks": 1760,
+    "remote_main_commit": "7be41d57fd5a6e97b5f246a029e810f83d09cd96",
+    "remote_main_verified_equal": true,
+    "remote_url": "https://github.com/harveyai/harvey-labs.git",
     "repository": "https://github.com/harveyai/harvey-labs",
     "task_configs": 2010,
+    "task_path_manifest_sha256": "ff9b848518885cfc8e9714c4cd637a1f852c51c5608cb05f439d241c1e7a0f14",
     "top_level_tracked_paths": {
       ".github": 3,
       ".gitignore": 1,

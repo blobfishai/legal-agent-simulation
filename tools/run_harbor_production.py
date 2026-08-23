@@ -21,6 +21,11 @@ DATASET_DESCRIPTION = (
     "23,310 deterministic legal-agent simulation tasks with Harbor-isolated "
     "MCP worlds, Harvey-derived file lanes, and v21 seeded documents."
 )
+ORACLE_PROOF_REPORT = ROOT / "reports" / "v21-oracle-proof-audit.json"
+
+
+class ImageInspectionUnavailable(RuntimeError):
+    """The immutable remote image could not be read by the local Docker client."""
 
 
 def immutable_reference(value: str, repository: str, label: str) -> str:
@@ -59,14 +64,19 @@ def image_environment(image: str) -> list[str]:
         raise RuntimeError("docker buildx is required to verify the production image proof")
 
     def inspect(reference: str) -> list[str] | None:
-        result = subprocess.run(
-            [docker, "buildx", "imagetools", "inspect", reference,
-             "--format", "{{json .Image.Config.Env}}"],
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=True,
-        )
+        try:
+            result = subprocess.run(
+                [docker, "buildx", "imagetools", "inspect", reference,
+                 "--format", "{{json .Image.Config.Env}}"],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+        except subprocess.CalledProcessError as error:
+            raise ImageInspectionUnavailable(
+                f"cannot inspect immutable production image {reference}"
+            ) from error
         value = json.loads(result.stdout)
         return value if isinstance(value, list) else None
 
@@ -74,13 +84,18 @@ def image_environment(image: str) -> list[str]:
     if environment is not None:
         return [str(value) for value in environment]
 
-    raw = subprocess.run(
-        [docker, "buildx", "imagetools", "inspect", image, "--raw"],
-        cwd=ROOT,
-        text=True,
-        capture_output=True,
-        check=True,
-    )
+    try:
+        raw = subprocess.run(
+            [docker, "buildx", "imagetools", "inspect", image, "--raw"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+    except subprocess.CalledProcessError as error:
+        raise ImageInspectionUnavailable(
+            f"cannot inspect immutable production image {image}"
+        ) from error
     manifest = json.loads(raw.stdout)
     candidates = [
         row for row in manifest.get("manifests") or []
@@ -109,6 +124,56 @@ def verify_oracle_proof(world_image: str, output: Path) -> str:
         )
     print(f"production oracle proof matched: sha256:{expected}")
     return expected
+
+
+def write_oracle_proof_report(
+    world_image: str,
+    output: Path,
+    *,
+    matched: bool,
+    failure_class: str | None,
+    error: str | None,
+) -> None:
+    token = (output / "world-image" / "solve-token.txt").read_text("utf-8").strip()
+    expected = hashlib.sha256(token.encode()).hexdigest()
+    report = {
+        "schema_version": 1,
+        "world_image": world_image,
+        "export_solve_token_sha256": expected,
+        "image_oracle_proof_sha256": expected if matched else None,
+        "matched": matched,
+        "failure_class": failure_class,
+        "error": error,
+    }
+    ORACLE_PROOF_REPORT.parent.mkdir(parents=True, exist_ok=True)
+    ORACLE_PROOF_REPORT.write_text(
+        json.dumps(report, indent=2, sort_keys=True) + "\n", "utf-8"
+    )
+
+
+def audit_oracle_proof(world_image: str, output: Path) -> bool:
+    proof_error = None
+    proof_failure_class = None
+    try:
+        verify_oracle_proof(world_image, output)
+    except ImageInspectionUnavailable as error:
+        proof_failure_class = "remote_image_inspection_unavailable"
+        proof_error = str(error)
+        print(f"production oracle proof check failed: {proof_error}", file=sys.stderr)
+    except (OSError, RuntimeError, json.JSONDecodeError) as error:
+        # A readable image with missing/mismatched proof metadata is an
+        # integrity failure. Registry privacy must never excuse it.
+        proof_failure_class = "oracle_integrity_failure"
+        proof_error = str(error)
+        print(f"production oracle proof check failed: {proof_error}", file=sys.stderr)
+    write_oracle_proof_report(
+        world_image,
+        output,
+        matched=proof_error is None,
+        failure_class=proof_failure_class,
+        error=proof_error,
+    )
+    return proof_error is None
 
 
 def rebuild_dataset(output: Path) -> None:
@@ -181,30 +246,37 @@ def main() -> int:
             "--lab-image", lab_image,
             "--require-all-world-tasks",
             "--verify-evidence",
+            "--report", str(ROOT / "reports" / "v21-harbor-export-audit.json"),
         ]
     subprocess.run(command, cwd=ROOT, check=True)
     if args.action == "generate":
         rebuild_dataset(output)
     else:
         subprocess.run(
-            [
-                sys.executable,
-                str(ROOT / "tools" / "check_ghcr_public.py"),
-                world_image,
-                lab_image,
-            ],
-            cwd=ROOT,
-            check=True,
-        )
-        verify_oracle_proof(world_image, output)
-        subprocess.run(
             locked_harbor_command(
                 "python", str(ROOT / "tools" / "check_harbor_dataset.py"),
                 "--root", str(output), "--expected-tasks", "23310",
+                "--report", str(ROOT / "reports" / "v21-harbor-dataset-audit.json"),
             ),
             cwd=ROOT,
             check=True,
         )
+        # Registry visibility and remote image metadata are external
+        # publication state. Evaluate both only after structural and dataset
+        # evidence exists, then aggregate their failures.
+        visibility = subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "tools" / "check_ghcr_public.py"),
+                "--report", str(ROOT / "reports" / "v21-ghcr-public-audit.json"),
+                world_image,
+                lab_image,
+            ],
+            cwd=ROOT,
+        )
+        proof_matched = audit_oracle_proof(world_image, output)
+        if visibility.returncode or not proof_matched:
+            return 1
     return 0
 
 

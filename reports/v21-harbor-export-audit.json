@@ -1,0 +1,17 @@
+{
+  "agent_world_leaks": 0,
+  "file_lanes": 22813,
+  "lab_agent_context_files": 10,
+  "lab_agent_context_sha256": "de22a672df02ecfcac25087c236f5733bf0121a4f937da3c40a508bccb59f512",
+  "lab_image": "ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a",
+  "multistep_phases": 89,
+  "multistep_tasks": 36,
+  "package_symlinks": 0,
+  "schema_version": 1,
+  "solve_token_sha256": "0ec8ef4f69a8d6cde646d7f44ab70128b29db704bf80afd4b86132463d3ab87d",
+  "staged_documents": 126598,
+  "staged_skill_trees": 5544,
+  "tasks": 23310,
+  "world_image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f",
+  "world_sha256": "76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab"
+}

@@ -23,6 +23,19 @@ def fail(message: str) -> None:
     raise ValueError(message)
 
 
+def regular_document_files(documents_root: Path) -> list[Path]:
+    if documents_root.is_symlink() or not documents_root.is_dir():
+        fail(f"planned Harvey source documents are missing or symlinked: {documents_root}")
+    entries = list(documents_root.rglob("*"))
+    symlink = next((path for path in entries if path.is_symlink()), None)
+    if symlink is not None:
+        fail(f"planned Harvey source documents contain a symlink: {symlink}")
+    documents = [path for path in entries if path.is_file()]
+    if not documents:
+        fail(f"planned Harvey source documents are empty: {documents_root}")
+    return documents
+
+
 def main() -> int:
     plan = load(PLAN)
     status = load(STATUS)
@@ -64,11 +77,9 @@ def main() -> int:
         source_task = HARVEY / "tasks" / task / "task.json"
         if source_task.is_symlink() or not source_task.is_file():
             fail(f"pinned Harvey source task is missing: {source_task}")
-        if row in planned_rows:
+        if entities in planned:
             documents_root = source_task.parent / "documents"
-            documents = [path for path in documents_root.rglob("*") if path.is_file()]
-            if not documents or any(path.is_symlink() for path in documents):
-                fail(f"planned Harvey source documents are missing or symlinked: {task}")
+            documents = regular_document_files(documents_root)
             seeds = row.get("seeds") or []
             if (
                 len(seeds) != len(set(seeds))

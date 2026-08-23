@@ -66,6 +66,7 @@ jobs:
           npm run v21:build
           npm run v21:check
           python3 -m unittest tools.tests.test_v21_document_rendering -v
+          python3 -m unittest tools.tests.test_ghcr_public tools.tests.test_run_harbor_production -v
           jq -e '.world_sha256 == "76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab"' \
             world/v21/build-report.json
 

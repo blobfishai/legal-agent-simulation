@@ -149,7 +149,7 @@ jobs:
           python3 tools/check_atomic_seed.py
           python3 tools/check_lab_ingest.py
           python3 tools/check_harbor_file_lane.py
-          python3 -m unittest discover -s tools/tests -p 'test_ghcr_public.py' -v
+          python3 -m unittest tools.tests.test_ghcr_public tools.tests.test_run_harbor_production -v
           python3 tools/check_lab_port.py
           python3 tools/check_lab_extractor_parity.py --check
           python3 tools/check_external_evidence.py

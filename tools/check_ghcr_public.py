@@ -10,6 +10,7 @@ import subprocess
 import sys
 import urllib.parse
 from collections.abc import Callable
+from pathlib import Path
 from typing import Any
 
 
@@ -138,16 +139,49 @@ def anonymous_manifest_digest(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("images", nargs="+")
+    parser.add_argument("--report", type=Path,
+                        help="Write digest-bound results even when a visibility check fails")
     args = parser.parse_args()
-    try:
-        for image in args.images:
+    records = []
+    failures = []
+    for image in args.images:
+        try:
             digest = anonymous_manifest_digest(image)
             repository, _ = parse_reference(image)
             print(f"public GHCR manifest: {repository}@{digest}")
-    except (RuntimeError, ValueError) as error:
-        print(f"GHCR public check failed: {error}", file=sys.stderr)
-        return 1
-    return 0
+            records.append({
+                "image": image,
+                "repository": repository,
+                "expected_digest": digest,
+                "anonymous_pull": True,
+                "error": None,
+            })
+        except (RuntimeError, ValueError) as error:
+            message = str(error)
+            failures.append(message)
+            try:
+                repository, digest = parse_reference(image)
+            except ValueError:
+                repository, digest = None, None
+            records.append({
+                "image": image,
+                "repository": repository,
+                "expected_digest": digest,
+                "anonymous_pull": False,
+                "error": message,
+            })
+            print(f"GHCR public check failed: {message}", file=sys.stderr)
+    report = {
+        "schema_version": 1,
+        "images_checked": len(records),
+        "public_images": sum(row["anonymous_pull"] for row in records),
+        "all_public": not failures,
+        "results": records,
+    }
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", "utf-8")
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":

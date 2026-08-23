@@ -1,0 +1,22 @@
+{
+  "all_public": false,
+  "images_checked": 2,
+  "public_images": 0,
+  "results": [
+    {
+      "anonymous_pull": false,
+      "error": "anonymous GHCR token request failed with HTTP 401 for blobfishai/legal-agent-sim-world",
+      "expected_digest": "sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f",
+      "image": "ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f",
+      "repository": "blobfishai/legal-agent-sim-world"
+    },
+    {
+      "anonymous_pull": false,
+      "error": "anonymous GHCR token request failed with HTTP 401 for blobfishai/legal-agent-sim-agent-lab",
+      "expected_digest": "sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a",
+      "image": "ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a",
+      "repository": "blobfishai/legal-agent-sim-agent-lab"
+    }
+  ],
+  "schema_version": 1
+}

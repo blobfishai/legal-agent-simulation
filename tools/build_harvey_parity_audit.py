@@ -26,6 +26,8 @@ SEED_REPORT = ROOT / "research" / "v21-seeded-documents" / "build-report.json"
 SEED_CATALOG = ROOT / "research" / "v21-seeded-documents" / "catalog.json"
 HARBOR_EXPORT_REPORT = ROOT / "reports" / "v21-harbor-export-audit.json"
 HARBOR_DATASET_REPORT = ROOT / "reports" / "v21-harbor-dataset-audit.json"
+GHCR_PUBLIC_REPORT = ROOT / "reports" / "v21-ghcr-public-audit.json"
+ORACLE_PROOF_REPORT = ROOT / "reports" / "v21-oracle-proof-audit.json"
 DOCUMENT_RENDER_REPORT = ROOT / "reports" / "v21-document-render-audit.json"
 DOCUMENT_VISUAL_REVIEW_REPORT = ROOT / "reports" / "v21-document-visual-review.json"
 HARBOR_RUNNER = ROOT / "harbor" / "runner" / "pyproject.toml"
@@ -71,6 +73,20 @@ def require(condition: bool, message: str) -> None:
     """Keep audit gates active even when Python is invoked with optimization."""
     if not condition:
         raise RuntimeError(message)
+
+
+def practice_source_task_json(value: Any) -> str:
+    """Map the world's task-directory provenance to Harvey's tracked task path."""
+    require(isinstance(value, str) and bool(value),
+            "Harvey practice source_task must be a non-empty string")
+    parts = value.split("/")
+    require(
+        "\\" not in value
+        and not value.startswith("/")
+        and all(part not in ("", ".", "..") for part in parts),
+        f"unsafe Harvey practice source_task: {value!r}",
+    )
+    return f"tasks/{value}/task.json"
 
 
 def tracked_files() -> list[str]:
@@ -187,13 +203,25 @@ def parity_rows(payload: dict[str, Any]) -> list[dict[str, str]]:
             ),
             "status": "local_framework_only",
         },
+        {
+            "area": "Production image reachability",
+            "upstream": "Not applicable",
+            "local": (
+                f"{harbor['public_images']}/2 immutable production images anonymously pullable"
+            ),
+            "status": (
+                "public_digest_bound_images"
+                if harbor["production_images_public"]
+                else "external_registry_visibility_pending"
+            ),
+        },
     ]
 
 
 def open_gaps(payload: dict[str, Any]) -> list[dict[str, Any]]:
     local = payload["local"]
     upstream = payload["upstream"]
-    return [
+    gaps = [
         {
             "id": "G1", "class": "semantic_evaluation_boundary", "severity": "high",
             "gap": f"{local['practice_criteria_residual']:,} of {local['practice_criteria_total']:,} practice criteria remain outside the deterministic assertion subset.",
@@ -250,14 +278,29 @@ def open_gaps(payload: dict[str, Any]) -> list[dict[str, Any]]:
             "closure": "Keep render, OOXML semantic, formula-recalculation, file/state, and semantic-judge channels separate and expose disagreement.",
             "repository_controlled": False,
         },
-        {
-            "id": "G10", "class": "large_corpus_distribution", "severity": "low",
-            "gap": "The 3.207-GB Harvey input payload is present locally but intentionally excluded from ordinary Git history.",
-            "impact": "A clean source checkout has provenance and hydration scripts, not 60,971 inline binary inputs, until hydration runs.",
-            "closure": "Run research/clone-repos.sh and the strict input audit, or publish a license-compatible content-addressed corpus artifact with hash verification.",
-            "repository_controlled": False,
-        },
     ]
+    if not local["harbor"]["production_images_public"]:
+        gaps.append({
+            "id": "G9", "class": "external_registry_visibility", "severity": "high",
+            "gap": (
+                f"Only {local['harbor']['public_images']}/2 digest-bound GHCR production "
+                "images are anonymously pullable."
+            ),
+            "impact": "An unauthenticated Harbor runner cannot start an otherwise valid exported task.",
+            "closure": (
+                "A package administrator must change both GHCR container packages to Public; "
+                "rerun the digest-bound anonymous gate afterward."
+            ),
+            "repository_controlled": False,
+        })
+    gaps.append({
+        "id": "G10", "class": "large_corpus_distribution", "severity": "low",
+        "gap": "The 3.207-GB Harvey input payload is present locally but intentionally excluded from ordinary Git history.",
+        "impact": "A clean source checkout has provenance and hydration scripts, not 60,971 inline binary inputs, until hydration runs.",
+        "closure": "Run research/clone-repos.sh and the strict input audit, or publish a license-compatible content-addressed corpus artifact with hash verification.",
+        "repository_controlled": False,
+    })
+    return gaps
 
 
 def build_payload() -> dict[str, Any]:
@@ -283,6 +326,8 @@ def build_payload() -> dict[str, Any]:
     world = load_world(WORLD)
     harbor_export = load_json(HARBOR_EXPORT_REPORT)
     harbor_dataset = load_json(HARBOR_DATASET_REPORT)
+    ghcr_public = load_json(GHCR_PUBLIC_REPORT)
+    oracle_proof = load_json(ORACLE_PROOF_REPORT)
     document_render = load_json(DOCUMENT_RENDER_REPORT)
     document_visual = load_json(DOCUMENT_VISUAL_REVIEW_REPORT)
     runner = tomllib.loads(HARBOR_RUNNER.read_text("utf-8"))
@@ -305,12 +350,16 @@ def build_payload() -> dict[str, Any]:
         (task.get("provenance") or {}).get("source_pack", "").startswith("pack-retail-price-accuracy-")
         for task in world["tasks"]
     )
-    harvey_practice_sources = {
+    harvey_practice_source_directories = {
         (task.get("file_lane") or {}).get("source_task")
         for task in world["tasks"]
         if (task.get("file_lane") or {}).get("source_commit") == EXPECTED_HARVEY_COMMIT[:12]
     }
-    harvey_practice_sources.discard(None)
+    harvey_practice_source_directories.discard(None)
+    harvey_practice_sources = {
+        practice_source_task_json(value)
+        for value in harvey_practice_source_directories
+    }
     harvey_firm_sources = {
         (task.get("provenance") or {}).get("path")
         for task in world["tasks"]
@@ -323,7 +372,7 @@ def build_payload() -> dict[str, Any]:
     unexpected_harvey_sources = sorted(hosted_harvey_sources - upstream_harvey_sources)
     payload: dict[str, Any] = {
         "schema_version": 2,
-        "audit_date": "2026-08-22",
+        "audit_date": "2026-08-23",
         "scope": "Harvey exact-copy, executable world, Harbor packages, tools, verifiers, documents, mutations, retail research, and production-format gaps",
         "upstream": {
             "repository": "https://github.com/harveyai/harvey-labs",
@@ -443,6 +492,13 @@ def build_payload() -> dict[str, Any]:
                 "dataset_sha256": harbor_dataset["dataset_sha256"],
                 "dataset_tasks": harbor_dataset["tasks"],
                 "dataset_unique_digests": harbor_dataset["unique_digests"],
+                "world_image": harbor_export["world_image"],
+                "lab_image": harbor_export["lab_image"],
+                "production_images_public": ghcr_public["all_public"],
+                "public_images": ghcr_public["public_images"],
+                "images_checked_for_anonymous_pull": ghcr_public["images_checked"],
+                "local_oracle_proof_metadata_matched": oracle_proof["matched"],
+                "local_oracle_proof_failure_class": oracle_proof["failure_class"],
                 "api_required": False,
             },
         },
@@ -572,6 +628,10 @@ def build_payload() -> dict[str, Any]:
                     for row in authority_rows),
             "retail authority map encodes an unreviewed legal opinion or private remedy")
     require(runner_version == AUDITED_HARBOR_RELEASE, "Harbor runner pin drifted")
+    require(harbor_export.get("schema_version") == 1,
+            "Harbor export report schema version drifted")
+    require(harbor_dataset.get("schema_version") == 1,
+            "Harbor dataset report schema version drifted")
     require(
         harbor_export["tasks"] == harbor_dataset["tasks"]
         == harbor_dataset["unique_digests"] == 23_310,
@@ -579,6 +639,41 @@ def build_payload() -> dict[str, Any]:
     )
     require(harbor_export["world_sha256"] == sha256(WORLD),
             "Harbor export report does not bind the current world")
+    ghcr_images = {row.get("image") for row in ghcr_public.get("results") or []}
+    require(
+        ghcr_public.get("schema_version") == 1
+        and ghcr_public.get("images_checked") == 2
+        and ghcr_public.get("public_images")
+        == sum(bool(row.get("anonymous_pull")) for row in ghcr_public.get("results") or [])
+        and ghcr_public.get("all_public") == (ghcr_public.get("public_images") == 2)
+        and ghcr_images == {harbor_export["world_image"], harbor_export["lab_image"]},
+        "anonymous GHCR report is stale or not bound to both Harbor export images",
+    )
+    require(
+        oracle_proof.get("schema_version") == 1
+        and oracle_proof.get("world_image") == harbor_export["world_image"]
+        and oracle_proof.get("export_solve_token_sha256")
+        == harbor_export["solve_token_sha256"]
+        and (
+            (
+                oracle_proof.get("matched") is True
+                and oracle_proof.get("image_oracle_proof_sha256")
+                == harbor_export["solve_token_sha256"]
+                and oracle_proof.get("failure_class") is None
+                and oracle_proof.get("error") is None
+            )
+            or (
+                oracle_proof.get("matched") is False
+                and oracle_proof.get("image_oracle_proof_sha256") is None
+                and oracle_proof.get("failure_class")
+                == "remote_image_inspection_unavailable"
+                and isinstance(oracle_proof.get("error"), str)
+                and bool(oracle_proof["error"])
+                and ghcr_public.get("all_public") is False
+            )
+        ),
+        "production oracle-proof report is stale or inconsistent",
+    )
     require(not any(row["repository_controlled"] for row in payload["open_gaps"]),
             "repository-controlled gaps remain open")
     return payload
@@ -680,6 +775,7 @@ complete local copy with deterministic hydration, not an ordinary-Git bundle.
 | Harbor packages / unique content digests | — | {harbor['exported_tasks']:,} / {harbor['dataset_unique_digests']:,} |
 | Harbor file lanes / staged document instances | — | {harbor['file_lanes']:,} / {harbor['staged_documents']:,} |
 | Harbor multi-step tasks / phases | — | {harbor['multistep_tasks']} / {harbor['multistep_phases']} |
+| Anonymous production image pulls | — | {harbor['public_images']}/2 exact digests |
 
 Upstream input format counts:
 
@@ -762,7 +858,15 @@ The export contains **{harbor['exported_tasks']:,}/{local['tasks']:,} tasks**,
 **{harbor['file_lanes']:,} file lanes**, **{harbor['staged_documents']:,} staged
 document instances**, and **zero agent-side world leaks or package symlinks**.
 Dataset SHA-256: `{harbor['dataset_sha256']}`. The locked runner uses Harbor
-{harbor['runner_version']} with a 91-package graph. Harbor Hub is optional.
+{harbor['runner_version']} with a 91-package graph. The export is bound to
+`{harbor['world_image']}` and `{harbor['lab_image']}`; the independent
+anonymous registry audit passes {harbor['public_images']}/2 exact digests.
+Local remote-metadata comparison of the export oracle proof is
+`{str(harbor['local_oracle_proof_metadata_matched']).lower()}` with failure
+class `{harbor['local_oracle_proof_failure_class']}`. Registry privacy can
+excuse remote inspection unavailability, but never an oracle-integrity failure;
+the release workflow's successful oracle canaries remain the independent
+production proof. Harbor Hub is optional.
 
 ## Closed repository-controlled gaps
 
@@ -793,14 +897,21 @@ python3 tools/build_retail_price_accuracy_pack.py --check
 python3 tools/build_v21_seed_documents.py --check
 npm run v21:check
 npm run v21:document-render-check
-npm run v21:harbor-prod
-npm run v21:harbor-check
+python3 tools/run_harbor_production.py generate \
+  --world-image {harbor['world_image']} \
+  --lab-image {harbor['lab_image']}
+# This exits 1 while G9 remains; structural and dataset reports are still written first.
+python3 tools/run_harbor_production.py check \
+  --world-image {harbor['world_image']} \
+  --lab-image {harbor['lab_image']}
 uv run --project harbor/runner --locked harbor --version
 ```
 
 Machine-readable evidence: `reports/harvey-parity-audit.json`,
 `reports/v21-harbor-export-audit.json`,
 `reports/v21-harbor-dataset-audit.json`,
+`reports/v21-ghcr-public-audit.json`,
+`reports/v21-oracle-proof-audit.json`,
 `reports/v21-document-render-audit.json`, and
 `reports/v21-document-visual-review.json`.
 """

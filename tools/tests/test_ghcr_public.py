@@ -3,8 +3,11 @@ from __future__ import annotations
 import importlib.util
 import json
 import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "check_ghcr_public.py"
@@ -97,6 +100,39 @@ class GhcrPublicTests(unittest.TestCase):
         ) as raised:
             PUBLIC.anonymous_manifest_digest(self.image, runner, "/usr/bin/curl")
         self.assertNotIn("public-token", str(raised.exception))
+
+    def test_main_audits_every_image_and_writes_failure_report(self) -> None:
+        second_digest = "sha256:" + "cd" * 32
+        second_image = "ghcr.io/blobfishai/second@" + second_digest
+        with tempfile.TemporaryDirectory() as temporary:
+            report_path = Path(temporary) / "public.json"
+            with (
+                mock.patch.object(
+                    PUBLIC,
+                    "anonymous_manifest_digest",
+                    side_effect=[RuntimeError("anonymous pull failed"), second_digest],
+                ) as checker,
+                mock.patch.object(
+                    sys,
+                    "argv",
+                    [
+                        str(SCRIPT),
+                        "--report", str(report_path),
+                        self.image,
+                        second_image,
+                    ],
+                ),
+            ):
+                result = PUBLIC.main()
+            report = json.loads(report_path.read_text("utf-8"))
+        self.assertEqual(result, 1)
+        self.assertEqual(checker.call_count, 2)
+        self.assertEqual(report["images_checked"], 2)
+        self.assertEqual(report["public_images"], 1)
+        self.assertFalse(report["all_public"])
+        self.assertEqual(
+            [row["anonymous_pull"] for row in report["results"]], [False, True]
+        )
 
 
 if __name__ == "__main__":

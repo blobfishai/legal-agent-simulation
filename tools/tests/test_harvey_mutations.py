@@ -30,6 +30,14 @@ BROAD = load_module("lab_mutate_for_tests", ROOT / "research" / "lab_mutate.py")
 STRICT = load_module("mutate_harvey_task_for_tests", ROOT / "tools" / "mutate_harvey_task.py")
 AUDIT = load_module("audit_harvey_inputs_for_tests", ROOT / "tools" / "audit_harvey_inputs.py")
 INGEST = load_module("lab_ingest_for_tests", ROOT / "world" / "ingest" / "lab_ingest.py")
+PARITY = load_module(
+    "harvey_parity_audit_for_tests",
+    ROOT / "tools" / "build_harvey_parity_audit.py",
+)
+INVENTORY = load_module(
+    "harvey_mutation_inventory_for_tests",
+    ROOT / "tools" / "check_harvey_mutation_inventory.py",
+)
 
 
 def write_json(path: Path, value: object) -> None:
@@ -336,6 +344,33 @@ class StrictMutationTests(HarveyMutationFixture):
 
 
 class AuditTests(HarveyMutationFixture):
+    def test_practice_provenance_normalizes_to_the_tracked_task_path(self) -> None:
+        self.assertEqual(
+            PARITY.practice_source_task_json(
+                "antitrust-competition/analyze-antitrust-hsr-strategy"
+            ),
+            "tasks/antitrust-competition/analyze-antitrust-hsr-strategy/task.json",
+        )
+
+    def test_practice_provenance_path_traversal_is_rejected(self) -> None:
+        for unsafe in ("../outside", "/absolute", "area//task", r"area\task"):
+            with self.subTest(unsafe=unsafe), self.assertRaises(RuntimeError):
+                PARITY.practice_source_task_json(unsafe)
+
+    def test_nested_document_directory_symlink_is_rejected(self) -> None:
+        documents = self.workspace / "document-tree"
+        documents.mkdir()
+        external = self.workspace / "external-documents"
+        external.mkdir()
+        (external / "hidden.txt").write_text("hidden\n", encoding="utf-8")
+        link = documents / "nested-link"
+        try:
+            link.symlink_to(external, target_is_directory=True)
+        except OSError as error:
+            self.skipTest(f"symlinks unavailable: {error}")
+        with self.assertRaisesRegex(ValueError, "contain a symlink"):
+            INVENTORY.regular_document_files(documents)
+
     def test_small_corpus_audit_runs_in_process_pool(self) -> None:
         report_path = self.workspace / "audit-report.json"
         result = subprocess.run(

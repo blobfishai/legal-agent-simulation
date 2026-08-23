@@ -1,6 +1,6 @@
 # V21 release and gap audit
 
-Audit date: 2026-08-22  
+Audit date: 2026-08-23
 Scope: Harvey LAB parity, v21 scale, documents, deterministic verification,
 Harbor packaging/runtime, clean rebuilds, and production image publication.
 
@@ -13,7 +13,7 @@ new synthetic source documents. The canonical world is 263,108,165 bytes with
 SHA-256 `76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab`.
 A second clean-process rebuild produced the same bytes.
 
-This audit found and closed eleven release-blocking or publication-integrity
+This audit found and closed fourteen release-blocking or publication-integrity
 defects:
 
 1. Generated DOCX briefs could orphan the validation boundary on a second
@@ -59,6 +59,19 @@ defects:
     packages were public. Release and full-export checks now obtain anonymous
     pull tokens, require exact production manifest digests, and reject private
     packages even when the operator has local registry credentials.
+12. The document renderer trusted catalog paths and could treat a full-bleed
+    header as permission for clipped body content. It now rejects traversal and
+    symlinked path components, binds the exact filename/byte/SHA-256 inventory,
+    and independently checks body geometry below the header. Four adversarial
+    renderer tests prove those failure paths.
+13. The parity audit compared Harvey's tracked `tasks/<id>/task.json` paths to
+    practice-task directory IDs without normalizing their intentionally
+    different representations. Traversal-safe normalization now proves exact
+    set and manifest-hash equality for all 1,760 practice and 250 firm tasks.
+14. A private-registry image-inspection failure and a readable-image oracle
+    mismatch shared one `matched: false` state. Reports now preserve a typed
+    failure class, and registry privacy can excuse only remote inspection
+    unavailability, never missing or mismatched proof metadata.
 
 ## Measured inventory
 
@@ -91,11 +104,13 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
-| Unit suites | 43/43 passed (manifest, port, local runtime, anonymous GHCR) |
+| Unit suites | 47/47 passed (manifest, port, local runtime, anonymous GHCR, production-wrapper trust boundary) |
+| Document-render adversarial suite | 4/4 passed: full-bleed header accepted, clipped body rejected, catalog hash substitution rejected, traversal rejected |
 | Seed reproducibility | 351/351 files byte-identical in isolated rebuild |
 | Retail authority reachability | 51/51 citations and official URLs projected into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated |
-| Visual document audit | 585/585 rendered pages: 117 DOCX, 351 worksheet pages, 117 PDF |
-| Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,592 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies |
+| Visual document audit | 351/351 source files and 585/585 rendered pages: 117 DOCX, 351 worksheet pages, 117 PDF; exact catalog bytes/hashes and safe body geometry verified |
+| Harvey mutation inventory | 31 byte-reproducible variants across 14 source tasks and 12 practice areas; 73 task-relative source-document occurrences produce 158 generated document instances; 2 blocked candidates classified |
+| Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,598 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies or package symlinks |
 | Harvey runtime recovery | 34/34 files, 113,081 bytes, tree SHA-256 `bbdcf02717bf2ad491bf5ebbe028ebd5d69f5427609fddb0aaca3ad8d4e88d5a` |
 | Locked LAB image context | 10/10 source/lock files, tree SHA-256 `de22a672df02ecfcac25087c236f5733bf0121a4f937da3c40a508bccb59f512` |
 | Locked release dependencies | 9-package seeded-document closure, 48-package LAB Python closure, npm integrity lock, and 91-package Harbor runner graph |
@@ -103,8 +118,8 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Core Harbor execution model | Local task paths and Docker runtime; no Harbor API, account, OAuth, or hosted publication required |
 | Harbor oracle canary | 5/5 representative tasks reward 1.0; zero exceptions |
 | Harbor discrimination | no-op task reward 0.0; zero harness exceptions |
-| Production image release | workflow `32614596061` passed; exact candidate-to-production manifest equality |
-| Digest-pinned dataset | 23,310/23,310 package hashes; 23,310 unique digests; manifest SHA-256 `6493cf4864d33730d9968e4c09d5c3d170317ba6e62595e93f35bc4def255271` |
+| Production image release | workflow `32624207755`: rebuild, candidate build/push, Harbor oracle/no-op validation, and exact candidate-to-production promotion passed; final anonymous-pull gate failed 0/2 |
+| Digest-pinned dataset | 23,310/23,310 package hashes; 23,310 unique digests; manifest SHA-256 `9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d` |
 
 The five-task Harbor canary spans the legacy scripted-turn, v20 researched
 consumer-protection, v20 retail multi-step, v21 generated state, and v21 seeded
@@ -139,18 +154,25 @@ hashes, and npm integrity lock. Before push it imports every document library
 and parses real DOCX/XLSX/PDF fixtures with networking disabled. Candidate tags
 include commit, run ID, and attempt; only candidates that pass five oracle and
 five no-op trials are carbon-copied to production with exact digest equality.
-The validated production workflow is
-[`32614596061`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32614596061)
-at runtime source commit `b4473f12a1d27db6be4b7bc1fc899f6778412a3d`.
-It promoted these exact single-manifest images:
+The latest production promotion is workflow
+[`32624207755`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32624207755)
+at runtime source commit `b06e0f74bc3f22215f853af49bf4191ee99dd621`.
+Steps 1–16 passed, including rebuild, exhaustive verification, evidence
+hydration, candidate publication, real Harbor oracle/no-op validation, and
+exact candidate-to-production promotion. Step 17 then failed the independent
+anonymous-pull gate. The run promoted these exact single-manifest images:
 
-- world: `ghcr.io/blobfishai/legal-agent-sim-world@sha256:1608f5df62775d6c7c0eb1341d26ee8dfef9fc5c5ae1ce4aaf1abfa63aa77155`
-- LAB agent: `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:3898548e7cfa3fd4853b820d92fd8fb04f42b645794f9211ca25fd5839f7ad80`
+- world: `ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f`
+- LAB agent: `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a`
 
-Post-release hardening is green in
-[`32616206854`](https://github.com/blobfishai/legal-agent-simulation/actions/runs/32616206854):
-the deterministic trust chain, exhaustive v21 gate, and Harbor oracle/no-op
-smoke all passed with the anonymous-access checker included.
+The local full-export audit is bound to those exact digests. It passed all
+23,310 task packages, all 23,310 unique dataset digests, and the canonical
+world hash. Both anonymous token requests returned HTTP 401. Local image
+metadata inspection is therefore recorded as
+`remote_image_inspection_unavailable`; an oracle mismatch would instead be an
+unacceptable `oracle_integrity_failure` and cannot be waived by package
+privacy. The successful Harbor canaries in the release run remain the remote
+execution proof for these promoted candidates.
 
 The full generated Harbor release is `dist/harbor-v21-prod`: 23,310 task
 packages plus the `legal-agent-simulation/v21` dataset. Its production wrapper

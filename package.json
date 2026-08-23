@@ -34,7 +34,7 @@
     "v21:harbor": "python3 harbor/generate.py --world world/blobfish/world-v21.json --contracts mcp/v5/contracts --image-tag ghcr.io/blobfishai/legal-agent-sim-world:v21",
     "v21:harbor-prod": "python3 tools/run_harbor_production.py generate",
     "v21:harbor-check": "python3 tools/run_harbor_production.py check",
-    "manifest:check": "python3 -m unittest discover -s world/manifest/tests -v && python3 -m unittest discover -s world/port/tests -v && python3 -m unittest discover -s world/local/tests -v && python3 -m unittest discover -s tools/tests -p 'test_ghcr_public.py' -v",
+    "manifest:check": "python3 -m unittest discover -s world/manifest/tests -v && python3 -m unittest discover -s world/port/tests -v && python3 -m unittest discover -s world/local/tests -v && python3 -m unittest tools.tests.test_ghcr_public tools.tests.test_run_harbor_production -v",
     "lab:determinize": "python3 world/port/lab_determinize.py",
     "lab:determinize-check": "python3 world/port/lab_determinize.py --check",
     "evidence:check": "python3 tools/check_external_evidence.py",

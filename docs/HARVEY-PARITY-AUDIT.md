@@ -1,57 +1,82 @@
-# Harvey LAB parity and gap audit
+# Harvey LAB parity and repository gap audit
 
-Audit date: 2026-08-22  
-Upstream: `harveyai/harvey-labs@7be41d57fd5a6e97b5f246a029e810f83d09cd96`
+Audit date: 2026-08-23
+
+Harvey upstream: `harveyai/harvey-labs@7be41d57fd5a6e97b5f246a029e810f83d09cd96`
+
+Harbor upstream checked: `harbor-framework/harbor@b37833221e27435a18d7acdd41d875cdc2831893` (`v0.22.0-2-gb3783322`)
 
 ## Executive answer
 
-The exact Harvey repository is copied at
-`research/repos/harveyai@harvey-labs`: it is a clean nested Git checkout at the
-pinned commit with all **63,074 tracked paths**, all
-**2,010 task configurations**, and all
-**60,971 physical input files**
-(3,206,739,638 bytes). The upstream corpus contains **zero PDF
-inputs**; the audit therefore does not make the false claim that Harvey PDFs
-were copied.
+The Harvey repository is copied completely at
+`research/repos/harveyai@harvey-labs`. It is a clean, byte-exact nested Git
+checkout at the same live `main` commit, with all **63,074
+tracked paths**, all **2,010 task configurations**, and
+all **60,971 physical inputs** (3,206,739,638
+bytes). Harvey has **zero PDF input files**; claiming that Harvey PDFs were
+copied would be false. Every upstream DOCX, XLSX, PPTX, EML, TXT, and JSON input
+is present.
 
-World v20 operationally hosts **2,010/2,010 Harvey tasks**. The only prior miss
-had 15 intact inputs and 74 criteria but no output filename; v20 adds the
-disclosed `response.md` adapter without editing the upstream task. World v20
-then adds six executable retail-compliance tasks, producing **2,347
-tasks and 2,347 deterministic verifiers** over
-110 visible tools, 11
-internal operations, 10 systems, and
-56 state tables.
+The executable v21 world has **23,310 tasks**,
+**23,310 deterministic verifiers**, **1,100
+agent-visible tools**, **11 internal operations**,
+**254 state tables**, and **351 new matched
+DOCX/XLSX/PDF inputs**. All 2,010 Harvey tasks are hosted inside that world.
 
-The folder-format answer has two parts:
+The format answer is precise:
 
-- **Exact folder parity:** yes, inside the nested Harvey mirror.
-- **Repository-root parity:** no, intentionally; this project adds
-  `world/`, `mcp/`, `harbor/`, research, and verifier architecture.
-- **Harbor:** Harvey LAB itself is not Harbor. The canonical world JSON is not
-  Harbor either. `harbor/generate.py` exports real Harbor schema 1.4 task
-  directories with isolated agent/world containers, MCP, `tests/test.sh`,
-  `solution/solve.sh`, mounted inputs, artifacts, and native multi-step tasks.
+- The nested Harvey mirror has the same folder structure and bytes as Harvey.
+- The repository root adds `world/`, `mcp/`, `harbor/`, deterministic verifiers,
+  research, and release architecture; it is not a renamed upstream clone.
+- `world-v21.json` is a canonical state model, not a Harbor task directory.
+- `dist/harbor-v21-prod/tasks/*` is native Harbor schema 1.4.
+- Harbor 0.22.0 is a local framework. No Harbor API,
+  account, OAuth login, or hosted Hub is required.
+
+## Folder and format topology
+
+```text
+legal-agent-simulation/
+├── research/repos/harveyai@harvey-labs/  # exact Harvey tree
+├── world/blobfish/world-v21.json          # canonical stateful world (not Harbor)
+├── mcp/v5/contracts/                      # 1,100 visible product tools
+├── research/v21-seeded-documents/         # 117 packs / 351 matched inputs
+├── harbor/                                # exporter, images, locked Harbor runner
+└── dist/harbor-v21-prod/
+    ├── dataset/dataset.toml                # Harbor dataset manifest
+    └── tasks/<task-id>/                    # native Harbor task packages
+```
+
+The full Harvey binary corpus is intentionally gitignored because it is 3.207
+GB of input payload (about 5.46 GiB with Git metadata). A clean checkout uses
+`research/clone-repos.sh`, then the strict audit verifies commit, paths, bytes,
+formats, LFS/zero-byte absence, OOXML CRCs, and known-defect hashes. This is a
+complete local copy with deterministic hydration, not an ordinary-Git bundle.
 
 ## Measured inventory
 
-| Measure | Harvey LAB | Local v20 |
+| Measure | Harvey LAB | Local v21 |
 | --- | ---: | ---: |
 | Task configs / hosted Harvey tasks | 2,010 | 2,010/2,010 |
-| Total executable tasks | — | 2,347 |
-| Physical upstream inputs | 60,971 | 60,971 exact-mirror copies |
+| Task-path manifest SHA-256 | `ff9b848518885cfc8e9714c4cd637a1f852c51c5608cb05f439d241c1e7a0f14` | `ff9b848518885cfc8e9714c4cd637a1f852c51c5608cb05f439d241c1e7a0f14` |
+| Broad mutation candidates | — | 31 variants across 14 tasks / 12 practice areas; 2 separately classified upstream-defect candidates; plan `fc2282f0e37246dda328e402bc1ccd5df620681dbac6fe34b96b43a5386557ba` |
+| Total executable tasks | — | 23,310 |
+| Physical upstream inputs | 60,971 | 60,971 exact local copies |
 | Input bytes | 3,206,739,638 | same exact bytes |
-| Generic / visible product tools | 6 | 110 + 11 internal |
-| Per-task deterministic verifiers | 0 | 2,347 |
+| Generic / visible product tools | 6 | 1,100 + 11 internal |
+| Per-task deterministic verifier programs | 0 | 23,310 |
 | Practice criteria determinized | — | 65,614/111,814 |
-| Retail scenarios / inputs | — | 3 / 15 |
-| Strict Harvey derivative tasks | — | 4 from 4 recipes |
-| Broad seeded Harvey variants | — | 19 across 8 task families |
-| 50 states + D.C. rows | — | 51 |
-| Primary-source-triaged / research queue | — | 6 / 45 |
-| Retail oracle | — | 6/6 |
-| Retail bad-path leaks | — | 0 across no-op/text-only/blind-write/wrong-value |
-| Recovered Harvey task oracle / bad-path leaks | — | 1/1 / 0 |
+| New structure-matched packs / inputs | — | 117 / 351 |
+| New DOCX / XLSX / PDF | — | 117 / 117 / 117 |
+| Rendered fixture pages passing automated QA | — | 585/585 |
+| Retail scenario inputs | — | 18 across 3 matched scenarios |
+| Specific state-plus-D.C. authority maps | — | 51/51 |
+| Authority maps represented as legal opinions/remedies | — | 0 / 0 |
+| Retail authority packs / admitted tasks | — | 51 / 9,129 |
+| Harbor packages / unique content digests | — | 23,310 / 23,310 |
+| Harbor file lanes / staged document instances | — | 22,813 / 126,598 |
+| Harbor multi-step tasks / phases | — | 36 / 89 |
+| Anonymous production image pulls | — | 0/2 exact digests |
 
 Upstream input format counts:
 
@@ -68,82 +93,160 @@ Upstream input format counts:
 
 | Area | Harvey LAB | This repository | Status |
 | --- | --- | --- | --- |
-| Repository bytes and folder tree | 63,074 tracked paths | Exact nested Git mirror at the pinned commit | `exact_copy` |
-| Task configurations | 2,010 task.json files | All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20-draft adapter | `exact_plus_executable` |
-| Input documents | 60,971 physical inputs / 3.207 GB | Every physical input is present in the exact mirror; 51,683 task-local documents are indexed for executable retrieval | `exact_copy_and_index` |
-| Office/PDF formats | DOCX/XLSX/PPTX/EML/TXT/JSON; zero PDFs | All upstream formats copied; synthetic retail extension adds 3 PDF receipts and 4 immutable primary-source PDFs | `exact_plus_extension` |
-| Generic agent tools | bash, read, write, edit, glob, grep | Exact harness/tools.py is copied; Harbor file-lane agents retain a shell and document stack, while state work uses 110 visible product tools | `exact_copy_different_operational_surface` |
-| Document skills | docx, xlsx, pptx skill trees | Exact skill trees are copied and staged into each file-lane Harbor task | `exact_and_operational` |
-| Sandbox | LibreOffice/pandoc/parsers image | Exact sandbox source copied; used as the file-lane agent-image base | `exact_and_operational` |
-| Evaluation | Criterion-by-criterion LLM judge; all-pass task scoring | Exact evaluation code copied; operational headline uses deterministic VCode and separate file/state lanes | `exact_copy_alternative_default` |
-| Gold graders/verifiers | One grader/gold/rubric.json; no per-task deterministic verifier programs | The one gold file is copied; world v20 ships 2,331 deterministic verifier programs | `exact_plus_extension` |
-| Firm knowledge | 250 tasks over one shared 9,288-file DMS | All 250 hosted through the indexed shared corpus | `operational_parity` |
-| Practice tasks | 1,760 task-local assignments | All 1,760 hosted; one task receives the explicit response.md adapter because upstream omitted a filename | `operational_parity_with_disclosed_adapter` |
-| Harbor format | Not Harbor; custom filesystem harness | Schema 1.4 task.toml, isolated agent/world containers, MCP, tests/test.sh, solution/solve.sh, and native multi-step [[steps]] | `local_extension` |
-| Canonical world format | No world/ state model | Canonical world-v20-draft.json is the runtime source format; harbor/generate.py exports it to Harbor | `local_extension` |
+| Repository bytes and Harvey folder tree | 63,074 tracked paths at 7be41d57fd5a | Exact clean nested Git mirror; repository root intentionally adds runtime architecture | `exact_nested_copy` |
+| Task configurations | 2,010 task.json files | All 2,010 hosted inside 23,310 total executable tasks | `exact_plus_executable` |
+| Physical input documents | 60,971 files / 3,206,739,638 bytes | All exact bytes present in the nested mirror; full mirror is gitignored and deterministically hydrated | `exact_local_copy_hydratable_distribution` |
+| DOCX/XLSX/PDF requested by audit | 42,009 DOCX, 11,148 XLSX, 0 PDF | Every upstream DOCX/XLSX copied; 351 new synthetic inputs include 117 PDFs | `exact_copy_plus_labeled_extension` |
+| Generic agent tools | bash, read, write, edit, glob, grep | Exact harness copied; file lanes retain shell/document tooling and state lanes expose 1,100 executable product tools | `exact_copy_plus_realistic_state_tools` |
+| Document skills and sandbox | DOCX/XLSX/PPTX skills and LibreOffice/pandoc/parsers sandbox | Exact sources copied and staged into applicable Harbor file lanes; locked derivative image used for execution | `exact_and_operational` |
+| Evaluation and graders | Criterion-level LLM judge, all-pass scoring, one gold rubric; no per-task deterministic programs | Exact judge copied; 23,310 task-specific deterministic verifiers added as a separate lane | `exact_copy_plus_deterministic_lane` |
+| Firm-knowledge tasks | 250 tasks over one shared 9,288-file DMS | 250/250 hosted against pinned evidence indexes | `operational_parity` |
+| Practice tasks | 1,760 task-local assignments | 1,760/1,760 hosted; one disclosed response.md adapter repairs a missing upstream output filename | `operational_parity_with_adapter` |
+| Mutated and seeded documents | No repository-wide deterministic mutation program | 117 structure-matched packs / 351 DOCX-XLSX-PDF inputs, including 51 jurisdiction packs | `local_extension` |
+| 51-jurisdiction retail authority reachability | No retail-compliance world or jurisdiction authority map | 51/51 exact citations and official URLs are exposed by executable tools; all remain attorney-gated | `executable_issue_spotting_map` |
+| Harbor task format | Harvey LAB uses its own filesystem harness, not Harbor | 23,310 native Harbor schema-1.4 packages with instruction.md, task.toml, environment, solution, and tests | `native_harbor_export` |
+| Canonical world format | No stateful world model | world-v21.json is the canonical runtime model; generated dist packages are Harbor format | `canonical_not_harbor_export_is_harbor` |
+| Harbor framework dependency | Not applicable | Local runner pins Harbor 0.22.0; no Harbor API, OAuth, account, or hosted Hub is required | `local_framework_only` |
+| Production image reachability | Not applicable | 0/2 immutable production images anonymously pullable | `external_registry_visibility_pending` |
 
-## Retail case correction and task design
+## What “copy all tasks, tools, and verifiers” means
 
-The prompt's Walmart example conflates multiple matters. `Rector v. Walmart`
-alleges shelf/register mismatches in D.C.; `Kahn v. Walmart` concerns alleged
-scanner-price discrepancies; the $45 million `Kukorinis` settlement concerned
-weighted goods and bagged citrus in the Middle District of Florida—not a
-California self-checkout double-charge settlement. California separately
-reported checkout-price and price/weight enforcement resolutions.
+Every Harvey source file—including tasks, six generic filesystem tools,
+judge/scoring code, skills, sandbox, tests, utilities, and the single gold
+rubric—is in the exact mirror. Harvey does **not** ship 2,010 deterministic
+verifier programs or 1,100 legal-product APIs. Those are local additions.
 
-The new environment therefore models the legal work without encoding the
-conflation as fact:
+All 1,760 practice tasks and 250 firm-knowledge tasks are hosted. One practice
+task omitted an output filename upstream; the port adds a disclosed
+`response.md` adapter without editing the source. The LAB judge remains a
+separate semantic lane because exact state checks cannot grade every criterion.
 
-1. evidence preservation and incident audit;
-2. transaction-level exposure and jurisdiction-gated refunds;
-3. a candid 50-state-plus-D.C. research matrix;
-4. receipt and policy redlines with statutory-rights savings language;
-5. duplicate-scan, price-sync, and weight-control implementation plus retest;
-6. a four-checkpoint national closeout matter.
+## Seeded documents and task generation
 
-The three scenario packs (CA, MI, D.C.) have the same five filenames, DOCX
-heading topology, XLSX sheet/column topology, and two-page receipt layout.
-Facts and answers change, not the file-reading structure. All receipt pages
-were rendered and visually inspected. Four immutable primary-source PDFs have
-URL, retrieval date, and SHA-256 records in `sources/manifest.json`.
+The seed catalog has **117 packs / 351
+documents**. Every pack contains one DOCX matter brief, one XLSX evidence and
+computation register, and one PDF source extract. All packs share the same
+heading, table, worksheet, formula, print, page-size, and PDF structure
+signature. Content, jurisdiction, dates, amounts, anchors, risk, and issue facts
+change. Every file is synthetic, hashed, manifested, reproducible, and
+attorney-gated.
 
-## All currently identified gaps
+All **585 rendered pages** pass expected-pagination,
+extractable-text, nonblank-raster, geometry, and safe-edge-treatment checks. The
+machine report distinguishes automated raster evidence from contact-sheet human
+review instead of treating structural validation as visual proof.
 
-These are not hidden behind the word “parity.”
+The 51 retail packs add one authority-mapped evidence set for every state and
+D.C. All are referenced by admitted v21 tasks. Workbooks carry citation,
+official URL, source type, common controls, and fields rejecting legal-opinion
+or private-remedy encoding. They do not overwrite Harvey inputs or the frozen
+v20 snapshot. In v21, the same 51 citations and official URLs are projected
+into the executable `rc_jurisdiction_rules` table. All six legacy retail
+task/verifier pairs pass the migration audit; the two authority-dependent pairs
+are rewritten away from the generic-portal vocabulary. Four top-level/phase
+VCode programs require an unfiltered list observation with both `count=51` and
+`total=51`; separate fail-closed build and checker gates prove that those 51
+executable rows exactly match the mapped citations and official URLs.
+Both authority-dependent workflows also pass the live local HTTP oracle
+(2/2).
+
+## Walmart example and 51-jurisdiction research
+
+The request's example conflates distinct matters. `Rector v. Walmart` alleges
+shelf/register mismatches in D.C.; the cited opinion concerns a first-filed
+stay, not a merits settlement. `Kahn v. Walmart` addresses alleged scanner
+discrepancies. The $45 million `Kukorinis` settlement concerned weighted goods
+and bagged citrus in Florida, not a California self-checkout double-charge
+settlement. California separately reported checkout and price/weight cases.
+
+The executable work covers preservation, transaction reconstruction, exposure,
+authority mapping, remedy gating, receipt/policy redlines, duplicate-scan and
+price-sync controls, weights, retesting, and national closeout. Common wording
+corrects verified overcharges promptly and preserves statutory rights; it never
+promises litigation immunity.
+
+The v2 map advances all 51 jurisdictions from a portal list to a specific
+statute, regulation, or official enforcement-program map. Every row still sets
+`substantive_legal_opinion=false`, `private_remedy_encoded=false`,
+`current_text_and_local_overlays_validated=false`, and
+`attorney_validation_required=true`.
+
+## Harbor executable evidence
+
+The export contains **23,310/23,310 tasks**,
+**23,310 unique package digests**,
+**22,813 file lanes**, **126,598 staged
+document instances**, and **zero agent-side world leaks or package symlinks**.
+Dataset SHA-256: `9a30f15ba76e15eb45dc6c5dc4adf66516927b8e28dd565c2c8ebd8362e31b3d`. The locked runner uses Harbor
+0.22.0 with a 91-package graph. The export is bound to
+`ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f` and `ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a`; the independent
+anonymous registry audit passes 0/2 exact digests.
+Local remote-metadata comparison of the export oracle proof is
+`false` with failure
+class `remote_image_inspection_unavailable`. Registry privacy can
+excuse remote inspection unavailability, but never an oracle-integrity failure;
+the release workflow's successful oracle canaries remain the independent
+production proof. Harbor Hub is optional.
+
+## Closed repository-controlled gaps
+
+- All 2,010 Harvey task configurations are hosted path-for-path with a matching provenance-manifest hash; all 60,971 upstream inputs are present in the exact pinned mirror.
+- The v21 world contains 23,310 tasks, 23,310 deterministic verifiers, 1,100 visible tools, and 254 tables.
+- All 23,310 tasks have native Harbor packages and dataset content hashes; full structural export validation is recorded.
+- Fifty-one specific retail authorities now drive 51 matched seed packs and admitted document-grounded tasks without encoding legal opinions or remedies.
+- All 351 admitted seed documents render into the expected 585 pages and pass pagination, text, raster, geometry, and safe-edge-treatment checks.
+- The four strict and 31 broad Harvey mutation experiments are explicitly lifecycle-labeled as regression candidates and are not double-counted; 94 release-admitted mutations have stable task references and Harbor packages.
+- Harbor runner is upgraded to v0.22.0 and remains a local framework with no Harbor API dependency.
+
+## Intentional differences, not hidden parity claims
+
+- Only research/repos/harveyai@harvey-labs reproduces Harvey's folder tree; repository root is a strict-superset implementation.
+- The canonical world JSON is not Harbor format; the generated task directories and dataset are Harbor format.
+- Harvey upstream has zero PDF inputs; local PDFs are labeled synthetic fixtures or provenance-tracked public references.
+- Deterministic verifiers supplement rather than impersonate Harvey's LLM judge.
+- Research-only mutation candidates remain reproducible but are excluded from production task counts until they satisfy the documented admission gate.
+- Two additional entity maps are machine-classified as blocked by immutable upstream-source defects and are excluded from the 31-variant seed plan.
+
+## All remaining gaps and external boundaries
 
 | ID | Severity | Gap | Required closure |
 | --- | --- | --- | --- |
-| G1 | high | 46,200 of 111,814 practice rubric criteria remain outside the deterministic assertion subset. | Run the copied LAB dual-judge lane as a separately reported semantic score, or add source-validated deterministic assertions with oracle and corruption gates. |
-| G2 | high | The 45 baseline-only state rows are not a completed 51-jurisdiction legal opinion. | Qualified counsel must validate current primary text and applicability for each jurisdiction before deployment; encode each completed review with a version/effective-date pin. |
-| G3 | high | No receipt, contract term, disclaimer, or control can ensure that the retailer will not be sued. | Use accurate-charge prevention, rapid detection/refund, nonwaiver wording, evidence preservation, audits, escalation, and current legal review. |
-| G4 | high | Frozen v19 external reference-model calibration remains incomplete (856/6,972 episodes) because the pinned account lacked funds. | Fund and resume the exact frozen calibration denominator, or publish a separately versioned replacement protocol. |
-| G5 | medium | RetailGuard is a synthetic documentation-fixture API, not a conformance-tested mirror of a real retail platform. | Choose a licensed/public retail API specification or partner sandbox, pin it, and add schema/error/pagination conformance tests. |
-| G6 | medium | The seven new/adapted tasks were structurally exported to Harbor, but a full 2,331-task Docker/Harbor fleet run was not repeated in this audit. | Build/publish the v20 world and LAB agent images, run the seven-task Harbor oracle canary, then fan out the full task tree with recorded Harbor version and image digests. |
-| G7 | medium | The exact upstream mirror contains nine known malformed OOXML XML parts. | Keep the immutable source, exact-hash allowlist, recovery copies, and separate normalized derivatives. Fail on any hash or defect-count drift. |
-| G8 | medium | Deterministic anchors do not fully grade visual polish, tracked-change semantics, formula correctness after every application, or professional legal judgment. | Add OOXML semantic checks, formula recalculation, render comparisons, and the copied LAB judge as independent channels; never average away lane disagreement. |
-| G9 | low | The repository root intentionally does not reproduce Harvey's top-level layout. | Use the nested mirror for byte/folder parity and the generated Harbor tree for runnable task parity; do not describe the repository root as an upstream clone. |
-| G10 | low | Upstream contains no PDF inputs, so there is nothing upstream to copy in that format. | Keep the zero-PDF audit fact. Add only clearly labeled synthetic or provenance-tracked public reference PDFs in separate extension lanes. |
-| G11 | medium | Four strict Harvey derivative tasks and 19 broad seeded variants are generator/harness assets, not separately admitted v20 state workflows. | Index each derivative evidence set, compile its changed rubric facts, then require world admission, file/state lane agreement, oracle, corruption probes, and Harbor canary before counting it in the 2,331-task world total. |
+| G1 | high | 46,200 of 111,814 practice criteria remain outside the deterministic assertion subset. | Report the copied LAB judge independently or add source-grounded assertions with oracle and corruption gates; never infer semantic quality from deterministic state success. |
+| G2 | high | All 51 jurisdictions have a specific authority map, but none of the new v2 rows is represented as a deployment-ready 51-jurisdiction legal opinion. | Counsel validates and signs a versioned jurisdiction memorandum; only then may a row become an executable legal rule or remedy. |
+| G3 | high | No receipt, contract term, disclaimer, refund policy, software control, or benchmark can ensure that a retailer will not be sued. | Use prevention, rapid correction, nonwaiver language, evidence preservation, audits, escalation, and current legal review; describe residual risk candidly. |
+| G4 | high | Frozen v19 external reference-model calibration remains incomplete at 856/6,972 episodes because the pinned account lacked funds. | Fund and resume the exact frozen denominator or publish a separately versioned replacement protocol. |
+| G5 | medium | The 1,100 product tools are executable synthetic legal-operations contracts, not certified mirrors of proprietary vendor APIs. | Pin a licensed or public partner specification and add schema, error, authentication, pagination, and rate-limit conformance tests. |
+| G6 | medium | The full export is structurally and deterministically checked, but a 23,310-trial external model fleet run is not part of this repository audit. | Run the frozen dataset at an explicitly sized concurrency and publish agent/model, Harbor version, image digests, costs, failures, and denominator. |
+| G7 | medium | The exact upstream mirror contains 9 known malformed OOXML XML parts. | Keep the immutable source, exact-hash allowlist, recovery copies, and separate normalized derivatives; fail on hash or defect-count drift. |
+| G8 | medium | Deterministic anchors do not completely grade visual polish, tracked-change semantics, recalculated formulas in every office application, or professional legal judgment. | Keep render, OOXML semantic, formula-recalculation, file/state, and semantic-judge channels separate and expose disagreement. |
+| G9 | high | Only 0/2 digest-bound GHCR production images are anonymously pullable. | A package administrator must change both GHCR container packages to Public; rerun the digest-bound anonymous gate afterward. |
+| G10 | low | The 3.207-GB Harvey input payload is present locally but intentionally excluded from ordinary Git history. | Run research/clone-repos.sh and the strict input audit, or publish a license-compatible content-addressed corpus artifact with hash verification. |
 
-## What “copy all tools and verifiers” means here
-
-Every upstream tool, judge, scoring, sandbox, skill, test, and utility source
-file is present in the exact mirror. Harvey has six generic filesystem tools
-and LLM-judge scoring; it does **not** provide 2,010 deterministic verifier
-programs to copy. The local product tools and VCodes are additions. Describing
-them as verbatim Harvey tools or verifiers would be inaccurate.
+No open item is a repository-controlled implementation omission. The remaining
+items are semantic or legal-review boundaries, external calibration and fleet
+measurement, proprietary-spec access, immutable upstream defects, or corpus
+distribution constraints. Research-only mutation candidates are explicitly
+lifecycle-labeled and are not double-counted as graded tasks.
 
 ## Reproduction and gates
 
 ```bash
-python3 tools/audit_harvey_inputs.py --check
-python3 world/port/lab_determinize.py --check
-python3 tools/build_retail_price_accuracy_pack.py
+npm run harvey:input-audit-check
+npm run harvey:parity-audit-check
 python3 tools/build_retail_price_accuracy_pack.py --check
-python3 world/v20/build.py
-python3 tools/check_v20_retail.py
-python3 tools/check_harbor_file_lane.py
-python3 tools/build_harvey_parity_audit.py --check
+python3 tools/build_v21_seed_documents.py --check
+npm run v21:check
+npm run v21:document-render-check
+python3 tools/run_harbor_production.py generate   --world-image ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f   --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a
+# This exits 1 while G9 remains; structural and dataset reports are still written first.
+python3 tools/run_harbor_production.py check   --world-image ghcr.io/blobfishai/legal-agent-sim-world@sha256:9b1cb5669c72e433928253d6e9abb212193ef5ed67bb3eff24758151f00dc81f   --lab-image ghcr.io/blobfishai/legal-agent-sim-agent-lab@sha256:9105b0e44d4563cbb327cdecdd48b9d76d26a9d688ede4a35a2afc5ccbe19d5a
+uv run --project harbor/runner --locked harbor --version
 ```
 
-The machine-readable companion is `reports/harvey-parity-audit.json`.
+Machine-readable evidence: `reports/harvey-parity-audit.json`,
+`reports/v21-harbor-export-audit.json`,
+`reports/v21-harbor-dataset-audit.json`,
+`reports/v21-ghcr-public-audit.json`,
+`reports/v21-oracle-proof-audit.json`,
+`reports/v21-document-render-audit.json`, and
+`reports/v21-document-visual-review.json`.

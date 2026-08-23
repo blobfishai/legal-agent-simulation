@@ -310,6 +310,7 @@ def main() -> int:
                 fail(f"{kind}: packaged evidence SHA-256 mismatch")
 
     report = {
+        "schema_version": 1,
         "tasks": len(task_directories),
         "file_lanes": file_lanes,
         "staged_documents": document_count,
@@ -319,6 +320,8 @@ def main() -> int:
         "lab_agent_context_files": lab_agent_context_files,
         "lab_agent_context_sha256": lab_agent_context_sha256,
         "world_sha256": sha256_file(world_path),
+        "world_image": args.world_image,
+        "lab_image": args.lab_image,
         "solve_token_sha256": hashlib.sha256(solve_token.encode()).hexdigest(),
         "agent_world_leaks": 0,
         "package_symlinks": 0,

@@ -1,6 +1,6 @@
 # Primary-source research register
 
-Verified for benchmark design on 2026-08-22. This is a source map, not legal
+Verified for benchmark design on 2026-08-23. This is a source map, not legal
 advice or an exhaustive 51-jurisdiction legal opinion. Current text,
 applicability, exclusions, local overlays, remedies, effective dates, private
 rights, and procedural requirements must be validated by qualified counsel.
@@ -39,6 +39,47 @@ rights, and procedural requirements must be validated by qualified counsel.
   <https://www.nist.gov/news-events/news/2024/01/2024-national-price-verification-survey>
 - FTC, *Price Check II: A Report on the Accuracy of Checkout Scanner Prices*:
   <https://www.ftc.gov/sites/default/files/documents/reports/price-check-report-accuracy-checkout-scanners/scanners.pdf>
+
+## Additional official comparators for task design
+
+These sources are research comparators, not additional adjudicated facts about
+the synthetic scenarios and not deployment-ready legal rules. They support
+future packs built from stipulated orders, price-verification reports,
+corrective-action logs, employee training records, customer signage,
+accessibility surveys, and payment-reconciliation evidence.
+
+- Ohio Attorney General, 2024 Dollar General settlement summary. The official
+  summary identifies shelf/register discrepancies and operational terms such
+  as shelf-price overrides, 24-hour label correction, 45-day random checks,
+  full-store assessments after repeated failures, employee education, and
+  customer signage:
+  <https://www.ohioattorneygeneral.gov/Media/Newsletters/Consumer-Advocate/February-2024/Dollar-General-settlement-brings-help-to-Ohioans>
+- Ohio Attorney General, 2023 stipulated-order announcement and filed order.
+  The materials add notification thresholds, correction evidence, and record
+  retention suitable for deterministic control-testing tasks:
+  <https://www.ohioattorneygeneral.gov/Media/News-Releases/February-2023/AG-Yost-Dollar-General-Reach-Agreement-to-Avert-Te>
+  and
+  <https://www.ohioattorneygeneral.gov/Files/Briefing-Room/News-Releases/2023-2-7-Stipulated-Order-File-Stamped.aspx>
+- Wisconsin DATCP, 2023 Dollar General price-accuracy settlement. The official
+  release reports inspection results and the state's difference-refund and
+  conspicuous-signage requirements:
+  <https://datcp.wi.gov/Pages/News_Media/20231120DollarGeneralSettlement.aspx>
+- North Carolina Department of Agriculture, 2022 price-scanner enforcement.
+  The official release describes unannounced sampling, a greater-than-2%
+  overcharge-error threshold, follow-up inspection, penalties, and 60-day
+  reinspection until compliance:
+  <https://www.ncagr.gov/news/press-releases/2022/12/09/70-stores-pay-fines-price-scanning-errors-38-counties>
+- U.S. Department of Justice, Stop & Shop ADA settlement. The agreement covers
+  accessible staffed and self-service checkout aisles, open-aisle policy, and
+  reachable card readers, supporting an accessibility-control evidence lane:
+  <https://www.justice.gov/usao-ri/press-release/file/1100961/dl>
+- FTC payments and billing guidance. The official topic page states the
+  authorization baseline for customer-account charges; related consumer
+  guidance identifies duplicate credit-card charges as billing-error evidence.
+  These sources support a separate payment-authorization/reversal task lane,
+  not a state scanner-law conclusion:
+  <https://www.ftc.gov/business-guidance/credit-finance/payments-billing> and
+  <https://consumer.ftc.gov/articles/using-credit-cards-and-disputing-charges>
 
 ## Triaged jurisdiction authorities
 
