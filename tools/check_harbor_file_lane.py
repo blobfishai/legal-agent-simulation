@@ -62,6 +62,25 @@ def main() -> int:
     live_checked = False
     with tempfile.TemporaryDirectory(prefix="harbor-file-lane-") as temporary:
         base = Path(temporary)
+        token_path = base / "solve-token.txt"
+        token_path.write_text("cd" * 16)
+        previous_token = os.environ.get("HARBOR_SOLVE_TOKEN")
+        try:
+            os.environ["HARBOR_SOLVE_TOKEN"] = "ab" * 16
+            assert generator.resolve_solve_token(str(token_path)) == "ab" * 16
+            del os.environ["HARBOR_SOLVE_TOKEN"]
+            assert generator.resolve_solve_token(str(token_path)) == "cd" * 16
+            os.environ["HARBOR_SOLVE_TOKEN"] = "not-a-valid-token"
+            try:
+                generator.resolve_solve_token(str(token_path))
+                raise AssertionError("invalid release solve token was accepted")
+            except RuntimeError as error:
+                assert "32-128 lowercase hex" in str(error)
+        finally:
+            if previous_token is None:
+                os.environ.pop("HARBOR_SOLVE_TOKEN", None)
+            else:
+                os.environ["HARBOR_SOLVE_TOKEN"] = previous_token
         documents_source = base / "source-documents"
         skills_source = base / "source-skills"
         documents_source.mkdir()

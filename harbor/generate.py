@@ -652,6 +652,22 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
     return img
 
 
+def resolve_solve_token(token_path: str) -> str:
+    """Use the release secret, an existing export token, or a new local token."""
+    configured = os.environ.get("HARBOR_SOLVE_TOKEN", "").strip()
+    if configured:
+        token = configured
+    elif os.path.isfile(token_path):
+        token = Path(token_path).read_text("utf-8").strip()
+    else:
+        token = secrets.token_hex(16)
+    if not (32 <= len(token) <= 128 and all(character in "0123456789abcdef" for character in token)):
+        raise RuntimeError(
+            "HARBOR_SOLVE_TOKEN/export solve token must be 32-128 lowercase hex characters"
+        )
+    return token
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--world", default=os.path.join(ROOT, "world", "blobfish",
@@ -683,12 +699,11 @@ def main() -> None:
     out = os.path.abspath(args.out)
     os.makedirs(out, exist_ok=True)
 
-    # Solve token: stable across regenerations so committed nothing depends on it.
+    # The encrypted release secret lets independently generated full-task and
+    # production-image exports share one hidden oracle credential. Without it,
+    # local regeneration remains stable by retaining the ignored token file.
     token_path = os.path.join(out, "world-image", "solve-token.txt")
-    if os.path.exists(token_path):
-        token = open(token_path).read().strip()
-    else:
-        token = secrets.token_hex(16)
+    token = resolve_solve_token(token_path)
     img_dir = assemble_world_image(out, args.world, contracts_dir)
     write(token_path, token + "\n")
 

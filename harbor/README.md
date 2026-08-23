@@ -78,6 +78,14 @@ integrity, table counts, and source metadata. A clean release runner hydrates
 them with `python3 tools/hydrate_v21_evidence.py` before building the world
 image; `--check` verifies a materialized copy without downloading it.
 
+The full export and production world image must also share the same hidden
+oracle credential. Local regeneration retains it only in the ignored
+`world-image/solve-token.txt`; CI receives the same value through the encrypted
+`V21_HARBOR_SOLVE_TOKEN` Actions secret. `v21:harbor-check` verifies that every
+top-level and multistep oracle solution carries the export token without
+printing it, while the production Harbor oracle gate proves the image carries
+the corresponding hash.
+
 ```bash
 # Optional manual image push (the release workflow normally performs this)
 gh auth refresh -h github.com -s write:packages

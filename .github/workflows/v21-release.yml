@@ -65,8 +65,11 @@ jobs:
           python3 tools/hydrate_v21_evidence.py --check
 
       - name: Assemble the production image context
+        env:
+          HARBOR_SOLVE_TOKEN: ${{ secrets.V21_HARBOR_SOLVE_TOKEN }}
         run: |
           set -euo pipefail
+          [[ "$HARBOR_SOLVE_TOKEN" =~ ^[0-9a-f]{32,128}$ ]]
           python3 harbor/generate.py \
             --world world/blobfish/world-v21.json \
             --contracts mcp/v5/contracts \

@@ -87,6 +87,10 @@ C&H FTS indexes from the `v21-production-evidence` release. Their 1.49 GB of
 compressed assets expand to 4,738,142,208 exact SQLite bytes and are gated by
 compressed/uncompressed SHA-256, SQLite quick-check, semantic table counts, and
 pinned Harvey source metadata in `world/corpus/v21-production-evidence.json`.
+The ignored full-export oracle token is mirrored only into the encrypted
+`V21_HARBOR_SOLVE_TOKEN` Actions secret; the export gate checks every solution
+against it, and candidate promotion requires live oracle success against the
+image's corresponding token hash.
 The full generated Harbor dataset is `dist/harbor-v21-prod/tasks` (23,310
 tasks); Harbor registry publication is a separate authenticated operation
 documented in `harbor/README.md`.

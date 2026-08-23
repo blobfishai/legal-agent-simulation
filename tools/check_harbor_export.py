@@ -80,11 +80,18 @@ def assert_executable(path: Path) -> None:
         fail(f"required executable missing or not executable: {path}")
 
 
+def assert_solution(path: Path, solve_token: str) -> None:
+    assert_executable(path)
+    if solve_token not in path.read_text("utf-8"):
+        fail(f"oracle solution does not carry the export's hidden solve token: {path}")
+
+
 def audit_task(
     directory: Path,
     task: dict[str, Any],
     world_image: str,
     lab_image: str,
+    solve_token: str,
 ) -> tuple[int, int, int]:
     task_id = task["task_id"]
     manifest_path = directory / "task.toml"
@@ -127,12 +134,12 @@ def audit_task(
             if not (step / "instruction.md").is_file():
                 fail(f"{task_id}/{name}: instruction missing")
             assert_executable(step / "tests" / "test.sh")
-            assert_executable(step / "solution" / "solve.sh")
+            assert_solution(step / "solution" / "solve.sh", solve_token)
     else:
         if not (directory / "instruction.md").is_file():
             fail(f"{task_id}: instruction missing")
         assert_executable(directory / "tests" / "test.sh")
-        assert_executable(directory / "solution" / "solve.sh")
+        assert_solution(directory / "solution" / "solve.sh", solve_token)
 
     staged_documents = 0
     staged_skills = 0
@@ -174,6 +181,13 @@ def main() -> int:
 
     export_root = args.root.resolve()
     tasks_root = export_root / "tasks"
+    token_path = export_root / "world-image" / "solve-token.txt"
+    if not token_path.is_file():
+        fail("world-image/solve-token.txt is missing")
+    solve_token = token_path.read_text("utf-8").strip()
+    if not (32 <= len(solve_token) <= 128 and
+            all(character in "0123456789abcdef" for character in solve_token)):
+        fail("world-image solve token has an invalid format")
     world_path = args.world.resolve()
     world = json.loads(world_path.read_text("utf-8"))
     world_tasks = {task["task_id"]: task for task in world["tasks"]}
@@ -203,7 +217,7 @@ def main() -> int:
         names.add(name)
         task = world_tasks[directory.name]
         documents, skills, phases = audit_task(
-            directory, task, args.world_image, args.lab_image
+            directory, task, args.world_image, args.lab_image, solve_token
         )
         document_count += documents
         skill_count += skills
@@ -240,6 +254,7 @@ def main() -> int:
         "multistep_tasks": multistep_tasks,
         "multistep_phases": phase_count,
         "world_sha256": sha256_file(world_path),
+        "solve_token_sha256": hashlib.sha256(solve_token.encode()).hexdigest(),
         "agent_world_leaks": 0,
     }
     print(json.dumps(report, sort_keys=True))
