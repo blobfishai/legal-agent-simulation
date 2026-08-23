@@ -64,6 +64,7 @@ jobs:
         run: |
           set -euo pipefail
           npm run v21:build
+          npm run retail:check
           npm run v21:check
           python3 -m unittest tools.tests.test_v21_document_rendering -v
           python3 -m unittest \

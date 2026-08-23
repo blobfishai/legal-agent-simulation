@@ -31,6 +31,11 @@ ORACLE_PROOF_REPORT = ROOT / "reports" / "v21-oracle-proof-audit.json"
 DOCUMENT_RENDER_REPORT = ROOT / "reports" / "v21-document-render-audit.json"
 DOCUMENT_VISUAL_REVIEW_REPORT = ROOT / "reports" / "v21-document-visual-review.json"
 HARBOR_RUNNER = ROOT / "harbor" / "runner" / "pyproject.toml"
+HARBOR_RUNNER_LOCK = ROOT / "harbor" / "runner" / "uv.lock"
+HARBOR_GENERATOR = ROOT / "harbor" / "generate.py"
+HARBOR_EXPORT_CHECKER = ROOT / "tools" / "check_harbor_export.py"
+HARBOR_DATASET_CHECKER = ROOT / "tools" / "check_harbor_dataset.py"
+HARBOR_PRODUCTION_RUNNER = ROOT / "tools" / "run_harbor_production.py"
 HARVEY_RECIPES = ROOT / "research" / "harvey-augmentation" / "recipes"
 HARVEY_GENERATED = ROOT / "research" / "harvey-augmentation" / "generated"
 HARVEY_SEED_PLAN = ROOT / "research" / "mutation-configs" / "seed-plan.json"
@@ -466,6 +471,7 @@ def build_payload() -> dict[str, Any]:
             "broad_harvey_seed_variants": sum(len(row["seeds"]) for row in seed_plan["variants"]),
             "broad_harvey_seed_plan_sha256": sha256(HARVEY_SEED_PLAN),
             "blocked_harvey_mutation_candidates": len(mutation_status["blocked"]),
+            "resolved_harvey_mutation_candidates": len(mutation_status.get("resolved") or []),
             "retail_oracle": {key: oracle[key] for key in ("total", "passed", "pass_rate")},
             "retail_authority_oracle": {
                 key: retail_authority_oracle[key]
@@ -492,6 +498,18 @@ def build_payload() -> dict[str, Any]:
                 "dataset_sha256": harbor_dataset["dataset_sha256"],
                 "dataset_tasks": harbor_dataset["tasks"],
                 "dataset_unique_digests": harbor_dataset["unique_digests"],
+                "task_package_files": harbor_export["task_package_files"],
+                "task_package_topology_sha256": harbor_export["task_package_topology_sha256"],
+                "dataset_task_package_files": harbor_dataset["task_package_files"],
+                "task_digest_manifest_sha256": harbor_dataset["task_digest_manifest_sha256"],
+                "lab_agent_context_files": harbor_export["lab_agent_context_files"],
+                "lab_agent_context_sha256": harbor_export["lab_agent_context_sha256"],
+                "world_image_context_files": harbor_export["world_image_context_files"],
+                "export_checker_sha256": harbor_export["checker_sha256"],
+                "generator_sha256": harbor_export["generator_sha256"],
+                "dataset_checker_sha256": harbor_dataset["checker_sha256"],
+                "harbor_lock_sha256": harbor_dataset["harbor_lock_sha256"],
+                "oracle_runner_sha256": oracle_proof["runner_sha256"],
                 "world_image": harbor_export["world_image"],
                 "lab_image": harbor_export["lab_image"],
                 "production_images_public": ghcr_public["all_public"],
@@ -505,11 +523,12 @@ def build_payload() -> dict[str, Any]:
         "closed_repository_gaps": [
             "All 2,010 Harvey task configurations are hosted path-for-path with a matching provenance-manifest hash; all 60,971 upstream inputs are present in the exact pinned mirror.",
             "The v21 world contains 23,310 tasks, 23,310 deterministic verifiers, 1,100 visible tools, and 254 tables.",
-            "All 23,310 tasks have native Harbor packages and dataset content hashes; full structural export validation is recorded.",
+            "All 23,310 tasks have native Harbor packages whose generated text bytes, staged inputs, skills, world-image context, root topology, and publishable Harbor dataset file sets are checked exactly; package and digest manifests are recorded.",
             "Fifty-one specific retail authorities now drive 51 matched seed packs and admitted document-grounded tasks without encoding legal opinions or remedies.",
             "All 351 admitted seed documents render into the expected 585 pages and pass pagination, text, raster, geometry, and safe-edge-treatment checks.",
             f"The four strict and {sum(len(row['seeds']) for row in seed_plan['variants'])} broad Harvey mutation experiments are explicitly lifecycle-labeled as regression candidates and are not double-counted; 94 release-admitted mutations have stable task references and Harbor packages.",
             "Harbor runner is upgraded to v0.22.0 and remains a local framework with no Harbor API dependency.",
+            "Validation scripts that retain assertions fail closed under python -O, and the regression suite enforces that invariant for every tracked production Python file.",
         ],
         "intentional_differences": [
             "Only research/repos/harveyai@harvey-labs reproduces Harvey's folder tree; repository root is a strict-superset implementation.",
@@ -581,14 +600,16 @@ def build_payload() -> dict[str, Any]:
             "v21 tool or table inventory drifted")
     require(seeds["packs"] == 117 and seeds["documents"] == 351,
             "v21 seed pack or document count drifted")
-    require(payload["local"]["broad_harvey_source_tasks"] == 14,
+    require(payload["local"]["broad_harvey_source_tasks"] == 16,
             "broad Harvey source-task count drifted")
-    require(payload["local"]["broad_harvey_practice_areas"] == 12,
+    require(payload["local"]["broad_harvey_practice_areas"] == 14,
             "broad Harvey practice-area count drifted")
-    require(payload["local"]["broad_harvey_seed_variants"] == 31,
+    require(payload["local"]["broad_harvey_seed_variants"] == 35,
             "broad Harvey seed-variant count drifted")
-    require(payload["local"]["blocked_harvey_mutation_candidates"] == 2,
+    require(payload["local"]["blocked_harvey_mutation_candidates"] == 0,
             "blocked Harvey mutation count drifted")
+    require(payload["local"]["resolved_harvey_mutation_candidates"] == 2,
+            "resolved Harvey mutation count drifted")
     require(document_render["total_rendered_pages"] == 585,
             "rendered document page total drifted")
     require(document_render["rendered_pages"] == {"docx": 117, "pdf": 117, "xlsx": 351},
@@ -628,9 +649,9 @@ def build_payload() -> dict[str, Any]:
                     for row in authority_rows),
             "retail authority map encodes an unreviewed legal opinion or private remedy")
     require(runner_version == AUDITED_HARBOR_RELEASE, "Harbor runner pin drifted")
-    require(harbor_export.get("schema_version") == 1,
+    require(harbor_export.get("schema_version") == 2,
             "Harbor export report schema version drifted")
-    require(harbor_dataset.get("schema_version") == 1,
+    require(harbor_dataset.get("schema_version") == 2,
             "Harbor dataset report schema version drifted")
     require(
         harbor_export["tasks"] == harbor_dataset["tasks"]
@@ -639,6 +660,14 @@ def build_payload() -> dict[str, Any]:
     )
     require(harbor_export["world_sha256"] == sha256(WORLD),
             "Harbor export report does not bind the current world")
+    require(
+        harbor_export["task_package_files"] == harbor_dataset["task_package_files"]
+        and harbor_export["checker_sha256"] == sha256(HARBOR_EXPORT_CHECKER)
+        and harbor_export["generator_sha256"] == sha256(HARBOR_GENERATOR)
+        and harbor_dataset["checker_sha256"] == sha256(HARBOR_DATASET_CHECKER)
+        and harbor_dataset["harbor_lock_sha256"] == sha256(HARBOR_RUNNER_LOCK),
+        "Harbor byte/topology reports are stale or disagree on packaged files",
+    )
     ghcr_images = {row.get("image") for row in ghcr_public.get("results") or []}
     require(
         ghcr_public.get("schema_version") == 1
@@ -650,7 +679,8 @@ def build_payload() -> dict[str, Any]:
         "anonymous GHCR report is stale or not bound to both Harbor export images",
     )
     require(
-        oracle_proof.get("schema_version") == 1
+        oracle_proof.get("schema_version") == 2
+        and oracle_proof.get("runner_sha256") == sha256(HARBOR_PRODUCTION_RUNNER)
         and oracle_proof.get("world_image") == harbor_export["world_image"]
         and oracle_proof.get("export_solve_token_sha256")
         == harbor_export["solve_token_sha256"]
@@ -758,7 +788,7 @@ complete local copy with deterministic hydration, not an ordinary-Git bundle.
 | --- | ---: | ---: |
 | Task configs / hosted Harvey tasks | {upstream['task_configs']:,} | {local['harvey_tasks_hosted']:,}/{local['harvey_tasks_total']:,} |
 | Task-path manifest SHA-256 | `{upstream['task_path_manifest_sha256']}` | `{local['harvey_task_path_manifest_sha256']}` |
-| Broad mutation candidates | — | {local['broad_harvey_seed_variants']} variants across {local['broad_harvey_source_tasks']} tasks / {local['broad_harvey_practice_areas']} practice areas; {local['blocked_harvey_mutation_candidates']} separately classified upstream-defect candidates; plan `{local['broad_harvey_seed_plan_sha256']}` |
+| Broad mutation candidates | — | {local['broad_harvey_seed_variants']} variants across {local['broad_harvey_source_tasks']} tasks / {local['broad_harvey_practice_areas']} practice areas; {local['blocked_harvey_mutation_candidates']} blocked and {local['resolved_harvey_mutation_candidates']} resolved upstream-defect candidates; plan `{local['broad_harvey_seed_plan_sha256']}` |
 | Total executable tasks | — | {local['tasks']:,} |
 | Physical upstream inputs | {upstream['physical_inputs']:,} | {upstream['physical_inputs']:,} exact local copies |
 | Input bytes | {upstream['input_bytes']:,} | same exact bytes |
@@ -773,6 +803,7 @@ complete local copy with deterministic hydration, not an ordinary-Git bundle.
 | Authority maps represented as legal opinions/remedies | — | {local['jurisdictions_substantive_legal_opinions']} / {local['jurisdictions_private_remedies_encoded']} |
 | Retail authority packs / admitted tasks | — | {local['retail_authority_packs']} / {local['retail_authority_tasks']:,} |
 | Harbor packages / unique content digests | — | {harbor['exported_tasks']:,} / {harbor['dataset_unique_digests']:,} |
+| Harbor package files / exact topology hash | — | {harbor['task_package_files']:,} / `{harbor['task_package_topology_sha256']}` |
 | Harbor file lanes / staged document instances | — | {harbor['file_lanes']:,} / {harbor['staged_documents']:,} |
 | Harbor multi-step tasks / phases | — | {harbor['multistep_tasks']} / {harbor['multistep_phases']} |
 | Anonymous production image pulls | — | {harbor['public_images']}/2 exact digests |
@@ -855,9 +886,12 @@ statute, regulation, or official enforcement-program map. Every row still sets
 
 The export contains **{harbor['exported_tasks']:,}/{local['tasks']:,} tasks**,
 **{harbor['dataset_unique_digests']:,} unique package digests**,
+**{harbor['task_package_files']:,} byte-checked package files**,
 **{harbor['file_lanes']:,} file lanes**, **{harbor['staged_documents']:,} staged
 document instances**, and **zero agent-side world leaks or package symlinks**.
-Dataset SHA-256: `{harbor['dataset_sha256']}`. The locked runner uses Harbor
+Package topology SHA-256: `{harbor['task_package_topology_sha256']}`. Dataset
+task-digest manifest SHA-256: `{harbor['task_digest_manifest_sha256']}`. Dataset
+SHA-256: `{harbor['dataset_sha256']}`. The locked runner uses Harbor
 {harbor['runner_version']} with a 91-package graph. The export is bound to
 `{harbor['world_image']}` and `{harbor['lab_image']}`; the independent
 anonymous registry audit passes {harbor['public_images']}/2 exact digests.

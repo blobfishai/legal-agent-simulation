@@ -9,11 +9,11 @@ Harbor packaging/runtime, clean rebuilds, and production image publication.
 V21 is a reproducible executable extension of the canonical v20 world. The
 release contains 23,310 tasks, 23,310 deterministic verifiers, 1,100
 agent-visible tools, 11 internal operations, 32 contracts, 254 tables, and 351
-new synthetic source documents. The canonical world is 263,108,165 bytes with
-SHA-256 `76364790d9a548f01af25337a170c49269cbfeaf3f3b667db9460c29bdb2f5ab`.
+new synthetic source documents. The canonical world is 263,127,521 bytes with
+SHA-256 `7cb5f9ccb36ea1e3ce27bf86554550ba73a01b1e04be35ca6a3e6e15a38702c6`.
 A second clean-process rebuild produced the same bytes.
 
-This audit found and closed fourteen release-blocking or publication-integrity
+This audit found and closed twenty-four release-blocking or publication-integrity
 defects:
 
 1. Generated DOCX briefs could orphan the validation boundary on a second
@@ -72,6 +72,44 @@ defects:
     mismatch shared one `matched: false` state. Reports now preserve a typed
     failure class, and registry privacy can excuse only remote inspection
     unavailability, never missing or mismatched proof metadata.
+15. Multi-step file tasks exposed final deliverable requirements and graded
+    files before closeout. Prompts and verifiers now request and score those
+    artifacts only in the final phase.
+16. Harbor validation trusted summaries of generated packages. It now compares
+    exact task text, README bytes, source inputs, skills, test and solution
+    programs, file modes, and the complete root/task/dataset topology.
+17. Generation accepted unsafe identifiers and could follow staged source
+    links. Every generated path is now confined below the output root;
+    traversal, symlink, special-file, duplicate-ID, duplicate-phase, and
+    duplicate-skill inputs fail closed.
+18. Re-generation could retain stale dataset or root files. The generator now
+    replaces confined trees transactionally, and validation rejects every
+    unexpected published entry rather than silently ignoring it.
+19. Dataset verification trusted declared task digests. It now hashes the exact
+    publishable file set and proves every ordered name, digest, and package
+    count against the full 23,310-package export.
+20. Oracle evidence could repeat caller-supplied success fields. Reports now
+    derive match state from observed image proofs, bind the production runner
+    hash, and preserve typed failure classes.
+21. Runtime validation relied on Python `assert`, which disappears under
+    optimized execution. Production guards are explicit exceptions and the
+    test suite executes them under `python -O`.
+22. Existing generated files could be hard-linked to source files, and source
+    mode drift was not attested. Atomic replacement now breaks aliases safely;
+    deterministic `0644`/`0755` modes are generated and checked end to end.
+23. Harvey mutations did not fully preserve ZIP member metadata, could lose
+    duplicate-member order, treated `FAIL only if` as malformed, and allowed
+    concurrent plans to race. Mutation engine v3 preserves archive structure,
+    rejects unsupported data-descriptor changes, and serializes output through
+    a hardened owner-only lock.
+24. Oregon, Tennessee, and Washington retail rows contained mismatched or weak
+    top-level anchors. The corpus now maps OAR 603-027-0180 with Oregon
+    statutes, Tenn. Code Ann. § 47-26-913 with the official 2026 rule-review
+    packet, and Wash. Rev. Code § 19.94.390; regenerated DOCX/PDF/XLSX evidence
+    and all 15 changed render pages were revalidated. A deterministic gate now
+    freezes those reviewed anchors together with the prior Arkansas and Arizona
+    corrections so a byte-reproducible rebuild cannot normalize a future legal
+    citation regression into a passing artifact.
 
 ## Measured inventory
 
@@ -104,12 +142,12 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Added-tool adversarial modes | omitted call, forbidden text, collateral write, and deletion all rejected for every one of 990 tools |
 | Live HTTP oracle | 990/990 added-tool focus tasks passed |
 | Tool coverage | 1,100/1,100 visible tools exercised |
-| Unit suites | 47/47 passed (manifest, port, local runtime, anonymous GHCR, production-wrapper trust boundary) |
+| Unit suites | 99/99 passed (manifest, port, local runtime, assertion guards, Harbor byte/topology and dataset integrity, Harvey mutation v3, anonymous GHCR, production-wrapper trust boundary) |
 | Document-render adversarial suite | 4/4 passed: full-bleed header accepted, clipped body rejected, catalog hash substitution rejected, traversal rejected |
 | Seed reproducibility | 351/351 files byte-identical in isolated rebuild |
 | Retail authority reachability | 51/51 citations and official URLs projected into executable state; 6 retail task/verifier pairs checked, 2 authority-dependent pairs rewritten, 4 VCode programs require an unfiltered `count=51`/`total=51` authority-list result; both authority workflows passed the local HTTP oracle; 45 research rows remain attorney-gated |
 | Visual document audit | 351/351 source files and 585/585 rendered pages: 117 DOCX, 351 worksheet pages, 117 PDF; exact catalog bytes/hashes and safe body geometry verified |
-| Harvey mutation inventory | 31 byte-reproducible variants across 14 source tasks and 12 practice areas; 73 task-relative source-document occurrences produce 158 generated document instances; 2 blocked candidates classified |
+| Harvey mutation inventory | 35 byte-reproducible variants across 16 source tasks and 14 practice areas; 85 task-relative source-document occurrences produce 182 generated document instances; 0 blocked and 2 resolved source-defect candidates classified |
 | Harbor structural export | executable gate passed 23,310 manifests, 22,813 file lanes, 126,598 staged document instances, 5,544 skill trees, and zero agent-side `world.json` copies or package symlinks |
 | Harvey runtime recovery | 34/34 files, 113,081 bytes, tree SHA-256 `bbdcf02717bf2ad491bf5ebbe028ebd5d69f5427609fddb0aaca3ad8d4e88d5a` |
 | Locked LAB image context | 10/10 source/lock files, tree SHA-256 `de22a672df02ecfcac25087c236f5733bf0121a4f937da3c40a508bccb59f512` |
