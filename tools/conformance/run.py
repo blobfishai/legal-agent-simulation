@@ -588,6 +588,13 @@ def render_markdown(report: dict[str, Any]) -> str:
     lines = [
         "# Tool conformance",
         "",
+        "> **Scope:** this report measures the frozen v3 vendor-target baseline. The",
+        "> canonical v21 world retains all 91 rows and adds 1,009 executable synthetic",
+        "> legal-operations tools (19 RetailGuard and 990 CounselOps), for 1,100 visible",
+        "> tools total. The added tools are covered by v21 execution and adversarial",
+        "> verifier tests, not by the vendor-exactness score below. See",
+        "> [the v21 release audit](V21-RELEASE-AUDIT.md).",
+        "",
         f"Pinned specifications: **{report['specs_as_of']}**.",
         "",
         "> Endpoint mapping is not API exactness. A tool counts as exact only after its wire input, success response, pagination, and documented errors all validate. Derived helpers and simulator extensions are excluded from the vendor score.",
@@ -675,6 +682,17 @@ def main() -> None:
     report, failures = build_report()
     report_text = canonical_json(report)
     doc_text = render_markdown(report)
+    required_scope_markers = (
+        "frozen v3 vendor-target baseline",
+        "1,100 visible",
+        "not by the vendor-exactness score",
+    )
+    missing_scope_markers = [marker for marker in required_scope_markers if marker not in doc_text]
+    if missing_scope_markers:
+        failures.append(
+            "conformance report lost its v3/v21 scope boundary: "
+            + ", ".join(missing_scope_markers)
+        )
 
     if args.write:
         REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
