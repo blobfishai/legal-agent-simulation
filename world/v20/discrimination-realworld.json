@@ -1,0 +1,1053 @@
+{
+ "summary": {
+  "tasks": 16,
+  "modes": [
+   "noop",
+   "text_only",
+   "blind_write",
+   "wrong_value"
+  ],
+  "discrimination_failures": [],
+  "wrong_value_inconclusive": [],
+  "harness_errors": []
+ },
+ "rows": [
+  {
+   "task_id": "task_v20_cp_001",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_partner_instructions",
+     "read_pricing_memo_r1",
+     "read_pricing_memo_r2",
+     "read_pricing_memo_r3",
+     "read_pricing_memo_r4",
+     "read_pricing_memo_r5",
+     "read_pricing_memo_r6",
+     "read_draft_matrix_trap",
+     "mi_row_and_statute"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "mi_row_and_statute",
+     "mi_bounty_capped_at_5",
+     "ma_scope_food_only",
+     "ct_free_item_remedy",
+     "ca_no_private_bounty",
+     "wy_no_statute",
+     "ny_statewide_no",
+     "summary_six_statute_states",
+     "summary_survey_due",
+     "summary_row_count"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_partner_instructions",
+     "read_pricing_memo_r1",
+     "read_pricing_memo_r2",
+     "read_pricing_memo_r3",
+     "read_pricing_memo_r4",
+     "read_pricing_memo_r5",
+     "read_pricing_memo_r6",
+     "read_draft_matrix_trap"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "mi_row_and_statute",
+     "mi_bounty_capped_at_5",
+     "ma_scope_food_only",
+     "ct_free_item_remedy",
+     "ca_no_private_bounty",
+     "wy_no_statute",
+     "ny_statewide_no",
+     "summary_six_statute_states",
+     "summary_survey_due",
+     "summary_row_count",
+     "summary_pr_excluded"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_002",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_store_footprint",
+     "read_pricing_memo_r1",
+     "read_pricing_memo_r3",
+     "read_pricing_memo_r4",
+     "read_pricing_memo_r5",
+     "survey_deadline_calendared",
+     "rollout_store_count",
+     "rollout_pr_excluded",
+     "rollout_states"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "survey_deadline_calendared",
+     "rollout_store_count",
+     "rollout_pr_excluded",
+     "rollout_states"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_store_footprint",
+     "read_pricing_memo_r1",
+     "read_pricing_memo_r3",
+     "read_pricing_memo_r4",
+     "read_pricing_memo_r5"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "survey_deadline_calendared",
+     "rollout_store_count",
+     "rollout_pr_excluded",
+     "rollout_states"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_003",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_partner_instructions",
+     "read_settlement_a",
+     "escalation_out_of_scope",
+     "escalation_cites_section",
+     "escalation_no_memo_exists"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "escalation_out_of_scope",
+     "escalation_cites_section",
+     "escalation_no_memo_exists"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_partner_instructions",
+     "read_settlement_a"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "escalation_out_of_scope",
+     "escalation_cites_section",
+     "escalation_no_memo_exists"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_004",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_tos_v7",
+     "read_tos_v8_trap",
+     "redline_bases_v7",
+     "redline_deletes_offender",
+     "redline_inserts_lowest_price"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "redline_bases_v7",
+     "redline_deletes_offender",
+     "redline_inserts_lowest_price"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_tos_v7",
+     "read_tos_v8_trap"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "redline_bases_v7",
+     "redline_deletes_offender",
+     "redline_inserts_lowest_price"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_005",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_receipt_template",
+     "spec_has_line_format",
+     "spec_has_corrected_example",
+     "spec_has_footer_verbatim",
+     "s75_deadline_rolled"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "spec_has_line_format",
+     "spec_has_corrected_example",
+     "spec_has_footer_verbatim",
+     "s75_deadline_rolled"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_settlement_a",
+     "read_receipt_template"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "spec_has_line_format",
+     "spec_has_corrected_example",
+     "spec_has_footer_verbatim",
+     "s75_deadline_rolled"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_006",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_judgment",
+     "read_audit_results",
+     "read_template_2024_trap",
+     "store_0417_fails",
+     "store_0233_boundary_pass",
+     "store_0781_fails",
+     "store_0522_undercharge_pass",
+     "penalties_5000",
+     "watchlist_three_stores",
+     "cites_section_42"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "store_0417_fails",
+     "store_0233_boundary_pass",
+     "store_0781_fails",
+     "store_0522_undercharge_pass",
+     "penalties_5000",
+     "watchlist_three_stores",
+     "cites_section_42",
+     "note_failing_stores",
+     "note_report_due",
+     "reaudit_calendared"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_judgment",
+     "read_audit_results",
+     "read_template_2024_trap"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "store_0417_fails",
+     "store_0233_boundary_pass",
+     "store_0781_fails",
+     "store_0522_undercharge_pass",
+     "penalties_5000",
+     "watchlist_three_stores",
+     "cites_section_42",
+     "note_failing_stores",
+     "note_report_due",
+     "reaudit_calendared"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_007",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_judgment",
+     "read_signage_current",
+     "read_pricing_memo_r1",
+     "read_pricing_memo_r3",
+     "signage_exact_guarantee",
+     "riders_ct_mi",
+     "mi_rider_reason",
+     "ct_rider_reason",
+     "sufficient_count"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "signage_exact_guarantee",
+     "riders_ct_mi",
+     "mi_rider_reason",
+     "ct_rider_reason",
+     "sufficient_count"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_judgment",
+     "read_signage_current",
+     "read_pricing_memo_r1",
+     "read_pricing_memo_r3"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "signage_exact_guarantee",
+     "riders_ct_mi",
+     "mi_rider_reason",
+     "ct_rider_reason",
+     "sufficient_count"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_008",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_prelim_order",
+     "read_cafa_decl",
+     "notice_date",
+     "optout_rolled",
+     "hearing_floor",
+     "claims_deadline",
+     "hearing_date",
+     "note_optout_roll_documented",
+     "note_hearing_lawful"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "notice_date",
+     "optout_rolled",
+     "hearing_floor",
+     "claims_deadline",
+     "hearing_date",
+     "note_optout_roll_documented",
+     "note_hearing_lawful"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_prelim_order",
+     "read_cafa_decl"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "notice_date",
+     "optout_rolled",
+     "hearing_floor",
+     "claims_deadline",
+     "hearing_date",
+     "note_optout_roll_documented",
+     "note_hearing_lawful"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_009",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_prelim_order",
+     "read_claims_tiers",
+     "read_exhibit_c_trap",
+     "read_claims_intake",
+     "c0011_two_percent",
+     "c0027_capped",
+     "c0042_tier",
+     "c0058_tier",
+     "c0063_late",
+     "c0075_top_tier"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "c0011_two_percent",
+     "c0027_capped",
+     "c0042_tier",
+     "c0058_tier",
+     "c0063_late",
+     "c0075_top_tier",
+     "o004_timely_on_roll",
+     "o007_late",
+     "total_approved"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_prelim_order",
+     "read_claims_tiers",
+     "read_exhibit_c_trap",
+     "read_claims_intake"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "c0011_two_percent",
+     "c0027_capped",
+     "c0042_tier",
+     "c0058_tier",
+     "c0063_late",
+     "c0075_top_tier",
+     "o004_timely_on_roll",
+     "o007_late",
+     "total_approved"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_010",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_fcb_order",
+     "read_arl_memo_r1",
+     "read_arl_memo_r2",
+     "read_arl_memo_r3",
+     "read_arl_memo_r4",
+     "read_arl_memo_r5",
+     "read_arl_memo_r6",
+     "read_fed_addendum",
+     "read_arl_draft_trap",
+     "read_plan_catalog"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "federal_row_vacated",
+     "fl_udap_only",
+     "vt_scope_split",
+     "ca_trial_reminder",
+     "il_notice_window",
+     "retention_rule",
+     "counts_30_21",
+     "udap_count",
+     "rows_51",
+     "section_v_deadline"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_fcb_order",
+     "read_arl_memo_r1",
+     "read_arl_memo_r2",
+     "read_arl_memo_r3",
+     "read_arl_memo_r4",
+     "read_arl_memo_r5",
+     "read_arl_memo_r6",
+     "read_fed_addendum",
+     "read_arl_draft_trap",
+     "read_plan_catalog"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "federal_row_vacated",
+     "fl_udap_only",
+     "vt_scope_split",
+     "ca_trial_reminder",
+     "il_notice_window",
+     "retention_rule",
+     "counts_30_21",
+     "udap_count",
+     "rows_51",
+     "section_v_deadline"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_011",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_fcb_order",
+     "read_renewal_email_current",
+     "read_cancel_flow_current",
+     "read_plan_catalog",
+     "read_checkout_screens",
+     "renewal_phrase",
+     "annual_price",
+     "cancel_label_exact",
+     "two_click_rule",
+     "one_retention_offer"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "renewal_phrase",
+     "annual_price",
+     "cancel_label_exact",
+     "two_click_rule",
+     "one_retention_offer",
+     "checkout_cancel_anytime"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_fcb_order",
+     "read_renewal_email_current",
+     "read_cancel_flow_current",
+     "read_plan_catalog",
+     "read_checkout_screens"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "renewal_phrase",
+     "annual_price",
+     "cancel_label_exact",
+     "two_click_rule",
+     "one_retention_offer",
+     "checkout_cancel_anytime"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_cp_012",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_ag_cid",
+     "read_fee_schedule",
+     "read_fee_memo_pack",
+     "read_fee_draft_trap",
+     "read_booking_screens",
+     "read_menu_folio",
+     "allin_ad_string",
+     "three_night_total",
+     "amenity_line_item",
+     "processing_line_item"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "allin_ad_string",
+     "three_night_total",
+     "amenity_line_item",
+     "processing_line_item",
+     "federal_in_effect",
+     "penalty_pinned",
+     "service_charge_retained",
+     "bespoke_count_three",
+     "cid_deadline"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_ag_cid",
+     "read_fee_schedule",
+     "read_fee_memo_pack",
+     "read_fee_draft_trap",
+     "read_booking_screens",
+     "read_menu_folio"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "allin_ad_string",
+     "three_night_total",
+     "amenity_line_item",
+     "processing_line_item",
+     "federal_in_effect",
+     "penalty_pinned",
+     "service_charge_retained",
+     "bespoke_count_three",
+     "cid_deadline"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_pp_001",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_suarez_settlement",
+     "read_bipa_statute",
+     "read_roster",
+     "read_exposure_inputs",
+     "e1002_deadline",
+     "e1044_deadline",
+     "e1177_overdue",
+     "e1288_no_action",
+     "e1203_policy_rule",
+     "per_scan_exposure"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "e1002_deadline",
+     "e1044_deadline",
+     "e1177_overdue",
+     "e1288_no_action",
+     "e1203_policy_rule",
+     "per_scan_exposure",
+     "per_person_negligent",
+     "per_person_reckless",
+     "section6_due"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_suarez_settlement",
+     "read_bipa_statute",
+     "read_roster",
+     "read_exposure_inputs"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "e1002_deadline",
+     "e1044_deadline",
+     "e1177_overdue",
+     "e1288_no_action",
+     "e1203_policy_rule",
+     "per_scan_exposure",
+     "per_person_negligent",
+     "per_person_reckless",
+     "section6_due"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_pp_002",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_suarez_settlement",
+     "read_bipa_statute",
+     "read_vendor_msa",
+     "read_vendor_letter_trap",
+     "consent_specific_purpose",
+     "consent_length_of_term",
+     "consent_esignature",
+     "cites_2024_amendment",
+     "vendor_30day_destruction",
+     "policy_posted_publicly"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "consent_specific_purpose",
+     "consent_length_of_term",
+     "consent_esignature",
+     "cites_2024_amendment",
+     "vendor_30day_destruction",
+     "policy_posted_publicly",
+     "vendor_rejected",
+     "section6_calendared"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_suarez_settlement",
+     "read_bipa_statute",
+     "read_vendor_msa",
+     "read_vendor_letter_trap"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "consent_specific_purpose",
+     "consent_length_of_term",
+     "consent_esignature",
+     "cites_2024_amendment",
+     "vendor_30day_destruction",
+     "policy_posted_publicly",
+     "vendor_rejected",
+     "section6_calendared"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_pp_003",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_forensic_report",
+     "read_resident_counts",
+     "read_breach_memo_pinned",
+     "read_breach_memo_defaults",
+     "read_playbook_trap",
+     "read_monitor_quote",
+     "earliest_deadline",
+     "tx_dual_track",
+     "nd_safe_harbor",
+     "or_threshold"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "earliest_deadline",
+     "tx_dual_track",
+     "nd_safe_harbor",
+     "or_threshold",
+     "ca_sample_copy",
+     "default_45_day",
+     "ag_count_27",
+     "mailing_math",
+     "note_totals",
+     "note_ag_count"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_forensic_report",
+     "read_resident_counts",
+     "read_breach_memo_pinned",
+     "read_breach_memo_defaults",
+     "read_playbook_trap",
+     "read_monitor_quote"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "earliest_deadline",
+     "tx_dual_track",
+     "nd_safe_harbor",
+     "or_threshold",
+     "ca_sample_copy",
+     "default_45_day",
+     "ag_count_27",
+     "mailing_math",
+     "note_totals",
+     "note_ag_count",
+     "note_mailing",
+     "earliest_calendared"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_pp_004",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_forensic_report",
+     "read_breach_memo_pinned",
+     "read_letter_draft",
+     "read_monitor_quote",
+     "ma_freeze_paragraph",
+     "ma_offers_monitoring",
+     "ct_24_months",
+     "note_ct_cost",
+     "note_ct_enrollees"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "ma_freeze_paragraph",
+     "ma_offers_monitoring",
+     "ct_24_months",
+     "note_ct_cost",
+     "note_ct_enrollees"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "read_forensic_report",
+     "read_breach_memo_pinned",
+     "read_letter_draft",
+     "read_monitor_quote"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "ma_freeze_paragraph",
+     "ma_offers_monitoring",
+     "ct_24_months",
+     "note_ct_cost",
+     "note_ct_enrollees"
+    ],
+    "write_errored": false
+   }
+  }
+ ]
+}

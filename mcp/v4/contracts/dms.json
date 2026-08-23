@@ -1,0 +1,500 @@
+{
+ "$schema": "lawfirm-qwen.mcp-contract.v3",
+ "system": "dms-v3",
+ "product": "MatterVault DMS (SIMULATED) — API surface mirrors iManage Work API",
+ "provenance": "https://docs.imanage.com/work-api/ (documents, versions, workspaces, folders, search, checkout/checkin)",
+ "tables": [
+  {
+   "name": "dm_workspaces",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "matter_number",
+     "type": "TEXT"
+    },
+    {
+     "name": "owner",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 18,
+    "template": {
+     "name": "@matter_name",
+     "matter_number": "@matter_number",
+     "owner": "@person"
+    }
+   }
+  },
+  {
+   "name": "dm_folders",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "workspace_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 40,
+    "template": {
+     "workspace_id": "@ref:dm_workspaces",
+     "name": "@pick:Pleadings,Correspondence,Discovery,Deal Documents,Research,Billing,Closing Set"
+    }
+   }
+  },
+  {
+   "name": "dm_documents",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "folder_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "workspace_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "doc_class",
+     "type": "TEXT"
+    },
+    {
+     "name": "author",
+     "type": "TEXT"
+    },
+    {
+     "name": "edit_date",
+     "type": "TEXT"
+    },
+    {
+     "name": "checked_out_by",
+     "type": "TEXT"
+    },
+    {
+     "name": "latest_version",
+     "type": "INTEGER"
+    },
+    {
+     "name": "body",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 70,
+    "template": {
+     "folder_id": "@ref:dm_folders",
+     "workspace_id": "@ref:dm_workspaces",
+     "name": "@doc_name",
+     "doc_class": "@pick:MEMO,AGREEMENT,LETTER,PLEADING,EXHIBIT,NOTE",
+     "author": "@person",
+     "edit_date": "@date:2026-01-01,2026-08-01",
+     "checked_out_by": null,
+     "latest_version": "@int:1,5",
+     "body": "@filing_text"
+    }
+   }
+  },
+  {
+   "name": "dm_document_versions",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "document_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "version",
+     "type": "INTEGER"
+    },
+    {
+     "name": "author",
+     "type": "TEXT"
+    },
+    {
+     "name": "comment",
+     "type": "TEXT"
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 110,
+    "template": {
+     "document_id": "@ref:dm_documents",
+     "version": "@int:1,5",
+     "author": "@person",
+     "comment": "@pick:initial draft,partner revisions,client comments incorporated,execution copy,clean after redline",
+     "created_at": "@date:2026-01-01,2026-08-01"
+    }
+   }
+  }
+ ],
+ "tools": [
+  {
+   "name": "documents_search",
+   "mirrors": "GET /work/api/v2/customers/{c}/libraries/{l}/documents?anywhere=",
+   "description": "Full-text and profile search across documents.",
+   "op": {
+    "kind": "search",
+    "table": "dm_documents",
+    "fields": [
+     "name",
+     "body",
+     "author",
+     "doc_class"
+    ],
+    "preview": [
+     "body"
+    ]
+   },
+   "params": {
+    "anywhere": "string",
+    "limit": "integer",
+    "offset": "integer"
+   },
+   "scenario": "An associate hunts for the execution copy across the workspace by keyword.",
+   "param_map": {
+    "anywhere": "query"
+   }
+  },
+  {
+   "name": "documents_get",
+   "mirrors": "GET /documents/{id}",
+   "description": "Fetch a document profile and its text.",
+   "op": {
+    "kind": "get",
+    "table": "dm_documents"
+   },
+   "params": {
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "The partner opens the engagement letter to check the fee clause verbatim.",
+   "conformance_args": {
+    "body": {
+     "documentId": "LEGAL!1.1",
+     "latest": true
+    }
+   },
+   "request_map": {
+    "body.documentId": "id"
+   },
+   "request_transforms": {
+    "body.documentId": "imanage_document_id"
+   }
+  },
+  {
+   "name": "documents_list",
+   "mirrors": "GET /folders/{id}/documents",
+   "description": "List documents in a folder or workspace.",
+   "op": {
+    "kind": "list",
+    "table": "dm_documents",
+    "filters": [
+     "folder_id",
+     "workspace_id",
+     "doc_class",
+     "checked_out_by"
+    ]
+   },
+   "params": {
+    "folder_id": "integer",
+    "workspace_id": "integer",
+    "doc_class": "string",
+    "checked_out_by": "string",
+    "limit": "integer"
+   },
+   "scenario": "A paralegal lists everything in the Closing Set folder before the signing."
+  },
+  {
+   "name": "documents_checkout",
+   "mirrors": "POST /documents/{id}/checkout",
+   "description": "Check a document out for editing (locks it to the user).",
+   "op": {
+    "kind": "update",
+    "table": "dm_documents",
+    "allowed": [
+     "checked_out_by"
+    ],
+    "require_null": {
+     "checked_out_by": "already checked out"
+    }
+   },
+   "params": {
+    "id": "integer",
+    "checked_out_by": "string"
+   },
+   "scenario": "An associate checks out the MSA draft so nobody edits underneath her."
+  },
+  {
+   "name": "documents_checkin",
+   "mirrors": "POST /documents/{id}/checkin",
+   "description": "Check a document back in; optionally as a new version.",
+   "op": {
+    "kind": "update",
+    "table": "dm_documents",
+    "allowed": [
+     "checked_out_by",
+     "latest_version",
+     "edit_date",
+     "body"
+    ]
+   },
+   "params": {
+    "updateOrCreate": "string",
+    "documentId": "string",
+    "file": "string"
+   },
+   "scenario": "She checks the MSA back in as version 4 with partner revisions.",
+   "conformance_args": {
+    "updateOrCreate": "Create New Version",
+    "documentId": "LEGAL!1.1",
+    "file": "Conformance document version"
+   },
+   "param_map": {
+    "documentId": "id",
+    "file": "body"
+   },
+   "request_defaults": {
+    "checked_out_by": "",
+    "latest_version": 2,
+    "edit_date": "2026-08-12T12:00:00Z"
+   },
+   "request_map": {
+    "documentId": "id"
+   },
+   "request_transforms": {
+    "documentId": "imanage_document_id"
+   }
+  },
+  {
+   "name": "document_versions_list",
+   "mirrors": "GET /documents/{id}/versions",
+   "description": "List a document's version history.",
+   "op": {
+    "kind": "list",
+    "table": "dm_document_versions",
+    "filters": [
+     "document_id"
+    ]
+   },
+   "params": {
+    "document_id": "integer",
+    "limit": "integer"
+   },
+   "scenario": "Disputing what changed, the team lists the document's version history."
+  },
+  {
+   "name": "documents_create",
+   "mirrors": "POST /folders/{id}/documents",
+   "description": "File a new document into a folder.",
+   "op": {
+    "kind": "create",
+    "table": "dm_documents",
+    "required": [
+     "folder_id",
+     "workspace_id",
+     "name",
+     "doc_class",
+     "body"
+    ],
+    "defaults": {
+     "latest_version": 1
+    }
+   },
+   "params": {
+    "libraryId": "string",
+    "folderId": "string",
+    "inherit_profile_from_folder": "boolean",
+    "file": "string",
+    "author": "string",
+    "class": "string"
+   },
+   "scenario": "The associate files the signed amendment into the matter's Deal Documents folder.",
+   "conformance_args": {
+    "libraryId": "LEGAL",
+    "folderId": "1",
+    "inherit_profile_from_folder": true,
+    "file": "Conformance document body",
+    "author": "Conformance Author",
+    "class": "DOCUMENT"
+   },
+   "param_map": {
+    "folderId": "folder_id",
+    "file": "body",
+    "author": "author",
+    "class": "doc_class"
+   },
+   "request_defaults": {
+    "workspace_id": 1,
+    "name": "Conformance document",
+    "doc_class": "DOCUMENT"
+   }
+  },
+  {
+   "name": "workspaces_list",
+   "mirrors": "GET /workspaces",
+   "description": "List matter workspaces.",
+   "op": {
+    "kind": "list",
+    "table": "dm_workspaces",
+    "filters": [
+     "owner"
+    ]
+   },
+   "params": {
+    "owner": "string",
+    "limit": "integer"
+   },
+   "scenario": "Records manager reviews workspaces for the quarterly retention sweep."
+  },
+  {
+   "name": "workspaces_search",
+   "mirrors": "GET /workspaces?name=",
+   "description": "Search workspaces by name or matter number.",
+   "op": {
+    "kind": "search",
+    "table": "dm_workspaces",
+    "fields": [
+     "name",
+     "matter_number"
+    ]
+   },
+   "params": {
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "A new paralegal finds the matter workspace from the client's matter number.",
+   "param_map": {
+    "name": "query"
+   },
+   "conformance_args": {
+    "body": {
+     "libraryId": "LEGAL",
+     "anywhere": "a"
+    }
+   },
+   "request_map": {
+    "body.anywhere": "query"
+   }
+  },
+  {
+   "name": "folders_list",
+   "mirrors": "GET /workspaces/{id}/folders",
+   "description": "List folders in a workspace.",
+   "op": {
+    "kind": "list",
+    "table": "dm_folders",
+    "filters": [
+     "workspace_id"
+    ]
+   },
+   "params": {
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "Before filing, the secretary checks which folders the workspace already has.",
+   "conformance_args": {
+    "body": {
+     "libraryId": "LEGAL",
+     "container_id": "LEGAL!1"
+    }
+   },
+   "request_map": {
+    "body.container_id": "workspace_id"
+   },
+   "request_transforms": {
+    "body.container_id": "imanage_container_id"
+   }
+  },
+  {
+   "name": "documents_download",
+   "mirrors": "GET /api/v2/customers/{c}/libraries/{l}/documents/{id}/download — iManage Work document download",
+   "description": "Download a document: the FULL body text, not the profile preview.",
+   "op": {
+    "kind": "get",
+    "table": "dm_documents"
+   },
+   "params": {
+    "body": {
+     "type": "object",
+     "description": "Vendor request body; full schema is generated from the pinned public specification."
+    }
+   },
+   "scenario": "An associate pulls the full executed agreement text before drafting.",
+   "conformance_args": {
+    "body": {
+     "documentId": "LEGAL!1.1",
+     "latest": true
+    }
+   },
+   "request_map": {
+    "body.documentId": "id"
+   },
+   "request_transforms": {
+    "body.documentId": "imanage_document_id"
+   }
+  },
+  {
+   "name": "documents_search_fulltext",
+   "mirrors": "POST /api/v2/customers/{c}/libraries/{l}/documents/search (anyword/fulltext) — iManage Work search",
+   "description": "Full-text search over document bodies and names. Paged; page until has_more is false.",
+   "op": {
+    "kind": "search",
+    "table": "dm_documents",
+    "fields": [
+     "name",
+     "body"
+    ],
+    "preview": [
+     "body"
+    ]
+   },
+   "params": {
+    "query": "string",
+    "limit": "integer",
+    "offset": "integer"
+   },
+   "scenario": "Find every document mentioning the escrow release condition."
+  }
+ ],
+ "dialect": "imanage",
+ "fidelity": "v3: 1:1 external parameter names + real response envelopes per the cited API docs"
+}

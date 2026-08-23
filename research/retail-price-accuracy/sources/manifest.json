@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "retrieved_at": "2026-08-22",
+  "purpose": "Primary-source reference copies; not mutated and not represented as legal conclusions.",
+  "files": [
+    {
+      "path": "reference/ftc-price-check-ii.pdf",
+      "sha256": "6ed32b1e14bcfc48244a074394f77976e55ea30ce1a0d2997adb62ad130716ef",
+      "source_url": "https://www.ftc.gov/sites/default/files/documents/reports/price-check-report-accuracy-checkout-scanners/scanners.pdf",
+      "title": "FTC Price Check II"
+    },
+    {
+      "path": "reference/massachusetts-202-cmr-7.pdf",
+      "sha256": "6b67c629b1d16512aa8b550d7e30231baf9ee87ad2173b08bb7506730b9944b6",
+      "source_url": "https://www.mass.gov/doc/202-cmr-7-price-disclosure/download",
+      "title": "Massachusetts 202 CMR 7.00 Price Disclosure"
+    },
+    {
+      "path": "reference/michigan-act-15-of-2011.pdf",
+      "sha256": "0bc68ed022ea0066ee12c33120a38db736ba748e3d996764a49271688fdea06d",
+      "source_url": "https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Act-15-of-2011.pdf",
+      "title": "Michigan Shopping Reform and Modernization Act"
+    },
+    {
+      "path": "reference/rector-v-walmart-ddc-opinion.pdf",
+      "sha256": "6a7f29e17234caf70068dd3f7666b7cf4cae6e84cdef356c20a389e1c0c44d27",
+      "source_url": "https://www.govinfo.gov/content/pkg/USCOURTS-dcd-1_24-cv-00658/pdf/USCOURTS-dcd-1_24-cv-00658-1.pdf",
+      "title": "Rector v. Walmart — D.D.C. opinion"
+    }
+  ]
+}

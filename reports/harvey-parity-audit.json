@@ -47,13 +47,13 @@
     },
     "retail_reference_pdfs": 4,
     "retail_tasks": 6,
-    "seed_rows": 2840,
+    "seed_rows": 2912,
     "strict_harvey_derivative_recipes": 4,
     "strict_harvey_generated_tasks": 4,
     "tables": 56,
-    "tasks": 2331,
-    "verifiers": 2331,
-    "world": "world/blobfish/world-v20.json",
+    "tasks": 2347,
+    "verifiers": 2347,
+    "world": "world/blobfish/world-v20-draft.json",
     "world_version": 20
   },
   "open_gaps": [
@@ -144,7 +144,7 @@
     },
     {
       "area": "Task configurations",
-      "local": "All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20 adapter",
+      "local": "All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20-draft adapter",
       "status": "exact_plus_executable",
       "upstream": "2,010 task.json files"
     },
@@ -210,7 +210,7 @@
     },
     {
       "area": "Canonical world format",
-      "local": "Canonical world-v20.json is the runtime source format; harbor/generate.py exports it to Harbor",
+      "local": "Canonical world-v20-draft.json is the runtime source format; harbor/generate.py exports it to Harbor",
       "status": "local_extension",
       "upstream": "No world/ state model"
     }

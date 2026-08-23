@@ -1,0 +1,38 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v3",
+  "system": "deadline-rules-v3",
+  "product": "DeadlineRules (SIMULATED) — rule fixtures follow published FRCP sources",
+  "provenance": "https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure",
+  "fidelity": "Published-rule fixture fidelity. CalendarRules exposes product documentation but no public machine-readable API contract used here.",
+  "tables": [
+    {
+      "name": "deadline_rules",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "jurisdiction", "type": "TEXT"},
+        {"name": "trigger_event", "type": "TEXT"},
+        {"name": "deadline_type", "type": "TEXT"},
+        {"name": "base_days", "type": "INTEGER"},
+        {"name": "rule_6d_applies", "type": "INTEGER"},
+        {"name": "rule_citation", "type": "TEXT"},
+        {"name": "source_url", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"jurisdiction": "US-FEDERAL-CIVIL", "trigger_event": "complaint_and_summons_served", "deadline_type": "answer_due", "base_days": 21, "rule_6d_applies": 0, "rule_citation": "Fed. R. Civ. P. 12(a)(1)(A)(i); 6(a)", "source_url": "https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure"},
+        {"jurisdiction": "US-FEDERAL-CIVIL", "trigger_event": "interrogatories_served", "deadline_type": "interrogatory_responses_due", "base_days": 30, "rule_6d_applies": 1, "rule_citation": "Fed. R. Civ. P. 33(b)(2); 6(a); 6(d)", "source_url": "https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure"},
+        {"jurisdiction": "US-FEDERAL-CIVIL", "trigger_event": "requests_for_production_served", "deadline_type": "document_responses_due", "base_days": 30, "rule_6d_applies": 1, "rule_citation": "Fed. R. Civ. P. 34(b)(2)(A); 6(a); 6(d)", "source_url": "https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure"}
+      ]}
+    }
+  ],
+  "tools": [
+    {
+      "name": "deadlines_compute",
+      "mirrors": "CalendarRules-style trigger + jurisdiction deadline calculation; rules pinned to official FRCP text",
+      "description": "Compute a verified federal civil deadline and return its rule citation. Unsupported jurisdictions and triggers fail explicitly.",
+      "op": {"kind": "deadline_compute", "table": "deadline_rules", "required": ["trigger_event", "jurisdiction", "service_method", "trigger_date"]},
+      "params": {"trigger_event": "string", "jurisdiction": "string", "service_method": "string", "trigger_date": "string"},
+      "conformance_args": {"trigger_event": "complaint_and_summons_served", "jurisdiction": "US-FEDERAL-CIVIL", "service_method": "personal", "trigger_date": "2026-08-12"}
+    }
+  ],
+  "dialect": "calendar_rules"
+}

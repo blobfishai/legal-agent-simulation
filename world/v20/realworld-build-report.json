@@ -1,0 +1,56 @@
+{
+  "added_documents": 54,
+  "added_harvey_recovery_tasks": 0,
+  "added_matters": 6,
+  "added_realworld_tasks": 16,
+  "added_retail_tasks": 0,
+  "added_tasks": 16,
+  "assertion_counts": {
+    "task_v20_cp_001": 23,
+    "task_v20_cp_002": 12,
+    "task_v20_cp_003": 7,
+    "task_v20_cp_004": 7,
+    "task_v20_cp_005": 7,
+    "task_v20_cp_006": 16,
+    "task_v20_cp_007": 11,
+    "task_v20_cp_008": 10,
+    "task_v20_cp_009": 16,
+    "task_v20_cp_010": 22,
+    "task_v20_cp_011": 12,
+    "task_v20_cp_012": 18,
+    "task_v20_pp_001": 14,
+    "task_v20_pp_002": 13,
+    "task_v20_pp_003": 21,
+    "task_v20_pp_004": 11
+  },
+  "base": "world-v20.json",
+  "base_tasks": 2331,
+  "families": {
+    "consumer-protection-compliance": 12,
+    "consumer-protection-privacy": 4,
+    "harvey-lab-recovery": 0,
+    "retail-price-accuracy": 0
+  },
+  "harvey_lab_source_tasks": 2010,
+  "harvey_lab_tasks_hosted": 2010,
+  "packs": [
+    "world/expansion/packs-realworld/consumer-protection-compliance.json",
+    "world/expansion/packs-realworld/consumer-protection-privacy.json"
+  ],
+  "retail_lane_source": "world/v20/retail_lane.json",
+  "retail_seed_rows": 0,
+  "retail_tables": 0,
+  "schema_version": 2,
+  "total_tasks": 2347,
+  "trap_documents": [
+    "draft-arl-matrix-v0-STALE.docx",
+    "draft-compliance-matrix-v1-SUPERSEDED.docx",
+    "draft-matrix-and-memo-v0-TRAP.docx",
+    "exhibit-c-draft-SUPERSEDED.docx",
+    "legacy-ir-playbook-2019-RETIRED.docx",
+    "superseded-2024-report-template.docx",
+    "terms-of-sale-v8-draft-REJECTED.docx",
+    "vendor-position-letter.docx"
+  ],
+  "world_sha256": "e9ca29c66c07408be28cc76f2b70568bdd528e53c5a04581c828619d74f2ec9f"
+}

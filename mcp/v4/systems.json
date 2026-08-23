@@ -1,0 +1,103 @@
+{
+  "$schema": "lawfirm-qwen.mcp-systems.v2",
+  "note": "The product-only tool stack partitioned into one MCP server per system. Legacy names remain defined by cited contracts copied exactly from mcp/v3/contracts; RetailGuard is the documented synthetic v4 extension under mcp/v4/contracts.",
+  "systems": {
+    "practice-management": {
+      "product": "LexOperis PM (SIMULATED) — mirrors Clio Manage API v4",
+      "description": "Matters, contacts, time and expense, billing, trust, calendars, tasks, notes, communications, users, practice areas, and audit activity.",
+      "tools": [
+        "matters_list", "matters_get", "matters_create", "matters_update", "matters_search",
+        "contacts_list", "contacts_get", "contacts_create", "contacts_update", "contacts_search",
+        "time_entries_list", "time_entries_get", "time_entries_create", "time_entries_update",
+        "expense_entries_list", "expense_entries_create",
+        "bills_list", "bills_get", "bills_update", "bill_line_items_list",
+        "trust_transactions_list",
+        "calendar_entries_list", "calendar_entries_create", "calendar_entries_update",
+        "tasks_list", "tasks_create", "tasks_update", "notes_list", "notes_create",
+        "communications_list", "communications_create", "users_list", "practice_areas_list"
+      ]
+    },
+    "docket-records": {
+      "product": "CourtDock Records (SIMULATED) — mirrors CourtListener REST API v4",
+      "description": "Courts, dockets, docket entries, RECAP documents, opinions, citation resolution, parties, and docket alerts.",
+      "tools": [
+        "courts_list", "dockets_list", "dockets_get", "dockets_search",
+        "docket_entries_list", "recap_documents_get", "recap_documents_list",
+        "opinions_search", "opinions_get", "citation_lookup", "parties_list",
+        "docket_alerts_create", "docket_alerts_list"
+      ]
+    },
+    "courtfile-efiling": {
+      "product": "CourtFile ECF (SIMULATED) — mirrors documented CM/ECF NextGen workflow semantics",
+      "description": "Case selection, PDF filing, docket entries, and Notices of Electronic Filing. Documentation-fixture fidelity; no public common write API is claimed.",
+      "tools": [
+        "efiling_cases_get", "efiling_filings_create", "efiling_docket_entries_list",
+        "efiling_nef_notices_list"
+      ]
+    },
+    "deadline-rules": {
+      "product": "DeadlineRules (SIMULATED) — verified FRCP fixtures",
+      "description": "Trigger- and service-aware federal civil deadline calculation with rule citations.",
+      "tools": ["deadlines_compute"]
+    },
+    "dms": {
+      "product": "MatterVault DMS (SIMULATED) — mirrors iManage Work API",
+      "description": "Workspaces, folders, documents, versions, checkout/checkin, download, and full-text search.",
+      "tools": [
+        "documents_search", "documents_get", "documents_list", "documents_checkout",
+        "documents_checkin", "document_versions_list", "documents_create",
+        "workspaces_list", "workspaces_search", "folders_list", "documents_download",
+        "documents_search_fulltext"
+      ]
+    },
+    "ediscovery": {
+      "product": "DiscoParse (SIMULATED) — mirrors Relativity REST",
+      "description": "Review workspaces, document query/search/coding, productions, privilege logs, legal holds, and asynchronous jobs.",
+      "tools": [
+        "review_workspaces_list", "documents_query", "review_documents_get",
+        "review_documents_search", "documents_code", "productions_list",
+        "productions_create", "privilege_log_list", "privilege_log_create",
+        "holds_list", "holds_create", "jobs_get"
+      ]
+    },
+    "workspace": {
+      "product": "Fieldstone Workspace (SIMULATED) — mirrors Google Workspace APIs",
+      "description": "Sheets, Drive, Gmail, and Calendar operations used by the benchmark workflows.",
+      "tools": [
+        "sheets_values_get", "sheets_values_update", "spreadsheets_list",
+        "drive_files_list", "drive_files_get", "gmail_messages_list",
+        "gmail_messages_get", "gmail_messages_send", "calendar_events_list",
+        "calendar_events_insert"
+      ]
+    },
+    "ebilling": {
+      "product": "LedgerBill (SIMULATED) — mirrors LEDES 1998B exchange semantics",
+      "description": "UTBMS code lookup and standards-conformant LEDES 1998B serialization and submission.",
+      "tools": [
+        "utbms_codes_list", "invoices_submit"
+      ]
+    },
+    "esign": {
+      "product": "SealPoint eSign (SIMULATED) — mirrors Docusign eSignature REST API v2.1",
+      "description": "Envelope creation, sending, status polling, and ordered recipients.",
+      "tools": [
+        "esign_envelopes_create", "esign_envelopes_get", "esign_envelopes_send",
+        "esign_recipients_list"
+      ]
+    },
+    "retail-compliance": {
+      "product": "RetailGuard Price Accuracy (SIMULATED)",
+      "description": "Price-accuracy incidents, transactions, receipt lines, 50-state-plus-D.C. legal triage, receipt wording, POS controls, refunds, policies, and store audits.",
+      "tools": [
+        "retail_incidents_list", "retail_incidents_get", "retail_incidents_update",
+        "retail_transactions_list", "retail_transactions_get", "retail_receipt_lines_list",
+        "retail_jurisdiction_rules_list", "retail_jurisdiction_rules_get",
+        "retail_receipt_templates_list", "retail_receipt_templates_get", "retail_receipt_templates_update",
+        "retail_pos_controls_list", "retail_pos_controls_update",
+        "retail_policy_versions_list", "retail_policy_versions_create",
+        "retail_refunds_list", "retail_refunds_create",
+        "retail_price_audits_list", "retail_price_audits_create"
+      ]
+    }
+  }
+}

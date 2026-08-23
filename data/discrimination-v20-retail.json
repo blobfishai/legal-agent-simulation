@@ -1,0 +1,295 @@
+{
+ "summary": {
+  "tasks": 6,
+  "modes": [
+   "noop",
+   "text_only",
+   "blind_write",
+   "wrong_value"
+  ],
+  "discrimination_failures": [],
+  "wrong_value_inconclusive": [],
+  "harness_errors": []
+ },
+ "rows": [
+  {
+   "task_id": "task_v20_retail_incident_audit",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "incident_findings_recorded",
+     "incident_audit_filed"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "incident_findings_recorded",
+     "incident_audit_filed"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "incident_findings_recorded",
+     "incident_audit_filed"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_retail_refund_exposure",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "michigan_refund_approved",
+     "incident_exposure_updated",
+     "refund_analysis_filed"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "michigan_refund_approved",
+     "incident_exposure_updated",
+     "refund_analysis_filed"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "michigan_refund_approved",
+     "incident_exposure_updated",
+     "refund_analysis_filed"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_retail_51_jurisdiction_triage",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "all_jurisdictions_retrieved",
+     "triage_policy_filed",
+     "jurisdiction_matrix_filed"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "triage_policy_filed",
+     "jurisdiction_matrix_filed"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "all_jurisdictions_retrieved"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "triage_policy_filed",
+     "jurisdiction_matrix_filed"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_retail_receipt_redline",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "receipt_template_approved",
+     "receipt_redline_filed"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "receipt_template_approved",
+     "receipt_redline_filed"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "receipt_template_approved",
+     "receipt_redline_filed"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_retail_control_remediation",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "duplicate_control_active",
+     "price_sync_control_active",
+     "weight_control_active",
+     "retest_recorded",
+     "incident_monitoring",
+     "implementation_plan_filed"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "duplicate_control_active",
+     "price_sync_control_active",
+     "weight_control_active",
+     "retest_recorded",
+     "incident_monitoring",
+     "implementation_plan_filed"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "duplicate_control_active",
+     "retest_recorded",
+     "implementation_plan_filed"
+    ],
+    "write_errored": false
+   }
+  },
+  {
+   "task_id": "task_v20_retail_national_closeout",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "three_incidents_reviewed",
+     "research_limits_preserved",
+     "national_receipt_updated",
+     "ca_refund",
+     "mi_refund",
+     "dc_refund",
+     "national_policy",
+     "duplicate_control_rollout",
+     "price_control_rollout",
+     "weight_control_rollout"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "national_receipt_updated",
+     "ca_refund",
+     "mi_refund",
+     "dc_refund",
+     "national_policy",
+     "duplicate_control_rollout",
+     "price_control_rollout",
+     "weight_control_rollout",
+     "ca_monitoring",
+     "mi_monitoring"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_path",
+     "minimum_successful_calls",
+     "three_incidents_reviewed",
+     "research_limits_preserved"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "ca_refund",
+     "mi_refund",
+     "dc_refund",
+     "national_policy",
+     "duplicate_control_rollout",
+     "composite_closeout_filed"
+    ],
+    "write_errored": false
+   }
+  }
+ ]
+}

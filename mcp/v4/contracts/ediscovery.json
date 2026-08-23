@@ -1,0 +1,499 @@
+{
+ "$schema": "lawfirm-qwen.mcp-contract.v3",
+ "system": "ediscovery-v3",
+ "product": "DiscoParse (SIMULATED) \u2014 API surface mirrors Relativity REST (Object Manager + productions)",
+ "provenance": "https://platform.relativity.com/ (Object Manager query, documents, productions, holds)",
+ "tables": [
+  {
+   "name": "ed_workspaces",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "matter_number",
+     "type": "TEXT"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 8,
+    "template": {
+     "name": "@case_name",
+     "matter_number": "@matter_number",
+     "status": "@pick:active,active,closed"
+    }
+   }
+  },
+  {
+   "name": "ed_documents",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "workspace_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "control_number",
+     "type": "TEXT"
+    },
+    {
+     "name": "custodian",
+     "type": "TEXT"
+    },
+    {
+     "name": "doc_date",
+     "type": "TEXT"
+    },
+    {
+     "name": "subject",
+     "type": "TEXT"
+    },
+    {
+     "name": "extracted_text",
+     "type": "TEXT"
+    },
+    {
+     "name": "responsive",
+     "type": "TEXT"
+    },
+    {
+     "name": "privileged",
+     "type": "TEXT"
+    },
+    {
+     "name": "reviewed_by",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 90,
+    "template": {
+     "workspace_id": "@ref:ed_workspaces",
+     "control_number": "@control_number",
+     "custodian": "@person",
+     "doc_date": "@date:2024-06-01,2026-06-01",
+     "subject": "@comm_subject",
+     "extracted_text": "@filing_text",
+     "responsive": "@pick:yes,yes,no,undetermined",
+     "privileged": "@pick:no,no,no,yes,undetermined",
+     "reviewed_by": null
+    }
+   }
+  },
+  {
+   "name": "ed_productions",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "workspace_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "bates_prefix",
+     "type": "TEXT"
+    },
+    {
+     "name": "status",
+     "type": "TEXT"
+    },
+    {
+     "name": "doc_count",
+     "type": "INTEGER"
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "poll_count",
+     "type": "INTEGER"
+    }
+   ],
+   "seed": {
+    "count": 6,
+    "template": {
+     "workspace_id": "@ref:ed_workspaces",
+     "name": "@pick:Prod 001,Prod 002,Rolling Prod A,Priority Custodians,Supplemental",
+     "bates_prefix": "@pick:MER,TAL,DEF,PLF",
+     "status": "@pick:staged,produced,produced",
+     "doc_count": "@int:40,900",
+     "created_at": "@date:2026-03-01,2026-08-01"
+    }
+   }
+  },
+  {
+   "name": "ed_privilege_log",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "workspace_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "document_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "basis",
+     "type": "TEXT"
+    },
+    {
+     "name": "description",
+     "type": "TEXT"
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 12,
+    "template": {
+     "workspace_id": "@ref:ed_workspaces",
+     "document_id": "@ref:ed_documents",
+     "basis": "@pick:attorney-client,work-product,attorney-client;work-product",
+     "description": "@pick:Legal advice re contract dispute,Litigation strategy memo,Counsel email re settlement authority",
+     "created_at": "@date:2026-04-01,2026-08-01"
+    }
+   }
+  },
+  {
+   "name": "ed_holds",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "workspace_id",
+     "type": "INTEGER"
+    },
+    {
+     "name": "custodian",
+     "type": "TEXT"
+    },
+    {
+     "name": "issued_at",
+     "type": "TEXT"
+    },
+    {
+     "name": "acknowledged",
+     "type": "INTEGER"
+    },
+    {
+     "name": "released_at",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 14,
+    "template": {
+     "workspace_id": "@ref:ed_workspaces",
+     "custodian": "@person",
+     "issued_at": "@date:2025-09-01,2026-06-01",
+     "acknowledged": "@pick:1,1,1,0",
+     "released_at": null
+    }
+   }
+  }
+ ],
+ "tools": [
+  {
+   "name": "review_workspaces_list",
+   "mirrors": "Object Manager query on Workspace objects",
+   "description": "List review workspaces.",
+   "op": {
+    "kind": "list",
+    "table": "ed_workspaces",
+    "filters": [
+     "status"
+    ]
+   },
+   "params": {
+    "status": "string",
+    "limit": "integer"
+   },
+   "scenario": "The lit-support manager lists active review workspaces for capacity planning."
+  },
+  {
+   "name": "documents_query",
+   "mirrors": "POST /Relativity.ObjectManager/.../query (Document)",
+   "description": "Query documents by custodian, responsiveness, privilege, or date range.",
+   "op": {
+    "kind": "list",
+    "table": "ed_documents",
+    "query_dsl": "relativity",
+    "filters": [
+     "workspace_id",
+     "custodian",
+     "responsive",
+     "privileged",
+     "reviewed_by"
+    ],
+    "range": {
+     "field": "doc_date",
+     "from_param": "date_from",
+     "to_param": "date_to"
+    },
+    "preview": [
+     "extracted_text"
+    ]
+   },
+   "params": {
+    "condition": "string",
+    "workspace_id": "integer",
+    "custodian": "string",
+    "responsive": "string",
+    "privileged": "string",
+    "reviewed_by": "string",
+    "date_from": "string",
+    "date_to": "string",
+    "length": "integer"
+   },
+   "scenario": "A review attorney queries unreviewed documents from the key custodian for her batch.",
+   "param_map": {
+    "length": "limit"
+   }
+  },
+  {
+   "name": "review_documents_get",
+   "mirrors": "GET document with extracted text",
+   "description": "Fetch one document with full extracted text.",
+   "op": {
+    "kind": "get",
+    "table": "ed_documents"
+   },
+   "params": {
+    "id": "integer"
+   },
+   "scenario": "The reviewer opens the document's full extracted text to make the privilege call."
+  },
+  {
+   "name": "review_documents_search",
+   "mirrors": "dtSearch/keyword search",
+   "description": "Keyword search across subject and extracted text.",
+   "op": {
+    "kind": "search",
+    "table": "ed_documents",
+    "fields": [
+     "subject",
+     "extracted_text",
+     "custodian",
+     "control_number"
+    ],
+    "preview": [
+     "extracted_text"
+    ]
+   },
+   "params": {
+    "query": "string",
+    "length": "integer"
+   },
+   "scenario": "Second-level review searches for the codeword the deponent mentioned.",
+   "param_map": {
+    "length": "limit"
+   }
+  },
+  {
+   "name": "documents_code",
+   "mirrors": "PATCH document coding fields",
+   "description": "Code a document (responsive/privileged) as a named reviewer.",
+   "op": {
+    "kind": "update",
+    "table": "ed_documents",
+    "allowed": [
+     "responsive",
+     "privileged",
+     "reviewed_by"
+    ]
+   },
+   "params": {
+    "id": "integer",
+    "responsive": "string",
+    "privileged": "string",
+    "reviewed_by": "string"
+   },
+   "scenario": "The reviewer codes the document responsive, not privileged, under her name."
+  },
+  {
+   "name": "productions_list",
+   "mirrors": "GET productions",
+   "description": "List productions with status.",
+   "op": {
+    "kind": "list",
+    "table": "ed_productions",
+    "filters": [
+     "workspace_id",
+     "status"
+    ]
+   },
+   "params": {
+    "workspace_id": "integer",
+    "status": "string",
+    "limit": "integer"
+   },
+   "scenario": "The senior associate checks which productions have gone out before the meet-and-confer."
+  },
+  {
+   "name": "productions_create",
+   "mirrors": "POST production set",
+   "description": "Stage a production set with a Bates prefix. Production jobs run ASYNC: poll jobs_get until status is completed before relying on the result.",
+   "op": {
+    "kind": "create",
+    "table": "ed_productions",
+    "required": [
+     "workspace_id",
+     "name",
+     "bates_prefix"
+    ],
+    "defaults": {
+     "status": "staged",
+     "doc_count": 0,
+     "poll_count": 0
+    }
+   },
+   "params": {
+    "workspace_id": "integer",
+    "name": "string",
+    "bates_prefix": "string",
+    "doc_count": "integer"
+   },
+   "scenario": "Lit support stages Production 003 with the DEF Bates prefix for Friday."
+  },
+  {
+   "name": "privilege_log_list",
+   "mirrors": "privilege log export",
+   "description": "List privilege-log entries.",
+   "op": {
+    "kind": "list",
+    "table": "ed_privilege_log",
+    "filters": [
+     "workspace_id",
+     "basis"
+    ]
+   },
+   "params": {
+    "workspace_id": "integer",
+    "basis": "string",
+    "limit": "integer"
+   },
+   "scenario": "Opposing counsel challenged the log; the team pulls all attorney-client entries."
+  },
+  {
+   "name": "privilege_log_create",
+   "mirrors": "add privilege log entry",
+   "description": "Log a privileged document with basis and description.",
+   "op": {
+    "kind": "create",
+    "table": "ed_privilege_log",
+    "required": [
+     "workspace_id",
+     "document_id",
+     "basis",
+     "description"
+    ]
+   },
+   "params": {
+    "workspace_id": "integer",
+    "document_id": "integer",
+    "basis": "string",
+    "description": "string"
+   },
+   "scenario": "The reviewer logs the withheld strategy memo with its privilege basis."
+  },
+  {
+   "name": "holds_list",
+   "mirrors": "legal holds",
+   "description": "List legal holds and acknowledgment state.",
+   "op": {
+    "kind": "list",
+    "table": "ed_holds",
+    "filters": [
+     "workspace_id",
+     "custodian",
+     "acknowledged"
+    ]
+   },
+   "params": {
+    "workspace_id": "integer",
+    "custodian": "string",
+    "acknowledged": "integer",
+    "limit": "integer"
+   },
+   "scenario": "Before the custodian interview, counsel checks who has acknowledged the hold."
+  },
+  {
+   "name": "holds_create",
+   "mirrors": "issue legal hold",
+   "description": "Issue a litigation hold to a custodian.",
+   "op": {
+    "kind": "create",
+    "table": "ed_holds",
+    "required": [
+     "workspace_id",
+     "custodian",
+     "issued_at"
+    ],
+    "defaults": {
+     "acknowledged": 0
+    }
+   },
+   "params": {
+    "workspace_id": "integer",
+    "custodian": "string",
+    "issued_at": "string"
+   },
+   "scenario": "New complaint filed \u2014 counsel issues litigation holds to the five key custodians."
+  },
+  {
+   "name": "jobs_get",
+   "mirrors": "GET /Relativity.REST/api/relativity-infrastructure/v1/workspaces/{id}/jobs \u2014 long-running job status (Relativity jobs are asynchronous)",
+   "description": "Poll a production job. Status advances staged -> running -> completed; results are reliable only once completed.",
+   "op": {
+    "kind": "job_poll",
+    "table": "ed_productions",
+    "states": [
+     "staged",
+     "running",
+     "completed"
+    ],
+    "on_complete": {
+     "doc_count": 100
+    }
+   },
+   "params": {
+    "id": "integer"
+   },
+   "scenario": "Lit support polls the Friday production until it completes before serving."
+  }
+ ],
+ "dialect": "relativity",
+ "fidelity": "v3: 1:1 external parameter names + real response envelopes per the cited API docs"
+}

@@ -1,0 +1,97 @@
+{
+  "files": [
+    {
+      "bytes": 9072,
+      "path": "checkout-event-log.xlsx",
+      "sha256": "3754499dc5dd3332b992f57c1a46d6866dcb974901fcaedbc81fe8b86a3f8b4f"
+    },
+    {
+      "bytes": 39646,
+      "path": "customer-price-accuracy-policy.docx",
+      "sha256": "8a79c3013eee883276f7533179cbad797d2188a53589d2808fb6e9407dabb74d"
+    },
+    {
+      "bytes": 39599,
+      "path": "incident-report.docx",
+      "sha256": "09febbcb36099da60ef57a0f83347c93b2d40fe8f6a067baf19559f3aa48c791"
+    },
+    {
+      "bytes": 13985,
+      "path": "jurisdiction-source-register.xlsx",
+      "sha256": "56a6334401147fdd1b0e70ee69a2db8483d29e95fbda3aa08c9f17f4f9722e6a"
+    },
+    {
+      "bytes": 4003,
+      "path": "sample-receipts.pdf",
+      "sha256": "25eacad19dbfaf87cc12a323d14034942016d52a3f756ade79196b5e67503c64"
+    }
+  ],
+  "jurisdiction_code": "CA",
+  "mutation_dimensions": [],
+  "scenario_id": "CA-PRICE-001",
+  "schema_version": 1,
+  "source_scenario": null,
+  "structure_signature": {
+    "docx": {
+      "customer-price-accuracy-policy.docx": [
+        "1. Purpose and scope",
+        "2. Lowest supported price control",
+        "3. Duplicate-scan control",
+        "4. Weight and measure control",
+        "5. Receipt and checkout notice",
+        "6. Refunds and additional remedies",
+        "7. Evidence and escalation",
+        "8. Testing and governance",
+        "Approved customer-facing wording",
+        "Jurisdiction deployment gate"
+      ],
+      "incident-report.docx": [
+        "Executive finding",
+        "Preservation and investigation",
+        "Root-cause hypothesis",
+        "Immediate customer remediation",
+        "Legal triage",
+        "Non-conclusion"
+      ]
+    },
+    "files": [
+      "checkout-event-log.xlsx",
+      "customer-price-accuracy-policy.docx",
+      "incident-report.docx",
+      "jurisdiction-source-register.xlsx",
+      "sample-receipts.pdf"
+    ],
+    "pdf_pages": {
+      "sample-receipts.pdf": 2
+    },
+    "workbooks": {
+      "checkout-event-log.xlsx": {
+        "columns": {
+          "Control Tests": 7,
+          "Data Dictionary": 2,
+          "Events": 9,
+          "Line Items": 12
+        },
+        "sheets": [
+          "Events",
+          "Line Items",
+          "Control Tests",
+          "Data Dictionary"
+        ]
+      },
+      "jurisdiction-source-register.xlsx": {
+        "columns": {
+          "Jurisdiction Register": 14,
+          "Methodology": 2,
+          "Primary Sources": 6
+        },
+        "sheets": [
+          "Jurisdiction Register",
+          "Primary Sources",
+          "Methodology"
+        ]
+      }
+    }
+  },
+  "synthetic": true
+}

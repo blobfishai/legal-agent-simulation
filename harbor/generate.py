@@ -20,10 +20,10 @@ never contains world.json, so verifier code and reference walks are not
 readable by the agent.
 
 Usage:
-  python3 harbor/generate.py [--world world/blobfish/world-v20.json]
-                             [--contracts mcp/v4/contracts]
+  python3 harbor/generate.py [--world world/blobfish/world-v16.json]
+                             [--contracts mcp/v3/contracts]
                              [--out dist/harbor] [--tasks task_003,task_010]
-                             [--build-image] [--image-tag legal-agent-sim-world:v20]
+                             [--build-image] [--image-tag legal-agent-sim-world:v16]
 """
 from __future__ import annotations
 
@@ -58,7 +58,7 @@ def load_world(path: str) -> dict:
 def contracts_for_world(world_path: str) -> str:
     """Select the matching frozen contract suite unless explicitly overridden."""
     version = load_world(world_path).get("version") or 0
-    suite = "v4" if int(version) >= 20 else "v3"
+    suite = "v5" if int(version) >= 21 else ("v4" if int(version) >= 20 else "v3")
     return os.path.join(ROOT, "mcp", suite, "contracts")
 
 
@@ -97,8 +97,19 @@ def instruction_md(task: dict, phase: dict | None = None) -> str:
     file_lane = task.get("file_lane") or {}
     if file_lane:
         deliverables = file_lane.get("deliverables") or []
-        rendered = "\n".join(f"- `/workspace/output/{name}`" for name in deliverables)
-        parts.append(f"""
+        if file_lane.get("inputs_only") and not deliverables:
+            parts.append("""
+## Input-document lane
+
+The source documents are mounted read-only at `/workspace/documents`. Read all
+of them before acting. This is an input-only evidence pack: do not create a
+separate filesystem deliverable. Complete the requested system-of-record
+actions with the product tools; those actions and their evidence trace are
+graded deterministically.
+""")
+        else:
+            rendered = "\n".join(f"- `/workspace/output/{name}`" for name in deliverables)
+            parts.append(f"""
 ## File deliverable lane (Harvey LAB parity)
 
 The source documents are mounted read-only at `/workspace/documents`. Write
@@ -639,14 +650,14 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--world", default=os.path.join(ROOT, "world", "blobfish",
-                                                    "world-v20.json"))
+                                                    "world-v16.json"))
     ap.add_argument("--contracts", default="",
-                    help="product-contract directory; defaults to mcp/v4 for world v20+ "
-                         "and mcp/v3 for historical worlds")
+                    help="product-contract directory; defaults to mcp/v5 for world v21+, "
+                         "mcp/v4 for v20, and mcp/v3 for historical worlds")
     ap.add_argument("--out", default=os.path.join(ROOT, "dist", "harbor"))
     ap.add_argument("--tasks", default="", help="comma-separated task_id filter")
     ap.add_argument("--image-tag",
-                    default="ghcr.io/blobfishai/legal-agent-sim-world:v20",
+                    default="ghcr.io/blobfishai/legal-agent-sim-world:v21",
                     help="world image reference baked into every task's compose "
                          "file; --build-image tags the local build with it")
     ap.add_argument("--build-image", action="store_true")

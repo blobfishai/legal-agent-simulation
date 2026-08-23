@@ -1,0 +1,668 @@
+{
+ "$schema": "lawfirm-qwen.mcp-contract.v3",
+ "system": "docket-records-v3",
+ "product": "CourtDock Records (SIMULATED) — API surface mirrors CourtListener REST API v4",
+ "provenance": "https://www.courtlistener.com/help/api/rest/ (endpoints: /courts/, /dockets/, /docket-entries/, /recap-documents/, /search/, /opinions/, /parties/, /attorneys/, /citation-lookup/, /alerts/)",
+ "tables": [
+  {
+   "name": "cl_courts",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "court_id",
+     "type": "TEXT",
+     "note": "slug e.g. simd"
+    },
+    {
+     "name": "full_name",
+     "type": "TEXT"
+    },
+    {
+     "name": "jurisdiction",
+     "type": "TEXT",
+     "note": "F|FD|S|SA"
+    },
+    {
+     "name": "in_use",
+     "type": "INTEGER"
+    }
+   ],
+   "seed": {
+    "rows": [
+     {
+      "court_id": "simd",
+      "full_name": "Simulated District Court, District of Meridian",
+      "jurisdiction": "FD",
+      "in_use": 1
+     },
+     {
+      "court_id": "simca9",
+      "full_name": "Simulated Court of Appeals, Ninth Circuit",
+      "jurisdiction": "F",
+      "in_use": 1
+     },
+     {
+      "court_id": "simsup",
+      "full_name": "Simulated Superior Court, Harbor County",
+      "jurisdiction": "S",
+      "in_use": 1
+     },
+     {
+      "court_id": "simbk",
+      "full_name": "Simulated Bankruptcy Court, District of Meridian",
+      "jurisdiction": "FD",
+      "in_use": 1
+     },
+     {
+      "court_id": "simtax",
+      "full_name": "Simulated Tax Court",
+      "jurisdiction": "SA",
+      "in_use": 1
+     }
+    ]
+   }
+  },
+  {
+   "name": "cl_dockets",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "docket_number",
+     "type": "TEXT"
+    },
+    {
+     "name": "case_name",
+     "type": "TEXT"
+    },
+    {
+     "name": "court_id",
+     "type": "TEXT",
+     "fk": "cl_courts.court_id"
+    },
+    {
+     "name": "date_filed",
+     "type": "TEXT"
+    },
+    {
+     "name": "date_terminated",
+     "type": "TEXT"
+    },
+    {
+     "name": "nature_of_suit",
+     "type": "TEXT"
+    },
+    {
+     "name": "assigned_to",
+     "type": "TEXT"
+    },
+    {
+     "name": "cause",
+     "type": "TEXT"
+    },
+    {
+     "name": "jury_demand",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 22,
+    "template": {
+     "docket_number": "@docket_number",
+     "case_name": "@case_name",
+     "court_id": "@pick:simd,simd,simsup,simca9,simbk",
+     "date_filed": "@date:2025-06-01,2026-07-15",
+     "date_terminated": null,
+     "nature_of_suit": "@pick:Contract,Antitrust,Employment,IP - Patent,Securities,Bankruptcy",
+     "assigned_to": "@judge",
+     "cause": "@pick:28:1332 Diversity,15:1 Antitrust,29:151 Labor,35:271 Patent Infringement",
+     "jury_demand": "@pick:Plaintiff,Defendant,None,Both"
+    }
+   }
+  },
+  {
+   "name": "cl_docket_entries",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "docket_id",
+     "type": "INTEGER",
+     "fk": "cl_dockets.id"
+    },
+    {
+     "name": "entry_number",
+     "type": "INTEGER"
+    },
+    {
+     "name": "date_filed",
+     "type": "TEXT"
+    },
+    {
+     "name": "description",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 120,
+    "template": {
+     "docket_id": "@ref:cl_dockets",
+     "entry_number": "@int:1,60",
+     "date_filed": "@date:2025-06-01,2026-08-01",
+     "description": "@docket_entry"
+    }
+   }
+  },
+  {
+   "name": "cl_recap_documents",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "docket_entry_id",
+     "type": "INTEGER",
+     "fk": "cl_docket_entries.id"
+    },
+    {
+     "name": "document_number",
+     "type": "INTEGER"
+    },
+    {
+     "name": "description",
+     "type": "TEXT"
+    },
+    {
+     "name": "page_count",
+     "type": "INTEGER"
+    },
+    {
+     "name": "is_sealed",
+     "type": "INTEGER"
+    },
+    {
+     "name": "plain_text",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 60,
+    "template": {
+     "docket_entry_id": "@ref:cl_docket_entries",
+     "document_number": "@int:1,4",
+     "description": "@pick:Complaint,Answer,Motion to Dismiss,Opposition,Reply,Order,Declaration,Exhibit A",
+     "page_count": "@int:2,85",
+     "is_sealed": "@pick:0,0,0,0,1",
+     "plain_text": "@filing_text"
+    }
+   }
+  },
+  {
+   "name": "cl_opinions",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "case_name",
+     "type": "TEXT"
+    },
+    {
+     "name": "court_id",
+     "type": "TEXT",
+     "fk": "cl_courts.court_id"
+    },
+    {
+     "name": "date_filed",
+     "type": "TEXT"
+    },
+    {
+     "name": "citation",
+     "type": "TEXT",
+     "note": "e.g. 512 Sim. 2d 204"
+    },
+    {
+     "name": "precedential_status",
+     "type": "TEXT",
+     "note": "Published|Unpublished"
+    },
+    {
+     "name": "snippet",
+     "type": "TEXT"
+    },
+    {
+     "name": "plain_text",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 26,
+    "template": {
+     "case_name": "@case_name",
+     "court_id": "@pick:simca9,simd,simsup",
+     "date_filed": "@date:2019-01-01,2026-06-01",
+     "citation": "@citation",
+     "precedential_status": "@pick:Published,Published,Unpublished",
+     "snippet": "@opinion_snippet",
+     "plain_text": "@opinion_text"
+    }
+   }
+  },
+  {
+   "name": "cl_parties",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "docket_id",
+     "type": "INTEGER",
+     "fk": "cl_dockets.id"
+    },
+    {
+     "name": "name",
+     "type": "TEXT"
+    },
+    {
+     "name": "party_type",
+     "type": "TEXT",
+     "note": "Plaintiff|Defendant|Intervenor"
+    },
+    {
+     "name": "represented_by",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 50,
+    "template": {
+     "docket_id": "@ref:cl_dockets",
+     "name": "@org_or_person",
+     "party_type": "@pick:Plaintiff,Defendant,Defendant,Intervenor",
+     "represented_by": "@person"
+    }
+   }
+  },
+  {
+   "name": "cl_docket_alerts",
+   "columns": [
+    {
+     "name": "id",
+     "type": "INTEGER",
+     "pk": true
+    },
+    {
+     "name": "docket_id",
+     "type": "INTEGER",
+     "fk": "cl_dockets.id"
+    },
+    {
+     "name": "alert_type",
+     "type": "INTEGER",
+     "note": "CourtListener DocketAlert subscription enum: 1=subscription, 0=unsubscription"
+    },
+    {
+     "name": "recipient",
+     "type": "TEXT"
+    },
+    {
+     "name": "created_at",
+     "type": "TEXT"
+    }
+   ],
+   "seed": {
+    "count": 6,
+    "template": {
+     "docket_id": "@ref:cl_dockets",
+     "alert_type": "@pick:1,1,1,0",
+     "recipient": "@email",
+     "created_at": "@date:2026-06-01,2026-08-01"
+    }
+   }
+  }
+ ],
+ "tools": [
+  {
+   "name": "courts_list",
+   "mirrors": "GET /api/rest/v4/courts/ — courtlistener.com/help/api/rest/",
+   "description": "List courts with jurisdiction filters.",
+   "op": {
+    "kind": "list",
+    "table": "cl_courts",
+    "filters": [
+     "jurisdiction",
+     "in_use"
+    ]
+   },
+   "params": {
+    "jurisdiction": "string",
+    "in_use": "integer",
+    "page": "integer"
+   },
+   "wire_fields": ["id", "full_name", "jurisdiction", "in_use"],
+   "courtlistener_pagination": "page",
+   "scenario": "The docketing clerk confirms the right court slug before setting up docket tracking."
+  },
+  {
+   "name": "dockets_list",
+   "mirrors": "GET /api/rest/v4/dockets/?court=&date_filed__gte=",
+   "description": "List dockets filtered by court, nature of suit, and filing-date range.",
+   "op": {
+    "kind": "list",
+    "table": "cl_dockets",
+    "filters": [
+     "court_id",
+     "nature_of_suit"
+    ],
+    "range": {
+     "field": "date_filed",
+     "from_param": "date_filed_after",
+     "to_param": "date_filed_before"
+    }
+   },
+   "params": {
+    "court": "string",
+    "nature_of_suit": "string",
+    "date_filed__gte": "string",
+    "date_filed__lte": "string",
+    "page": "integer",
+    "order_by": "string"
+   },
+   "wire_fields": ["id", "docket_number", "case_name", "court_id", "date_filed", "date_terminated", "nature_of_suit", "assigned_to_str", "cause", "jury_demand"],
+   "courtlistener_pagination": "page",
+   "request_defaults": {"order_by": "date_filed", "limit": 20},
+   "scenario": "A litigation partner surveys new antitrust filings in the district this quarter.",
+   "param_map": {
+    "court": "court_id",
+    "date_filed__gte": "date_filed_after",
+    "date_filed__lte": "date_filed_before"
+   }
+  },
+  {
+   "name": "dockets_get",
+   "mirrors": "GET /api/rest/v4/dockets/{id}/",
+   "description": "Fetch one docket with its metadata.",
+   "op": {
+    "kind": "get",
+    "table": "cl_dockets"
+   },
+   "params": {
+    "id": "integer"
+   },
+   "wire_fields": ["id", "docket_number", "case_name", "court_id", "date_filed", "date_terminated", "nature_of_suit", "assigned_to_str", "cause", "jury_demand"],
+   "scenario": "An associate pulls the docket to check the assigned judge before drafting."
+  },
+  {
+   "name": "dockets_search",
+   "mirrors": "GET /api/rest/v4/search/?type=r&q=",
+   "description": "Free-text docket search (case name, docket number, cause).",
+   "op": {
+    "kind": "search",
+    "table": "cl_dockets",
+    "fields": [
+     "case_name",
+     "docket_number",
+     "cause"
+    ]
+   },
+   "params": {
+    "q": "string",
+    "cursor": "string"
+   },
+   "wire_search_type": "r",
+   "scenario": "The client asked about 'the Talvern case' — the paralegal finds the docket by name.",
+   "param_map": {
+    "q": "query"
+   }
+  },
+  {
+   "name": "docket_entries_list",
+   "mirrors": "GET /api/rest/v4/docket-entries/?docket=",
+   "description": "List a docket's entries in filing order.",
+   "op": {
+    "kind": "list",
+    "table": "cl_docket_entries",
+    "filters": [
+     "docket_id",
+     "entry_number"
+    ],
+    "range": {
+     "field": "date_filed",
+     "from_param": "filed_after",
+     "to_param": "filed_before"
+    }
+   },
+   "params": {
+    "docket": "integer",
+    "entry_number": "integer",
+    "date_filed__gte": "string",
+    "date_filed__lte": "string",
+    "page": "integer",
+    "order_by": "string"
+   },
+   "wire_fields": ["id", "docket", "entry_number", "date_filed", "description"],
+   "courtlistener_pagination": "page",
+   "request_defaults": {"order_by": "date_filed", "limit": 20},
+   "scenario": "Before the status conference, the associate reads every entry since the last order.",
+   "param_map": {
+    "docket": "docket_id",
+    "date_filed__gte": "filed_after",
+    "date_filed__lte": "filed_before"
+   }
+  },
+  {
+   "name": "recap_documents_get",
+   "mirrors": "GET /api/rest/v4/recap-documents/{id}/",
+   "description": "Fetch a filed document's metadata and plain text (sealed documents return no text).",
+   "op": {
+    "kind": "get",
+    "table": "cl_recap_documents",
+    "redact": {
+     "when": {
+      "is_sealed": 1
+     },
+     "fields": [
+      "plain_text"
+     ],
+     "message": "SEALED — text unavailable"
+    }
+   },
+   "params": {
+    "id": "integer"
+   },
+   "wire_fields": ["id", "document_number", "description", "page_count", "is_sealed", "plain_text"],
+   "scenario": "An associate reads the opposition brief's full text to draft the reply."
+  },
+  {
+   "name": "recap_documents_list",
+   "mirrors": "GET /api/rest/v4/recap-documents/?docket_entry=",
+   "description": "List documents attached to a docket entry.",
+   "op": {
+    "kind": "list",
+    "table": "cl_recap_documents",
+    "filters": [
+     "docket_entry_id",
+     "is_sealed"
+    ],
+    "order_map": {"date_upload": "id"}
+   },
+   "params": {
+    "docket_entry": "integer",
+    "is_sealed": "integer",
+    "page": "integer",
+    "order_by": "string"
+   },
+   "wire_fields": ["id", "document_number", "description", "page_count", "is_sealed", "plain_text"],
+   "courtlistener_pagination": "page",
+   "request_defaults": {"order_by": "date_upload", "limit": 20},
+   "wire_order_by": "date_upload",
+   "scenario": "The team lists the documents attached to yesterday's motion entry.",
+   "param_map": {
+    "docket_entry": "docket_entry_id"
+   }
+  },
+  {
+   "name": "opinions_search",
+   "mirrors": "GET /api/rest/v4/search/?type=o&q=",
+   "description": "Full-text opinion search returning snippets and citations.",
+   "op": {
+    "kind": "search",
+    "table": "cl_opinions",
+    "fields": [
+     "case_name",
+     "snippet",
+     "plain_text",
+     "citation"
+    ],
+    "preview": [
+     "plain_text"
+    ]
+   },
+   "params": {
+    "q": "string",
+    "cursor": "string"
+   },
+   "wire_search_type": "o",
+   "scenario": "Researching the motion, the associate searches opinions on limitation-of-liability clauses.",
+   "param_map": {
+    "q": "query"
+   }
+  },
+  {
+   "name": "opinions_get",
+   "mirrors": "GET /api/rest/v4/opinions/{id}/",
+   "description": "Fetch one opinion with full text.",
+   "op": {
+    "kind": "get",
+    "table": "cl_opinions"
+   },
+   "params": {
+    "id": "integer"
+   },
+   "wire_fields": ["id", "cluster_id", "type", "author_str", "plain_text", "page_count"],
+   "scenario": "The associate reads the controlling opinion in full before citing it."
+  },
+  {
+   "name": "citation_lookup",
+   "mirrors": "POST /api/rest/v4/citation-lookup/ (Eyecite-backed)",
+   "description": "Resolve a citation string to an opinion. Unknown citations return no match — never fabricate.",
+   "op": {
+    "kind": "search",
+    "table": "cl_opinions",
+    "fields": [
+     "citation"
+    ],
+    "exactish": true
+   },
+   "params": {
+    "text": "string"
+   },
+   "response_adapter": "citation_lookup",
+   "scenario": "Cite-checking the brief, the paralegal verifies every citation resolves to a real opinion — anything unresolved gets flagged, never guessed.",
+   "param_map": {
+    "text": "citation"
+   }
+  },
+  {
+   "name": "parties_list",
+   "mirrors": "GET /api/rest/v4/parties/?docket=",
+   "description": "List parties on a docket with representation.",
+   "op": {
+    "kind": "list",
+    "table": "cl_parties",
+    "filters": [
+     "docket_id",
+     "name"
+    ],
+    "default_order": "-id"
+   },
+   "params": {
+    "docket": "integer",
+    "name": "string",
+    "cursor": "string",
+    "order_by": "string"
+   },
+   "wire_fields": ["id", "name", "party_types", "attorneys"],
+   "courtlistener_pagination": "cursor",
+   "request_defaults": {"limit": 20},
+   "wire_order_by": "",
+   "scenario": "The conflicts analyst lists all parties on the new matter's docket.",
+   "param_map": {
+    "docket": "docket_id"
+   }
+  },
+  {
+   "name": "docket_alerts_create",
+   "mirrors": "POST /api/rest/v4/docket-alerts/",
+   "description": "Subscribe an alert on a docket (new-entry or termination).",
+   "op": {
+    "kind": "create",
+    "table": "cl_docket_alerts",
+    "required": [
+     "docket_id"
+    ]
+   },
+   "params": {
+    "docket": "integer",
+    "alert_type": "integer"
+   },
+   "request_defaults": {
+    "alert_type": 1,
+    "recipient": "courtlistener-user@simulated-firm.example"
+   },
+   "response_adapter": "docket_alert",
+   "scenario": "The docketing clerk subscribes alerts on the appeal so nothing is missed.",
+   "param_map": {
+    "docket": "docket_id"
+   }
+  },
+  {
+   "name": "docket_alerts_list",
+   "mirrors": "GET /api/rest/v4/docket-alerts/",
+   "description": "List active docket alerts.",
+   "op": {
+    "kind": "list",
+    "table": "cl_docket_alerts",
+    "filters": [
+     "docket_id",
+     "alert_type"
+    ],
+    "default_order": "-created_at",
+    "order_map": {"date_created": "created_at", "date_modified": "created_at"}
+   },
+   "params": {
+    "docket": "integer",
+    "alert_type": "integer",
+    "cursor": "string",
+    "page_size": "integer",
+    "order_by": "string"
+   },
+   "courtlistener_pagination": "cursor",
+   "wire_fields": ["id", "date_created", "date_modified", "date_last_hit", "docket", "alert_type"],
+   "request_map": {"page_size": "limit"},
+   "request_defaults": {"limit": 50},
+   "scenario": "The clerk audits which dockets still have active alerts after the case settled.",
+   "param_map": {
+    "docket": "docket_id"
+   }
+  }
+ ],
+ "dialect": "courtlistener",
+ "fidelity": "v3: 1:1 external parameter names + real response envelopes per the cited API docs"
+}

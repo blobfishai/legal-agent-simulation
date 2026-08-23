@@ -1,0 +1,807 @@
+{
+ "family": "consumer-protection-privacy",
+ "anchor": "Cothron v. White Castle + SB 2979 (BIPA) / Equifax multistate + 51-jurisdiction breach-notification variance - synthetic transforms",
+ "provenance": {
+  "research": "research/realworld-tasks/RESEARCH.md",
+  "designs": "research/realworld-tasks/task-designs.json",
+  "simulation_only": true,
+  "compiled_by": "world/v20/build.py"
+ },
+ "documents": [
+  {
+   "title": "suarez-settlement-agreement.docx",
+   "doc_type": "agreement",
+   "dm_document_id": 200142,
+   "trap": false,
+   "body": "SUAREZ v. PRAIRIE GRILL HOLDINGS, INC. - EXECUTED SETTLEMENT (SIMULATED)\n\nFund: $9,750,000 covering 8,400 class members. Effective Date: 2025-08-01.\n\nSection 6 (Injunctive Relief) - due within 45 days of the Effective Date:\n(a) a biometric retention-and-destruction policy posted publicly on the company website;\n(b) a statute-compliant written-release consent form for all active employees;\n(c) a vendor contract amendment requiring certified destruction of templates within 30 days of a company request."
+  },
+  {
+   "title": "biometric-statute-and-2024-amendment-memo.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200143,
+   "trap": false,
+   "body": "BIOMETRIC PRIVACY ACT MEMO AND 2024 AMENDMENT (SIMULATED IN-WORLD LAW)\n\nDestruction: required when the initial purpose is satisfied OR within 3 years of the individual's last interaction with the company, whichever occurs FIRST.\nLiquidated damages: $1,000 per negligent violation; $5,000 per reckless violation.\nConsent: written notice stating the specific purpose and the length of term; a written release is required before collection.\n2024 amendment: (i) one violation per person per method of collection regardless of scan count; (ii) a written release MAY be executed by electronic signature.\nCoverage: stored templates, hashes, and \"mathematical representations\" of fingerprints ARE biometric identifiers under this Act. A vendor claim to the contrary is wrong as a matter of law."
+  },
+  {
+   "title": "hr-biometric-roster.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200144,
+   "trap": false,
+   "body": "HR BIOMETRIC ROSTER - PINNED ROWS (SIMULATED DATA EXPORT)\n\nE-1002: terminated; last scan 2023-04-18\nE-1044: terminated; last scan 2024-11-30\nE-1177: terminated; last scan 2022-06-30\nE-1203: ACTIVE; timekeeping purpose ongoing\nE-1288: PIN-only user; template id NULL (never enrolled)\nRemaining roster rows are not in scope for the pinned schedule."
+  },
+  {
+   "title": "timeclock-vendor-msa.docx",
+   "doc_type": "agreement",
+   "dm_document_id": 200145,
+   "trap": false,
+   "body": "TIMECLOCK VENDOR MASTER SERVICES AGREEMENT (SIMULATED)\n\nThe MSA contains NO deletion, destruction-certification, or biometric-specific clause. Renewal date: 2026-01-31. Section 14: amendments require a written instrument signed by both parties."
+  },
+  {
+   "title": "vendor-position-letter.docx",
+   "doc_type": "correspondence",
+   "dm_document_id": 200146,
+   "trap": true,
+   "body": "VENDOR POSITION LETTER - CONTESTED (SIMULATED)\n\nThe timeclock vendor asserts its system stores only \"irreversible mathematical representations,\" which it claims are not biometric identifiers and therefore need no consent, retention policy, or deletion obligations. This position is directly contradicted by the statute memo's express coverage of templates and hashes."
+  },
+  {
+   "title": "exposure-model-inputs.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200147,
+   "trap": false,
+   "body": "EXPOSURE MODEL INPUTS (SIMULATED DATA EXPORT)\n\nClass members: 8,400. Average scans per member: 1,850. Negligent rate: $1,000. Reckless rate: $5,000.\nCompute per-scan exposure (members x scans x rate) and post-amendment per-person exposure (members x rate) for the negotiation-history memo."
+  },
+  {
+   "title": "forensic-incident-report.docx",
+   "doc_type": "report",
+   "dm_document_id": 200148,
+   "trap": false,
+   "body": "FORENSIC INCIDENT REPORT - HARBORLINE OUTFITTERS (SIMULATED)\n\nIntrusion window 2025-04-14 to 2025-05-28; anomaly detected 2025-05-19; forensic DETERMINATION of unauthorized acquisition fixed at 2025-06-02 (the statutory trigger).\nAffected residents: 638,204 across all 50 states and DC. Store-cardholders with SSNs exposed: 412,300 (including every affected CT resident).\nAttack method: credential stuffing against the loyalty API.\nEncryption appendix: the ND-resident segment (1,872 residents) lived on an encrypted volume whose key was NOT compromised."
+  },
+  {
+   "title": "resident-counts-by-state.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200149,
+   "trap": false,
+   "body": "AFFECTED RESIDENT COUNTS BY JURISDICTION (SIMULATED DATA EXPORT)\nTotal affected: 638,204.\nAL: 9,660\nAK: 9,660\nAZ: 9,660\nAR: 9,660\nCA: 88,412\nCO: 9,341\nCT: 18,442\nDE: 9,660\nDC: 9,660\nFL: 41,220\nGA: 9,660\nHI: 9,660\nID: 9,659\nIL: 9,659\nIN: 9,659\nIA: 9,659\nKS: 9,659\nKY: 9,659\nLA: 9,659\nME: 3,004\nMD: 9,659\nMA: 22,150\nMI: 9,659\nMN: 9,659\nMS: 9,659\nMO: 9,659\nMT: 9,659\nNE: 9,659\nNV: 9,659\nNH: 9,659\nNJ: 9,659\nNM: 9,659\nNY: 9,659\nNC: 9,659\nND: 1,872\nOH: 9,659\nOK: 9,659\nOR: 214\nPA: 9,659\nRI: 9,659\nSC: 9,659\nSD: 9,659\nTN: 9,659\nTX: 54,003\nUT: 9,659\nVT: 9,659\nVA: 9,659\nWA: 12,876\nWV: 9,659\nWI: 9,659\nWY: 302"
+  },
+  {
+   "title": "breach-statute-memo-pack-part-1-pinned-states.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200150,
+   "trap": false,
+   "body": "BREACH STATUTE MEMO PACK - PART 1 (PINNED STATES) (SIMULATED IN-WORLD LAW)\n\nCO, FL, ME, WA: resident notice within 30 days of determination.\nTX: residents within 60 days; AG within 30 days when 250 or more Texas residents are affected.\nCA: when more than 500 CA residents are affected, the AG receives a sample copy of the notice (personal information excluded) within 15 days after consumer notification.\nOR: AG notice only when MORE than 250 Oregon residents are affected.\nMA: the resident notice MUST NOT describe the nature of the breach or the number of residents affected; it MUST offer a security freeze at no charge and mitigation services; the AG is notified regardless of count.\nCT: 24 months of credit monitoring at no cost whenever SSNs are involved.\nND: encryption safe harbor - NO notice required when the data was encrypted and the key was not compromised."
+  },
+  {
+   "title": "breach-statute-memo-pack-part-2-defaults-and-ag-table.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200151,
+   "trap": false,
+   "body": "BREACH STATUTE MEMO PACK - PART 2 (DEFAULTS AND AG TABLE) (SIMULATED)\n\nAll jurisdictions not pinned in Part 1: notice without unreasonable delay; firm policy calendars these at 45 days from determination.\n\nAG/REGULATOR SUMMARY TABLE: applying this pack's thresholds to the resident-counts workbook, AG or regulator notice is required in EXACTLY 27 jurisdictions: AL, AZ, CA, CO, CT, DE, FL, GA, HI, IL, IN, IA, LA, ME, MD, MA, MO, MT, NE, NH, NM, NY, NC, SC, TX, VA, WA. OR is excluded (214 residents is below its threshold); ND is excluded by the encryption safe harbor."
+  },
+  {
+   "title": "notification-letter-draft.docx",
+   "doc_type": "draft",
+   "dm_document_id": 200152,
+   "trap": false,
+   "body": "RESIDENT NOTIFICATION LETTER - WORKING DRAFT (SIMULATED)\n\nCurrent draft text says: \"attackers used credential stuffing against our loyalty API, affecting 638,204 customers.\" That language is unlawful in the MA variant and must be stripped there. The draft is also missing the security-freeze paragraph and the credit-monitoring offer."
+  },
+  {
+   "title": "legacy-ir-playbook-2019-RETIRED.docx",
+   "doc_type": "template",
+   "dm_document_id": 200153,
+   "trap": true,
+   "body": "2019 INCIDENT-RESPONSE PLAYBOOK - RETIRED 2024, RETAINED FOR RECORDS (SIMULATED)\n\nThis retired playbook instructed \"45 days to notify in all states\" and \"AG letters only in California and New York.\" Both instructions are contradicted by the operative memo pack and must not be followed."
+  },
+  {
+   "title": "credit-monitoring-vendor-quote.docx",
+   "doc_type": "quote",
+   "dm_document_id": 200154,
+   "trap": false,
+   "body": "CREDIT MONITORING VENDOR QUOTE (SIMULATED)\n\nPrice: $9.50 per enrollee per year. CT obligation math: 18,442 CT residents x 2 years x $9.50 = $350,398.00."
+  }
+ ],
+ "tasks": [
+  {
+   "task_id": "task_v20_pp_001",
+   "slug": "prairie-grill-destruction-schedule-and-exposure",
+   "capability": "computation",
+   "difficulty": "high",
+   "prompt": "Matter: Prairie Grill - Suarez Biometric Settlement (matter 200005). Build the destruction schedule and the exposure comparison. Read IN FULL: the executed settlement, the biometric statute memo (including the 2024 amendment), the HR biometric roster pinned rows, and the exposure model inputs. File a new MatterVault document named exactly 'biometric-destruction-schedule.docx' (folder_id 45, workspace_id 25, doc_class REPORT) with one line per pinned employee: 'E-NNNN | YYYY-MM-DD' for dated deadlines (last scan + 3 years), 'E-NNNN | OVERDUE - immediate destruction required ...' where the deadline already passed, 'E-NNNN | NO ACTION - no biometric data ...' for the never-enrolled PIN-only user (give it no date), and the policy rule line for the active employee. Then a note with subject exactly 'suarez-exposure-summary' and detail exactly 'section6_due=<date>; per_scan_negligent_usd=<n with thousands separators>; per_person_negligent_usd=<n>; per_person_reckless_usd=<n>' computed from the exposure inputs under pre-amendment per-scan accrual and the 2024 amendment's per-person rule.",
+   "reads": [
+    "suarez_settlement",
+    "bipa_statute",
+    "roster",
+    "exposure_inputs"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 45,
+      "workspace_id": 25,
+      "name": "biometric-destruction-schedule.docx",
+      "doc_class": "REPORT",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "BIOMETRIC TEMPLATE DESTRUCTION SCHEDULE - SUAREZ SECTION 6 (SIMULATED)\nRule applied: destruction when the purpose is satisfied or 3 years after the last interaction, whichever occurs FIRST.\n\nE-1002 | 2026-04-18\nE-1044 | 2027-11-30\nE-1177 | OVERDUE - immediate destruction required (3-year deadline 2025-06-30 already passed)\nE-1203 | destruction within 3 years of separation or purpose end, whichever occurs first\nE-1288 | NO ACTION - no biometric data (template id NULL)"
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200005,
+      "author_user_id": 1,
+      "subject": "suarez-exposure-summary",
+      "detail": "section6_due=2025-09-15; per_scan_negligent_usd=15,540,000,000; per_person_negligent_usd=8,400,000; per_person_reckless_usd=42,000,000"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "e1002_deadline",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "biometric-destruction-schedule.docx",
+      "body": {
+       "contains": "E-1002 | 2026-04-18"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "e1044_deadline",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "biometric-destruction-schedule.docx",
+      "body": {
+       "contains": "E-1044 | 2027-11-30"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "e1177_overdue",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "biometric-destruction-schedule.docx",
+      "body": {
+       "contains": "E-1177 | OVERDUE - immediate destruction required"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "e1288_no_action",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "biometric-destruction-schedule.docx",
+      "body": {
+       "contains": "E-1288 | NO ACTION - no biometric data"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "e1203_policy_rule",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "biometric-destruction-schedule.docx",
+      "body": {
+       "contains": "3 years of separation or purpose end"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "per_scan_exposure",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "suarez-exposure-summary",
+      "detail": {
+       "contains": "per_scan_negligent_usd=15,540,000,000"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "per_person_negligent",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "suarez-exposure-summary",
+      "detail": {
+       "contains": "per_person_negligent_usd=8,400,000"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "per_person_reckless",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "suarez-exposure-summary",
+      "detail": {
+       "contains": "per_person_reckless_usd=42,000,000"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "section6_due",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "suarez-exposure-summary",
+      "detail": {
+       "contains": "section6_due=2025-09-15"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_e1288_gets_no_date",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "E-1288 | 202"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "notes_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_pp_002",
+   "slug": "prairie-grill-section6-remediation-package",
+   "capability": "grounded_drafting_and_redlining",
+   "difficulty": "medium",
+   "prompt": "Matter 200005. Assemble the Section 6 remediation package. Read IN FULL: the executed settlement, the biometric statute memo, the timeclock vendor MSA, and the vendor position letter (whose 'mathematical representations' argument you must resolve against the statute memo). File a new MatterVault document named exactly 'suarez-section6-remediation-package.docx' (folder_id 45, workspace_id 25, doc_class PACKAGE) containing: the public policy commitment ('posted publicly on the company website'); a corrected consent form stating the 'specific purpose' and 'length of term' and permitting 'electronic signature', citing the 2024 amendment; a vendor amendment requiring 'certified destruction within 30 days' of a company request; and the line 'vendor position REJECTED' with the statutory basis. Calendar the Section 6 deadline (45 days from the Effective Date) as kind 'deadline' with summary containing 'Section 6'.",
+   "reads": [
+    "suarez_settlement",
+    "bipa_statute",
+    "vendor_msa",
+    "vendor_letter_trap"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 45,
+      "workspace_id": 25,
+      "name": "suarez-section6-remediation-package.docx",
+      "doc_class": "PACKAGE",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "SUAREZ SECTION 6 REMEDIATION PACKAGE (SIMULATED)\n\n1. Retention-and-destruction policy: will be posted publicly on the company website; destruction when the purpose is satisfied or 3 years after the last interaction, whichever occurs first.\n2. Consent form (corrected): states the specific purpose and the length of term, and permits execution by electronic signature, citing the 2024 amendment.\n3. Vendor amendment: requires certified destruction within 30 days of a company request, with a written destruction certificate.\n4. vendor position REJECTED: the statute memo expressly covers stored templates, hashes, and mathematical representations as biometric identifiers."
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200005,
+      "summary": "Section 6 injunctive-relief compliance deadline - Suarez",
+      "kind": "deadline",
+      "start_at": "2025-09-15T17:00:00Z",
+      "end_at": "2025-09-15T17:30:00Z"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "consent_specific_purpose",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "specific purpose"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "consent_length_of_term",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "length of term"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "consent_esignature",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "electronic signature"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "cites_2024_amendment",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "citing the 2024 amendment"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "vendor_30day_destruction",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "certified destruction within 30 days"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "policy_posted_publicly",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "posted publicly on the company website"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "vendor_rejected",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "suarez-section6-remediation-package.docx",
+      "body": {
+       "contains": "vendor position REJECTED"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "section6_calendared",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-09-15"
+      },
+      "summary": {
+       "contains": "Section 6"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_vendor_not_accepted",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "vendor position ACCEPTED"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "calendar_entries_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_pp_003",
+   "slug": "harborline-51-jurisdiction-breach-grid",
+   "capability": "rule_application",
+   "difficulty": "high",
+   "prompt": "Matter: Harborline - Credential-Stuffing Breach Response (matter 200006). Build the 51-jurisdiction notification grid. Read IN FULL: the forensic incident report, the resident-counts export, both parts of the breach statute memo pack, the RETIRED 2019 playbook (its 45-days-everywhere and CA/NY-only-AG instructions must not be followed), and the monitoring vendor quote. File a new MatterVault document named exactly 'harborline-breach-notification-grid.docx' (folder_id 46, workspace_id 26, doc_class MATRIX) with one row per jurisdiction applying the memo pack to the counts: 30-day states as '<XX> | residents by 2025-07-02 (30 days) | AG notice YES/NO'; the TX dual track; the ND safe harbor row exactly 'ND | NO NOTICE REQUIRED - encryption safe harbor (key not compromised)'; the OR threshold row; the CA AG-sample-copy row; MA and CT special-duty rows; and default states at the firm's 45-day policy date. Include the summary lines 'AG NOTICES REQUIRED: <n>' and 'letters to mail: <n>' (excluding the safe-harbor segment). Record a note with subject exactly 'harborline-breach-summary' and detail exactly 'total_affected=<n>; ssn_subset=<n>; ag_notice_count=<n>; mailing_population=<n>' (thousands separators). Calendar the earliest deadline as kind 'deadline', summary containing 'Earliest breach-notification'.",
+   "reads": [
+    "forensic_report",
+    "resident_counts",
+    "breach_memo_pinned",
+    "breach_memo_defaults",
+    "playbook_trap",
+    "monitor_quote"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 46,
+      "workspace_id": 26,
+      "name": "harborline-breach-notification-grid.docx",
+      "doc_class": "MATRIX",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "51-JURISDICTION BREACH NOTIFICATION GRID - HARBORLINE (SIMULATED)\nStatutory determination date: 2025-06-02. earliest resident deadline: 2025-07-02 (CO, FL, ME, WA). default-jurisdiction deadline: 2025-07-17.\n\nAL | residents by 2025-07-17 (45-day policy) | AG notice YES\nAK | residents by 2025-07-17 (45-day policy) | AG notice NO\nAZ | residents by 2025-07-17 (45-day policy) | AG notice YES\nAR | residents by 2025-07-17 (45-day policy) | AG notice NO\nCA | residents by 2025-07-17 | AG sample copy within 15 days after consumer notification\nCO | residents by 2025-07-02 (30 days) | AG notice YES\nCT | residents by 2025-07-17 | 24 months of credit monitoring | AG notice YES\nDE | residents by 2025-07-17 (45-day policy) | AG notice YES\nDC | residents by 2025-07-17 (45-day policy) | AG notice NO\nFL | residents by 2025-07-02 (30 days) | AG notice YES\nGA | residents by 2025-07-17 (45-day policy) | AG notice YES\nHI | residents by 2025-07-17 (45-day policy) | AG notice YES\nID | residents by 2025-07-17 (45-day policy) | AG notice NO\nIL | residents by 2025-07-17 (45-day policy) | AG notice YES\nIN | residents by 2025-07-17 (45-day policy) | AG notice YES\nIA | residents by 2025-07-17 (45-day policy) | AG notice YES\nKS | residents by 2025-07-17 (45-day policy) | AG notice NO\nKY | residents by 2025-07-17 (45-day policy) | AG notice NO\nLA | residents by 2025-07-17 (45-day policy) | AG notice YES\nME | residents by 2025-07-02 (30 days) | AG notice YES\nMD | residents by 2025-07-17 (45-day policy) | AG notice YES\nMA | residents by 2025-07-17 | content bar: no breach description or count | AG notice YES\nMI | residents by 2025-07-17 (45-day policy) | AG notice NO\nMN | residents by 2025-07-17 (45-day policy) | AG notice NO\nMS | residents by 2025-07-17 (45-day policy) | AG notice NO\nMO | residents by 2025-07-17 (45-day policy) | AG notice YES\nMT | residents by 2025-07-17 (45-day policy) | AG notice YES\nNE | residents by 2025-07-17 (45-day policy) | AG notice YES\nNV | residents by 2025-07-17 (45-day policy) | AG notice NO\nNH | residents by 2025-07-17 (45-day policy) | AG notice YES\nNJ | residents by 2025-07-17 (45-day policy) | AG notice NO\nNM | residents by 2025-07-17 (45-day policy) | AG notice YES\nNY | residents by 2025-07-17 (45-day policy) | AG notice YES\nNC | residents by 2025-07-17 (45-day policy) | AG notice YES\nND | NO NOTICE REQUIRED - encryption safe harbor (key not compromised)\nOH | residents by 2025-07-17 (45-day policy) | AG notice NO\nOK | residents by 2025-07-17 (45-day policy) | AG notice NO\nOR | resident notice YES | AG notice NO (214 residents is below the threshold)\nPA | residents by 2025-07-17 (45-day policy) | AG notice NO\nRI | residents by 2025-07-17 (45-day policy) | AG notice NO\nSC | residents by 2025-07-17 (45-day policy) | AG notice YES\nSD | residents by 2025-07-17 (45-day policy) | AG notice NO\nTN | residents by 2025-07-17 (45-day policy) | AG notice NO\nTX | AG by 2025-07-02 | residents by 2025-08-01\nUT | residents by 2025-07-17 (45-day policy) | AG notice NO\nVT | residents by 2025-07-17 (45-day policy) | AG notice NO\nVA | residents by 2025-07-17 (45-day policy) | AG notice YES\nWA | residents by 2025-07-02 (30 days) | AG notice YES\nWV | residents by 2025-07-17 (45-day policy) | AG notice NO\nWI | residents by 2025-07-17 (45-day policy) | AG notice NO\nWY | residents by 2025-07-17 (45-day policy) | AG notice NO\n\nAG NOTICES REQUIRED: 27\nletters to mail: 636,332 (ND's 1,872 excluded by the safe harbor)"
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200006,
+      "author_user_id": 1,
+      "subject": "harborline-breach-summary",
+      "detail": "total_affected=638,204; ssn_subset=412,300; ag_notice_count=27; mailing_population=636,332"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200006,
+      "summary": "Earliest breach-notification deadline (CO, FL, ME, WA)",
+      "kind": "deadline",
+      "start_at": "2025-07-02T17:00:00Z",
+      "end_at": "2025-07-02T17:30:00Z"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "earliest_deadline",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "earliest resident deadline: 2025-07-02"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "tx_dual_track",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "TX | AG by 2025-07-02 | residents by 2025-08-01"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "nd_safe_harbor",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "ND | NO NOTICE REQUIRED - encryption safe harbor"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "or_threshold",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "OR | resident notice YES | AG notice NO"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ca_sample_copy",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "AG sample copy within 15 days after consumer notification"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "default_45_day",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "default-jurisdiction deadline: 2025-07-17"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ag_count_27",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "AG NOTICES REQUIRED: 27"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "mailing_math",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "harborline-breach-notification-grid.docx",
+      "body": {
+       "contains": "letters to mail: 636,332"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_totals",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "harborline-breach-summary",
+      "detail": {
+       "contains": "total_affected=638,204"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_ag_count",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "harborline-breach-summary",
+      "detail": {
+       "contains": "ag_notice_count=27"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_mailing",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "harborline-breach-summary",
+      "detail": {
+       "contains": "mailing_population=636,332"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "earliest_calendared",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-07-02"
+      },
+      "summary": {
+       "contains": "Earliest breach-notification"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_nd_not_noticed",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "ND | NOTICE REQUIRED"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_or_ag_not_required",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "OR | AG notice YES"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_mailing_excludes_nd",
+     "table": "pm_notes",
+     "matches": {
+      "detail": {
+       "contains": "mailing_population=638,204"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "notes_create",
+    "calendar_entries_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_pp_004",
+   "slug": "harborline-state-variant-letters",
+   "capability": "grounded_drafting_and_redlining",
+   "difficulty": "high",
+   "prompt": "Matter 200006. Produce the state-variant resident letters. Read IN FULL: the forensic incident report, part 1 of the breach statute memo pack, the working letter draft (whose method-and-count sentence is unlawful in the MA variant), and the monitoring vendor quote. File TWO new MatterVault documents (folder_id 46, workspace_id 26, doc_class LETTER): 'resident-letter-MA-variant.docx' - which must NOT describe the attack method or state the affected count, and MUST offer a 'security freeze at no charge' plus mitigation services; and 'resident-letter-CT-variant.docx' - which must offer '24 months of credit monitoring at no cost' because SSNs were involved. Then a note with subject exactly 'harborline-letter-variants' and detail exactly 'ct_enrollees=<n>; ct_monitoring_cost_usd=<n.nn>; ma_variant=content-bar applied; base_letter=freeze paragraph added' using the vendor quote math.",
+   "reads": [
+    "forensic_report",
+    "breach_memo_pinned",
+    "letter_draft",
+    "monitor_quote"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 46,
+      "workspace_id": 26,
+      "name": "resident-letter-MA-variant.docx",
+      "doc_class": "LETTER",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "RESIDENT NOTIFICATION LETTER - MA VARIANT (SIMULATED)\n\nDear Massachusetts Resident,\n\nWe are writing about a recent security incident involving certain personal information. Consistent with Massachusetts law, this notice does not describe the nature of the incident or how many residents are affected.\n\nYou may place a security freeze at no charge with each consumer reporting agency; instructions are enclosed. We are also offering complimentary credit monitoring and identity-restoration services.\n\nHarborline Outfitters, Inc. (SIMULATED)"
+     }
+    },
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 46,
+      "workspace_id": 26,
+      "name": "resident-letter-CT-variant.docx",
+      "doc_class": "LETTER",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "RESIDENT NOTIFICATION LETTER - CT VARIANT (SIMULATED)\n\nDear Connecticut Resident,\n\nWe are writing about a recent security incident involving personal information that included Social Security numbers. Because Social Security numbers were involved, we are providing 24 months of credit monitoring at no cost to you; enrollment instructions are enclosed. You may also place a security freeze at no charge.\n\nHarborline Outfitters, Inc. (SIMULATED)"
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200006,
+      "author_user_id": 1,
+      "subject": "harborline-letter-variants",
+      "detail": "ct_enrollees=18,442; ct_monitoring_cost_usd=350,398.00; ma_variant=content-bar applied; base_letter=freeze paragraph added"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "ma_freeze_paragraph",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "resident-letter-MA-variant.docx",
+      "body": {
+       "contains": "security freeze at no charge"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ma_offers_monitoring",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "resident-letter-MA-variant.docx",
+      "body": {
+       "contains": "complimentary credit monitoring"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ct_24_months",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "resident-letter-CT-variant.docx",
+      "body": {
+       "contains": "24 months of credit monitoring at no cost"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_ct_cost",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "harborline-letter-variants",
+      "detail": {
+       "contains": "ct_monitoring_cost_usd=350,398.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_ct_enrollees",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "harborline-letter-variants",
+      "detail": {
+       "contains": "ct_enrollees=18,442"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_ma_no_method",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "credential stuffing"
+      },
+      "name": {
+       "contains": "MA-variant"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_ma_no_count",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "638,204"
+      },
+      "name": {
+       "contains": "MA-variant"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "documents_create",
+    "notes_create"
+   ]
+  }
+ ]
+}

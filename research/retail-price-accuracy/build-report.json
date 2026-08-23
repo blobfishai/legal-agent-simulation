@@ -1,0 +1,91 @@
+{
+  "all_attorney_validation_required": true,
+  "built_at": "2026-08-22",
+  "documents": 15,
+  "formats": {
+    "docx": 6,
+    "pdf": 3,
+    "xlsx": 6
+  },
+  "jurisdictions": 51,
+  "pending_substantive_validation_jurisdictions": 45,
+  "primary_source_triaged_jurisdictions": [
+    "CA",
+    "CT",
+    "DC",
+    "MA",
+    "MI",
+    "NY"
+  ],
+  "scenario_manifests": [
+    "research/retail-price-accuracy/scenarios/ca-price-weight-duplicate-scan-v1/manifest.json",
+    "research/retail-price-accuracy/mutations/mi-price-weight-duplicate-scan-v1/manifest.json",
+    "research/retail-price-accuracy/mutations/dc-price-weight-duplicate-scan-v1/manifest.json"
+  ],
+  "scenarios": 3,
+  "schema_version": 1,
+  "seed_data": "research/retail-price-accuracy/seed-data.json",
+  "shared_structure_signature": {
+    "docx": {
+      "customer-price-accuracy-policy.docx": [
+        "1. Purpose and scope",
+        "2. Lowest supported price control",
+        "3. Duplicate-scan control",
+        "4. Weight and measure control",
+        "5. Receipt and checkout notice",
+        "6. Refunds and additional remedies",
+        "7. Evidence and escalation",
+        "8. Testing and governance",
+        "Approved customer-facing wording",
+        "Jurisdiction deployment gate"
+      ],
+      "incident-report.docx": [
+        "Executive finding",
+        "Preservation and investigation",
+        "Root-cause hypothesis",
+        "Immediate customer remediation",
+        "Legal triage",
+        "Non-conclusion"
+      ]
+    },
+    "files": [
+      "checkout-event-log.xlsx",
+      "customer-price-accuracy-policy.docx",
+      "incident-report.docx",
+      "jurisdiction-source-register.xlsx",
+      "sample-receipts.pdf"
+    ],
+    "pdf_pages": {
+      "sample-receipts.pdf": 2
+    },
+    "workbooks": {
+      "checkout-event-log.xlsx": {
+        "columns": {
+          "Control Tests": 7,
+          "Data Dictionary": 2,
+          "Events": 9,
+          "Line Items": 12
+        },
+        "sheets": [
+          "Events",
+          "Line Items",
+          "Control Tests",
+          "Data Dictionary"
+        ]
+      },
+      "jurisdiction-source-register.xlsx": {
+        "columns": {
+          "Jurisdiction Register": 14,
+          "Methodology": 2,
+          "Primary Sources": 6
+        },
+        "sheets": [
+          "Jurisdiction Register",
+          "Primary Sources",
+          "Methodology"
+        ]
+      }
+    }
+  },
+  "synthetic": true
+}

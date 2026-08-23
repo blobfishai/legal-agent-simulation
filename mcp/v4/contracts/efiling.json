@@ -1,0 +1,103 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v3",
+  "system": "courtfile-efiling-v3",
+  "product": "CourtFile ECF (SIMULATED) — workflow semantics mirror CM/ECF NextGen",
+  "provenance": "https://pacer.uscourts.gov/file-case/how-file-case ; https://www.ord.uscourts.gov/index.php/filing-and-forms/cm-ecf/user-manual",
+  "fidelity": "Documentation-fixture fidelity only. PACER's public APIs do not expose a common general-purpose write-filing contract; court-specific event menus and validation vary.",
+  "tables": [
+    {
+      "name": "ef_cases",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "court_docket_id", "type": "INTEGER"},
+        {"name": "docket_number", "type": "TEXT"},
+        {"name": "case_name", "type": "TEXT"},
+        {"name": "court_id", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "notice_recipients", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"court_docket_id": 1, "docket_number": "1:26-cv-01001", "case_name": "Northstar v. Meridian", "court_id": "simd", "status": "open", "notice_recipients": "docketing@simulated-firm.example,opposing@example.com"},
+        {"court_docket_id": 2, "docket_number": "1:26-cv-01002", "case_name": "Aurelius v. Quorum", "court_id": "simd", "status": "open", "notice_recipients": "docketing@simulated-firm.example,counsel@example.com"},
+        {"court_docket_id": 3, "docket_number": "1:26-cv-01003", "case_name": "Lumos v. Dunmore", "court_id": "simd", "status": "open", "notice_recipients": "docketing@simulated-firm.example,service@example.com"}
+      ]}
+    },
+    {
+      "name": "ef_filings",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "case_id", "type": "INTEGER"},
+        {"name": "event_type", "type": "TEXT"},
+        {"name": "document_name", "type": "TEXT"},
+        {"name": "document_mime_type", "type": "TEXT"},
+        {"name": "document_sha256", "type": "TEXT"},
+        {"name": "description", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "filed_at", "type": "TEXT"}
+      ],
+      "seed": {"rows": []}
+    },
+    {
+      "name": "ef_docket_entries",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "case_id", "type": "INTEGER"},
+        {"name": "filing_id", "type": "INTEGER"},
+        {"name": "entry_number", "type": "INTEGER"},
+        {"name": "date_filed", "type": "TEXT"},
+        {"name": "description", "type": "TEXT"}
+      ],
+      "seed": {"rows": []}
+    },
+    {
+      "name": "ef_nef_notices",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "case_id", "type": "INTEGER"},
+        {"name": "filing_id", "type": "INTEGER"},
+        {"name": "docket_entry_id", "type": "INTEGER"},
+        {"name": "generated_at", "type": "TEXT"},
+        {"name": "recipients", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"}
+      ],
+      "seed": {"rows": []}
+    }
+  ],
+  "tools": [
+    {
+      "name": "efiling_cases_get",
+      "mirrors": "CM/ECF case-selection workflow (documentation fixture; no public common write API)",
+      "description": "Get an open CM/ECF case before choosing a filing event.",
+      "op": {"kind": "efiling_case_get", "table": "ef_cases", "required": ["case_id"]},
+      "params": {"case_id": "integer"},
+      "conformance_args": {"case_id": 1}
+    },
+    {
+      "name": "efiling_filings_create",
+      "mirrors": "CM/ECF event selection → PDF upload → filing submission → NEF workflow",
+      "description": "File one PDF under a supported civil event; atomically creates the filing, docket entry, and NEF.",
+      "op": {
+        "kind": "efiling_create", "table": "ef_filings",
+        "required": ["case_id", "event_type", "document_name", "document_mime_type"],
+        "allowed_event_types": ["answer_to_complaint", "motion", "notice", "stipulation", "response"]
+      },
+      "params": {"case_id": "integer", "event_type": "string", "document_name": "string", "document_mime_type": "string", "document_sha256": "string", "description": "string", "filed_at": "string"},
+      "conformance_args": {"case_id": 1, "event_type": "answer_to_complaint", "document_name": "answer.pdf", "document_mime_type": "application/pdf", "document_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "description": "Answer to Complaint"}
+    },
+    {
+      "name": "efiling_docket_entries_list",
+      "mirrors": "CM/ECF docket report after filing (documentation fixture)",
+      "description": "List docket entries created on the filing side.",
+      "op": {"kind": "list", "table": "ef_docket_entries", "filters": ["case_id", "filing_id"]},
+      "params": {"case_id": "integer", "filing_id": "integer", "limit": "integer"}
+    },
+    {
+      "name": "efiling_nef_notices_list",
+      "mirrors": "CM/ECF Notice of Electronic Filing generated at transaction completion",
+      "description": "List generated Notices of Electronic Filing and their service status.",
+      "op": {"kind": "list", "table": "ef_nef_notices", "filters": ["case_id", "filing_id", "status"]},
+      "params": {"case_id": "integer", "filing_id": "integer", "status": "string", "limit": "integer"}
+    }
+  ],
+  "dialect": "cmecf"
+}

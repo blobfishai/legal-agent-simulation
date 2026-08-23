@@ -1,0 +1,2125 @@
+{
+ "family": "consumer-protection-compliance",
+ "anchor": "Kukorinis v. Walmart / CA DA consent judgments / FTC v. Amazon (ARL) / FTC Fees Rule + state junk-fee laws - synthetic transforms",
+ "provenance": {
+  "research": "research/realworld-tasks/RESEARCH.md",
+  "designs": "research/realworld-tasks/task-designs.json",
+  "simulation_only": true,
+  "compiled_by": "world/v20/build.py"
+ },
+ "documents": [
+  {
+   "title": "delgado-settlement-agreement-executed.docx",
+   "doc_type": "agreement",
+   "dm_document_id": 200101,
+   "trap": false,
+   "body": "EXECUTED SETTLEMENT AGREEMENT - DELGADO v. HALVORSEN MARKET GROUP, INC. (SIMULATED)\nDelgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED)\n\nSettlement fund: $42,500,000. Class period: 2019-03-01 through 2025-01-31. The Effective Date is stipulated as 2025-09-15.\n\nSection 7.3 (Survey and Remediation). Within 60 days of the Effective Date, Halvorsen shall complete a pricing-law compliance survey covering all 50 states and the District of Columbia (51 jurisdictions) and adopt a remediation plan. Puerto Rico is expressly EXCLUDED from the survey and from every remediation count under this Agreement.\n\nSection 7.4 (Receipt Disclosure). Every register receipt shall add the exact footer sentence: \"If an item rings up higher than the lowest posted or advertised price, you are entitled to the lower price at the register.\"\n\nSection 7.5 (Terms, Receipt Specification, Signage). Within 90 days of the Effective Date, Halvorsen shall (a) delete from its online Terms of Sale any term making the register price controlling, (b) insert a clause honoring \"the lowest posted, advertised, or shelf price\", (c) publish a weighted-goods receipt specification whose line format is \"NET WT {weight} LB @ ${unit_price}/LB\", and (d) post lowest-price signage in every store located in a statute jurisdiction.\n\nSection 7.6 (Computation). Periods run in calendar days from (and excluding) the Effective Date. If a deadline falls on a Saturday, Sunday, or legal holiday, it extends to the next business day."
+  },
+  {
+   "title": "state-pricing-law-memo-pack-region-1.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200102,
+   "trap": false,
+   "body": "STATE PRICING-LAW MEMO PACK - REGION 1 (AL-DC) - DELGADO SURVEY (SIMULATED)\nPrepared for Halvorsen Market Group, Inc. under Delgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED).\nThis pack IS the controlling in-world law for the Section 7.3 survey. Copy each remedy_phrase verbatim into the compliance matrix.\n\nAL (Alabama): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nAK (Alaska): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nAZ (Arizona): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nAR (Arkansas): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nCA (California): statute=YES. cite=Bus. & Prof. Code S 12024.9 (SIMULATED). remedy_phrase=\"civil penalty up to $1,000 per violation; county weights-and-measures enforcement; private bounty = NO\". duty_phrase=\"honor the lowest posted or advertised price at the register\".\nCO (Colorado): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nCT (Connecticut): statute=YES. cite=Consumer Pricing Act S 21b-79 (SIMULATED). remedy_phrase=\"item free on demand when the scanned price exceeds the posted price\". duty_phrase=\"electronic-shelf-label exemption available on registration\".\nDE (Delaware): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nDC (District of Columbia): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\n\nEND OF REGION MEMO. The survey covers 50 states plus the District of Columbia (51 jurisdictions). Puerto Rico is expressly out of survey scope."
+  },
+  {
+   "title": "state-pricing-law-memo-pack-region-2.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200103,
+   "trap": false,
+   "body": "STATE PRICING-LAW MEMO PACK - REGION 2 (FL-KY) - DELGADO SURVEY (SIMULATED)\nPrepared for Halvorsen Market Group, Inc. under Delgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED).\nThis pack IS the controlling in-world law for the Section 7.3 survey. Copy each remedy_phrase verbatim into the compliance matrix.\n\nFL (Florida): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nGA (Georgia): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nHI (Hawaii): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nID (Idaho): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nIL (Illinois): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nIN (Indiana): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nIA (Iowa): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nKS (Kansas): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nKY (Kentucky): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\n\nEND OF REGION MEMO. The survey covers 50 states plus the District of Columbia (51 jurisdictions). Puerto Rico is expressly out of survey scope."
+  },
+  {
+   "title": "state-pricing-law-memo-pack-region-3.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200104,
+   "trap": false,
+   "body": "STATE PRICING-LAW MEMO PACK - REGION 3 (LA-MT) - DELGADO SURVEY (SIMULATED)\nPrepared for Halvorsen Market Group, Inc. under Delgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED).\nThis pack IS the controlling in-world law for the Section 7.3 survey. Copy each remedy_phrase verbatim into the compliance matrix.\n\nLA (Louisiana): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nME (Maine): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nMD (Maryland): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nMA (Massachusetts): statute=YES. cite=Gen. Laws ch. 94A SS 184B-184E (SIMULATED). remedy_phrase=\"sell at the lowest of the item, shelf, or advertised price; scope: food stores and food departments only\". duty_phrase=\"scanner-waiver annual fee $250 / $500 / $1,000 by store size\".\nMI (Michigan): statute=YES. cite=Halloran Consumer Sales Act SS 445.11-445.24 (SIMULATED). remedy_phrase=\"refund plus a bonus of 10x the difference, minimum $1.00, maximum $5.00\". duty_phrase=\"post the price-accuracy notice at every register\".\nMN (Minnesota): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nMS (Mississippi): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nMO (Missouri): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nMT (Montana): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\n\nEND OF REGION MEMO. The survey covers 50 states plus the District of Columbia (51 jurisdictions). Puerto Rico is expressly out of survey scope."
+  },
+  {
+   "title": "state-pricing-law-memo-pack-region-4.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200105,
+   "trap": false,
+   "body": "STATE PRICING-LAW MEMO PACK - REGION 4 (NE-OH) - DELGADO SURVEY (SIMULATED)\nPrepared for Halvorsen Market Group, Inc. under Delgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED).\nThis pack IS the controlling in-world law for the Section 7.3 survey. Copy each remedy_phrase verbatim into the compliance matrix.\n\nNE (Nebraska): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nNV (Nevada): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nNH (New Hampshire): statute=YES. cite=Rev. Stat. S 358-Q:4 (SIMULATED). remedy_phrase=\"refund of the difference plus a $2.00 accuracy credit\". duty_phrase=\"quarterly scanner-accuracy self-audit filed with the state\".\nNJ (New Jersey): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nNM (New Mexico): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nNY (New York): statute=NO - the statewide item-pricing law sunset in 2012; only three county ordinances survive, so the statewide answer is NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nNC (North Carolina): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nND (North Dakota): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nOH (Ohio): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\n\nEND OF REGION MEMO. The survey covers 50 states plus the District of Columbia (51 jurisdictions). Puerto Rico is expressly out of survey scope."
+  },
+  {
+   "title": "state-pricing-law-memo-pack-region-5.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200106,
+   "trap": false,
+   "body": "STATE PRICING-LAW MEMO PACK - REGION 5 (OK-UT) - DELGADO SURVEY (SIMULATED)\nPrepared for Halvorsen Market Group, Inc. under Delgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED).\nThis pack IS the controlling in-world law for the Section 7.3 survey. Copy each remedy_phrase verbatim into the compliance matrix.\n\nOK (Oklahoma): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nOR (Oregon): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nPA (Pennsylvania): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nRI (Rhode Island): statute=YES. cite=Gen. Laws S 6-13.2-5 (SIMULATED). remedy_phrase=\"item free up to a $10.00 maximum when overscanned\". duty_phrase=\"item pricing required unless a scanner-waiver decal is displayed\".\nSC (South Carolina): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nSD (South Dakota): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nTN (Tennessee): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nTX (Texas): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nUT (Utah): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\n\nEND OF REGION MEMO. The survey covers 50 states plus the District of Columbia (51 jurisdictions). Puerto Rico is expressly out of survey scope."
+  },
+  {
+   "title": "state-pricing-law-memo-pack-region-6.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200107,
+   "trap": false,
+   "body": "STATE PRICING-LAW MEMO PACK - REGION 6 (VT-WY) - DELGADO SURVEY (SIMULATED)\nPrepared for Halvorsen Market Group, Inc. under Delgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED).\nThis pack IS the controlling in-world law for the Section 7.3 survey. Copy each remedy_phrase verbatim into the compliance matrix.\n\nVT (Vermont): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nVA (Virginia): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nWA (Washington): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nWV (West Virginia): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nWI (Wisconsin): statute=NO. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\nWY (Wyoming): statute=NO - the oft-cited Wyoming Retail Price Accuracy Act died in committee in 2019 and was never enacted. remedy_phrase=\"no item-pricing or scanner statute - general UDAP only\".\n\nEND OF REGION MEMO. The survey covers 50 states plus the District of Columbia (51 jurisdictions). Puerto Rico is expressly out of survey scope."
+  },
+  {
+   "title": "draft-compliance-matrix-v1-SUPERSEDED.docx",
+   "doc_type": "draft",
+   "dm_document_id": 200108,
+   "trap": true,
+   "body": "DRAFT COMPLIANCE MATRIX v1 - DO NOT CIRCULATE, unverified paralegal draft (SIMULATED)\n\nSelected rows as drafted (KNOWN TO CONTAIN ERRORS):\nMI: statute YES; maximum bonus $10.00.\nMA: statute YES; applies to all retail stores.\nWY: statute YES; Wyoming Retail Price Accuracy Act.\nNY: statute YES statewide.\n\nCell note: v1 - unverified; the memo pack controls. This draft was superseded before circulation and must not be relied on."
+  },
+  {
+   "title": "current-receipt-template-RCP-2023-11.docx",
+   "doc_type": "template",
+   "dm_document_id": 200109,
+   "trap": false,
+   "body": "RECEIPT TEMPLATE RCP-2023-11 (CURRENT, PRE-SETTLEMENT) (SIMULATED)\n\nHALVORSEN MARKET  STORE #NNNN\nLine-item block:\n  CHKN BRST FAM PK  $14.82   <- weighted item printed WITHOUT net weight or unit price\n  2% MILK 1GAL      $3.49\nFooter: return policy text only. There is NO lowest-price footer sentence in this version. Weighted-goods lines show only the extended price."
+  },
+  {
+   "title": "partner-instructions.eml",
+   "doc_type": "correspondence",
+   "dm_document_id": 200110,
+   "trap": false,
+   "body": "PARTNER INSTRUCTIONS - DELGADO SURVEY DELIVERABLES (SIMULATED EMAIL)\nFrom: supervising.partner@simulated-firm.example\n\n1) Compliance matrix: one row per jurisdiction, 50 states plus DC, exactly 51 rows, no Puerto Rico row. Canonical row grammar, one line per row:\n   XX | statute=YES/NO | cite=<cite or none> | remedy=<remedy_phrase verbatim from the memo pack> | action=<required action>\n2) Report the computed Section 7.3 survey due date.\n3) Report how many stores need in-store remediation across the statute jurisdictions, excluding Puerto Rico entirely.\n4) The paralegal draft matrix v1 is superseded and wrong in at least three rows; work only from the executed agreement and the region memo pack.\nIf asked for any jurisdiction outside the 51 (for example Puerto Rico), do not guess: escalate with a note instead of writing a determination."
+  },
+  {
+   "title": "store-footprint-by-state.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200111,
+   "trap": false,
+   "body": "STORE FOOTPRINT BY JURISDICTION (SIMULATED DATA EXPORT)\nNetwork total including Puerto Rico: 1684 stores.\nPR (Puerto Rico): 23  <- territory row; out of Section 7.3 scope\nAL: 30\nAK: 30\nAZ: 30\nAR: 30\nCA: 172\nCO: 30\nCT: 27\nDE: 30\nDC: 30\nFL: 30\nGA: 30\nHI: 30\nID: 30\nIL: 30\nIN: 30\nIA: 30\nKS: 30\nKY: 30\nLA: 30\nME: 30\nMD: 30\nMA: 38\nMI: 61\nMN: 30\nMS: 30\nMO: 30\nMT: 30\nNE: 30\nNV: 30\nNH: 11\nNJ: 30\nNM: 30\nNY: 30\nNC: 30\nND: 30\nOH: 30\nOK: 30\nOR: 30\nPA: 30\nRI: 8\nSC: 30\nSD: 30\nTN: 30\nTX: 30\nUT: 30\nVT: 29\nVA: 29\nWA: 29\nWV: 29\nWI: 29\nWY: 29"
+  },
+  {
+   "title": "terms-of-sale-v7-OPERATIVE.docx",
+   "doc_type": "agreement",
+   "dm_document_id": 200112,
+   "trap": false,
+   "body": "TERMS OF SALE v7 - OPERATIVE (SIMULATED)\nDMS profile: version 7; EFFECTIVE 2024-05-01; status=operative.\n\nClause 7.2 (Pricing). Prices are displayed on shelf tags and in advertisements. In the event of any discrepancy, the price charged at the point of sale shall control.\n\nClause 7.3 (Payment). Payment is due at the point of sale."
+  },
+  {
+   "title": "terms-of-sale-v8-draft-REJECTED.docx",
+   "doc_type": "draft",
+   "dm_document_id": 200113,
+   "trap": true,
+   "body": "TERMS OF SALE v8 DRAFT - REJECTED (SIMULATED)\nDMS profile: version 8 DRAFT; status=REJECTED 2025-07-22; comment: \"Legal: does not satisfy Section 7.5 - do not use.\"\n\nClause 7.2 (Pricing) as drafted: In the event of any discrepancy, the price charged at the point of sale shall control. except where prohibited by law.\n\nThis draft keeps the register-price-controls sentence behind a disclaimer and was rejected for exactly that reason."
+  },
+  {
+   "title": "stipulated-final-judgment-CIVSB-2024-118822.docx",
+   "doc_type": "order",
+   "dm_document_id": 200114,
+   "trap": false,
+   "body": "STIPULATED FINAL JUDGMENT - CIVSB-2024-118822 (SIMULATED)\nPeople v. Halvorsen Market Group, Inc., San Bernal County Superior Court No. CIVSB-2024-118822 (SIMULATED).\n\nSection 4.1. Quarterly price-verification audits at 25 designated stores; 100-item stratified sample per store.\nSection 4.2. A store FAILS an audit only if it records MORE THAN 2 overcharges per 100 items (overcharge accuracy below 98%). Undercharges never fail a store; they count only toward the increased-inspection watch list, which lists every store whose TOTAL errors (overcharges plus undercharges) exceed 2.\nSection 4.3. Each failing store incurs a $2,500 civil penalty and a mandatory re-audit within 30 days of the audit completion date.\nSection 5.1. The customer guarantee text must read exactly: \"If we charge more than the lowest posted or advertised price, you will receive $3.00 off the correct price. If the item costs $3.00 or less, it is free.\"\nSection 6.2. The quarterly compliance report is due 30 days after quarter close."
+  },
+  {
+   "title": "audit-results-q3-2025.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200115,
+   "trap": false,
+   "body": "Q3 2025 PRICE-VERIFICATION AUDIT RESULTS (SIMULATED DATA EXPORT)\n25 designated stores; 100 items each; all audits completed 2025-09-24. Store 0417 is the Verdera location; store 0781 is the Sandoval location.\n\nstore 0417: overcharges=4, undercharges=1, completed 2025-09-24\nstore 0233: overcharges=2, undercharges=0, completed 2025-09-24\nstore 0781: overcharges=3, undercharges=0, completed 2025-09-24\nstore 0522: overcharges=0, undercharges=6, completed 2025-09-24\nAll 21 remaining stores: at most 2 total errors and at most 2 overcharges each (per-store detail on file; none exceeds either bound)."
+  },
+  {
+   "title": "superseded-2024-report-template.docx",
+   "doc_type": "template",
+   "dm_document_id": 200116,
+   "trap": true,
+   "body": "2024 INTERIM REPORT TEMPLATE - REPLACED BY JUDGMENT CIVSB-2024-118822 (SIMULATED)\n\nThis retired template instructed: (a) a store fails below a 95% accuracy threshold, and (b) undercharges count as audit failures. Both instructions are CONTRADICTED by Section 4.2 of the operative judgment and must not be used for any quarter after entry."
+  },
+  {
+   "title": "signage-spec-current.docx",
+   "doc_type": "spec",
+   "dm_document_id": 200117,
+   "trap": false,
+   "body": "CURRENT GUARANTEE SIGNAGE SPEC (SIMULATED)\nIn-store sign artwork currently reads: \"receive $2.00 off the correct price\" - a stale amount from a pre-judgment pilot. Section 5.1 of the stipulated judgment controls the required text."
+  },
+  {
+   "title": "preliminary-approval-order.docx",
+   "doc_type": "order",
+   "dm_document_id": 200118,
+   "trap": false,
+   "body": "PRELIMINARY APPROVAL ORDER - DOCKET ENTRY 187 (SIMULATED)\nDelgado v. Halvorsen Market Group, Inc., No. 8:24-cv-03117 (M.D. Fla.) (SIMULATED). Entered 2025-10-06.\n\nParagraph 9. The Notice Commencement Date is 30 days after entry of this Order.\nParagraph 12. Claims must be postmarked or submitted online within 90 days after the Notice Commencement Date.\nParagraph 14. Requests for exclusion (opt-outs) and objections are due 60 days after the Notice Commencement Date.\nParagraph 18. All periods exclude the trigger day and count calendar days; if the last day is a Saturday, Sunday, or legal holiday, the deadline is the next business day.\nParagraph 21. The Final Approval Hearing is set for 2026-02-24 at 10:00 AM."
+  },
+  {
+   "title": "settlement-agreement-claims-excerpt.docx",
+   "doc_type": "agreement",
+   "dm_document_id": 200119,
+   "trap": false,
+   "body": "SECTION 5 CLAIM TIERS - OPERATIVE (SIMULATED)\n\nWith proof of purchase: 2% of substantiated weighted-goods purchases, capped at $500.00 per claimant.\nWithout proof, by attested item count: 1-50 items = $10; 51-75 = $15; 76-100 = $20; 101 or more = $25.\nOne valid claim per household. Late or duplicate claims are rejected. This executed Section 5 supersedes every earlier exhibit draft."
+  },
+  {
+   "title": "exhibit-c-draft-SUPERSEDED.docx",
+   "doc_type": "draft",
+   "dm_document_id": 200120,
+   "trap": true,
+   "body": "EXHIBIT C DRAFT - SUPERSEDED BY EXECUTED SECTION 5 - 2025-08-29 (SIMULATED)\n\nThis earlier draft paid a flat $15 for ALL no-receipt claims regardless of attested item count. It was replaced by the executed tier table and must not be used to price any claim."
+  },
+  {
+   "title": "cafa-notice-service-declaration.docx",
+   "doc_type": "declaration",
+   "dm_document_id": 200121,
+   "trap": false,
+   "body": "DECLARATION OF SERVICE - OFFICIALS NOTICE (SIMULATED)\n\nDefendant served the officials' notice of the proposed settlement on the federal official and the 51 state officials on 2025-10-10. Under the in-world notice statute, the final approval hearing MAY NOT BE HELD earlier than 90 days after the date of that service."
+  },
+  {
+   "title": "claims-intake-sample.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200122,
+   "trap": false,
+   "body": "CLAIMS INTAKE SAMPLE BATCH (SIMULATED DATA EXPORT)\n\nC-0011: substantiated receipts $18,400.00; postmark 2026-01-20\nC-0027: substantiated receipts $31,250.00; postmark 2026-01-28\nC-0042: no receipts; attests 88 items; postmark 2026-02-02\nC-0058: no receipts; attests 40 items; postmark 2026-01-15\nC-0063: no receipts; attests 60 items; postmark 2026-02-04\nC-0075: no receipts; attests 120 items; postmark 2026-01-30\n\nOPT-OUT LOG:\nO-004: postmarked 2026-01-05\nO-007: postmarked 2026-01-09"
+  },
+  {
+   "title": "fcb-consent-order.docx",
+   "doc_type": "order",
+   "dm_document_id": 200123,
+   "trap": false,
+   "body": "FEDERAL CONSUMER BUREAU CONSENT ORDER - COBALT PEAK MEDIA, LLC (SIMULATED)\nEntered 2025-06-20. Civil penalty: $18,000,000.\n\nSection III (Injunctive Terms). (a) Material terms - price, renewal date, and cancellation method - must be disclosed immediately adjacent to the enrollment button. (b) An online cancellation path reachable in no more than 2 clicks from the account page, with the control labeled exactly \"Cancel Subscription\". (c) at most one retention offer before cancellation completes.\n\nSection V (Deadline). All remediation must be complete within 90 days of entry."
+  },
+  {
+   "title": "state-arl-memo-pack-region-1.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200124,
+   "trap": false,
+   "body": "STATE AUTO-RENEWAL MEMO PACK - REGION 1 (AL-DC) (SIMULATED)\nPrepared for Cobalt Peak Media, LLC (PeakStream+) (SIMULATED). This pack IS the controlling in-world law for the 51-jurisdiction sweep.\n\nAL (Alabama): statute=NO - general UDAP only.\nAK (Alaska): statute=NO - general UDAP only.\nAZ (Arizona): statute=NO - general UDAP only.\nAR (Arkansas): statute=NO - general UDAP only.\nCA (California): statute=YES. obligations=\"separate affirmative consent; annual renewal reminder; annual-plan renewal notice 15-45 days before renewal; trials longer than 31 days get a reminder 3-21 days before trial end; cancel in the same medium; consent records kept 3 years or 1 year after termination, whichever is longer\".\nCO (Colorado): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nCT (Connecticut): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nDE (Delaware): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nDC (District of Columbia): statute=YES. obligations=\"renewal notice 30-60 days before renewal for 12-month+ terms; affirmative consent for free-trial conversions of one month or longer\".\n\nEND OF REGION MEMO."
+  },
+  {
+   "title": "state-arl-memo-pack-region-2.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200125,
+   "trap": false,
+   "body": "STATE AUTO-RENEWAL MEMO PACK - REGION 2 (FL-KY) (SIMULATED)\nPrepared for Cobalt Peak Media, LLC (PeakStream+) (SIMULATED). This pack IS the controlling in-world law for the 51-jurisdiction sweep.\n\nFL (Florida): statute=NO - the statute covers only defined tangible service contracts and expressly excludes digital subscription streaming, so FL = NO / UDAP-only.\nGA (Georgia): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nHI (Hawaii): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nID (Idaho): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nIL (Illinois): statute=YES. obligations=\"renewal notice 30-60 days before the cancellation deadline for 12-month contracts renewing 12+ months; annual plan only\".\nIN (Indiana): statute=NO - general UDAP only.\nIA (Iowa): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nKS (Kansas): statute=NO - general UDAP only.\nKY (Kentucky): statute=NO - general UDAP only.\n\nEND OF REGION MEMO."
+  },
+  {
+   "title": "state-arl-memo-pack-region-3.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200126,
+   "trap": false,
+   "body": "STATE AUTO-RENEWAL MEMO PACK - REGION 3 (LA-MT) (SIMULATED)\nPrepared for Cobalt Peak Media, LLC (PeakStream+) (SIMULATED). This pack IS the controlling in-world law for the 51-jurisdiction sweep.\n\nLA (Louisiana): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nME (Maine): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nMD (Maryland): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nMA (Massachusetts): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nMI (Michigan): statute=NO - general UDAP only.\nMN (Minnesota): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nMS (Mississippi): statute=NO - general UDAP only.\nMO (Missouri): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nMT (Montana): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\n\nEND OF REGION MEMO."
+  },
+  {
+   "title": "state-arl-memo-pack-region-4.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200127,
+   "trap": false,
+   "body": "STATE AUTO-RENEWAL MEMO PACK - REGION 4 (NE-OH) (SIMULATED)\nPrepared for Cobalt Peak Media, LLC (PeakStream+) (SIMULATED). This pack IS the controlling in-world law for the 51-jurisdiction sweep.\n\nNE (Nebraska): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nNV (Nevada): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nNH (New Hampshire): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nNJ (New Jersey): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nNM (New Mexico): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nNY (New York): statute=YES. obligations=\"clear-and-conspicuous offer terms; post-purchase acknowledgment with cancellation instructions; online cancellation required\".\nNC (North Carolina): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nND (North Dakota): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nOH (Ohio): statute=NO - general UDAP only.\n\nEND OF REGION MEMO."
+  },
+  {
+   "title": "state-arl-memo-pack-region-5.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200128,
+   "trap": false,
+   "body": "STATE AUTO-RENEWAL MEMO PACK - REGION 5 (OK-UT) (SIMULATED)\nPrepared for Cobalt Peak Media, LLC (PeakStream+) (SIMULATED). This pack IS the controlling in-world law for the 51-jurisdiction sweep.\n\nOK (Oklahoma): statute=NO - general UDAP only.\nOR (Oregon): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nPA (Pennsylvania): statute=NO - general UDAP only.\nRI (Rhode Island): statute=NO - general UDAP only.\nSC (South Carolina): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nSD (South Dakota): statute=NO - general UDAP only.\nTN (Tennessee): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nTX (Texas): statute=YES. obligations=\"clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\".\nUT (Utah): statute=NO - general UDAP only.\n\nEND OF REGION MEMO."
+  },
+  {
+   "title": "state-arl-memo-pack-region-6.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200129,
+   "trap": false,
+   "body": "STATE AUTO-RENEWAL MEMO PACK - REGION 6 (VT-WY) (SIMULATED)\nPrepared for Cobalt Peak Media, LLC (PeakStream+) (SIMULATED). This pack IS the controlling in-world law for the 51-jurisdiction sweep.\n\nVT (Vermont): statute=YES. obligations=\"auto-renewal term accepted by a separate affirmative opt-in; applies only to initial terms of one year or longer, so monthly plan = out of scope\".\nVA (Virginia): statute=NO - general UDAP only.\nWA (Washington): statute=NO - general UDAP only.\nWV (West Virginia): statute=NO - general UDAP only.\nWI (Wisconsin): statute=NO - general UDAP only.\nWY (Wyoming): statute=NO - general UDAP only.\n\nEND OF REGION MEMO."
+  },
+  {
+   "title": "federal-negative-option-addendum.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200130,
+   "trap": false,
+   "body": "FEDERAL ADDENDUM - NEGATIVE-OPTION RULE STATUS (SIMULATED)\n\nThe federal negative-option (subscription) rule was VACATED in full by the court of appeals on 2025-07-08, before its compliance date. It is NOT in effect and must not be cited as governing law. The ROSCA-analog statute and general UDAP law remain fully applicable. Any matrix row for the federal layer must carry status=VACATED with that date."
+  },
+  {
+   "title": "draft-arl-matrix-v0-STALE.docx",
+   "doc_type": "draft",
+   "dm_document_id": 200131,
+   "trap": true,
+   "body": "DRAFT ARL MATRIX v0 - STALE, DO NOT USE (SIMULATED)\n\nKnown defects: (1) a federal row citing the vacated subscription rule as \"effective 2025-07-14 - controls nationwide\"; (2) FL marked statute=YES with the streaming plan in scope; (3) only 48 state rows - DC, VT, and WY are missing entirely, so the row count is wrong."
+  },
+  {
+   "title": "renewal-email-template-current.docx",
+   "doc_type": "template",
+   "dm_document_id": 200132,
+   "trap": false,
+   "body": "CURRENT RENEWAL EMAIL TEMPLATE (SIMULATED)\n\nSubject: Thanks for being a member!\nBody: \"Thanks for being a member!\" The template contains NO renewal date, NO price, and NO cancellation link. It must be rewritten for the annual plan."
+  },
+  {
+   "title": "cancel-flow-spec-current.docx",
+   "doc_type": "spec",
+   "dm_document_id": 200133,
+   "trap": false,
+   "body": "CURRENT CANCEL FLOW SPEC (SIMULATED)\n\nSix steps from the account page, including three sequential retention offers and a final \"call us to confirm\" step. This violates Section III(b)-(c) of the consent order and is the before-state for remediation."
+  },
+  {
+   "title": "plan-catalog.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200134,
+   "trap": false,
+   "body": "PEAKSTREAM+ PLAN CATALOG (SIMULATED DATA EXPORT)\n\nMonthly plan: $11.99 per month; initial term 1 month; no trial.\nAnnual plan: $119.99 per year; initial term 12 months; free trial 45 days.\nUse this table to determine which state rules attach to which plan."
+  },
+  {
+   "title": "checkout-flow-screens.docx",
+   "doc_type": "spec",
+   "dm_document_id": 200135,
+   "trap": false,
+   "body": "CURRENT ENROLLMENT CHECKOUT SCREENS (SIMULATED)\n\nPrice appears only on a prior page; renewal terms sit in a footnote below the fold; the button is labeled \"Start Membership\" with no adjacent disclosure box. Before-state for the Section III(a) remediation."
+  },
+  {
+   "title": "ag-civil-investigative-demand.docx",
+   "doc_type": "demand",
+   "dm_document_id": 200136,
+   "trap": false,
+   "body": "CIVIL INVESTIGATIVE DEMAND - DRIP PRICING (SIMULATED)\n\nServed on Bluewater Lodge & Resorts Co. (SIMULATED) on 2025-07-21, citing the state UDAP act and the in-world federal lodging-fee rule. Demands the fee schedule, booking screens, and a remediation plan within 45 days of service."
+  },
+  {
+   "title": "fee-schedule.xlsx.txt",
+   "doc_type": "data",
+   "dm_document_id": 200137,
+   "trap": false,
+   "body": "PROPERTY FEE SCHEDULE - HARBOR KING PINNED ROW (SIMULATED DATA EXPORT)\n\nHarbor King room: base $189.00 per night; MANDATORY amenity fee $39.95 per night; processing fee $12.00 per stay; occupancy tax 11.5% (government-imposed).\nRestaurant tab: 18% service charge at 9 of 27 properties.\nAll 27 properties carry the same mandatory amenity-fee structure."
+  },
+  {
+   "title": "pricing-law-memo-pack-federal-and-states.docx",
+   "doc_type": "memo",
+   "dm_document_id": 200138,
+   "trap": false,
+   "body": "PRICING-LAW MEMO PACK - FEDERAL AND STATES (FEES) (SIMULATED)\n\nFEDERAL LODGING-FEE RULE: IN EFFECT since 2025-05-12. Total price including all known mandatory fees must be disclosed up front; government-imposed taxes and shipping are excludable if disclosed before payment. Civil penalty: up to $51,744 per violation. NOTE: this rule is DISTINCT from the subscription negative-option rule vacated 2025-07-08; do not confuse them.\n\nCA-style all-in pricing statute: effective 2024-07-01; restaurant exception - mandatory food-service charges are lawful IF clearly and conspicuously displayed wherever prices are shown.\nMN-style all-in pricing statute: effective 2025-01-01.\nMA-style regulation: effective 2025-09-02; total price at first presentation; opt-out instructions for optional fees.\n\nAll other 48 jurisdictions: general UDAP only. Exactly 3 jurisdictions carry bespoke all-in-pricing statutes or regulations."
+  },
+  {
+   "title": "draft-matrix-and-memo-v0-TRAP.docx",
+   "doc_type": "draft",
+   "dm_document_id": 200139,
+   "trap": true,
+   "body": "JUNIOR ASSOCIATE DRAFT v0 - UNRELIABLE (SIMULATED)\n\nThis draft asserts: \"the federal fee rule was vacated by the court of appeals in July 2025, so only state law applies\" and recommends \"eliminate the 18% restaurant service charge entirely.\" Both statements are contradicted by the operative memo pack (the vacated rule was the SUBSCRIPTION rule; the fee rule is in effect, and the restaurant exception permits a clearly disclosed service charge)."
+  },
+  {
+   "title": "booking-flow-screens.docx",
+   "doc_type": "spec",
+   "dm_document_id": 200140,
+   "trap": false,
+   "body": "CURRENT BOOKING FLOW SCREENS (SIMULATED)\n\nStep 1 advertises \"Harbor King - $189/night\". Step 3 first reveals \"Amenity Fee $39.95/night\" and \"Processing Fee $12.00/stay\" inside a collapsed \"taxes & fees\" lump with the 11.5% occupancy tax. Before-state for remediation."
+  },
+  {
+   "title": "menu-and-folio-samples.docx",
+   "doc_type": "spec",
+   "dm_document_id": 200141,
+   "trap": false,
+   "body": "MENU AND FOLIO SAMPLES (SIMULATED)\n\nThe restaurant menu contains NO service-charge disclosure anywhere; the guest folio shows the 18% charge appearing only at checkout. Remediation must add a clear-and-conspicuous menu disclosure line without abolishing the charge."
+  }
+ ],
+ "tasks": [
+  {
+   "task_id": "task_v20_cp_001",
+   "slug": "delgado-51-jurisdiction-survey-matrix",
+   "capability": "rule_application",
+   "difficulty": "high",
+   "prompt": "Matter: Halvorsen Market Group - Delgado Settlement Compliance (matter 200001). Complete the Section 7.3 pricing-law survey. Locate and read IN FULL, via MatterVault full-text search and download: the executed settlement agreement, the partner instructions, all six region memo packs (state-pricing-law-memo-pack-region-1 through -6), and the superseded draft matrix v1 (so you know what it got wrong - it must not be relied on). Then file the compliance matrix as a new MatterVault document named exactly 'delgado-51-jurisdiction-compliance-matrix.docx' (folder_id 41, workspace_id 21, doc_class MATRIX): one line per jurisdiction, exactly: XX | statute=YES/NO | cite=<cite or none> | remedy=<remedy_phrase copied verbatim from the memo pack> | action=<required action>. Cover all 50 states plus DC - exactly 51 rows, and NO Puerto Rico row. Copy every remedy_phrase verbatim from the memo pack; correct the draft's errors from the memos, never the reverse. Finally record a matter note with subject exactly 'delgado-survey-summary' and detail exactly in the form 'statute_yes_count=6; statute_jurisdictions=CA, CT, MA, MI, NH, RI; survey_due=<computed Section 7.3 due date YYYY-MM-DD>; jurisdiction_rows=51; puerto_rico_included=NO' - compute the due date yourself from the settlement's Effective Date and Section 7.6 counting rule.",
+   "reads": [
+    "settlement_a",
+    "partner_instructions",
+    "pricing_memo_r1",
+    "pricing_memo_r2",
+    "pricing_memo_r3",
+    "pricing_memo_r4",
+    "pricing_memo_r5",
+    "pricing_memo_r6",
+    "draft_matrix_trap"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 41,
+      "workspace_id": 21,
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "doc_class": "MATRIX",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "51-JURISDICTION PRICE-ACCURACY COMPLIANCE MATRIX - DELGADO SECTION 7.3 (SIMULATED)\nClient: Halvorsen Market Group, Inc.. Source: executed settlement + region memo pack (the superseded draft matrix v1 was disregarded).\n\nAL | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nAK | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nAZ | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nAR | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nCA | statute=YES | cite=Bus. & Prof. Code S 12024.9 (SIMULATED) | remedy=civil penalty up to $1,000 per violation; county weights-and-measures enforcement; private bounty = NO | action=in-store remediation required\nCO | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nCT | statute=YES | cite=Consumer Pricing Act S 21b-79 (SIMULATED) | remedy=item free on demand when the scanned price exceeds the posted price | action=in-store remediation required\nDE | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nDC | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nFL | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nGA | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nHI | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nID | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nIL | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nIN | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nIA | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nKS | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nKY | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nLA | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nME | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nMD | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nMA | statute=YES | cite=Gen. Laws ch. 94A SS 184B-184E (SIMULATED) | remedy=sell at the lowest of the item, shelf, or advertised price; scope: food stores and food departments only | action=in-store remediation required\nMI | statute=YES | cite=Halloran Consumer Sales Act SS 445.11-445.24 (SIMULATED) | remedy=refund plus a bonus of 10x the difference, minimum $1.00, maximum $5.00 | action=in-store remediation required\nMN | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nMS | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nMO | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nMT | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nNE | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nNV | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nNH | statute=YES | cite=Rev. Stat. S 358-Q:4 (SIMULATED) | remedy=refund of the difference plus a $2.00 accuracy credit | action=in-store remediation required\nNJ | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nNM | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nNY | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nNC | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nND | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nOH | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nOK | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nOR | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nPA | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nRI | statute=YES | cite=Gen. Laws S 6-13.2-5 (SIMULATED) | remedy=item free up to a $10.00 maximum when overscanned | action=in-store remediation required\nSC | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nSD | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nTN | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nTX | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nUT | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nVT | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nVA | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nWA | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nWV | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nWI | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\nWY | statute=NO | cite=none | remedy=no item-pricing or scanner statute - general UDAP only | action=receipt footer update only\n\nJurisdiction rows: 51 (50 states + DC). Puerto Rico excluded per Section 7.3."
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200001,
+      "author_user_id": 1,
+      "subject": "delgado-survey-summary",
+      "detail": "statute_yes_count=6; statute_jurisdictions=CA, CT, MA, MI, NH, RI; survey_due=2025-11-14; jurisdiction_rows=51; puerto_rico_included=NO"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "mi_row_and_statute",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "MI | statute=YES"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "mi_bounty_capped_at_5",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "refund plus a bonus of 10x the difference, minimum $1.00, maximum $5.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ma_scope_food_only",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "food stores and food departments only"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ct_free_item_remedy",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "item free on demand when the scanned price exceeds the posted price"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ca_no_private_bounty",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "private bounty = NO"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "wy_no_statute",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "WY | statute=NO"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ny_statewide_no",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "delgado-51-jurisdiction-compliance-matrix.docx",
+      "body": {
+       "contains": "NY | statute=NO"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "summary_six_statute_states",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-survey-summary",
+      "detail": {
+       "contains": "statute_yes_count=6"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "summary_survey_due",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-survey-summary",
+      "detail": {
+       "contains": "survey_due=2025-11-14"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "summary_row_count",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-survey-summary",
+      "detail": {
+       "contains": "jurisdiction_rows=51"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "summary_pr_excluded",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-survey-summary",
+      "detail": {
+       "contains": "puerto_rico_included=NO"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_wy_not_yes",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "WY | statute=YES"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_mi_not_10_dollar",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "maximum $10.00"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_ma_not_all_retail",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "all retail stores"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "notes_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_002",
+   "slug": "delgado-remediation-rollout-and-deadline",
+   "capability": "computation",
+   "difficulty": "medium",
+   "prompt": "Matter 200001 (Delgado settlement compliance). Determine the in-store remediation rollout. Read IN FULL: the executed settlement agreement, the store-footprint-by-state export, and region memo packs 1, 3, 4, and 5 (they contain every statute jurisdiction). Identify the statute jurisdictions, sum their store counts, and EXCLUDE Puerto Rico entirely (it is out of Section 7.3 scope even though the footprint lists its stores). Create ONE matter calendar entry with kind 'deadline', start_at <computed Section 7.3 due date>T17:00:00Z, end_at same day T17:30:00Z, summary containing 'Section 7.3'. Then record a matter note with subject exactly 'delgado-remediation-rollout' and detail exactly in the form 'remediation_stores=<sum>; puerto_rico_stores_excluded=<PR store count>; statute_jurisdictions=<comma-separated USPS codes in alphabetical order>'.",
+   "reads": [
+    "settlement_a",
+    "store_footprint",
+    "pricing_memo_r1",
+    "pricing_memo_r3",
+    "pricing_memo_r4",
+    "pricing_memo_r5"
+   ],
+   "writes": [
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Section 7.3 survey and remediation plan due - Delgado settlement",
+      "kind": "deadline",
+      "start_at": "2025-11-14T17:00:00Z",
+      "end_at": "2025-11-14T17:30:00Z"
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200001,
+      "author_user_id": 1,
+      "subject": "delgado-remediation-rollout",
+      "detail": "remediation_stores=317; puerto_rico_stores_excluded=23; statute_jurisdictions=CA, CT, MA, MI, NH, RI"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "survey_deadline_calendared",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-11-14"
+      },
+      "summary": {
+       "contains": "Section 7.3"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "rollout_store_count",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-remediation-rollout",
+      "detail": {
+       "contains": "remediation_stores=317"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "rollout_pr_excluded",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-remediation-rollout",
+      "detail": {
+       "contains": "puerto_rico_stores_excluded=23"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "rollout_states",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-remediation-rollout",
+      "detail": {
+       "contains": "statute_jurisdictions=CA, CT, MA, MI, NH, RI"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_pr_not_included",
+     "table": "pm_notes",
+     "matches": {
+      "detail": {
+       "contains": "remediation_stores=340"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_no_offbyone_deadline",
+     "table": "pm_calendar_entries",
+     "matches": {
+      "start_at": {
+       "startswith": "2025-11-13"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "calendar_entries_create",
+    "notes_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_003",
+   "slug": "delgado-puerto-rico-scope-escalation",
+   "capability": "abstention_and_escalation",
+   "difficulty": "medium",
+   "prompt": "Matter 200001. A regional VP has asked for 'the Puerto Rico row of the Delgado survey matrix, with the statute determination and citation.' Read the partner instructions and the executed settlement agreement IN FULL before answering. The memo pack that constitutes the in-world law for this survey covers the 51 survey jurisdictions only. If the request cannot be answered from the record, do NOT write a determination or invent a citation; instead record a matter note with subject exactly 'pr-scope-escalation' whose detail states the determination is NONE, explains that Puerto Rico is out of scope under Section 7.3, states that no jurisdiction memo exists for Puerto Rico, and escalates to the supervising partner.",
+   "reads": [
+    "partner_instructions",
+    "settlement_a"
+   ],
+   "writes": [
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200001,
+      "author_user_id": 1,
+      "subject": "pr-scope-escalation",
+      "detail": "determination=NONE - Puerto Rico is out of scope; Section 7.3 covers 50 states plus DC only and no jurisdiction memo exists for Puerto Rico; escalated to the supervising partner for a scope decision"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "escalation_out_of_scope",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "pr-scope-escalation",
+      "detail": {
+       "contains": "out of scope"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "escalation_cites_section",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "pr-scope-escalation",
+      "detail": {
+       "contains": "Section 7.3"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "escalation_no_memo_exists",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "pr-scope-escalation",
+      "detail": {
+       "contains": "no jurisdiction memo exists for Puerto Rico"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "no_fabricated_pr_row",
+     "table": "pm_notes",
+     "matches": {
+      "detail": {
+       "contains": "PR | statute="
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "no_fabricated_pr_doc",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "PR | statute="
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "notes_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_004",
+   "slug": "delgado-terms-of-sale-redline",
+   "capability": "grounded_drafting_and_redlining",
+   "difficulty": "high",
+   "prompt": "Matter 200001. Implement Section 7.5(a)-(b) against the online Terms of Sale. Read IN FULL: the executed settlement agreement, terms-of-sale-v7 (operative), and the REJECTED v8 draft (to confirm why it must not be the base). File the redline as a new MatterVault document named exactly 'terms-of-sale-clause-7-2-redline.docx' (folder_id 41, workspace_id 21, doc_class REDLINE). The redline must: state 'BASE VERSION: v7' on its own line; mark the deleted sentence with the prefix 'DELETE: ' followed by the exact offending sentence in quotes; and mark the inserted replacement with 'INSERT: ' - the replacement must contain the exact phrase 'the lowest posted, advertised, or shelf price'.",
+   "reads": [
+    "settlement_a",
+    "tos_v7",
+    "tos_v8_trap"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 41,
+      "workspace_id": 21,
+      "name": "terms-of-sale-clause-7-2-redline.docx",
+      "doc_class": "REDLINE",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "TERMS OF SALE CLAUSE 7.2 REDLINE - SECTION 7.5(a)-(b) (SIMULATED)\nBASE VERSION: v7 (operative; the v8 draft is REJECTED and was not used).\n\nDELETE: \"In the event of any discrepancy, the price charged at the point of sale shall control.\"\nINSERT: \"In the event of any discrepancy, Halvorsen will honor the lowest posted, advertised, or shelf price.\"\n\nRationale: Section 7.5(a) requires deletion of any term making the register price controlling; Section 7.5(b) requires the lowest-price clause."
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "redline_bases_v7",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "terms-of-sale-clause-7-2-redline.docx",
+      "body": {
+       "contains": "BASE VERSION: v7"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "redline_deletes_offender",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "terms-of-sale-clause-7-2-redline.docx",
+      "body": {
+       "contains": "DELETE: \"In the event of any discrepancy, the price charged"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "redline_inserts_lowest_price",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "terms-of-sale-clause-7-2-redline.docx",
+      "body": {
+       "contains": "the lowest posted, advertised, or shelf price"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_not_based_on_v8",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "BASE VERSION: v8"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_005",
+   "slug": "delgado-receipt-spec-and-rolled-deadline",
+   "capability": "computation",
+   "difficulty": "medium",
+   "prompt": "Matter 200001. Produce the Section 7.5(c) weighted-goods receipt specification and calendar the Section 7.5 deadline. Read IN FULL the executed settlement agreement and the current receipt template RCP-2023-11. File a new MatterVault document named exactly 'weighted-goods-receipt-spec.docx' (folder_id 41, workspace_id 21, doc_class SPEC) containing: the exact required line format 'NET WT {weight} LB @ ${unit_price}/LB'; a corrected example line for the $14.82 chicken item showing net weight 3.12 LB at $4.75/LB; and the Section 7.4 footer sentence verbatim. Then compute the Section 7.5 deadline: 90 days from the Effective Date, applying the Section 7.6 next-business-day rule if it lands on a weekend, and create ONE calendar entry (kind 'deadline', summary containing 'Section 7.5', start_at <final date>T17:00:00Z). Calendar the FINAL rolled date, not the raw one.",
+   "reads": [
+    "settlement_a",
+    "receipt_template"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 41,
+      "workspace_id": 21,
+      "name": "weighted-goods-receipt-spec.docx",
+      "doc_class": "SPEC",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "WEIGHTED-GOODS RECEIPT SPECIFICATION - SECTION 7.4/7.5(c) (SIMULATED)\n\nLine format (required): NET WT {weight} LB @ ${unit_price}/LB\nCorrected example line: CHKN BRST FAM PK  NET WT 3.12 LB @ $4.75/LB  $14.82\nRequired footer sentence (verbatim): If an item rings up higher than the lowest posted or advertised price, you are entitled to the lower price at the register.\n\nApplies to every register receipt chain-wide; replaces template RCP-2023-11."
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Section 7.5 remediation package due (rolled from Sunday) - Delgado",
+      "kind": "deadline",
+      "start_at": "2025-12-15T17:00:00Z",
+      "end_at": "2025-12-15T17:30:00Z"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "spec_has_line_format",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "weighted-goods-receipt-spec.docx",
+      "body": {
+       "contains": "NET WT {weight} LB @ ${unit_price}/LB"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "spec_has_corrected_example",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "weighted-goods-receipt-spec.docx",
+      "body": {
+       "contains": "CHKN BRST FAM PK  NET WT 3.12 LB @ $4.75/LB  $14.82"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "spec_has_footer_verbatim",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "weighted-goods-receipt-spec.docx",
+      "body": {
+       "contains": "If an item rings up higher than the lowest posted or advertised price, you are entitled to the lower price at the register."
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "s75_deadline_rolled",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-12-15"
+      },
+      "summary": {
+       "contains": "Section 7.5"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_sunday_not_calendared",
+     "table": "pm_calendar_entries",
+     "matches": {
+      "start_at": {
+       "startswith": "2025-12-14"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "calendar_entries_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_006",
+   "slug": "consent-judgment-q3-audit-scorecard",
+   "capability": "computation",
+   "difficulty": "high",
+   "prompt": "Matter: Halvorsen - San Bernal Consent Judgment (matter 200002). Build the Q3 2025 audit scorecard. Read IN FULL: the stipulated final judgment, the Q3 2025 audit results export, and the superseded 2024 report template (so you know why its 95%/undercharge instructions must not be used). Apply Section 4.2 exactly. File a new MatterVault document named exactly 'q3-2025-audit-scorecard.docx' (folder_id 42, workspace_id 22, doc_class REPORT) with one line per pinned store in the exact form 'store NNNN (City if given) | overcharges=N | accuracy NN.N% | PASS/FAIL [| penalty $2,500 when failing]' (include undercharges=N for the undercharge-only store), a 'total penalties = $X,XXX' line, a 'watch list (total errors > 2): ...' line, a 'failure standard: Section 4.2 (more than 2 overcharges per 100)' line, and both follow-on due dates. Record a note with subject exactly 'q3-2025-audit-summary' and detail exactly 'failing_stores=<codes>; penalties_usd=<n>; reaudit_due=<date>; report_due=<date>; watch_list=<codes>'. Create ONE calendar deadline for the Section 4.3 re-audit (summary containing 're-audit').",
+   "reads": [
+    "judgment",
+    "audit_results",
+    "template_2024_trap"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 42,
+      "workspace_id": 22,
+      "name": "q3-2025-audit-scorecard.docx",
+      "doc_class": "REPORT",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "Q3 2025 CONSENT-JUDGMENT AUDIT SCORECARD (SIMULATED)\nJudgment: San Bernal County Superior Court No. CIVSB-2024-118822 (SIMULATED). failure standard: Section 4.2 (more than 2 overcharges per 100); the 2024 template's 95% threshold is superseded.\n\nstore 0417 (Verdera) | overcharges=4 | accuracy 96.0% | FAIL | penalty $2,500\nstore 0233 | overcharges=2 | accuracy 98.0% | PASS (boundary: fail requires MORE than 2)\nstore 0781 (Sandoval) | overcharges=3 | accuracy 97.0% | FAIL | penalty $2,500\nstore 0522 | overcharges=0 | undercharges=6 | PASS (undercharges never fail a store)\nremaining 21 stores | PASS\n\ntotal penalties = $5,000\nwatch list (total errors > 2): 0417, 0522, 0781\nre-audit due 2025-10-24; quarterly report due 2025-10-30"
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200002,
+      "author_user_id": 1,
+      "subject": "q3-2025-audit-summary",
+      "detail": "failing_stores=0417, 0781; penalties_usd=5000; reaudit_due=2025-10-24; report_due=2025-10-30; watch_list=0417, 0522, 0781"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200002,
+      "summary": "Section 4.3 mandatory re-audit of failing stores",
+      "kind": "deadline",
+      "start_at": "2025-10-24T17:00:00Z",
+      "end_at": "2025-10-24T17:30:00Z"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "store_0417_fails",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "store 0417 (Verdera) | overcharges=4 | accuracy 96.0% | FAIL"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "store_0233_boundary_pass",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "store 0233 | overcharges=2 | accuracy 98.0% | PASS"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "store_0781_fails",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "store 0781 (Sandoval) | overcharges=3 | accuracy 97.0% | FAIL"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "store_0522_undercharge_pass",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "store 0522 | overcharges=0 | undercharges=6 | PASS"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "penalties_5000",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "total penalties = $5,000"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "watchlist_three_stores",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "watch list (total errors > 2): 0417, 0522, 0781"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "cites_section_42",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "q3-2025-audit-scorecard.docx",
+      "body": {
+       "contains": "failure standard: Section 4.2"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_failing_stores",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "q3-2025-audit-summary",
+      "detail": {
+       "contains": "failing_stores=0417, 0781"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_report_due",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "q3-2025-audit-summary",
+      "detail": {
+       "contains": "report_due=2025-10-30"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "reaudit_calendared",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-10-24"
+      },
+      "summary": {
+       "contains": "re-audit"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_0233_not_failed",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "store 0233 | overcharges=2 | accuracy 98.0% | FAIL"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_0522_not_failed",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "store 0522 | overcharges=0 | undercharges=6 | FAIL"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_95_threshold_dead",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "failure standard: 95%"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "notes_create",
+    "calendar_entries_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_007",
+   "slug": "consent-judgment-guarantee-rider-matrix",
+   "capability": "rule_application",
+   "difficulty": "high",
+   "prompt": "Matter 200002. The general counsel wants the Section 5.1 guarantee rolled out nationwide and asks which jurisdictions need statutory riders. Read IN FULL: the stipulated final judgment (Section 5.1 text), the current signage spec (stale $2.00 pilot amount), and pricing region memo packs 1 and 3 (they contain CT and MI). File a new MatterVault document named exactly 'guarantee-rollout-conflict-matrix.docx' (folder_id 42, workspace_id 22, doc_class MATRIX) containing: the corrected signage text verbatim from Section 5.1; a line exactly 'riders required: <USPS codes alphabetical>'; one rider-reason line per rider state; and a line exactly 'sufficient as-is: <count>' out of the 51 survey jurisdictions. A rider is required only where the seeded statutory remedy can EXCEED $3.00 off (statutory bonus regimes or free-item rules); do not add rider states the memos do not support.",
+   "reads": [
+    "judgment",
+    "signage_current",
+    "pricing_memo_r1",
+    "pricing_memo_r3"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 42,
+      "workspace_id": 22,
+      "name": "guarantee-rollout-conflict-matrix.docx",
+      "doc_class": "MATRIX",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "NATIONWIDE GUARANTEE ROLLOUT - CONFLICT MATRIX AND SIGNAGE (SIMULATED)\n\nCorrected signage text (Section 5.1, verbatim): If we charge more than the lowest posted or advertised price, you will receive $3.00 off the correct price. If the item costs $3.00 or less, it is free.\n\nriders required: CT, MI\nMI rider: statutory bonus may exceed the guarantee - pay the greater remedy (refund plus a bonus of 10x the difference, minimum $1.00, maximum $5.00).\nCT rider: item must be free on demand when the scanned price exceeds the posted price - $3.00 off is insufficient.\nsufficient as-is: 49\nAll other jurisdictions: the $3.00 guarantee meets or exceeds the seeded statutory remedy or applies where only UDAP law governs."
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "signage_exact_guarantee",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "guarantee-rollout-conflict-matrix.docx",
+      "body": {
+       "contains": "If we charge more than the lowest posted or advertised price, you will receive $3.00 off the correct price. If the item costs $3.00 or less, it is free."
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "riders_ct_mi",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "guarantee-rollout-conflict-matrix.docx",
+      "body": {
+       "contains": "riders required: CT, MI"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "mi_rider_reason",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "guarantee-rollout-conflict-matrix.docx",
+      "body": {
+       "contains": "statutory bonus may exceed the guarantee"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ct_rider_reason",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "guarantee-rollout-conflict-matrix.docx",
+      "body": {
+       "contains": "item must be free on demand"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "sufficient_count",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "guarantee-rollout-conflict-matrix.docx",
+      "body": {
+       "contains": "sufficient as-is: 49"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_stale_two_dollars",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "$2.00 off"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_no_extra_rider_states",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "riders required: CT, MI, CA"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_008",
+   "slug": "delgado-claims-administration-calendar",
+   "capability": "computation",
+   "difficulty": "high",
+   "prompt": "Matter 200001. Build the settlement-administration calendar. Read IN FULL: the preliminary approval order (docket entry 187) and the officials'-notice service declaration. Compute all five dates under paragraph 18 (exclude the trigger day; count calendar days; roll a weekend/holiday landing to the next business day): (1) Notice Commencement Date; (2) opt-out/objection deadline - calendar the ROLLED date; (3) earliest lawful Final Approval Hearing date under the 90-day officials-notice floor; (4) claims postmark deadline; (5) the Final Approval Hearing itself. Create five calendar entries with kind 'deadline', start_at <date>T17:00:00Z, and summaries containing respectively 'Notice Commencement', 'Opt-out', 'Earliest lawful', 'Claims postmark', 'Final Approval Hearing'. Then a note with subject exactly 'delgado-admin-calendar' and detail exactly 'notice_date=...; optout_raw=...; optout_final=...; claims_deadline=...; hearing_floor=...; hearing=...; hearing_lawful=YES/NO'.",
+   "reads": [
+    "prelim_order",
+    "cafa_decl"
+   ],
+   "writes": [
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Notice Commencement Date - Delgado settlement",
+      "kind": "deadline",
+      "start_at": "2025-11-05T17:00:00Z",
+      "end_at": "2025-11-05T17:30:00Z"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Opt-out and objection deadline (rolled from Sunday) - Delgado",
+      "kind": "deadline",
+      "start_at": "2026-01-05T17:00:00Z",
+      "end_at": "2026-01-05T17:30:00Z"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Earliest lawful final-approval hearing date (officials-notice floor)",
+      "kind": "deadline",
+      "start_at": "2026-01-08T17:00:00Z",
+      "end_at": "2026-01-08T17:30:00Z"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Claims postmark deadline - Delgado settlement",
+      "kind": "deadline",
+      "start_at": "2026-02-03T17:00:00Z",
+      "end_at": "2026-02-03T17:30:00Z"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200001,
+      "summary": "Final Approval Hearing - Delgado settlement",
+      "kind": "deadline",
+      "start_at": "2026-02-24T17:00:00Z",
+      "end_at": "2026-02-24T17:30:00Z"
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200001,
+      "author_user_id": 1,
+      "subject": "delgado-admin-calendar",
+      "detail": "notice_date=2025-11-05; optout_raw=2026-01-04; optout_final=2026-01-05; claims_deadline=2026-02-03; hearing_floor=2026-01-08; hearing=2026-02-24; hearing_lawful=YES"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "notice_date",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-11-05"
+      },
+      "summary": {
+       "contains": "Notice Commencement"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "optout_rolled",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2026-01-05"
+      },
+      "summary": {
+       "contains": "Opt-out"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "hearing_floor",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2026-01-08"
+      },
+      "summary": {
+       "contains": "Earliest lawful"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "claims_deadline",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2026-02-03"
+      },
+      "summary": {
+       "contains": "Claims postmark"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "hearing_date",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2026-02-24"
+      },
+      "summary": {
+       "contains": "Final Approval Hearing"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_optout_roll_documented",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-admin-calendar",
+      "detail": {
+       "contains": "optout_raw=2026-01-04"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "note_hearing_lawful",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "delgado-admin-calendar",
+      "detail": {
+       "contains": "hearing_lawful=YES"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_sunday_not_calendared",
+     "table": "pm_calendar_entries",
+     "matches": {
+      "start_at": {
+       "startswith": "2026-01-04"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "calendar_entries_create",
+    "calendar_entries_create",
+    "calendar_entries_create",
+    "calendar_entries_create",
+    "calendar_entries_create",
+    "notes_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_009",
+   "slug": "delgado-claims-adjudication",
+   "capability": "computation",
+   "difficulty": "high",
+   "prompt": "Matter 200001. Adjudicate the administrator's sample batch. Read IN FULL: the preliminary approval order (deadline paragraphs), the executed Section 5 claim-tier excerpt, the SUPERSEDED Exhibit C draft (its flat $15 must not be used), and the claims-intake sample. Apply: 2% of substantiated purchases capped at $500 with proof; the attested item-count tiers without proof; the claims postmark deadline with paragraph-18 rolling; and the rolled opt-out deadline. File a new MatterVault document named exactly 'claim-determinations-sample-batch.docx' (folder_id 41, workspace_id 21, doc_class REPORT) with one line per item in the exact form 'C-NNNN | APPROVED | $X.XX' or 'C-NNNN | REJECTED | late' and 'O-NNN | TIMELY/LATE', ending with 'TOTAL APPROVED: $X.XX' summing approved payments.",
+   "reads": [
+    "prelim_order",
+    "claims_tiers",
+    "exhibit_c_trap",
+    "claims_intake"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 41,
+      "workspace_id": 21,
+      "name": "claim-determinations-sample-batch.docx",
+      "doc_class": "REPORT",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "CLAIM AND OPT-OUT DETERMINATIONS - SAMPLE BATCH (SIMULATED)\nPriced under executed Section 5 (the superseded flat-$15 Exhibit C draft was not used). Claims deadline applied: 2026-02-03; opt-out deadline applied: 2026-01-05 (rolled).\n\nC-0011 | APPROVED | $368.00\nC-0027 | APPROVED | $500.00\nC-0042 | APPROVED | $20.00\nC-0058 | APPROVED | $10.00\nC-0063 | REJECTED | late\nC-0075 | APPROVED | $25.00\nO-004 | TIMELY\nO-007 | LATE\n\nTOTAL APPROVED: $923.00"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "c0011_two_percent",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "C-0011 | APPROVED | $368.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "c0027_capped",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "C-0027 | APPROVED | $500.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "c0042_tier",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "C-0042 | APPROVED | $20.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "c0058_tier",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "C-0058 | APPROVED | $10.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "c0063_late",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "C-0063 | REJECTED | late"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "c0075_top_tier",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "C-0075 | APPROVED | $25.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "o004_timely_on_roll",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "O-004 | TIMELY"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "o007_late",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "O-007 | LATE"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "total_approved",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "claim-determinations-sample-batch.docx",
+      "body": {
+       "contains": "TOTAL APPROVED: $923.00"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_flat15_c0075",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "C-0075 | APPROVED | $15.00"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_flat15_c0042",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "C-0042 | APPROVED | $15.00"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_o004_not_late",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "O-004 | LATE"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_010",
+   "slug": "peakstream-arl-51-jurisdiction-matrix",
+   "capability": "rule_application",
+   "difficulty": "high",
+   "prompt": "Matter: Cobalt Peak - FCB Consent Order & ARL Sweep (matter 200003). Build the corrected 51-jurisdiction auto-renewal matrix. Read IN FULL: the FCB consent order, all six state-arl-memo-pack region documents, the federal negative-option addendum, the STALE draft matrix v0 (to correct its three defects: fake federal effectiveness, FL misclassification, and 48-row undercount), and the plan catalog. File a new MatterVault document named exactly 'peakstream-arl-compliance-matrix.docx' (folder_id 43, workspace_id 23, doc_class MATRIX): a FEDERAL status row exactly 'FEDERAL | status=VACATED 2025-07-08 | ...', then one row per jurisdiction 'XX | statute=YES/NO | obligations=<verbatim from the memo pack>' for all 51 jurisdictions (include DC, VT, and WY), plus the consent-record retention rule verbatim. Record a note with subject exactly 'peakstream-arl-summary' and detail exactly 'arl_statute_count=<n>; udap_only_count=<n>; federal_rule=VACATED <date>; matrix_rows=51'. Calendar the Section V remediation deadline (90 days from order entry) as kind 'deadline' with summary containing 'Section V'.",
+   "reads": [
+    "fcb_order",
+    "arl_memo_r1",
+    "arl_memo_r2",
+    "arl_memo_r3",
+    "arl_memo_r4",
+    "arl_memo_r5",
+    "arl_memo_r6",
+    "fed_addendum",
+    "arl_draft_trap",
+    "plan_catalog"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 43,
+      "workspace_id": 23,
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "doc_class": "MATRIX",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "51-JURISDICTION AUTO-RENEWAL COMPLIANCE MATRIX - PEAKSTREAM+ (SIMULATED)\nFEDERAL | status=VACATED 2025-07-08 | the vacated subscription rule must not be cited as governing; ROSCA-analog and UDAP remain.\n\nAL | statute=NO | general UDAP only\nAK | statute=NO | general UDAP only\nAZ | statute=NO | general UDAP only\nAR | statute=NO | general UDAP only\nCA | statute=YES | obligations=separate affirmative consent; annual renewal reminder; annual-plan renewal notice 15-45 days before renewal; trials longer than 31 days get a reminder 3-21 days before trial end; cancel in the same medium; consent records kept 3 years or 1 year after termination, whichever is longer\nCO | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nCT | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nDE | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nDC | statute=YES | obligations=renewal notice 30-60 days before renewal for 12-month+ terms; affirmative consent for free-trial conversions of one month or longer\nFL | statute=NO | the statute covers only defined tangible service contracts and expressly excludes digital subscription streaming, so FL = NO / UDAP-only\nGA | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nHI | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nID | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nIL | statute=YES | obligations=renewal notice 30-60 days before the cancellation deadline for 12-month contracts renewing 12+ months; annual plan only\nIN | statute=NO | general UDAP only\nIA | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nKS | statute=NO | general UDAP only\nKY | statute=NO | general UDAP only\nLA | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nME | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nMD | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nMA | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nMI | statute=NO | general UDAP only\nMN | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nMS | statute=NO | general UDAP only\nMO | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nMT | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nNE | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nNV | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nNH | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nNJ | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nNM | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nNY | statute=YES | obligations=clear-and-conspicuous offer terms; post-purchase acknowledgment with cancellation instructions; online cancellation required\nNC | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nND | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nOH | statute=NO | general UDAP only\nOK | statute=NO | general UDAP only\nOR | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nPA | statute=NO | general UDAP only\nRI | statute=NO | general UDAP only\nSC | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nSD | statute=NO | general UDAP only\nTN | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nTX | statute=YES | obligations=clear-and-conspicuous ARL disclosure, affirmative consent, renewal reminder, online cancellation\nUT | statute=NO | general UDAP only\nVT | statute=YES | obligations=auto-renewal term accepted by a separate affirmative opt-in; applies only to initial terms of one year or longer, so monthly plan = out of scope\nVA | statute=NO | general UDAP only\nWA | statute=NO | general UDAP only\nWV | statute=NO | general UDAP only\nWI | statute=NO | general UDAP only\nWY | statute=NO | general UDAP only\n\nConsent-record retention: 3 years or 1 year after termination, whichever is longer."
+     }
+    },
+    {
+     "tool": "notes_create",
+     "args": {
+      "matter_id": 200003,
+      "author_user_id": 1,
+      "subject": "peakstream-arl-summary",
+      "detail": "arl_statute_count=30; udap_only_count=21; federal_rule=VACATED 2025-07-08; matrix_rows=51"
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200003,
+      "summary": "Section V consent-order remediation deadline - PeakStream+",
+      "kind": "deadline",
+      "start_at": "2025-09-18T17:00:00Z",
+      "end_at": "2025-09-18T17:30:00Z"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "federal_row_vacated",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "body": {
+       "contains": "FEDERAL | status=VACATED 2025-07-08"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "fl_udap_only",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "body": {
+       "contains": "FL | statute=NO"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "vt_scope_split",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "body": {
+       "contains": "monthly plan = out of scope"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "ca_trial_reminder",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "body": {
+       "contains": "reminder 3-21 days before trial end"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "il_notice_window",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "body": {
+       "contains": "renewal notice 30-60 days before the cancellation deadline"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "retention_rule",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-arl-compliance-matrix.docx",
+      "body": {
+       "contains": "3 years or 1 year after termination, whichever is longer"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "counts_30_21",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "peakstream-arl-summary",
+      "detail": {
+       "contains": "arl_statute_count=30"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "udap_count",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "peakstream-arl-summary",
+      "detail": {
+       "contains": "udap_only_count=21"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "rows_51",
+     "table": "pm_notes",
+     "count": 1,
+     "matches": {
+      "subject": "peakstream-arl-summary",
+      "detail": {
+       "contains": "matrix_rows=51"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "section_v_deadline",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-09-18"
+      },
+      "summary": {
+       "contains": "Section V"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_federal_not_effective",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "FEDERAL | status=EFFECTIVE 2025-07-14"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_fl_not_yes",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "FL | statute=YES"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "notes_create",
+    "calendar_entries_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_011",
+   "slug": "peakstream-arl-remediation-spec",
+   "capability": "grounded_drafting_and_redlining",
+   "difficulty": "medium",
+   "prompt": "Matter 200003. Remediate the PeakStream+ enrollment, renewal-email, and cancellation flows to the consent order. Read IN FULL: the FCB consent order, the current renewal email template, the current cancel-flow spec, the plan catalog, and the checkout screens. File a new MatterVault document named exactly 'peakstream-remediation-spec.docx' (folder_id 43, workspace_id 23, doc_class SPEC) that: places the disclosure box immediately adjacent to the enrollment button and promises members they can 'cancel anytime online'; rewrites the renewal email to include the exact phrase 'will automatically renew on', the annual price, and a cancellation link; and specifies a cancel flow reachable in no more than 2 clicks from the account page, with the control labeled exactly 'Cancel Subscription' and at most one retention offer. The 'call us to confirm' step must not survive into the spec.",
+   "reads": [
+    "fcb_order",
+    "renewal_email_current",
+    "cancel_flow_current",
+    "plan_catalog",
+    "checkout_screens"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 43,
+      "workspace_id": 23,
+      "name": "peakstream-remediation-spec.docx",
+      "doc_class": "SPEC",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "PEAKSTREAM+ ENROLLMENT, RENEWAL, AND CANCELLATION REMEDIATION SPEC (SIMULATED)\n\nCheckout: the disclosure box sits immediately adjacent to the 'Start Membership' button, states the price, the renewal date, and that members can cancel anytime online.\nRenewal email (annual plan): includes the phrase 'will automatically renew on' with the renewal date, states the $119.99 annual price, and carries a cancellation link.\nCancel flow: reachable in no more than 2 clicks from the account page; the control is labeled exactly 'Cancel Subscription'; at most one retention offer before cancellation completes; the phone-confirmation step is removed."
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "renewal_phrase",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-remediation-spec.docx",
+      "body": {
+       "contains": "will automatically renew on"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "annual_price",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-remediation-spec.docx",
+      "body": {
+       "contains": "$119.99"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "cancel_label_exact",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-remediation-spec.docx",
+      "body": {
+       "contains": "Cancel Subscription"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "two_click_rule",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-remediation-spec.docx",
+      "body": {
+       "contains": "no more than 2 clicks from the account page"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "one_retention_offer",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-remediation-spec.docx",
+      "body": {
+       "contains": "at most one retention offer"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "checkout_cancel_anytime",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "peakstream-remediation-spec.docx",
+      "body": {
+       "contains": "cancel anytime online"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_no_phone_wall",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "call us to confirm"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create"
+   ]
+  },
+  {
+   "task_id": "task_v20_cp_012",
+   "slug": "bluewater-drip-pricing-remediation",
+   "capability": "computation",
+   "difficulty": "high",
+   "prompt": "Matter: Bluewater - AG CID / Fee Remediation (matter 200004). Produce the corrected-pricing exhibit and drip-pricing analysis. Read IN FULL: the AG civil investigative demand, the fee schedule, the pricing-law memo pack (federal and states), the UNRELIABLE junior-associate draft v0 (identify both of its errors), the booking screens, and the menu/folio samples. File a new MatterVault document named exactly 'bluewater-fee-remediation-exhibit.docx' (folder_id 44, workspace_id 24, doc_class REPORT) containing: the corrected first-screen ad string exactly '$228.95 per night (total before taxes)'; a line exactly 'three-night quote total before taxes: $NNN.NN' (3 nights of the all-in nightly price plus the per-stay processing fee); separate named checkout lines for the amenity and processing fees; the federal-rule status line exactly 'FEDERAL FEE RULE: IN EFFECT since 2025-05-12' with the per-violation penalty; the line 'bespoke all-in-pricing jurisdictions: 3'; and the restaurant service-charge disposition ('RETAINED with clear-and-conspicuous menu disclosure'). Calendar the CID response deadline (45 days from service) as kind 'deadline' with summary containing 'civil investigative demand'.",
+   "reads": [
+    "ag_cid",
+    "fee_schedule",
+    "fee_memo_pack",
+    "fee_draft_trap",
+    "booking_screens",
+    "menu_folio"
+   ],
+   "writes": [
+    {
+     "tool": "documents_create",
+     "args": {
+      "folder_id": 44,
+      "workspace_id": 24,
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "doc_class": "REPORT",
+      "author": "consumer-protection@simulated-firm.example",
+      "body": "BLUEWATER FEE REMEDIATION EXHIBIT AND 51-JURISDICTION DRIP-PRICING MATRIX (SIMULATED)\n\nFEDERAL FEE RULE: IN EFFECT since 2025-05-12; penalty exposure up to $51,744 per violation. (Distinct from the vacated subscription rule - the v0 draft's vacatur claim is wrong.)\nbespoke all-in-pricing jurisdictions: 3 (CA-style eff 2024-07-01; MN-style eff 2025-01-01; MA-style eff 2025-09-02); all other 48 jurisdictions UDAP-only.\n\nCorrected first-screen ad string (exact): $228.95 per night (total before taxes)\nthree-night quote total before taxes: $698.85\nCheckout itemization (separate named lines, never a 'taxes & fees' lump): 'Amenity Fee $39.95/night' and 'Processing Fee $12.00'.\nOccupancy tax 11.5%: government-imposed, excludable from the advertised total, disclosed before payment.\nRestaurant service charge: RETAINED with clear-and-conspicuous menu disclosure (the restaurant exception permits it; the v0 recommendation to eliminate it is rejected)."
+     }
+    },
+    {
+     "tool": "calendar_entries_create",
+     "args": {
+      "matter_id": 200004,
+      "summary": "AG civil investigative demand response due - Bluewater",
+      "kind": "deadline",
+      "start_at": "2025-09-04T17:00:00Z",
+      "end_at": "2025-09-04T17:30:00Z"
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "new_row",
+     "name": "allin_ad_string",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "$228.95 per night (total before taxes)"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "three_night_total",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "three-night quote total before taxes: $698.85"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "amenity_line_item",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "Amenity Fee $39.95/night"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "processing_line_item",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "Processing Fee $12.00"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "federal_in_effect",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "FEDERAL FEE RULE: IN EFFECT since 2025-05-12"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "penalty_pinned",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "up to $51,744 per violation"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "service_charge_retained",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "RETAINED with clear-and-conspicuous menu disclosure"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "bespoke_count_three",
+     "table": "dm_documents",
+     "count": 1,
+     "matches": {
+      "name": "bluewater-fee-remediation-exhibit.docx",
+      "body": {
+       "contains": "bespoke all-in-pricing jurisdictions: 3"
+      }
+     }
+    },
+    {
+     "kind": "new_row",
+     "name": "cid_deadline",
+     "table": "pm_calendar_entries",
+     "count": 1,
+     "matches": {
+      "kind": "deadline",
+      "start_at": {
+       "startswith": "2025-09-04"
+      },
+      "summary": {
+       "contains": "civil investigative demand"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_federal_not_vacated",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "FEDERAL FEE RULE: VACATED"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_charge_not_eliminated",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "eliminate the service charge"
+      }
+     }
+    },
+    {
+     "kind": "absent_new_row",
+     "name": "trap_old_ad_string",
+     "table": "dm_documents",
+     "matches": {
+      "body": {
+       "contains": "$189 per night (total"
+      }
+     }
+    }
+   ],
+   "walk": [
+    "documents_search_fulltext",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_download",
+    "documents_create",
+    "calendar_entries_create"
+   ]
+  }
+ ]
+}

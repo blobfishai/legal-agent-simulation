@@ -1,0 +1,201 @@
+{
+  "$schema": "lawfirm-qwen.mcp-contract.v3",
+  "system": "retailguard-price-accuracy-v1",
+  "product": "RetailGuard Price Accuracy (SIMULATED) — incident, refund, receipt, rule, audit, and control workflows",
+  "provenance": "NIST Handbook 130 and EPPV; official state statutes and enforcement materials listed in research/retail-price-accuracy/SOURCES.md",
+  "fidelity": "Documentation-fixture fidelity. This is a synthetic product contract, not a claim to mirror a vendor API. Legal-rule rows are research triage records and require current attorney validation.",
+  "tables": [
+    {
+      "name": "rc_incidents",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "incident_number", "type": "TEXT"},
+        {"name": "store_id", "type": "TEXT"},
+        {"name": "jurisdiction_code", "type": "TEXT"},
+        {"name": "occurred_at", "type": "TEXT"},
+        {"name": "channel", "type": "TEXT"},
+        {"name": "allegation_type", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "affected_transactions", "type": "INTEGER"},
+        {"name": "estimated_exposure", "type": "REAL"},
+        {"name": "owner", "type": "TEXT"},
+        {"name": "root_cause", "type": "TEXT"},
+        {"name": "remediation_status", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"incident_number": "RG-2026-0042", "store_id": "CA-1842", "jurisdiction_code": "CA", "occurred_at": "2026-08-14T16:42:00Z", "channel": "self_checkout", "allegation_type": "duplicate_scan_and_price_mismatch", "status": "open", "affected_transactions": 3, "estimated_exposure": 17.63, "owner": "price-accuracy@retailguard.example", "root_cause": "pending", "remediation_status": "not_started"}
+      ]}
+    },
+    {
+      "name": "rc_transactions",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "transaction_id", "type": "TEXT"},
+        {"name": "incident_id", "type": "INTEGER"},
+        {"name": "jurisdiction_code", "type": "TEXT"},
+        {"name": "checkout_lane", "type": "TEXT"},
+        {"name": "occurred_at", "type": "TEXT"},
+        {"name": "subtotal", "type": "REAL"},
+        {"name": "tax", "type": "REAL"},
+        {"name": "total", "type": "REAL"},
+        {"name": "receipt_hash", "type": "TEXT"},
+        {"name": "review_status", "type": "TEXT"},
+        {"name": "duplicate_scan_count", "type": "INTEGER"},
+        {"name": "overcharge_total", "type": "REAL"}
+      ],
+      "seed": {"rows": [
+        {"transaction_id": "TX-CA-000184", "incident_id": 1, "jurisdiction_code": "CA", "checkout_lane": "SCO-07", "occurred_at": "2026-08-14T16:42:00Z", "subtotal": 43.71, "tax": 3.83, "total": 47.54, "receipt_hash": "synthetic-ca-184", "review_status": "flagged", "duplicate_scan_count": 1, "overcharge_total": 5.49}
+      ]}
+    },
+    {
+      "name": "rc_receipt_lines",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "transaction_id", "type": "TEXT"},
+        {"name": "sku", "type": "TEXT"},
+        {"name": "description", "type": "TEXT"},
+        {"name": "quantity", "type": "REAL"},
+        {"name": "displayed_unit_price", "type": "REAL"},
+        {"name": "charged_unit_price", "type": "REAL"},
+        {"name": "label_weight", "type": "REAL"},
+        {"name": "charged_weight", "type": "REAL"},
+        {"name": "extended_price", "type": "REAL"},
+        {"name": "anomaly_type", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"transaction_id": "TX-CA-000184", "sku": "04120-88214", "description": "Organic oranges 3 lb bag", "quantity": 2, "displayed_unit_price": 5.49, "charged_unit_price": 5.49, "label_weight": 3.0, "charged_weight": 3.0, "extended_price": 10.98, "anomaly_type": "duplicate_scan"},
+        {"transaction_id": "TX-CA-000184", "sku": "00854-10219", "description": "Sparkling water", "quantity": 1, "displayed_unit_price": 4.99, "charged_unit_price": 5.39, "label_weight": null, "charged_weight": null, "extended_price": 5.39, "anomaly_type": "shelf_register_mismatch"}
+      ]}
+    },
+    {
+      "name": "rc_jurisdiction_rules",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "jurisdiction_code", "type": "TEXT"},
+        {"name": "jurisdiction_name", "type": "TEXT"},
+        {"name": "rule_tier", "type": "TEXT"},
+        {"name": "research_status", "type": "TEXT"},
+        {"name": "price_standard", "type": "TEXT"},
+        {"name": "consumer_remedy", "type": "TEXT"},
+        {"name": "notice_window_days", "type": "INTEGER"},
+        {"name": "payment_window_days", "type": "INTEGER"},
+        {"name": "authority", "type": "TEXT"},
+        {"name": "source_url", "type": "TEXT"},
+        {"name": "last_verified", "type": "TEXT"},
+        {"name": "verification_note", "type": "TEXT"},
+        {"name": "attorney_validation_required", "type": "INTEGER"}
+      ],
+      "seed": {"rows": [
+        {"jurisdiction_code": "CA", "jurisdiction_name": "California", "rule_tier": "enhanced_lowest_price", "research_status": "primary_source_triaged", "price_standard": "Charge no more than the lowest advertised, posted, marked, displayed, or quoted price, subject to statutory exceptions.", "consumer_remedy": "Prompt difference refund; preserve statutory rights; escalate systemic or weight/measure issues.", "notice_window_days": null, "payment_window_days": null, "authority": "Cal. Bus. & Prof. Code § 12024.2", "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=12024.2", "last_verified": "2026-08-22", "verification_note": "Official text triaged; local-counsel update and applicability review required.", "attorney_validation_required": 1},
+        {"jurisdiction_code": "MI", "jurisdiction_name": "Michigan", "rule_tier": "enhanced_scanner_bonus", "research_status": "primary_source_triaged", "price_standard": "Clearly display price and do not charge more through an automatic checkout system.", "consumer_remedy": "Difference plus statutory bonus mechanics after a completed transaction and qualifying notice.", "notice_window_days": 30, "payment_window_days": 2, "authority": "Shopping Reform and Modernization Act, 2011 PA 15", "source_url": "https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Act-15-of-2011.pdf", "last_verified": "2026-08-22", "verification_note": "Official act and AG guidance triaged; local-counsel update and applicability review required.", "attorney_validation_required": 1},
+        {"jurisdiction_code": "DC", "jurisdiction_name": "District of Columbia", "rule_tier": "udap_and_unit_price", "research_status": "primary_source_triaged", "price_standard": "Avoid material price misrepresentation and display unit pricing clearly and non-deceptively where applicable.", "consumer_remedy": "Refund and legal escalation under applicable consumer-protection procedures; no simulated fixed bonus.", "notice_window_days": null, "payment_window_days": null, "authority": "D.C. Code §§ 28-3904, 28-5207", "source_url": "https://code.dccouncil.gov/us/dc/council/code/sections/28-3904", "last_verified": "2026-08-22", "verification_note": "Official code triaged; local-counsel update and applicability review required.", "attorney_validation_required": 1}
+      ]}
+    },
+    {
+      "name": "rc_receipt_templates",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "jurisdiction_code", "type": "TEXT"},
+        {"name": "template_name", "type": "TEXT"},
+        {"name": "version", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "display_text", "type": "TEXT"},
+        {"name": "refund_text", "type": "TEXT"},
+        {"name": "statutory_rights_savings", "type": "TEXT"},
+        {"name": "approved_by", "type": "TEXT"},
+        {"name": "updated_at", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"jurisdiction_code": "ALL", "template_name": "Self-checkout price accuracy footer", "version": "1.0", "status": "draft", "display_text": "Please review item, quantity, weight, price, discounts, and total before payment.", "refund_text": "If a price or scan appears incorrect, keep your receipt and contact an associate or the price-accuracy desk for prompt review and any amount due.", "statutory_rights_savings": "This notice does not limit any right or remedy provided by applicable law.", "approved_by": null, "updated_at": "2026-08-14T18:00:00Z"}
+      ]}
+    },
+    {
+      "name": "rc_pos_controls",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "control_code", "type": "TEXT"},
+        {"name": "control_name", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "threshold", "type": "TEXT"},
+        {"name": "action", "type": "TEXT"},
+        {"name": "owner", "type": "TEXT"},
+        {"name": "evidence", "type": "TEXT"},
+        {"name": "updated_at", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"control_code": "SCO-DUP-01", "control_name": "Probable duplicate-scan confirmation", "status": "disabled", "threshold": "same SKU within 2 seconds absent quantity action", "action": "pause and require shopper confirmation or associate review", "owner": "pos-engineering@retailguard.example", "evidence": "none", "updated_at": "2026-08-14T18:00:00Z"},
+        {"control_code": "PRICE-SYNC-02", "control_name": "Shelf-register mismatch quarantine", "status": "monitor_only", "threshold": "one verified mismatch", "action": "honor lower supported price, quarantine SKU, and open store audit", "owner": "pricing-ops@retailguard.example", "evidence": "daily exception report", "updated_at": "2026-08-14T18:00:00Z"},
+        {"control_code": "WEIGHT-03", "control_name": "Packaged-weight variance hold", "status": "monitor_only", "threshold": "charged weight exceeds labeled or measured weight tolerance", "action": "hold sale, verify scale and label, and escalate weights-and-measures review", "owner": "quality@retailguard.example", "evidence": "weekly scale log", "updated_at": "2026-08-14T18:00:00Z"}
+      ]}
+    },
+    {
+      "name": "rc_policy_versions",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "policy_name", "type": "TEXT"},
+        {"name": "jurisdiction_scope", "type": "TEXT"},
+        {"name": "version", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "body", "type": "TEXT"},
+        {"name": "legal_basis", "type": "TEXT"},
+        {"name": "approved_by", "type": "TEXT"},
+        {"name": "created_at", "type": "TEXT"}
+      ],
+      "seed": {"rows": []}
+    },
+    {
+      "name": "rc_refunds",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "transaction_id", "type": "TEXT"},
+        {"name": "jurisdiction_code", "type": "TEXT"},
+        {"name": "amount", "type": "REAL"},
+        {"name": "bonus_amount", "type": "REAL"},
+        {"name": "reason", "type": "TEXT"},
+        {"name": "status", "type": "TEXT"},
+        {"name": "customer_notice", "type": "TEXT"},
+        {"name": "created_at", "type": "TEXT"}
+      ],
+      "seed": {"rows": []}
+    },
+    {
+      "name": "rc_price_audits",
+      "columns": [
+        {"name": "id", "type": "INTEGER", "pk": true},
+        {"name": "store_id", "type": "TEXT"},
+        {"name": "jurisdiction_code", "type": "TEXT"},
+        {"name": "sample_size", "type": "INTEGER"},
+        {"name": "accurate_items", "type": "INTEGER"},
+        {"name": "accuracy_rate", "type": "REAL"},
+        {"name": "standard", "type": "TEXT"},
+        {"name": "passed", "type": "INTEGER"},
+        {"name": "audit_date", "type": "TEXT"},
+        {"name": "corrective_action", "type": "TEXT"}
+      ],
+      "seed": {"rows": [
+        {"store_id": "CA-1842", "jurisdiction_code": "CA", "sample_size": 50, "accurate_items": 47, "accuracy_rate": 94.0, "standard": "NIST HB 130 EPPV research baseline; apply controlling local law", "passed": 0, "audit_date": "2026-08-15", "corrective_action": "open"}
+      ]}
+    }
+  ],
+  "tools": [
+    {"name": "retail_incidents_list", "mirrors": "synthetic incident queue", "description": "List price-accuracy incidents by jurisdiction, store, or status.", "op": {"kind": "list", "table": "rc_incidents", "filters": ["jurisdiction_code", "store_id", "status"]}, "params": {"jurisdiction_code": "string", "store_id": "string", "status": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"status": "open", "limit": 20}},
+    {"name": "retail_incidents_get", "mirrors": "synthetic incident detail", "description": "Get a complete price-accuracy incident.", "op": {"kind": "get", "table": "rc_incidents"}, "params": {"id": "integer"}, "conformance_args": {"id": 1}},
+    {"name": "retail_incidents_update", "mirrors": "synthetic incident remediation workflow", "description": "Update incident findings, exposure, owner, or remediation status.", "op": {"kind": "update", "table": "rc_incidents", "allowed": ["status", "affected_transactions", "estimated_exposure", "owner", "root_cause", "remediation_status"]}, "params": {"id": "integer", "status": "string", "affected_transactions": "integer", "estimated_exposure": "number", "owner": "string", "root_cause": "string", "remediation_status": "string"}, "conformance_args": {"id": 1, "root_cause": "conformance review", "remediation_status": "in_progress"}},
+    {"name": "retail_transactions_list", "mirrors": "synthetic transaction-review queue", "description": "List transaction evidence by incident, jurisdiction, or review status.", "op": {"kind": "list", "table": "rc_transactions", "filters": ["incident_id", "jurisdiction_code", "review_status"]}, "params": {"incident_id": "integer", "jurisdiction_code": "string", "review_status": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"incident_id": 1, "limit": 20}},
+    {"name": "retail_transactions_get", "mirrors": "synthetic transaction detail", "description": "Get transaction totals and anomaly summary.", "op": {"kind": "get", "table": "rc_transactions"}, "params": {"id": "integer"}, "conformance_args": {"id": 1}},
+    {"name": "retail_receipt_lines_list", "mirrors": "synthetic line-level receipt evidence", "description": "List all receipt lines for one transaction, including display and charged prices.", "op": {"kind": "list", "table": "rc_receipt_lines", "filters": ["transaction_id", "sku", "anomaly_type"]}, "params": {"transaction_id": "string", "sku": "string", "anomaly_type": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"transaction_id": "TX-CA-000184", "limit": 20}},
+    {"name": "retail_jurisdiction_rules_list", "mirrors": "counsel-maintained legal triage register", "description": "List the 50-state plus D.C. triage register; every row requires current attorney validation.", "op": {"kind": "list", "table": "rc_jurisdiction_rules", "filters": ["jurisdiction_code", "rule_tier", "research_status", "attorney_validation_required"]}, "params": {"jurisdiction_code": "string", "rule_tier": "string", "research_status": "string", "attorney_validation_required": "integer", "limit": "integer", "offset": "integer"}, "conformance_args": {"jurisdiction_code": "CA", "limit": 20}},
+    {"name": "retail_jurisdiction_rules_get", "mirrors": "counsel-maintained legal triage detail", "description": "Get one cited jurisdiction rule record.", "op": {"kind": "get", "table": "rc_jurisdiction_rules"}, "params": {"id": "integer"}, "conformance_args": {"id": 1}},
+    {"name": "retail_receipt_templates_list", "mirrors": "synthetic receipt-template registry", "description": "List receipt and checkout disclosure templates.", "op": {"kind": "list", "table": "rc_receipt_templates", "filters": ["jurisdiction_code", "status"]}, "params": {"jurisdiction_code": "string", "status": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"jurisdiction_code": "ALL", "limit": 20}},
+    {"name": "retail_receipt_templates_get", "mirrors": "synthetic receipt-template detail", "description": "Get complete receipt text before redlining.", "op": {"kind": "get", "table": "rc_receipt_templates"}, "params": {"id": "integer"}, "conformance_args": {"id": 1}},
+    {"name": "retail_receipt_templates_update", "mirrors": "synthetic template approval workflow", "description": "Update receipt wording, savings language, version, status, and approval metadata.", "op": {"kind": "update", "table": "rc_receipt_templates", "allowed": ["version", "status", "display_text", "refund_text", "statutory_rights_savings", "approved_by", "updated_at"]}, "params": {"id": "integer", "version": "string", "status": "string", "display_text": "string", "refund_text": "string", "statutory_rights_savings": "string", "approved_by": "string", "updated_at": "string"}, "conformance_args": {"id": 1, "version": "1.1", "status": "legal_review"}},
+    {"name": "retail_pos_controls_list", "mirrors": "synthetic POS-control catalog", "description": "List duplicate-scan, price-sync, and weight controls.", "op": {"kind": "list", "table": "rc_pos_controls", "filters": ["status", "owner"]}, "params": {"status": "string", "owner": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"limit": 20}},
+    {"name": "retail_pos_controls_update", "mirrors": "synthetic POS-control change management", "description": "Activate or revise a preventive control and record implementation evidence.", "op": {"kind": "update", "table": "rc_pos_controls", "allowed": ["status", "threshold", "action", "owner", "evidence", "updated_at"]}, "params": {"id": "integer", "status": "string", "threshold": "string", "action": "string", "owner": "string", "evidence": "string", "updated_at": "string"}, "conformance_args": {"id": 1, "status": "pilot", "evidence": "conformance change record"}},
+    {"name": "retail_policy_versions_list", "mirrors": "synthetic policy registry", "description": "List filed policy versions by scope or status.", "op": {"kind": "list", "table": "rc_policy_versions", "filters": ["jurisdiction_scope", "status"]}, "params": {"jurisdiction_scope": "string", "status": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"limit": 20}},
+    {"name": "retail_policy_versions_create", "mirrors": "synthetic policy publication workflow", "description": "File a versioned price-accuracy policy with legal basis and approval status.", "op": {"kind": "create", "table": "rc_policy_versions", "required": ["policy_name", "jurisdiction_scope", "version", "status", "body", "legal_basis"], "defaults": {"created_at": "2026-08-22T12:00:00Z"}}, "params": {"policy_name": "string", "jurisdiction_scope": "string", "version": "string", "status": "string", "body": "string", "legal_basis": "string", "approved_by": "string", "created_at": "string"}, "conformance_args": {"policy_name": "Conformance policy", "jurisdiction_scope": "ALL", "version": "0.1", "status": "draft", "body": "Synthetic conformance policy", "legal_basis": "NIST HB 130 research baseline; local counsel validation required"}},
+    {"name": "retail_refunds_list", "mirrors": "synthetic refund ledger", "description": "List price-accuracy refunds by transaction, jurisdiction, or status.", "op": {"kind": "list", "table": "rc_refunds", "filters": ["transaction_id", "jurisdiction_code", "status"]}, "params": {"transaction_id": "string", "jurisdiction_code": "string", "status": "string", "limit": "integer", "offset": "integer"}, "conformance_args": {"transaction_id": "TX-CA-000184", "limit": 20}},
+    {"name": "retail_refunds_create", "mirrors": "synthetic refund and statutory-remedy workflow", "description": "Record a refund and any separately validated jurisdiction-specific bonus.", "op": {"kind": "create", "table": "rc_refunds", "required": ["transaction_id", "jurisdiction_code", "amount", "bonus_amount", "reason", "status", "customer_notice"], "defaults": {"created_at": "2026-08-22T12:00:00Z"}}, "params": {"transaction_id": "string", "jurisdiction_code": "string", "amount": "number", "bonus_amount": "number", "reason": "string", "status": "string", "customer_notice": "string", "created_at": "string"}, "conformance_args": {"transaction_id": "TX-CA-000184", "jurisdiction_code": "CA", "amount": 5.89, "bonus_amount": 0, "reason": "Conformance price correction", "status": "approved", "customer_notice": "Refund preserves all applicable statutory rights."}},
+    {"name": "retail_price_audits_list", "mirrors": "NIST HB 130 EPPV-inspired inspection register", "description": "List store price-verification audits and corrective actions.", "op": {"kind": "list", "table": "rc_price_audits", "filters": ["store_id", "jurisdiction_code", "passed"]}, "params": {"store_id": "string", "jurisdiction_code": "string", "passed": "integer", "limit": "integer", "offset": "integer"}, "conformance_args": {"store_id": "CA-1842", "limit": 20}},
+    {"name": "retail_price_audits_create", "mirrors": "NIST HB 130 EPPV-inspired inspection record", "description": "Record a price-verification sample and corrective action; the stated standard is not a substitute for local law.", "op": {"kind": "create", "table": "rc_price_audits", "required": ["store_id", "jurisdiction_code", "sample_size", "accurate_items", "accuracy_rate", "standard", "passed", "audit_date", "corrective_action"]}, "params": {"store_id": "string", "jurisdiction_code": "string", "sample_size": "integer", "accurate_items": "integer", "accuracy_rate": "number", "standard": "string", "passed": "integer", "audit_date": "string", "corrective_action": "string"}, "conformance_args": {"store_id": "CA-1842", "jurisdiction_code": "CA", "sample_size": 50, "accurate_items": 50, "accuracy_rate": 100, "standard": "Conformance fixture", "passed": 1, "audit_date": "2026-08-22", "corrective_action": "none"}}
+  ]
+}

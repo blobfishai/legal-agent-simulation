@@ -14,7 +14,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 UPSTREAM = ROOT / "research" / "repos" / "harveyai@harvey-labs"
-WORLD = ROOT / "world" / "blobfish" / "world-v20.json"
+WORLD = ROOT / "world" / "blobfish" / "world-v20-draft.json"
 INPUT_AUDIT = ROOT / "reports" / "harvey-input-audit.json"
 LAB_REPORT = ROOT / "world" / "port" / "determinate" / "lab-report.json"
 RETAIL_REPORT = ROOT / "research" / "retail-price-accuracy" / "build-report.json"
@@ -47,7 +47,7 @@ def tracked_files() -> list[str]:
 def parity_rows() -> list[dict[str, str]]:
     return [
         {"area": "Repository bytes and folder tree", "upstream": "63,074 tracked paths", "local": "Exact nested Git mirror at the pinned commit", "status": "exact_copy"},
-        {"area": "Task configurations", "upstream": "2,010 task.json files", "local": "All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20 adapter", "status": "exact_plus_executable"},
+        {"area": "Task configurations", "upstream": "2,010 task.json files", "local": "All task configs remain byte-identical in the mirror; all 2,010 have an executable world-v20-draft adapter", "status": "exact_plus_executable"},
         {"area": "Input documents", "upstream": "60,971 physical inputs / 3.207 GB", "local": "Every physical input is present in the exact mirror; 51,683 task-local documents are indexed for executable retrieval", "status": "exact_copy_and_index"},
         {"area": "Office/PDF formats", "upstream": "DOCX/XLSX/PPTX/EML/TXT/JSON; zero PDFs", "local": "All upstream formats copied; synthetic retail extension adds 3 PDF receipts and 4 immutable primary-source PDFs", "status": "exact_plus_extension"},
         {"area": "Generic agent tools", "upstream": "bash, read, write, edit, glob, grep", "local": "Exact harness/tools.py is copied; Harbor file-lane agents retain a shell and document stack, while state work uses 110 visible product tools", "status": "exact_copy_different_operational_surface"},
@@ -58,7 +58,7 @@ def parity_rows() -> list[dict[str, str]]:
         {"area": "Firm knowledge", "upstream": "250 tasks over one shared 9,288-file DMS", "local": "All 250 hosted through the indexed shared corpus", "status": "operational_parity"},
         {"area": "Practice tasks", "upstream": "1,760 task-local assignments", "local": "All 1,760 hosted; one task receives the explicit response.md adapter because upstream omitted a filename", "status": "operational_parity_with_disclosed_adapter"},
         {"area": "Harbor format", "upstream": "Not Harbor; custom filesystem harness", "local": "Schema 1.4 task.toml, isolated agent/world containers, MCP, tests/test.sh, solution/solve.sh, and native multi-step [[steps]]", "status": "local_extension"},
-        {"area": "Canonical world format", "upstream": "No world/ state model", "local": "Canonical world-v20.json is the runtime source format; harbor/generate.py exports it to Harbor", "status": "local_extension"},
+        {"area": "Canonical world format", "upstream": "No world/ state model", "local": "Canonical world-v20-draft.json is the runtime source format; harbor/generate.py exports it to Harbor", "status": "local_extension"},
     ]
 
 

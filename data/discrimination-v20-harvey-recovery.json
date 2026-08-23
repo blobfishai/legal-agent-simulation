@@ -1,0 +1,85 @@
+{
+ "summary": {
+  "tasks": 1,
+  "modes": [
+   "noop",
+   "text_only",
+   "blind_write",
+   "wrong_value"
+  ],
+  "discrimination_failures": [],
+  "wrong_value_inconclusive": [],
+  "harness_errors": []
+ },
+ "rows": [
+  {
+   "task_id": "labp_b50165c2a9cd39db",
+   "noop": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_workflow_path",
+     "required_documents_read",
+     "all_deliverables_filed_to_dms",
+     "criterion_C-001",
+     "criterion_C-004",
+     "criterion_C-006",
+     "criterion_C-012",
+     "criterion_C-018",
+     "criterion_C-019",
+     "criterion_C-020",
+     "criterion_C-022",
+     "criterion_C-023"
+    ],
+    "write_errored": false
+   },
+   "text_only": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_workflow_path",
+     "all_deliverables_filed_to_dms",
+     "criterion_C-001",
+     "criterion_C-004",
+     "criterion_C-006",
+     "criterion_C-012",
+     "criterion_C-018",
+     "criterion_C-019",
+     "criterion_C-020",
+     "criterion_C-022",
+     "criterion_C-023",
+     "criterion_C-024"
+    ],
+    "write_errored": false
+   },
+   "blind_write": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "required_workflow_path",
+     "required_documents_read"
+    ],
+    "write_errored": false
+   },
+   "wrong_value": {
+    "passed": false,
+    "reward": 0.0,
+    "failed": [
+     "criterion_C-001",
+     "criterion_C-004",
+     "criterion_C-006",
+     "criterion_C-012",
+     "criterion_C-018",
+     "criterion_C-019",
+     "criterion_C-020",
+     "criterion_C-022",
+     "criterion_C-023",
+     "criterion_C-024",
+     "criterion_C-027",
+     "criterion_C-028"
+    ],
+    "write_errored": false
+   }
+  }
+ ]
+}
