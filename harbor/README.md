@@ -21,7 +21,7 @@ The production wrapper rejects tags and cross-repository references. Both
 images must be the promoted `@sha256` manifests, so a registry task cannot
 silently move after its dataset digest is computed. The check also acquires an
 anonymous GHCR pull token for each manifest and rejects private packages or a
-registry digest mismatch before Harbor publication.
+registry digest mismatch before the generated task set is declared runnable.
 
 The structural gate checks all 23,310 task directories against the canonical
 world, including 22,813 file lanes, 126,592 staged document instances, 5,544
@@ -87,8 +87,13 @@ The GitHub Actions workflow publishes convenient `:v21` tags, but publishable
 tasks embed the promoted world and file-lane images by immutable digest. This
 makes every task self-sufficient without trusting either mutable tag. Harbor
 0.21.0 and its complete 91-package runner graph are likewise frozen in
-`harbor/runner/uv.lock`. Harbor registry publication still needs its own
-interactive OAuth token:
+`harbor/runner/uv.lock`.
+
+Harbor is the local evaluation framework and does not require a Harbor API,
+account, OAuth login, or hosted-registry publication. The generated task
+directories and dataset manifest are run directly with `harbor run -p` as
+shown above. Harbor's optional hosted sharing features are not part of this
+repository's production path or release gate.
 
 The 4.7 GB materialized LAB/C&H search indexes are intentionally outside
 ordinary Git history. `world/corpus/v21-production-evidence.json` pins their
@@ -111,14 +116,8 @@ the corresponding hash.
 gh workflow run v21-release.yml -f tag=v21
 # GHCR defaults a newly created container package to private. An organization
 # package admin must change both promoted packages to Public once in GitHub's
-# package settings; then confirm an anonymous digest pull before publication.
-
-# Publish tasks to the Harbor registry (hub.harborframework.com)
-uv run --project harbor/runner --locked harbor auth login
-uv run --project harbor/runner --locked harbor publish \
-  "dist/harbor-v21-prod/tasks" --public --tag v21 --concurrency 50
-uv run --project harbor/runner --locked harbor publish \
-  "dist/harbor-v21-prod/dataset" --public --tag v21 --no-tasks
+# package settings; then confirm an anonymous digest pull so a clean Harbor
+# runner can start the task containers without separate GHCR credentials.
 ```
 
 ## Architecture

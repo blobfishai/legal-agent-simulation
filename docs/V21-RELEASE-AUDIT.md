@@ -2,7 +2,7 @@
 
 Audit date: 2026-08-22  
 Scope: Harvey LAB parity, v21 scale, documents, deterministic verification,
-Harbor packaging/runtime, clean rebuilds, and production publication.
+Harbor packaging/runtime, clean rebuilds, and production image publication.
 
 ## Release conclusion
 
@@ -99,6 +99,7 @@ upstream sandbox/skill sources required by Harbor are tracked under
 | Locked LAB image context | 10/10 source/lock files, tree SHA-256 `de22a672df02ecfcac25087c236f5733bf0121a4f937da3c40a508bccb59f512` |
 | Locked release dependencies | 9-package seeded-document closure, 48-package LAB Python closure, npm integrity lock, and 91-package Harbor runner graph |
 | Harbor schema 1.4 steps | 36 multi-step tasks, 89 step test/solution fixtures |
+| Core Harbor execution model | Local task paths and Docker runtime; no Harbor API, account, OAuth, or hosted publication required |
 | Harbor oracle canary | 5/5 representative tasks reward 1.0; zero exceptions |
 | Harbor discrimination | no-op task reward 0.0; zero harness exceptions |
 | Production image release | workflow `32614596061` passed; exact candidate-to-production manifest equality |
@@ -154,18 +155,19 @@ The full generated Harbor release is `dist/harbor-v21-prod`: 23,310 task
 packages plus the `legal-agent-simulation/v21` dataset. Its production wrapper
 accepts only the two promoted `@sha256` image references. The export checker
 then recomputes every Harbor package content hash and compares all 23,310
-unique names/digests with `dataset/dataset.toml` before registry publication.
-Authenticated publication and public download/runtime checks are documented in
-`harbor/README.md`.
+unique names/digests with `dataset/dataset.toml` before execution or
+distribution. The task directories run directly through the local Harbor
+framework; hosted Harbor Hub publication is optional and is not a production
+dependency or release criterion.
 
 At this audit checkpoint, the promoted GHCR manifests still return HTTP 401 to
 an anonymous token request because GitHub initializes new container packages
-as private. The Harbor CLI also has neither a stored credential nor a
-`HARBOR_API_KEY`. Public visibility requires the package administrator's
-one-time settings confirmation; Harbor publication requires the user's OAuth
-callback code or API key. These external states are deliberately reported as
-pending, and the active release goal must not be closed until both public
-pullability and public Harbor registry download/runtime trials pass.
+as private. This is a container-image reachability issue, not a Harbor API
+requirement: the task definitions point at immutable GHCR image digests, so a
+clean unauthenticated runner cannot start them until the package administrator
+makes those two images public. Core Harbor itself runs these local packages
+without any Harbor credential. Anonymous GHCR pullability remains the only
+external publication state pending for the configured public execution path.
 
 ## Explicit boundaries and remaining external work
 
