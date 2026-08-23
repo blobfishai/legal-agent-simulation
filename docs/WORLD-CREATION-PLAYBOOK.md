@@ -1,5 +1,10 @@
 # World-Creation Playbook
 
+> **Scope:** the “Lawfirm status” snapshots below describe the lightweight
+> product-only v16 reference world and its 91-tool vendor baseline. The current
+> v21 Harbor release is a larger 23,310-task, 1,100-visible-tool superset; see
+> [the v21 release audit](V21-RELEASE-AUDIT.md).
+
 The canonical pipeline for building an executable agent world in any vertical
 (next up: sales). Each stage lists what the lawfirm-qwen build already
 implements (with the script/evidence that proves it) and what is new work.

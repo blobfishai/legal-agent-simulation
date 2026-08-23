@@ -27,9 +27,10 @@ reachable through the executable retail tools. See the measured
 [v21 release record](docs/V21-10X-WORLD.md).
 
 The [Harvey parity audit](docs/HARVEY-PARITY-AUDIT.md) separates exact-copy,
-operational-parity, extension, and open-gap claims. The generated [program
-status](docs/PROGRAM-STATUS.md) maps every M0–M8 gate to
-its proof and exact verification command. `world-v16.json` remains the
+operational-parity, extension, and open-gap claims. The generated [frozen v19
+calibration-program status](docs/PROGRAM-STATUS.md) maps every M0–M8 gate to
+its proof and exact verification command; it is a separate denominator from
+the v21 release. `world-v16.json` remains the
 lightweight product-only benchmark; Harbor export and the v21 scripts default
 to the current v21 release. Frozen historical model scores are not silently
 generalized to the expanded task denominator.

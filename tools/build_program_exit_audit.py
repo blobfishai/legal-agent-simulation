@@ -739,6 +739,13 @@ def render(report: dict[str, Any]) -> str:
     lines = [
         "# LAB-Superset program status",
         "",
+        (
+            "> **Scope: frozen world-v19 calibration program.** This M0-M8 artifact "
+            "tracks the fixed 2,324-task DeepSeek calibration denominator; it does not "
+            "describe the current v21 inventory or production release. See "
+            "[the v21 release audit](V21-RELEASE-AUDIT.md) for that surface."
+        ),
+        "",
         f"Program exit: **{status}**.",
         "",
         (
