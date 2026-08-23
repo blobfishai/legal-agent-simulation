@@ -196,7 +196,8 @@ node sim/run-simulation.mjs --task task_v20_cp_001 --engine deepseek-chat \
 python3 harbor/generate.py --world world/blobfish/world-v20-draft.json \
   --out dist/harbor-v20-smoke --tasks task_v20_cp_001 \
   --image-tag legal-agent-sim-world:v20-draft --build-image
-uvx harbor run -p "dist/harbor-v20-smoke/tasks/task_v20_cp_001" -a oracle
+uv run --project harbor/runner --locked harbor run \
+  -p "dist/harbor-v20-smoke/tasks/task_v20_cp_001" -a oracle
 ```
 
 ## Design decisions and dropped elements (recorded honestly)

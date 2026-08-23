@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import os
 import re
 import shutil
@@ -41,6 +43,72 @@ def locked_harbor_command(*arguments: str) -> list[str]:
         "--locked",
         *arguments,
     ]
+
+
+def proof_from_environment(values: list[str]) -> str:
+    prefix = "ORACLE_PROOF_SHA256="
+    matches = [value.removeprefix(prefix) for value in values if value.startswith(prefix)]
+    if len(matches) != 1 or not re.fullmatch(r"[0-9a-f]{64}", matches[0]):
+        raise RuntimeError("production world image has no unique oracle proof hash")
+    return matches[0]
+
+
+def image_environment(image: str) -> list[str]:
+    docker = shutil.which("docker")
+    if not docker:
+        raise RuntimeError("docker buildx is required to verify the production image proof")
+
+    def inspect(reference: str) -> list[str] | None:
+        result = subprocess.run(
+            [docker, "buildx", "imagetools", "inspect", reference,
+             "--format", "{{json .Image.Config.Env}}"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        value = json.loads(result.stdout)
+        return value if isinstance(value, list) else None
+
+    environment = inspect(image)
+    if environment is not None:
+        return [str(value) for value in environment]
+
+    raw = subprocess.run(
+        [docker, "buildx", "imagetools", "inspect", image, "--raw"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    manifest = json.loads(raw.stdout)
+    candidates = [
+        row for row in manifest.get("manifests") or []
+        if (row.get("platform") or {}).get("os") == "linux"
+        and (row.get("platform") or {}).get("architecture") == "amd64"
+    ]
+    if len(candidates) != 1 or not DIGEST_REFERENCE.fullmatch(
+        image.split("@", 1)[0] + "@" + str(candidates[0].get("digest") or "")
+    ):
+        raise RuntimeError("production world image lacks one linux/amd64 manifest")
+    platform_image = image.split("@", 1)[0] + "@" + str(candidates[0]["digest"])
+    environment = inspect(platform_image)
+    if environment is None:
+        raise RuntimeError("production world image config is unavailable")
+    return [str(value) for value in environment]
+
+
+def verify_oracle_proof(world_image: str, output: Path) -> str:
+    token_path = output / "world-image" / "solve-token.txt"
+    token = token_path.read_text("utf-8").strip()
+    expected = hashlib.sha256(token.encode()).hexdigest()
+    actual = proof_from_environment(image_environment(world_image))
+    if actual != expected:
+        raise RuntimeError(
+            "full export solve token does not match the production world image proof"
+        )
+    print(f"production oracle proof matched: sha256:{expected}")
+    return expected
 
 
 def rebuild_dataset(output: Path) -> None:
@@ -118,6 +186,7 @@ def main() -> int:
     if args.action == "generate":
         rebuild_dataset(output)
     else:
+        verify_oracle_proof(world_image, output)
         subprocess.run(
             locked_harbor_command(
                 "python", str(ROOT / "tools" / "check_harbor_dataset.py"),

@@ -64,9 +64,13 @@ deterministic (the `/solve` token persists in
 ## Run
 
 ```bash
-uvx harbor run -p "dist/harbor-v21-prod/tasks/task_v21_lt_matters_00001" -a oracle
-uvx harbor run -p "dist/harbor-v21-prod/tasks/task_v21_lt_matters_00001" -a claude-code -m anthropic/claude-sonnet-5
-uvx harbor run -p "dist/harbor-v21-prod/tasks" -a oracle -n 1            # safe on a 2 GiB local VM
+uv run --project harbor/runner --locked harbor run \
+  -p "dist/harbor-v21-prod/tasks/task_v21_lt_matters_00001" -a oracle
+uv run --project harbor/runner --locked harbor run \
+  -p "dist/harbor-v21-prod/tasks/task_v21_lt_matters_00001" \
+  -a claude-code -m anthropic/claude-sonnet-5
+uv run --project harbor/runner --locked harbor run \
+  -p "dist/harbor-v21-prod/tasks" -a oracle -n 1  # safe on a 2 GiB local VM
 ```
 
 Multi-container tasks need Harbor's **docker** environment provider (compose
@@ -100,17 +104,19 @@ printing it, while the production Harbor oracle gate proves the image carries
 the corresponding hash.
 
 ```bash
-# Optional manual image push (the release workflow normally performs this)
-gh auth refresh -h github.com -s write:packages
-gh auth token | docker login ghcr.io -u <github-user> --password-stdin
-docker push ghcr.io/blobfishai/legal-agent-sim-world:v21
-docker push ghcr.io/blobfishai/legal-agent-sim-agent-lab:v21
-# then make the package public: https://github.com/orgs/blobfishai/packages
+# Build, test, and promote the images through the gated release workflow.
+# Do not replace :v21 with an unvalidated manual push.
+gh workflow run v21-release.yml -f tag=v21
+# GHCR defaults a newly created container package to private. An organization
+# package admin must change both promoted packages to Public once in GitHub's
+# package settings; then confirm an anonymous digest pull before publication.
 
 # Publish tasks to the Harbor registry (hub.harborframework.com)
-uvx harbor auth login          # GitHub sign-in flow
-uvx harbor publish "dist/harbor-v21-prod/tasks" --public --tag v21 --concurrency 50
-uvx harbor publish "dist/harbor-v21-prod/dataset" --public --tag v21
+uv run --project harbor/runner --locked harbor auth login
+uv run --project harbor/runner --locked harbor publish \
+  "dist/harbor-v21-prod/tasks" --public --tag v21 --concurrency 50
+uv run --project harbor/runner --locked harbor publish \
+  "dist/harbor-v21-prod/dataset" --public --tag v21 --no-tasks
 ```
 
 ## Architecture

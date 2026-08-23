@@ -73,6 +73,20 @@ def main() -> int:
     assert production.immutable_reference(
         lab_digest, production.LAB_REPOSITORY, "LAB image"
     ) == lab_digest
+    assert production.proof_from_environment([
+        "PATH=/usr/bin", "ORACLE_PROOF_SHA256=" + "ef" * 32
+    ]) == "ef" * 32
+    for invalid_environment in (
+        [],
+        ["ORACLE_PROOF_SHA256=invalid"],
+        ["ORACLE_PROOF_SHA256=" + "ab" * 32,
+         "ORACLE_PROOF_SHA256=" + "cd" * 32],
+    ):
+        try:
+            production.proof_from_environment(invalid_environment)
+            raise AssertionError("invalid production oracle proof accepted")
+        except RuntimeError:
+            pass
     for invalid in (
         production.WORLD_REPOSITORY + ":v21",
         production.WORLD_REPOSITORY + "@sha256:" + "AB" * 32,
