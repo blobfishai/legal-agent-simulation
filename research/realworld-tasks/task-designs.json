@@ -1,0 +1,516 @@
+[
+  {
+    "id": "mm-price-accuracy-51-matrix",
+    "anchor": "Kukorinis v. Walmart, No. 8:22-cv-02402 (M.D. Fla.) $45M weighted-goods settlement + real item-pricing variance (MI Scanner Law bounty, MA food-store item pricing, CT free-item rule) — the canonical post-settlement 51-jurisdiction price-accuracy survey.",
+    "matter_context": "Meridian Mart Stores, Inc., a big-box grocery/general retailer with 1,684 stores in all 50 states, DC, and Puerto Rico, settled Delgado v. Meridian Mart Stores, Inc., No. 8:24-cv-03117 (M.D. Fla.), a class action alleging its POS system rang weighted goods above the lowest shelf/sticker unit price and double-charged items at self-checkout. The $42.5M settlement's injunctive section requires Meridian to complete a 51-jurisdiction pricing-law compliance survey and adopt a remediation plan within 60 days of the Effective Date, and to add a lowest-price disclosure to every receipt. The firm represents Meridian; the supervising partner wants the compliance matrix, the receipt fix, and the deadline confirmed. A paralegal left behind a partially wrong draft matrix that must not be trusted.",
+    "input_documents": [
+      {
+        "filename": "delgado-settlement-agreement-executed.pdf",
+        "format": "pdf",
+        "content_spec": "Executed settlement agreement: $42,500,000 fund; class period 2019-03-01 through 2025-01-31; Effective Date defined and stipulated as 2025-09-15. Section 7.3: 51-jurisdiction (50 states + DC; Puerto Rico expressly excluded) pricing-compliance survey and remediation plan due within 60 days of the Effective Date. Section 7.4: every register receipt must add the exact footer sentence: 'If an item rings up higher than the lowest posted or advertised price, you are entitled to the lower price at the register.'"
+      },
+      {
+        "filename": "state-pricing-law-memo-pack.pdf",
+        "format": "pdf",
+        "content_spec": "51 one-page seeded state-law memos (this pack IS the in-world law). Exactly 6 jurisdictions have item-pricing/scanner statutes: MI (refund + bonus of 10x the difference, minimum $1.00, maximum $5.00, payable within 2 days of notice given within 30 days; if refused, suit for greater of actual damages or $250 plus fees up to $300), MA (item pricing applies to FOOD STORES AND FOOD DEPARTMENTS ONLY; must sell at lowest of item/shelf/advertised price; scanner-waiver annual fee $250 under 15,000 sq ft, $500 for 15,000-30,000 sq ft, $1,000 over 30,000 sq ft), CT (if scanned price exceeds posted price, customer gets the item FREE on demand; electronic-shelf-label exemption), CA (no item-sticker law but overcharging vs. posted/advertised price unlawful; county weights-and-measures enforcement; civil penalty up to $1,000 per violation; NO private bounty), NH and RI (seeded MA/CT-style scanner-accuracy statutes). The other 45 memos say 'no item-pricing or scanner statute — general UDAP only.' TRAP memos: WY memo states the oft-cited 'Wyoming Retail Price Accuracy Act' died in committee in 2019 and was never enacted; NY memo states the statewide item-pricing law sunset in 2012 and only three county ordinances survive, so the statewide answer is NO."
+      },
+      {
+        "filename": "draft-compliance-matrix-v1.xlsx",
+        "format": "xlsx",
+        "content_spec": "Superseded paralegal draft matrix with three seeded errors that contradict the memo pack: lists MI maximum bonus as $10.00; marks MA as applying to all retail stores; marks WY as having an item-pricing statute (YES). A cell note says 'v1 — DO NOT CIRCULATE, unverified.'"
+      },
+      {
+        "filename": "current-receipt-template.docx",
+        "format": "docx",
+        "content_spec": "Current receipt template: header, line-item block showing weighted-goods lines WITHOUT unit price (only extended price), footer with return-policy text but no lowest-price sentence. Marked version 'RCP-2023-11'."
+      },
+      {
+        "filename": "partner-instructions.eml",
+        "format": "eml",
+        "content_spec": "Partner email pinning the deliverable: a 51-row matrix (50 states + DC, one row each) with columns [Jurisdiction, Statute YES/NO, Citation, Overcharge Remedy, Disclosure/Receipt Duty, Action Required]; asks for the computed Section 7.3 due date; asks how many stores need in-store remediation in statute jurisdictions; reminds that Puerto Rico is out of scope."
+      },
+      {
+        "filename": "store-footprint-by-state.xlsx",
+        "format": "xlsx",
+        "content_spec": "Store counts for all 52 territories the chain operates in (1,684 total), including MI 61, MA 38, CT 27, NH 11, RI 8, CA 172, and a Puerto Rico row of 23 stores (trap: PR must be excluded from the 51-jurisdiction survey and from remediation counts)."
+      }
+    ],
+    "workflow": [
+      "practice mgmt (Clio-like): open matter 'Meridian Mart — Delgado Settlement Compliance' and read the task assignment",
+      "DMS (iManage-like): retrieve the executed settlement agreement and the state-pricing-law memo pack; note draft-compliance-matrix-v1.xlsx is flagged superseded",
+      "email (Google-like): read partner-instructions.eml for the required matrix columns and questions",
+      "sheets (Google-like): build the 51-row compliance matrix from the memo pack, correcting the three draft errors (MI $5 cap, MA food-only, WY no statute)",
+      "sheets: join store-footprint-by-state.xlsx to compute the statute-state store remediation count, excluding Puerto Rico",
+      "DMS: save the revised receipt template with the Section 7.4 footer sentence as a new version",
+      "practice mgmt: add the Section 7.3 survey deadline to the matter calendar",
+      "email: send the partner a summary with the matrix link, deadline, and remediation store count"
+    ],
+    "deliverable": "A 51-row compliance matrix sheet (columns: Jurisdiction, Statute YES/NO, Citation, Overcharge Remedy, Disclosure/Receipt Duty, Action Required), a revised receipt template containing the required footer sentence, and a reply email with the computed deadline and statute-state store count.",
+    "deterministic_checks": [
+      "Matrix has exactly 51 rows: 50 states + DC; no Puerto Rico row.",
+      "Section 7.3 survey due date computed = 2025-11-14 (Effective Date 2025-09-15 + 60 days).",
+      "Count of jurisdictions with Statute = YES is exactly 6: CA, CT, MA, MI, NH, RI.",
+      "MI row remedy reads refund plus bonus of 10x the difference, minimum $1.00, maximum $5.00 (NOT $10.00 — trap check against superseded draft).",
+      "MA row scope = food stores and food departments only (NOT all retail — trap check); MA waiver fee for a 22,000 sq ft store = $500.",
+      "CT row remedy = item free on demand when scanned price exceeds posted price.",
+      "CA row: civil penalty up to $1,000 per violation and private bounty = NO.",
+      "WY row: Statute = NO, remedy = general UDAP only (trap: draft said YES; memo says the bill was never enacted).",
+      "NY row: statewide Statute = NO with note that only county ordinances survive.",
+      "Statute-state store remediation count = 317 (61 MI + 38 MA + 27 CT + 11 NH + 8 RI + 172 CA); Puerto Rico's 23 stores excluded.",
+      "Revised receipt contains the exact sentence: 'If an item rings up higher than the lowest posted or advertised price, you are entitled to the lower price at the register.'",
+      "Matter calendar contains an entry on 2025-11-14 referencing Section 7.3."
+    ],
+    "difficulty": 3,
+    "state_variance_basis": "Real pattern: MI Shopping Reform and Modernization Act bounty (10x difference, $1 min/$5 max, MCL 445.311-445.324); MA food-store item pricing + scanner-waiver fees ($250/$500/$1,000 tiers, MGL c.94 §§184B-184E, 940 CMR 3.13); CT Conn. Gen. Stat. §21a-79 free-item rule; CA B&P §12024.2 county-DA penalty regime with no private bounty; NY statewide law sunset with county ordinances remaining; ~44 jurisdictions UDAP-only (NIST HB130 EPPV adopted by 42 states). NH/RI statutes are synthetic analogs seeded to make 6 statute states."
+  },
+  {
+    "id": "mm-consent-judgment-audit-scorecard",
+    "anchor": "People v. Walmart California weights-and-measures consent judgments (2008 stipulated judgment with $3-or-free guarantee; 2012 $2.1M for noncompliance; 2025 $5.6M) + NIST Handbook 130 EPPV 98% standard where penalties count only overcharges.",
+    "matter_context": "Meridian Mart Stores, Inc. operates under a Stipulated Final Judgment with a coalition of California district attorneys, People v. Meridian Mart Stores, Inc., San Bernal County Superior Court No. CIVSB-2024-118822, entered after county weights-and-measures inspectors found scanner overcharges. The judgment mandates quarterly 100-item price-verification audits at 25 designated stores, a customer-facing $3-or-free overcharge guarantee, and quarterly compliance reports. Q3 2025 audit data just arrived, and the general counsel wants the pass/fail scorecard, penalty math, re-audit calendar, and corrected guarantee signage. The GC also asks whether rolling the guarantee out nationwide conflicts with any state's own overcharge statute, requiring a 51-jurisdiction conflict matrix.",
+    "input_documents": [
+      {
+        "filename": "stipulated-final-judgment.pdf",
+        "format": "pdf",
+        "content_spec": "Judgment terms: Section 4.1 quarterly audits at 25 designated stores, 100-item stratified sample each. Section 4.2: a store FAILS an audit only if it has MORE THAN 2 OVERCHARGES per 100 items (i.e., overcharge accuracy below 98%); undercharges are recorded but count only toward the increased-inspection watch list (total errors greater than 2). Section 4.3: each failing store incurs a $2,500 civil penalty and a mandatory re-audit within 30 days of the audit completion date. Section 5.1: guarantee text must read exactly: 'If we charge more than the lowest posted or advertised price, you will receive $3.00 off the correct price. If the item costs $3.00 or less, it is free.' Section 6.2: quarterly compliance report due 30 days after quarter close."
+      },
+      {
+        "filename": "audit-results-q3-2025.xlsx",
+        "format": "xlsx",
+        "content_spec": "25 rows (store id, city, overcharges, undercharges out of 100 items; audit completion date 2025-09-24 for all stores). Pinned rows: store 0417 Verdera = 4 overcharges + 1 undercharge; store 0233 = 2 overcharges + 0 undercharges (boundary pass); store 0781 Sandoval = 3 overcharges + 0 undercharges; store 0522 = 0 overcharges + 6 undercharges (undercharge-only trap). All other 21 stores have at most 2 total errors and at most 2 overcharges."
+      },
+      {
+        "filename": "superseded-2024-report-template.docx",
+        "format": "docx",
+        "content_spec": "Prior-year report template (trap): states a 95% threshold and instructs that undercharges count as audit failures — both contradicted by operative judgment Section 4.2. Header says 'based on 2024 interim protocol — replaced by Judgment CIVSB-2024-118822.'"
+      },
+      {
+        "filename": "signage-spec-current.pdf",
+        "format": "pdf",
+        "content_spec": "Current in-store guarantee sign artwork reading 'receive $2.00 off' (stale amount from a pre-judgment pilot) — must be corrected to the Section 5.1 $3.00 text."
+      },
+      {
+        "filename": "national-overcharge-statute-memo-pack.pdf",
+        "format": "pdf",
+        "content_spec": "51 seeded state memos for the nationwide guarantee rollout question (same in-world law as the Delgado memo pack): MI requires refund + statutory bonus of 10x difference ($1 min/$5 max) within 2 days — a flat $3-off guarantee may underpay, so an MI rider is required; CT requires the item FREE on demand — $3 off is insufficient, CT rider required; CA/MA/NH/RI statutes are satisfied or exceeded by the guarantee; remaining 45 jurisdictions are UDAP-only and the guarantee is sufficient as-is."
+      },
+      {
+        "filename": "gc-email.eml",
+        "format": "eml",
+        "content_spec": "GC email requesting: (1) Q3 scorecard with failing stores and penalties, (2) re-audit and report deadlines, (3) corrected signage text, (4) 51-row guarantee-conflict matrix identifying which states need riders."
+      }
+    ],
+    "workflow": [
+      "DMS (iManage-like): pull the stipulated final judgment and confirm Section 4.2's overcharge-only failure rule supersedes the 2024 template",
+      "sheets (Google-like): compute per-store overcharge accuracy from audit-results-q3-2025.xlsx and mark PASS/FAIL per Section 4.2",
+      "sheets: compute penalties, the increased-inspection watch list (total errors > 2), and build the 51-row guarantee-conflict matrix from the memo pack",
+      "practice mgmt (Clio-like): calendar the re-audit deadline and the quarterly report deadline on the matter",
+      "DMS: save corrected signage text and the draft quarterly compliance report citing Section 4.2",
+      "email (Google-like): send the GC the scorecard, deadlines, rider states, and signage correction"
+    ],
+    "deliverable": "Q3 audit scorecard sheet (PASS/FAIL, penalty, watch-list flags per store), a 51-row guarantee-conflict matrix with rider recommendations, corrected guarantee signage text, and a quarterly compliance report draft with calendared deadlines.",
+    "deterministic_checks": [
+      "Failing stores = exactly {0417, 0781} (more than 2 overcharges per 100).",
+      "Store 0233 = PASS at exactly 2 overcharges (98.0% boundary; fail requires MORE than 2 — boundary trap).",
+      "Store 0522 = PASS despite 6 undercharges (undercharges never fail a store under Section 4.2 — trap vs. superseded 95%/undercharge template).",
+      "Store 0417 overcharge accuracy = 96.0%.",
+      "Total Q3 civil penalties = $5,000 (2 failing stores x $2,500).",
+      "Re-audit deadline = 2025-10-24 (audit completion 2025-09-24 + 30 days).",
+      "Quarterly report due = 2025-10-30 (quarter close 2025-09-30 + 30 days).",
+      "Increased-inspection watch list (total errors > 2) = exactly {0417, 0522, 0781}.",
+      "Corrected signage contains exactly '$3.00 off the correct price' and the free-if-$3.00-or-less sentence; the $2.00 figure does not appear.",
+      "Guarantee-conflict matrix has 51 rows; rider-required jurisdictions = exactly {CT, MI}; sufficient-as-is count = 49.",
+      "Compliance report cites Section 4.2 as the failure standard (not the superseded 95% protocol)."
+    ],
+    "difficulty": 3,
+    "state_variance_basis": "Real pattern: the CA DA consent-judgment audit/guarantee architecture (2008/2012/2025 Walmart judgments), NIST HB130 EPPV 98% pass standard with penalties keyed to overcharges only while total error rate drives re-inspection frequency, and MI/CT statutory remedies (bonus 10x difference capped at $5; item free) that a flat $3 guarantee cannot displace."
+  },
+  {
+    "id": "mm-receipt-tnc-remediation",
+    "anchor": "Kukorinis v. Walmart injunctive posture (receipt/price-display remediation) + Marriott PA AG first-page-disclosure settlement discipline (missed deadlines drew a $225K fine) + MA lowest-price rule.",
+    "matter_context": "Under Section 7.5 of the Delgado v. Meridian Mart settlement, Meridian Mart Stores, Inc. must update its online Terms of Sale pricing clause, publish a receipt specification for weighted goods, and post lowest-price signage in every store located in a statute jurisdiction, all within 90 days of the Effective Date. The current Terms of Sale contain the exact clause the settlement was designed to kill ('the price charged at the point of sale shall control'). An associate previously circulated a rejected v8 draft that keeps that sentence behind a disclaimer, and the DMS version history identifies v7 as operative. The agent must produce the redline, the receipt spec, the signage rollout list, and the correctly rolled deadline.",
+    "input_documents": [
+      {
+        "filename": "delgado-settlement-sections-7-4-to-7-6.pdf",
+        "format": "pdf",
+        "content_spec": "Settlement excerpt: Section 7.4 receipt footer sentence (same as full agreement); Section 7.5 requires (a) deletion of any term making the register price controlling, (b) insertion of a clause honoring 'the lowest posted, advertised, or shelf price', (c) weighted-goods receipt lines showing net weight and unit price in the format 'NET WT {weight} LB @ ${unit_price}/LB', and (d) lowest-price signage in every store in a statute jurisdiction; all due within 90 days of the Effective Date (2025-09-15). Section 7.6: if any deadline falls on a Saturday, Sunday, or legal holiday, it extends to the next business day."
+      },
+      {
+        "filename": "terms-of-sale-v7.docx",
+        "format": "docx",
+        "content_spec": "Operative Terms of Sale, clause 7.2 'Pricing': contains the sentence 'In the event of any discrepancy, the price charged at the point of sale shall control.' DMS profile marks v7 EFFECTIVE 2024-05-01, status = operative."
+      },
+      {
+        "filename": "terms-of-sale-v8-draft-REJECTED.docx",
+        "format": "docx",
+        "content_spec": "Trap document: a v8 draft that keeps the offending sentence and merely adds 'except where prohibited by law.' DMS profile status = REJECTED 2025-07-22 with comment 'Legal: does not satisfy Section 7.5 — do not use.'"
+      },
+      {
+        "filename": "state-pricing-law-memo-pack.pdf",
+        "format": "pdf",
+        "content_spec": "Same seeded 51-memo pack as mm-price-accuracy-51-matrix: statute jurisdictions are exactly CA, CT, MA, MI, NH, RI; all others UDAP-only; NY statewide = NO."
+      },
+      {
+        "filename": "store-footprint-by-state.xlsx",
+        "format": "xlsx",
+        "content_spec": "Same store-count workbook: MI 61, MA 38, CT 27, NH 11, RI 8, CA 172, Puerto Rico 23 (excluded), network total 1,684."
+      },
+      {
+        "filename": "receipt-mockup-current.pdf",
+        "format": "pdf",
+        "content_spec": "Current printed receipt sample showing a weighted-goods line 'CHKN BRST FAM PK  $14.82' with no net weight or unit price, and no footer disclosure — the before-state for the spec."
+      }
+    ],
+    "workflow": [
+      "DMS (iManage-like): open the Terms of Sale version history; confirm v7 is operative and v8 is rejected",
+      "DMS: create the redline of clause 7.2 against v7 implementing Section 7.5(a)-(b)",
+      "sheets (Google-like): filter the store footprint to the six statute jurisdictions and total the signage rollout count, excluding Puerto Rico",
+      "DMS: draft the weighted-goods receipt specification with the required NET WT / unit-price line format and footer sentence",
+      "practice mgmt (Clio-like): calendar the Section 7.5 deadline with the weekend roll applied",
+      "email (Google-like): send the partner the redline, spec, rollout list, and deadline memo"
+    ],
+    "deliverable": "A redlined Terms of Sale clause 7.2, a weighted-goods receipt specification, a signage rollout list by jurisdiction with store counts, and a deadline memo.",
+    "deterministic_checks": [
+      "Redline deletes the exact sentence 'In the event of any discrepancy, the price charged at the point of sale shall control.'",
+      "Redline inserts replacement text containing the exact phrase 'the lowest posted, advertised, or shelf price'.",
+      "Redline is run against terms-of-sale-v7.docx (deliverable references v7 as operative, not the REJECTED v8 — trap check).",
+      "Section 7.5 raw deadline = 2025-12-14, which is a Sunday; final deadline after Section 7.6 roll = 2025-12-15 (weekend-roll trap).",
+      "Signage jurisdiction list = exactly [CA, CT, MA, MI, NH, RI].",
+      "Signage rollout store count = 317; Puerto Rico's 23 stores are excluded (trap check).",
+      "Receipt spec includes the exact line format 'NET WT {weight} LB @ ${unit_price}/LB' and shows the corrected example line for the $14.82 chicken item with net weight and unit price.",
+      "Receipt spec includes the Section 7.4 footer sentence verbatim.",
+      "Calendar entry exists on 2025-12-15 referencing Section 7.5."
+    ],
+    "difficulty": 2,
+    "state_variance_basis": "Real pattern: settlements kill register-price-controls clauses and mandate lowest-of-posted/advertised/shelf pricing (MA MGL c.94 §184C lowest-price rule; Kukorinis receipt-level unit-price transparency); signage duties exist only in the handful of statute states; deadline-roll convention mirrors Fed. R. Civ. P. 6(a)(1)(C)."
+  },
+  {
+    "id": "mm-claims-admin-calendar",
+    "anchor": "Kukorinis v. Walmart claims architecture (2% of substantiated purchases capped at $500; $10/$15/$20/$25 attestation tiers) + Rule 23(e)/CAFA 28 U.S.C. 1715 90-day floor + Rule 6(a) date computation.",
+    "matter_context": "The firm represents defendant Meridian Mart Stores, Inc. in Delgado v. Meridian Mart Stores, Inc. The court entered the preliminary approval order on 2025-10-06 setting a notice program, claim tiers, and a final approval hearing. Defense counsel must build the full settlement-administration calendar (notice date, opt-out/objection deadline with the weekend roll, claims deadline, CAFA 90-day floor, hearing), verify the hearing date is lawful, and adjudicate a sample batch of claims and one opt-out against the tier table and deadlines. An outdated exhibit draft with a flat $15 no-receipt payment is in the file and must not be used.",
+    "input_documents": [
+      {
+        "filename": "preliminary-approval-order.pdf",
+        "format": "pdf",
+        "content_spec": "Order entered 2025-10-06 (docket entry 187). Paragraph 9: Notice Commencement Date = 30 days after entry. Paragraph 12: claims must be postmarked or submitted online within 90 days after the Notice Commencement Date. Paragraph 14: opt-outs and objections due 60 days after the Notice Commencement Date. Paragraph 18: all periods computed by excluding the trigger day and counting calendar days; if the last day is a Saturday, Sunday, or legal holiday, the deadline is the next business day. Paragraph 21: Final Approval Hearing set for 2026-02-24 at 10:00 AM."
+      },
+      {
+        "filename": "settlement-agreement-claims-excerpt.pdf",
+        "format": "pdf",
+        "content_spec": "Section 5 tier table (operative): with proof of purchase, 2% of substantiated weighted-goods purchases, capped at $500 per claimant; without proof, attestation tiers by item count: 1-50 items = $10, 51-75 = $15, 76-100 = $20, 101 or more = $25. One valid claim per household; late or duplicate claims are rejected."
+      },
+      {
+        "filename": "exhibit-c-draft-superseded.pdf",
+        "format": "pdf",
+        "content_spec": "Trap document: an earlier Exhibit C draft showing a flat $15 payment for all no-receipt claims, stamped 'SUPERSEDED BY EXECUTED SECTION 5 — 2025-08-29'."
+      },
+      {
+        "filename": "cafa-notice-service-declaration.pdf",
+        "format": "pdf",
+        "content_spec": "Declaration of service: defendant served the CAFA-style notice on the federal and 51 state officials on 2025-10-10; recites the in-world statute's rule that the final approval hearing may not be held earlier than 90 days after service."
+      },
+      {
+        "filename": "claims-intake-sample.xlsx",
+        "format": "xlsx",
+        "content_spec": "Six claim rows: C-0011 receipts totaling $18,400.00, postmark 2026-01-20; C-0027 receipts totaling $31,250.00, postmark 2026-01-28; C-0042 no receipts, attests 88 items, postmark 2026-02-02; C-0058 no receipts, attests 40 items, postmark 2026-01-15; C-0063 no receipts, attests 60 items, postmark 2026-02-04 (one day late); C-0075 no receipts, attests 120 items, postmark 2026-01-30."
+      },
+      {
+        "filename": "optout-log.xlsx",
+        "format": "xlsx",
+        "content_spec": "Opt-out O-004 postmarked 2026-01-05 (timely only because the raw 60-day deadline 2026-01-04 is a Sunday and rolls); opt-out O-007 postmarked 2026-01-09 (late)."
+      },
+      {
+        "filename": "admin-kickoff-email.eml",
+        "format": "eml",
+        "content_spec": "Settlement administrator kickoff email asking defense counsel to confirm all five calendar dates, validate the sample claims with payment amounts, rule on the two opt-outs, and confirm the hearing date satisfies the 90-day officials-notice floor."
+      }
+    ],
+    "workflow": [
+      "docket (CourtListener-like): pull docket entry 187 (preliminary approval order) and the CAFA service declaration from the case docket",
+      "DMS (iManage-like): retrieve the executed Section 5 tier table; note Exhibit C draft is stamped superseded",
+      "sheets (Google-like): compute the five administration dates applying paragraph 18's weekend roll",
+      "sheets: adjudicate the six claims and two opt-outs against tiers, caps, and deadlines",
+      "practice mgmt (Clio-like): create calendar entries for all five dates on the matter",
+      "email (Google-like): reply to the administrator confirming dates, claim determinations, and hearing-date legality"
+    ],
+    "deliverable": "A settlement-administration calendar (5 dated entries), a claim-determination sheet with exact payment amounts and accept/reject status for 6 claims and 2 opt-outs, and a confirmation email that the hearing date is lawful.",
+    "deterministic_checks": [
+      "Notice Commencement Date = 2025-11-05 (2025-10-06 + 30 days).",
+      "Claims deadline = 2026-02-03 (Notice Date + 90 days; falls on a Tuesday, no roll).",
+      "Opt-out/objection raw deadline = 2026-01-04 (Sunday); rolled deadline = 2026-01-05 (paragraph 18 weekend-roll trap).",
+      "Earliest lawful Final Approval Hearing date = 2026-01-08 (CAFA-style service 2025-10-10 + 90 days); hearing 2026-02-24 = compliant.",
+      "C-0011 payment = $368.00 (2% of $18,400).",
+      "C-0027 payment = $500.00 (2% of $31,250 = $625, capped at $500).",
+      "C-0042 payment = $20.00 (76-100 tier); C-0058 = $10.00; C-0075 = $25.00 (superseded flat-$15 exhibit must not be used — trap check).",
+      "C-0063 = REJECTED as late (postmark 2026-02-04, one day after the claims deadline).",
+      "O-004 = TIMELY (postmark equals the rolled deadline 2026-01-05); O-007 = LATE.",
+      "Total approved sample payments = $923.00 ($368 + $500 + $20 + $10 + $25).",
+      "Practice-management calendar contains exactly 5 settlement dates: 2025-11-05, 2026-01-05, 2026-01-08, 2026-02-03, 2026-02-24."
+    ],
+    "difficulty": 4,
+    "state_variance_basis": "Not a state survey. Based on real class-settlement mechanics: Kukorinis tiering (2%/$500 cap; $10-$25 attestation tiers), CAFA 28 U.S.C. 1715(d) 90-day bar on final approval after officials' notice, and Rule 6(a)(1)(C) next-business-day computation."
+  },
+  {
+    "id": "cp-arl-51-sweep",
+    "anchor": "FTC v. Amazon (Prime) $2.5B ROSCA settlement (Sept 2025; $1B penalty + $1.5B redress; easy-cancel injunction) + Eighth Circuit's July 8, 2025 vacatur of the FTC click-to-cancel rule + CA AB 2863 / NY GBL 527-a / VT double opt-in variance.",
+    "matter_context": "Cobalt Peak Media, LLC runs the PeakStream+ streaming service (monthly plan $11.99; annual plan $119.99 with a 45-day free trial). On 2025-06-20 it entered a consent order with the in-world Federal Consumer Bureau resolving deceptive-enrollment claims: an $18,000,000 civil penalty plus injunctive terms requiring truthful material-term disclosures adjacent to the enrollment button and cancellation as easy as enrollment. The board ordered a 51-jurisdiction state auto-renewal-law sweep because the federal negative-option rule the company had been building toward was vacated on appeal before its compliance date. The firm must produce the state matrix, remediate the checkout flow, renewal email, and cancel flow, and calendar the consent-order remediation deadline. A stale draft matrix cites the vacated federal rule as governing law and misclassifies one state.",
+    "input_documents": [
+      {
+        "filename": "fcb-consent-order.pdf",
+        "format": "pdf",
+        "content_spec": "Consent order entered 2025-06-20: $18,000,000 civil penalty; Section III requires (a) material terms (price, renewal date, cancel method) disclosed immediately adjacent to the enrollment button, (b) an online cancellation path reachable in no more than 2 clicks from the account page, with the control labeled exactly 'Cancel Subscription', and (c) at most one retention offer before cancellation completes. Section V: all remediation complete within 90 days of entry."
+      },
+      {
+        "filename": "state-arl-memo-pack.pdf",
+        "format": "pdf",
+        "content_spec": "51 seeded memos (in-world law). Exactly 30 jurisdictions have ARL statutes; 21 are UDAP-only. Pinned memos: CA — express affirmative consent to ARL terms as a separate act; annual renewal reminder; for annual plans a renewal notice 15-45 days before renewal; for free trials longer than 31 days a reminder 3-21 days before the trial ends; cancellation in the same medium as signup; consent records kept 3 years or 1 year after termination, whichever is longer. NY — clear-and-conspicuous offer terms, post-purchase acknowledgment with cancellation instructions, online cancellation. VT — auto-renewal term must be accepted by a SEPARATE affirmative opt-in distinct from the contract; applies only to contracts with an initial term of one year or longer (monthly plans out of scope). IL — renewal notice 30-60 days before the cancellation deadline for 12-month contracts renewing 12+ months. DC — renewal notice 30-60 days before renewal for 12-month+ terms; affirmative consent for free-trial conversions of one month or longer. FL (trap) — statute covers only defined tangible 'service contracts' and expressly excludes digital subscription streaming, so FL = NO / UDAP-only. Federal addendum page: the federal negative-option rule was VACATED 2025-07-08 by the court of appeals before its compliance date; ROSCA-analog and UDAP remain."
+      },
+      {
+        "filename": "draft-arl-matrix-v0.xlsx",
+        "format": "xlsx",
+        "content_spec": "Stale draft matrix (trap): a federal row citing the vacated rule as 'effective 2025-07-14 — controls nationwide', and FL marked YES with the streaming plan in scope. Contains only 48 state rows (missing DC, VT, WY) so the row count is also wrong."
+      },
+      {
+        "filename": "checkout-flow-screens.pdf",
+        "format": "pdf",
+        "content_spec": "Current enrollment screenshots: price shown only on a prior page; renewal terms in a footnote below the fold; button labeled 'Start Membership' with no adjacent disclosure box. Before-state for remediation."
+      },
+      {
+        "filename": "renewal-email-template-current.docx",
+        "format": "docx",
+        "content_spec": "Current renewal email lacking renewal date, price, and cancel link; says only 'Thanks for being a member!'. Must be rewritten to include the phrase 'will automatically renew on', the $119.99 annual price, and a cancellation link."
+      },
+      {
+        "filename": "cancel-flow-spec-current.docx",
+        "format": "docx",
+        "content_spec": "Current cancel flow: 6 steps with three sequential retention offers and a final 'call us to confirm' step — violates Section III(b)-(c) of the consent order."
+      },
+      {
+        "filename": "plan-catalog.xlsx",
+        "format": "xlsx",
+        "content_spec": "Plan table: monthly $11.99 (term 1 month, no trial); annual $119.99 (term 12 months, free trial 45 days). Used to determine which state rules attach to which plan."
+      }
+    ],
+    "workflow": [
+      "practice mgmt (Clio-like): open matter 'Cobalt Peak — FCB Consent Order & ARL Sweep' and log the assignment",
+      "DMS (iManage-like): retrieve the consent order and the state-arl-memo-pack; flag draft-arl-matrix-v0.xlsx as unreliable",
+      "sheets (Google-like): build the corrected 51-row matrix (plus a federal status row) mapping each plan (monthly/annual/trial) to each jurisdiction's obligations",
+      "DMS: redline the checkout disclosure box, renewal email template, and cancel-flow spec to the consent order and strictest-state requirements",
+      "practice mgmt: calendar the Section V remediation deadline",
+      "email (Google-like): send the GC the matrix, remediation package, and deadline confirmation"
+    ],
+    "deliverable": "A 51-row ARL compliance matrix with a federal-status row, a remediated checkout disclosure spec, a rewritten renewal-reminder email, a 2-click cancel-flow spec, and the calendared consent-order deadline.",
+    "deterministic_checks": [
+      "Matrix has exactly 51 state/DC rows (draft's 48-row omission of DC/VT/WY corrected).",
+      "Count of jurisdictions with ARL statute = YES is exactly 30; UDAP-only = 21.",
+      "Federal row status = vacated 2025-07-08, not in effect, must not be cited as governing (trap check against draft's 'effective 2025-07-14' entry).",
+      "FL row = NO / UDAP-only because the seeded statute excludes digital streaming (trap check against draft's YES).",
+      "VT row: monthly plan = out of scope; annual plan = separate affirmative opt-in checkbox required (initial term one year or longer).",
+      "CA row: 45-day free trial triggers a reminder 3-21 days before trial end; annual plan requires renewal notice 15-45 days before renewal.",
+      "Consent-record retention pinned as '3 years or 1 year after termination, whichever is longer'.",
+      "Remediated renewal email contains the exact phrase 'will automatically renew on', the price $119.99, and a cancellation link.",
+      "Remediated checkout spec places the disclosure box immediately adjacent to the 'Start Membership' button and includes the exact phrase 'cancel anytime online'.",
+      "Remediated cancel flow: no more than 2 clicks from the account page, control labeled exactly 'Cancel Subscription', and at most one retention offer.",
+      "Section V remediation deadline = 2025-09-18 (order entry 2025-06-20 + 90 days).",
+      "IL row: renewal notice window = 30-60 days before the cancellation deadline, applicable to the annual plan only."
+    ],
+    "difficulty": 4,
+    "state_variance_basis": "Real pattern: ~30 jurisdictions with ARL-type statutes vs UDAP-only remainder; CA B&P 17600-17606 as amended by AB 390 (2022) and AB 2863 (eff. 7/1/2025: annual reminders, click-to-quit, free-to-paid scope, 3-year consent records); NY GBL 527-a (eff. 2/9/2021: acknowledgment + online cancel); VT 9 V.S.A. 2454a double opt-in limited to 1-year+ terms; IL 815 ILCS 601 30-60-day notice for 12-month contracts; DC 12-month-term notice windows; FTC Negative Option Rule vacated by the 8th Circuit 7/8/2025 while ROSCA survives; FTC v. Amazon easy-cancel injunctive terms."
+  },
+  {
+    "id": "pg-biometric-timeclock-remediation",
+    "anchor": "Cothron v. White Castle (Ill. 2023 per-scan accrual; ~$17B theoretical exposure; $9.39M settlement) + Illinois SB 2979 (Aug 2, 2024: single violation per person per method; electronic signature) + BIPA 15(a) 3-year destruction rule.",
+    "matter_context": "Prairie Grill Holdings, Inc., a 214-location quick-service chain, settled Suarez v. Prairie Grill Holdings, Inc., a state-court class action over fingerprint timeclocks used without written releases, for $9,750,000 covering 8,400 class members, with an Effective Date of 2025-08-01. The injunctive section requires, within 45 days: a publicly posted biometric retention-and-destruction policy, compliant consent forms, and an amended vendor contract. The firm must compute per-employee destruction deadlines under the seeded statute's 3-year rule, rebut the timeclock vendor's claim that its 'mathematical representations' are not biometric identifiers, fix the consent form, and document the negotiation-history exposure math comparing per-scan and per-person accrual under the 2024 amendment.",
+    "input_documents": [
+      {
+        "filename": "suarez-settlement-agreement.pdf",
+        "format": "pdf",
+        "content_spec": "Settlement: $9,750,000 fund; 8,400 class members; Effective Date 2025-08-01; Section 6 injunctive relief due within 45 days of the Effective Date: (a) public retention-and-destruction policy posted on the company website, (b) statute-compliant written-release consent form for all active employees, (c) vendor contract amendment requiring certified destruction of templates within 30 days of a company request."
+      },
+      {
+        "filename": "biometric-statute-and-2024-amendment-memo.pdf",
+        "format": "pdf",
+        "content_spec": "Seeded in-world Biometric Privacy Act memo: destruction required when the initial purpose is satisfied or within 3 years of the individual's last interaction with the company, whichever occurs first; liquidated damages $1,000 per negligent violation / $5,000 per reckless violation; consent requires written notice, the specific purpose, and the length of term; the 2024 amendment provides (i) one violation per person per method of collection regardless of scan count and (ii) that a written release may be executed by electronic signature; the memo states expressly that stored templates, hashes, and 'mathematical representations' of fingerprints ARE biometric identifiers."
+      },
+      {
+        "filename": "hr-biometric-roster.xlsx",
+        "format": "xlsx",
+        "content_spec": "Five pinned rows (of a longer roster): E-1002 terminated, last scan 2023-04-18; E-1044 terminated, last scan 2024-11-30; E-1177 terminated, last scan 2022-06-30 (3-year deadline already passed at task time); E-1203 active (purpose ongoing); E-1288 PIN-only user, template id NULL (never enrolled — no biometric data trap)."
+      },
+      {
+        "filename": "timeclock-vendor-msa.pdf",
+        "format": "pdf",
+        "content_spec": "Vendor master services agreement lacking any deletion, destruction-certification, or biometric-specific clause; renewal date 2026-01-31; amendment mechanics in Section 14 (written amendment signed by both parties)."
+      },
+      {
+        "filename": "vendor-position-letter.pdf",
+        "format": "pdf",
+        "content_spec": "Trap document: vendor letter asserting its system stores only 'irreversible mathematical representations,' which it claims are not biometric identifiers and therefore need no consent, retention policy, or deletion obligations — directly contradicted by the statute memo."
+      },
+      {
+        "filename": "draft-consent-form-v1.docx",
+        "format": "docx",
+        "content_spec": "Defective draft consent: names the company and mentions fingerprints but omits the specific purpose, the length of term, and any destruction-schedule reference; requires wet-ink signature only."
+      },
+      {
+        "filename": "exposure-model-inputs.xlsx",
+        "format": "xlsx",
+        "content_spec": "Inputs for the negotiation-history memo: 8,400 class members; average 1,850 scans per member; negligent rate $1,000; reckless rate $5,000. (Yields per-scan negligent exposure 8,400 x 1,850 x $1,000 and per-person figures under the amendment.)"
+      }
+    ],
+    "workflow": [
+      "DMS (iManage-like): retrieve the settlement, statute memo, vendor MSA, and vendor letter",
+      "sheets (Google-like): compute per-employee destruction deadlines from hr-biometric-roster.xlsx under the 3-year/purpose-satisfied rule and flag overdue rows",
+      "sheets: compute the exposure comparison (per-scan vs per-person, negligent vs reckless) from exposure-model-inputs.xlsx",
+      "DMS: draft the retention-and-destruction policy, the corrected consent form (electronic signature permitted, citing the 2024 amendment), and the vendor contract amendment with the 30-day certified-destruction clause",
+      "practice mgmt (Clio-like): calendar the Section 6 compliance deadline and the E-1177 immediate-destruction action item",
+      "e-discovery (Relativity-like): place a preservation carve-out note confirming the litigation hold released biometric templates for destruction after the Effective Date",
+      "email (Google-like): send the GC the policy package, destruction schedule, vendor rebuttal points, and exposure memo"
+    ],
+    "deliverable": "A destruction-schedule sheet with per-employee deadlines, a public retention-and-destruction policy draft, a corrected consent form, a vendor amendment draft, and an exposure memo with the pinned per-scan vs per-person figures.",
+    "deterministic_checks": [
+      "Section 6 compliance deadline = 2025-09-15 (Effective Date 2025-08-01 + 45 days).",
+      "E-1002 destruction deadline = 2026-04-18 (last scan 2023-04-18 + 3 years).",
+      "E-1044 destruction deadline = 2027-11-30.",
+      "E-1177 flagged OVERDUE: deadline 2025-06-30 already passed; immediate destruction required (computation trap — date is before the task date).",
+      "E-1288 = no action required, no biometric data collected (NULL-template trap).",
+      "E-1203 (active) = no fixed date; policy language pins destruction within 3 years of separation or when the timekeeping purpose ends, whichever occurs first.",
+      "Per-scan negligent exposure = $15,540,000,000 (8,400 x 1,850 x $1,000).",
+      "Post-amendment per-person exposure = $8,400,000 negligent / $42,000,000 reckless.",
+      "Vendor 'mathematical representations' argument = REJECTED, citing the statute memo's express coverage of templates and hashes (trap check).",
+      "Vendor amendment requires certified destruction within 30 days of a company request.",
+      "Corrected consent form contains the exact phrases 'specific purpose' and 'length of term' and permits electronic signature citing the 2024 amendment.",
+      "Policy draft states it will be posted publicly on the company website."
+    ],
+    "difficulty": 3,
+    "state_variance_basis": "Not a multi-state survey. Based on real BIPA mechanics: 740 ILCS 14/15(a) destruction (purpose satisfied or 3 years after last interaction, whichever first), 15(b) consent elements, section 20 damages ($1,000/$5,000), Cothron per-scan accrual vs SB 2979 single-accrual + electronic-signature amendment, and the White Castle $9.39M / ~$17B-exposure negotiation asymmetry."
+  },
+  {
+    "id": "ho-breach-51-notification-grid",
+    "anchor": "Equifax multistate settlement (up to $425M consumer fund; injunctive infosec program) + real 51-jurisdiction variance: CO/FL/ME/WA 30-day deadlines, TX 60-day/AG-30-day-at-250, MA content prohibition, CT 24-month credit monitoring, CA over-500 AG sample rule.",
+    "matter_context": "Harborline Outfitters, Inc., an outdoor-gear e-commerce retailer that also issues a store credit card, suffered a credential-stuffing intrusion. The forensic report fixes the statutory 'determination' date at 2025-06-02 and counts 638,204 affected residents across all 50 states and DC, of whom 412,300 store-cardholders had SSNs exposed; one state's data sat on an encrypted volume whose key was not compromised. The firm must produce the 51-row notification grid (deadline, AG trigger, content constraints, monitoring duty per the seeded memo pack), compute the controlling earliest deadlines, and draft the resident letter with the required state variants. A 2019 incident-response playbook in the DMS assumes 45 days everywhere and must not be followed.",
+    "input_documents": [
+      {
+        "filename": "forensic-incident-report.pdf",
+        "format": "pdf",
+        "content_spec": "Timeline: intrusion window 2025-04-14 to 2025-05-28; anomaly detected 2025-05-19; forensic determination of unauthorized acquisition 2025-06-02 (the statutory trigger). Data elements: name + payment card for all affected; name + SSN for 412,300 store-cardholders (including all affected CT residents). Attack method: credential stuffing against the loyalty API. Encryption appendix: the ND-resident segment (1,872 residents) lived on an encrypted volume, key not compromised."
+      },
+      {
+        "filename": "resident-counts-by-state.xlsx",
+        "format": "xlsx",
+        "content_spec": "51 rows totaling 638,204. Pinned counts: CA 88,412; TX 54,003; FL 41,220; MA 22,150; CT 18,442; WA 12,876; CO 9,341; ME 3,004; ND 1,872 (encrypted segment); OR 214; WY 302."
+      },
+      {
+        "filename": "breach-statute-memo-pack.pdf",
+        "format": "pdf",
+        "content_spec": "51 seeded memos (in-world law). Pinned: CO, FL, ME, WA — resident notice within 30 days of determination. TX — residents within 60 days; AG within 30 days if 250 or more Texas residents. CA — AG receives a sample copy of the notice (personal information excluded) within 15 days after consumer notification when more than 500 CA residents are affected. OR — AG notice only if more than 250 Oregon residents. MA — notice to residents MUST NOT describe the nature of the breach or the number of residents affected; must include security-freeze rights at no charge and mitigation services; AG notified regardless of count. CT — 24 months of free credit monitoring whenever SSNs are involved. ND — encryption safe harbor: no notice required if data encrypted and key not compromised. All other states: notice without unreasonable delay (firm policy: 45 days). The pack's summary table states that, applying its thresholds to the resident counts workbook, AG/regulator notice is required in exactly 27 jurisdictions (OR excluded at 214 residents; ND excluded by safe harbor)."
+      },
+      {
+        "filename": "notification-letter-draft.docx",
+        "format": "docx",
+        "content_spec": "Draft resident letter that currently says 'attackers used credential stuffing against our loyalty API, affecting 638,204 customers' — language that is unlawful in the MA variant and must be stripped there; missing the security-freeze paragraph and the credit-monitoring offer."
+      },
+      {
+        "filename": "legacy-ir-playbook-2019.pdf",
+        "format": "pdf",
+        "content_spec": "Trap document: 2019 playbook instructing '45 days to notify in all states' and 'AG letters only in California and New York' — contradicted by the memo pack; cover page says 'retired 2024, retained for records.'"
+      },
+      {
+        "filename": "cyber-insurer-email.eml",
+        "format": "eml",
+        "content_spec": "Insurer email requiring the grid, the controlling earliest deadline, the count of AG notices, and the credit-monitoring plan before it will pre-approve notification vendor costs."
+      },
+      {
+        "filename": "credit-monitoring-vendor-quote.pdf",
+        "format": "pdf",
+        "content_spec": "Vendor quote: $9.50 per enrollee per year. Used to price the CT 24-month obligation (quote math: 18,442 CT residents x 2 years x $9.50 = $350,398.00)."
+      }
+    ],
+    "workflow": [
+      "DMS (iManage-like): retrieve the forensic report, memo pack, and letter draft; note the 2019 playbook is retired",
+      "e-discovery (Relativity-like): confirm the affected-resident extract and counts match the workspace export used by forensics",
+      "sheets (Google-like): build the 51-row grid (deadline date, AG notice Y/N, content constraints, monitoring duty) applying the memo pack to the counts workbook",
+      "DMS: produce the base resident letter plus the MA variant (method/count language removed, freeze paragraph added) and the CT variant (24-month monitoring offer)",
+      "practice mgmt (Clio-like): calendar the 30-day and 60-day controlling deadlines and the CA AG sample-copy follow-up",
+      "email (Google-like): send the insurer the grid, deadline summary, AG-notice count, and monitoring cost"
+    ],
+    "deliverable": "A 51-row notification grid with computed per-jurisdiction deadlines and AG-notice flags, a base resident letter with MA and CT variants, and a deadline/cost summary email to the insurer.",
+    "deterministic_checks": [
+      "Grid has exactly 51 rows.",
+      "Earliest resident-notice deadline = 2025-07-02 (determination 2025-06-02 + 30 days; applies to CO, FL, ME, WA).",
+      "TX AG deadline = 2025-07-02 (54,003 >= 250) and TX resident deadline = 2025-08-01 (+60 days).",
+      "ND row = NO NOTICE REQUIRED (encrypted, key not compromised — safe-harbor trap; the 1,872 residents are excluded from mailing counts).",
+      "OR row = resident notice YES, AG notice NO (214 residents is below the 250 threshold — threshold trap).",
+      "CA row = AG sample copy required (88,412 > 500), personal information excluded, due within 15 days after consumer notification.",
+      "MA letter variant does NOT contain the phrase 'credential stuffing' and does NOT state the affected count; it DOES include the free security-freeze paragraph (content-prohibition trap).",
+      "CT row = 24 months of credit monitoring (SSNs involved); monitoring cost for CT = $350,398.00 (18,442 x 2 x $9.50).",
+      "Count of jurisdictions requiring AG/regulator notice = 27.",
+      "Grid uses the memo pack, not the retired 2019 playbook: default-state deadline shown as firm-policy 45 days = 2025-07-17, while the four 30-day states show 2025-07-02 (playbook trap).",
+      "Total affected figure used throughout = 638,204; SSN subset = 412,300.",
+      "Mailing-population math excludes ND: 638,204 - 1,872 = 636,332 letters."
+    ],
+    "difficulty": 4,
+    "state_variance_basis": "Real pattern: all 51 jurisdictions have breach statutes; CO/FL/ME/WA impose 30-day consumer deadlines; TX 60-day consumer + 30-day AG at >=250 residents; AG thresholds cluster at 250-1,000 (OR >250, WA/FL/CA ~500); MA c.93H bars describing the breach's nature or count and mandates freeze language; CT requires 24 months of credit monitoring for SSN breaches; encryption safe harbors are near-universal; Equifax supplies the remediation/injunctive template."
+  },
+  {
+    "id": "bw-resort-fee-remediation",
+    "anchor": "FTC Rule on Unfair or Deceptive Fees, 16 CFR Part 464 (effective May 12, 2025, live-event tickets + short-term lodging; up to $51,744/violation) + CA SB 478/SB 1524 + MN junk-fee law (1/1/2025) + MA 940 CMR 38 (9/2/2025) + Marriott PA AG resort-fee AVC.",
+    "matter_context": "Bluewater Lodge & Resorts Co., a 27-property resort operator, advertises its Harbor King room at '$189/night' but adds a mandatory $39.95-per-night amenity fee and a $12.00-per-stay processing fee only at checkout step 3; its restaurants add an 18% service charge. A state attorney general served a civil investigative demand over drip pricing. The firm must audit the booking flow, build a 51-jurisdiction drip-pricing matrix from the seeded memo pack, produce corrected advertised prices and checkout itemization, and outline the CID response. A junior associate's draft memo wrongly claims the federal lodging-fee rule was vacated (confusing it with the vacated subscription rule) and wrongly recommends abolishing the restaurant service charge.",
+    "input_documents": [
+      {
+        "filename": "ag-civil-investigative-demand.pdf",
+        "format": "pdf",
+        "content_spec": "CID citing the state UDAP act and the in-world federal lodging-fee rule; demands the fee schedule, booking screens, and a remediation plan within 45 days of service (served 2025-07-21, response due 2025-09-04)."
+      },
+      {
+        "filename": "booking-flow-screens.pdf",
+        "format": "pdf",
+        "content_spec": "Current screens: step 1 advertises 'Harbor King — $189/night'; step 3 first reveals 'Amenity Fee $39.95/night' and 'Processing Fee $12.00/stay' inside a collapsed 'taxes & fees' lump with 11.5% occupancy tax. Before-state for remediation."
+      },
+      {
+        "filename": "fee-schedule.xlsx",
+        "format": "xlsx",
+        "content_spec": "All 27 properties with room rates and fees. Pinned row: Harbor King base $189.00/night, mandatory amenity fee $39.95/night, processing fee $12.00 per stay, occupancy tax 11.5% (government-imposed). Restaurant tab: 18% service charge at 9 properties."
+      },
+      {
+        "filename": "pricing-law-memo-pack.pdf",
+        "format": "pdf",
+        "content_spec": "51 seeded memos + federal addendum (in-world law). Federal lodging-fee rule: IN EFFECT since 2025-05-12; total price including all known mandatory fees must be disclosed up front; government taxes and shipping excludable if disclosed before payment; civil penalty up to $51,744 per violation; addendum expressly notes this rule is distinct from the subscription negative-option rule vacated 2025-07-08. State memos: CA-style all-in pricing statute effective 2024-07-01 with a restaurant exception — mandatory food-service charges are lawful IF clearly and conspicuously displayed wherever prices are shown; MN all-in pricing effective 2025-01-01; MA AG regulation effective 2025-09-02 requiring total price at first presentation and opt-out instructions for optional fees. All other 48 jurisdictions: UDAP-only (so exactly 3 states have bespoke all-in-pricing statutes/regs)."
+      },
+      {
+        "filename": "draft-matrix-and-memo-v0.docx",
+        "format": "docx",
+        "content_spec": "Trap document: junior associate draft asserting 'the federal fee rule was vacated by the court of appeals in July 2025, so only state law applies' and recommending 'eliminate the 18% restaurant service charge entirely' — both contradicted by the memo pack."
+      },
+      {
+        "filename": "menu-and-folio-samples.pdf",
+        "format": "pdf",
+        "content_spec": "Restaurant menu (no service-charge disclosure anywhere) and a guest folio showing the 18% charge appearing only at checkout — establishes the disclosure gap that remediation must fix without abolishing the charge."
+      }
+    ],
+    "workflow": [
+      "practice mgmt (Clio-like): open matter 'Bluewater — AG CID / Fee Remediation' and docket the CID response date",
+      "DMS (iManage-like): retrieve the CID, memo pack, and booking screens; flag the v0 draft memo as unreliable",
+      "sheets (Google-like): compute corrected all-in advertised prices from fee-schedule.xlsx (per-night and 3-night quote) and build the 51-row drip-pricing matrix",
+      "DMS: draft the corrected ad copy, checkout itemization spec, and menu service-charge disclosure line",
+      "practice mgmt: calendar the CID response deadline and the MA regulation effective date",
+      "email (Google-like): send the partner the matrix, corrected pricing exhibits, and CID response outline"
+    ],
+    "deliverable": "A 51-row drip-pricing matrix with a federal-rule status row, a corrected advertised-price exhibit (per-night and 3-night totals), a checkout itemization spec, a menu disclosure line, and a CID response outline.",
+    "deterministic_checks": [
+      "Corrected advertised per-night price for Harbor King = $228.95 ($189.00 + $39.95 mandatory amenity fee).",
+      "Corrected 3-night quote total before taxes = $698.85 (3 x $228.95 + $12.00 per-stay processing fee).",
+      "First-screen ad string reads exactly '$228.95 per night (total before taxes)'.",
+      "Occupancy tax (11.5%) = excludable from the advertised total as government-imposed, but must be disclosed before payment is requested.",
+      "Federal-rule row = IN EFFECT since 2025-05-12; the matrix must NOT mark it vacated (trap check against the v0 memo's confusion with the vacated subscription rule).",
+      "Penalty exposure cited = up to $51,744 per violation.",
+      "Jurisdictions with bespoke all-in-pricing statutes/regs = exactly 3 (the CA-style, MN-style, and MA-style memos); all other 48 rows = UDAP-only.",
+      "MN-style effective date = 2025-01-01; MA-style effective date = 2025-09-02.",
+      "Restaurant 18% service charge = RETAINED but remediated with a clear-and-conspicuous menu disclosure (trap check: the abolish recommendation must be rejected, citing the restaurant exception).",
+      "Checkout itemization lists 'Amenity Fee $39.95/night' and 'Processing Fee $12.00' as separate named lines, not inside a 'taxes & fees' lump.",
+      "CID response deadline docketed = 2025-09-04 (service 2025-07-21 + 45 days).",
+      "Matrix has exactly 51 state/DC rows plus one federal status row."
+    ],
+    "difficulty": 3,
+    "state_variance_basis": "Real pattern: FTC 16 CFR Part 464 in effect 5/12/2025 for lodging/ticketing (up to $51,744/violation) — pointedly NOT the rule the 8th Circuit vacated; CA SB 478 (eff. 7/1/2024) with SB 1524 restaurant carve-out requiring clear-and-conspicuous display; MN junk-fee ban eff. 1/1/2025; MA 940 CMR 38.00 enforcement from 9/2/2025 (total price at first presentation); ~47 jurisdictions UDAP-only; Marriott's PA AVC (first-page total pricing, $225K noncompliance fine) supplies the remediation-discipline shape."
+  }
+]
