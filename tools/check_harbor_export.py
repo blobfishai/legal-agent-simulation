@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 import stat
@@ -17,6 +18,14 @@ PINNED_PYTHON = (
     "python:3.12-slim@sha256:"
     "229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36"
 )
+GENERATOR_PATH = ROOT / "harbor" / "generate.py"
+GENERATOR_SPEC = importlib.util.spec_from_file_location(
+    "harbor_generate_for_export_audit", GENERATOR_PATH
+)
+if GENERATOR_SPEC is None or GENERATOR_SPEC.loader is None:
+    raise RuntimeError(f"cannot load Harbor generator: {GENERATOR_PATH}")
+GENERATOR = importlib.util.module_from_spec(GENERATOR_SPEC)
+GENERATOR_SPEC.loader.exec_module(GENERATOR)
 
 
 def fail(message: str) -> None:
@@ -32,7 +41,7 @@ def sha256_file(path: Path) -> str:
 
 
 def file_inventory(root: Path) -> dict[str, Path]:
-    if not root.is_dir():
+    if root.is_symlink() or not root.is_dir():
         fail(f"required source/export tree missing: {root}")
     result: dict[str, Path] = {}
     for path in root.rglob("*"):
@@ -43,7 +52,7 @@ def file_inventory(root: Path) -> dict[str, Path]:
     return result
 
 
-def assert_tree_equal(exported: Path, source: Path, label: str) -> int:
+def assert_tree_equal(exported: Path, source: Path, label: str) -> dict[str, Path]:
     exported_files = file_inventory(exported)
     source_files = file_inventory(source)
     if set(exported_files) != set(source_files):
@@ -55,7 +64,103 @@ def assert_tree_equal(exported: Path, source: Path, label: str) -> int:
         if not os.path.samefile(exported_path, source_path):
             if sha256_file(exported_path) != sha256_file(source_path):
                 fail(f"{label}: SHA-256 differs for {relative}")
-    return len(exported_files)
+    return exported_files
+
+
+def assert_export_root_topology(export_root: Path) -> None:
+    if export_root.is_symlink() or not export_root.is_dir():
+        fail(f"Harbor export root is missing, unsafe, or symlinked: {export_root}")
+    entries = {path.name: path for path in export_root.iterdir()}
+    required = {"README.md", "tasks", "world-image", "lab-agent-image"}
+    allowed = required | {"dataset"}
+    missing = sorted(required - set(entries))
+    unexpected = sorted(set(entries) - allowed)
+    if missing or unexpected:
+        fail(f"Harbor export root topology differs: missing={missing} unexpected={unexpected}")
+    if entries["README.md"].is_symlink() or not entries["README.md"].is_file():
+        fail("Harbor export README.md is missing, unsafe, or not a file")
+    for name in sorted(required - {"README.md"}):
+        if entries[name].is_symlink() or not entries[name].is_dir():
+            fail(f"Harbor export {name} is missing, unsafe, or not a directory")
+    if "dataset" in entries and (
+        entries["dataset"].is_symlink() or not entries["dataset"].is_dir()
+    ):
+        fail("Harbor export dataset is unsafe or not a directory")
+
+
+def discover_task_directories(tasks_root: Path) -> list[Path]:
+    if tasks_root.is_symlink() or not tasks_root.is_dir():
+        fail(f"Harbor tasks root is missing, unsafe, or symlinked: {tasks_root}")
+    directories: list[Path] = []
+    invalid: list[str] = []
+    for path in sorted(tasks_root.iterdir()):
+        if path.is_symlink() or not path.is_dir() or not (path / "task.toml").is_file():
+            invalid.append(path.name)
+        else:
+            directories.append(path)
+    if invalid:
+        fail(f"Harbor tasks root contains non-task entries: {invalid[:10]}")
+    return directories
+
+
+def assert_generated_text(path: Path, expected: str, label: str) -> None:
+    try:
+        actual = path.read_text("utf-8")
+    except OSError as error:
+        fail(f"{label}: cannot read {path}: {error}")
+    if actual != expected:
+        fail(f"{label}: generated text differs for {path.name}")
+
+
+def assert_source_file(exported: Path, source: Path, label: str) -> None:
+    if source.is_symlink() or not source.is_file():
+        fail(f"{label}: source file is missing or unsafe: {source}")
+    if exported.stat().st_size != source.stat().st_size:
+        fail(f"{label}: byte count differs for {exported.name}")
+    if not os.path.samefile(exported, source) and sha256_file(exported) != sha256_file(source):
+        fail(f"{label}: SHA-256 differs for {exported.name}")
+
+
+def audit_world_image_context(
+    export_root: Path,
+    world_path: Path,
+    world: dict[str, Any],
+) -> int:
+    exported_root = export_root / "world-image"
+    expected: dict[str, Path] = {}
+    for name in GENERATOR.WORLD_RUNTIME_FILES:
+        expected[name] = ROOT / "world" / "local" / name
+    for name in GENERATOR.WORLD_IMAGE_TEMPLATE_FILES:
+        expected[name] = ROOT / "harbor" / "world-image" / name
+    expected["world.json"] = world_path
+    contracts = file_inventory(ROOT / "mcp" / "v5" / "contracts")
+    expected.update({f"contracts/{relative}": path for relative, path in contracts.items()})
+    evidence_kinds = sorted({
+        str((task.get("evidence_store") or {}).get("kind"))
+        for task in world["tasks"]
+        if task.get("evidence_store")
+    })
+    for kind in evidence_kinds:
+        if kind not in {"lab", "ch"}:
+            fail(f"unsupported packaged evidence kind: {kind}")
+        expected[f"corpus/{kind}/index.sqlite"] = (
+            ROOT / "world" / "corpus" / kind / "index.sqlite"
+        )
+
+    exported = file_inventory(exported_root)
+    expected_paths = set(expected) | {"solve-token.txt"}
+    if set(exported) != expected_paths:
+        missing = sorted(expected_paths - set(exported))
+        unexpected = sorted(set(exported) - expected_paths)
+        fail(
+            "world-image context paths differ: "
+            f"missing={missing[:10]} unexpected={unexpected[:10]}"
+        )
+    for relative, source in expected.items():
+        assert_source_file(
+            exported[relative], source, f"world-image source parity for {relative}"
+        )
+    return len(exported)
 
 
 def tree_sha256(files: dict[str, Path]) -> str:
@@ -147,8 +252,12 @@ def audit_task(
     world_image: str,
     lab_image: str,
     solve_token: str,
-) -> tuple[int, int, int]:
+    world_version: Any,
+) -> tuple[int, int, int, list[str]]:
     task_id = task["task_id"]
+    # Reject links before opening any package member so an audit never follows
+    # attacker-controlled paths while trying to validate them.
+    actual_files = file_inventory(directory)
     manifest_path = directory / "task.toml"
     try:
         manifest = tomllib.loads(manifest_path.read_text("utf-8"))
@@ -178,6 +287,34 @@ def audit_task(
     if f"image: {world_image}" not in compose or "TASK_ID" not in compose:
         fail(f"{task_id}: compose world routing mismatch")
 
+    assert_generated_text(
+        manifest_path,
+        GENERATOR.task_toml(task, world_image, world_version),
+        f"{task_id}: task manifest",
+    )
+    assert_generated_text(
+        environment / "Dockerfile",
+        GENERATOR.lab_agent_dockerfile(lab_image)
+        if expected_file_lane else GENERATOR.AGENT_DOCKERFILE,
+        f"{task_id}: agent Dockerfile",
+    )
+    assert_source_file(
+        environment / "tool",
+        ROOT / "harbor" / "agent-image" / "tool",
+        f"{task_id}: agent tool",
+    )
+    assert_generated_text(
+        environment / "docker-compose.yaml",
+        GENERATOR.compose_yaml(task_id, world_image, expected_file_lane),
+        f"{task_id}: compose",
+    )
+
+    expected_files = {
+        "task.toml",
+        "environment/Dockerfile",
+        "environment/tool",
+        "environment/docker-compose.yaml",
+    }
     phases = (task.get("multi_step") or {}).get("phases") or []
     if phases:
         manifest_steps = manifest.get("steps") or []
@@ -186,26 +323,81 @@ def audit_task(
             fail(f"{task_id}: multistep manifest topology mismatch")
         if (directory / "instruction.md").exists():
             fail(f"{task_id}: multistep task leaked a top-level instruction")
-        for name in expected_names:
+        for index, phase in enumerate(phases):
+            name = phase["name"]
+            include_file_deliverables = index == len(phases) - 1
             step = directory / "steps" / name
             if not (step / "instruction.md").is_file():
                 fail(f"{task_id}/{name}: instruction missing")
             assert_executable(step / "tests" / "test.sh")
             assert_solution(step / "solution" / "solve.sh", solve_token)
+            assert_generated_text(
+                step / "instruction.md",
+                GENERATOR.instruction_md(
+                    task,
+                    phase,
+                    include_file_deliverables=include_file_deliverables,
+                ),
+                f"{task_id}/{name}: instruction",
+            )
+            assert_generated_text(
+                step / "tests" / "test.sh",
+                GENERATOR.test_sh(
+                    task,
+                    name,
+                    include_file_deliverables=include_file_deliverables,
+                ),
+                f"{task_id}/{name}: verifier script",
+            )
+            assert_generated_text(
+                step / "solution" / "solve.sh",
+                GENERATOR.solve_sh(
+                    solve_token,
+                    task,
+                    name,
+                    include_file_deliverables=include_file_deliverables,
+                ),
+                f"{task_id}/{name}: oracle solution",
+            )
+            expected_files.update({
+                f"steps/{name}/instruction.md",
+                f"steps/{name}/tests/test.sh",
+                f"steps/{name}/solution/solve.sh",
+            })
     else:
         if not (directory / "instruction.md").is_file():
             fail(f"{task_id}: instruction missing")
         assert_executable(directory / "tests" / "test.sh")
         assert_solution(directory / "solution" / "solve.sh", solve_token)
+        assert_generated_text(
+            directory / "instruction.md",
+            GENERATOR.instruction_md(task),
+            f"{task_id}: instruction",
+        )
+        assert_generated_text(
+            directory / "tests" / "test.sh",
+            GENERATOR.test_sh(task),
+            f"{task_id}: verifier script",
+        )
+        assert_generated_text(
+            directory / "solution" / "solve.sh",
+            GENERATOR.solve_sh(solve_token, task),
+            f"{task_id}: oracle solution",
+        )
+        expected_files.update({"instruction.md", "tests/test.sh", "solution/solve.sh"})
 
     staged_documents = 0
     staged_skills = 0
     if expected_file_lane:
         config = task["file_lane"]
-        staged_documents = assert_tree_equal(
+        document_files = assert_tree_equal(
             environment / "documents",
             resolve_source(str(config["documents_source"])),
             f"{task_id}: staged input documents",
+        )
+        staged_documents = len(document_files)
+        expected_files.update(
+            f"environment/documents/{relative}" for relative in document_files
         )
         wanted_skills = list(config["skills"] if "skills" in config else ("docx", "xlsx", "pptx"))
         exported_skill_root = environment / "skills"
@@ -216,13 +408,23 @@ def audit_task(
             fail(f"{task_id}: staged skill names differ from the task contract")
         source_skill_root = skills_source(config)
         for name in wanted_skills:
-            assert_tree_equal(
+            skill_files = assert_tree_equal(
                 exported_skill_root / name,
                 source_skill_root / name,
                 f"{task_id}: staged {name} skill",
             )
+            expected_files.update(
+                f"environment/skills/{name}/{relative}" for relative in skill_files
+            )
         staged_skills = len(exported_skill_names)
-    return staged_documents, staged_skills, len(phases)
+    if set(actual_files) != expected_files:
+        missing = sorted(expected_files - set(actual_files))
+        unexpected = sorted(set(actual_files) - expected_files)
+        fail(
+            f"{task_id}: task package topology differs: "
+            f"missing={missing[:10]} unexpected={unexpected[:10]}"
+        )
+    return staged_documents, staged_skills, len(phases), sorted(actual_files)
 
 
 def main() -> int:
@@ -238,7 +440,11 @@ def main() -> int:
                         help="Optionally write the successful machine-readable audit report")
     args = parser.parse_args()
 
-    export_root = args.root.resolve()
+    requested_root = args.root
+    if requested_root.is_symlink():
+        fail(f"Harbor export root may not be a symlink: {requested_root}")
+    export_root = requested_root.resolve()
+    assert_export_root_topology(export_root)
     tasks_root = export_root / "tasks"
     lab_agent_context_files, lab_agent_context_sha256 = audit_lab_agent_context(export_root)
     token_path = export_root / "world-image" / "solve-token.txt"
@@ -250,10 +456,10 @@ def main() -> int:
         fail("world-image solve token has an invalid format")
     world_path = args.world.resolve()
     world = json.loads(world_path.read_text("utf-8"))
+    world = world.get("world", world)
+    world_image_context_files = audit_world_image_context(export_root, world_path, world)
     world_tasks = {task["task_id"]: task for task in world["tasks"]}
-    task_directories = sorted(
-        path for path in tasks_root.iterdir() if path.is_dir() and (path / "task.toml").is_file()
-    )
+    task_directories = discover_task_directories(tasks_root)
     if len(task_directories) != args.expected_tasks:
         fail(f"task directory count {len(task_directories)} != {args.expected_tasks}")
     exported_ids = {path.name for path in task_directories}
@@ -269,19 +475,27 @@ def main() -> int:
 
     names: set[str] = set()
     file_lanes = multistep_tasks = phase_count = document_count = skill_count = 0
+    task_package_files = 0
+    topology_digest = hashlib.sha256()
     for directory in task_directories:
-        symlink = next((path for path in directory.rglob("*") if path.is_symlink()), None)
-        if symlink is not None:
-            fail(f"symlink forbidden in Harbor task package: {symlink}")
         manifest = tomllib.loads((directory / "task.toml").read_text("utf-8"))
         name = str((manifest.get("task") or {}).get("name"))
         if not name or name in names:
             fail(f"{directory.name}: missing or duplicate Harbor task name")
         names.add(name)
         task = world_tasks[directory.name]
-        documents, skills, phases = audit_task(
-            directory, task, args.world_image, args.lab_image, solve_token
+        documents, skills, phases, package_files = audit_task(
+            directory,
+            task,
+            args.world_image,
+            args.lab_image,
+            solve_token,
+            world["version"],
         )
+        task_package_files += len(package_files)
+        for relative in package_files:
+            entry = f"{directory.name}/{relative}\n".encode()
+            topology_digest.update(entry)
         document_count += documents
         skill_count += skills
         file_lanes += bool(task.get("file_lane"))
@@ -310,7 +524,7 @@ def main() -> int:
                 fail(f"{kind}: packaged evidence SHA-256 mismatch")
 
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "tasks": len(task_directories),
         "file_lanes": file_lanes,
         "staged_documents": document_count,
@@ -319,12 +533,17 @@ def main() -> int:
         "multistep_phases": phase_count,
         "lab_agent_context_files": lab_agent_context_files,
         "lab_agent_context_sha256": lab_agent_context_sha256,
+        "world_image_context_files": world_image_context_files,
+        "task_package_files": task_package_files,
+        "task_package_topology_sha256": topology_digest.hexdigest(),
         "world_sha256": sha256_file(world_path),
         "world_image": args.world_image,
         "lab_image": args.lab_image,
         "solve_token_sha256": hashlib.sha256(solve_token.encode()).hexdigest(),
         "agent_world_leaks": 0,
         "package_symlinks": 0,
+        "checker_sha256": sha256_file(Path(__file__)),
+        "generator_sha256": sha256_file(GENERATOR_PATH),
     }
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)

@@ -42,6 +42,19 @@ ROOT = os.path.dirname(HERE)
 
 DISCLAIMER = ("Simulation only - every matter, client, document, attorney, "
               "and figure is synthetic test data.")
+WORLD_RUNTIME_FILES = (
+    "server.py",
+    "oracle.py",
+    "v2runtime.py",
+    "v3dialects.py",
+    "evidence.py",
+    "paging.py",
+    "wire_errors.py",
+    "product_workflows.py",
+    "query_dsl.py",
+    "v21_verifier_runtime.py",
+)
+WORLD_IMAGE_TEMPLATE_FILES = ("shim.py", "start.sh", "Dockerfile")
 
 
 def toml_str(s: str) -> str:
@@ -649,11 +662,9 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
     img = os.path.join(out, "world-image")
     os.makedirs(img, exist_ok=True)
     local = os.path.join(ROOT, "world", "local")
-    for name in ("server.py", "oracle.py", "v2runtime.py", "v3dialects.py", "evidence.py",
-                 "paging.py", "wire_errors.py", "product_workflows.py", "query_dsl.py",
-                 "v21_verifier_runtime.py"):
+    for name in WORLD_RUNTIME_FILES:
         shutil.copyfile(os.path.join(local, name), os.path.join(img, name))
-    for name in ("shim.py", "start.sh", "Dockerfile"):
+    for name in WORLD_IMAGE_TEMPLATE_FILES:
         shutil.copyfile(os.path.join(HERE, "world-image", name),
                         os.path.join(img, name))
     shutil.copyfile(world_path, os.path.join(img, "world.json"))
