@@ -80,6 +80,62 @@ class HarborGenerationTests(unittest.TestCase):
         self.assertIn("FINAL-ANCHOR", final_test)
         self.assertIn("/workspace/output", final_solution)
 
+    def test_task_layout_rejects_traversal_and_duplicate_components(self) -> None:
+        invalid_tasks = [
+            [{"task_id": "../escape"}],
+            [{
+                "task_id": "task_safe",
+                "multi_step": {"phases": [{"name": "../../escape"}]},
+            }],
+            [{
+                "task_id": "task_safe",
+                "file_lane": {"deliverables": [], "skills": ["../docx"]},
+            }],
+            [{"task_id": "task_same"}, {"task_id": "task_same"}],
+            [{
+                "task_id": "task_safe",
+                "multi_step": {
+                    "phases": [{"name": "review"}, {"name": "review"}]
+                },
+            }],
+            [{
+                "task_id": "task_safe",
+                "file_lane": {"deliverables": ["nested//result.docx"]},
+            }],
+        ]
+        for tasks in invalid_tasks:
+            with self.subTest(tasks=tasks), self.assertRaises(RuntimeError):
+                GENERATOR.validate_task_layout(tasks)
+
+    def test_output_root_is_confined_and_symlink_free(self) -> None:
+        with self.assertRaisesRegex(RuntimeError, "child of"):
+            GENERATOR.resolve_output_root(ROOT)
+        (ROOT / "dist").mkdir(exist_ok=True)
+        with (
+            tempfile.TemporaryDirectory(dir=ROOT / "dist") as safe_parent,
+            tempfile.TemporaryDirectory() as outside,
+        ):
+            link = Path(safe_parent) / "escape"
+            try:
+                link.symlink_to(outside, target_is_directory=True)
+            except OSError as error:
+                self.skipTest(f"symlinks unavailable: {error}")
+            with self.assertRaisesRegex(RuntimeError, "symlink component"):
+                GENERATOR.resolve_output_root(link / "generated")
+
+    def test_source_tree_rejects_nested_symlinks(self) -> None:
+        (ROOT / "dist").mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=ROOT / "dist") as temporary:
+            source = Path(temporary) / "source"
+            source.mkdir()
+            link = source / "linked-input"
+            try:
+                link.symlink_to(ROOT / "package.json")
+            except OSError as error:
+                self.skipTest(f"symlinks unavailable: {error}")
+            with self.assertRaisesRegex(RuntimeError, "contains a symlink"):
+                GENERATOR.validate_project_source_tree(source, "test source")
+
 
 class HarborExportIntegrityTests(unittest.TestCase):
     token = "a" * 64
@@ -184,6 +240,14 @@ class HarborExportIntegrityTests(unittest.TestCase):
                 str(world_path),
                 str(ROOT / "mcp" / "v5" / "contracts"),
             )
+            stale = root / "export" / "world-image" / "stale-secret.txt"
+            stale.write_text("must not survive regeneration\n", "utf-8")
+            GENERATOR.assemble_world_image(
+                str(root / "export"),
+                str(world_path),
+                str(ROOT / "mcp" / "v5" / "contracts"),
+            )
+            self.assertFalse(stale.exists())
             token_path = root / "export" / "world-image" / "solve-token.txt"
             token_path.write_text(self.token + "\n", "utf-8")
             checked = CHECKER.audit_world_image_context(

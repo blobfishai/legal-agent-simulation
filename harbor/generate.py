@@ -31,6 +31,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import secrets
 import shutil
 import subprocess
@@ -55,6 +56,114 @@ WORLD_RUNTIME_FILES = (
     "v21_verifier_runtime.py",
 )
 WORLD_IMAGE_TEMPLATE_FILES = ("shim.py", "start.sh", "Dockerfile")
+SAFE_COMPONENT = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
+_VALIDATED_SOURCE_TREES: set[Path] = set()
+
+
+def safe_component(value: object, label: str) -> str:
+    if not isinstance(value, str) or not SAFE_COMPONENT.fullmatch(value):
+        raise RuntimeError(f"{label} must be one safe filesystem component")
+    return value
+
+
+def resolve_output_root(value: str | os.PathLike[str]) -> Path:
+    """Confine generated/replaced trees to a non-symlinked child of dist/."""
+    allowed = (Path(ROOT) / "dist").resolve()
+    lexical = Path(os.path.abspath(os.fspath(value)))
+    if lexical == allowed or allowed not in lexical.parents:
+        raise RuntimeError(f"--out must be a child of {allowed}")
+    current = allowed
+    for part in lexical.relative_to(allowed).parts:
+        current /= part
+        if current.is_symlink():
+            raise RuntimeError(f"--out may not contain a symlink component: {current}")
+    resolved = lexical.resolve()
+    if resolved == allowed or allowed not in resolved.parents:
+        raise RuntimeError(f"--out resolves outside {allowed}: {resolved}")
+    return resolved
+
+
+def reset_generated_directory(path: Path, label: str) -> None:
+    if path.is_symlink():
+        raise RuntimeError(f"refusing to replace symlinked {label}: {path}")
+    if path.exists():
+        if not path.is_dir():
+            raise RuntimeError(f"refusing to replace non-directory {label}: {path}")
+        shutil.rmtree(path)
+    path.mkdir(parents=True)
+
+
+def validate_project_source_tree(path: Path, label: str) -> Path:
+    """Reject links, special files, and world-directed reads outside the repo."""
+    repository = Path(ROOT).resolve()
+    lexical = Path(os.path.abspath(path))
+    if lexical == repository or repository not in lexical.parents:
+        raise RuntimeError(f"{label} must remain inside {repository}: {path}")
+    current = repository
+    for part in lexical.relative_to(repository).parts:
+        current /= part
+        if current.is_symlink():
+            raise RuntimeError(f"{label} contains a symlink component: {current}")
+    resolved = lexical.resolve()
+    if repository not in resolved.parents or not resolved.is_dir():
+        raise RuntimeError(f"{label} is missing or resolves outside the repository: {path}")
+    if resolved not in _VALIDATED_SOURCE_TREES:
+        for member in resolved.rglob("*"):
+            if member.is_symlink():
+                raise RuntimeError(f"{label} contains a symlink: {member}")
+            if not member.is_dir() and not member.is_file():
+                raise RuntimeError(f"{label} contains a special file: {member}")
+        _VALIDATED_SOURCE_TREES.add(resolved)
+    return resolved
+
+
+def validate_project_source_file(path: Path, label: str) -> Path:
+    repository = Path(ROOT).resolve()
+    lexical = Path(os.path.abspath(path))
+    if lexical == repository or repository not in lexical.parents:
+        raise RuntimeError(f"{label} must remain inside {repository}: {path}")
+    current = repository
+    for part in lexical.relative_to(repository).parts:
+        current /= part
+        if current.is_symlink():
+            raise RuntimeError(f"{label} contains a symlink component: {current}")
+    resolved = lexical.resolve()
+    if repository not in resolved.parents or not resolved.is_file():
+        raise RuntimeError(f"{label} is missing or resolves outside the repository: {path}")
+    return resolved
+
+
+def assert_generated_targets_safe(output: Path) -> None:
+    for name in ("README.md", "tasks", "world-image", "lab-agent-image"):
+        target = output / name
+        if target.is_symlink():
+            raise RuntimeError(f"refusing symlinked generated target: {target}")
+
+
+def validate_task_layout(tasks: list[dict]) -> None:
+    task_ids: set[str] = set()
+    for task in tasks:
+        task_id = safe_component(task.get("task_id"), "task_id")
+        if task_id in task_ids:
+            raise RuntimeError(f"duplicate task_id: {task_id}")
+        task_ids.add(task_id)
+        phase_names: set[str] = set()
+        for phase in (task.get("multi_step") or {}).get("phases") or []:
+            name = safe_component(phase.get("name"), f"{task_id} phase name")
+            if name in phase_names:
+                raise RuntimeError(f"{task_id}: duplicate phase name: {name}")
+            phase_names.add(name)
+        file_lane = task.get("file_lane") or {}
+        validated_deliverables(task)
+        skills = file_lane.get("skills")
+        if skills is not None:
+            if not isinstance(skills, list):
+                raise RuntimeError(f"{task_id}: file-lane skills must be a list")
+            clean_skills = [
+                safe_component(name, f"{task_id} skill name") for name in skills
+            ]
+            if len(clean_skills) != len(set(clean_skills)):
+                raise RuntimeError(f"{task_id}: duplicate file-lane skill name")
 
 
 def toml_str(s: str) -> str:
@@ -63,7 +172,7 @@ def toml_str(s: str) -> str:
 
 
 def load_world(path: str) -> dict:
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         raw = json.load(f)
     return raw.get("world", raw)
 
@@ -80,7 +189,7 @@ def contract_tool_count(contracts: str) -> int:
     for name in sorted(os.listdir(contracts)):
         if not name.endswith(".json"):
             continue
-        with open(os.path.join(contracts, name)) as f:
+        with open(os.path.join(contracts, name), encoding="utf-8") as f:
             total += sum(
                 tool.get("agent_visible") is not False
                 for tool in (json.load(f).get("tools") or [])
@@ -322,8 +431,15 @@ def validated_deliverables(task: dict) -> list[str]:
     values = (task.get("file_lane") or {}).get("deliverables") or []
     clean = []
     for value in values:
-        path = PurePosixPath(str(value))
-        if path.is_absolute() or ".." in path.parts or not path.name:
+        if not isinstance(value, str) or "\\" in value:
+            raise RuntimeError(f"{task['task_id']}: unsafe deliverable path {value!r}")
+        path = PurePosixPath(value)
+        if (
+            path.is_absolute()
+            or ".." in path.parts
+            or not path.name
+            or path.as_posix() != value
+        ):
             raise RuntimeError(f"{task['task_id']}: unsafe deliverable path {value!r}")
         clean.append(path.as_posix())
     return clean
@@ -606,8 +722,11 @@ PYEOF
 # ---------------------------------------------------------------------------
 
 def write(path: str, content: str, executable: bool = False) -> None:
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
+    destination = Path(path)
+    if destination.is_symlink():
+        raise RuntimeError(f"refusing to overwrite symlink: {destination}")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8", newline="\n") as f:
         f.write(content)
     if executable:
         os.chmod(path, 0o755)
@@ -630,9 +749,9 @@ def stage_file_lane(task: dict, task_dir: str) -> None:
     source_path = Path(source)
     if not source_path.is_absolute():
         source_path = Path(ROOT) / source_path
-    source_path = source_path.resolve()
-    if not source_path.is_dir():
-        raise RuntimeError(f"{task['task_id']}: file-lane documents missing: {source_path}")
+    source_path = validate_project_source_tree(
+        source_path, f"{task['task_id']} file-lane documents"
+    )
     destination = Path(task_dir) / "environment" / "documents"
     shutil.copytree(source_path, destination, copy_function=link_or_copy)
 
@@ -646,9 +765,12 @@ def stage_file_lane(task: dict, task_dir: str) -> None:
             skills_source = Path(ROOT) / "research" / "harvey-recovery" / "skills"
     if not skills_source.is_absolute():
         skills_source = Path(ROOT) / skills_source
-    skills_source = skills_source.resolve()
+    skills_source = validate_project_source_tree(
+        skills_source, f"{task['task_id']} skills source"
+    )
     skills_destination = Path(task_dir) / "environment" / "skills"
     requested = config["skills"] if "skills" in config else ["docx", "xlsx", "pptx"]
+    requested = [safe_component(name, f"{task['task_id']} skill name") for name in requested]
     skills_destination.mkdir(parents=True, exist_ok=True)
     for name in requested:
         source_skill = skills_source / name
@@ -659,8 +781,9 @@ def stage_file_lane(task: dict, task_dir: str) -> None:
 
 def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = None) -> str:
     """Copy runtime + world doc + shim into the shared image build context."""
-    img = os.path.join(out, "world-image")
-    os.makedirs(img, exist_ok=True)
+    img_path = Path(out) / "world-image"
+    reset_generated_directory(img_path, "world image context")
+    img = str(img_path)
     local = os.path.join(ROOT, "world", "local")
     for name in WORLD_RUNTIME_FILES:
         shutil.copyfile(os.path.join(local, name), os.path.join(img, name))
@@ -686,7 +809,7 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
         if kind not in {"lab", "ch"}:
             raise RuntimeError(f"unsupported packaged evidence kind: {kind}")
         source_index = Path(ROOT) / "world" / "corpus" / kind / "index.sqlite"
-        if not source_index.is_file():
+        if source_index.is_symlink() or not source_index.is_file():
             raise RuntimeError(f"{kind} evidence index missing: {source_index}")
         target = evidence_destination / kind
         target.mkdir()
@@ -697,9 +820,11 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
 def assemble_lab_agent_image(out: str) -> str:
     """Assemble the locked production derivative of the exact Harvey sandbox."""
     upstream = Path(ROOT) / "research" / "harvey-recovery" / "sandbox"
+    upstream = validate_project_source_tree(upstream, "Harvey LAB sandbox source")
     if not (upstream / "Dockerfile").is_file():
         raise RuntimeError(f"tracked Harvey LAB sandbox source missing: {upstream}")
     template = Path(HERE) / "lab-agent-image"
+    template = validate_project_source_tree(template, "LAB image template")
     required_template_files = (
         "Dockerfile",
         "debian.sources",
@@ -713,7 +838,11 @@ def assemble_lab_agent_image(out: str) -> str:
             raise RuntimeError(f"locked LAB image input missing: {template / name}")
 
     destination = Path(out) / "lab-agent-image"
+    if destination.is_symlink():
+        raise RuntimeError(f"refusing symlinked LAB image context: {destination}")
     if destination.exists():
+        if not destination.is_dir():
+            raise RuntimeError(f"refusing non-directory LAB image context: {destination}")
         shutil.rmtree(destination)
     # This context is tiny. Use independent copies so replacing the staged
     # Dockerfile cannot mutate the exact recovery source through a hard link.
@@ -728,6 +857,8 @@ def resolve_solve_token(token_path: str) -> str:
     configured = os.environ.get("HARBOR_SOLVE_TOKEN", "").strip()
     if configured:
         token = configured
+    elif Path(token_path).is_symlink():
+        raise RuntimeError(f"refusing symlinked solve token: {token_path}")
     elif os.path.isfile(token_path):
         token = Path(token_path).read_text("utf-8").strip()
     else:
@@ -759,23 +890,30 @@ def main() -> None:
                     help="build the heavy file-lane base from the pinned LAB sandbox")
     args = ap.parse_args()
 
-    world = load_world(args.world)
-    contracts_dir = os.path.abspath(args.contracts or contracts_for_world(args.world))
-    runtime_tool_count = contract_tool_count(contracts_dir)
+    world_path = validate_project_source_file(Path(args.world), "world source")
+    world = load_world(str(world_path))
+    validate_task_layout(world["tasks"])
+    contracts_dir = validate_project_source_tree(
+        Path(args.contracts or contracts_for_world(str(world_path))),
+        "contract source",
+    )
+    runtime_tool_count = contract_tool_count(str(contracts_dir))
     wanted = {t for t in args.tasks.split(",") if t}
     tasks = [t for t in world["tasks"] if not wanted or t["task_id"] in wanted]
     if wanted and len(tasks) != len(wanted):
         sys.exit(f"unknown task ids: {sorted(wanted - {t['task_id'] for t in tasks})}")
 
-    out = os.path.abspath(args.out)
-    os.makedirs(out, exist_ok=True)
+    out_path = resolve_output_root(args.out)
+    out_path.mkdir(parents=True, exist_ok=True)
+    assert_generated_targets_safe(out_path)
+    out = str(out_path)
 
     # The encrypted release secret lets independently generated full-task and
     # production-image exports share one hidden oracle credential. Without it,
     # local regeneration remains stable by retaining the ignored token file.
     token_path = os.path.join(out, "world-image", "solve-token.txt")
     token = resolve_solve_token(token_path)
-    img_dir = assemble_world_image(out, args.world, contracts_dir)
+    img_dir = assemble_world_image(out, str(world_path), str(contracts_dir))
     lab_img_dir = assemble_lab_agent_image(out)
     write(token_path, token + "\n")
 
@@ -784,13 +922,12 @@ def main() -> None:
         print("+", " ".join(command))
         subprocess.run(command, check=True)
 
-    tool_src = open(os.path.join(HERE, "agent-image", "tool")).read()
+    tool_src = Path(HERE, "agent-image", "tool").read_text("utf-8")
     tasks_root = os.path.join(out, "tasks")
+    reset_generated_directory(Path(tasks_root), "Harbor tasks tree")
     for task in tasks:
         tid = task["task_id"]
         d = os.path.join(tasks_root, tid)
-        if os.path.isdir(d):
-            shutil.rmtree(d)
         multi_step = task.get("multi_step") or {}
         phases = multi_step.get("phases") or []
         if not phases:
@@ -839,7 +976,7 @@ def main() -> None:
     write(os.path.join(out, "README.md"), f"""\
 # legal-agent-simulation — Harbor tasks
 
-{len(tasks)} Harbor-format tasks generated from `{os.path.relpath(args.world, ROOT)}`
+{len(tasks)} Harbor-format tasks generated from `{os.path.relpath(world_path, ROOT)}`
 (one per world task; regenerate with `python3 harbor/generate.py`).
 
 Contract suite: `{os.path.relpath(contracts_dir, ROOT)}`.
