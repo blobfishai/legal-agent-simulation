@@ -58,6 +58,58 @@ def assert_tree_equal(exported: Path, source: Path, label: str) -> int:
     return len(exported_files)
 
 
+def tree_sha256(files: dict[str, Path]) -> str:
+    digest = hashlib.sha256()
+    for relative, path in sorted(files.items()):
+        relative_bytes = relative.encode()
+        payload = path.read_bytes()
+        digest.update(len(relative_bytes).to_bytes(4, "big"))
+        digest.update(relative_bytes)
+        digest.update(len(payload).to_bytes(8, "big"))
+        digest.update(payload)
+    return digest.hexdigest()
+
+
+def audit_lab_agent_context(export_root: Path) -> tuple[int, str]:
+    """Prove the LAB image combines exact upstream code with locked build inputs."""
+    upstream = ROOT / "research" / "harvey-recovery" / "sandbox"
+    template = ROOT / "harbor" / "lab-agent-image"
+    exported = export_root / "lab-agent-image"
+    upstream_files = file_inventory(upstream)
+    template_files = file_inventory(template)
+    expected = {
+        relative: path
+        for relative, path in upstream_files.items()
+        if relative != "Dockerfile"
+    }
+    expected.update(template_files)
+    exported_files = file_inventory(exported)
+    if set(exported_files) != set(expected):
+        fail("locked LAB agent image context paths differ from source inputs")
+    for relative, exported_path in exported_files.items():
+        source_path = expected[relative]
+        if exported_path.stat().st_size != source_path.stat().st_size:
+            fail(f"locked LAB agent image byte count differs for {relative}")
+        if not os.path.samefile(exported_path, source_path):
+            if sha256_file(exported_path) != sha256_file(source_path):
+                fail(f"locked LAB agent image SHA-256 differs for {relative}")
+
+    dockerfile = (exported / "Dockerfile").read_text("utf-8")
+    pinned_from = "docker.io/library/" + PINNED_PYTHON
+    required_markers = (
+        f"FROM {pinned_from}",
+        "snapshot.debian.org/archive/debian/20260803T000000Z",
+        "--require-hashes --only-binary=:all:",
+        "npm ci --prefix /opt/harvey-js",
+    )
+    for marker in required_markers:
+        if marker not in dockerfile and marker not in (
+            exported / "debian.sources"
+        ).read_text("utf-8"):
+            fail(f"locked LAB agent image is missing reproducibility marker: {marker}")
+    return len(exported_files), tree_sha256(exported_files)
+
+
 def resolve_source(value: str) -> Path:
     candidate = Path(value)
     if not candidate.is_absolute():
@@ -82,8 +134,11 @@ def assert_executable(path: Path) -> None:
 
 def assert_solution(path: Path, solve_token: str) -> None:
     assert_executable(path)
-    if solve_token not in path.read_text("utf-8"):
+    script = path.read_text("utf-8")
+    if solve_token not in script:
         fail(f"oracle solution does not carry the export's hidden solve token: {path}")
+    if "urllib.request" not in script or "curl " in script:
+        fail(f"oracle solution is not standard-library/network-build independent: {path}")
 
 
 def audit_task(
@@ -117,6 +172,8 @@ def audit_task(
     expected_from = lab_image if expected_file_lane else PINNED_PYTHON
     if f"FROM {expected_from}" not in dockerfile:
         fail(f"{task_id}: agent base image mismatch")
+    if not expected_file_lane and ("apt-get" in dockerfile or "curl" in dockerfile):
+        fail(f"{task_id}: minimal agent image has a mutable package-install step")
     compose = (environment / "docker-compose.yaml").read_text("utf-8")
     if f"image: {world_image}" not in compose or "TASK_ID" not in compose:
         fail(f"{task_id}: compose world routing mismatch")
@@ -181,6 +238,7 @@ def main() -> int:
 
     export_root = args.root.resolve()
     tasks_root = export_root / "tasks"
+    lab_agent_context_files, lab_agent_context_sha256 = audit_lab_agent_context(export_root)
     token_path = export_root / "world-image" / "solve-token.txt"
     if not token_path.is_file():
         fail("world-image/solve-token.txt is missing")
@@ -253,6 +311,8 @@ def main() -> int:
         "staged_skill_trees": skill_count,
         "multistep_tasks": multistep_tasks,
         "multistep_phases": phase_count,
+        "lab_agent_context_files": lab_agent_context_files,
+        "lab_agent_context_sha256": lab_agent_context_sha256,
         "world_sha256": sha256_file(world_path),
         "solve_token_sha256": hashlib.sha256(solve_token.encode()).hexdigest(),
         "agent_world_leaks": 0,

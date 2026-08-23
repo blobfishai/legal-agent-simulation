@@ -7,7 +7,7 @@ Each of the world's tasks becomes one Harbor task directory:
     dist/harbor/tasks/task_XXX/
       instruction.md                the task prompt + interaction contract
       task.toml                     schema 1.4 config + provenance metadata
-      environment/Dockerfile        agent container (python + curl + `tool` CLI)
+      environment/Dockerfile        agent container (pinned python + `tool` CLI)
       environment/tool              firm-systems CLI (JSON-RPC over the shim)
       environment/docker-compose.yaml  adds the shared `world` service
       tests/test.sh                 POST /verify -> /logs/verifier/reward.json
@@ -233,8 +233,6 @@ AGENT_DOCKERFILE = """\
 # Agent container. The world (tools, verifiers, state) lives in the separate
 # `world` compose service — see docker-compose.yaml.
 FROM python:3.12-slim@sha256:229a2c5bfa27522db7815ea81f9bed70af17ccb9de9fc7ad142b1877b5830d36
-RUN apt-get update && apt-get install -y --no-install-recommends curl \\
-    && rm -rf /var/lib/apt/lists/*
 COPY tool /usr/local/bin/tool
 RUN chmod +x /usr/local/bin/tool
 ENV LAWFIRM_MCP=http://world:8972/mcp
@@ -244,8 +242,8 @@ WORKDIR /app
 
 def lab_agent_dockerfile(base_image: str) -> str:
     return f"""\
-# File-lane agent container. The base is built from Harvey LAB's pinned
-# sandbox Dockerfile and contains LibreOffice, pandoc, and format parsers.
+# File-lane agent container. The base is the dependency-locked production
+# derivative of Harvey LAB and contains LibreOffice, pandoc, and format parsers.
 FROM {base_image}
 COPY tool /usr/local/bin/tool
 RUN chmod +x /usr/local/bin/tool
@@ -543,6 +541,7 @@ for name, body in outputs.items():
         target.write_text(body + '\\n', encoding='utf-8')
 PYEOF
 """ if payload != "e30=" else ""
+    solve_body = json.dumps({"phase": phase} if phase else {})
     return f"""\
 #!/bin/bash
 # Oracle solution: the world container replays this task's reference walk
@@ -550,10 +549,15 @@ PYEOF
 # file; the world image contains its SHA-256 digest and this file is never
 # present during ordinary agent runs.
 set -e
-{file_writer}curl -fsS -X POST -H "X-Solve-Token: {token}" \
-  -H "Content-Type: application/json" --data {json.dumps(json.dumps({"phase": phase} if phase else {}))} \
-  http://world:8972/solve
-echo
+{file_writer}python3 - <<'PYEOF'
+import urllib.request
+
+request = urllib.request.Request('http://world:8972/solve', method='POST')
+request.add_header('X-Solve-Token', {token!r})
+request.add_header('Content-Type', 'application/json')
+with urllib.request.urlopen(request, data={solve_body!r}.encode(), timeout=150) as response:
+    print(response.read().decode())
+PYEOF
 """
 
 
@@ -652,6 +656,35 @@ def assemble_world_image(out: str, world_path: str, contracts_dir: str | None = 
     return img
 
 
+def assemble_lab_agent_image(out: str) -> str:
+    """Assemble the locked production derivative of the exact Harvey sandbox."""
+    upstream = Path(ROOT) / "research" / "harvey-recovery" / "sandbox"
+    if not (upstream / "Dockerfile").is_file():
+        raise RuntimeError(f"tracked Harvey LAB sandbox source missing: {upstream}")
+    template = Path(HERE) / "lab-agent-image"
+    required_template_files = (
+        "Dockerfile",
+        "debian.sources",
+        "requirements.in",
+        "requirements.lock",
+        "package.json",
+        "package-lock.json",
+    )
+    for name in required_template_files:
+        if not (template / name).is_file():
+            raise RuntimeError(f"locked LAB image input missing: {template / name}")
+
+    destination = Path(out) / "lab-agent-image"
+    if destination.exists():
+        shutil.rmtree(destination)
+    # This context is tiny. Use independent copies so replacing the staged
+    # Dockerfile cannot mutate the exact recovery source through a hard link.
+    shutil.copytree(upstream, destination)
+    for name in required_template_files:
+        shutil.copyfile(template / name, destination / name)
+    return str(destination)
+
+
 def resolve_solve_token(token_path: str) -> str:
     """Use the release secret, an existing export token, or a new local token."""
     configured = os.environ.get("HARBOR_SOLVE_TOKEN", "").strip()
@@ -705,16 +738,11 @@ def main() -> None:
     token_path = os.path.join(out, "world-image", "solve-token.txt")
     token = resolve_solve_token(token_path)
     img_dir = assemble_world_image(out, args.world, contracts_dir)
+    lab_img_dir = assemble_lab_agent_image(out)
     write(token_path, token + "\n")
 
     if args.build_lab_agent_image:
-        lab_sandbox = os.path.join(ROOT, "research", "repos", "harveyai@harvey-labs", "sandbox")
-        if not os.path.isfile(os.path.join(lab_sandbox, "Dockerfile")):
-            lab_sandbox = os.path.join(ROOT, "research", "harvey-recovery", "sandbox")
-        if not os.path.isfile(os.path.join(lab_sandbox, "Dockerfile")):
-            sys.exit("Harvey LAB sandbox source missing from both the local mirror "
-                     "and research/harvey-recovery/sandbox")
-        command = ["docker", "build", "-t", args.lab_agent_image, lab_sandbox]
+        command = ["docker", "build", "-t", args.lab_agent_image, lab_img_dir]
         print("+", " ".join(command))
         subprocess.run(command, check=True)
 
@@ -790,7 +818,7 @@ Multi-container tasks require Harbor's **docker** environment provider
   deterministic seeded friction, and shipped VCode verifiers.
   A per-trial shim creates the task's session, records the tool trace, and
   exposes `POST /mcp` (JSON-RPC), `POST /verify`, and token-gated `POST /solve`.
-- `main` (agent container): python + curl + the `tool` CLI. It contains no
+- `main` (agent container): pinned python + the `tool` CLI. It contains no
   world document, verifier code, or reference walks.
 - `tests/test.sh` fetches the VCode verdict and writes `reward.json`
   (`reward` = graded fraction with anti-hack vetoes, `passed` = strict bool).

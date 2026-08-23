@@ -127,6 +127,19 @@ def main() -> int:
                    for name in ("docx", "xlsx", "pptx"))
         assert (ROOT / "research" / "harvey-recovery" / "sandbox" / "Dockerfile").is_file()
 
+        lab_context = Path(generator.assemble_lab_agent_image(str(base)))
+        assert (lab_context / "parsers" / "parse_doc.py").read_bytes() == (
+            ROOT / "research" / "harvey-recovery" / "sandbox" /
+            "parsers" / "parse_doc.py"
+        ).read_bytes()
+        locked_dockerfile = (lab_context / "Dockerfile").read_text()
+        assert "python:3.12-slim@sha256:229a2c5b" in locked_dockerfile
+        assert "--require-hashes --only-binary=:all:" in locked_dockerfile
+        assert "npm ci --prefix /opt/harvey-js" in locked_dockerfile
+        assert "snapshot.debian.org/archive/debian/20260803T000000Z" in (
+            lab_context / "debian.sources"
+        ).read_text()
+
         instruction = generator.instruction_md(task)
         assert source_instruction in instruction
         assert "/workspace/documents" in instruction
@@ -218,6 +231,7 @@ def main() -> int:
         oracle_outputs = generator.oracle_file_outputs(grounded)
         assert oracle_outputs == {"grounded.md": "$54M | Section 7.2(b)"}
         oracle_script = generator.solve_sh("fixture-token", grounded)
+        assert "urllib.request" in oracle_script and "curl " not in oracle_script
         assert "from docx import Document" in oracle_script
         assert "from openpyxl import Workbook" in oracle_script
         assert "from pptx import Presentation" in oracle_script

@@ -26,10 +26,14 @@ jobs:
       WORLD_IMAGE: ghcr.io/blobfishai/legal-agent-sim-world
       LAB_IMAGE: ghcr.io/blobfishai/legal-agent-sim-agent-lab
       TAG: ${{ inputs.tag }}
-      HARBOR_VERSION: 0.21.0
     steps:
       - name: Check out release commit
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up pinned Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12.13"
 
       - name: Validate image tag
         run: |
@@ -40,10 +44,18 @@ jobs:
           echo "LAB_CANDIDATE=$LAB_IMAGE:$TAG-$release_suffix" >> "$GITHUB_ENV"
 
       - name: Install pinned document dependencies
-        run: python3 -m pip install --disable-pip-version-check -r tools/v21-requirements.txt
+        run: >-
+          python3 -m pip install --disable-pip-version-check
+          --require-hashes --only-binary=:all:
+          -r tools/v21-requirements.txt
 
       - name: Install pinned Harbor runner
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.9.17"
+
+      - name: Materialize locked Harbor runner
+        run: uv sync --project harbor/runner --locked --no-dev
 
       - name: Configure Docker Buildx
         uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
@@ -100,13 +112,27 @@ jobs:
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
             --tag "$LAB_CANDIDATE" \
-            research/harvey-recovery/sandbox
+            dist/harbor-v21-release/lab-agent-image
           docker build \
             --build-arg "ORACLE_PROOF_SHA256=$token_hash" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
             --tag "$WORLD_CANDIDATE" \
             dist/harbor-v21-release/world-image
+          fixture_root="$GITHUB_WORKSPACE/research/v21-seeded-documents/packs/bankruptcy/variant-01/documents"
+          docker run --rm --network none --volume "$fixture_root:/fixtures:ro" "$LAB_CANDIDATE" \
+            bash -euc '
+              python -c "import defusedxml, diff_match_patch, docxtpl, lxml, markitdown, openpyxl, pandas, pdf2image, pdfplumber, PIL, pypdf, docx, pptx"
+              node -e "require(\"docx\"); require(\"pptxgenjs\")"
+              libreoffice --version
+              pandoc --version | head -n 1
+              parse-doc docx /fixtures/matter-brief.docx > /tmp/docx.txt
+              parse-doc xlsx /fixtures/evidence-register.xlsx > /tmp/xlsx.txt
+              parse-doc pdf /fixtures/source-extract.pdf > /tmp/pdf.txt
+              test -s /tmp/docx.txt
+              test -s /tmp/xlsx.txt
+              test -s /tmp/pdf.txt
+            '
           docker push "$LAB_CANDIDATE"
           docker push "$WORLD_CANDIDATE"
           docker image rm "$LAB_CANDIDATE" "$WORLD_CANDIDATE"
@@ -116,7 +142,7 @@ jobs:
       - name: Validate pushed candidates in Harbor
         run: |
           set -euo pipefail
-          uvx --from "harbor==$HARBOR_VERSION" harbor run \
+          uv run --project harbor/runner --locked harbor run \
             --path dist/harbor-v21-release/tasks \
             --agent oracle \
             --jobs-dir jobs/v21-release \
@@ -126,7 +152,7 @@ jobs:
             --job jobs/v21-release/production-oracle \
             --tasks labp_b50165c2a9cd39db task_v20_cp_001 task_v20_retail_national_closeout task_v21_lt_matters_00001 task_v21_lt_matters_00005 \
             --reward 1 --passed 1
-          uvx --from "harbor==$HARBOR_VERSION" harbor run \
+          uv run --project harbor/runner --locked harbor run \
             --path dist/harbor-v21-release/tasks \
             --agent nop \
             --jobs-dir jobs/v21-release \

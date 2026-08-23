@@ -1,0 +1,9 @@
+{
+  "name": "legal-agent-simulation-harvey-lab-runtime",
+  "version": "21.0.0",
+  "private": true,
+  "dependencies": {
+    "docx": "9.7.1",
+    "pptxgenjs": "4.0.1"
+  }
+}

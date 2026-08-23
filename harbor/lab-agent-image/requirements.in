@@ -1,0 +1,13 @@
+defusedxml
+diff-match-patch
+docxtpl
+lxml
+markitdown
+openpyxl
+pandas
+pdf2image
+pdfplumber
+pillow
+pypdf
+python-docx
+python-pptx
