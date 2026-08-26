@@ -33,7 +33,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "1.0.0"
+RELEASE_VERSION = "1.1.0"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -172,7 +172,7 @@ CMD ["sleep", "infinity"]
 def world_dockerfile() -> str:
     return """FROM python:3.12-slim@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17
 WORKDIR /opt/counselbench
-COPY contracts.py world.py server.py spec.json ./
+COPY contracts.py scoring.py world.py server.py spec.json ./
 RUN mkdir -p /workspace/output /workspace/state
 EXPOSE 8972
 CMD ["python3", "/opt/counselbench/server.py"]
@@ -303,7 +303,7 @@ def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str,
             ]
         )
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "task_id": material["task_id"],
         "matter_number": matter.matter_number,
         "fixed_file_timestamp": FIXED_FILE_TIMESTAMP,
@@ -312,6 +312,8 @@ def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str,
         "metadata_check_paths": material["metadata_check_paths"],
         "deliverables": ["advice.md", "findings.json"],
         "expected_findings": material["expected_findings"],
+        "expected_memo": material["expected_memo"],
+        "scoring_findings": material["scoring_findings"],
         "memo_sections": [
             "Executive assessment", "Method and record coverage", "Findings",
             "Recommended next actions", "Assumptions and limitations",
@@ -327,7 +329,7 @@ def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str,
 
 def copy_runtime(world_dir: Path) -> None:
     world_dir.mkdir(parents=True, exist_ok=True)
-    for name in ("contracts.py", "world.py", "server.py"):
+    for name in ("contracts.py", "scoring.py", "world.py", "server.py"):
         shutil.copy2(RUNTIME / name, world_dir / name)
     write_text(world_dir / "Dockerfile", world_dockerfile())
 
@@ -392,13 +394,15 @@ def create_task_pack(
         "context_files": hf_context_paths,
         "rubric": {
             "type": "deterministic",
+            "metric": "weighted_criteria_score",
+            "weights": {"procedure": 0.25, "findings": 0.55, "memo": 0.20},
             "minimum_tool_calls": MINIMUM_TOOL_CALLS,
             "required_document_reads": DOCUMENT_COUNT,
             "metadata_checks": 8,
             "required_deliverables": ["findings.json", "advice.md"],
             "gates": [
                 "all_evidence_read_in_full", "chain_of_custody_metadata_checked",
-                "findings_schema_and_values_exact", "memo_is_fully_grounded",
+                "findings_criteria_complete", "memo_criteria_complete",
                 "deliverables_written_through_mcp",
             ],
         },
@@ -479,17 +483,22 @@ tags:
 pretty_name: {RELEASE_NAME}
 size_categories:
 - n<1K
+configs:
+- config_name: default
+  data_files:
+  - split: test
+    path: data/tasks.jsonl
 ---
 
 # {RELEASE_NAME}
 
-{RELEASE_NAME} is a synthetic long-horizon legal-agent benchmark with 100 distinct matters across ten practice workflows. Every task contains 96 production-style source records in 12 folders and has a 109-call reference MCP trajectory. Acceptance requires complete evidence coverage, eight metadata checks, two MCP writes, exact structured findings, and a fully grounded memo.
+{RELEASE_NAME} is a synthetic long-horizon legal-agent benchmark with 100 distinct matters across ten practice workflows. Every task contains 96 production-style source records in 12 folders and has a 109-call reference MCP trajectory. The v1.1 grader reports a deterministic weighted criteria score across review procedure (25%), structured findings (55%), and memo grounding (20%); full task pass still requires every criterion.
 
 ## Public release
 
 - Runnable Harbor world: <https://hub.harborframework.com/datasets/blobfishai/counselbench-100>
 - Dataset and test assets: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
-- Benchmark page: <https://counselbench-100.samuelchien821.chatgpt.site>
+- Benchmark page: <https://blobfish.ai/benchmarks/counselbench-100>
 - Builder and verifier source: <https://github.com/blobfishai/legal-agent-simulation/tree/master/benchmark/counselbench100>
 
 ## What is included
@@ -500,7 +509,9 @@ size_categories:
 - `world/`: the offline Streamable HTTP MCP world and deterministic verifier source.
 - `contracts/`: pinned live contract snapshots for the official MCP filesystem server.
 - `tests/`: conformance and full-suite test programs.
-- `trajectories/` and `reports/`: generated reference traces and measured pass/failure evidence.
+- `SCORING.md`: the versioned 182-criterion scoring contract and v1.0 correction rationale.
+- `EVALUATION_ARCHITECTURE.md`: the runtime map to Archipelago/APEX and the intentional deterministic-grading differences.
+- `trajectories/` and `reports/`: all 100 generated reference traces, ten published model transcripts with verifier reports, and measured pass/failure evidence.
 
 ## Objective release gates
 
@@ -516,12 +527,14 @@ size_categories:
 
 Measured results are stored in `reports/qualification.json`; do not infer a model score from the reference trajectory.
 
-## Measured v1.0.0 results
+## Deterministic v1.1 scoring
 
-- 600 local qualification executions: 100 oracle passes, 100 exact deterministic replays, and zero false accepts across four 100-task negative controls.
-- 100/100 Dockerized Harbor oracle trials passed with zero infrastructure exceptions.
-- A clean-room oracle trial from a fresh public Harbor download passed with reward 1.0.
-- Ten valid GPT-5.6-sol trials (one per practice workflow) read all 96 documents and completed 109–117 successful MCP calls; 0/10 passed the exact findings and grounded-memo gates.
+- Each task has 182 visible criteria: 8 procedure, 152 structured-findings, and 22 memo criteria.
+- Each finding is graded field by field against record-control metadata exposed to the agent.
+- Determinations must contain the seeded fact anchors and may not introduce controlled dates, amounts, percentages, addresses, or references absent from the cited source pair.
+- Recommendations must preserve the seeded response deadline and remediation owner.
+- Incomplete review procedure caps reward below 0.5, even when an output resembles the gold file.
+- Full-output exact match is retained only as a diagnostic and does not erase legitimate partial credit.
 
 ## MCP fidelity
 
@@ -540,29 +553,36 @@ Synthetic task data and documents are {DATA_LICENSE}. Benchmark code and test ha
 def source_readme() -> str:
     return f"""# {RELEASE_NAME} source
 
-This directory contains the deterministic source generator, MCP world,
-qualification suite, and public benchmark page for {RELEASE_NAME}.
+This directory contains the deterministic source generator, MCP world, and
+qualification suite for {RELEASE_NAME}.
 
-The v1.0.0 release contains 100 original synthetic matters, 9,600 seeded source
+The v1.1.0 release contains 100 original synthetic matters, 9,600 seeded source
 documents, 109-call accepted MCP trajectories, and a deterministic verifier.
 
 Public artifacts:
 
 - Harbor: <https://hub.harborframework.com/datasets/blobfishai/counselbench-100>
 - Hugging Face: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
-- Benchmark page: <https://counselbench-100.samuelchien821.chatgpt.site>
+- Benchmark page: <https://blobfish.ai/benchmarks/counselbench-100>
 - Source: <https://github.com/blobfishai/legal-agent-simulation>
 
 ```bash
 python3 benchmark/counselbench100/builder.py
+python3 -m unittest \
+  benchmark.counselbench100.tests.test_builder \
+  benchmark.counselbench100.tests.test_generation \
+  benchmark.counselbench100.tests.test_scoring
 python3 benchmark/counselbench100/run_suite.py
 python3 benchmark/counselbench100/tests/conformance.py
+CODEX_FORCE_AUTH_JSON=1 uv run --project harbor/runner --locked harbor run \
+  --config benchmark/counselbench100/real-agent-stratified-v1.1.json --yes
 ```
 
 Generated release files are written to `dist/{RELEASE_SLUG}` and are intentionally ignored by Git. The committed catalog contains 100 hand-authored matter spines; generation is deterministic and makes no network calls.
 
-The page under `site/` is independently validated with `npm run lint && npm
-test` and deployed through OpenAI Sites.
+The canonical interactive explorer is maintained in the Blobfish website
+repository and deployed at the benchmark-page URL above. The page under
+`site/` is retained only as the historical v1.0 launch artifact.
 """
 
 
@@ -581,6 +601,9 @@ def build(output: Path) -> dict[str, Any]:
     index: list[dict[str, Any]] = []
     all_document_hashes: set[str] = set()
     all_document_sizes: list[int] = []
+    extension_counts: dict[str, int] = {}
+    task_folder_counts: list[int] = []
+    task_format_counts: list[int] = []
     prompts: list[str] = []
 
     for task_index, matter in enumerate(MATTERS):
@@ -591,7 +614,12 @@ def build(output: Path) -> dict[str, Any]:
         records.append(record)
         index.append(index_entry)
         prompts.append(material["instruction"])
-        for content in material["documents"].values():
+        document_paths = [PurePosixPath(path) for path in material["documents"]]
+        task_folder_counts.append(len({path.parent for path in document_paths}))
+        task_format_counts.append(len({path.suffix for path in document_paths}))
+        for path, content in material["documents"].items():
+            suffix = PurePosixPath(path).suffix.lstrip(".")
+            extension_counts[suffix] = extension_counts.get(suffix, 0) + 1
             all_document_hashes.add(hashlib.sha256(content.encode("utf-8")).hexdigest())
             all_document_sizes.append(len(content.encode("utf-8")))
 
@@ -601,18 +629,53 @@ def build(output: Path) -> dict[str, Any]:
         "".join(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n" for record in records),
     )
     write_text(hf_root / "README.md", dataset_card())
+    shutil.copy2(HERE / "SCORING.md", hf_root / "SCORING.md")
+    shutil.copy2(
+        HERE / "EVALUATION_ARCHITECTURE.md",
+        hf_root / "EVALUATION_ARCHITECTURE.md",
+    )
     write_text(hf_root / "LICENSE-DATA", "Creative Commons Attribution 4.0 International\nhttps://creativecommons.org/licenses/by/4.0/\n")
     write_text(hf_root / "LICENSE-CODE", "Apache License 2.0\nhttps://www.apache.org/licenses/LICENSE-2.0\n")
     write_json(hf_root / "contracts" / "upstream-pin.json", MCP_PIN)
     write_json(hf_root / "contracts" / "filesystem-tools.json", {"tools": tool_definitions()})
     (hf_root / "world").mkdir(parents=True, exist_ok=True)
     (hf_root / "tests").mkdir(parents=True, exist_ok=True)
-    for name in ("contracts.py", "world.py", "server.py"):
+    for name in ("contracts.py", "scoring.py", "world.py", "server.py"):
         shutil.copy2(RUNTIME / name, hf_root / "world" / name)
-    for name in ("conformance.py",):
+    for name in ("conformance.py", "test_scoring.py"):
         shutil.copy2(HERE / "tests" / name, hf_root / "tests" / name)
     shutil.copy2(HERE / "run_suite.py", hf_root / "tests" / "run_suite.py")
 
+    sorted_document_sizes = sorted(all_document_sizes)
+    median_document_bytes = sorted_document_sizes[len(sorted_document_sizes) // 2]
+    prompt_uniqueness = maximum_pair_similarity(prompts)
+    exact_duplicate_prompts = len(prompts) - len(set(prompts))
+    exact_duplicate_documents = len(records) * DOCUMENT_COUNT - len(all_document_hashes)
+    quality_gates = {
+        "one_hundred_tasks": len(records) == 100,
+        "ten_balanced_practice_areas": (
+            len(FAMILY_SETTINGS) == 10
+            and all(sum(matter.family == family for matter in MATTERS) == 10 for family in FAMILY_SETTINGS)
+        ),
+        "ninety_six_documents_per_task": all(
+            entry["documents"] == DOCUMENT_COUNT for entry in index
+        ),
+        "twelve_folders_per_task": all(count == 12 for count in task_folder_counts),
+        "seven_text_native_formats_per_task": all(count == 7 for count in task_format_counts),
+        "all_expected_formats_present": set(extension_counts) == {
+            "md", "txt", "eml", "csv", "json", "xml", "html",
+        },
+        "minimum_document_depth": min(all_document_sizes) >= 5_500,
+        "median_document_depth": median_document_bytes >= 7_000,
+        "bounded_document_size": max(all_document_sizes) <= 20_000,
+        "no_exact_duplicate_documents": exact_duplicate_documents == 0,
+        "no_exact_duplicate_prompts": exact_duplicate_prompts == 0,
+        "prompt_similarity_below_limit": prompt_uniqueness["maximum_jaccard_5_shingle"] < 0.80,
+        "hand_authored_matter_spines_unique": (
+            len({matter.title for matter in MATTERS}) == len(MATTERS)
+            and len({matter.narrative for matter in MATTERS}) == len(MATTERS)
+        ),
+    }
     build_report = {
         "schema_version": "1.0",
         "benchmark": RELEASE_NAME,
@@ -625,16 +688,22 @@ def build(output: Path) -> dict[str, Any]:
         },
         "documents_per_task": DOCUMENT_COUNT,
         "document_count": len(records) * DOCUMENT_COUNT,
+        "folders_per_task": min(task_folder_counts),
+        "formats_per_task": min(task_format_counts),
+        "format_counts": dict(sorted(extension_counts.items())),
         "unique_document_sha256_count": len(all_document_hashes),
         "minimum_document_bytes": min(all_document_sizes),
-        "median_document_bytes": sorted(all_document_sizes)[len(all_document_sizes) // 2],
+        "median_document_bytes": median_document_bytes,
         "maximum_document_bytes": max(all_document_sizes),
         "findings_per_task": FINDING_COUNT,
+        "criteria_per_task": 182,
         "reference_tool_calls_per_task": MINIMUM_TOOL_CALLS,
         "reference_tool_calls_total": len(records) * MINIMUM_TOOL_CALLS,
-        "prompt_uniqueness": maximum_pair_similarity(prompts),
-        "exact_duplicate_prompts": len(prompts) - len(set(prompts)),
-        "exact_duplicate_documents": len(records) * DOCUMENT_COUNT - len(all_document_hashes),
+        "prompt_uniqueness": prompt_uniqueness,
+        "exact_duplicate_prompts": exact_duplicate_prompts,
+        "exact_duplicate_documents": exact_duplicate_documents,
+        "quality_gates": quality_gates,
+        "release_passed": all(quality_gates.values()),
         "verifier": {
             "deterministic": True,
             "network_calls": 0,
@@ -644,6 +713,9 @@ def build(output: Path) -> dict[str, Any]:
         },
         "mcp_pin": MCP_PIN,
     }
+    if not build_report["release_passed"]:
+        failed = sorted(name for name, passed in quality_gates.items() if not passed)
+        raise AssertionError(f"CounselBench build quality gates failed: {failed}")
     write_json(resolved / "reports" / "build.json", build_report)
     write_json(resolved / "task-index.json", index)
     write_json(hf_root / "reports" / "build.json", build_report)
@@ -651,7 +723,7 @@ def build(output: Path) -> dict[str, Any]:
     dataset_template = f'''[dataset]
 name = "{HARBOR_ORG}/{RELEASE_SLUG}"
 version = "{RELEASE_VERSION}"
-description = "100 synthetic long-horizon legal-agent tasks with 109-call MCP trajectories and deterministic verifiers."
+description = "100 synthetic long-horizon legal-agent tasks with 109-call MCP trajectories and deterministic criterion-level verifiers."
 authors = []
 keywords = ["legal", "mcp", "deterministic", "long-horizon"]
 

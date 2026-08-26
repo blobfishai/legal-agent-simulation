@@ -11,7 +11,6 @@ import fnmatch
 import hashlib
 import json
 import os
-import re
 import stat
 import threading
 from pathlib import Path
@@ -19,8 +18,10 @@ from typing import Any
 
 try:  # Package import in local qualification; flat import in generated image.
     from .contracts import TOOLS_BY_NAME, tool_definitions
+    from .scoring import aggregate_scores, score_findings, score_memo
 except ImportError:  # pragma: no cover - exercised inside the task container
     from contracts import TOOLS_BY_NAME, tool_definitions
+    from scoring import aggregate_scores, score_findings, score_memo
 
 
 class ToolFailure(Exception):
@@ -291,7 +292,7 @@ class CounselWorld:
             if entry.get("tool") == "get_file_info"
         }
         simple_calls = {entry.get("tool") for entry in successful}
-        checks: dict[str, bool] = {
+        procedure: dict[str, bool] = {
             "minimum_successful_tool_calls": len(successful) >= self.spec["minimum_tool_calls"],
             "all_evidence_read_in_full": set(self.spec["required_document_paths"]) <= full_reads,
             "chain_of_custody_metadata_checked": set(self.spec["metadata_check_paths"]) <= info_paths,
@@ -306,7 +307,7 @@ class CounselWorld:
             if path.is_file()
         )
         expected_names = sorted(self.spec["deliverables"])
-        checks["exact_deliverable_set"] = output_files == expected_names
+        procedure["exact_deliverable_set"] = output_files == expected_names
 
         current_digests: dict[str, str] = {}
         for relative in expected_names:
@@ -321,7 +322,7 @@ class CounselWorld:
             for entry in successful
             if entry.get("tool") == "write_file"
         }
-        checks["deliverables_written_through_mcp"] = all(
+        procedure["deliverables_written_through_mcp"] = all(
             writes.get(Path(name).name) == current_digests.get(name) for name in expected_names
         )
 
@@ -331,32 +332,43 @@ class CounselWorld:
             findings_value = json.loads(findings_path.read_text(encoding="utf-8"))
         except (OSError, UnicodeError, json.JSONDecodeError):
             pass
-        checks["findings_schema_and_values_exact"] = findings_value == self.spec["expected_findings"]
-
         memo_path = self.output_root / "advice.md"
         memo = memo_path.read_text(encoding="utf-8") if memo_path.is_file() else ""
-        normalized_memo = re.sub(r"\s+", " ", memo).casefold()
-        checks["memo_has_required_sections"] = all(
-            section.casefold() in normalized_memo for section in self.spec["memo_sections"]
-        )
-        checks["memo_is_fully_grounded"] = all(
-            anchor.casefold() in normalized_memo for anchor in self.spec["memo_anchors"]
-        ) and not any(
-            forbidden.casefold() in normalized_memo for forbidden in self.spec["forbidden_claims"]
-        )
-
-        passed = all(checks.values())
+        findings_scoring = score_findings(findings_value, self.spec)
+        memo_scoring = score_memo(memo, self.spec)
+        aggregate = aggregate_scores(procedure, findings_scoring, memo_scoring)
+        checks = {
+            **procedure,
+            "findings_criteria_complete": findings_scoring["passed"],
+            "memo_criteria_complete": memo_scoring["passed"],
+        }
         report = {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "task_id": self.spec["task_id"],
-            "passed": passed,
-            "reward": 1.0 if passed else 0.0,
+            "passed": aggregate["passed"],
+            "reward": aggregate["reward"],
             "checks": checks,
+            "category_scores": aggregate["category_scores"],
+            "score_weights": aggregate["weights"],
+            "uncapped_reward": aggregate["uncapped_reward"],
+            "reward_cap_reason": aggregate["cap_reason"],
+            "criteria": {
+                "procedure": procedure,
+                "findings": findings_scoring,
+                "memo": memo_scoring,
+            },
             "successful_tool_calls": len(successful),
             "required_tool_calls": self.spec["minimum_tool_calls"],
             "documents_read": len(set(self.spec["required_document_paths"]) & full_reads),
             "required_documents": len(self.spec["required_document_paths"]),
             "output_sha256": current_digests,
+            "diagnostics": {
+                "legacy_exact_findings_match": findings_value == self.spec["expected_findings"],
+                "legacy_exact_memo_match": memo == self.spec.get("expected_memo", ""),
+                "deterministic": True,
+                "model_calls": 0,
+                "network_calls": 0,
+            },
         }
         report["report_sha256"] = sha256_text(canonical_json(report))
         return report

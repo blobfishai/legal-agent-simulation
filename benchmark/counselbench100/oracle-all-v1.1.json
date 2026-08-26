@@ -1,0 +1,17 @@
+{
+  "job_name": "counselbench-all-oracle",
+  "jobs_dir": "dist/counselbench-100/harbor-all",
+  "n_concurrent_trials": 4,
+  "quiet": true,
+  "agents": [
+    {
+      "name": "oracle",
+      "n_concurrent": 4
+    }
+  ],
+  "datasets": [
+    {
+      "path": "dist/counselbench-100/harbor/tasks"
+    }
+  ]
+}
