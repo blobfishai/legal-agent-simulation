@@ -586,6 +586,39 @@ repository and deployed at the benchmark-page URL above. The page under
 """
 
 
+def harbor_readme() -> str:
+    return f"""# {RELEASE_NAME}
+
+{RELEASE_NAME} is a public, executable legal-agent benchmark with 100 original
+synthetic matters across ten practice areas. Each task contains 96 seeded
+records in 12 folders, a pinned filesystem MCP world, a 109-call reference
+trajectory, and a deterministic 182-criterion verifier.
+
+## Release v{RELEASE_VERSION}
+
+- 100 tasks and 9,600 unique text-native records
+- seven formats: Markdown, TXT, EML, CSV, JSON, XML, and HTML
+- 25% procedure, 55% structured findings, and 20% counsel memo
+- continuous criteria score plus a separate strict full-task pass
+- no model, network, clock, locale, or randomness in grading
+- 100/100 Dockerized oracle trials and zero false accepts across 400 negative controls
+
+```bash
+harbor download {HARBOR_ORG}/{RELEASE_SLUG}@v{RELEASE_VERSION} \
+  --output-dir ./counselbench
+```
+
+The v1.1 release replaces the launch version's brittle full-output equality
+with field-level criteria whose expected values are recoverable from the seeded
+records. Full exact match remains a diagnostic; it no longer erases legitimate
+partial credit.
+
+- Benchmark explorer: <https://blobfish.ai/benchmarks/counselbench-100>
+- Dataset and trajectories: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
+- Builder and verifier: <https://github.com/blobfishai/legal-agent-simulation/tree/master/benchmark/counselbench100>
+"""
+
+
 def build(output: Path) -> dict[str, Any]:
     resolved = output.resolve()
     if resolved.name != RELEASE_SLUG:
@@ -730,6 +763,7 @@ keywords = ["legal", "mcp", "deterministic", "long-horizon"]
 # Publishing fills 100 [[tasks]] entries with registry content digests.
 '''
     write_text(resolved / "harbor" / "dataset" / "dataset.toml.template", dataset_template)
+    write_text(resolved / "harbor" / "dataset" / "README.md", harbor_readme())
 
     release_files = sorted(path for path in resolved.rglob("*") if path.is_file())
     manifest = {
