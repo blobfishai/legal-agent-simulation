@@ -232,7 +232,7 @@ def run(release: Path) -> dict[str, Any]:
     report = {
         "schema_version": "1.0",
         "benchmark": "CounselBench-100",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "task_count": len(task_dirs),
         "executions": len(task_dirs) * (2 + len(negative_runners)),
         "oracle": {

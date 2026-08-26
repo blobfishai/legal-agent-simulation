@@ -10,6 +10,9 @@ import shutil
 from pathlib import Path
 from typing import Any
 
+RELEASE_VERSION = "1.1.0"
+DEFAULT_MODEL_JOBS = ["counselbench-codex-stratified-v110-valid"]
+
 
 def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -31,8 +34,17 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def build_model_report(release: Path) -> dict[str, Any]:
-    job_names = ["counselbench-codex-oauth-probe", "counselbench-codex-stratified-valid"]
+def criterion_counts(verifier: dict[str, Any]) -> tuple[int, int]:
+    criteria = verifier["criteria"]
+    values = [
+        *criteria["procedure"].values(),
+        *criteria["findings"]["criteria"].values(),
+        *criteria["memo"]["criteria"].values(),
+    ]
+    return sum(bool(value) for value in values), len(values)
+
+
+def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
     job_root = release / "real-agent"
     task_index = {
         row["task_id"]: row for row in read_json(release / "task-index.json")
@@ -54,6 +66,7 @@ def build_model_report(release: Path) -> dict[str, Any]:
                 raise ValueError(f"trial is not a valid model execution: {trial_dir}")
             task_id = verifier["task_id"]
             info = task_index[task_id]
+            criteria_passed, criteria_total = criterion_counts(verifier)
             failed_checks = sorted(
                 name for name, passed in verifier["checks"].items() if not passed
             )
@@ -67,6 +80,11 @@ def build_model_report(release: Path) -> dict[str, Any]:
                     "task_checksum": result["task_checksum"],
                     "passed": verifier["passed"],
                     "reward": verifier["reward"],
+                    "uncapped_reward": verifier["uncapped_reward"],
+                    "reward_cap_reason": verifier["reward_cap_reason"],
+                    "category_scores": verifier["category_scores"],
+                    "criteria_passed": criteria_passed,
+                    "criteria_total": criteria_total,
                     "successful_tool_calls": verifier["successful_tool_calls"],
                     "documents_read": verifier["documents_read"],
                     "failed_checks": failed_checks,
@@ -91,8 +109,9 @@ def build_model_report(release: Path) -> dict[str, Any]:
 
     gates = sorted({gate for trial in trials for gate in trial["failed_checks"]})
     report = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "benchmark": "CounselBench-100",
+        "benchmark_version": RELEASE_VERSION,
         "evaluation": {
             "agent": "codex",
             "agent_version": sorted({trial["agent_version"] for trial in trials}),
@@ -109,6 +128,16 @@ def build_model_report(release: Path) -> dict[str, Any]:
             "passes": sum(bool(trial["passed"]) for trial in trials),
             "failures": sum(not trial["passed"] for trial in trials),
             "pass_rate": round(sum(bool(trial["passed"]) for trial in trials) / len(trials), 4),
+            "mean_reward": round(sum(trial["reward"] for trial in trials) / len(trials), 6),
+            "mean_category_scores": {
+                category: round(
+                    sum(trial["category_scores"][category] for trial in trials) / len(trials),
+                    6,
+                )
+                for category in ("procedure", "findings", "memo")
+            },
+            "criteria_passed": sum(trial["criteria_passed"] for trial in trials),
+            "criteria_total": sum(trial["criteria_total"] for trial in trials),
             "all_documents_read_trials": sum(trial["documents_read"] == 96 for trial in trials),
             "minimum_successful_tool_calls": min(trial["successful_tool_calls"] for trial in trials),
             "maximum_successful_tool_calls": max(trial["successful_tool_calls"] for trial in trials),
@@ -121,18 +150,7 @@ def build_model_report(release: Path) -> dict[str, Any]:
             gate: sum(gate in trial["failed_checks"] for trial in trials) for gate in gates
         },
         "trials": trials,
-        "excluded_preflight_runs": [
-            {
-                "job": "counselbench-codex-stratified",
-                "reason": "Harbor adapter rejected missing explicit model name before model execution",
-                "included_in_score": False,
-            },
-            {
-                "job": "counselbench-codex-probe",
-                "reason": "Harbor defaulted to empty API-key auth before OAuth injection was enabled",
-                "included_in_score": False,
-            },
-        ],
+        "excluded_runs": [],
     }
     return report
 
@@ -140,6 +158,44 @@ def build_model_report(release: Path) -> dict[str, Any]:
 def copy_report(source: Path, destination: Path) -> None:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, destination)
+
+
+def export_model_trajectories(
+    release: Path, hf: Path, model_report: dict[str, Any]
+) -> None:
+    """Publish complete model traces alongside compact leaderboard metadata."""
+
+    trajectory_root = hf / "trajectories" / "model"
+    index: list[dict[str, Any]] = []
+    for trial in model_report["trials"]:
+        source = release / "real-agent" / trial["job"] / trial["trial_name"]
+        destination = trajectory_root / trial["task_id"]
+        files = {
+            "codex.txt": source / "agent" / "codex.txt",
+            "trial-result.json": source / "result.json",
+            "verifier-report.json": source / "verifier" / "report.json",
+        }
+        optional_trajectory = source / "trajectory.json"
+        if optional_trajectory.is_file():
+            files["harbor-trajectory.json"] = optional_trajectory
+        for name, path in files.items():
+            if not path.is_file():
+                raise FileNotFoundError(path)
+            copy_report(path, destination / name)
+        index.append(
+            {
+                "task_id": trial["task_id"],
+                "practice_area": trial["practice_area"],
+                "model": trial["model"],
+                "agent": trial["agent"],
+                "passed": trial["passed"],
+                "reward": trial["reward"],
+                "documents_read": trial["documents_read"],
+                "successful_tool_calls": trial["successful_tool_calls"],
+                "files": sorted(files),
+            }
+        )
+    write_json(trajectory_root / "index.json", index)
 
 
 def seal_manifest(release: Path) -> dict[str, Any]:
@@ -154,7 +210,7 @@ def seal_manifest(release: Path) -> dict[str, Any]:
     manifest = {
         "schema_version": "1.0",
         "benchmark": "CounselBench-100",
-        "version": "1.0.0",
+        "version": RELEASE_VERSION,
         "files": [
             {
                 "path": path.relative_to(release).as_posix(),
@@ -174,9 +230,11 @@ def seal_manifest(release: Path) -> dict[str, Any]:
 def finalize(arguments: argparse.Namespace) -> dict[str, Any]:
     release = arguments.release.resolve()
     hf = release / "huggingface"
-    model_report = build_model_report(release)
+    model_jobs = arguments.model_job or DEFAULT_MODEL_JOBS
+    model_report = build_model_report(release, model_jobs)
     write_json(release / "reports" / "real-agent.json", model_report)
     write_json(hf / "reports" / "real-agent.json", model_report)
+    export_model_trajectories(release, hf, model_report)
 
     evidence = {
         "mcp_conformance": release / "reports" / "mcp-conformance.json",
@@ -186,9 +244,11 @@ def finalize(arguments: argparse.Namespace) -> dict[str, Any]:
         / "harbor-cleanroom"
         / "published-workspace-download-smoke"
         / "result.json",
-        "codex_probe": release / "real-agent" / "counselbench-codex-oauth-probe" / "result.json",
-        "codex_stratified": release / "real-agent" / "counselbench-codex-stratified-valid" / "result.json",
     }
+    evidence.update({
+        f"model_job_{index + 1}": release / "real-agent" / job_name / "result.json"
+        for index, job_name in enumerate(model_jobs)
+    })
     for name, path in evidence.items():
         if not path.is_file():
             raise FileNotFoundError(path)
@@ -200,9 +260,9 @@ def finalize(arguments: argparse.Namespace) -> dict[str, Any]:
     conformance = read_json(evidence["mcp_conformance"])
     oracle_stats = next(iter(oracle["stats"]["evals"].values()))
     summary = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "benchmark": "CounselBench-100",
-        "version": "1.0.0",
+        "version": RELEASE_VERSION,
         "build": read_json(release / "reports" / "build.json"),
         "qualification": {
             "passed": qualification["release_passed"],
@@ -272,6 +332,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--hf-commit")
     parser.add_argument("--site-url")
     parser.add_argument("--site-version")
+    parser.add_argument(
+        "--model-job",
+        action="append",
+        help="Harbor job directory name to include; repeat for multiple jobs",
+    )
     return parser.parse_args()
 
 

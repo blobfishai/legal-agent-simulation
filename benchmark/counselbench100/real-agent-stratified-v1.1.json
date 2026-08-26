@@ -1,0 +1,30 @@
+{
+  "job_name": "counselbench-codex-stratified-v110-valid",
+  "jobs_dir": "dist/counselbench-100/real-agent",
+  "n_concurrent_trials": 2,
+  "quiet": true,
+  "agents": [
+    {
+      "name": "codex",
+      "model_name": "gpt-5.6-sol",
+      "n_concurrent": 2
+    }
+  ],
+  "datasets": [
+    {
+      "path": "dist/counselbench-100/harbor/tasks",
+      "task_names": [
+        "cb100-001-*",
+        "cb100-011-*",
+        "cb100-021-*",
+        "cb100-031-*",
+        "cb100-041-*",
+        "cb100-051-*",
+        "cb100-061-*",
+        "cb100-071-*",
+        "cb100-081-*",
+        "cb100-091-*"
+      ]
+    }
+  ]
+}
