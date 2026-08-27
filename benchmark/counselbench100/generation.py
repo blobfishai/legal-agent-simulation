@@ -9,10 +9,13 @@ import io
 import json
 import re
 from datetime import date, timedelta
+from random import Random as _Random
 from pathlib import PurePosixPath
 from typing import Any
 
 from catalog import FAMILY_SETTINGS, Matter
+from document_seeds.catalog import SeedCatalog, load_catalog
+from document_seeds.compose import CompositionError, ContentPlan, compose_document
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-25T12:00:00.000Z"
@@ -548,6 +551,146 @@ def _record_prose(
     }
 
 
+# --------------------------------------------------------------------------- seed structure
+# Real legal records are not eight-section templates. The `.md` and `.txt`
+# records are composed onto exemplar skeletons vendored from Harvey LAB
+# (see document_seeds/VENDORED.md): a title block, recitals, articles, tables,
+# and a signature page from a real document of the same kind surround the
+# record-control block the verifier grades, which is preserved verbatim. The
+# exemplar's own facts are re-skinned deterministically and every seeded
+# finding literal is scrubbed from its prose, so structure never leaks a
+# finding. Sizes stay inside the release gate (5,500 ≤ bytes ≤ 20,000).
+SEED_STRUCTURED_EXTENSIONS = ("md", "txt")
+SEED_TARGET_BYTES = 17_500
+SEED_MAX_BYTES = 19_500
+_SEED_KINDS = {
+    "control_register": "schedule",
+    "executed_instrument": "agreement",
+    "correspondence": "letter",
+    "ledger_export": "schedule",
+    "review_memorandum": "memo",
+    "formal_notice": "letter",
+    "officer_certificate": "certificate",
+    "status_report": "report",
+}
+_SEED_AREAS = {
+    "corporate-ma": ("corporate-ma", "contracts", "corporate-governance"),
+    "litigation": ("litigation-dispute-resolution", "white-collar-defense-investigations", "contracts"),
+    "employment": ("employment-labor", "contracts", "corporate-governance"),
+    "real-estate": ("real-estate", "contracts", "corporate-governance"),
+    "ip": ("intellectual-property", "contracts", "corporate-governance"),
+    "privacy": ("data-privacy-cybersecurity", "contracts", "corporate-governance"),
+    "finance": ("banking-finance", "contracts", "corporate-governance"),
+    "antitrust": ("antitrust-competition", "corporate-ma", "contracts"),
+    "governance": ("corporate-governance", "contracts", "firm-knowledge"),
+    "investigations": ("white-collar-defense-investigations", "litigation-dispute-resolution", "contracts"),
+}
+_seed_catalog: SeedCatalog | None = None
+
+
+def seed_catalog() -> SeedCatalog:
+    global _seed_catalog
+    if _seed_catalog is None:
+        _seed_catalog = load_catalog()
+    return _seed_catalog
+
+
+def seed_avoid_literals(issue_details: list[dict[str, Any]]) -> list[str]:
+    """Every seeded finding literal that exemplar prose must never contain."""
+
+    values: set[str] = set()
+
+    def distinctive(text: str) -> bool:
+        # Amounts, dates, references, and multi-word phrases discriminate a
+        # finding; a lone ordinary word ("Delaware") does not, and scrubbing it
+        # would only mangle exemplar prose.
+        return len(text) >= 3 and (re.search(r"\d", text) is not None or len(text.split()) >= 2)
+
+    for detail in issue_details:
+        for key in ("fact_anchors", "action_anchors"):
+            for value in detail.get(key) or ():
+                text = str(value).strip()
+                if distinctive(text):
+                    values.add(text)
+        for key in ("primary_statement", "secondary_statement", "determination", "recommendation", "issue"):
+            text = str(detail.get(key) or "").strip()
+            if distinctive(text):
+                values.add(text)
+    return sorted(values)
+
+
+def _seed_areas(family: str) -> tuple[str, ...]:
+    for token, areas in _SEED_AREAS.items():
+        if token in family:
+            return areas
+    return ("contracts", "corporate-governance", "corporate-ma")
+
+
+def seed_structured_text(
+    rendered: str,
+    values: dict[str, Any],
+    extension: str,
+    avoid: list[str],
+    matter: Matter | None = None,
+) -> str:
+    """Compose a rendered ``.md``/``.txt`` record onto an exemplar skeleton.
+
+    The rendered record is the operative block and survives byte for byte;
+    returns the rendered text unchanged when the seed cannot be applied
+    within the size gate.
+    """
+
+    if extension not in SEED_STRUCTURED_EXTENSIONS:
+        return rendered
+    headroom = SEED_TARGET_BYTES - len(rendered.encode("utf-8"))
+    if headroom < 2_500:
+        return rendered
+    kind = _SEED_KINDS.get(str(values["record_type"]).replace(" ", "_"), "memo")
+    rng_seed = stable_int(values["record_id"], "seed-structure", extension)
+    family = matter.family if matter is not None else ""
+    lines = rendered.splitlines()
+    title = f"{values['record_type'].title()} — {values['matter_title']}"
+    try:
+        catalog = seed_catalog()
+        ref = catalog.select(
+            format="docx",
+            kind=kind,
+            practice_area=_seed_areas(family),
+            title=title,
+            target_words=headroom // 6,
+            want_tables=extension == "md",
+            rng=_Random(rng_seed),
+            max_words=max(900, headroom // 4),
+        )
+        skeleton = catalog.load(ref)
+        operative_words = len(rendered.split())
+        # Trimming drops whole sections, so a long exemplar may overshoot the
+        # size gate at the first target; tighten until it fits.
+        for divisor in (6, 9, 14, 22):
+            plan = ContentPlan(
+                title=title,
+                organization=values["client"],
+                parties=[values["client"], values["counterparty"]],
+                operative=lines,
+                anchor="after_front_matter",
+                verbatim_operative=True,
+                target_words=headroom // divisor + operative_words,
+                keep_fraction=0.12,
+                avoid=avoid,
+            )
+            composed = compose_document(skeleton, plan, _Random(rng_seed))
+            text = composed.to_markdown() if extension == "md" else composed.to_plain()
+            if len(text.encode("utf-8")) <= SEED_MAX_BYTES:
+                break
+        else:
+            return rendered
+    except (CompositionError, LookupError, KeyError, ValueError):
+        return rendered
+    if rendered.strip() not in text:
+        return rendered
+    return text
+
+
 def _render_document(values: dict[str, Any], extension: str) -> str:
     control_keys = (
         "record_id", "matter_number", "record_date", "record_type", "folder",
@@ -838,6 +981,7 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         issue_values(matter, task_index, issue_index, topic)
         for issue_index, topic in enumerate(topics)
     ]
+    avoid = seed_avoid_literals(issue_details)
     documents: dict[str, str] = {}
     document_values: dict[str, dict[str, Any]] = {}
     for document_index, absolute_path in enumerate(paths):
@@ -853,7 +997,9 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
             matter, task_index, document_index, absolute_path, detail, side
         )
         document_values[absolute_path] = values
-        documents[absolute_path] = _render_document(values, PurePosixPath(absolute_path).suffix[1:])
+        extension = PurePosixPath(absolute_path).suffix[1:]
+        rendered = _render_document(values, extension)
+        documents[absolute_path] = seed_structured_text(rendered, values, extension, avoid, matter)
 
     findings: list[dict[str, str]] = []
     for issue_index, (topic, detail) in enumerate(zip(topics, issue_details, strict=True)):

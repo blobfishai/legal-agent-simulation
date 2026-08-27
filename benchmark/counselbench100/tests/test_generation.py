@@ -11,7 +11,7 @@ from email import policy
 from email.parser import Parser
 from pathlib import PurePosixPath
 
-from benchmark.counselbench100.catalog import MATTERS
+from benchmark.counselbench100.catalog import FAMILY_SETTINGS, MATTERS
 from benchmark.counselbench100.generation import build_material
 
 
@@ -82,3 +82,64 @@ class SeededCorpusTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SeedStructuredRecordTests(unittest.TestCase):
+    """`.md` and `.txt` records are composed onto exemplar document structure."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.material = build_material(MATTERS[3], 3)
+
+    def test_records_gain_structure_and_keep_the_rendered_record_verbatim(self) -> None:
+        from generation import _record_prose, _render_document, seed_avoid_literals
+
+        documents = self.material["documents"]
+        structured = 0
+        for path, content in documents.items():
+            extension = PurePosixPath(path).suffix[1:]
+            if extension not in ("md", "txt"):
+                continue
+            self.assertLessEqual(len(content.encode("utf-8")), 20_000)
+            if len(content.encode("utf-8")) > 12_000:
+                structured += 1
+            if extension == "md":
+                self.assertIn("## Participants", content)
+                self.assertIn("| Control field | Value |", content)
+            else:
+                self.assertIn("SCHEDULE 1 — RECORD CHRONOLOGY", content)
+        self.assertGreaterEqual(structured, 30)  # 36 md/txt records per task
+
+    def test_seed_prose_never_carries_a_seeded_finding_literal(self) -> None:
+        """Borrowed structure may not restate a finding: only the record can."""
+
+        from generation import _issue_assignments, _record_prose, _render_document, document_paths, issue_values, seed_avoid_literals
+
+        matter = MATTERS[3]
+        topics = list(FAMILY_SETTINGS[matter.family]["issues"])
+        details = [issue_values(matter, 3, index, topic) for index, topic in enumerate(topics)]
+        literals = seed_avoid_literals(details)
+        self.assertGreater(len(literals), 40)
+        primary, corroborating = _issue_assignments()
+        paths = document_paths(matter)
+        checked = 0
+        for document_index, path in enumerate(paths):
+            extension = PurePosixPath(path).suffix[1:]
+            if extension not in ("md", "txt"):
+                continue
+            side = "primary" if document_index in primary else "corroborating" if document_index in corroborating else None
+            detail = details[primary[document_index]] if side == "primary" else details[corroborating[document_index]] if side else None
+            values = _record_prose(matter, 3, document_index, path, detail, side)
+            rendered = _render_document(values, extension)
+            content = self.material["documents"][path]
+            self.assertIn(rendered.strip(), content)  # the record survives verbatim
+            borrowed = content.replace(rendered.strip(), "").casefold()
+            for literal in literals:
+                self.assertNotIn(literal.casefold(), borrowed, msg=f"{path}: {literal}")
+                checked += 1
+        self.assertGreater(checked, 1_000)
+
+    def test_generation_is_deterministic(self) -> None:
+        again = build_material(MATTERS[3], 3)
+        self.assertEqual(self.material["documents"], again["documents"])
+        self.assertEqual(self.material["expected_findings"], again["expected_findings"])
