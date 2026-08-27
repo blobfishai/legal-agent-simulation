@@ -1,0 +1,39 @@
+{
+ "areas": {
+  "antitrust-competition": 19,
+  "banking-finance": 21,
+  "contracts": 24,
+  "corporate-governance": 24,
+  "corporate-ma": 24,
+  "data-privacy-cybersecurity": 16,
+  "employment-labor": 19,
+  "firm-knowledge": 12,
+  "intellectual-property": 12,
+  "litigation-dispute-resolution": 10,
+  "real-estate": 8,
+  "white-collar-defense-investigations": 10
+ },
+ "bytes": 3057918,
+ "formats": {
+  "docx": 199
+ },
+ "kinds": {
+  "agreement": 19,
+  "certificate": 14,
+  "checklist": 15,
+  "letter": 19,
+  "memo": 19,
+  "minutes": 15,
+  "notes": 12,
+  "plan": 17,
+  "policy": 19,
+  "report": 19,
+  "resolution": 15,
+  "schedule": 16
+ },
+ "seeds": 199,
+ "source": "github.com/harveyai/harvey-labs",
+ "source_commit": "a2b429eb6c9683c4fdeced3bc6b3af36edf239a6",
+ "source_license": "MIT",
+ "subset_of": "/Users/johnny/workplace/blobfishai/packages/document-seeds/fleet_document_seeds/catalog"
+}

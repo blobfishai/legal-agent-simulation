@@ -33,7 +33,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "1.1.0"
+RELEASE_VERSION = "1.2.0"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -505,7 +505,7 @@ configs:
 
 - `data/tasks.jsonl`: Apex-compatible task records (`task_id`, `task_name`, `world_id`, `prompt`, `context_files`, `rubric`, `gold_output`, `metadata`).
 - `tasks/`: one readable JSON record per matter.
-- `task_files/`: 9,600 seeded evidence documents (`md`, `txt`, `eml`, `csv`, `json`, `xml`, and `html`).
+- `task_files/`: 9,600 seeded evidence documents (`md`, `txt`, `eml`, `csv`, `json`, `xml`, and `html`). Since v1.2 the `md` and `txt` records are composed onto the structure of real legal documents (title block, recitals, articles, tables, signature page) around the record-control block the verifier grades.
 - `world/`: the offline Streamable HTTP MCP world and deterministic verifier source.
 - `contracts/`: pinned live contract snapshots for the official MCP filesystem server.
 - `tests/`: conformance and full-suite test programs.
@@ -542,7 +542,7 @@ The world exposes an allowlisted subset of `{MCP_PIN['package']}@{MCP_PIN['versi
 
 ## Data and contamination
 
-Every person, entity, amount, address, event, and document is synthetic. The catalog was written for this release; Harvey Labs and Apex Accounting informed packaging and depth targets only. No Harvey or Apex task text, evidence, rubric, or gold answer is included. Gold outputs are public, as in Apex Accounting, so this release is appropriate for transparent evaluation and RL experiments rather than secret-test claims.
+Every person, entity, amount, address, event, and document is synthetic. The matter catalog was written for this release; Harvey Labs and Apex Accounting informed packaging and depth targets. Since v1.2 the `md` and `txt` records borrow *document structure* (headings, article order, tables, signature blocks, boilerplate clauses) from Harvey LAB exemplars (MIT; see `document_seeds/` in the source repository): every organization, person, date, amount, address, and contact in that borrowed prose is re-drawn deterministically, and every seeded finding literal is scrubbed from it, so no Harvey task text, evidence, rubric, or gold answer is reproduced and no finding can be satisfied from exemplar prose. No Apex material is included. Gold outputs are public, as in Apex Accounting, so this release is appropriate for transparent evaluation and RL experiments rather than secret-test claims.
 
 ## Licenses
 
@@ -556,8 +556,12 @@ def source_readme() -> str:
 This directory contains the deterministic source generator, MCP world, and
 qualification suite for {RELEASE_NAME}.
 
-The v1.1.0 release contains 100 original synthetic matters, 9,600 seeded source
-documents, 109-call accepted MCP trajectories, and a deterministic verifier.
+The v1.2.0 generator produces 100 original synthetic matters, 9,600 seeded source
+documents (the `md`/`txt` records composed onto real legal-document structure
+from vendored Harvey LAB exemplar skeletons — see `document_seeds/VENDORED.md`),
+109-call accepted MCP trajectories, and a deterministic verifier. The published
+v1.1.0 artifacts predate the structured records; republish after qualification
+to ship them.
 
 Public artifacts:
 
