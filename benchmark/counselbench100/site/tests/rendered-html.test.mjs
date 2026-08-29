@@ -22,10 +22,12 @@ test("server-renders the complete benchmark page", async () => {
   const html = await response.text();
   assert.match(html, /CounselBench-100/);
   assert.match(html, /Long-horizon legal work/);
-  assert.match(html, /9,600/);
-  assert.match(html, /109/);
+  assert.match(html, /9,700/);
+  assert.match(html, /69–97/);
+  assert.match(html, /1,500/);
   assert.match(html, /100\/100/);
-  assert.match(html, /0\/10/);
+  assert.match(html, /exact-release score/);
+  assert.doesNotMatch(html, /\b0\/10\b|GPT-5\.6-sol/);
   assert.match(html, /Harbor dataset/);
   assert.match(html, /Hugging Face/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|SkeletonPreview/);
@@ -39,8 +41,10 @@ test("release links and metadata remain pinned", async () => {
   ]);
 
   assert.match(page, /datasets\/blobfishai\/counselbench-100/);
-  assert.match(page, /600/);
-  assert.match(page, /GPT-5\.6-sol/);
+  assert.match(page, /1,500/);
+  assert.match(page, /Clio Manage v4/);
+  assert.match(page, /v3\.2\.0/);
+  assert.doesNotMatch(page, /filesystem MCP|v1\.0\.0/);
   assert.match(page, /CC BY 4\.0/);
   assert.match(layout, /og\.png/);
   assert.match(css, /--ink:\s*#0a1b2d/i);

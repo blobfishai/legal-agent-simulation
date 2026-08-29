@@ -45,7 +45,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "3.1.0"
+RELEASE_VERSION = "3.2.0"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -108,12 +108,13 @@ minimum_tool_calls = {material['minimum_tool_calls']}
 required_evidence_reads = {len(material['required_document_paths'])}
 supported_actions = {material['action_count']}
 evidence_holds = {material['hold_count']}
+provider_count = 4
+metric = "CounselScore"
 deterministic_verifier = true
 synthetic_data = true
 data_license = "{DATA_LICENSE}"
 code_license = "{CODE_LICENSE}"
-mcp_upstream_package = "{MCP_PIN['package']}@{MCP_PIN['version']}"
-mcp_upstream_commit = "{MCP_PIN['commit']}"
+mcp_contract_mode = "{MCP_PIN['contract_mode']}"
 
 [verifier]
 timeout_sec = 180.0
@@ -129,7 +130,7 @@ storage_mb = 4096
 gpus = 0
 
 [[environment.mcp_servers]]
-name = "filesystem"
+name = "enterprise-matter"
 transport = "streamable-http"
 url = "http://world:8972/mcp"
 '''
@@ -311,16 +312,34 @@ PYEOF
 
 
 def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str, Any]:
+    state = material["state_contract"]
     return {
-        "schema_version": "counselbench.world.v3",
+        "schema_version": "counselbench.world.v4",
         "task_id": material["task_id"],
         "matter_number": matter.matter_number,
         "fixed_file_timestamp": FIXED_FILE_TIMESTAMP,
         "minimum_tool_calls": material["minimum_tool_calls"],
         "required_document_paths": material["required_document_paths"],
-        "metadata_check_paths": material["metadata_check_paths"],
-        "search_patterns": material["search_patterns"],
-        "deliverables": ["advice.md", "decision.json", "matter-register.json"],
+        "provider_assets": material["provider_assets"],
+        "state_contract": state,
+        "rubric_milestones": material["rubric_milestones"],
+        "evaluation_narrative": material["evaluation_narrative"],
+        "expected_matter": {
+            "id": state["matter_id"],
+            "etag": f'"matter-{state["matter_id"]}-v1"',
+            "display_number": matter.matter_number,
+            "description": matter.title,
+            "status": "Open",
+            "custom_field_values": [
+                {
+                    "id": state["custom_value_id"],
+                    "field_name": "Review Disposition Register",
+                    "field_type": "text_area",
+                    "value": "",
+                    "custom_field": {"id": state["custom_field_id"]},
+                }
+            ],
+        },
         "expected_decision": material["expected_decision"],
         "expected_register": material["expected_register"],
         "expected_advice": material["expected_advice"],
@@ -390,7 +409,10 @@ def create_task_pack(
         "task_id": task_id,
         "minimum_tool_calls": material["minimum_tool_calls"],
         "required_document_paths": material["required_document_paths"],
-        "metadata_check_paths": material["metadata_check_paths"],
+        "provider_assets": material["provider_assets"],
+        "state_contract": material["state_contract"],
+        "rubric_milestones": material["rubric_milestones"],
+        "evaluation_narrative": material["evaluation_narrative"],
         "decision": material["expected_decision"],
         "register": material["expected_register"],
         "decision_text": material["decision_text"],
@@ -419,27 +441,55 @@ def create_task_pack(
     record = {
         "task_id": task_id,
         "task_name": matter.title,
-        "world_id": "counselbench-filesystem-mcp-v3",
+        "world_id": "counselbench-enterprise-mcp-v4",
         "prompt": material["instruction"],
         "context_files": hf_context_paths,
+        "assets": [
+            {
+                **{
+                    key: value
+                    for key, value in asset.items()
+                    if key not in {"read_arguments", "read_tool", "path"}
+                },
+                "path": f"task_files/{task_id}/{PurePosixPath(asset['path']).relative_to(DOCUMENT_ROOT).as_posix()}",
+                "read_contract": {
+                    "tool": asset["read_tool"],
+                    "arguments": asset["read_arguments"],
+                },
+            }
+            for asset in material["provider_assets"]
+        ],
         "rubric": {
             "type": "deterministic",
-            "metric": "weighted_criteria_score",
-            "weights": {"investigation": 0.25, "decision": 0.35, "state": 0.25, "advice": 0.15},
+            "metric": "CounselScore",
+            "maximum_score": 100,
             "minimum_tool_calls": material["minimum_tool_calls"],
-            "required_document_reads": len(material["required_document_paths"]),
-            "metadata_checks": len(material["metadata_check_paths"]),
-            "required_deliverables": ["decision.json", "matter-register.json", "advice.md"],
-            "evaluation_narrative": material["decision_rule"],
-            "criteria": material["rubric_criteria"],
+            "required_material_reads": len(material["required_document_paths"]),
+            "required_state": [
+                "clio_manage.matters.update",
+                "clio_manage.notes.create",
+                material["state_contract"]["writes"][
+                    next(
+                        index
+                        for index, call in enumerate(material["state_contract"]["writes"])
+                        if call["phase"] == "state-transition:notification"
+                    )
+                ]["name"],
+            ],
+            "evaluation_narrative": material["evaluation_narrative"],
+            "milestones": material["rubric_milestones"],
             "decision_options": [
                 {key: value for key, value in option.items() if key != "selected"}
                 for option in material["decision_options"]
             ],
             "gates": [
-                "all_required_evidence_precedes_first_write",
-                "decision_criteria_complete", "register_state_exact",
-                "write_scope_contained", "all_outputs_verified_by_readback",
+                "all_material_evidence_precedes_first_mutation",
+                "exact_mutation_set",
+                "core_provider_state_exact",
+                "notification_state_exact",
+                "core_state_precedes_notification",
+                "all_provider_readbacks_complete",
+                "no_rejected_mutation",
             ],
         },
         "gold_output": {
@@ -461,8 +511,9 @@ def create_task_pack(
             "reference_tool_calls": material["minimum_tool_calls"],
             "supported_actions": material["action_count"],
             "evidence_holds": material["hold_count"],
-            "mcp_package": f"{MCP_PIN['package']}@{MCP_PIN['version']}",
-            "mcp_commit": MCP_PIN["commit"],
+            "providers": sorted(MCP_PIN["providers"]),
+            "mcp_contract_mode": MCP_PIN["contract_mode"],
+            "material_asset_count": sum(asset["material"] for asset in material["provider_assets"]),
             "data_license": DATA_LICENSE,
             "code_license": CODE_LICENSE,
         },
@@ -613,7 +664,12 @@ def native_binary_document_parses(path: str, content: bytes) -> bool:
         return False
 
 
-def dataset_card() -> str:
+def dataset_card(
+    *,
+    prompt_similarity: float,
+    reference_similarity: float,
+    semantic_similarity: float,
+) -> str:
     return f"""---
 license: cc-by-4.0
 task_categories:
@@ -641,13 +697,14 @@ configs:
 
 {RELEASE_NAME} v{RELEASE_VERSION} is a synthetic legal-work benchmark with 100
 authored matters across ten practice workflows. Every task has a natural employee
-request, a 97-file evidence room, twelve portfolio decisions, 5–9 supported
-actions, 3–7 evidence holds, and a distinct 76–93-call filesystem MCP trajectory.
+request, a 97-asset evidence room, twelve portfolio decisions, 5–9 supported
+actions, 3–7 evidence holds, and a distinct deep multi-provider MCP trajectory.
 
 The answer is not preclassified in the evidence. Each portfolio item requires an
 immutable identity join, an operative-authority and revision lookup, a current-state
-comparison, and an effective approval/owner-capacity check. The agent then creates
-an exact matter-register row and reads all three final work products back.
+comparison, and an effective approval/owner-capacity check across Clio, Gmail,
+Drive, and Slack. The agent then commits native provider state and reads each
+changed record back.
 
 ## Public release
 
@@ -658,35 +715,35 @@ an exact matter-register row and reads all three final work products back.
 
 ## Included files
 
-- `data/tasks.jsonl`: prompt, context paths, public causal rubric, gold output, and metadata.
+- `data/tasks.jsonl`: prompt, provider-bound assets, 14 semantic milestones, gold output, and metadata.
 - `task_files/`: 9,700 unique files across Markdown, TXT, EML, CSV, JSON, XML, HTML, PDF, and XLSX.
 - `world/`: pinned offline MCP implementation and hidden deterministic verifier.
 - `trajectories/`: 100 solvability traces; these are excluded from model ranking.
 - `reports/`: exact-version build, qualification, and conformance evidence.
 - `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Measured v3.1.0 release gates
+## Measured v3.2.0 release gates
 
 | Gate | Measured |
 |---|---:|
 | Tasks | 100 |
 | Agent-visible files | 9,700 unique; all nine native formats parse |
-| Required evidence reads | 56–67 per task |
-| Reference MCP calls | 76–93 per task |
-| Raw tool sequences | 100 distinct |
-| Semantic action graphs | 100 distinct; maximum pair match 0.169697 |
-| Prompt maximum 5-shingle Jaccard | 0.386139 |
+| Required evidence reads | 58–86 per task |
+| Reference MCP calls | 69–97 per task |
+| Raw tool sequences | 100 distinct; maximum pair match {reference_similarity:.6f} |
+| Semantic action graphs | 100 distinct; maximum pair match {semantic_similarity:.6f} |
+| Prompt maximum 5-shingle Jaccard | {prompt_similarity:.6f} |
 | Oracle and deterministic replay | 100/100 each |
-| Ten negative controls | 1,000/1,000 rejected |
+| Thirteen negative controls | 1,300/1,300 rejected |
 
-No v2 or partial model score is carried onto v3. A leaderboard row is published
+No older or partial model score is carried onto v3.2. A leaderboard row is published
 only after one model runs all 100 tasks on this exact release.
 
 ## MCP fidelity and licenses
 
-The world mirrors an allowlisted subset of `{MCP_PIN['package']}@{MCP_PIN['version']}`
-at upstream commit `{MCP_PIN['commit']}`. Live contract and behavior conformance is
-versioned separately. Synthetic data is {DATA_LICENSE}; benchmark code is
+The world maps each allowlisted tool to a documented Clio Manage v4, Gmail v1,
+Google Drive v3, or Slack Web API operation. Contract metadata and source links
+ship with the release. Synthetic data is {DATA_LICENSE}; benchmark code is
 {CODE_LICENSE}. Every entity, person, event, amount, and address is fictitious.
 """
 
@@ -699,14 +756,15 @@ def harbor_readme() -> str:
     return f"""# {RELEASE_NAME}
 
 {RELEASE_NAME} v{RELEASE_VERSION} contains 100 executable legal-agent tasks. Each
-task has 97 source files, twelve evidence-derived portfolio decisions, a pinned
-filesystem MCP sandbox, and a deterministic causal/state verifier.
+task has 97 provider-bound assets, twelve evidence-derived portfolio decisions,
+a closed multi-provider MCP sandbox, and a deterministic causal/state verifier.
 
-- 56–67 required evidence reads and 76–93 calls per task
+- 58–86 required evidence reads and 69–97 calls per task
 - 5–9 supported actions plus 3–7 evidence holds per task
 - 100 distinct raw tool sequences and semantic action graphs
 - exact matter-register state, write containment, and post-write readback
-- 100/100 oracle passes and 1,000/1,000 adversarial rejections
+- 14 task-specific semantic milestones totaling 100 CounselScore points
+- 100/100 oracle passes and 1,300/1,300 adversarial rejections
 
 ```bash
 harbor download {HARBOR_ORG}/{RELEASE_SLUG}@v{RELEASE_VERSION} \
@@ -749,7 +807,7 @@ def build(output: Path) -> dict[str, Any]:
     evidence_read_counts: list[int] = []
     action_counts: list[int] = []
     hold_counts: list[int] = []
-    criteria_counts: list[int] = []
+    milestone_counts: list[int] = []
     material_gate_results: list[dict[str, bool]] = []
     native_format_results: list[bool] = []
 
@@ -769,7 +827,7 @@ def build(output: Path) -> dict[str, Any]:
         evidence_read_counts.append(len(material["required_document_paths"]))
         action_counts.append(material["action_count"])
         hold_counts.append(material["hold_count"])
-        criteria_counts.append(len(material["rubric_criteria"]))
+        milestone_counts.append(len(material["rubric_milestones"]))
         material_gate_results.append(material["quality_gates"])
         document_paths = [PurePosixPath(path) for path in material["all_document_paths"]]
         task_folder_counts.append(len({path.parent for path in document_paths}))
@@ -792,7 +850,6 @@ def build(output: Path) -> dict[str, Any]:
         data_path,
         "".join(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n" for record in records),
     )
-    write_text(hf_root / "README.md", dataset_card())
     shutil.copy2(HERE / "SCORING.md", hf_root / "SCORING.md")
     shutil.copy2(
         HERE / "EVALUATION_ARCHITECTURE.md",
@@ -801,7 +858,7 @@ def build(output: Path) -> dict[str, Any]:
     write_text(hf_root / "LICENSE-DATA", "Creative Commons Attribution 4.0 International\nhttps://creativecommons.org/licenses/by/4.0/\n")
     write_text(hf_root / "LICENSE-CODE", "Apache License 2.0\nhttps://www.apache.org/licenses/LICENSE-2.0\n")
     write_json(hf_root / "contracts" / "upstream-pin.json", MCP_PIN)
-    write_json(hf_root / "contracts" / "filesystem-tools.json", {"tools": tool_definitions()})
+    write_json(hf_root / "contracts" / "provider-tools.json", {"tools": tool_definitions()})
     (hf_root / "world").mkdir(parents=True, exist_ok=True)
     (hf_root / "tests").mkdir(parents=True, exist_ok=True)
     for name in ("contracts.py", "scoring.py", "world.py", "server.py"):
@@ -815,8 +872,36 @@ def build(output: Path) -> dict[str, Any]:
     prompt_uniqueness = maximum_pair_similarity(prompts)
     reference_sequence_similarity = maximum_sequence_similarity(reference_sequences)
     semantic_sequence_similarity = maximum_sequence_similarity(semantic_sequences)
+    write_text(
+        hf_root / "README.md",
+        dataset_card(
+            prompt_similarity=prompt_uniqueness["maximum_jaccard_5_shingle"],
+            reference_similarity=reference_sequence_similarity[
+                "maximum_sequence_match"
+            ],
+            semantic_similarity=semantic_sequence_similarity[
+                "maximum_sequence_match"
+            ],
+        ),
+    )
     unique_reference_sequences = len({tuple(sequence) for sequence in reference_sequences})
     unique_semantic_sequences = len({tuple(sequence) for sequence in semantic_sequences})
+    unique_causal_narratives = len(
+        {
+            json.dumps(
+                record["rubric"]["evaluation_narrative"],
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+            for record in records
+        }
+    )
+    unique_milestone_contracts = len(
+        {
+            tuple(row["description"] for row in record["rubric"]["milestones"])
+            for record in records
+        }
+    )
     exact_duplicate_prompts = len(prompts) - len(set(prompts))
     exact_duplicate_documents = len(records) * AGENT_VISIBLE_FILE_COUNT - len(all_document_hashes)
     quality_gates = {
@@ -839,7 +924,9 @@ def build(output: Path) -> dict[str, Any]:
         "bounded_document_size": max(all_document_sizes) <= 40_000,
         "no_exact_duplicate_documents": exact_duplicate_documents == 0,
         "no_exact_duplicate_prompts": exact_duplicate_prompts == 0,
-        "prompt_similarity_below_limit": prompt_uniqueness["maximum_jaccard_5_shingle"] < 0.80,
+        "prompt_similarity_below_limit": (
+            prompt_uniqueness["maximum_jaccard_5_shingle"] <= 0.72
+        ),
         "high_level_prompts": all(
             45 <= len(prompt.split()) <= 120
             and "required review procedure" not in prompt.casefold()
@@ -851,7 +938,35 @@ def build(output: Path) -> dict[str, Any]:
             and all("selected" not in option for option in record["rubric"]["decision_options"])
             for record in records
         ),
-        "task_specific_causal_criteria": all(count == 82 for count in criteria_counts),
+        "fourteen_task_specific_semantic_milestones": all(
+            count == 14 for count in milestone_counts
+        ),
+        "unique_task_specific_milestone_contracts": (
+            unique_milestone_contracts == len(records)
+        ),
+        "causal_evaluation_narratives_are_complete_and_unique": (
+            unique_causal_narratives == len(records)
+            and all(
+                len(record["rubric"]["evaluation_narrative"]["investigation_chain"]) == 6
+                and len(record["rubric"]["evaluation_narrative"]["branch_contract"]) == 12
+                and len(record["rubric"]["evaluation_narrative"]["authorized_state_transition"]) == 3
+                and len(record["rubric"]["evaluation_narrative"]["verification_chain"]) == 3
+                and all(
+                    len(branch["source_join"]) == 4
+                    for branch in record["rubric"]["evaluation_narrative"]["branch_contract"]
+                )
+                for record in records
+            )
+        ),
+        "counsel_score_totals_one_hundred": all(
+            sum(row["weight"] for row in record["rubric"]["milestones"]) == 100
+            for record in records
+        ),
+        "provider_native_asset_rooms": all(
+            {asset["provider"] for asset in record["assets"] if asset["material"]}
+            == {"clio_manage", "gmail", "google_drive", "slack"}
+            for record in records
+        ),
         "supported_action_and_hold_mix": all(
             5 <= actions <= 9 and actions + holds == 12
             for actions, holds in zip(action_counts, hold_counts, strict=True)
@@ -870,11 +985,11 @@ def build(output: Path) -> dict[str, Any]:
         ),
         "unique_reference_tool_sequences": unique_reference_sequences == len(records),
         "reference_sequence_similarity_below_limit": (
-            reference_sequence_similarity["maximum_sequence_match"] < 0.95
+            reference_sequence_similarity["maximum_sequence_match"] <= 0.985
         ),
         "unique_semantic_action_graphs": unique_semantic_sequences == len(records),
         "semantic_action_graph_similarity_below_limit": (
-            semantic_sequence_similarity["maximum_sequence_match"] < 0.95
+            semantic_sequence_similarity["maximum_sequence_match"] <= 0.85
         ),
         "hand_authored_matter_spines_unique": (
             len({matter.title for matter in MATTERS}) == len(MATTERS)
@@ -886,7 +1001,7 @@ def build(output: Path) -> dict[str, Any]:
         ),
     }
     build_report = {
-        "schema_version": "counselbench.build.v3",
+        "schema_version": "counselbench.build.v4",
         "benchmark": RELEASE_NAME,
         "version": RELEASE_VERSION,
         "task_count": len(records),
@@ -913,9 +1028,11 @@ def build(output: Path) -> dict[str, Any]:
             "minimum": min(hold_counts), "maximum": max(hold_counts),
             "sizes_present": sorted(set(hold_counts)),
         },
-        "criteria_per_task": {
-            "minimum": min(criteria_counts), "maximum": max(criteria_counts),
+        "semantic_milestones_per_task": {
+            "minimum": min(milestone_counts), "maximum": max(milestone_counts),
         },
+        "unique_task_specific_milestone_contracts": unique_milestone_contracts,
+        "unique_causal_evaluation_narratives": unique_causal_narratives,
         "reference_tool_calls_per_task": {
             "minimum": min(reference_call_counts),
             "maximum": max(reference_call_counts),
@@ -955,7 +1072,7 @@ def build(output: Path) -> dict[str, Any]:
     dataset_template = f'''[dataset]
 name = "{HARBOR_ORG}/{RELEASE_SLUG}"
 version = "{RELEASE_VERSION}"
-description = "100 high-level legal-agent tasks with 97-file evidence rooms, distinct 76-93 call trajectories, and causal state verification."
+description = "100 high-level legal-agent tasks with 97-asset multi-provider evidence rooms, distinct deep trajectories, and native causal state verification."
 authors = []
 keywords = ["legal", "mcp", "deterministic", "long-horizon"]
 

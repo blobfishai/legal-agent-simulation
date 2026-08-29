@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s · CounselBench-100",
   },
   description:
-    "An open long-horizon benchmark for legal agents: 100 matters, 9,600 documents, 109 verified MCP calls per task.",
+    "An open long-horizon benchmark for legal agents: 100 matters, 9,700 provider-bound assets, and deterministic CounselScore evaluation.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CounselBench-100",
-    description: "100 matters · 9,600 documents · 109 verified MCP calls",
+    description: "100 matters · 9,700 assets · Clio, Gmail, Drive, and Slack",
     images: ["/og.png"],
   },
 };
