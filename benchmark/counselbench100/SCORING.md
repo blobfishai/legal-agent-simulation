@@ -1,50 +1,62 @@
 # CounselBench-100 scoring contract
 
-CounselBench-100 v2.0 reports continuous, deterministic criterion credit and a
-separate strict pass. The grader makes no model, network, clock, locale, or
-random call.
+CounselBench-100 v3.0 reports deterministic criterion credit and a separate
+strict pass. The grader makes no model, network, clock, locale, or random call.
 
-## Why v2.0 keeps the corrected metric
+## What v3 measures
 
-The v1.0 baseline contained ten substantive GPT-5.6-sol executions. Every run
-read all 96 documents and completed 109–117 successful MCP calls, yet all ten
-received zero because the verifier required full JSON equality and a single
-all-or-nothing memo grounding gate. Some expected issue labels and remediation
-owners were assigned by generator order but were not recoverable from the
-records. That made the binary display invalid as a diagnostic model metric.
+The release no longer rewards copying answer-shaped metadata. Source records do
+not label a finding, identify a primary or corroborating record, assign
+severity, name a remediation owner, or disclose the selected option. For each
+of twelve portfolio keys, the agent must establish four independent controls:
 
-v1.1 exposed stable finding IDs, issue labels, severity, owner, and response
-deadline in realistic record-control metadata. The verifier scores those
-recoverable values individually while retaining a strict all-criteria pass.
+1. resolve the immutable entity rather than match a display name;
+2. locate the operative authority and current effective revision;
+3. compare the current operational fact to the governed trigger;
+4. verify effective approval and an active owner with capacity.
 
-v2.0 keeps those 182 checks but moves the solve procedure and output schema out
-of the user request and into a discoverable work-product control in the evidence
-room. The accepted walk inventories all 96 records, then reads the 32 controlling
-and corroborating records plus that control. Sixty-four context records remain as
-realistic distractors. Every matter has its own reference sequence and three
-explicitly explained decision alternatives; no exact call order is graded.
+All four controls produce a supported action. A failed control produces a
+specific evidence hold. Every task contains both branches.
 
-## Criteria per task
+The employee-facing request stays high level. A neutral work-product protocol
+in the evidence room defines the output shapes and presents all three candidate
+approaches without marking an answer.
 
-| Category | Criteria | Weight |
-|---|---:|---:|
-| Review procedure | 8 | 25% |
-| Structured findings | 152 | 55% |
-| Counsel memo | 22 | 20% |
-| Total | 182 | 100% |
+## Scored categories
 
-The findings category has eight document-level criteria plus nine criteria for
-each of 16 findings: presence, five exact identity/evidence fields, required
-fact anchors, source-bounded controlled facts, and required action anchors. The
-memo category checks five sections, one complete grounding criterion per
-finding, and absence of forbidden claims.
+| Category | Weight | What is checked |
+|---|---:|---|
+| Investigation | 25% | Exact required reads, custody checks, discovery/search, and all evidence preceding the first write |
+| Decision | 35% | Selected option, alternatives, exact action and hold populations, branch facts, citations, owners, and deadlines |
+| State | 25% | One exact matter-register row per portfolio key, no collateral rows or fields, and write-scope containment |
+| Advice | 15% | Recommendation, causal rationale, every supported action, every hold, alternatives, and limitations |
 
-## Caps and strict pass
+The public rubric has 82 task-specific descriptions: global causal gates plus
+identity, authority, operations, approval, branch, and register checks for each
+portfolio key. The executable verifier expands those descriptions into
+field-level decision and state criteria.
 
-- Missing deliverables or outputs not written through MCP cap reward at 0.20.
-- Any other incomplete review-procedure criterion caps reward at 0.49.
-- Strict pass requires every procedure, finding, and memo criterion.
-- Exact equality with the reference answer remains a diagnostic only.
+## Ordering, containment, and readback
 
-All criterion outcomes and category scores are included in the verifier report,
-so a leaderboard value can be reproduced without an external judge.
+The trace—not a claimed narrative—proves the workflow:
+
+- all 55–65 required records must be read in full before the first write;
+- designated metadata checks and task-specific format searches must precede
+  mutation;
+- only `decision.json`, `matter-register.json`, and `advice.md` may be
+  written;
+- each final file digest must match the last MCP write;
+- each final file must be read back after its last write.
+
+## Reward caps and strict pass
+
+- Missing or out-of-scope state writes cap reward at 0.20.
+- Missing post-write verification caps reward at 0.35.
+- Incomplete or late required investigation caps reward at 0.49.
+- Another incomplete procedure caps reward at 0.59.
+- Strict pass requires every procedure, decision, state, and advice criterion.
+
+Exact decision and register equality are graded state properties, not hidden
+string checks in the prompt. All outcomes and category scores are included in
+the verifier report, so a published value can be reproduced without an
+evaluator model.

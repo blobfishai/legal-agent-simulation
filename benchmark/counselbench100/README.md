@@ -1,16 +1,28 @@
 # CounselBench-100 source
 
-This directory contains the deterministic source generator, MCP world,
+This directory contains the deterministic source generator, pinned MCP world,
 qualification suite, and release tooling for CounselBench-100.
 
-The v2.0.0 release contains 100 original synthetic matters, 9,600 seeded source
-documents, high-level employee requests, 100 distinct 46-call accepted MCP
-trajectories, three decision alternatives per matter, and a deterministic
-182-criterion verifier with partial-credit rewards and strict full-task pass.
-The release completed 600 local qualification executions with 100/100 oracle
-passes, 100/100 exact replays, and zero false accepts across 400 adversarial
-controls. A model leaderboard row is published only after all 100 tasks have run
-on this exact release; the prior ten-task v1.1 sample is not inherited.
+The v3.0.0 release contains 100 original synthetic legal matters and 9,600
+source records across ten practice workflows. Each employee request asks for a
+decision in ordinary workplace language. The task-specific investigation is
+discovered from the records: twelve portfolio items must be joined across
+immutable identity, operative authority, current operations, and effective
+approval/revision evidence.
+
+Every task has a real mix of 5–9 supported actions and 3–7 evidence holds. It
+requires 55–65 full evidence reads and a distinct 68–85-call MCP trajectory,
+including three state-changing deliverables and exact post-write readback. All
+100 raw tool sequences and all 100 semantic action graphs are distinct.
+
+The v3 qualification ran 1,200 local executions:
+
+- 100/100 oracle passes
+- 100/100 exact deterministic replays
+- 0 false accepts in each of ten adversarial controls (1,000/1,000 rejected)
+- copied-gold, no-op, state-only, incomplete-read, write-before-read,
+  missing-readback, unauthorized-write, wrong-value, wrong-decision, and
+  wrong-branch trajectories all fail
 
 Public artifacts:
 
@@ -24,17 +36,20 @@ python3 benchmark/counselbench100/builder.py
 python3 -m unittest \
   benchmark.counselbench100.tests.test_builder \
   benchmark.counselbench100.tests.test_generation \
-  benchmark.counselbench100.tests.test_scoring -v
+  benchmark.counselbench100.tests.test_scoring
 python3 benchmark/counselbench100/run_suite.py
 python3 benchmark/counselbench100/tests/conformance.py \
   --report dist/counselbench-100/reports/mcp-conformance.json
 ```
 
 Reference trajectories prove solvability and are excluded from model ranking.
-Any future model publication must cover all 100 v2.0 tasks exactly once.
+A leaderboard row is eligible only after one model has executed all 100 tasks
+against the exact v3.0.0 release. Older or partial scores are not inherited.
 
-Generated release files are written to `dist/counselbench-100` and are intentionally ignored by Git. The committed catalog contains 100 hand-authored matter spines; generation makes no network calls.
+Generated files are written to `dist/counselbench-100` and are ignored by Git.
+The committed catalog and decision-rule table contain 100 authored matter
+spines and 100 authored causal decisions. Generation and grading make no model
+or network calls.
 
-The canonical benchmark explorer lives in the Blobfish website repository and
-is deployed at the public URL above. The page under `site/` is retained only as
-the historical v1.0 launch artifact.
+The canonical explorer lives in the Blobfish website repository. The page under
+`site/` is retained only as a historical launch artifact.

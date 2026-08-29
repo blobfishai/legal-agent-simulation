@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-RELEASE_VERSION = "2.0.0"
+RELEASE_VERSION = "3.0.0"
 DEFAULT_MODEL_JOBS: list[str] = []
 
 
@@ -38,8 +38,9 @@ def criterion_counts(verifier: dict[str, Any]) -> tuple[int, int]:
     criteria = verifier["criteria"]
     values = [
         *criteria["procedure"].values(),
-        *criteria["findings"]["criteria"].values(),
-        *criteria["memo"]["criteria"].values(),
+        *criteria["decision"]["criteria"].values(),
+        *criteria["register"]["criteria"].values(),
+        *criteria["advice"]["criteria"].values(),
     ]
     return sum(bool(value) for value in values), len(values)
 
@@ -87,6 +88,7 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
                     "criteria_total": criteria_total,
                     "successful_tool_calls": verifier["successful_tool_calls"],
                     "documents_read": verifier["documents_read"],
+                    "required_documents": verifier["required_documents"],
                     "failed_checks": failed_checks,
                     "verifier_report_sha256": verifier["report_sha256"],
                     "model": result["agent_info"]["model_info"]["name"],
@@ -111,7 +113,7 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
 
     gates = sorted({gate for trial in trials for gate in trial["failed_checks"]})
     report = {
-        "schema_version": "1.1",
+        "schema_version": "counselbench.model-report.v3",
         "benchmark": "CounselBench-100",
         "benchmark_version": RELEASE_VERSION,
         "evaluation": {
@@ -136,11 +138,13 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
                     sum(trial["category_scores"][category] for trial in trials) / len(trials),
                     6,
                 )
-                for category in ("procedure", "findings", "memo")
+                for category in ("investigation", "decision", "state", "advice")
             },
             "criteria_passed": sum(trial["criteria_passed"] for trial in trials),
             "criteria_total": sum(trial["criteria_total"] for trial in trials),
-            "all_required_evidence_read_trials": sum(trial["documents_read"] == 33 for trial in trials),
+            "all_required_evidence_read_trials": sum(
+                trial["documents_read"] == trial["required_documents"] for trial in trials
+            ),
             "minimum_successful_tool_calls": min(trial["successful_tool_calls"] for trial in trials),
             "maximum_successful_tool_calls": max(trial["successful_tool_calls"] for trial in trials),
             "total_input_tokens": sum(trial["input_tokens"] or 0 for trial in trials),

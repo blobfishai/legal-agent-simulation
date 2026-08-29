@@ -4,13 +4,19 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
+import io
 import json
 import os
 import shutil
 import stat
 import sys
+import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
+from email import policy
+from email.parser import Parser
+from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable
 
@@ -20,6 +26,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 from catalog import FAMILY_SETTINGS, MATTERS, Matter  # noqa: E402
+from decision_specs import DECISION_RULES  # noqa: E402
 from generation import (  # noqa: E402
     DOCUMENT_COUNT,
     DOCUMENT_ROOT,
@@ -35,7 +42,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "2.0.0"
+RELEASE_VERSION = "3.0.0"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -66,7 +73,12 @@ def verification_token(task_id: str) -> str:
     return hashlib.sha256(f"CounselBench-100 verifier capability::{task_id}".encode()).hexdigest()
 
 
-def task_toml(matter: Matter, task_id: str, task_index: int) -> str:
+def task_toml(
+    matter: Matter,
+    task_id: str,
+    task_index: int,
+    material: dict[str, Any],
+) -> str:
     task_name = f"{HARBOR_ORG}/cb100-{task_index + 1:03d}-{matter.slug}"
     return f'''schema_version = "1.4"
 
@@ -84,7 +96,10 @@ task_id = "{task_id}"
 matter_number = "{matter.matter_number}"
 practice_area = "{matter.family}"
 document_count = {DOCUMENT_COUNT}
-minimum_tool_calls = {MINIMUM_TOOL_CALLS}
+minimum_tool_calls = {material['minimum_tool_calls']}
+required_evidence_reads = {len(material['required_document_paths'])}
+supported_actions = {material['action_count']}
+evidence_holds = {material['hold_count']}
 deterministic_verifier = true
 synthetic_data = true
 data_license = "{DATA_LICENSE}"
@@ -248,7 +263,7 @@ def call(name, arguments):
 for step in REFERENCE["calls"]:
     call(step["name"], step["arguments"])
 print(json.dumps({"task_id": REFERENCE["task_id"], "successful_tool_calls": request_id}))
-if request_id < 46:
+if request_id < REFERENCE["minimum_tool_calls"]:
     raise SystemExit("reference trajectory was unexpectedly short")
 '''
 
@@ -288,34 +303,35 @@ PYEOF
 
 
 def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str, Any]:
-    findings = material["expected_findings"]["findings"]
-    anchors = [matter.title, matter.matter_number, matter.client]
-    for finding in findings:
-        anchors.extend(
-            [
-                finding["id"], finding["issue"], finding["severity"],
-                finding["primary_source"], finding["corroborating_source"],
-            ]
-        )
     return {
-        "schema_version": "1.1",
+        "schema_version": "counselbench.world.v3",
         "task_id": material["task_id"],
         "matter_number": matter.matter_number,
         "fixed_file_timestamp": FIXED_FILE_TIMESTAMP,
-        "minimum_tool_calls": MINIMUM_TOOL_CALLS,
+        "minimum_tool_calls": material["minimum_tool_calls"],
         "required_document_paths": material["required_document_paths"],
         "metadata_check_paths": material["metadata_check_paths"],
-        "deliverables": ["advice.md", "findings.json"],
-        "expected_findings": material["expected_findings"],
-        "expected_memo": material["expected_memo"],
-        "scoring_findings": material["scoring_findings"],
-        "memo_sections": [
-            "Executive assessment", "Method and record coverage", "Findings",
-            "Recommended next actions", "Assumptions and limitations",
+        "search_patterns": material["search_patterns"],
+        "deliverables": ["advice.md", "decision.json", "matter-register.json"],
+        "expected_decision": material["expected_decision"],
+        "expected_register": material["expected_register"],
+        "expected_advice": material["expected_advice"],
+        "decision_options": material["decision_options"],
+        "evidence_requirements": [
+            {
+                "portfolio_key": case["portfolio_key"],
+                "topic": case["topic"],
+                "required_paths": case["required_paths"],
+                "required_roles": case["required_roles"],
+                "expected_disposition": case["disposition"],
+            }
+            for case in material["cases"]
         ],
-        "memo_anchors": anchors,
         "forbidden_claims": [
-            "no material issues", "all records are consistent", "no further action is required",
+            "every portfolio item is actionable",
+            "every portfolio item must remain on hold",
+            "the newest document always controls",
+            "a display-name match is sufficient",
         ],
         "verify_token_sha256": hashlib.sha256(token.encode("utf-8")).hexdigest(),
         "mcp_pin": MCP_PIN,
@@ -344,7 +360,10 @@ def create_task_pack(
     token = verification_token(task_id)
     spec = make_spec(material, matter, token)
 
-    write_text(task_dir / "task.toml", task_toml(matter, task_id, task_index))
+    write_text(
+        task_dir / "task.toml",
+        task_toml(matter, task_id, task_index, material),
+    )
     write_text(task_dir / "instruction.md", material["instruction"])
     write_text(environment / "Dockerfile", main_dockerfile())
     write_text(environment / "docker-compose.yaml", compose_yaml())
@@ -358,10 +377,14 @@ def create_task_pack(
 
     reference = {
         "task_id": task_id,
+        "minimum_tool_calls": material["minimum_tool_calls"],
         "required_document_paths": material["required_document_paths"],
         "metadata_check_paths": material["metadata_check_paths"],
-        "findings_text": material["expected_findings_text"],
-        "memo_text": material["expected_memo"],
+        "decision": material["expected_decision"],
+        "register": material["expected_register"],
+        "decision_text": material["decision_text"],
+        "register_text": material["register_text"],
+        "advice_text": material["expected_advice"],
         "calls": material["reference_calls"],
     }
     write_json(task_dir / "solution" / "reference.json", reference)
@@ -385,28 +408,33 @@ def create_task_pack(
     record = {
         "task_id": task_id,
         "task_name": matter.title,
-        "world_id": "counselbench-filesystem-mcp-v2",
+        "world_id": "counselbench-filesystem-mcp-v3",
         "prompt": material["instruction"],
         "context_files": hf_context_paths,
         "rubric": {
             "type": "deterministic",
             "metric": "weighted_criteria_score",
-            "weights": {"procedure": 0.25, "findings": 0.55, "memo": 0.20},
-            "minimum_tool_calls": MINIMUM_TOOL_CALLS,
-            "required_document_reads": REQUIRED_EVIDENCE_READS,
-            "metadata_checks": 8,
-            "required_deliverables": ["findings.json", "advice.md"],
+            "weights": {"investigation": 0.25, "decision": 0.35, "state": 0.25, "advice": 0.15},
+            "minimum_tool_calls": material["minimum_tool_calls"],
+            "required_document_reads": len(material["required_document_paths"]),
+            "metadata_checks": len(material["metadata_check_paths"]),
+            "required_deliverables": ["decision.json", "matter-register.json", "advice.md"],
+            "evaluation_narrative": material["decision_rule"],
             "criteria": material["rubric_criteria"],
-            "decision_options": material["decision_options"],
+            "decision_options": [
+                {key: value for key, value in option.items() if key != "selected"}
+                for option in material["decision_options"]
+            ],
             "gates": [
-                "all_evidence_read_in_full", "chain_of_custody_metadata_checked",
-                "findings_criteria_complete", "memo_criteria_complete",
-                "deliverables_written_through_mcp",
+                "all_required_evidence_precedes_first_write",
+                "decision_criteria_complete", "register_state_exact",
+                "write_scope_contained", "all_outputs_verified_by_readback",
             ],
         },
         "gold_output": {
-            "findings": material["expected_findings"],
-            "advice_markdown": material["expected_memo"],
+            "decision": material["expected_decision"],
+            "matter_register": material["expected_register"],
+            "advice_markdown": material["expected_advice"],
         },
         "metadata": {
             "benchmark": RELEASE_NAME,
@@ -418,8 +446,10 @@ def create_task_pack(
             "deadline": matter.deadline,
             "synthetic": True,
             "document_count": DOCUMENT_COUNT,
-            "required_evidence_reads": REQUIRED_EVIDENCE_READS,
-            "reference_tool_calls": MINIMUM_TOOL_CALLS,
+            "required_evidence_reads": len(material["required_document_paths"]),
+            "reference_tool_calls": material["minimum_tool_calls"],
+            "supported_actions": material["action_count"],
+            "evidence_holds": material["hold_count"],
             "mcp_package": f"{MCP_PIN['package']}@{MCP_PIN['version']}",
             "mcp_commit": MCP_PIN["commit"],
             "data_license": DATA_LICENSE,
@@ -435,7 +465,10 @@ def create_task_pack(
         "task_pack": f"tasks/{task_id}",
         "harbor_name": f"{HARBOR_ORG}/cb100-{task_index + 1:03d}-{matter.slug}",
         "documents": DOCUMENT_COUNT,
-        "reference_tool_calls": MINIMUM_TOOL_CALLS,
+        "reference_tool_calls": material["minimum_tool_calls"],
+        "required_evidence_reads": len(material["required_document_paths"]),
+        "supported_actions": material["action_count"],
+        "evidence_holds": material["hold_count"],
     }
     return record, index_entry
 
@@ -479,6 +512,33 @@ def maximum_sequence_similarity(sequences: list[list[str]]) -> dict[str, Any]:
     return {"maximum_sequence_match": round(maximum, 6), "pair_indices": pair}
 
 
+def native_document_parses(path: str, content: str) -> bool:
+    """Validate the actual text-native representation, not just its suffix."""
+
+    suffix = PurePosixPath(path).suffix.casefold()
+    try:
+        if suffix == ".json":
+            return isinstance(json.loads(content), dict)
+        if suffix == ".csv":
+            rows = list(csv.DictReader(io.StringIO(content)))
+            return bool(rows) and "portfolio_key" in (rows[0] or {})
+        if suffix == ".xml":
+            return ET.fromstring(content).tag == "counsel-source-record"
+        if suffix == ".eml":
+            message = Parser(policy=policy.default).parsestr(content)
+            return bool(message["Message-ID"] and message["X-Portfolio-Key"])
+        if suffix == ".html":
+            parser = HTMLParser()
+            parser.feed(content)
+            parser.close()
+            return "<!doctype html>" in content.casefold() and "</html>" in content.casefold()
+        if suffix in {".md", ".txt"}:
+            return len(content.splitlines()) >= 40
+    except (csv.Error, json.JSONDecodeError, UnicodeError, ET.ParseError, ValueError):
+        return False
+    return False
+
+
 def dataset_card() -> str:
     return f"""---
 license: cc-by-4.0
@@ -505,133 +565,88 @@ configs:
 
 # {RELEASE_NAME}
 
-{RELEASE_NAME} is a synthetic long-horizon legal-agent benchmark with 100 distinct matters across ten practice workflows. Every task presents a high-level employee request, 96 production-style source records in 12 folders, 64 realistic distractors, 33 required evidence records, three explicit decision options, and a distinct 46-call reference MCP trajectory. The v2.0 grader exposes 182 matter-specific deterministic criteria across investigation (25%), structured findings (55%), and counsel advice (20%); full task pass still requires every criterion.
+{RELEASE_NAME} v{RELEASE_VERSION} is a synthetic legal-work benchmark with 100
+authored matters across ten practice workflows. Every task has a natural employee
+request, a 96-record evidence room, twelve portfolio decisions, 5–9 supported
+actions, 3–7 evidence holds, and a distinct 68–85-call filesystem MCP trajectory.
+
+The answer is not preclassified in the evidence. Each portfolio item requires an
+immutable identity join, an operative-authority and revision lookup, a current-state
+comparison, and an effective approval/owner-capacity check. The agent then creates
+an exact matter-register row and reads all three final work products back.
 
 ## Public release
 
 - Runnable Harbor world: <https://hub.harborframework.com/datasets/blobfishai/counselbench-100>
-- Dataset and test assets: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
-- Benchmark page: <https://blobfish.ai/benchmarks/counselbench-100>
-- Builder and verifier source: <https://github.com/blobfishai/legal-agent-simulation/tree/master/benchmark/counselbench100>
+- Dataset and assets: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
+- Benchmark explorer: <https://blobfish.ai/benchmarks/counselbench-100>
+- Builder and verifier: <https://github.com/blobfishai/legal-agent-simulation/tree/master/benchmark/counselbench100>
 
-## What is included
+## Included files
 
-- `data/tasks.jsonl`: Apex-compatible task records (`task_id`, `task_name`, `world_id`, `prompt`, `context_files`, `rubric`, `gold_output`, `metadata`).
-- `tasks/`: one readable JSON record per matter.
-- `task_files/`: 9,600 seeded evidence documents (`md`, `txt`, `eml`, `csv`, `json`, `xml`, and `html`).
-- `world/`: the offline Streamable HTTP MCP world and deterministic verifier source.
-- `contracts/`: pinned live contract snapshots for the official MCP filesystem server.
-- `tests/`: conformance and full-suite test programs.
-- `SCORING.md`: the versioned 182-criterion scoring contract and v1.0 correction rationale.
-- `EVALUATION_ARCHITECTURE.md`: the runtime map to Archipelago/APEX and the intentional deterministic-grading differences.
-- `trajectories/` and `reports/`: all 100 generated reference traces and measured oracle/control evidence. A model row is published only after all 100 tasks run on this exact release.
+- `data/tasks.jsonl`: prompt, context paths, public causal rubric, gold output, and metadata.
+- `task_files/`: 9,600 unique records in Markdown, TXT, EML, CSV, JSON, XML, and HTML.
+- `world/`: pinned offline MCP implementation and hidden deterministic verifier.
+- `trajectories/`: 100 solvability traces; these are excluded from model ranking.
+- `reports/`: exact-version build, qualification, and conformance evidence.
+- `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Objective release gates
+## Measured v3.0.0 release gates
 
-| Gate | Required |
+| Gate | Measured |
 |---|---:|
 | Tasks | 100 |
-| Practice workflows | 10 |
-| Source records per task | 96 |
-| Required evidence records per task | 33 |
-| Reference MCP calls per task | 46 |
-| LLM or network calls in verifier | 0 |
-| Oracle passes | 100/100 |
-| Shortcut, incomplete-read, and wrong-fact false accepts | 0 |
+| Source records | 9,600 unique; all native formats parse |
+| Required evidence reads | 55–65 per task |
+| Reference MCP calls | 68–85 per task |
+| Raw tool sequences | 100 distinct |
+| Semantic action graphs | 100 distinct; maximum pair match 0.145695 |
+| Prompt maximum 5-shingle Jaccard | 0.386139 |
+| Oracle and deterministic replay | 100/100 each |
+| Ten negative controls | 1,000/1,000 rejected |
 
-Measured results are stored in `reports/qualification.json`; do not infer a model score from the reference trajectory.
+No v2 or partial model score is carried onto v3. A leaderboard row is published
+only after one model runs all 100 tasks on this exact release.
 
-## Deterministic v2.0 scoring
+## MCP fidelity and licenses
 
-- Each task has 182 visible criteria: 8 procedure, 152 structured-findings, and 22 memo criteria.
-- Each finding is graded field by field against record-control metadata exposed to the agent.
-- Determinations must contain the seeded fact anchors and may not introduce controlled dates, amounts, percentages, addresses, or references absent from the cited source pair.
-- Recommendations must preserve the seeded response deadline and remediation owner.
-- Incomplete review procedure caps reward below 0.5, even when an output resembles the gold file.
-- Full-output exact match is retained only as a diagnostic and does not erase legitimate partial credit.
-
-## MCP fidelity
-
-The world exposes an allowlisted subset of `{MCP_PIN['package']}@{MCP_PIN['version']}` using the same tool names, input JSON Schema, annotations, `content`, and `structuredContent` result shapes. The upstream repository is pinned to commit `{MCP_PIN['commit']}`. `tests/conformance.py` launches the real package and compares live behavior against the offline mock.
-
-## Data and contamination
-
-Every person, entity, amount, address, event, and document is synthetic. The catalog was written for this release; Harvey Labs and Apex Accounting informed packaging and depth targets only. No Harvey or Apex task text, evidence, rubric, or gold answer is included. Gold outputs are public, as in Apex Accounting, so this release is appropriate for transparent evaluation and RL experiments rather than secret-test claims.
-
-## Licenses
-
-Synthetic task data and documents are {DATA_LICENSE}. Benchmark code and test harnesses are {CODE_LICENSE}. Third-party MCP contract metadata remains subject to the upstream MIT license; provenance is recorded in `contracts/upstream-pin.json`.
+The world mirrors an allowlisted subset of `{MCP_PIN['package']}@{MCP_PIN['version']}`
+at upstream commit `{MCP_PIN['commit']}`. Live contract and behavior conformance is
+versioned separately. Synthetic data is {DATA_LICENSE}; benchmark code is
+{CODE_LICENSE}. Every entity, person, event, amount, and address is fictitious.
 """
 
 
 def source_readme() -> str:
-    return f"""# {RELEASE_NAME} source
-
-This directory contains the deterministic source generator, MCP world, and
-qualification suite for {RELEASE_NAME}.
-
-The v2.0.0 release contains 100 original synthetic matters, 9,600 seeded source
-documents, high-level employee requests, 100 distinct 46-call MCP trajectories,
-and a deterministic verifier with 182 public matter-specific criteria.
-
-Public artifacts:
-
-- Harbor: <https://hub.harborframework.com/datasets/blobfishai/counselbench-100>
-- Hugging Face: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
-- Benchmark page: <https://blobfish.ai/benchmarks/counselbench-100>
-- Source: <https://github.com/blobfishai/legal-agent-simulation>
-
-```bash
-python3 benchmark/counselbench100/builder.py
-python3 -m unittest \
-  benchmark.counselbench100.tests.test_builder \
-  benchmark.counselbench100.tests.test_generation \
-  benchmark.counselbench100.tests.test_scoring
-python3 benchmark/counselbench100/run_suite.py
-python3 benchmark/counselbench100/tests/conformance.py
-```
-
-Reference trajectories are solvability proofs, not leaderboard entries. A
-model row is eligible only after all 100 v2.0 tasks run exactly once.
-
-Generated release files are written to `dist/{RELEASE_SLUG}` and are intentionally ignored by Git. The committed catalog contains 100 hand-authored matter spines; generation is deterministic and makes no network calls.
-
-The canonical interactive explorer is maintained in the Blobfish website
-repository and deployed at the benchmark-page URL above. The page under
-`site/` is retained only as the historical v1.0 launch artifact.
-"""
+    return (HERE / "README.md").read_text(encoding="utf-8")
 
 
 def harbor_readme() -> str:
     return f"""# {RELEASE_NAME}
 
-{RELEASE_NAME} is a public, executable legal-agent benchmark with 100 original
-synthetic matters across ten practice areas. Each task contains 96 seeded
-records in 12 folders, a pinned filesystem MCP world, a distinct 46-call reference
-trajectory, and a deterministic 182-criterion verifier.
+{RELEASE_NAME} v{RELEASE_VERSION} contains 100 executable legal-agent tasks. Each
+task has 96 source records, twelve evidence-derived portfolio decisions, a pinned
+filesystem MCP sandbox, and a deterministic causal/state verifier.
 
-## Release v{RELEASE_VERSION}
-
-- 100 tasks and 9,600 unique text-native records
-- seven formats: Markdown, TXT, EML, CSV, JSON, XML, and HTML
-- 25% procedure, 55% structured findings, and 20% counsel memo
-- continuous criteria score plus a separate strict full-task pass
-- no model, network, clock, locale, or randomness in grading
-- 100/100 Dockerized oracle trials and zero false accepts across 400 negative controls
+- 55–65 required evidence reads and 68–85 calls per task
+- 5–9 supported actions plus 3–7 evidence holds per task
+- 100 distinct raw tool sequences and semantic action graphs
+- exact matter-register state, write containment, and post-write readback
+- 100/100 oracle passes and 1,000/1,000 adversarial rejections
 
 ```bash
 harbor download {HARBOR_ORG}/{RELEASE_SLUG}@v{RELEASE_VERSION} \
   --output-dir ./counselbench
 ```
 
-The v2.0 release asks for the legal outcome in ordinary employee language. The
-evidence room—not the prompt—contains the workflow and output contract. Thirty-three
-controlling, corroborating, and control records must be found among 96 records, and
-the public field-level criteria remain recoverable from those seeded sources.
+The prompt asks for the employee outcome. A neutral protocol in the evidence room
+defines the work products without selecting an answer. Gold and verifier state are
+outside the MCP allowlist. Reference trajectories prove solvability and do not count
+as leaderboard runs.
 
-- Benchmark explorer: <https://blobfish.ai/benchmarks/counselbench-100>
-- Dataset and trajectories: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
-- Builder and verifier: <https://github.com/blobfishai/legal-agent-simulation/tree/master/benchmark/counselbench100>
+- Explorer: <https://blobfish.ai/benchmarks/counselbench-100>
+- Dataset: <https://huggingface.co/datasets/SamuelChien821/counselbench-100>
+- Source: <https://github.com/blobfishai/legal-agent-simulation/tree/master/benchmark/counselbench100>
 """
 
 
@@ -655,6 +670,14 @@ def build(output: Path) -> dict[str, Any]:
     task_format_counts: list[int] = []
     prompts: list[str] = []
     reference_sequences: list[list[str]] = []
+    semantic_sequences: list[list[str]] = []
+    reference_call_counts: list[int] = []
+    evidence_read_counts: list[int] = []
+    action_counts: list[int] = []
+    hold_counts: list[int] = []
+    criteria_counts: list[int] = []
+    material_gate_results: list[dict[str, bool]] = []
+    native_format_results: list[bool] = []
 
     for task_index, matter in enumerate(MATTERS):
         material = build_material(matter, task_index)
@@ -667,6 +690,13 @@ def build(output: Path) -> dict[str, Any]:
         reference_sequences.append(
             [call["name"] for call in material["reference_calls"]]
         )
+        semantic_sequences.append(material["semantic_signature"])
+        reference_call_counts.append(material["minimum_tool_calls"])
+        evidence_read_counts.append(len(material["required_document_paths"]))
+        action_counts.append(material["action_count"])
+        hold_counts.append(material["hold_count"])
+        criteria_counts.append(len(material["rubric_criteria"]))
+        material_gate_results.append(material["quality_gates"])
         document_paths = [PurePosixPath(path) for path in material["documents"]]
         task_folder_counts.append(len({path.parent for path in document_paths}))
         task_format_counts.append(len({path.suffix for path in document_paths}))
@@ -675,6 +705,7 @@ def build(output: Path) -> dict[str, Any]:
             extension_counts[suffix] = extension_counts.get(suffix, 0) + 1
             all_document_hashes.add(hashlib.sha256(content.encode("utf-8")).hexdigest())
             all_document_sizes.append(len(content.encode("utf-8")))
+            native_format_results.append(native_document_parses(path, content))
 
     data_path = hf_root / "data" / "tasks.jsonl"
     write_text(
@@ -703,7 +734,9 @@ def build(output: Path) -> dict[str, Any]:
     median_document_bytes = sorted_document_sizes[len(sorted_document_sizes) // 2]
     prompt_uniqueness = maximum_pair_similarity(prompts)
     reference_sequence_similarity = maximum_sequence_similarity(reference_sequences)
+    semantic_sequence_similarity = maximum_sequence_similarity(semantic_sequences)
     unique_reference_sequences = len({tuple(sequence) for sequence in reference_sequences})
+    unique_semantic_sequences = len({tuple(sequence) for sequence in semantic_sequences})
     exact_duplicate_prompts = len(prompts) - len(set(prompts))
     exact_duplicate_documents = len(records) * DOCUMENT_COUNT - len(all_document_hashes)
     quality_gates = {
@@ -720,9 +753,10 @@ def build(output: Path) -> dict[str, Any]:
         "all_expected_formats_present": set(extension_counts) == {
             "md", "txt", "eml", "csv", "json", "xml", "html",
         },
+        "all_native_formats_parse": all(native_format_results),
         "minimum_document_depth": min(all_document_sizes) >= 5_500,
         "median_document_depth": median_document_bytes >= 7_000,
-        "bounded_document_size": max(all_document_sizes) <= 20_000,
+        "bounded_document_size": max(all_document_sizes) <= 40_000,
         "no_exact_duplicate_documents": exact_duplicate_documents == 0,
         "no_exact_duplicate_prompts": exact_duplicate_prompts == 0,
         "prompt_similarity_below_limit": prompt_uniqueness["maximum_jaccard_5_shingle"] < 0.80,
@@ -734,23 +768,45 @@ def build(output: Path) -> dict[str, Any]:
         ),
         "three_decision_options_per_task": all(
             len(record["rubric"]["decision_options"]) == 3
-            and sum(option["selected"] for option in record["rubric"]["decision_options"]) == 1
+            and all("selected" not in option for option in record["rubric"]["decision_options"])
             for record in records
         ),
-        "all_criteria_public": all(
-            len(record["rubric"]["criteria"]) == 182 for record in records
+        "task_specific_causal_criteria": all(count == 82 for count in criteria_counts),
+        "supported_action_and_hold_mix": all(
+            5 <= actions <= 9 and actions + holds == 12
+            for actions, holds in zip(action_counts, hold_counts, strict=True)
+        ),
+        "action_sizes_cover_range": set(action_counts) == {5, 6, 7, 8, 9},
+        "evidence_depth_varies": (
+            min(evidence_read_counts) >= REQUIRED_EVIDENCE_READS
+            and len(set(evidence_read_counts)) >= 10
+        ),
+        "tool_call_depth_varies": (
+            min(reference_call_counts) >= MINIMUM_TOOL_CALLS
+            and len(set(reference_call_counts)) >= 15
+        ),
+        "all_material_causality_gates": all(
+            all(gates.values()) for gates in material_gate_results
         ),
         "unique_reference_tool_sequences": unique_reference_sequences == len(records),
         "reference_sequence_similarity_below_limit": (
             reference_sequence_similarity["maximum_sequence_match"] < 0.95
         ),
+        "unique_semantic_action_graphs": unique_semantic_sequences == len(records),
+        "semantic_action_graph_similarity_below_limit": (
+            semantic_sequence_similarity["maximum_sequence_match"] < 0.95
+        ),
         "hand_authored_matter_spines_unique": (
             len({matter.title for matter in MATTERS}) == len(MATTERS)
             and len({matter.narrative for matter in MATTERS}) == len(MATTERS)
         ),
+        "hand_authored_decision_rules_unique": (
+            len(DECISION_RULES) == 100
+            and len({rule.signature for rule in DECISION_RULES.values()}) == 100
+        ),
     }
     build_report = {
-        "schema_version": "1.0",
+        "schema_version": "counselbench.build.v3",
         "benchmark": RELEASE_NAME,
         "version": RELEASE_VERSION,
         "task_count": len(records),
@@ -768,13 +824,33 @@ def build(output: Path) -> dict[str, Any]:
         "minimum_document_bytes": min(all_document_sizes),
         "median_document_bytes": median_document_bytes,
         "maximum_document_bytes": max(all_document_sizes),
-        "findings_per_task": FINDING_COUNT,
-        "criteria_per_task": 182,
-        "reference_tool_calls_per_task": MINIMUM_TOOL_CALLS,
-        "reference_tool_calls_total": len(records) * MINIMUM_TOOL_CALLS,
-        "required_evidence_reads_per_task": REQUIRED_EVIDENCE_READS,
+        "portfolio_items_per_task": FINDING_COUNT,
+        "supported_actions_per_task": {
+            "minimum": min(action_counts), "maximum": max(action_counts),
+            "sizes_present": sorted(set(action_counts)),
+        },
+        "evidence_holds_per_task": {
+            "minimum": min(hold_counts), "maximum": max(hold_counts),
+            "sizes_present": sorted(set(hold_counts)),
+        },
+        "criteria_per_task": {
+            "minimum": min(criteria_counts), "maximum": max(criteria_counts),
+        },
+        "reference_tool_calls_per_task": {
+            "minimum": min(reference_call_counts),
+            "maximum": max(reference_call_counts),
+            "distinct_counts": len(set(reference_call_counts)),
+        },
+        "reference_tool_calls_total": sum(reference_call_counts),
+        "required_evidence_reads_per_task": {
+            "minimum": min(evidence_read_counts),
+            "maximum": max(evidence_read_counts),
+            "distinct_counts": len(set(evidence_read_counts)),
+        },
         "unique_reference_tool_name_sequences": unique_reference_sequences,
         "reference_sequence_similarity": reference_sequence_similarity,
+        "unique_semantic_action_graphs": unique_semantic_sequences,
+        "semantic_action_graph_similarity": semantic_sequence_similarity,
         "prompt_uniqueness": prompt_uniqueness,
         "exact_duplicate_prompts": exact_duplicate_prompts,
         "exact_duplicate_documents": exact_duplicate_documents,
@@ -799,7 +875,7 @@ def build(output: Path) -> dict[str, Any]:
     dataset_template = f'''[dataset]
 name = "{HARBOR_ORG}/{RELEASE_SLUG}"
 version = "{RELEASE_VERSION}"
-description = "100 high-level legal-agent tasks with deep evidence rooms, distinct 46-call MCP trajectories, and 182 public deterministic criteria."
+description = "100 high-level legal-agent tasks with 96-record evidence rooms, distinct 68-85 call trajectories, and causal state verification."
 authors = []
 keywords = ["legal", "mcp", "deterministic", "long-horizon"]
 

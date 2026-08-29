@@ -18,10 +18,10 @@ from typing import Any
 
 try:  # Package import in local qualification; flat import in generated image.
     from .contracts import TOOLS_BY_NAME, tool_definitions
-    from .scoring import aggregate_scores, score_findings, score_memo
+    from .scoring import aggregate_scores, score_advice, score_decision, score_register
 except ImportError:  # pragma: no cover - exercised inside the task container
     from contracts import TOOLS_BY_NAME, tool_definitions
-    from scoring import aggregate_scores, score_findings, score_memo
+    from scoring import aggregate_scores, score_advice, score_decision, score_register
 
 
 class ToolFailure(Exception):
@@ -279,6 +279,13 @@ class CounselWorld:
 
         trace = self._trace_entries()
         successful = [entry for entry in trace if entry.get("ok")]
+
+        def first_index(predicate) -> int | None:
+            return next(
+                (index for index, entry in enumerate(successful) if predicate(entry)),
+                None,
+            )
+
         full_reads = {
             str(entry["arguments"].get("path"))
             for entry in successful
@@ -291,14 +298,46 @@ class CounselWorld:
             for entry in successful
             if entry.get("tool") == "get_file_info"
         }
+        search_patterns = {
+            str(entry["arguments"].get("pattern"))
+            for entry in successful
+            if entry.get("tool") == "search_files"
+        }
         simple_calls = {entry.get("tool") for entry in successful}
+        first_write = first_index(lambda entry: entry.get("tool") == "write_file")
+        evidence_indexes = [
+            first_index(
+                lambda entry, path=path: entry.get("tool") == "read_text_file"
+                and entry.get("arguments", {}).get("path") == path
+                and "head" not in entry.get("arguments", {})
+                and "tail" not in entry.get("arguments", {})
+            )
+            for path in self.spec["required_document_paths"]
+        ]
+        metadata_indexes = [
+            first_index(
+                lambda entry, path=path: entry.get("tool") == "get_file_info"
+                and entry.get("arguments", {}).get("path") == path
+            )
+            for path in self.spec["metadata_check_paths"]
+        ]
+        all_evidence_precedes = (
+            first_write is not None
+            and all(index is not None and index < first_write for index in evidence_indexes)
+        )
+        all_metadata_precedes = (
+            first_write is not None
+            and all(index is not None and index < first_write for index in metadata_indexes)
+        )
         procedure: dict[str, bool] = {
             "minimum_successful_tool_calls": len(successful) >= self.spec["minimum_tool_calls"],
             "all_evidence_read_in_full": set(self.spec["required_document_paths"]) <= full_reads,
-            "chain_of_custody_metadata_checked": set(self.spec["metadata_check_paths"]) <= info_paths,
+            "custody_metadata_checked": set(self.spec["metadata_check_paths"]) <= info_paths,
             "allowed_directories_checked": "list_allowed_directories" in simple_calls,
             "recursive_inventory_completed": "directory_tree" in simple_calls,
-            "targeted_search_completed": "search_files" in simple_calls,
+            "targeted_searches_completed": set(self.spec["search_patterns"]) <= search_patterns,
+            "all_required_evidence_precedes_first_write": all_evidence_precedes,
+            "all_required_metadata_precedes_first_write": all_metadata_precedes,
         }
 
         output_files = sorted(
@@ -315,35 +354,73 @@ class CounselWorld:
             if path.is_file():
                 current_digests[relative] = sha256_text(path.read_text(encoding="utf-8"))
 
-        writes = {
-            Path(str(entry["arguments"].get("path"))).name: entry["arguments"].get(
+        expected_virtual_paths = {
+            f"/workspace/output/{name}" for name in expected_names
+        }
+        write_entries = [entry for entry in successful if entry.get("tool") == "write_file"]
+        write_paths = {str(entry["arguments"].get("path")) for entry in write_entries}
+        procedure["write_scope_contained"] = bool(write_entries) and write_paths <= expected_virtual_paths
+        writes: dict[str, str | None] = {}
+        for entry in write_entries:
+            writes[Path(str(entry["arguments"].get("path"))).name] = entry["arguments"].get(
                 "content_sha256"
             )
-            for entry in successful
-            if entry.get("tool") == "write_file"
-        }
         procedure["deliverables_written_through_mcp"] = all(
             writes.get(Path(name).name) == current_digests.get(name) for name in expected_names
         )
 
-        findings_path = self.output_root / "findings.json"
-        findings_value: Any = None
+        readback_checks: dict[str, bool] = {}
+        for name in expected_names:
+            virtual_path = f"/workspace/output/{name}"
+            last_write = max(
+                (
+                    index for index, entry in enumerate(successful)
+                    if entry.get("tool") == "write_file"
+                    and entry.get("arguments", {}).get("path") == virtual_path
+                ),
+                default=-1,
+            )
+            readback_checks[name] = any(
+                index > last_write
+                and entry.get("tool") == "read_text_file"
+                and entry.get("arguments", {}).get("path") == virtual_path
+                and "head" not in entry.get("arguments", {})
+                and "tail" not in entry.get("arguments", {})
+                and entry.get("result_sha256") == current_digests.get(name)
+                for index, entry in enumerate(successful)
+            )
+        procedure["all_outputs_verified_by_readback"] = all(readback_checks.values())
+
+        decision_value: Any = None
+        register_value: Any = None
         try:
-            findings_value = json.loads(findings_path.read_text(encoding="utf-8"))
+            decision_value = json.loads(
+                (self.output_root / "decision.json").read_text(encoding="utf-8")
+            )
         except (OSError, UnicodeError, json.JSONDecodeError):
             pass
-        memo_path = self.output_root / "advice.md"
-        memo = memo_path.read_text(encoding="utf-8") if memo_path.is_file() else ""
-        findings_scoring = score_findings(findings_value, self.spec)
-        memo_scoring = score_memo(memo, self.spec)
-        aggregate = aggregate_scores(procedure, findings_scoring, memo_scoring)
+        try:
+            register_value = json.loads(
+                (self.output_root / "matter-register.json").read_text(encoding="utf-8")
+            )
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            pass
+        advice_path = self.output_root / "advice.md"
+        advice = advice_path.read_text(encoding="utf-8") if advice_path.is_file() else ""
+        decision_scoring = score_decision(decision_value, self.spec)
+        register_scoring = score_register(register_value, self.spec)
+        advice_scoring = score_advice(advice, self.spec)
+        aggregate = aggregate_scores(
+            procedure, decision_scoring, register_scoring, advice_scoring
+        )
         checks = {
             **procedure,
-            "findings_criteria_complete": findings_scoring["passed"],
-            "memo_criteria_complete": memo_scoring["passed"],
+            "decision_criteria_complete": decision_scoring["passed"],
+            "register_state_exact": register_scoring["passed"],
+            "advice_criteria_complete": advice_scoring["passed"],
         }
         report = {
-            "schema_version": "1.1",
+            "schema_version": "counselbench.verifier.v3",
             "task_id": self.spec["task_id"],
             "passed": aggregate["passed"],
             "reward": aggregate["reward"],
@@ -354,8 +431,9 @@ class CounselWorld:
             "reward_cap_reason": aggregate["cap_reason"],
             "criteria": {
                 "procedure": procedure,
-                "findings": findings_scoring,
-                "memo": memo_scoring,
+                "decision": decision_scoring,
+                "register": register_scoring,
+                "advice": advice_scoring,
             },
             "successful_tool_calls": len(successful),
             "required_tool_calls": self.spec["minimum_tool_calls"],
@@ -363,8 +441,10 @@ class CounselWorld:
             "required_documents": len(self.spec["required_document_paths"]),
             "output_sha256": current_digests,
             "diagnostics": {
-                "legacy_exact_findings_match": findings_value == self.spec["expected_findings"],
-                "legacy_exact_memo_match": memo == self.spec.get("expected_memo", ""),
+                "exact_decision_match": decision_value == self.spec["expected_decision"],
+                "exact_register_match": register_value == self.spec["expected_register"],
+                "exact_advice_match": advice == self.spec.get("expected_advice", ""),
+                "readback_checks": readback_checks,
                 "deterministic": True,
                 "model_calls": 0,
                 "network_calls": 0,

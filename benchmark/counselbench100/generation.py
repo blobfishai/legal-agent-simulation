@@ -1,4 +1,4 @@
-"""Deterministic seeded-evidence generation for CounselBench-100."""
+"""Deterministic, causally grounded evidence generation for CounselBench-100."""
 
 from __future__ import annotations
 
@@ -12,59 +12,46 @@ from datetime import date, timedelta
 from pathlib import PurePosixPath
 from typing import Any
 
-from catalog import FAMILY_SETTINGS, Matter
+try:
+    from .catalog import FAMILY_SETTINGS, MATTERS, Matter
+    from .decision_specs import DECISION_RULES, DecisionRule, validate_decision_rules
+except ImportError:  # pragma: no cover - flat import in release builder
+    from catalog import FAMILY_SETTINGS, MATTERS, Matter
+    from decision_specs import DECISION_RULES, DecisionRule, validate_decision_rules
 
 
-FIXED_FILE_TIMESTAMP = "2026-08-25T12:00:00.000Z"
+FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
+RELEASE_VERSION = "3.0.0"
 DOCUMENT_COUNT = 96
-FINDING_COUNT = 16
-REQUIRED_EVIDENCE_READS = 33
-MINIMUM_TOOL_CALLS = 46
+PORTFOLIO_COUNT = 12
+FINDING_COUNT = PORTFOLIO_COUNT  # Backward-compatible public constant.
+REQUIRED_EVIDENCE_READS = 49  # Release-wide lower bound; each task varies.
+MINIMUM_TOOL_CALLS = 59  # Release-wide lower bound; each task varies.
 DOCUMENT_ROOT = "/workspace/documents"
 OUTPUT_ROOT = "/workspace/output"
 
 
-PEOPLE = [
+PEOPLE = (
     "Maya Ellison", "Rafael Okafor", "Nora Chen", "Dominic Alvarez",
     "Priya Raman", "Elliot Mercer", "Talia Brooks", "Jonas Feld",
     "Mei Whitaker", "Caleb Hassan", "Leona Park", "Isaac Romero",
     "Sofia Bennett", "Adrian Mensah", "Willa Novak", "Theo Laurent",
     "Amara Patel", "Henry Cho", "Nadine Flores", "Micah Sullivan",
     "Farah Ibrahim", "Owen Delgado", "Lena Varga", "Samuel Kim",
-]
+)
 
-RECORD_KINDS = [
-    "control_register", "executed_instrument", "correspondence", "ledger_export",
-    "review_memorandum", "formal_notice", "officer_certificate", "status_report",
-]
+EVIDENCE_ROLES = (
+    "identity_crosswalk",
+    "operative_authority",
+    "current_operations",
+    "approval_and_capacity",
+    "correspondence",
+    "financial_or_population_support",
+    "chronology_and_custody",
+    "independent_counterrecord",
+)
 
-EXTENSIONS = ["md", "txt", "eml", "csv", "json", "xml", "html", "md"]
-
-OPENERS = [
-    "The partner responsible for this matter needs a defensible decision record before the next client call.",
-    "A late document production changed the factual picture, and the matter team needs the entire record reconciled from first principles.",
-    "The client has asked for a board-ready risk assessment supported by a source-level tracker rather than a narrative-only summary.",
-    "Several workstreams have maintained separate versions of the truth; your assignment is to produce one auditable legal view.",
-    "Outside counsel inherited this file after turnover on the client team and must validate every operative record before advising.",
-    "The upcoming deadline leaves no room for unsupported assumptions, so every conclusion must trace to the supplied production.",
-    "A counterparty challenged the client's internal summary, making cross-document reconciliation and precise citations essential.",
-    "The supervising attorney wants an exception-focused review that still demonstrates complete coverage of the data room.",
-    "This matter will be reviewed by legal, finance, and compliance stakeholders who need a single source-grounded output.",
-    "The record contains amendments, exports, and correspondence from different custodians; reconcile them into an actionable counsel work product.",
-]
-
-LENSES = [
-    "Prioritize conflicts between signed instruments and later operational records.",
-    "Separate confirmed exceptions from items that merely require follow-up.",
-    "Treat dates, notice mechanics, approval evidence, and numerical reconciliations as independent controls.",
-    "Distinguish a missing document from an affirmative contradiction in the documents that are present.",
-    "Evaluate both legal consequence and the practical owner needed to cure each exception.",
-    "Give controlling documents precedence only when the record supports that hierarchy.",
-    "Flag cross-folder dependencies that would be invisible in a single-document review.",
-    "Preserve the difference between the client's position, the counterparty's position, and an objective record conflict.",
-    "Use the production as of the stated deadline; do not assume facts outside the supplied files.",
-    "Write for a supervising lawyer who will spot-check source paths and exact values.",
-]
+EXTENSIONS = ("md", "txt", "eml", "csv", "json", "xml", "html", "md")
 
 SOURCE_SYSTEMS: dict[str, tuple[str, ...]] = {
     "corporate-ma": (
@@ -109,46 +96,31 @@ SOURCE_SYSTEMS: dict[str, tuple[str, ...]] = {
     ),
 }
 
-RECORD_PURPOSES = {
-    "control_register": "maintain the matter team's issue population, source lineage, review status, and accountable owner",
-    "executed_instrument": "preserve the operative language, execution history, defined terms, and signature authority",
-    "correspondence": "capture custodian communications, escalation history, instructions, and contemporaneous business understanding",
-    "ledger_export": "reconcile system-of-record entries against the signed or approved source and expose population-level variance",
-    "review_memorandum": "record the reviewer’s analysis, assumptions, unresolved questions, and recommended disposition",
-    "formal_notice": "document the asserted obligation, notice mechanics, delivery evidence, cure period, and requested response",
-    "officer_certificate": "state the certifying person’s knowledge, supporting review, exceptions, and reliance limitations",
-    "status_report": "summarize milestones, dependencies, risk status, decision owners, and the next reporting cycle",
-}
-
-SECTION_VARIANTS = {
-    "lineage": (
-        "The producing team exported this record from {source_system} and retained the native identifier {record_id}. {custodian} confirmed the export boundary, while {reviewer} performed the legal-control review. The file has not been normalized to resolve differences with {cross_reference}.",
-        "This copy was collected from {source_system} under matter hold {matter_number}. Its lineage runs from {custodian}, as producing custodian, to {reviewer}, as reviewing lawyer. The related record {cross_reference} remains a separate source of truth and was not merged into this document.",
-        "Matter operations catalogued the record in {source_system} using identifier {record_id}. The chain of custody identifies {custodian} as source owner and {reviewer} as the most recent reviewer. Any inconsistency with {cross_reference} must be reconciled rather than silently overwritten.",
-    ),
-    "workstream": (
-        "The {workstream} workstream sits within {workflow}. The team is tracking {related_issues} because decisions in this file may affect the deadline and the position taken with {counterparty}. {narrative}",
-        "For this {workstream} review, legal and business stakeholders are using the record to evaluate {related_issues}. The file is part of {workflow} and should be read against the stated decision deadline. {narrative}",
-        "The operational context is the {workstream} portion of {workflow}. Reviewers identified dependencies involving {related_issues}; those dependencies matter to the client’s position concerning {counterparty}. {narrative}",
-    ),
-    "review": (
-        "The reviewer tested internal consistency, execution or approval evidence, status history, and the cited cross-reference. The review did not assume that a later system entry controls an earlier signed record. Open points remain assigned through the action register below.",
-        "Review procedures included source identification, a comparison to the folder index, validation of the accountable owner, and a check for later amendments or operational entries. The conclusion is deliberately bounded to the produced record and its stated cross-reference.",
-        "The legal-control check compared the record’s native value with the matter index and the identified related file. Conflicting custodial accounts, amendments outside the production, and post-date events were not resolved by inference and remain subject to documented follow-up.",
-    ),
-    "limitations": (
-        "This record is one component of the production and should not be treated as a complete statement of the governing agreement, policy, ledger, or law. Dates reflect the fixed synthetic matter timeline; references to approval or closure describe the source record rather than an independent legal conclusion.",
-        "The file is responsive evidence, not a standalone legal opinion. It does not establish facts held only by other custodians, waive the need to review amendments, or determine priority among competing instruments. The complete production remains necessary to reach a final conclusion.",
-        "Reliance is limited to the document as produced. The record does not incorporate unproduced attachments, oral explanations, or later events, and its administrative status should not be confused with a legal determination about the underlying obligation.",
-    ),
-}
-
-ROLE_TITLES = (
-    "matter lead", "business owner", "records custodian", "finance reviewer",
-    "compliance reviewer", "outside counsel liaison", "operations lead", "control owner",
+REQUEST_OPENERS = (
+    "I need a straight answer before the next partner call.",
+    "The business team is asking whether it can move, and I do not want to answer from the summary deck.",
+    "A late record changed the picture this morning.",
+    "The client wants a decision, not another document inventory.",
+    "We inherited inconsistent versions of this matter and need to settle the operating position.",
+    "I am about to brief the decision makers and need the source record reconciled first.",
+    "The other side has challenged our internal account of the facts.",
+    "There is enough noise in this file that a name match or newest-document shortcut will be dangerous.",
+    "Please take ownership of the open question before the deadline.",
+    "I need to know what is proven, what we can do about it, and what is still only an evidence gap.",
 )
 
-ACTION_STATUSES = ("open", "in review", "awaiting evidence", "owner confirmed", "escalated")
+REQUEST_CLOSES = (
+    "Put the supported calls into the matter register and leave me a short note I can use with the partner.",
+    "Update the matter record only where the evidence supports it, and give me the practical options for the client.",
+    "Leave the defensible result in the matter workspace, including any item that must stay on hold for better evidence.",
+    "I need the recommendation and the real blockers recorded before the team acts.",
+    "Document the scoped result for the team and separate genuine exceptions from unresolved identity or revision questions.",
+    "Give me a decision-ready note and make the corresponding matter-register entries, without guessing through missing records.",
+    "Record the outcome the source hierarchy supports and explain the alternatives we should not take.",
+    "Make the matter record usable by operations after your review, but do not turn ambiguity into an accusation or obligation.",
+    "Capture the supported action and the remaining holds so the next reviewer can reproduce the call.",
+    "Leave a concise decision record with exact source references and an owner for each supported next step.",
+)
 
 
 def stable_int(*parts: object, digits: int = 12) -> int:
@@ -160,1035 +132,1043 @@ def slugify(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", value.casefold()).strip("_")
 
 
-def severity_for(issue_index: int) -> str:
-    return ("critical", "high", "high", "medium", "medium", "low")[issue_index % 6]
-
-
-def issue_values(matter: Matter, task_index: int, issue_index: int, topic: str) -> dict[str, Any]:
-    seed = stable_int(matter.slug, topic, issue_index)
-    base_date = date(2025, 1, 3) + timedelta(days=(seed % 420))
-    later_date = base_date + timedelta(days=7 + seed % 41)
-    amount_a = 175_000 + (seed % 7_400_000)
-    amount_b = amount_a + 11_500 + (seed % 310_000)
-    pct_a = 2 + seed % 14
-    pct_b = pct_a + 2 + seed % 6
-    person_a = PEOPLE[(task_index + issue_index * 3) % len(PEOPLE)]
-    person_b = PEOPLE[(task_index * 2 + issue_index * 5 + 7) % len(PEOPLE)]
-    reference_a = f"{matter.matter_number}-{chr(65 + issue_index % 26)}{100 + seed % 900}"
-    reference_b = f"{matter.matter_number}-{chr(65 + (issue_index + 9) % 26)}{100 + (seed // 13) % 900}"
-    dimension = issue_index % 8
-    if dimension == 0:
-        primary = f"the operative date is {base_date.isoformat()} under control reference {reference_a}"
-        secondary = f"the acknowledged date is {later_date.isoformat()} under response reference {reference_b}"
-        fact_anchors = [base_date.isoformat(), reference_a, later_date.isoformat(), reference_b]
-    elif dimension == 1:
-        primary = f"the controlling amount is ${amount_a:,.2f}"
-        secondary = f"the reconciliation and counterparty record use ${amount_b:,.2f}"
-        fact_anchors = [f"${amount_a:,.2f}", f"${amount_b:,.2f}"]
-    elif dimension == 2:
-        primary = f"approval is attributed to {person_a} as the sole authorized reviewer"
-        secondary = f"the approval log names {person_b} and contains no entry for {person_a}"
-        fact_anchors = [person_a, person_b]
-    elif dimension == 3:
-        primary = f"the item is recorded as closed without exception in {reference_a}"
-        secondary = f"the later status register marks it open and escalated in {reference_b}"
-        fact_anchors = ["closed without exception", reference_a, "open and escalated", reference_b]
-    elif dimension == 4:
-        primary = f"the applicable location is {matter.venue}"
-        secondary = f"the implementation record assigns the obligation to {matter.jurisdiction} operations outside {matter.venue}"
-        fact_anchors = [matter.venue, matter.jurisdiction]
-    elif dimension == 5:
-        primary = f"the threshold is {pct_a}% with no stated tolerance"
-        secondary = f"the applied threshold is {pct_b}% and produced a different exception result"
-        fact_anchors = [f"{pct_a}%", f"{pct_b}%"]
-    elif dimension == 6:
-        required_address = f"notices-{slugify(matter.client)}@example.test"
-        delivery_address = f"archive-{slugify(matter.counterparty)}@example.test"
-        primary = f"formal notice must use {required_address}"
-        secondary = f"the only delivery record was sent to {delivery_address}"
-        fact_anchors = [required_address, delivery_address]
-    else:
-        primary_count = 48 + seed % 140
-        secondary_count = 35 + seed % 41
-        primary = f"the governed population contains {primary_count} records through {base_date.isoformat()}"
-        secondary = f"the certification covers {secondary_count} records through {later_date.isoformat()}"
-        fact_anchors = [
-            f"{primary_count} records", base_date.isoformat(),
-            f"{secondary_count} records", later_date.isoformat(),
-        ]
-    determination = (
-        f"The records do not reconcile for {topic}: one source states {primary}, while the "
-        f"corroborating source states {secondary}."
-    )
-    action_verbs = [
-        "obtain a signed ratification and update the controlling register",
-        "recalculate the exposure and preserve the supporting ledger",
-        "secure written consent from the authorized decision-maker",
-        "issue a corrective notice using the contractually operative method",
-        "escalate the conflict to the responsible legal and business owners",
-        "document the governing interpretation before the deadline",
-        "place the affected population on hold pending reconciliation",
-        "amend the closing or response checklist with a dated cure item",
-    ]
-    owner = PEOPLE[(task_index + issue_index + 11) % len(PEOPLE)]
-    recommendation = (
-        f"Before {matter.deadline}, {action_verbs[issue_index % len(action_verbs)]}; "
-        f"owner: {owner}."
-    )
-    return {
-        "finding_id": f"F-{issue_index + 1:02d}",
-        "issue": topic,
-        "severity": severity_for(issue_index),
-        "owner": owner,
-        "response_due": matter.deadline,
-        "primary_statement": primary,
-        "secondary_statement": secondary,
-        "fact_anchors": fact_anchors,
-        "action_anchors": [matter.deadline, owner],
-        "determination": determination,
-        "recommendation": recommendation,
-    }
+def severity_for(score: int) -> str:
+    if score >= 85:
+        return "critical"
+    if score >= 62:
+        return "high"
+    if score >= 38:
+        return "medium"
+    return "low"
 
 
 def document_paths(matter: Matter) -> list[str]:
-    settings = FAMILY_SETTINGS[matter.family]
-    folders = list(settings["folders"])
     paths: list[str] = []
     sequence = 0
-    for folder in folders:
+    for folder in FAMILY_SETTINGS[matter.family]["folders"]:
         for slot in range(8):
             sequence += 1
-            kind = RECORD_KINDS[slot]
             extension = EXTENSIONS[slot]
-            filename = f"{sequence:03d}_{slugify(folder.split('_', 1)[-1])}_{kind}.{extension}"
-            paths.append(str(PurePosixPath(DOCUMENT_ROOT, folder, filename)))
+            filename = (
+                f"{sequence:03d}_{slugify(str(folder).split('_', 1)[-1])}_"
+                f"source_export.{extension}"
+            )
+            paths.append(str(PurePosixPath(DOCUMENT_ROOT, str(folder), filename)))
     if len(paths) != DOCUMENT_COUNT:
-        raise AssertionError(paths)
+        raise AssertionError(f"expected {DOCUMENT_COUNT} document paths")
     return paths
 
 
-def _issue_assignments() -> tuple[dict[int, int], dict[int, int]]:
-    primary = {issue_index * 3: issue_index for issue_index in range(FINDING_COUNT)}
-    corroborating = {48 + issue_index * 3: issue_index for issue_index in range(FINDING_COUNT)}
-    return primary, corroborating
+def _target_slots(matter: Matter, task_index: int) -> set[int]:
+    count = 5 + stable_int(matter.slug, "supported-action-count") % 5
+    ranked = sorted(
+        range(PORTFOLIO_COUNT),
+        key=lambda slot: stable_int(matter.slug, task_index, "action-rank", slot),
+    )
+    return set(ranked[:count])
 
 
-def _record_prose(
+def _dimension_facts(
     matter: Matter,
+    topic: str,
+    task_index: int,
+    slot: int,
+    *,
+    trigger_met: bool,
+) -> dict[str, Any]:
+    seed = stable_int(matter.slug, topic, slot)
+    base = date(2025, 1, 6) + timedelta(days=seed % 480)
+    later = base + timedelta(days=9 + seed % 37)
+    amount = 95_000 + seed % 7_800_000
+    threshold = max(25_000, amount - (13_000 + seed % 240_000))
+    pct = 3 + seed % 14
+    observed_pct = pct + (2 + seed % 7) if trigger_met else max(0, pct - 1)
+    required_person = PEOPLE[(task_index + slot * 3) % len(PEOPLE)]
+    observed_person = (
+        PEOPLE[(task_index + slot * 5 + 7) % len(PEOPLE)]
+        if trigger_met
+        else required_person
+    )
+    reference = f"{matter.matter_number}-R{100 + seed % 900}"
+    event_reference = f"{matter.matter_number}-E{100 + (seed // 17) % 900}"
+    dimension = (task_index + slot * 5) % 8
+
+    if dimension == 0:
+        observed_date = later if trigger_met else base - timedelta(days=2)
+        governing = f"completion is required by {base.isoformat()} under {reference}"
+        observed = f"the current event record shows completion on {observed_date.isoformat()} under {event_reference}"
+        anchors = [base.isoformat(), observed_date.isoformat(), reference, event_reference]
+    elif dimension == 1:
+        observed_amount = amount if trigger_met else max(0, threshold - 5_000)
+        governing = f"the operative cap is ${threshold:,.2f} under {reference}"
+        observed = f"the matched ledger population totals ${observed_amount:,.2f} under {event_reference}"
+        anchors = [f"${threshold:,.2f}", f"${observed_amount:,.2f}", reference, event_reference]
+    elif dimension == 2:
+        governing = f"approval must come from {required_person} under {reference}"
+        observed = f"the effective approval record names {observed_person} under {event_reference}"
+        anchors = [required_person, observed_person, reference, event_reference]
+    elif dimension == 3:
+        observed_status = "open and unresolved" if trigger_met else "closed with completion evidence"
+        governing = f"an open exception blocks completion under {reference}"
+        observed = f"the current status is {observed_status} under {event_reference}"
+        anchors = ["open exception", observed_status, reference, event_reference]
+    elif dimension == 4:
+        observed_location = matter.jurisdiction if trigger_met else matter.venue
+        governing = f"the permission is limited to {matter.venue} under {reference}"
+        observed = f"the matched activity occurred in {observed_location} under {event_reference}"
+        anchors = [matter.venue, observed_location, reference, event_reference]
+    elif dimension == 5:
+        governing = f"the controlling threshold is {pct}% under {reference}"
+        observed = f"the independently calculated result is {observed_pct}% under {event_reference}"
+        anchors = [f"{pct}%", f"{observed_pct}%", reference, event_reference]
+    elif dimension == 6:
+        required_address = f"notices-{slugify(matter.client)}@example.test"
+        delivered_address = (
+            f"archive-{slugify(matter.counterparty)}@example.test"
+            if trigger_met
+            else required_address
+        )
+        governing = f"delivery must use {required_address} under {reference}"
+        observed = f"the only matched receipt used {delivered_address} under {event_reference}"
+        anchors = [required_address, delivered_address, reference, event_reference]
+    else:
+        required_count = 72 + seed % 170
+        observed_count = required_count - (9 + seed % 31) if trigger_met else required_count
+        governing = f"the controlled population contains {required_count} records under {reference}"
+        observed = f"the certification covers {observed_count} records under {event_reference}"
+        anchors = [f"{required_count} records", f"{observed_count} records", reference, event_reference]
+    return {
+        "dimension": dimension,
+        "governing_statement": governing,
+        "observed_statement": observed,
+        "fact_anchors": anchors,
+        "reference": reference,
+        "event_reference": event_reference,
+    }
+
+
+def _build_case(
+    matter: Matter,
+    rule: DecisionRule,
+    task_index: int,
+    slot: int,
+    paths_by_role: dict[str, str],
+    actionable_slots: set[int],
+) -> dict[str, Any]:
+    topics = list(FAMILY_SETTINGS[matter.family]["issues"])
+    topic = str(topics[(task_index + slot * 5) % len(topics)])
+    supported = slot in actionable_slots
+    failure_modes = (
+        "identity_ambiguous", "trigger_not_met", "authority_pending", "revision_stale"
+    )
+    failure_mode = None if supported else failure_modes[(task_index + slot) % 4]
+    identity_exact = failure_mode != "identity_ambiguous"
+    trigger_met = failure_mode != "trigger_not_met"
+    authority_effective = failure_mode != "authority_pending"
+    revision_current = failure_mode != "revision_stale"
+    facts = _dimension_facts(matter, topic, task_index, slot, trigger_met=trigger_met)
+    portfolio_key = f"CBP-{task_index + 1:03d}-{slot + 1:02d}"
+    entity_id = f"ENT-{task_index + 1:03d}-{1000 + slot}"
+    alternate_id = f"ENT-{task_index + 1:03d}-{2000 + slot}"
+    current_revision = f"REV-{2025 + (task_index % 2)}.{1 + slot % 7}"
+    referenced_revision = (
+        current_revision if revision_current else f"REV-{2024 + (task_index % 2)}.{slot % 7}"
+    )
+    owner = PEOPLE[(task_index * 3 + slot * 7 + 5) % len(PEOPLE)]
+    owner_active = authority_effective
+    remaining_capacity = 1 + stable_int(matter.slug, slot, "capacity") % 6 if owner_active else 0
+    due_date = (date.fromisoformat(matter.deadline) - timedelta(days=1 + slot % 9)).isoformat()
+    impact_score = 30 + stable_int(matter.slug, slot, "impact") % 70
+    conditions = {
+        "identity_exact": identity_exact,
+        "trigger_met": trigger_met,
+        "authority_effective": authority_effective,
+        "revision_current": revision_current,
+    }
+    disposition = "action" if all(conditions.values()) else "evidence_hold"
+    hold_reason = {
+        "identity_ambiguous": "two source records share the display identity but not the immutable entity key",
+        "trigger_not_met": "the current observation does not meet the operative trigger",
+        "authority_pending": "the required approval or active owner capacity is not yet effective",
+        "revision_stale": "the operational record relies on a superseded control revision",
+        None: "",
+    }[failure_mode]
+    selected_roles = list(EVIDENCE_ROLES[:4])
+    extra_count = stable_int(matter.slug, slot, "extra-evidence") % 3
+    ranked_extras = sorted(
+        EVIDENCE_ROLES[4:],
+        key=lambda role: stable_int(matter.slug, slot, "extra-rank", role),
+    )
+    selected_roles.extend(ranked_extras[:extra_count])
+    return {
+        "slot": slot,
+        "portfolio_key": portfolio_key,
+        "topic": topic,
+        "entity_id": entity_id,
+        "alternate_id": alternate_id,
+        "legal_name": f"{matter.client} — {topic.title()} record {slot + 1}",
+        "current_revision": current_revision,
+        "referenced_revision": referenced_revision,
+        "owner": owner,
+        "owner_active": owner_active,
+        "remaining_capacity": remaining_capacity,
+        "due_date": due_date,
+        "impact_score": impact_score,
+        "severity": severity_for(impact_score),
+        "conditions": conditions,
+        "failure_mode": failure_mode,
+        "hold_reason": hold_reason,
+        "disposition": disposition,
+        "paths_by_role": paths_by_role,
+        "required_roles": selected_roles,
+        "required_paths": [paths_by_role[role] for role in selected_roles],
+        **facts,
+    }
+
+
+def derive_disposition(case: dict[str, Any]) -> str:
+    conditions = case["conditions"]
+    return "action" if all(bool(conditions[key]) for key in (
+        "identity_exact", "trigger_met", "authority_effective", "revision_current"
+    )) else "evidence_hold"
+
+
+def _role_body(case: dict[str, Any], role: str, matter: Matter, rule: DecisionRule) -> str:
+    if role == "identity_crosswalk":
+        if case["conditions"]["identity_exact"]:
+            return (
+                f"Crosswalk revision {case['current_revision']} maps portfolio key {case['portfolio_key']} "
+                f"and legal name {case['legal_name']} to immutable entity {case['entity_id']}. "
+                "The domain, legal entity, and native system key agree; the nearby alias is excluded."
+            )
+        return (
+            f"Portfolio key {case['portfolio_key']} is associated with both {case['entity_id']} and "
+            f"{case['alternate_id']}. The display name is shared, while the domain and legal-entity "
+            "fields disagree. No approved crosswalk revision resolves the collision."
+        )
+    if role == "operative_authority":
+        revision_note = (
+            f"The referenced and current revision are both {case['current_revision']}."
+            if case["conditions"]["revision_current"]
+            else f"Operations cites {case['referenced_revision']}, but {case['current_revision']} is the later effective revision."
+        )
+        return (
+            f"For {case['topic']}, {case['governing_statement']}. {revision_note} "
+            f"The matter-level control is: {rule.authority}"
+        )
+    if role == "current_operations":
+        return (
+            f"For immutable entity {case['entity_id']}, {case['observed_statement']}. "
+            f"The operating extract cites revision {case['referenced_revision']} and portfolio key "
+            f"{case['portfolio_key']}; it does not state a legal disposition."
+        )
+    if role == "approval_and_capacity":
+        status = "active" if case["owner_active"] else "pending approval and inactive"
+        return (
+            f"The current responsibility roster names {case['owner']} for {case['portfolio_key']}. "
+            f"Status is {status}; remaining matter capacity is {case['remaining_capacity']}. "
+            f"The next internal control date is {case['due_date']}."
+        )
+    if role == "correspondence":
+        return (
+            f"The business owner asks whether {case['observed_statement']}. The counterparty points to "
+            f"{case['governing_statement']}. Neither message resolves entity identity, revision priority, "
+            "or approval authority; the source records must be reconciled."
+        )
+    if role == "financial_or_population_support":
+        return (
+            f"The supporting population for {case['portfolio_key']} was exported under "
+            f"{case['event_reference']}. The population uses immutable entity {case['entity_id']} and "
+            f"records impact-control score {case['impact_score']}; this score is an input, not a disposition."
+        )
+    if role == "chronology_and_custody":
+        return (
+            f"Custody history shows collection from {case['paths_by_role']['current_operations']} after "
+            f"the operative record was fixed at {case['paths_by_role']['operative_authority']}. "
+            f"Reviewer handoff preserved both versions and the identity record for {case['portfolio_key']}."
+        )
+    return (
+        f"An independent source repeats portfolio key {case['portfolio_key']} and immutable entity "
+        f"{case['entity_id']} but uses reference {case['event_reference']}. It confirms raw activity only; "
+        "it neither selects a decision option nor assigns a legal consequence."
+    )
+
+
+def _supporting_rows(
+    matter: Matter,
+    case: dict[str, Any],
+    role: str,
+    task_index: int,
+    document_index: int,
+) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    start = date(2024, 4, 1) + timedelta(days=stable_int(matter.slug, document_index) % 500)
+    for row_index in range(18):
+        row_seed = stable_int(matter.slug, document_index, row_index)
+        rows.append(
+            {
+                "line_id": f"{case['portfolio_key']}-{role[:3].upper()}-{row_index + 1:02d}",
+                "effective_date": (start + timedelta(days=row_index * 3)).isoformat(),
+                "entity_key": case["entity_id"] if row_index != 7 else case["alternate_id"],
+                "revision": case["referenced_revision"] if row_index % 5 == 0 else case["current_revision"],
+                "actor": PEOPLE[(task_index + document_index + row_index * 3) % len(PEOPLE)],
+                "status": ("recorded", "confirmed", "pending", "superseded")[row_seed % 4],
+                "metric": (
+                    f"${25_000 + row_seed % 975_000:,.2f}"
+                    if row_index % 3 == 0
+                    else f"{1 + row_seed % 27}%"
+                ),
+                "note": (
+                    f"{role.replace('_', ' ').title()} support row {row_index + 1} for "
+                    f"{case['topic']}; retained from the native system so the reviewer can distinguish "
+                    f"the exact {case['portfolio_key']} population from similarly named records."
+                ),
+            }
+        )
+    return rows
+
+
+def _record_payload(
+    matter: Matter,
+    rule: DecisionRule,
+    case: dict[str, Any],
+    role: str,
     task_index: int,
     document_index: int,
     path: str,
-    finding_context: dict[str, Any] | None,
-    side: str | None,
 ) -> dict[str, Any]:
-    settings = FAMILY_SETTINGS[matter.family]
-    folder = PurePosixPath(path).parent.name
-    workstream = folder.split("_", 1)[-1].replace("_", " ")
-    kind = RECORD_KINDS[document_index % 8]
-    seed = stable_int(matter.slug, document_index)
-    custodian = PEOPLE[(task_index * 3 + document_index) % len(PEOPLE)]
-    reviewer = PEOPLE[(task_index + document_index * 7 + 5) % len(PEOPLE)]
-    record_date = date(2024, 3, 1) + timedelta(days=seed % 720)
-    deadline = date.fromisoformat(matter.deadline)
-    cross_index = (document_index * 17 + task_index * 11 + 9) % DOCUMENT_COUNT
-    cross_ref = f"CB-DOC-{task_index + 1:03d}-{cross_index + 1:03d}"
-    record_id = f"CB-DOC-{task_index + 1:03d}-{document_index + 1:03d}"
+    seed = stable_int(matter.slug, document_index, role)
     source_systems = SOURCE_SYSTEMS[matter.family]
-    source_system = source_systems[(document_index + task_index) % len(source_systems)]
-    related_topics = [
-        str(settings["issues"][(document_index + step * 5 + task_index) % FINDING_COUNT])
-        for step in range(3)
-    ]
-    signal = None
-    if finding_context:
-        signal = (
-            finding_context["primary_statement"]
-            if side == "primary"
-            else finding_context["secondary_statement"]
-        )
-    else:
-        controls = [
-            "No variance was recorded after the named reviewer compared the source ledger to the signed control record.",
-            "The custodian confirmed that this export is complete for the stated period, subject to the cross-reference below.",
-            "The operative record and its implementation evidence use the same identifier, date, and responsible owner.",
-            "This file documents ordinary-course activity and does not supersede a signed instrument elsewhere in the production.",
-            "The status remained unchanged through the review date, and no exception notice appears in this record.",
-            "A second-level reviewer closed the control after matching the population total to the underlying entries.",
-            "The record preserves the original value and separately identifies the later administrative annotation.",
-            "The file is responsive background material; it supplies context but does not create an independent obligation.",
-        ]
-        signal = controls[document_index % len(controls)]
-    unique_metric = 10_000 + seed % 890_000
-    review_question = finding_context["issue"] if finding_context else "context only"
-    finding_id = finding_context["finding_id"] if finding_context else "none"
-    record_role = side if side else "context"
-    control_severity = finding_context["severity"] if finding_context else "none"
-    remediation_owner = finding_context["owner"] if finding_context else "none"
-    response_due = finding_context["response_due"] if finding_context else "none"
-    record_status = (
-        "reviewed — source conflict identified"
-        if side == "primary"
-        else "reviewed — variance confirmed"
-        if side == "corroborating"
-        else ("reviewed — no independent exception" if document_index % 2 else "indexed — responsive context")
-    )
-    confidentiality = (
-        "Attorney work product",
-        "Confidential — legal review",
-        "Confidential — matter team",
-        "Restricted — need to know",
-    )[(seed // 17) % 4]
-    purpose = RECORD_PURPOSES[kind]
-    related_issue_text = ", ".join(related_topics[:-1]) + f", and {related_topics[-1]}"
-    template_values = {
-        "source_system": source_system,
-        "record_id": record_id,
-        "custodian": custodian,
-        "reviewer": reviewer,
-        "cross_reference": cross_ref,
-        "matter_number": matter.matter_number,
-        "workstream": workstream,
-        "workflow": settings["label"],
-        "related_issues": related_issue_text,
-        "counterparty": matter.counterparty,
-        "narrative": matter.narrative,
-    }
-    lineage = SECTION_VARIANTS["lineage"][seed % 3].format(**template_values)
-    workstream_context = SECTION_VARIANTS["workstream"][(seed // 3) % 3].format(
-        **template_values
-    )
-    review_text = SECTION_VARIANTS["review"][(seed // 7) % 3].format(**template_values)
-    limitations = SECTION_VARIANTS["limitations"][(seed // 11) % 3]
-    classification_text = (
-        f"The record-control overlay classifies this as the {side} source for {finding_id} "
-        f"({review_question}) at {control_severity} severity. The assigned remediation owner is "
-        f"{remediation_owner}, with response due {response_due}."
-        if finding_context
-        else "The record-control overlay classifies this file as context only. It may explain the matter history or test a cross-reference, but it is not an independent finding."
-    )
-    analysis_sections = [
+    source_system = source_systems[(task_index + document_index) % len(source_systems)]
+    record_id = f"CB-DOC-{task_index + 1:03d}-{document_index + 1:03d}"
+    record_date = date(2024, 5, 1) + timedelta(days=seed % 680)
+    reviewer = PEOPLE[(task_index + document_index * 7 + 3) % len(PEOPLE)]
+    custodian = PEOPLE[(task_index * 5 + document_index + 9) % len(PEOPLE)]
+    body = _role_body(case, role, matter, rule)
+    rows = _supporting_rows(matter, case, role, task_index, document_index)
+    sections = [
         {
-            "heading": "Purpose and audience",
+            "heading": "Source lineage",
             "text": (
-                f"This {kind.replace('_', ' ')} supports the {workstream} workstream for "
-                f"{matter.client}. Its purpose is to {purpose}. The intended audience is the "
-                f"{settings['label']} matter team, including legal, finance, compliance, and the "
-                "business owner responsible for the next decision."
-            ),
-        },
-        {"heading": "Record lineage and custody", "text": lineage},
-        {"heading": "Matter and workstream context", "text": workstream_context},
-        {
-            "heading": "Operative content",
-            "text": (
-                f"The operative entry states that {signal}. {classification_text} The entry is "
-                "preserved as written because the benchmark requires reconciliation between sources, "
-                "not silent correction of a document that appears incomplete or inconsistent."
+                f"{source_system} produced native record {record_id} for {matter.matter_number}. "
+                f"{custodian} owns the source population and {reviewer} recorded the collection review. "
+                "The export remains separate from later legal analysis."
             ),
         },
         {
-            "heading": "Reviewer analysis",
+            "heading": "Business context",
             "text": (
-                f"{review_text} Reviewer {reviewer} recorded status “{record_status}” and linked the "
-                f"file to {cross_ref}. The control metric {unique_metric} is an administrative "
-                "population identifier, not a damages estimate or a statement of materiality."
+                f"This record concerns {case['topic']} within {matter.title}. {matter.narrative} "
+                f"The record addresses one part of the broader question: {rule.observation}"
             ),
         },
+        {"heading": "Native record", "text": body},
         {
-            "heading": "Dependencies and reliance limits",
+            "heading": "Reliance limits",
             "text": (
-                f"The record should be read with the {related_issue_text} materials and the files in "
-                f"the adjacent workstreams. {limitations}"
+                f"This file supplies {role.replace('_', ' ')} evidence for {case['portfolio_key']}. "
+                "It does not decide legal effect, select among candidate responses, resolve another "
+                "system's entity identity, or establish that its cited revision is controlling."
             ),
         },
     ]
-
-    chronology_dates = [
-        record_date - timedelta(days=35 + seed % 17),
-        record_date - timedelta(days=16 + seed % 9),
-        record_date - timedelta(days=4 + seed % 5),
-        record_date,
-        min(deadline, record_date + timedelta(days=21 + seed % 18)),
-    ]
-    chronology_events = (
-        "Source population opened for collection",
-        "Custodian confirmed system and date boundary",
-        "Matter team completed first-level comparison",
-        "Legal reviewer recorded the current disposition",
-        "Assigned owner scheduled the next control response",
-    )
     chronology = [
         {
-            "date": event_date.isoformat(),
-            "event": chronology_events[index],
-            "actor": PEOPLE[(task_index + document_index + index * 3) % len(PEOPLE)],
-            "evidence": record_id if index in (0, 3) else cross_ref,
+            "date": (record_date - timedelta(days=35 - step * 6)).isoformat(),
+            "event": (
+                "native population opened", "custodian boundary confirmed",
+                "export created", "cross-system identifier checked",
+                "revision retained", "matter copy collected",
+            )[step],
+            "actor": PEOPLE[(task_index + document_index + step * 4) % len(PEOPLE)],
+            "reference": record_id if step % 2 == 0 else case["portfolio_key"],
         }
-        for index, event_date in enumerate(chronology_dates)
+        for step in range(6)
     ]
-    participants = [
-        {
-            "name": PEOPLE[(task_index * 2 + document_index + index * 5) % len(PEOPLE)],
-            "role": ROLE_TITLES[(document_index + index) % len(ROLE_TITLES)],
-            "responsibility": (
-                "source completeness", "business interpretation", "legal review", "remediation tracking"
-            )[index],
-        }
-        for index in range(4)
-    ]
-    related_records = [
-        {
-            "record_id": f"CB-DOC-{task_index + 1:03d}-{((document_index + offset) % DOCUMENT_COUNT) + 1:03d}",
-            "relationship": relationship,
-            "workstream": str(settings["folders"][((document_index + offset) % DOCUMENT_COUNT) // 8]).split("_", 1)[-1].replace("_", " "),
-        }
-        for offset, relationship in (
-            (7, "same-cycle source"), (19, "implementation evidence"),
-            (37, "independent control record"), (53, "later reconciliation record"),
-        )
-    ]
-    action_dates = [deadline - timedelta(days=14), deadline - timedelta(days=7), deadline]
-    action_texts = [
-        (
-            finding_context["recommendation"]
-            if finding_context
-            else f"Confirm that {cross_ref} does not change the context-only classification."
-        ),
-        f"Preserve the native {source_system} export and document any replacement record.",
-        f"Report the disposition to the {workstream} workstream lead before the matter deadline.",
-    ]
-    action_register = [
-        {
-            "action_id": f"A-{document_index + 1:03d}-{index + 1}",
-            "action": action,
-            "owner": (
-                remediation_owner if finding_context and index == 0
-                else PEOPLE[(task_index + document_index + index * 7 + 9) % len(PEOPLE)]
-            ),
-            "due_date": action_dates[index].isoformat(),
-            "status": ACTION_STATUSES[(document_index + index + task_index) % len(ACTION_STATUSES)],
-        }
-        for index, action in enumerate(action_texts)
-    ]
-    data_rows = []
-    for row_index in range(12):
-        row_seed = stable_int(matter.slug, document_index, row_index)
-        data_rows.append(
-            {
-                "line_id": f"{record_id}-L{row_index + 1:02d}",
-                "category": related_topics[row_index % len(related_topics)],
-                "description": (
-                    signal if row_index == 0
-                    else f"{workstream.title()} control observation {row_index + 1}; retained for reconciliation with {cross_ref}."
-                ),
-                "effective_date": (record_date - timedelta(days=row_index * 3 + row_seed % 4)).isoformat(),
-                "owner": PEOPLE[(task_index + document_index + row_index * 2) % len(PEOPLE)],
-                "status": ACTION_STATUSES[(row_seed // 13) % len(ACTION_STATUSES)],
-                "metric": f"${25_000 + row_seed % 875_000:,.2f}" if row_index % 3 == 0 else f"{1 + row_seed % 24}%",
-                "evidence_reference": record_id if row_index % 2 == 0 else cross_ref,
-            }
-        )
     return {
         "record_id": record_id,
         "matter_number": matter.matter_number,
         "matter_title": matter.title,
         "client": matter.client,
         "counterparty": matter.counterparty,
-        "jurisdiction": matter.jurisdiction,
-        "venue": matter.venue,
-        "deadline": matter.deadline,
-        "practice_workflow": settings["label"],
-        "folder": folder,
-        "workstream": workstream,
-        "record_type": kind.replace("_", " "),
         "source_system": source_system,
-        "native_version": f"{1 + seed % 4}.{seed // 29 % 10}",
-        "record_status": record_status,
-        "confidentiality": confidentiality,
+        "native_version": f"{1 + seed % 5}.{seed // 17 % 10}",
+        "record_date": record_date.isoformat(),
         "custodian": custodian,
         "reviewer": reviewer,
-        "record_date": record_date.isoformat(),
-        "cross_reference": cross_ref,
-        "control_metric": unique_metric,
-        "review_question": review_question,
-        "finding_id": finding_id,
-        "record_role": record_role,
-        "control_severity": control_severity,
-        "remediation_owner": remediation_owner,
-        "response_due": response_due,
-        "operative_text": signal,
-        "background": (
-            f"This {kind.replace('_', ' ')} was maintained for {matter.client} in connection "
-            f"with {matter.title}. {matter.narrative} The {workstream} team used the record to "
-            f"{purpose}. Producing custodian {custodian} identified it as an ordinary-course "
-            f"record from {source_system}; reviewer {reviewer} preserved the source wording and "
-            "separately recorded the legal-control disposition."
-        ),
-        "scope": (
-            f"The record covers activity in {matter.jurisdiction} through {record_date.isoformat()} "
-            f"and should be evaluated with {cross_ref}, the four related records listed below, "
-            f"and the complete {workstream} folder. It is not a complete statement of law or a "
-            "substitute for the other folders in production."
-        ),
-        "control_note": (
-            f"Reviewer {reviewer} compared identifier {unique_metric} against the folder index, "
-            f"the native {source_system} entry, and {cross_ref}. The comparison preserved each "
-            "source independently and did not infer facts held by other custodians, unproduced "
-            "amendments, oral explanations, or records generated after the document date."
-        ),
-        "analysis_sections": analysis_sections,
+        "confidentiality": (
+            "Attorney work product", "Confidential legal review",
+            "Restricted matter team", "Confidential source record",
+        )[seed % 4],
+        "portfolio_key": case["portfolio_key"],
+        "subject": case["topic"],
+        "evidence_role": role,
+        "immutable_entity_key": case["entity_id"],
+        "referenced_revision": case["referenced_revision"],
+        "current_revision": case["current_revision"],
+        "body": body,
+        "sections": sections,
         "chronology": chronology,
-        "participants": participants,
-        "related_records": related_records,
-        "action_register": action_register,
-        "data_rows": data_rows,
+        "rows": rows,
+        "related_records": [
+            f"CB-DOC-{task_index + 1:03d}-{((document_index + offset) % DOCUMENT_COUNT) + 1:03d}"
+            for offset in (11, 29, 47, 71)
+        ],
+        "source_path": path,
         "provenance": (
-            "Synthetic CounselBench-100 benchmark evidence; all entities, people, addresses, "
-            "amounts, and events are fictitious and are not legal advice."
+            "Synthetic CounselBench-100 source record. All people, entities, events, amounts, "
+            "and addresses are fictitious; the record is not legal advice."
         ),
     }
 
 
-def _render_document(values: dict[str, Any], extension: str) -> str:
-    control_keys = (
-        "record_id", "matter_number", "record_date", "record_type", "folder",
-        "workstream", "source_system", "native_version", "record_status",
-        "confidentiality", "custodian", "reviewer", "cross_reference",
-        "control_metric", "review_question", "finding_id", "record_role",
-        "control_severity", "remediation_owner", "response_due",
-    )
-    matter_keys = (
-        "matter_title", "client", "counterparty", "jurisdiction", "venue",
-        "deadline", "practice_workflow",
-    )
-
-    def plain_sections() -> str:
-        return "\n\n".join(
-            f"{index}. {section['heading'].upper()}\n{section['text']}"
-            for index, section in enumerate(values["analysis_sections"], 1)
-        )
-
-    def plain_chronology() -> str:
-        return "\n".join(
-            f"- {row['date']} | {row['event']} | {row['actor']} | {row['evidence']}"
-            for row in values["chronology"]
-        )
-
-    def plain_actions() -> str:
-        return "\n".join(
-            f"- {row['action_id']} | {row['status']} | {row['owner']} | {row['due_date']} | {row['action']}"
-            for row in values["action_register"]
-        )
-
+def _render_document(value: dict[str, Any], extension: str) -> str:
     if extension == "json":
-        return json.dumps(
-            {
-                "document_control": {key: values[key] for key in control_keys},
-                "matter": {key: values[key] for key in matter_keys},
-                "record": {
-                    "background": values["background"], "operative_text": values["operative_text"],
-                    "scope": values["scope"], "control_note": values["control_note"],
-                    "analysis_sections": values["analysis_sections"],
-                },
-                "chronology": values["chronology"],
-                "participants": values["participants"],
-                "related_records": values["related_records"],
-                "action_register": values["action_register"],
-                "supporting_rows": values["data_rows"],
-                "provenance": values["provenance"],
-            },
-            indent=2,
-            ensure_ascii=False,
-        ) + "\n"
+        return json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+
     if extension == "csv":
         stream = io.StringIO()
         writer = csv.writer(stream, lineterminator="\n")
-        columns = [
-            "record_id", "matter_number", "record_date", "row_type", "section",
-            "key", "value", "owner", "status", "reference",
-        ]
-        writer.writerow(columns)
-        for key in (*control_keys, *matter_keys, "background", "operative_text", "scope", "control_note"):
+        writer.writerow(
+            ["record_id", "matter_number", "portfolio_key", "row_type", "date", "key", "value", "actor", "status", "reference"]
+        )
+        for key in (
+            "matter_title", "client", "counterparty", "source_system", "native_version",
+            "record_date", "custodian", "reviewer", "subject", "evidence_role",
+            "immutable_entity_key", "referenced_revision", "current_revision", "body",
+        ):
             writer.writerow([
-                values["record_id"], values["matter_number"], values["record_date"],
-                "metadata", "document_control", key, values[key], "", "", values["cross_reference"],
+                value["record_id"], value["matter_number"], value["portfolio_key"],
+                "metadata", value["record_date"], key, value[key], value["reviewer"],
+                "recorded", value["record_id"],
             ])
-        for index, section in enumerate(values["analysis_sections"], 1):
+        for row in value["rows"]:
             writer.writerow([
-                values["record_id"], values["matter_number"], values["record_date"],
-                "analysis", f"section_{index}", section["heading"], section["text"],
-                values["reviewer"], values["record_status"], values["cross_reference"],
+                value["record_id"], value["matter_number"], value["portfolio_key"],
+                "source_row", row["effective_date"], row["line_id"],
+                f"{row['note']} Metric {row['metric']}; revision {row['revision']}",
+                row["actor"], row["status"], row["entity_key"],
             ])
-        for row in values["data_rows"]:
+        for row in value["chronology"]:
             writer.writerow([
-                values["record_id"], values["matter_number"], row["effective_date"],
-                "ledger_entry", row["category"], row["line_id"],
-                f"{row['description']} Metric: {row['metric']}", row["owner"], row["status"],
-                row["evidence_reference"],
+                value["record_id"], value["matter_number"], value["portfolio_key"],
+                "chronology", row["date"], row["event"], row["event"], row["actor"],
+                "recorded", row["reference"],
             ])
-        for row in values["chronology"]:
-            writer.writerow([
-                values["record_id"], values["matter_number"], row["date"],
-                "chronology", values["workstream"], row["event"], row["event"],
-                row["actor"], "recorded", row["evidence"],
-            ])
-        for row in values["action_register"]:
-            writer.writerow([
-                values["record_id"], values["matter_number"], row["due_date"],
-                "action", values["workstream"], row["action_id"], row["action"],
-                row["owner"], row["status"], values["cross_reference"],
-            ])
-        writer.writerow([
-            values["record_id"], values["matter_number"], values["record_date"],
-            "provenance", "release", "synthetic_notice", values["provenance"],
-            values["reviewer"], "final", values["record_id"],
-        ])
         return stream.getvalue()
+
     if extension == "xml":
-        control = "\n".join(
-            f"    <{key}>{html.escape(str(values[key]), quote=True)}</{key}>"
-            for key in control_keys
-        )
-        matter = "\n".join(
-            f"    <{key}>{html.escape(str(values[key]), quote=True)}</{key}>"
-            for key in matter_keys
-        )
         sections = "\n".join(
-            "    <section index=\"{index}\" heading=\"{heading}\">{text}</section>".format(
-                index=index,
-                heading=html.escape(section["heading"], quote=True),
-                text=html.escape(section["text"]),
+            f"    <section heading=\"{html.escape(section['heading'], quote=True)}\">{html.escape(section['text'])}</section>"
+            for section in value["sections"]
+        )
+        rows = "\n".join(
+            "    <row id=\"{line_id}\" date=\"{effective_date}\" entity=\"{entity_key}\" revision=\"{revision}\" actor=\"{actor}\" status=\"{status}\" metric=\"{metric}\">{note}</row>".format(
+                **{key: html.escape(str(item), quote=True) for key, item in row.items()}
             )
-            for index, section in enumerate(values["analysis_sections"], 1)
+            for row in value["rows"]
         )
         chronology = "\n".join(
-            "    <event date=\"{date}\" actor=\"{actor}\" evidence=\"{evidence}\">{event}</event>".format(
-                **{key: html.escape(str(value), quote=True) for key, value in row.items()}
+            "    <event date=\"{date}\" actor=\"{actor}\" reference=\"{reference}\">{event}</event>".format(
+                **{key: html.escape(str(item), quote=True) for key, item in row.items()}
             )
-            for row in values["chronology"]
-        )
-        actions = "\n".join(
-            "    <action id=\"{action_id}\" owner=\"{owner}\" due=\"{due_date}\" status=\"{status}\">{action}</action>".format(
-                **{key: html.escape(str(value), quote=True) for key, value in row.items()}
-            )
-            for row in values["action_register"]
+            for row in value["chronology"]
         )
         return (
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-            "<legal-record schema-version=\"1.1\">\n"
-            f"  <document-control>\n{control}\n  </document-control>\n"
-            f"  <matter>\n{matter}\n  </matter>\n"
-            f"  <background>{html.escape(values['background'])}</background>\n"
-            f"  <operative-record>{html.escape(values['operative_text'])}</operative-record>\n"
+            "<counsel-source-record schema-version=\"3.0\">\n"
+            f"  <record-id>{html.escape(value['record_id'])}</record-id>\n"
+            f"  <matter-number>{html.escape(value['matter_number'])}</matter-number>\n"
+            f"  <portfolio-key>{html.escape(value['portfolio_key'])}</portfolio-key>\n"
+            f"  <source-system>{html.escape(value['source_system'])}</source-system>\n"
+            f"  <evidence-role>{html.escape(value['evidence_role'])}</evidence-role>\n"
+            f"  <immutable-entity-key>{html.escape(value['immutable_entity_key'])}</immutable-entity-key>\n"
+            f"  <referenced-revision>{html.escape(value['referenced_revision'])}</referenced-revision>\n"
+            f"  <current-revision>{html.escape(value['current_revision'])}</current-revision>\n"
+            f"  <native-record>{html.escape(value['body'])}</native-record>\n"
             f"  <analysis>\n{sections}\n  </analysis>\n"
+            f"  <supporting-rows>\n{rows}\n  </supporting-rows>\n"
             f"  <chronology>\n{chronology}\n  </chronology>\n"
-            f"  <action-register>\n{actions}\n  </action-register>\n"
-            f"  <scope>{html.escape(values['scope'])}</scope>\n"
-            f"  <control-note>{html.escape(values['control_note'])}</control-note>\n"
-            f"  <provenance>{html.escape(values['provenance'])}</provenance>\n"
-            "</legal-record>\n"
+            f"  <provenance>{html.escape(value['provenance'])}</provenance>\n"
+            "</counsel-source-record>\n"
         )
+
+    row_lines = "\n".join(
+        f"{row['line_id']} | {row['effective_date']} | {row['entity_key']} | {row['revision']} | "
+        f"{row['actor']} | {row['status']} | {row['metric']} | {row['note']}"
+        for row in value["rows"]
+    )
+    chronology_lines = "\n".join(
+        f"{row['date']} | {row['event']} | {row['actor']} | {row['reference']}"
+        for row in value["chronology"]
+    )
+    section_text = "\n\n".join(
+        f"{section['heading'].upper()}\n{section['text']}" for section in value["sections"]
+    )
+
+    if extension == "eml":
+        thread = "\n\n".join(
+            (
+                f"-----Original Message-----\nFrom: {row['actor']} <{slugify(row['actor'])}@example.test>\n"
+                f"Sent: {row['effective_date']} 09:00:00 -0700\n"
+                f"To: {value['reviewer']} <{slugify(value['reviewer'])}@example.test>\n"
+                f"Subject: {value['portfolio_key']} source row {row['line_id']}\n\n"
+                f"{row['note']} The native status is {row['status']} and the recorded metric is {row['metric']}."
+            )
+            for row in value["rows"][:8]
+        )
+        return (
+            f"From: {value['custodian']} <{slugify(value['custodian'])}@example.test>\n"
+            f"To: {value['reviewer']} <{slugify(value['reviewer'])}@example.test>\n"
+            f"Date: {value['record_date']} 08:30:00 -0700\n"
+            f"Message-ID: <{value['record_id'].lower()}@example.test>\n"
+            f"Subject: {value['matter_number']} — {value['subject']} source export\n"
+            f"X-Matter-Number: {value['matter_number']}\n"
+            f"X-Portfolio-Key: {value['portfolio_key']}\n"
+            f"X-Source-System: {value['source_system']}\n"
+            "MIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\n\n"
+            f"{value['body']}\n\n{section_text}\n\nSOURCE THREAD\n{thread}\n\n"
+            f"CHRONOLOGY\n{chronology_lines}\n\n{value['provenance']}\n"
+        )
+
     if extension == "html":
-        control_rows = "\n".join(
-            f"<tr><th>{html.escape(key.replace('_', ' ').title())}</th>"
-            f"<td>{html.escape(str(values[key]))}</td></tr>"
-            for key in (*control_keys, *matter_keys)
+        sections = "".join(
+            f"<section><h2>{html.escape(section['heading'])}</h2><p>{html.escape(section['text'])}</p></section>"
+            for section in value["sections"]
         )
-        sections = "\n".join(
-            f"<section><h2>{index}. {html.escape(section['heading'])}</h2>"
-            f"<p>{html.escape(section['text'])}</p></section>"
-            for index, section in enumerate(values["analysis_sections"], 1)
-        )
-        chronology_rows = "\n".join(
-            f"<tr><td>{html.escape(row['date'])}</td><td>{html.escape(row['event'])}</td>"
-            f"<td>{html.escape(row['actor'])}</td><td>{html.escape(row['evidence'])}</td></tr>"
-            for row in values["chronology"]
-        )
-        action_rows = "\n".join(
-            f"<tr><td>{html.escape(row['action_id'])}</td><td>{html.escape(row['action'])}</td>"
-            f"<td>{html.escape(row['owner'])}</td><td>{html.escape(row['due_date'])}</td>"
-            f"<td>{html.escape(row['status'])}</td></tr>"
-            for row in values["action_register"]
+        rows = "".join(
+            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>".format(
+                *(html.escape(str(row[key])) for key in (
+                    "line_id", "effective_date", "entity_key", "revision", "actor", "status", "metric", "note"
+                ))
+            )
+            for row in value["rows"]
         )
         return (
             "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
-            f"<title>{html.escape(values['record_id'])}</title>"
-            "<style>body{font-family:Georgia,serif;max-width:960px;margin:40px auto;line-height:1.5;color:#17242a}"
-            "table{width:100%;border-collapse:collapse;margin:18px 0 30px}th,td{border:1px solid #aeb8bc;padding:8px;vertical-align:top}"
-            "th{text-align:left;background:#eef2f2}header{border-bottom:3px solid #183b46;margin-bottom:28px}.notice{padding:12px;background:#f4eee4}</style>"
-            "</head><body>"
-            f"<header><p>{html.escape(values['confidentiality'])}</p><h1>{html.escape(values['matter_title'])}</h1>"
-            f"<p>{html.escape(values['record_type'].title())} · {html.escape(values['record_id'])}</p></header>"
-            f"<p class=\"notice\"><strong>Operative content:</strong> {html.escape(values['operative_text'])}</p>"
-            f"<table><tbody>{control_rows}</tbody></table>{sections}"
-            "<h2>Chronology</h2><table><thead><tr><th>Date</th><th>Event</th><th>Actor</th><th>Evidence</th></tr></thead>"
-            f"<tbody>{chronology_rows}</tbody></table>"
-            "<h2>Action register</h2><table><thead><tr><th>ID</th><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead>"
-            f"<tbody>{action_rows}</tbody></table>"
-            f"<h2>Scope</h2><p>{html.escape(values['scope'])}</p>"
-            f"<h2>Certification note</h2><p>{html.escape(values['control_note'])}</p>"
-            f"<footer><p>{html.escape(values['provenance'])}</p></footer></body></html>\n"
+            f"<title>{html.escape(value['record_id'])}</title></head><body>"
+            f"<h1>{html.escape(value['subject'])}</h1><dl>"
+            f"<dt>Record</dt><dd>{html.escape(value['record_id'])}</dd>"
+            f"<dt>Matter</dt><dd>{html.escape(value['matter_number'])}</dd>"
+            f"<dt>Portfolio key</dt><dd>{html.escape(value['portfolio_key'])}</dd>"
+            f"<dt>Source system</dt><dd>{html.escape(value['source_system'])}</dd>"
+            f"<dt>Evidence role</dt><dd>{html.escape(value['evidence_role'])}</dd>"
+            f"<dt>Entity</dt><dd>{html.escape(value['immutable_entity_key'])}</dd>"
+            f"<dt>Revision</dt><dd>{html.escape(value['referenced_revision'])}</dd></dl>"
+            f"<p>{html.escape(value['body'])}</p>{sections}"
+            "<h2>Native rows</h2><table><thead><tr><th>ID</th><th>Date</th><th>Entity</th>"
+            "<th>Revision</th><th>Actor</th><th>Status</th><th>Metric</th><th>Note</th></tr></thead>"
+            f"<tbody>{rows}</tbody></table><p>{html.escape(value['provenance'])}</p></body></html>\n"
         )
-    if extension == "eml":
-        participants = ", ".join(row["name"] for row in values["participants"][1:])
-        return (
-            f"From: {slugify(values['custodian']).replace('_', '.')}@example.test\n"
-            f"To: {slugify(values['reviewer']).replace('_', '.')}@example.test\n"
-            f"Cc: matter-team-{slugify(values['client'])}@example.test\n"
-            f"Date: {values['record_date']} 09:30:00 -0700\n"
-            f"Message-ID: <{values['record_id'].casefold()}@example.test>\n"
-            f"In-Reply-To: <{values['cross_reference'].casefold()}@example.test>\n"
-            f"Subject: {values['matter_number']} — {values['record_type']} / {values['folder']}\n"
-            f"X-Source-System: {values['source_system']}\n"
-            f"X-Record-Status: {values['record_status']}\n"
-            f"X-Confidentiality: {values['confidentiality']}\n"
-            f"X-Review-Question: {values['review_question']}\n"
-            f"X-Finding-ID: {values['finding_id']}\n"
-            f"X-Record-Role: {values['record_role']}\n"
-            f"X-Control-Severity: {values['control_severity']}\n"
-            f"X-Remediation-Owner: {values['remediation_owner']}\n"
-            f"X-Response-Due: {values['response_due']}\n"
-            "MIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\n\n"
-            f"{values['reviewer'].split()[0]},\n\n"
-            f"I completed the {values['workstream']} review for {values['matter_title']}. "
-            f"The working group ({participants}) should use the record-control block below when updating the matter tracker.\n\n"
-            f"{values['background']}\n\nOPERATIVE RECORD\n{values['operative_text']}\n\n"
-            f"{plain_sections()}\n\nCHRONOLOGY\n{plain_chronology()}\n\nACTION REGISTER\n{plain_actions()}\n\n"
-            f"SCOPE AND CROSS-REFERENCE\n{values['scope']}\n\nCONTROL NOTE\n{values['control_note']}\n\n"
-            f"Regards,\n{values['custodian']}\n{values['workstream'].title()} records custodian\n\n"
-            "-----Original Message-----\n"
-            f"From: {slugify(values['reviewer']).replace('_', '.')}@example.test\n"
-            f"Sent: {values['chronology'][1]['date']} 16:10:00 -0700\n"
-            f"To: {slugify(values['custodian']).replace('_', '.')}@example.test\n"
-            f"Subject: RE: {values['matter_number']} / {values['cross_reference']}\n\n"
-            f"Please preserve the native {values['source_system']} entry, confirm the date boundary, and do not resolve any difference with {values['cross_reference']} outside the written matter record.\n\n"
-            f"{values['provenance']}\n"
-        )
+
     if extension == "txt":
         return (
-            f"{values['confidentiality'].upper()}\n\n"
-            f"{values['record_type'].upper()}\n{values['matter_title'].upper()}\n\n"
-            f"DOCUMENT CONTROL: {values['record_id']}\nMATTER: {values['matter_number']} | {values['matter_title']}\n"
-            f"RECORD TYPE: {values['record_type']}\nDATE: {values['record_date']}\nSOURCE SYSTEM: {values['source_system']}\n"
-            f"NATIVE VERSION: {values['native_version']}\nSTATUS: {values['record_status']}\n"
-            f"CUSTODIAN: {values['custodian']}\nREVIEWER: {values['reviewer']}\n"
-            f"CROSS-REFERENCE: {values['cross_reference']}\nCONTROL METRIC: {values['control_metric']}\n\n"
-            f"REVIEW QUESTION: {values['review_question']}\nFINDING ID: {values['finding_id']}\n"
-            f"RECORD ROLE: {values['record_role']}\nCONTROL SEVERITY: {values['control_severity']}\n"
-            f"REMEDIATION OWNER: {values['remediation_owner']}\nRESPONSE DUE: {values['response_due']}\n\n"
-            f"RECITALS\n\nA. {values['background']}\n\n"
-            f"B. The parties and matter team intend to preserve the source hierarchy and the decision record for {values['matter_number']}.\n\n"
-            f"OPERATIVE RECORD\n{values['operative_text']}\n\n{plain_sections()}\n\n"
-            f"SCHEDULE 1 — RECORD CHRONOLOGY\n{plain_chronology()}\n\n"
-            f"SCHEDULE 2 — ACTION REGISTER\n{plain_actions()}\n\n"
-            f"SCOPE\n{values['scope']}\n\nCONTROL NOTE\n{values['control_note']}\n\n"
-            f"ACKNOWLEDGED FOR RECORD-CONTROL PURPOSES\n\nBy: {values['custodian']}\nRole: Producing custodian\n"
-            f"Reviewed by: {values['reviewer']}\nRecord date: {values['record_date']}\n\n"
-            f"PROVENANCE\n{values['provenance']}\n"
+            f"{value['confidentiality'].upper()}\n\n{value['subject'].upper()}\n"
+            f"RECORD: {value['record_id']}\nMATTER: {value['matter_number']}\n"
+            f"PORTFOLIO KEY: {value['portfolio_key']}\nSOURCE SYSTEM: {value['source_system']}\n"
+            f"EVIDENCE ROLE: {value['evidence_role']}\nENTITY KEY: {value['immutable_entity_key']}\n"
+            f"REFERENCED REVISION: {value['referenced_revision']}\nCURRENT REVISION: {value['current_revision']}\n"
+            f"CUSTODIAN: {value['custodian']}\nREVIEWER: {value['reviewer']}\n\n"
+            f"NATIVE RECORD\n{value['body']}\n\n{section_text}\n\n"
+            f"SCHEDULE 1 — NATIVE ROWS\n{row_lines}\n\n"
+            f"SCHEDULE 2 — CHRONOLOGY\n{chronology_lines}\n\nPROVENANCE\n{value['provenance']}\n"
         )
-    chronology_rows = "\n".join(
-        f"| {row['date']} | {row['event']} | {row['actor']} | {row['evidence']} |"
-        for row in values["chronology"]
+
+    sections = "\n\n".join(
+        f"## {section['heading']}\n\n{section['text']}" for section in value["sections"]
     )
-    participant_rows = "\n".join(
-        f"| {row['name']} | {row['role']} | {row['responsibility']} |"
-        for row in values["participants"]
+    rows = "\n".join(
+        f"| {row['line_id']} | {row['effective_date']} | {row['entity_key']} | {row['revision']} | "
+        f"{row['actor']} | {row['status']} | {row['metric']} | {row['note']} |"
+        for row in value["rows"]
     )
-    action_rows = "\n".join(
-        f"| {row['action_id']} | {row['action']} | {row['owner']} | {row['due_date']} | {row['status']} |"
-        for row in values["action_register"]
-    )
-    analysis = "\n\n".join(
-        f"## {index}. {section['heading']}\n\n{section['text']}"
-        for index, section in enumerate(values["analysis_sections"], 1)
-    )
-    related = "\n".join(
-        f"- `{row['record_id']}` — {row['relationship']} ({row['workstream']})"
-        for row in values["related_records"]
+    chronology = "\n".join(
+        f"| {row['date']} | {row['event']} | {row['actor']} | {row['reference']} |"
+        for row in value["chronology"]
     )
     return (
-        f"# {values['record_type'].title()} — {values['record_id']}\n\n"
-        f"> {values['confidentiality']} · {values['record_status']} · native version {values['native_version']}\n\n"
-        f"| Control field | Value |\n|---|---|\n"
-        f"| Matter | {values['matter_number']} — {values['matter_title']} |\n"
-        f"| Client | {values['client']} |\n| Other party | {values['counterparty']} |\n"
-        f"| Record date | {values['record_date']} |\n| Custodian | {values['custodian']} |\n"
-        f"| Reviewer | {values['reviewer']} |\n| Cross-reference | {values['cross_reference']} |\n"
-        f"| Source system | {values['source_system']} |\n| Workstream | {values['workstream']} |\n"
-        f"| Control metric | {values['control_metric']} |\n"
-        f"| Review question | {values['review_question']} |\n| Finding ID | {values['finding_id']} |\n"
-        f"| Record role | {values['record_role']} |\n| Control severity | {values['control_severity']} |\n"
-        f"| Remediation owner | {values['remediation_owner']} |\n| Response due | {values['response_due']} |\n\n"
-        f"## Executive record summary\n\n{values['background']}\n\n"
-        f"> **Operative record:** {values['operative_text']}\n\n{analysis}\n\n"
-        "## Chronology\n\n| Date | Event | Actor | Evidence |\n|---|---|---|---|\n"
-        f"{chronology_rows}\n\n## Participants\n\n| Name | Role | Responsibility |\n|---|---|---|\n"
-        f"{participant_rows}\n\n## Related records\n\n{related}\n\n"
-        "## Action register\n\n| ID | Action | Owner | Due | Status |\n|---|---|---|---|---|\n"
-        f"{action_rows}\n\n## Scope and cross-reference\n\n{values['scope']}\n\n"
-        f"## Control note\n\n{values['control_note']}\n\n## Provenance\n\n{values['provenance']}\n"
+        f"# {value['subject'].title()} — {value['record_id']}\n\n"
+        f"> {value['confidentiality']} · {value['source_system']} · native version {value['native_version']}\n\n"
+        "| Control field | Value |\n|---|---|\n"
+        f"| Matter | {value['matter_number']} — {value['matter_title']} |\n"
+        f"| Portfolio key | {value['portfolio_key']} |\n| Evidence role | {value['evidence_role']} |\n"
+        f"| Immutable entity | {value['immutable_entity_key']} |\n"
+        f"| Referenced revision | {value['referenced_revision']} |\n"
+        f"| Current revision | {value['current_revision']} |\n"
+        f"| Custodian | {value['custodian']} |\n| Reviewer | {value['reviewer']} |\n\n"
+        f"> {value['body']}\n\n{sections}\n\n"
+        "## Native rows\n\n| ID | Date | Entity | Revision | Actor | Status | Metric | Note |\n"
+        "|---|---|---|---|---|---|---|---|\n"
+        f"{rows}\n\n## Chronology\n\n| Date | Event | Actor | Reference |\n|---|---|---|---|\n"
+        f"{chronology}\n\n## Related native records\n\n"
+        + "\n".join(f"- `{record}`" for record in value["related_records"])
+        + f"\n\n## Provenance\n\n{value['provenance']}\n"
     )
 
 
-def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
-    settings = FAMILY_SETTINGS[matter.family]
-    topics = list(settings["issues"])
-    paths = document_paths(matter)
-    task_id = f"cb100-{task_index + 1:03d}-{matter.slug}"
-    primary_assignment, corroborating_assignment = _issue_assignments()
-    issue_details = [
-        issue_values(matter, task_index, issue_index, topic)
-        for issue_index, topic in enumerate(topics)
+def decision_options(matter: Matter, task_index: int) -> list[dict[str, Any]]:
+    rule = DECISION_RULES[matter.slug]
+    options = [
+        {
+            "id": f"{matter.slug}:scoped-evidence",
+            "label": rule.recommended,
+            "approach": (
+                f"Apply the exact identity, current-state, authority, and revision test. {rule.register_action}"
+            ),
+            "selected": True,
+        },
+        {
+            "id": f"{matter.slug}:shortcut",
+            "label": rule.unsafe_shortcut,
+            "approach": "Use a plausible summary or one source without completing the controlling joins.",
+            "selected": False,
+        },
+        {
+            "id": f"{matter.slug}:blanket-hold",
+            "label": "Freeze the entire matter population",
+            "approach": "Treat supported actions and genuinely ambiguous records as if they were equally unresolved.",
+            "selected": False,
+        },
     ]
-    documents: dict[str, str] = {}
-    document_values: dict[str, dict[str, Any]] = {}
-    for document_index, absolute_path in enumerate(paths):
-        side = None
-        detail = None
-        if document_index in primary_assignment:
-            side = "primary"
-            detail = issue_details[primary_assignment[document_index]]
-        elif document_index in corroborating_assignment:
-            side = "corroborating"
-            detail = issue_details[corroborating_assignment[document_index]]
-        values = _record_prose(
-            matter, task_index, document_index, absolute_path, detail, side
-        )
-        document_values[absolute_path] = values
-        documents[absolute_path] = _render_document(values, PurePosixPath(absolute_path).suffix[1:])
+    rotation = task_index % len(options)
+    return options[rotation:] + options[:rotation]
 
-    contract_path = paths[-1]
-    documents[contract_path] += render_work_product_control(matter, task_id)
 
-    findings: list[dict[str, str]] = []
-    for issue_index, (topic, detail) in enumerate(zip(topics, issue_details, strict=True)):
-        primary_path = paths[issue_index * 3]
-        corroborating_path = paths[48 + issue_index * 3]
-        findings.append(
-            {
-                "id": f"F-{issue_index + 1:02d}",
-                "severity": severity_for(issue_index),
-                "issue": topic,
-                "primary_source": primary_path,
-                "corroborating_source": corroborating_path,
-                "determination": detail["determination"],
-                "recommended_action": detail["recommendation"],
-            }
-        )
+def _action_row(case: dict[str, Any], rule: DecisionRule) -> dict[str, Any]:
+    return {
+        "id": f"ACT-{case['portfolio_key']}",
+        "portfolio_key": case["portfolio_key"],
+        "issue": case["topic"],
+        "severity": case["severity"],
+        "identity_id": case["entity_id"],
+        "determination": (
+            f"{case['governing_statement']}; {case['observed_statement']}. Identity resolves to "
+            f"{case['entity_id']}, revision {case['current_revision']} is current, and {case['owner']} "
+            f"is active with capacity {case['remaining_capacity']}."
+        ),
+        "recommended_action": f"{rule.register_action} Owner: {case['owner']}; due {case['due_date']}.",
+        "owner": case["owner"],
+        "due_date": case["due_date"],
+        "source_paths": [case["paths_by_role"][role] for role in EVIDENCE_ROLES[:4]],
+    }
 
-    scoring_findings: list[dict[str, Any]] = []
-    for finding, detail in zip(findings, issue_details, strict=True):
-        allowed_fact_text = json.dumps(
-            [
-                document_values[finding["primary_source"]],
-                document_values[finding["corroborating_source"]],
-            ],
-            ensure_ascii=False,
-            sort_keys=True,
-        )
-        scoring_findings.append(
-            {
-                **finding,
-                "fact_anchors": detail["fact_anchors"],
-                "action_anchors": detail["action_anchors"],
-                "allowed_fact_text": allowed_fact_text,
-            }
-        )
 
-    expected_findings = {
-        "schema_version": "1.0",
+def _hold_row(case: dict[str, Any]) -> dict[str, Any]:
+    missing = {
+        "identity_ambiguous": "an approved immutable entity crosswalk",
+        "trigger_not_met": "a current observation that satisfies the operative trigger",
+        "authority_pending": "effective approval and an active owner with remaining capacity",
+        "revision_stale": "an operational record using the current effective revision",
+    }[case["failure_mode"]]
+    return {
+        "id": f"HOLD-{case['portfolio_key']}",
+        "portfolio_key": case["portfolio_key"],
+        "issue": case["topic"],
+        "reason": case["hold_reason"],
+        "required_next_evidence": missing,
+        "source_paths": [case["paths_by_role"][role] for role in EVIDENCE_ROLES[:4]],
+    }
+
+
+def _expected_outputs(
+    matter: Matter,
+    task_id: str,
+    rule: DecisionRule,
+    options: list[dict[str, Any]],
+    cases: list[dict[str, Any]],
+) -> tuple[dict[str, Any], dict[str, Any], str]:
+    actions = [_action_row(case, rule) for case in cases if derive_disposition(case) == "action"]
+    holds = [_hold_row(case) for case in cases if derive_disposition(case) == "evidence_hold"]
+    selected = next(option for option in options if option["selected"])
+    alternatives = [option["id"] for option in options if not option["selected"]]
+    decision = {
+        "schema_version": "counselbench.decision.v3",
         "task_id": task_id,
         "matter_number": matter.matter_number,
         "prepared_for": matter.client,
         "as_of": matter.deadline,
-        "findings": findings,
+        "decision": {
+            "question": rule.question,
+            "selected_option_id": selected["id"],
+            "recommendation": rule.recommended,
+            "rationale": (
+                f"The four-part causal test supports {len(actions)} scoped actions and leaves "
+                f"{len(holds)} records on evidence hold. {rule.authority}"
+            ),
+            "alternatives_considered": alternatives,
+        },
+        "actions": actions,
+        "holds": holds,
     }
-    memo = render_memo(matter, task_id, findings)
-    prompt = render_prompt(matter, task_index)
-    required_paths = sorted(
-        {
-            contract_path,
-            *(finding["primary_source"] for finding in findings),
-            *(finding["corroborating_source"] for finding in findings),
+    register_rows: list[dict[str, Any]] = []
+    action_by_key = {row["portfolio_key"]: row for row in actions}
+    hold_by_key = {row["portfolio_key"]: row for row in holds}
+    for case in cases:
+        common = {
+            "row_id": f"REG-{case['portfolio_key']}",
+            "matter_number": matter.matter_number,
+            "portfolio_key": case["portfolio_key"],
+            "issue": case["topic"],
+            "decision_option_id": selected["id"],
         }
-    )
-    metadata_paths = [finding["primary_source"] for finding in findings[:8]]
-    material = {
+        if derive_disposition(case) == "action":
+            action = action_by_key[case["portfolio_key"]]
+            register_rows.append(
+                {
+                    **common,
+                    "disposition": "open_action",
+                    "owner": action["owner"],
+                    "due_date": action["due_date"],
+                    "source_paths": action["source_paths"],
+                }
+            )
+        else:
+            hold = hold_by_key[case["portfolio_key"]]
+            register_rows.append(
+                {
+                    **common,
+                    "disposition": "evidence_hold",
+                    "owner": None,
+                    "due_date": None,
+                    "hold_reason": hold["reason"],
+                    "source_paths": hold["source_paths"],
+                }
+            )
+    register = {
+        "schema_version": "counselbench.matter-register.v3",
         "task_id": task_id,
-        "documents": documents,
-        "all_document_paths": paths,
-        "required_document_paths": required_paths,
-        "metadata_check_paths": metadata_paths,
-        "expected_findings": expected_findings,
-        "scoring_findings": scoring_findings,
-        "expected_findings_text": json.dumps(expected_findings, indent=2, ensure_ascii=False) + "\n",
-        "expected_memo": memo,
-        "instruction": prompt,
-        "topics": topics,
-        "decision_options": decision_options(matter),
+        "matter_number": matter.matter_number,
+        "rows": register_rows,
     }
-    material["reference_calls"] = reference_calls(
-        task_index,
-        required_paths,
-        metadata_paths,
-        material["expected_findings_text"],
-        memo,
+    lines = [
+        f"# Decision note — {matter.title}", "",
+        "## Recommendation", "",
+        f"{rule.recommended} The reconciled record supports {len(actions)} scoped actions and "
+        f"leaves {len(holds)} items on evidence hold.", "",
+        f"Selected option: `{selected['id']}`.", "",
+        "## Why this is the supported option", "",
+        f"{rule.observation} {rule.authority}", "",
+        "## Supported actions", "",
+    ]
+    for row in actions:
+        lines.extend(
+            [
+                f"### {row['portfolio_key']} — {row['issue']} ({row['severity']})", "",
+                row["determination"], "",
+                f"Action: {row['recommended_action']}", "",
+                "Sources: " + ", ".join(f"`{path}`" for path in row["source_paths"]), "",
+            ]
+        )
+    lines.extend(["## Evidence holds", ""])
+    for row in holds:
+        lines.extend(
+            [
+                f"- **{row['portfolio_key']} — {row['issue']}**: {row['reason']}. "
+                f"Next evidence: {row['required_next_evidence']}. Sources: "
+                + ", ".join(f"`{path}`" for path in row["source_paths"]),
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "## Alternatives considered", "",
+            *[
+                f"- `{option['id']}` — {option['label']}: {option['approach']}"
+                for option in options if not option["selected"]
+            ],
+            "", "## Assumptions and limits", "",
+            f"This decision is limited to {task_id}, the supplied synthetic records, and the "
+            f"matter state as of {matter.deadline}. Similar names, stale revisions, and pending "
+            "authority are not treated as proof.", "",
+        ]
     )
-    material["rubric_criteria"] = rubric_criteria(material)
-    return material
+    return decision, register, "\n".join(lines)
 
 
-def render_work_product_control(matter: Matter, task_id: str) -> str:
-    """Put the output contract in the evidence room instead of the user request."""
+def render_prompt(matter: Matter, task_index: int) -> str:
+    rule = DECISION_RULES[matter.slug]
+    return (
+        f"{REQUEST_OPENERS[task_index % len(REQUEST_OPENERS)]} {rule.question} "
+        f"{matter.narrative} The team needs the call by {matter.deadline}. "
+        f"{REQUEST_CLOSES[(task_index * 3 + 1) % len(REQUEST_CLOSES)]}"
+    )
 
+
+def render_work_product_control(
+    matter: Matter,
+    task_id: str,
+    options: list[dict[str, Any]],
+) -> str:
+    option_rows = "\n".join(
+        f"- `{option['id']}` — {option['label']}: {option['approach']}"
+        for option in options
+    )
     return f"""
 
-# Matter work-product control
+# Matter work-product protocol
 
-Matter operations requires a source-supported exception register and counsel advice for
-`{task_id}`. The reviewer should first inventory the production, use the record-control
-fields to locate each confirmed exception, compare every primary record with its
-corroborating record, and inspect chain-of-custody metadata for the eight critical primary
-records. Context-only records are not independent findings.
+Matter operations needs one decision across the twelve portfolio keys in `{task_id}`. For
+each key, reconcile the immutable identity, operative authority, current operations, and
+effective approval/revision before choosing a disposition. A supported action requires all
+four controls. Otherwise preserve an evidence hold and state the missing control; do not
+turn a similar name, a superseded revision, or a pending owner into proof.
 
-Leave exactly `/workspace/output/findings.json` and `/workspace/output/advice.md` through
-the approved filesystem tools. The JSON object uses `schema_version`, `task_id`,
-`matter_number`, `prepared_for`, `as_of`, and `findings`. Each finding preserves the stable
-`id`, `severity`, `issue`, exact absolute `primary_source` and `corroborating_source`, a
-source-bounded `determination`, and a dated, owned `recommended_action`. The advice contains
-Executive assessment, Method and record coverage, Findings, Recommended next actions, and
-Assumptions and limitations; it addresses each finding and does not invent facts outside
-the production. The governing deadline is {matter.deadline}.
+Candidate approaches (the production does not identify the selected one):
+
+{option_rows}
+
+Leave exactly `/workspace/output/decision.json`, `/workspace/output/matter-register.json`,
+and `/workspace/output/advice.md` through the approved filesystem tools. `decision.json`
+contains the matter identity, one selected option, considered alternatives, supported
+actions, and evidence holds. `matter-register.json` contains one row per portfolio key with
+the matching disposition and exact source paths. `advice.md` explains the recommendation,
+supported actions, holds, alternatives, and limits. Read each completed file back before
+finishing. The matter date is {matter.deadline}; no external facts may be assumed.
 """
 
 
-def decision_options(matter: Matter) -> list[dict[str, Any]]:
-    return [
-        {
-            "id": "cross-source-reconciliation",
-            "label": "Reconcile controlling and corroborating records",
-            "selected": True,
-            "reason": (
-                f"The {matter.matter_number} production contains independently maintained records; "
-                "a defensible answer must preserve each supported conflict and its cure owner."
-            ),
-        },
-        {
-            "id": "latest-record-controls",
-            "label": "Treat the latest record as controlling",
-            "selected": False,
-            "reason": "Timestamp recency does not establish legal priority, execution, or approval authority.",
-        },
-        {
-            "id": "primary-records-only",
-            "label": "Report primary records without reconciliation",
-            "selected": False,
-            "reason": "Primary records alone conceal the operational conflicts that create the actionable exceptions.",
-        },
-    ]
+def _search_patterns(task_index: int) -> list[str]:
+    choices = ("**/*.eml", "**/*.csv", "**/*.json", "**/*.xml", "**/*.html", "**/*.txt", "**/*.md")
+    count = 1 + task_index % 4
+    start = (task_index * 3) % len(choices)
+    return [choices[(start + offset * 2) % len(choices)] for offset in range(count)]
 
 
 def reference_calls(
     task_index: int,
     required_paths: list[str],
     metadata_paths: list[str],
-    findings_text: str,
-    memo_text: str,
+    search_patterns: list[str],
+    path_roles: dict[str, tuple[str, str]],
+    decision_text: str,
+    register_text: str,
+    advice_text: str,
 ) -> list[dict[str, Any]]:
-    """Create a distinct, evidence-led reference walk for every matter."""
-
     calls: list[dict[str, Any]] = [
-        {"name": "list_allowed_directories", "arguments": {}},
+        {"name": "list_allowed_directories", "arguments": {}, "phase": "discovery"},
         {
             "name": "directory_tree",
             "arguments": {"path": DOCUMENT_ROOT, "excludePatterns": []},
+            "phase": "discovery",
         },
     ]
-    evidence_calls: list[dict[str, Any]] = [
-        {"name": "read_text_file", "arguments": {"path": path}}
-        for path in required_paths
-    ]
-    evidence_calls.extend(
-        {"name": "get_file_info", "arguments": {"path": path}}
-        for path in metadata_paths
-    )
-    evidence_calls.append(
-        {
-            "name": "search_files",
-            "arguments": {
-                "path": DOCUMENT_ROOT,
-                "pattern": "**/*.eml",
-                "excludePatterns": [],
-            },
-        }
-    )
-    evidence_calls.sort(
+    investigation: list[dict[str, Any]] = []
+    for path in required_paths:
+        portfolio_key, role = path_roles[path]
+        investigation.append(
+            {
+                "name": "read_text_file",
+                "arguments": {"path": path},
+                "phase": f"evidence:{role}",
+                "portfolio_key": portfolio_key,
+            }
+        )
+    for path in metadata_paths:
+        portfolio_key, role = path_roles[path]
+        investigation.append(
+            {
+                "name": "get_file_info",
+                "arguments": {"path": path},
+                "phase": f"custody:{role}",
+                "portfolio_key": portfolio_key,
+            }
+        )
+    for pattern in search_patterns:
+        investigation.append(
+            {
+                "name": "search_files",
+                "arguments": {"path": DOCUMENT_ROOT, "pattern": pattern, "excludePatterns": []},
+                "phase": f"targeted-search:{pattern}",
+            }
+        )
+    investigation.sort(
         key=lambda call: stable_int(
-            "reference-walk",
-            task_index,
-            call["name"],
-            call["arguments"].get("path", ""),
+            "counsel-reference", task_index, call["phase"],
+            call["arguments"].get("path", ""), call["arguments"].get("pattern", ""),
         )
     )
-    calls.extend(evidence_calls)
-    deliverables = [
+    calls.extend(investigation)
+    writes = [
         {
             "name": "write_file",
-            "arguments": {
-                "path": f"{OUTPUT_ROOT}/findings.json",
-                "content": findings_text,
-            },
+            "arguments": {"path": f"{OUTPUT_ROOT}/decision.json", "content": decision_text},
+            "phase": "state-transition:decision",
         },
         {
             "name": "write_file",
-            "arguments": {"path": f"{OUTPUT_ROOT}/advice.md", "content": memo_text},
+            "arguments": {"path": f"{OUTPUT_ROOT}/matter-register.json", "content": register_text},
+            "phase": "state-transition:matter-register",
+        },
+        {
+            "name": "write_file",
+            "arguments": {"path": f"{OUTPUT_ROOT}/advice.md", "content": advice_text},
+            "phase": "state-transition:advice",
         },
     ]
-    if task_index % 2:
-        deliverables.reverse()
-    calls.extend(deliverables)
-    if len(calls) != MINIMUM_TOOL_CALLS:
-        raise ValueError(f"expected {MINIMUM_TOOL_CALLS} reference calls, got {len(calls)}")
+    rotation = task_index % 3
+    writes = writes[rotation:] + writes[:rotation]
+    calls.extend(writes)
+    readback_order = list(reversed(writes)) if task_index % 2 else list(writes)
+    calls.extend(
+        {
+            "name": "read_text_file",
+            "arguments": {"path": call["arguments"]["path"]},
+            "phase": call["phase"].replace("state-transition", "postwrite-readback"),
+        }
+        for call in readback_order
+    )
     return calls
 
 
 def rubric_criteria(material: dict[str, Any]) -> list[dict[str, str]]:
-    """Explain every deterministic check with matter-specific evidence references."""
-
     rows: list[dict[str, str]] = []
 
-    def add(category: str, criterion_id: str, description: str) -> None:
-        rows.append(
-            {
-                "id": f"{category}.{criterion_id}",
-                "category": category,
-                "description": description,
-            }
-        )
+    def add(category: str, identifier: str, description: str) -> None:
+        rows.append({"id": f"{category}.{identifier}", "category": category, "description": description})
 
-    procedure = {
-        "minimum_successful_tool_calls": (
-            f"Complete at least {MINIMUM_TOOL_CALLS} successful, argument-specific evidence and output calls."
-        ),
-        "all_evidence_read_in_full": (
-            f"Find and read the {len(material['required_document_paths'])} controlling, corroborating, and work-product-control records in full."
-        ),
-        "chain_of_custody_metadata_checked": (
-            "Inspect file metadata for the eight designated critical primary records before relying on them."
-        ),
-        "allowed_directories_checked": "Confirm the sandbox's allowed document and output roots.",
-        "recursive_inventory_completed": "Inventory all 96 records so the relevant sources are discovered among the context records.",
-        "targeted_search_completed": "Search the production for email evidence that may corroborate or contradict formal records.",
-        "exact_deliverable_set": "Leave only findings.json and advice.md in the output workspace.",
-        "deliverables_written_through_mcp": "Create both final work products through the sandbox MCP surface.",
-    }
-    for criterion_id, description in procedure.items():
-        add("procedure", criterion_id, description)
-
-    expected = material["expected_findings"]
-    add("findings", "findings_is_object", "Produce findings.json as a valid JSON object.")
-    add("findings", "findings_exact_count", f"Report exactly {len(material['scoring_findings'])} confirmed exceptions.")
-    add("findings", "finding_ids_unique", "Use each stable finding ID exactly once.")
-    for field in ("schema_version", "task_id", "matter_number", "prepared_for", "as_of"):
+    add("investigation", "discover_production", "Inventory the production and use targeted searches to locate records across native formats.")
+    add("investigation", "read_before_write", "Complete every task-specific identity, authority, operations, and approval read before the first state transition.")
+    add("investigation", "custody_before_write", "Inspect designated source metadata before relying on those records.")
+    add("decision", "selected_option", f"Select the supported option {material['expected_decision']['decision']['selected_option_id']!r} after applying the four-part test.")
+    add("decision", "alternatives", "Identify both rejected approaches and explain why a one-source shortcut and a blanket hold are wrong.")
+    for case in material["cases"]:
+        key = case["portfolio_key"]
+        paths = case["paths_by_role"]
+        add("investigation", f"{key}.identity", f"Resolve {key} using the immutable identity record {paths['identity_crosswalk']} rather than its display name.")
+        add("investigation", f"{key}.authority", f"Read the operative rule and revision in {paths['operative_authority']} for {case['topic']}.")
+        add("investigation", f"{key}.operations", f"Compare the current observation in {paths['current_operations']} to the operative trigger.")
+        add("investigation", f"{key}.approval", f"Verify effective approval, owner status, and capacity in {paths['approval_and_capacity']}.")
         add(
-            "findings",
-            f"top_level_{field}",
-            f"Set {field} to the released matter value {expected[field]!r}.",
+            "decision",
+            f"{key}.branch",
+            f"After joining those records, classify {key} as {case['disposition']!r}; the controlling branch is "
+            + ("all four conditions are satisfied." if case["disposition"] == "action" else f"{case['hold_reason']}.")
         )
-    for finding in material["scoring_findings"]:
-        finding_id = finding["id"]
-        add("findings", f"{finding_id}.present", f"Include the confirmed {finding_id} exception for {finding['issue']}.")
-        for field in ("id", "issue", "severity", "primary_source", "corroborating_source"):
-            add(
-                "findings",
-                f"{finding_id}.{field}",
-                f"Preserve {finding_id}'s {field} from {finding['primary_source']} and {finding['corroborating_source']}.",
-            )
-        add(
-            "findings",
-            f"{finding_id}.fact_anchors",
-            f"Reconcile {finding_id} using the exact controlled facts {finding['fact_anchors']!r}.",
-        )
-        add(
-            "findings",
-            f"{finding_id}.facts_source_bounded",
-            f"Do not introduce a controlled date, amount, percentage, address, or reference absent from {finding_id}'s cited source pair.",
-        )
-        add(
-            "findings",
-            f"{finding_id}.action_anchors",
-            f"Preserve the supported cure owner and deadline anchors {finding['action_anchors']!r} for {finding_id}.",
-        )
-
-    for section in (
-        "Executive assessment",
-        "Method and record coverage",
-        "Findings",
-        "Recommended next actions",
-        "Assumptions and limitations",
-    ):
-        add("memo", f"section.{section}", f"Include the {section!r} decision section in advice.md.")
-    for finding in material["scoring_findings"]:
-        add(
-            "memo",
-            f"finding.{finding['id']}",
-            f"Explain {finding['id']} with its issue, severity, cited source pair, exact conflicting facts, owner, and deadline.",
-        )
-    add("memo", "forbidden_claims_absent", "Do not claim the production has no issues or that every record is consistent.")
-    if len(rows) != 182:
-        raise ValueError(f"expected 182 rubric criteria, got {len(rows)}")
+        add("state", f"{key}.register", f"Create the exact task-scoped matter-register row for {key} and do not change another portfolio key.")
+    add("state", "exact_decision", "Write the exact selected option, supported action population, evidence-hold population, facts, owners, deadlines, and citations.")
+    add("state", "exact_register", "Create one exact register row per portfolio key with no extra, missing, or modified row.")
+    add("state", "write_scope_containment", "Leave only the three approved deliverables and perform no extra state-changing write.")
+    add("state", "postwrite_readback", "Read back decision.json, matter-register.json, and advice.md after their final writes.")
+    add("answer", "decision_note", "Explain the selected recommendation, supported actions, holds, alternatives, and limitations with exact source anchors.")
     return rows
 
 
-def render_memo(matter: Matter, task_id: str, findings: list[dict[str, str]]) -> str:
-    lines = [
-        f"# Counsel advice — {matter.title}", "",
-        "## Executive assessment", "",
-        f"For {matter.client} matter {matter.matter_number}, the review identified "
-        f"{len(findings)} source-supported exceptions requiring action before {matter.deadline}. "
-        f"The assessment concerns {matter.counterparty} and the supplied record for {matter.jurisdiction}.", "",
-        "## Method and record coverage", "",
-        f"The review inventoried all {DOCUMENT_COUNT} production files, read the {REQUIRED_EVIDENCE_READS} "
-        "controlling, corroborating, and control records, searched the email exports, and checked metadata "
-        "for the designated chain-of-custody sample. Conclusions are limited to the "
-        "synthetic production supplied for this benchmark matter.", "",
-        "## Findings", "",
+def _material_quality(
+    cases: list[dict[str, Any]],
+    documents: dict[str, str],
+    expected: dict[str, Any],
+) -> dict[str, bool]:
+    joined = "\n".join(documents.values()).casefold()
+    answer_phrases = [
+        *[row["determination"].casefold() for row in expected["actions"]],
+        *[row["recommended_action"].casefold() for row in expected["actions"]],
+        *[row["reason"].casefold() for row in expected["holds"]],
     ]
-    for finding in findings:
-        lines.extend(
-            [
-                f"### {finding['id']} — {finding['issue']} ({finding['severity']})", "",
-                finding["determination"], "",
-                f"Primary source: `{finding['primary_source']}`", "",
-                f"Corroborating source: `{finding['corroborating_source']}`", "",
-                f"Recommended action: {finding['recommended_action']}", "",
-            ]
+    forbidden_schema = (
+        "finding_id", "record_role", "control_severity", "remediation_owner",
+        '"selected_option_id"', '"disposition": "open_action"',
+        '"disposition": "evidence_hold"',
+    )
+    return {
+        "causality_recomputed": all(derive_disposition(case) == case["disposition"] for case in cases),
+        "action_and_hold_mix": bool(expected["actions"]) and bool(expected["holds"]),
+        "no_answer_shaped_schema_in_evidence": not any(token in joined for token in forbidden_schema),
+        "no_precomputed_outcome_text_in_evidence": not any(phrase and phrase in joined for phrase in answer_phrases),
+        "all_four_core_roles_split": all(
+            len({case["paths_by_role"][role] for role in EVIDENCE_ROLES[:4]}) == 4
+            for case in cases
+        ),
+        "every_case_has_independent_evidence": all(len(case["required_paths"]) >= 4 for case in cases),
+    }
+
+
+def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
+    validate_decision_rules({item.slug for item in MATTERS})
+    rule = DECISION_RULES[matter.slug]
+    paths = document_paths(matter)
+    task_id = f"cb100-{task_index + 1:03d}-{matter.slug}"
+    paths_by_slot: dict[int, dict[str, str]] = {slot: {} for slot in range(PORTFOLIO_COUNT)}
+    path_roles: dict[str, tuple[str, str]] = {}
+    for document_index, path in enumerate(paths):
+        slot = document_index % PORTFOLIO_COUNT
+        role = EVIDENCE_ROLES[document_index // PORTFOLIO_COUNT]
+        paths_by_slot[slot][role] = path
+    actionable_slots = _target_slots(matter, task_index)
+    cases = [
+        _build_case(matter, rule, task_index, slot, paths_by_slot[slot], actionable_slots)
+        for slot in range(PORTFOLIO_COUNT)
+    ]
+    for case in cases:
+        for role, path in case["paths_by_role"].items():
+            path_roles[path] = (case["portfolio_key"], role)
+
+    documents: dict[str, str] = {}
+    for document_index, path in enumerate(paths):
+        slot = document_index % PORTFOLIO_COUNT
+        role = EVIDENCE_ROLES[document_index // PORTFOLIO_COUNT]
+        payload = _record_payload(
+            matter, rule, cases[slot], role, task_index, document_index, path
         )
-    lines.extend(
-        [
-            "## Recommended next actions", "",
-            "Sequence the critical and high findings first, assign the named owners, preserve the cited records, "
-            "and document any resolution in the controlling matter register before the stated deadline.", "",
-            "## Assumptions and limitations", "",
-            f"This analysis is confined to task {task_id} and the supplied synthetic evidence. It does not rely "
-            "on external facts, does not resolve disputed law, and is not legal advice for a real person or entity.", "",
-        ]
-    )
-    return "\n".join(lines)
+        documents[path] = _render_document(payload, PurePosixPath(path).suffix[1:])
 
-
-def render_prompt(
-    matter: Matter,
-    task_index: int,
-) -> str:
-    settings = FAMILY_SETTINGS[matter.family]
-    client_sentence = matter.client if matter.client.endswith((".", "!", "?")) else f"{matter.client}."
-    return (
-        f"You are {settings['role']} for {client_sentence} {OPENERS[task_index % 10]} "
-        f"{matter.narrative} Decision due {matter.deadline}. {matter.jurisdiction} law governs; "
-        f"{matter.venue} is the forum. "
-        f"{LENSES[task_index % 10]} Work out the defensible position from the matter production and leave "
-        "an audit-ready exception tracker and concise advice for the supervising lawyer. Keep confirmed "
-        "conflicts separate from open questions, cite the records that actually control each conclusion, "
-        "and do not fill gaps with outside facts."
+    options = decision_options(matter, task_index)
+    protocol_path = paths[-1]
+    documents[protocol_path] += render_work_product_control(matter, task_id, options)
+    expected_decision, expected_register, advice = _expected_outputs(
+        matter, task_id, rule, options, cases
     )
+    decision_text = json.dumps(expected_decision, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    register_text = json.dumps(expected_register, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    required_paths = sorted(
+        {protocol_path, *(path for case in cases for path in case["required_paths"])}
+    )
+    metadata_count = 3 + task_index % 6
+    metadata_paths = sorted(
+        required_paths,
+        key=lambda path: stable_int(matter.slug, "metadata", path),
+    )[:metadata_count]
+    search_patterns = _search_patterns(task_index)
+    calls = reference_calls(
+        task_index, required_paths, metadata_paths, search_patterns, path_roles,
+        decision_text, register_text, advice,
+    )
+    material: dict[str, Any] = {
+        "task_id": task_id,
+        "documents": documents,
+        "all_document_paths": paths,
+        "required_document_paths": required_paths,
+        "metadata_check_paths": metadata_paths,
+        "search_patterns": search_patterns,
+        "path_roles": path_roles,
+        "cases": cases,
+        "expected_decision": expected_decision,
+        "expected_register": expected_register,
+        "expected_advice": advice,
+        "decision_text": decision_text,
+        "register_text": register_text,
+        "instruction": render_prompt(matter, task_index),
+        "decision_options": options,
+        "decision_rule": {
+            "question": rule.question,
+            "observation": rule.observation,
+            "authority": rule.authority,
+            "register_action": rule.register_action,
+        },
+        "reference_calls": calls,
+        "minimum_tool_calls": len(calls),
+        "action_count": len(expected_decision["actions"]),
+        "hold_count": len(expected_decision["holds"]),
+        "semantic_signature": [
+            f"{call['phase']}:{call.get('portfolio_key', '')}" for call in calls
+        ],
+    }
+    material["quality_gates"] = _material_quality(cases, documents, expected_decision)
+    material["rubric_criteria"] = rubric_criteria(material)
+    if not all(material["quality_gates"].values()):
+        failed = sorted(name for name, passed in material["quality_gates"].items() if not passed)
+        raise AssertionError(f"{task_id} material quality gates failed: {failed}")
+    if len(required_paths) < REQUIRED_EVIDENCE_READS:
+        raise AssertionError(f"{task_id} has only {len(required_paths)} required evidence reads")
+    if len(calls) < MINIMUM_TOOL_CALLS:
+        raise AssertionError(f"{task_id} has only {len(calls)} reference calls")
+    return material

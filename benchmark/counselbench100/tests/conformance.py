@@ -142,10 +142,11 @@ def run(report_path: Path | None = None) -> dict[str, Any]:
                     "minimum_tool_calls": 0,
                     "required_document_paths": [],
                     "metadata_check_paths": [],
+                    "search_patterns": [],
                     "deliverables": [],
-                    "expected_findings": {},
-                    "memo_sections": [],
-                    "memo_anchors": [],
+                    "expected_decision": {},
+                    "expected_register": {},
+                    "expected_advice": "",
                     "forbidden_claims": [],
                 }
             ),
@@ -239,7 +240,9 @@ def run(report_path: Path | None = None) -> dict[str, Any]:
             upstream.close()
 
     report = {
-        "schema_version": "1.0",
+        "schema_version": "counselbench.mcp-conformance.v3",
+        "benchmark": "CounselBench-100",
+        "benchmark_version": "3.0.0",
         "upstream": MCP_PIN,
         "upstream_initialize": initialized,
         "contract_checks": contract_checks,
@@ -249,7 +252,13 @@ def run(report_path: Path | None = None) -> dict[str, Any]:
     }
     if report_path:
         report_path.parent.mkdir(parents=True, exist_ok=True)
-        report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        encoded = json.dumps(report, indent=2, sort_keys=True) + "\n"
+        report_path.write_text(encoded, encoding="utf-8")
+        release = report_path.parent.parent
+        hf_reports = release / "huggingface" / "reports"
+        if report_path.parent.name == "reports" and hf_reports.parent.is_dir():
+            hf_reports.mkdir(parents=True, exist_ok=True)
+            (hf_reports / report_path.name).write_text(encoded, encoding="utf-8")
     print(json.dumps(report, indent=2, sort_keys=True))
     return report
 

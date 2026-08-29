@@ -71,7 +71,7 @@ def rpc_response(request: dict[str, Any]) -> dict[str, Any] | None:
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "CounselBenchMCP/1.0"
+    server_version = "CounselBenchMCP/3.0"
 
     def log_message(self, fmt: str, *args: Any) -> None:
         return

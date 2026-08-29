@@ -1,4 +1,4 @@
-"""Unit tests for the deterministic CounselBench criterion scorer."""
+"""Unit tests for deterministic decision, state, and advice scoring."""
 
 from __future__ import annotations
 
@@ -7,121 +7,108 @@ import sys
 import unittest
 from pathlib import Path
 
+from benchmark.counselbench100.catalog import MATTERS
+from benchmark.counselbench100.generation import build_material
+
 RUNTIME = Path(__file__).resolve().parents[1] / "runtime"
 if not RUNTIME.exists():
     RUNTIME = Path(__file__).resolve().parents[1] / "world"
 sys.path.insert(0, str(RUNTIME))
 
-from scoring import aggregate_scores, score_findings, score_memo  # noqa: E402
+from scoring import (  # noqa: E402
+    aggregate_scores,
+    score_advice,
+    score_decision,
+    score_register,
+)
 
 
-def fixture() -> tuple[dict, dict, str]:
-    expected = {
-        "schema_version": "1.0",
-        "task_id": "cb100-test",
-        "matter_number": "CB-TEST-001",
-        "prepared_for": "Test Client, Inc.",
-        "as_of": "2026-09-04",
-        "findings": [
-            {
-                "id": "F-01",
-                "issue": "consent deadline mismatch",
-                "severity": "high",
-                "primary_source": "/workspace/documents/primary.md",
-                "corroborating_source": "/workspace/documents/status.csv",
-                "determination": "The agreement requires consent by 2026-09-01; the status record remains pending on 2026-09-03.",
-                "recommended_action": "Deal Team must obtain consent by 2026-09-04.",
-            }
-        ],
-    }
-    scoring_row = {
-        **{key: expected["findings"][0][key] for key in (
-            "id", "issue", "severity", "primary_source", "corroborating_source",
-        )},
-        "fact_anchors": ["2026-09-01", "pending", "2026-09-03"],
-        "action_anchors": ["Deal Team", "obtain consent", "2026-09-04"],
-        "allowed_fact_text": "2026-09-01 pending 2026-09-03",
-    }
+def fixture() -> tuple[dict, dict, dict, str]:
+    material = build_material(MATTERS[0], 0)
     spec = {
-        "expected_findings": expected,
-        "scoring_findings": [scoring_row],
-        "memo_sections": [
-            "Executive assessment",
-            "Method and record coverage",
-            "Findings",
-            "Recommended next actions",
-            "Assumptions and limitations",
+        "expected_decision": material["expected_decision"],
+        "expected_register": material["expected_register"],
+        "forbidden_claims": [
+            "every portfolio item is actionable",
+            "the newest document always controls",
         ],
-        "forbidden_claims": ["not present in the production"],
     }
-    memo = "\n".join(
-        [
-            "# Executive assessment",
-            "## Method and record coverage",
-            "## Findings",
-            "F-01 consent deadline mismatch high /workspace/documents/primary.md ",
-            "/workspace/documents/status.csv 2026-09-01 pending 2026-09-03",
-            "## Recommended next actions",
-            "Deal Team obtain consent by 2026-09-04",
-            "## Assumptions and limitations",
-        ]
+    return (
+        spec,
+        copy.deepcopy(material["expected_decision"]),
+        copy.deepcopy(material["expected_register"]),
+        material["expected_advice"],
     )
-    return spec, expected, memo
 
 
 class ScoringTests(unittest.TestCase):
-    def test_complete_grounded_outputs_pass(self) -> None:
-        spec, findings, memo = fixture()
-        finding_score = score_findings(findings, spec)
-        memo_score = score_memo(memo, spec)
-        procedure = {f"gate_{index}": True for index in range(8)}
-        procedure.update({
+    def test_complete_causal_outputs_pass(self) -> None:
+        spec, decision, register, advice = fixture()
+        decision_score = score_decision(decision, spec)
+        register_score = score_register(register, spec)
+        advice_score = score_advice(advice, spec)
+        procedure = {
+            "all_required_evidence_precedes_first_write": True,
             "exact_deliverable_set": True,
-            "deliverables_written_through_mcp": True,
-        })
-        aggregate = aggregate_scores(procedure, finding_score, memo_score)
-
-        self.assertEqual(len(finding_score["criteria"]), 17)
-        self.assertEqual(len(memo_score["criteria"]), 7)
+            "write_scope_contained": True,
+            "all_outputs_verified_by_readback": True,
+        }
+        aggregate = aggregate_scores(
+            procedure, decision_score, register_score, advice_score
+        )
+        self.assertTrue(decision_score["passed"])
+        self.assertTrue(register_score["passed"])
+        self.assertTrue(advice_score["passed"])
         self.assertTrue(aggregate["passed"])
         self.assertEqual(aggregate["reward"], 1.0)
 
-    def test_unsupported_controlled_fact_loses_only_its_criterion(self) -> None:
-        spec, findings, _ = fixture()
-        mutated = copy.deepcopy(findings)
-        mutated["findings"][0]["determination"] += " Exposure is $99,999,999."
+    def test_wrong_action_value_loses_exact_task_criteria(self) -> None:
+        spec, decision, _, _ = fixture()
+        key = decision["actions"][0]["portfolio_key"]
+        decision["actions"][0]["owner"] = "Unsupported Owner"
+        result = score_decision(decision, spec)
+        self.assertFalse(result["criteria"][f"{key}.action.owner"])
+        self.assertTrue(result["criteria"][f"{key}.action.due_date"])
+        self.assertFalse(result["passed"])
+        self.assertGreater(result["score"], 0.9)
 
-        result = score_findings(mutated, spec)
+    def test_blanket_hold_of_supported_action_fails_branch_population(self) -> None:
+        spec, decision, _, _ = fixture()
+        moved = decision["actions"].pop(0)
+        decision["holds"].append(
+            {
+                "id": f"HOLD-{moved['portfolio_key']}",
+                "portfolio_key": moved["portfolio_key"],
+                "issue": moved["issue"],
+                "reason": "conservative hold",
+                "required_next_evidence": "another reviewer",
+                "source_paths": moved["source_paths"],
+            }
+        )
+        result = score_decision(decision, spec)
+        self.assertFalse(result["criteria"]["actions.exact_population"])
+        self.assertFalse(result["criteria"]["holds.exact_population"])
+        self.assertFalse(result["passed"])
 
-        self.assertFalse(result["criteria"]["F-01.facts_source_bounded"])
-        self.assertEqual(result["details"][0]["unsupported_fact_tokens"], ["$99,999,999"])
-        self.assertGreater(result["score"], 0)
-        self.assertLess(result["score"], 1)
+    def test_collateral_register_edit_fails_exact_state(self) -> None:
+        spec, _, register, _ = fixture()
+        key = register["rows"][0]["portfolio_key"]
+        register["rows"][0]["unapproved_field"] = "collateral edit"
+        result = score_register(register, spec)
+        self.assertFalse(result["criteria"][f"{key}.exact_state"])
+        self.assertFalse(result["criteria"]["register.exact_state"])
 
-    def test_wrong_source_path_does_not_erase_other_credit(self) -> None:
-        spec, findings, _ = fixture()
-        mutated = copy.deepcopy(findings)
-        mutated["findings"][0]["primary_source"] = "/workspace/documents/wrong.md"
-
-        result = score_findings(mutated, spec)
-
-        self.assertFalse(result["criteria"]["F-01.primary_source"])
-        self.assertTrue(result["criteria"]["F-01.issue"])
-        self.assertAlmostEqual(result["score"], 16 / 17, places=6)
-
-    def test_incomplete_procedure_caps_reward(self) -> None:
-        findings = {"score": 1.0, "passed": True}
-        memo = {"score": 1.0, "passed": True}
+    def test_missing_readback_caps_reward(self) -> None:
+        perfect = {"score": 1.0, "passed": True}
         procedure = {
-            "review_complete": False,
+            "all_required_evidence_precedes_first_write": True,
             "exact_deliverable_set": True,
-            "deliverables_written_through_mcp": True,
+            "write_scope_contained": True,
+            "all_outputs_verified_by_readback": False,
         }
-
-        result = aggregate_scores(procedure, findings, memo)
-
-        self.assertEqual(result["reward"], 0.49)
-        self.assertEqual(result["cap_reason"], "required_review_procedure_incomplete")
+        result = aggregate_scores(procedure, perfect, perfect, perfect)
+        self.assertEqual(result["reward"], 0.35)
+        self.assertEqual(result["cap_reason"], "state_not_verified_by_readback")
         self.assertFalse(result["passed"])
 
 
