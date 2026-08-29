@@ -147,22 +147,79 @@ class SeededCorpusTests(unittest.TestCase):
         last_evidence = max(i for i, phase in enumerate(phases) if phase.startswith("evidence:"))
         self.assertLess(last_evidence, first_write)
 
+    def test_rubric_exposes_task_specific_causal_reasoning_and_state(self) -> None:
+        narrative = self.material["evaluation_narrative"]
+        milestones = {
+            row["id"]: row["description"]
+            for row in self.material["rubric_milestones"]
+        }
+        self.assertEqual(len(narrative["investigation_chain"]), 6)
+        self.assertEqual(len(narrative["branch_contract"]), 12)
+        self.assertEqual(len(narrative["authorized_state_transition"]), 3)
+        self.assertEqual(len(narrative["verification_chain"]), 3)
+        self.assertIn("CB-MA-2401", milestones["discovery.systems"])
+        self.assertIn("CBP-001-01", milestones["investigation.identity"])
+        self.assertIn("ENT-001-1000", milestones["investigation.identity"])
+        self.assertIn("REV-2025.1", milestones["investigation.authority"])
+        self.assertIn("clio_manage.matters.update", milestones["state.matter_register"])
+        self.assertIn("Clio note 9000000", milestones["state.legal_note"])
+        self.assertEqual(
+            [row["portfolio_key"] for row in narrative["branch_contract"]],
+            [case["portfolio_key"] for case in self.material["cases"]],
+        )
+        for row, case in zip(
+            narrative["branch_contract"], self.material["cases"], strict=True
+        ):
+            self.assertEqual(row["conditions"], case["conditions"])
+            self.assertEqual(row["expected_branch"], case["disposition"])
+            self.assertEqual(len(row["source_join"]), 4)
+
     def test_all_matters_have_distinct_authored_rules_and_action_graphs(self) -> None:
         self.assertEqual(len(DECISION_RULES), 100)
         self.assertEqual(len({rule.signature for rule in DECISION_RULES.values()}), 100)
         raw_sequences: set[tuple[str, ...]] = set()
         semantic_sequences: set[tuple[str, ...]] = set()
+        prompts: set[str] = set()
+        prompt_openers: set[str] = set()
+        prompt_closers: set[str] = set()
         action_sizes: set[int] = set()
+        milestone_contracts: set[tuple[str, ...]] = set()
+        causal_narratives: set[str] = set()
         for index, matter in enumerate(MATTERS):
             material = build_material(matter, index)
             raw_sequences.add(tuple(call["name"] for call in material["reference_calls"]))
             semantic_sequences.add(tuple(material["semantic_signature"]))
+            prompt = material["instruction"]
+            prompts.add(prompt)
+            prompt_openers.add(prompt.split(". ", 1)[0])
+            prompt_closers.add(prompt.rsplit(". ", 1)[-1])
             action_sizes.add(material["action_count"])
+            milestone_contracts.add(
+                tuple(row["description"] for row in material["rubric_milestones"])
+            )
+            causal_narratives.add(
+                json.dumps(material["evaluation_narrative"], sort_keys=True)
+            )
             self.assertTrue(all(material["quality_gates"].values()))
             self.assertGreater(material["hold_count"], 0)
+            self.assertGreaterEqual(len(prompt.split()), 70)
+            self.assertLessEqual(len(prompt.split()), 120)
+            mutation_phases = [
+                call["phase"]
+                for call in material["reference_calls"]
+                if call["phase"].startswith("state-transition:")
+            ]
+            self.assertEqual(
+                mutation_phases[-1], "state-transition:notification"
+            )
         self.assertEqual(len(raw_sequences), 100)
         self.assertEqual(len(semantic_sequences), 100)
+        self.assertEqual(len(prompts), 100)
+        self.assertGreaterEqual(len(prompt_openers), 20)
+        self.assertGreaterEqual(len(prompt_closers), 20)
         self.assertEqual(action_sizes, {5, 6, 7, 8, 9})
+        self.assertEqual(len(milestone_contracts), 100)
+        self.assertEqual(len(causal_narratives), 100)
 
 
 if __name__ == "__main__":

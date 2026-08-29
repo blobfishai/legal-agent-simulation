@@ -1,29 +1,41 @@
 # CounselBench-100 source
 
-This directory contains the deterministic source generator, pinned MCP world,
-qualification suite, and release tooling for CounselBench-100.
+This directory contains the deterministic generator, multi-provider sandbox
+MCP, qualification suite, and release tooling for CounselBench-100.
 
-The v3.1.0 release contains 100 original synthetic legal matters and 9,700
-agent-visible files across ten practice workflows, including a native PDF and
-parser-validated XLSX evidence source in every task. Each employee request asks for a
-decision in ordinary workplace language. The task-specific investigation is
-discovered from the records: twelve portfolio items must be joined across
-immutable identity, operative authority, current operations, and effective
-approval/revision evidence.
+CounselBench-100 v3.2.0 contains 100 original synthetic legal matters across
+ten practice workflows. Each employee request is a high-level workplace
+question, not a prescribed tool recipe. Solving it requires the agent to find
+and correlate raw records before deciding what is supported, what remains an
+evidence hold, and what state may safely change.
 
-Every task has a real mix of 5–9 supported actions and 3–7 evidence holds. It
-requires 56–67 full evidence reads and a distinct 76–93-call MCP trajectory,
-including three state-changing deliverables and exact post-write readback. All
-100 raw tool sequences and all 100 semantic action graphs are distinct.
+Every task includes:
 
-The v3 qualification ran 1,200 local executions:
+- 97 inspectable assets in nine native formats and twelve matter folders;
+- 58–86 material records, explicitly separated from supporting references;
+- evidence distributed across Clio Manage, Gmail, Google Drive, and Slack;
+- twelve portfolio decisions derived from immutable identity, operative
+  authority/revision, current operations, and effective approval/capacity;
+- 5–9 supported actions and 3–7 evidence holds;
+- a distinct 69–97-call reference trajectory;
+- an exact Clio matter-register patch, a Clio decision note, and a task-native
+  Gmail, Drive, or Slack completion update;
+- native provider readback after each committed mutation; and
+- fourteen task-specific semantic milestones totaling 100 CounselScore points.
 
-- 100/100 oracle passes
-- 100/100 exact deterministic replays
-- 0 false accepts in each of ten adversarial controls (1,000/1,000 rejected)
-- copied-gold, no-op, state-only, incomplete-read, write-before-read,
-  missing-readback, unauthorized-write, wrong-value, wrong-decision, and
-  wrong-evidence trajectories all fail
+The sandbox exposes 18 allowlisted resource operations that map to documented
+Clio Manage v4, Gmail v1, Drive v3, and Slack Web API methods. It deliberately
+does not expose business-level pseudo-tools such as `approve_finding` or
+`resolve_matter`.
+
+The v3.2 qualification contract runs 1,500 local executions:
+
+- 100 oracle executions;
+- 100 exact deterministic replays; and
+- 1,300 adversarial executions covering no-op and copied-gold shortcuts, missing
+  state, incomplete or late evidence, premature notification, missing readback,
+  duplicate and rejected mutations, wrong values, wrong options, wrong branches,
+  and substituted evidence.
 
 Public artifacts:
 
@@ -34,23 +46,21 @@ Public artifacts:
 
 ```bash
 python3 benchmark/counselbench100/builder.py
-python3 -m unittest \
-  benchmark.counselbench100.tests.test_builder \
-  benchmark.counselbench100.tests.test_generation \
-  benchmark.counselbench100.tests.test_scoring
+python3 -m unittest discover -s benchmark/counselbench100/tests -p 'test_*.py' -v
 python3 benchmark/counselbench100/run_suite.py
 python3 benchmark/counselbench100/tests/conformance.py \
-  --report dist/counselbench-100/reports/mcp-conformance.json
+  --report dist/counselbench-100/reports/provider-contract-audit.json
 ```
 
 Reference trajectories prove solvability and are excluded from model ranking.
-A leaderboard row is eligible only after one model has executed all 100 tasks
-against the exact v3.1.0 release. Older or partial scores are not inherited.
+A leaderboard row is eligible only after one model executes all 100 tasks
+against the exact cryptographically identified release. Older, partial, or
+cross-version scores are not inherited.
 
-Generated files are written to `dist/counselbench-100` and are ignored by Git.
-The committed catalog and decision-rule table contain 100 authored matter
-spines and 100 authored causal decisions. Generation and grading make no model
-or network calls.
+Generated files are written to `dist/counselbench-100` and ignored by Git. The
+committed catalog and decision-rule table contain 100 authored matter spines
+and 100 authored causal decisions. Generation and grading make no model or
+external-network calls.
 
-The canonical explorer lives in the Blobfish website repository. The page under
-`site/` is retained only as a historical launch artifact.
+The canonical explorer lives in the Blobfish website repository. The page
+under `site/` is retained only as a historical launch artifact.

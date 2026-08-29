@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import base64
 import hashlib
 import html
 import io
@@ -23,13 +24,13 @@ except ImportError:  # pragma: no cover - flat import in release builder
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
-RELEASE_VERSION = "3.1.0"
+RELEASE_VERSION = "3.2.0"
 DOCUMENT_COUNT = 96
 AGENT_VISIBLE_FILE_COUNT = DOCUMENT_COUNT + 1
 PORTFOLIO_COUNT = 12
 FINDING_COUNT = PORTFOLIO_COUNT  # Backward-compatible public constant.
-REQUIRED_EVIDENCE_READS = 49  # Release-wide lower bound; each task varies.
-MINIMUM_TOOL_CALLS = 59  # Release-wide lower bound; each task varies.
+REQUIRED_EVIDENCE_READS = 58  # Release-wide lower bound; each task varies.
+MINIMUM_TOOL_CALLS = 69  # Release-wide lower bound; each task varies.
 DOCUMENT_ROOT = "/workspace/documents"
 OUTPUT_ROOT = "/workspace/output"
 
@@ -100,30 +101,78 @@ SOURCE_SYSTEMS: dict[str, tuple[str, ...]] = {
 }
 
 REQUEST_OPENERS = (
-    "I need a straight answer before the next partner call.",
-    "The business team is asking whether it can move, and I do not want to answer from the summary deck.",
-    "A late record changed the picture this morning.",
-    "The client wants a decision, not another document inventory.",
-    "We inherited inconsistent versions of this matter and need to settle the operating position.",
-    "I am about to brief the decision makers and need the source record reconciled first.",
-    "The other side has challenged our internal account of the facts.",
-    "There is enough noise in this file that a name match or newest-document shortcut will be dangerous.",
-    "Please take ownership of the open question before the deadline.",
-    "I need to know what is proven, what we can do about it, and what is still only an evidence gap.",
+    "The partner call moved up and the client needs a usable answer, not another index of documents.",
+    "A record that arrived this morning may change the advice we gave last week.",
+    "The business has asked for a go-or-no-go position before it commits people or money.",
+    "I am inheriting this file midstream, and the summaries do not reconcile.",
+    "The other side is relying on a version of events that our source records may not support.",
+    "The client wants us to separate actual blockers from things that are merely missing.",
+    "Operations is ready to move, but legal has not resolved the conflicts in the file.",
+    "Please take this off the partner's open-items list before the next client update.",
+    "We have several records pointing in different directions and no one owns the final call.",
+    "The deadline is close enough that we need a defensible operating position now.",
+    "The latest diligence upload has reopened a question the team thought was settled.",
+    "The client has asked what it can do now, what must wait, and what evidence would change the answer.",
+    "I need to brief a skeptical decision maker who will ask where every material conclusion came from.",
+    "This file has enough near-matches and stale versions that the summary alone is unreliable.",
+    "The team is about to act on an assumption that has never been checked against the underlying record.",
+    "A reviewer challenged the current status, and I need an answer that survives a handoff.",
+    "The commercial and legal teams are reading the same facts differently.",
+    "We need to turn a noisy matter file into a decision the client can actually use.",
+    "The client does not want a generic risk memo; it wants to know which path remains open.",
+    "I have one opportunity to correct the matter position before it is circulated.",
 )
 
 REQUEST_CLOSES = (
-    "Put the supported calls into the matter register and leave me a short note I can use with the partner.",
-    "Update the matter record only where the evidence supports it, and give me the practical options for the client.",
-    "Leave the defensible result in the matter workspace, including any item that must stay on hold for better evidence.",
-    "I need the recommendation and the real blockers recorded before the team acts.",
-    "Document the scoped result for the team and separate genuine exceptions from unresolved identity or revision questions.",
-    "Give me a decision-ready note and make the corresponding matter-register entries, without guessing through missing records.",
-    "Record the outcome the source hierarchy supports and explain the alternatives we should not take.",
-    "Make the matter record usable by operations after your review, but do not turn ambiguity into an accusation or obligation.",
-    "Capture the supported action and the remaining holds so the next reviewer can reproduce the call.",
-    "Leave a concise decision record with exact source references and an owner for each supported next step.",
+    "Once you have reconciled the record, leave the workspace with the supported position, the open holds, and the next owners, then close the loop with the team.",
+    "Work out the practical options, preserve any genuine uncertainty, and make the matter record safe for the business to act from.",
+    "Please leave a short decision record that another lawyer can reproduce, including what remains blocked and what would unblock it.",
+    "Bring the matter workspace up to date with only the conclusions the evidence supports and tell the working team where things landed.",
+    "I need the recommended path, the credible alternatives, and the unresolved evidence gaps carried through to the team's working record.",
+    "Settle the operating position without guessing through missing authority, and leave each supported next step with a real owner.",
+    "Make the result usable in the next client conversation: what can proceed, what cannot, why, and what the team should do next.",
+    "When the sources conflict, follow the controlling record and preserve the conflict instead of silently choosing the newest file.",
+    "Leave behind enough of the reasoning and source trail that the next reviewer can challenge the call without starting over.",
+    "Record the defensible outcome, distinguish exceptions from identity or revision gaps, and notify the people who are waiting on the answer.",
+    "Turn the supported conclusion into the matter's current working position and keep unsupported assumptions out of the handoff.",
+    "Give the client a decision rather than a document inventory, but keep any item on hold when the record cannot carry the conclusion.",
+    "Close out the review in the workspace, with the rejected alternatives and remaining dependencies visible to the next person.",
+    "Please make the matter status reflect the conclusion, add the reasoning a partner will need, and finish the promised team update.",
+    "Do not just summarize the file; decide what the evidence permits and leave the operational record consistent with that decision.",
+    "Capture the answer, its limits, and the next actions in the existing matter workflow so nobody acts from the stale summary.",
+    "Resolve what can be resolved, isolate what still needs proof, and leave the team with one coherent working position.",
+    "Make the recommendation audit-ready without turning ambiguity into an accusation, waiver, or client commitment.",
+    "I should be able to use your recorded result in the briefing and point each remaining hold to the evidence that will clear it.",
+    "Finish with a concise, source-grounded matter update and make sure the result is visible where the working team expects it.",
 )
+
+DEADLINE_PRESSURE = (
+    "I have to give the team a position by {deadline}.",
+    "Please get the matter to a defensible stopping point before {deadline}.",
+    "The client expects our call no later than {deadline}.",
+    "The working group reconvenes on {deadline}, and it needs one current position.",
+    "The next decision cannot slip past {deadline}.",
+    "Use the matter snapshot available through {deadline}; later assumptions are out of scope.",
+    "I need this ready for the {deadline} review.",
+    "The handoff is due {deadline}, so unresolved items must be explicit rather than implied.",
+    "Our answer is promised for {deadline}.",
+    "The operative record should be current as of {deadline}.",
+    "The decision makers meet on {deadline}.",
+    "Treat {deadline} as the cutoff for both the answer and the source record.",
+)
+
+FAMILY_STAKES = {
+    "corporate-ma": "The deal team needs to know what belongs in the signing path, the closing conditions, or a priced exception.",
+    "commercial-contracts": "The commercial lead needs a position it can use in the counterparty conversation without inventing a concession.",
+    "internal-investigations": "The investigations team needs a proportionate response that separates proved conduct from unresolved attribution.",
+    "litigation-discovery": "The litigation team needs a defensible production and remediation position before making another representation.",
+    "restructuring": "The restructuring team needs one reconciled view of the claim, authority, timing, and estate consequence.",
+    "real-estate": "The asset team needs to understand which property-level issues affect the transaction or covenant today.",
+    "privacy-regulatory": "The response team needs to distinguish completed controls, open commitments, and facts that still require validation.",
+    "employment": "Employment and operations need one supported answer that accounts for the affected people and any agency commitment.",
+    "ip-technology": "The product and deal teams need to know what rights are usable now and which defects require a cure or hold.",
+    "public-company": "The disclosure team needs a supportable filing position and a clear route for anything that is not yet certifiable.",
+}
 
 
 def stable_int(*parts: object, digits: int = 12) -> int:
@@ -297,7 +346,13 @@ def _build_case(
         None: "",
     }[failure_mode]
     selected_roles = list(EVIDENCE_ROLES[:4])
-    extra_count = stable_int(matter.slug, slot, "extra-evidence") % 3
+    # Some matters can be resolved from the four controlling records while
+    # others require correspondence, population support, custody history, and
+    # an independent counterrecord. Vary that real dependency depth across the
+    # portfolio instead of padding trajectories with unrelated reads.
+    extra_count = stable_int(matter.slug, slot, "extra-evidence") % (
+        len(EVIDENCE_ROLES[4:]) + 1
+    )
     ranked_extras = sorted(
         EVIDENCE_ROLES[4:],
         key=lambda role: stable_int(matter.slug, slot, "extra-rank", role),
@@ -532,9 +587,9 @@ def _pdf_escape(value: str) -> str:
 def _render_pdf(value: dict[str, Any]) -> str:
     """Create a deterministic, uncompressed PDF that remains text-readable via MCP.
 
-    The official filesystem MCP exposes text reads but no PDF extraction tool.  An
-    ASCII, uncompressed PDF preserves the native file contract while still letting
-    the agent inspect every source line through the pinned upstream tool.
+    The provider sandbox transports native media through structured MCP responses.
+    An ASCII, uncompressed PDF preserves the native file contract while keeping
+    every source line deterministically inspectable offline.
     """
 
     logical_lines = [
@@ -615,8 +670,8 @@ def _render_xlsx_workbook(matter: Matter, cases: list[dict[str, Any]]) -> bytes:
     """Create a deterministic, parser-valid OOXML workbook without build dependencies.
 
     The workbook is stored without ZIP compression.  This keeps its native spreadsheet
-    structure while allowing the pinned filesystem MCP's extension-agnostic text read to
-    surface the underlying XML rows.  It deliberately contains only impact-population
+    structure while allowing the provider MCP media response to surface the underlying
+    XML rows. It deliberately contains only impact-population
     facts; identity, authority, current operations, and approval still have to be joined
     from independent records.
     """
@@ -1072,10 +1127,15 @@ def _expected_outputs(
 
 def render_prompt(matter: Matter, task_index: int) -> str:
     rule = DECISION_RULES[matter.slug]
+    family_index = task_index // 10
+    opener_index = (task_index + family_index * 7) % len(REQUEST_OPENERS)
+    close_index = (task_index * 11 + family_index * 7 + 5) % len(REQUEST_CLOSES)
+    deadline_index = (task_index * 5 + family_index * 2) % len(DEADLINE_PRESSURE)
     return (
-        f"{REQUEST_OPENERS[task_index % len(REQUEST_OPENERS)]} {rule.question} "
-        f"{matter.narrative} The team needs the call by {matter.deadline}. "
-        f"{REQUEST_CLOSES[(task_index * 3 + 1) % len(REQUEST_CLOSES)]}"
+        f"{REQUEST_OPENERS[opener_index]} {rule.question} {matter.narrative} "
+        f"{FAMILY_STAKES[matter.family]} "
+        f"{DEADLINE_PRESSURE[deadline_index].format(deadline=matter.deadline)} "
+        f"{REQUEST_CLOSES[close_index]}"
     )
 
 
@@ -1102,13 +1162,12 @@ Candidate approaches (the production does not identify the selected one):
 
 {option_rows}
 
-Leave exactly `/workspace/output/decision.json`, `/workspace/output/matter-register.json`,
-and `/workspace/output/advice.md` through the approved filesystem tools. `decision.json`
-contains the matter identity, one selected option, considered alternatives, supported
-actions, and evidence holds. `matter-register.json` contains one row per portfolio key with
-the matching disposition and exact source paths. `advice.md` explains the recommendation,
-supported actions, holds, alternatives, and limits. Read each completed file back before
-finishing. The matter date is {matter.deadline}; no external facts may be assumed.
+The matter's Review Disposition Register is the system of record for one row per portfolio
+key. The review note must contain the selected approach, supported actions, evidence holds,
+source anchors, alternatives, and limits. Notify the working group in the established
+matter channel after the register and note are committed. Re-open each changed provider
+record before finishing so the recorded result—not merely the request payload—is confirmed.
+The matter date is {matter.deadline}; no external facts may be assumed.
 """
 
 
@@ -1154,123 +1213,477 @@ def _search_patterns(matter: Matter, rule: DecisionRule, task_index: int) -> lis
     return ordered
 
 
-def reference_calls(
+def _provider_for_asset(path: str, role: str, task_index: int, ordinal: int) -> str:
+    """Route native evidence to a plausible source system without changing its facts."""
+
+    suffix = PurePosixPath(path).suffix.casefold()
+    # File-shaped evidence stays in a file/message system. Clio notes are used
+    # only for note-shaped prose, never as a surrogate PDF, spreadsheet, email,
+    # or structured-data download endpoint.
+    if suffix == ".eml":
+        return "gmail"
+    if suffix == ".json" or (
+        role == "approval_and_capacity" and suffix in {".md", ".txt"}
+    ):
+        return "slack"
+    if role == "identity_crosswalk" and suffix in {".md", ".txt"}:
+        return "clio_manage"
+    # A deterministic minority of operational counterrecords live in matter
+    # notes, reflecting how real teams preserve calls and interview summaries.
+    if suffix in {".md", ".txt"} and role in {
+        "current_operations",
+        "independent_counterrecord",
+    } and (
+        stable_int(task_index, ordinal, path, "clio-note") % 5 == 0
+    ):
+        return "clio_manage"
+    return "google_drive"
+
+
+def provider_assets(
     task_index: int,
-    required_paths: list[str],
-    metadata_paths: list[str],
-    search_patterns: list[str],
+    matter: Matter,
+    paths: list[str],
     path_roles: dict[str, tuple[str, str]],
-    decision_text: str,
-    register_text: str,
-    advice_text: str,
+    required_paths: list[str],
+    content_by_path: dict[str, str | bytes],
 ) -> list[dict[str, Any]]:
-    calls: list[dict[str, Any]] = [
-        {"name": "list_allowed_directories", "arguments": {}, "phase": "discovery"},
+    required = set(required_paths)
+    rows: list[dict[str, Any]] = []
+    matter_id = 710_000 + task_index
+    channel = f"C{task_index + 1:08d}"
+    for ordinal, path in enumerate(paths, start=1):
+        portfolio_key, role = path_roles[path]
+        provider = _provider_for_asset(path, role, task_index, ordinal)
+        content = content_by_path[path]
+        raw = content if isinstance(content, bytes) else content.encode("utf-8")
+        evidence_id = f"E-{task_index + 1:03d}-{ordinal:03d}"
+        item: dict[str, Any] = {
+            "evidence_id": evidence_id,
+            "provider": provider,
+            "path": path,
+            "name": PurePosixPath(path).name,
+            "portfolio_key": portfolio_key,
+            "role": role,
+            "material": path in required,
+            "bytes": len(raw),
+            "sha256": hashlib.sha256(raw).hexdigest(),
+            "modified_time": FIXED_FILE_TIMESTAMP,
+        }
+        if provider == "clio_manage":
+            note_id = 8_000_000 + task_index * 100 + ordinal
+            item.update(
+                {
+                    "resource_id": note_id,
+                    "read_tool": "clio_manage.notes.get",
+                    "read_arguments": {
+                        "id": note_id,
+                        "fields": "id,etag,subject,detail,updated_at,regarding{id,type}",
+                    },
+                    "matter_id": matter_id,
+                }
+            )
+        elif provider == "gmail":
+            message_id = f"msg-{task_index + 1:03d}-{ordinal:03d}"
+            item.update(
+                {
+                    "resource_id": message_id,
+                    "read_tool": "gmail.messages.get",
+                    "read_arguments": {"userId": "me", "id": message_id, "format": "full"},
+                    "thread_id": f"thread-{task_index + 1:03d}-{ordinal // 2 + 1:03d}",
+                }
+            )
+        elif provider == "slack":
+            ts = f"176{task_index + 1:07d}.{ordinal:06d}"
+            item.update(
+                {
+                    "resource_id": ts,
+                    "read_tool": "slack.conversations_replies",
+                    "read_arguments": {"channel": channel, "ts": ts, "limit": 100},
+                    "channel": channel,
+                    "ts": ts,
+                }
+            )
+        else:
+            file_id = f"drive-{task_index + 1:03d}-{ordinal:03d}"
+            item.update(
+                {
+                    "resource_id": file_id,
+                    "read_tool": "google_drive.files.get",
+                    "read_arguments": {
+                        "fileId": file_id,
+                        "alt": "media",
+                        "fields": "id,name,mimeType,modifiedTime,version,md5Checksum",
+                    },
+                }
+            )
+        rows.append(item)
+    return rows
+
+
+def _base64url(value: str) -> str:
+    return base64.urlsafe_b64encode(value.encode("utf-8")).decode("ascii").rstrip("=")
+
+
+def _state_contract(
+    task_index: int,
+    matter: Matter,
+    assets: list[dict[str, Any]],
+    expected_decision: dict[str, Any],
+    expected_register: dict[str, Any],
+    advice: str,
+) -> dict[str, Any]:
+    matter_id = 710_000 + task_index
+    note_id = 9_000_000 + task_index
+    custom_field_id = 610_000 + task_index
+    custom_value_id = f"text_area-{custom_field_id}"
+    selected = expected_decision["decision"]["selected_option_id"]
+    notification = (
+        f"{matter.matter_number}: review recorded under {selected}; "
+        f"{len(expected_decision['actions'])} supported actions and "
+        f"{len(expected_decision['holds'])} evidence holds. "
+        f"See Clio note {note_id} and the Review Disposition Register."
+    )
+    note_detail = json.dumps(
         {
-            "name": "directory_tree",
-            "arguments": {"path": DOCUMENT_ROOT, "excludePatterns": []},
-            "phase": "discovery",
+            "schema_version": "counselbench.review-note.v1",
+            "decision": expected_decision,
+            "advice_markdown": advice,
+        },
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    matter_update = {
+        "id": matter_id,
+        "fields": "id,etag,display_number,custom_field_values{id,field_name,field_type,value,custom_field{id}}",
+        "data": {
+            "custom_field_values": [
+                {"id": custom_value_id, "value": json.dumps(expected_register, ensure_ascii=False, sort_keys=True, separators=(",", ":"))}
+            ]
+        },
+    }
+    note_create = {
+        "fields": "id,etag,subject,detail,detail_text_type,regarding{id,type}",
+        "data": {
+            "subject": f"Decision review — {matter.matter_number}",
+            "detail": note_detail,
+            "detail_text_type": "plain_text",
+            "regarding": {"id": matter_id, "type": "Matter"},
+        },
+    }
+    channel_kind = ("gmail", "slack", "google_drive")[
+        stable_int(matter.slug, task_index, "notification-provider") % 3
+    ]
+    if channel_kind == "gmail":
+        sent_id = f"sent-{task_index + 1:03d}"
+        raw_message = "\r\n".join(
+            [
+                "From: counsel@example.test",
+                f"To: matter-{task_index + 1:03d}@example.test",
+                f"Subject: {matter.matter_number} decision review",
+                f"Message-ID: <{sent_id}@example.test>",
+                "Content-Type: text/plain; charset=utf-8",
+                "",
+                notification,
+            ]
+        )
+        notify_tool = "gmail.messages.send"
+        notify_arguments = {
+            "userId": "me",
+            "requestBody": {"raw": _base64url(raw_message)},
+        }
+        notify_readback = {
+            "name": "gmail.messages.get",
+            "arguments": {"userId": "me", "id": sent_id, "format": "raw"},
+            "phase": "postwrite-readback:notification",
+        }
+        notification_id: str | int = sent_id
+    elif channel_kind == "slack":
+        target = next(asset for asset in assets if asset["provider"] == "slack")
+        notify_tool = "slack.chat_postMessage"
+        notify_arguments = {
+            "channel": target["channel"],
+            "text": notification,
+            "thread_ts": target["ts"],
+        }
+        notification_id = f"1769{task_index + 1:06d}.999999"
+        notify_readback = {
+            "name": "slack.conversations_replies",
+            "arguments": {"channel": target["channel"], "ts": target["ts"], "limit": 100},
+            "phase": "postwrite-readback:notification",
+        }
+    else:
+        target = next(asset for asset in assets if asset["provider"] == "google_drive")
+        notify_tool = "google_drive.comments.create"
+        notify_arguments = {"fileId": target["resource_id"], "requestBody": {"content": notification}}
+        notification_id = f"comment-{task_index + 1:03d}"
+        notify_readback = {
+            "name": "google_drive.comments.get",
+            "arguments": {"fileId": target["resource_id"], "commentId": notification_id, "fields": "id,content,createdTime,resolved"},
+            "phase": "postwrite-readback:notification",
+        }
+    core_writes = [
+        {"name": "clio_manage.matters.update", "arguments": matter_update, "phase": "state-transition:matter-register"},
+        {"name": "clio_manage.notes.create", "arguments": note_create, "phase": "state-transition:decision-note"},
+    ]
+    if stable_int(matter.slug, "core-mutation-order") % 2:
+        core_writes.reverse()
+    # Collaboration is an outcome of the committed matter decision. It must
+    # never race ahead of the matter register or decision note merely to make
+    # two reference sequences look different.
+    writes = [
+        *core_writes,
+        {
+            "name": notify_tool,
+            "arguments": notify_arguments,
+            "phase": "state-transition:notification",
         },
     ]
-    investigation: list[dict[str, Any]] = []
-    for path in required_paths:
-        portfolio_key, role = path_roles[path]
-        investigation.append(
-            {
-                "name": "read_text_file",
-                "arguments": {"path": path},
-                "phase": f"evidence:{role}",
-                "portfolio_key": portfolio_key,
-            }
-        )
-    for path in metadata_paths:
-        portfolio_key, role = path_roles[path]
-        investigation.append(
-            {
-                "name": "get_file_info",
-                "arguments": {"path": path},
-                "phase": f"custody:{role}",
-                "portfolio_key": portfolio_key,
-            }
-        )
-    for pattern in search_patterns:
-        investigation.append(
-            {
-                "name": "search_files",
-                "arguments": {"path": DOCUMENT_ROOT, "pattern": pattern, "excludePatterns": []},
-                "phase": f"targeted-search:{pattern}",
-            }
-        )
+    readbacks = [
+        {
+            "name": "clio_manage.matters.get",
+            "arguments": {"id": matter_id, "fields": "id,etag,display_number,custom_field_values{id,field_name,field_type,value,custom_field{id}}"},
+            "phase": "postwrite-readback:matter-register",
+        },
+        {
+            "name": "clio_manage.notes.get",
+            "arguments": {"id": note_id, "fields": "id,etag,subject,detail,detail_text_type,regarding{id,type}"},
+            "phase": "postwrite-readback:decision-note",
+        },
+        notify_readback,
+    ]
+    if task_index % 2:
+        readbacks.reverse()
+    return {
+        "matter_id": matter_id,
+        "note_id": note_id,
+        "custom_field_id": custom_field_id,
+        "custom_value_id": custom_value_id,
+        "note_detail": note_detail,
+        "notification_provider": channel_kind,
+        "notification": notification,
+        "notification_id": notification_id,
+        "writes": writes,
+        "readbacks": readbacks,
+    }
+
+
+def reference_calls(
+    task_index: int,
+    matter: Matter,
+    assets: list[dict[str, Any]],
+    state_contract: dict[str, Any],
+) -> list[dict[str, Any]]:
+    calls: list[dict[str, Any]] = [
+        {
+            "name": "clio_manage.matters.list",
+            "arguments": {"query": matter.matter_number, "fields": "id,etag,display_number,description,status", "limit": 50},
+            "phase": "discovery:clio_manage",
+        },
+        {
+            "name": "clio_manage.notes.list",
+            "arguments": {
+                "type": "matter",
+                "query": matter.matter_number,
+                "fields": "id,etag,subject,updated_at,regarding{id,type}",
+                "limit": 200,
+            },
+            "phase": "discovery:clio_manage_notes",
+        },
+        {
+            "name": "gmail.messages.list",
+            "arguments": {"userId": "me", "q": f'"{matter.matter_number}"', "maxResults": 100},
+            "phase": "discovery:gmail",
+        },
+        {
+            "name": "google_drive.files.list",
+            "arguments": {"q": f"fullText contains '{matter.matter_number}'", "pageSize": 1000, "fields": "files(id,name,mimeType,modifiedTime,version)"},
+            "phase": "discovery:google_drive",
+        },
+        {
+            "name": "slack.search_messages",
+            "arguments": {"query": f'"{matter.matter_number}"', "count": 100, "sort": "timestamp", "sort_dir": "asc"},
+            "phase": "discovery:slack",
+        },
+    ]
+    investigation = [
+        {
+            "name": asset["read_tool"],
+            "arguments": asset["read_arguments"],
+            "phase": f"evidence:{asset['role']}",
+            "portfolio_key": asset["portfolio_key"],
+            "evidence_id": asset["evidence_id"],
+            "provider": asset["provider"],
+        }
+        for asset in assets
+        if asset["material"]
+    ]
     investigation.sort(
         key=lambda call: stable_int(
-            "counsel-reference", task_index, call["phase"],
-            call["arguments"].get("path", ""), call["arguments"].get("pattern", ""),
+            "counsel-provider-reference",
+            task_index,
+            call["phase"],
+            call["provider"],
+            call["evidence_id"],
         )
     )
     calls.extend(investigation)
-    writes = [
-        {
-            "name": "write_file",
-            "arguments": {"path": f"{OUTPUT_ROOT}/decision.json", "content": decision_text},
-            "phase": "state-transition:decision",
-        },
-        {
-            "name": "write_file",
-            "arguments": {"path": f"{OUTPUT_ROOT}/matter-register.json", "content": register_text},
-            "phase": "state-transition:matter-register",
-        },
-        {
-            "name": "write_file",
-            "arguments": {"path": f"{OUTPUT_ROOT}/advice.md", "content": advice_text},
-            "phase": "state-transition:advice",
-        },
-    ]
-    rotation = task_index % 3
-    writes = writes[rotation:] + writes[:rotation]
-    calls.extend(writes)
-    readback_order = list(reversed(writes)) if task_index % 2 else list(writes)
-    calls.extend(
-        {
-            "name": "read_text_file",
-            "arguments": {"path": call["arguments"]["path"]},
-            "phase": call["phase"].replace("state-transition", "postwrite-readback"),
-        }
-        for call in readback_order
-    )
+    calls.extend(state_contract["writes"])
+    calls.extend(state_contract["readbacks"])
     return calls
 
 
-def rubric_criteria(material: dict[str, Any]) -> list[dict[str, str]]:
-    rows: list[dict[str, str]] = []
+def semantic_milestones(material: dict[str, Any]) -> list[dict[str, Any]]:
+    decision = material["expected_decision"]
+    cases = material["cases"]
+    selected = decision["decision"]["selected_option_id"]
+    supported_cases = [case for case in cases if case["disposition"] == "action"]
+    held_cases = [case for case in cases if case["disposition"] != "action"]
+    supported = [case["portfolio_key"] for case in supported_cases]
+    held = [case["portfolio_key"] for case in held_cases]
+    matter_number = decision["matter_number"]
+    state = material["state_contract"]
+    notification = next(
+        call
+        for call in state["writes"]
+        if call["phase"] == "state-transition:notification"
+    )
+    notification_arguments = notification["arguments"]
+    notification_target = next(
+        (
+            f"{key}={notification_arguments[key]}"
+            for key in ("channel", "fileId", "userId")
+            if key in notification_arguments
+        ),
+        "task-scoped destination",
+    )
+    identity_map = "; ".join(
+        f"{case['portfolio_key']}→{case['entity_id']}"
+        if case["conditions"]["identity_exact"]
+        else f"{case['portfolio_key']} collision {case['entity_id']}/{case['alternate_id']}"
+        for case in cases
+    )
+    authority_map = "; ".join(
+        f"{case['portfolio_key']} {case['referenced_revision']}→{case['current_revision']}"
+        for case in cases
+    )
+    observation_map = "; ".join(
+        f"{case['portfolio_key']} {case['reference']} vs {case['event_reference']}"
+        for case in cases
+    )
+    capacity_map = "; ".join(
+        f"{case['portfolio_key']} {case['owner']} capacity={case['remaining_capacity']}"
+        for case in cases
+    )
+    branch_map = "; ".join(
+        f"{case['portfolio_key']}={'action' if case['disposition'] == 'action' else 'hold:' + str(case['failure_mode'])}"
+        for case in cases
+    )
+    action_map = "; ".join(
+        f"{case['portfolio_key']} {case['severity']} owner={case['owner']} due={case['due_date']}"
+        for case in supported_cases
+    )
+    hold_map = "; ".join(
+        f"{case['portfolio_key']} needs {next(row['required_next_evidence'] for row in decision['holds'] if row['portfolio_key'] == case['portfolio_key'])}"
+        for case in held_cases
+    )
+    workbook = next(
+        PurePosixPath(path).as_posix()
+        for path in material["required_document_paths"]
+        if PurePosixPath(path).suffix == ".xlsx"
+    )
+    readback_tools = ", ".join(call["name"] for call in state["readbacks"])
+    rows = [
+        ("discovery.systems", "investigation", 6, f"Discover matter {matter_number} (Clio matter id {state['matter_id']}) independently in Clio, Gmail, Drive, and Slack, then open exact provider records rather than trusting a display-name or summary hit."),
+        ("investigation.identity", "investigation", 9, f"Reconcile every portfolio key to immutable identity. Expected joins: {identity_map}. Any listed collision must remain unresolved rather than being name-matched."),
+        ("investigation.authority", "investigation", 9, f"Apply the matter-specific authority—{material['decision_rule']['authority']}—and compare cited to effective revisions: {authority_map}. A superseded operational revision is a hold, not an action."),
+        ("investigation.operations", "investigation", 9, f"For each item compare the governing record to the current observation using these exact record pairs: {observation_map}. The trigger conclusion must be recomputed from the source facts, not copied from a summary."),
+        ("investigation.approvals", "investigation", 7, f"Verify the effective owner roster and remaining capacity for the same immutable items: {capacity_map}. Pending authority or zero capacity must block that item even when its operational trigger is met."),
+        ("investigation.impact", "investigation", 6, f"Read and reconcile all {len(material['required_document_paths'])} material records, including impact workbook {workbook}, the task control, correspondence, custody chronology, population support, and independent counterrecords before any mutation."),
+        ("reasoning.options", "reasoning", 10, f"Select {selected!r} for {material['decision_rule']['question']} and distinguish it from both documented alternatives."),
+        ("reasoning.branches", "reasoning", 10, f"Apply identity + trigger + effective authority/capacity + current revision item by item. Exact task outcome: {branch_map}; totals are {len(supported)} actions and {len(held)} holds."),
+        ("reasoning.actions", "reasoning", 8, f"Derive the operational details rather than only labeling branches. Actions: {action_map}. Holds: {hold_map}. Every row must retain its task-specific source anchors."),
+        ("state.matter_register", "state", 8, f"Use clio_manage.matters.update only on matter id {state['matter_id']} and custom value {state['custom_value_id']}; commit exactly twelve Review Disposition Register rows for {matter_number}, with no missing, duplicate, or foreign key."),
+        ("state.legal_note", "state", 6, f"Create Clio note {state['note_id']} regarding matter {state['matter_id']} with option {selected}, the exact {len(supported)} action and {len(held)} hold analysis, alternatives, source anchors, assumptions, and limits."),
+        ("state.collaboration", "state", 4, f"Only after both Clio commits succeed, call {notification['name']} for {notification_target} with the exact {matter_number} outcome and created-record references."),
+        ("verification.readback", "verification", 4, f"After the writes, use {readback_tools} to read back the exact matter, created note, and collaboration record and prove the committed values—not merely successful API responses."),
+        ("containment.scope", "containment", 4, f"Complete all {len(material['required_document_paths'])} material reads before the first write, execute exactly the three task-authorized mutations in causal order, and leave zero rejected, duplicate, or out-of-scope state-changing attempts."),
+    ]
+    if sum(weight for _, _, weight, _ in rows) != 100:
+        raise AssertionError("CounselScore milestone weights must total 100")
+    return [
+        {"id": identifier, "category": category, "weight": weight, "description": description}
+        for identifier, category, weight, description in rows
+    ]
 
-    def add(category: str, identifier: str, description: str) -> None:
-        rows.append({"id": f"{category}.{identifier}", "category": category, "description": description})
 
-    add("investigation", "discover_production", "Inventory the production and use targeted searches to locate records across native formats.")
-    add("investigation", "read_before_write", "Complete every task-specific identity, authority, operations, and approval read before the first state transition.")
-    add("investigation", "custody_before_write", "Inspect designated source metadata before relying on those records.")
-    add("decision", "selected_option", f"Select the supported option {material['expected_decision']['decision']['selected_option_id']!r} after applying the four-part test.")
-    add("decision", "alternatives", "Identify both rejected approaches and explain why a one-source shortcut and a blanket hold are wrong.")
-    for case in material["cases"]:
-        key = case["portfolio_key"]
-        paths = case["paths_by_role"]
-        add("investigation", f"{key}.identity", f"Resolve {key} using the immutable identity record {paths['identity_crosswalk']} rather than its display name.")
-        add("investigation", f"{key}.authority", f"Read the operative rule and revision in {paths['operative_authority']} for {case['topic']}.")
-        add("investigation", f"{key}.operations", f"Compare the current observation in {paths['current_operations']} to the operative trigger.")
-        add("investigation", f"{key}.approval", f"Verify effective approval, owner status, and capacity in {paths['approval_and_capacity']}.")
-        add(
-            "decision",
-            f"{key}.branch",
-            f"After joining those records, classify {key} as {case['disposition']!r}; the controlling branch is "
-            + ("all four conditions are satisfied." if case["disposition"] == "action" else f"{case['hold_reason']}.")
-        )
-        add("state", f"{key}.register", f"Create the exact task-scoped matter-register row for {key} and do not change another portfolio key.")
-    add("state", "exact_decision", "Write the exact selected option, supported action population, evidence-hold population, facts, owners, deadlines, and citations.")
-    add("state", "exact_register", "Create one exact register row per portfolio key with no extra, missing, or modified row.")
-    add("state", "write_scope_containment", "Leave only the three approved deliverables and perform no extra state-changing write.")
-    add("state", "postwrite_readback", "Read back decision.json, matter-register.json, and advice.md after their final writes.")
-    add("answer", "decision_note", "Explain the selected recommendation, supported actions, holds, alternatives, and limitations with exact source anchors.")
-    return rows
+def causal_evaluation_narrative(material: dict[str, Any]) -> dict[str, Any]:
+    """Expose the task's causal grading contract in employee-work language."""
+    decision = material["expected_decision"]
+    cases = material["cases"]
+    milestones = {row["id"]: row["description"] for row in material["rubric_milestones"]}
+    return {
+        "schema_version": "counselbench.causal-evaluation.v1",
+        "employee_question": material["decision_rule"]["question"],
+        "matter_number": decision["matter_number"],
+        "as_of": decision["as_of"],
+        "investigation_chain": [
+            milestones["discovery.systems"],
+            milestones["investigation.identity"],
+            milestones["investigation.authority"],
+            milestones["investigation.operations"],
+            milestones["investigation.approvals"],
+            milestones["investigation.impact"],
+        ],
+        "branch_contract": [
+            {
+                "portfolio_key": case["portfolio_key"],
+                "issue": case["topic"],
+                "source_join": {
+                    role: case["paths_by_role"][role]
+                    for role in EVIDENCE_ROLES[:4]
+                },
+                "conditions": dict(case["conditions"]),
+                "expected_branch": case["disposition"],
+                "why": (
+                    "all four independent conditions are satisfied"
+                    if case["disposition"] == "action"
+                    else case["hold_reason"]
+                ),
+                "result": (
+                    {
+                        "owner": case["owner"],
+                        "due_date": case["due_date"],
+                        "severity": case["severity"],
+                    }
+                    if case["disposition"] == "action"
+                    else {
+                        "required_next_evidence": next(
+                            row["required_next_evidence"]
+                            for row in decision["holds"]
+                            if row["portfolio_key"] == case["portfolio_key"]
+                        )
+                    }
+                ),
+            }
+            for case in cases
+        ],
+        "authorized_state_transition": [
+            {
+                "sequence": index + 1,
+                "tool": call["name"],
+                "phase": call["phase"],
+            }
+            for index, call in enumerate(material["state_contract"]["writes"])
+        ],
+        "verification_chain": [call["name"] for call in material["state_contract"]["readbacks"]],
+        "strict_success": (
+            "All task-specific evidence joins and branches are correct; the exact scoped provider "
+            "state is committed in causal order; every changed record is read back; no foreign, "
+            "duplicate, premature, or rejected mutation occurs."
+        ),
+    }
 
 
 def _material_quality(
@@ -1370,10 +1783,23 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         ),
     )][:metadata_count]
     search_patterns = _search_patterns(matter, rule, task_index)
-    calls = reference_calls(
-        task_index, required_paths, metadata_paths, search_patterns, path_roles,
-        decision_text, register_text, advice,
+    assets = provider_assets(
+        task_index,
+        matter,
+        [*paths, workbook_path],
+        path_roles,
+        required_paths,
+        {**documents, **binary_documents},
     )
+    state = _state_contract(
+        task_index,
+        matter,
+        assets,
+        expected_decision,
+        expected_register,
+        advice,
+    )
+    calls = reference_calls(task_index, matter, assets, state)
     material: dict[str, Any] = {
         "task_id": task_id,
         "documents": documents,
@@ -1382,6 +1808,8 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         "required_document_paths": required_paths,
         "metadata_check_paths": metadata_paths,
         "search_patterns": search_patterns,
+        "provider_assets": assets,
+        "state_contract": state,
         "path_roles": path_roles,
         "cases": cases,
         "expected_decision": expected_decision,
@@ -1406,7 +1834,31 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         ],
     }
     material["quality_gates"] = _material_quality(cases, documents, expected_decision)
-    material["rubric_criteria"] = rubric_criteria(material)
+    material["quality_gates"].update(
+        {
+            "all_assets_have_provider_contracts": all(
+                asset["provider"] in {"clio_manage", "gmail", "google_drive", "slack"}
+                and asset["read_tool"].startswith(f"{asset['provider']}.")
+                for asset in assets
+            ),
+            "material_evidence_spans_all_providers": {
+                asset["provider"] for asset in assets if asset["material"]
+            }
+            == {"clio_manage", "gmail", "google_drive", "slack"},
+            "native_state_has_three_provider_mutations": len(state["writes"]) == 3
+            and {call["name"] for call in state["writes"]}
+            >= {"clio_manage.matters.update", "clio_manage.notes.create"},
+            "native_state_has_three_readbacks": len(state["readbacks"]) == 3,
+        }
+    )
+    material["rubric_milestones"] = semantic_milestones(material)
+    material["evaluation_narrative"] = causal_evaluation_narrative(material)
+    material["quality_gates"]["task_specific_causal_narrative"] = (
+        len(material["evaluation_narrative"]["branch_contract"]) == PORTFOLIO_COUNT
+        and len(material["evaluation_narrative"]["investigation_chain"]) == 6
+        and len(material["evaluation_narrative"]["authorized_state_transition"]) == 3
+        and len(material["evaluation_narrative"]["verification_chain"]) == 3
+    )
     if not all(material["quality_gates"].values()):
         failed = sorted(name for name, passed in material["quality_gates"].items() if not passed)
         raise AssertionError(f"{task_id} material quality gates failed: {failed}")

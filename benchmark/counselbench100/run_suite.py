@@ -32,7 +32,7 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
-RELEASE_VERSION = "3.1.0"
+RELEASE_VERSION = "3.2.0"
 
 
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
@@ -49,11 +49,11 @@ def oracle(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any])
 
 
 def shortcut(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    """Copy perfect public outputs and read them back without investigating."""
+    """Commit perfect private state and read it back without investigating."""
 
     del spec
     for call in reference["calls"]:
-        if call["name"] == "write_file" or call.get("phase", "").startswith("postwrite-readback"):
+        if call.get("phase", "").startswith(("state-transition", "postwrite-readback")):
             checked_call(world, call["name"], call["arguments"])
 
 
@@ -62,23 +62,28 @@ def noop(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -
 
 
 def state_only(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    """Complete the state decision but omit the employee-facing advice."""
+    """Investigate and patch the register, but omit the note and notification."""
 
     del spec
     for call in reference["calls"]:
-        if call["arguments"].get("path") == "/workspace/output/advice.md":
+        if call.get("phase") in {
+            "state-transition:decision-note",
+            "state-transition:notification",
+            "postwrite-readback:decision-note",
+            "postwrite-readback:notification",
+        }:
             continue
         checked_call(world, call["name"], call["arguments"])
 
 
 def incomplete_read(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    missing_path = spec["required_document_paths"][-1]
+    missing = next(asset for asset in reversed(spec["provider_assets"]) if asset["material"])
     skipped = False
     for call in reference["calls"]:
         if (
             not skipped
-            and call["name"] == "read_text_file"
-            and call["arguments"].get("path") == missing_path
+            and call["name"] == missing["read_tool"]
+            and call["arguments"] == missing["read_arguments"]
         ):
             skipped = True
             continue
@@ -89,7 +94,10 @@ def write_before_read(world: CounselWorld, spec: dict[str, Any], reference: dict
     """Reach the exact final state, but mutate before investigating."""
 
     del spec
-    writes = [call for call in reference["calls"] if call["name"] == "write_file"]
+    writes = [
+        call for call in reference["calls"]
+        if call.get("phase", "").startswith("state-transition")
+    ]
     readbacks = [
         call for call in reference["calls"]
         if call.get("phase", "").startswith("postwrite-readback")
@@ -99,6 +107,35 @@ def write_before_read(world: CounselWorld, spec: dict[str, Any], reference: dict
         if call not in writes and call not in readbacks
     ]
     for call in [*writes, *investigation, *readbacks]:
+        checked_call(world, call["name"], call["arguments"])
+
+
+def premature_notification(
+    world: CounselWorld,
+    spec: dict[str, Any],
+    reference: dict[str, Any],
+) -> None:
+    """Investigate first, but notify the team before committing core state."""
+
+    del spec
+    writes = [
+        call
+        for call in reference["calls"]
+        if call.get("phase", "").startswith("state-transition")
+    ]
+    readbacks = [
+        call
+        for call in reference["calls"]
+        if call.get("phase", "").startswith("postwrite-readback")
+    ]
+    investigation = [
+        call for call in reference["calls"] if call not in writes and call not in readbacks
+    ]
+    notification = next(
+        call for call in writes if call["phase"] == "state-transition:notification"
+    )
+    core = [call for call in writes if call is not notification]
+    for call in [*investigation, notification, *core, *readbacks]:
         checked_call(world, call["name"], call["arguments"])
 
 
@@ -114,26 +151,55 @@ def missing_readback(world: CounselWorld, spec: dict[str, Any], reference: dict[
         raise RuntimeError("reference trajectory had no post-write readback")
 
 
-def unauthorized_write(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+def rejected_mutation(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    """Reach the exact state, then make one rejected out-of-scope mutation."""
+
+    oracle(world, {}, reference)
+    result = world.call_tool(
+        "clio_manage.matters.update",
+        {"id": spec["state_contract"]["matter_id"] + 99, "data": {"description": "out of scope"}},
+    )
+    if not result.get("isError"):
+        raise RuntimeError("out-of-scope mutation unexpectedly succeeded")
+
+
+def duplicate_mutation(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    """Repeat a valid provider write after a correct oracle trajectory."""
+
     del spec
     oracle(world, {}, reference)
-    checked_call(
-        world,
-        "write_file",
-        {"path": "/workspace/output/unapproved-note.txt", "content": "collateral edit\n"},
+    call = next(
+        item for item in reference["calls"]
+        if item.get("phase") == "state-transition:decision-note"
     )
+    checked_call(world, call["name"], call["arguments"])
 
 
-def _replay_with_replacements(
+def _replay_with_state(
     world: CounselWorld,
     reference: dict[str, Any],
-    replacements: dict[str, str],
+    *,
+    decision: dict[str, Any] | None = None,
+    register: dict[str, Any] | None = None,
 ) -> None:
     for call in reference["calls"]:
         arguments = deepcopy(call["arguments"])
-        path = str(arguments.get("path") or "")
-        if call["name"] == "write_file" and path in replacements:
-            arguments["content"] = replacements[path]
+        if call["name"] == "clio_manage.notes.create" and decision is not None:
+            detail = json.loads(arguments["data"]["detail"])
+            detail["decision"] = decision
+            arguments["data"]["detail"] = json.dumps(
+                detail,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+        if call["name"] == "clio_manage.matters.update" and register is not None:
+            arguments["data"]["custom_field_values"][0]["value"] = json.dumps(
+                register,
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
         checked_call(world, call["name"], arguments)
 
 
@@ -141,15 +207,7 @@ def wrong_value(world: CounselWorld, spec: dict[str, Any], reference: dict[str, 
     del spec
     decision = deepcopy(reference["decision"])
     decision["actions"][0]["owner"] = "Unapproved Owner"
-    _replay_with_replacements(
-        world,
-        reference,
-        {
-            "/workspace/output/decision.json": json.dumps(
-                decision, indent=2, ensure_ascii=False, sort_keys=True
-            ) + "\n"
-        },
-    )
+    _replay_with_state(world, reference, decision=decision)
 
 
 def wrong_decision(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
@@ -163,18 +221,7 @@ def wrong_decision(world: CounselWorld, spec: dict[str, Any], reference: dict[st
     decision["decision"]["selected_option_id"] = wrong_option
     for row in register["rows"]:
         row["decision_option_id"] = wrong_option
-    _replay_with_replacements(
-        world,
-        reference,
-        {
-            "/workspace/output/decision.json": json.dumps(
-                decision, indent=2, ensure_ascii=False, sort_keys=True
-            ) + "\n",
-            "/workspace/output/matter-register.json": json.dumps(
-                register, indent=2, ensure_ascii=False, sort_keys=True
-            ) + "\n",
-        },
-    )
+    _replay_with_state(world, reference, decision=decision, register=register)
 
 
 def wrong_branch(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
@@ -204,38 +251,29 @@ def wrong_branch(world: CounselWorld, spec: dict[str, Any], reference: dict[str,
             "hold_reason": "conservative hold despite complete evidence",
         }
     )
-    _replay_with_replacements(
-        world,
-        reference,
-        {
-            "/workspace/output/decision.json": json.dumps(
-                decision, indent=2, ensure_ascii=False, sort_keys=True
-            ) + "\n",
-            "/workspace/output/matter-register.json": json.dumps(
-                register, indent=2, ensure_ascii=False, sort_keys=True
-            ) + "\n",
-        },
-    )
+    _replay_with_state(world, reference, decision=decision, register=register)
 
 
 def wrong_evidence(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
     """Reach the exact work product after substituting a valid but wrong source record."""
 
-    missing_path = spec["required_document_paths"][-1]
-    wrong_path = next(
-        path for path in spec["required_document_paths"] if path != missing_path
+    missing = next(asset for asset in reversed(spec["provider_assets"]) if asset["material"])
+    wrong = next(
+        asset
+        for asset in spec["provider_assets"]
+        if asset["material"]
+        and asset["read_tool"] == missing["read_tool"]
+        and asset["evidence_id"] != missing["evidence_id"]
     )
     replaced = False
     for call in reference["calls"]:
         arguments = deepcopy(call["arguments"])
         if (
             not replaced
-            and call["name"] == "read_text_file"
-            and arguments.get("path") == missing_path
-            and "head" not in arguments
-            and "tail" not in arguments
+            and call["name"] == missing["read_tool"]
+            and arguments == missing["read_arguments"]
         ):
-            arguments["path"] = wrong_path
+            arguments = deepcopy(wrong["read_arguments"])
             replaced = True
         checked_call(world, call["name"], arguments)
     if not replaced:
@@ -273,12 +311,9 @@ def execute(
 
 
 def failed_criteria(report: dict[str, Any]) -> list[str]:
-    failed = [name for name, passed in report["checks"].items() if not passed]
-    for category, result in report["criteria"].items():
-        for name, passed in result.get("criteria", {}).items():
-            if not passed:
-                failed.append(f"{category}.{name}")
-    return sorted(set(failed))
+    return sorted(
+        row["id"] for row in report.get("atomic_checks", []) if not row["passed"]
+    )
 
 
 def run(release: Path) -> dict[str, Any]:
@@ -289,15 +324,18 @@ def run(release: Path) -> dict[str, Any]:
         raise ValueError(f"expected 100 generated tasks, found {len(task_dirs)}")
 
     negative_runners: list[tuple[str, Runner]] = [
-        ("shortcut", shortcut),
         ("noop", noop),
+        ("shortcut", shortcut),
         ("state_only", state_only),
         ("incomplete_read", incomplete_read),
         ("write_before_read", write_before_read),
+        ("premature_notification", premature_notification),
         ("missing_readback", missing_readback),
-        ("unauthorized_write", unauthorized_write),
+        ("duplicate_mutation", duplicate_mutation),
+        ("rejected_mutation", rejected_mutation),
         ("wrong_value", wrong_value),
         ("wrong_decision", wrong_decision),
+        ("wrong_branch", wrong_branch),
         ("wrong_evidence", wrong_evidence),
     ]
     oracle_passes = 0
@@ -324,6 +362,7 @@ def run(release: Path) -> dict[str, Any]:
             false_accepts[name] += int(result["passed"])
             negatives[name] = {
                 "passed": result["passed"],
+                "score": result["score"],
                 "successful_tool_calls": result["successful_tool_calls"],
                 "failed_criteria": failed_criteria(result),
                 "report_sha256": result["report_sha256"],
@@ -334,6 +373,7 @@ def run(release: Path) -> dict[str, Any]:
             {
                 "task_id": task_id,
                 "oracle_passed": first["passed"],
+                "oracle_score": first["score"],
                 "oracle_successful_tool_calls": first["successful_tool_calls"],
                 "oracle_report_sha256": first["report_sha256"],
                 "second_oracle_report_sha256": second["report_sha256"],
@@ -343,7 +383,8 @@ def run(release: Path) -> dict[str, Any]:
         )
 
     report = {
-        "schema_version": "counselbench.qualification.v3",
+        "schema_version": "counselbench.qualification.v4",
+        "metric": "CounselScore",
         "benchmark": "CounselBench-100",
         "version": RELEASE_VERSION,
         "task_count": len(task_dirs),

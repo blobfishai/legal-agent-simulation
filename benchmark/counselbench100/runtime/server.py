@@ -44,8 +44,8 @@ def rpc_response(request: dict[str, Any]) -> dict[str, Any] | None:
                     "version": MCP_PIN["runtime_server_version"],
                 },
                 "instructions": (
-                    "Review the allowlisted seeded matter files and write final deliverables "
-                    "only under /workspace/output."
+                    "Reconcile the isolated matter across Clio, Gmail, Drive, and Slack; "
+                    "commit only provider operations supported by the source record."
                 ),
             },
         }
@@ -71,7 +71,7 @@ def rpc_response(request: dict[str, Any]) -> dict[str, Any] | None:
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "CounselBenchMCP/3.0"
+    server_version = "CounselBenchMCP/3.2"
 
     def log_message(self, fmt: str, *args: Any) -> None:
         return

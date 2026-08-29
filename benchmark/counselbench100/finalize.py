@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-RELEASE_VERSION = "3.1.0"
+RELEASE_VERSION = "3.2.0"
 DEFAULT_MODEL_JOBS: list[str] = []
 
 
@@ -35,13 +35,7 @@ def sha256_file(path: Path) -> str:
 
 
 def criterion_counts(verifier: dict[str, Any]) -> tuple[int, int]:
-    criteria = verifier["criteria"]
-    values = [
-        *criteria["procedure"].values(),
-        *criteria["decision"]["criteria"].values(),
-        *criteria["register"]["criteria"].values(),
-        *criteria["advice"]["criteria"].values(),
-    ]
+    values = [row["passed"] for row in verifier["atomic_checks"]]
     return sum(bool(value) for value in values), len(values)
 
 
@@ -80,9 +74,9 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
                     "trial_name": result["trial_name"],
                     "task_checksum": result["task_checksum"],
                     "passed": verifier["passed"],
+                    "metric": verifier["metric"],
+                    "score": verifier["score"],
                     "reward": verifier["reward"],
-                    "uncapped_reward": verifier["uncapped_reward"],
-                    "reward_cap_reason": verifier["reward_cap_reason"],
                     "category_scores": verifier["category_scores"],
                     "criteria_passed": criteria_passed,
                     "criteria_total": criteria_total,
@@ -113,9 +107,10 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
 
     gates = sorted({gate for trial in trials for gate in trial["failed_checks"]})
     report = {
-        "schema_version": "counselbench.model-report.v3",
+        "schema_version": "counselbench.model-report.v4",
         "benchmark": "CounselBench-100",
         "benchmark_version": RELEASE_VERSION,
+        "metric": "CounselScore",
         "evaluation": {
             "agent": "codex",
             "agent_version": sorted({trial["agent_version"] for trial in trials}),
@@ -133,12 +128,13 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
             "failures": sum(not trial["passed"] for trial in trials),
             "pass_rate": round(sum(bool(trial["passed"]) for trial in trials) / len(trials), 4),
             "mean_reward": round(sum(trial["reward"] for trial in trials) / len(trials), 6),
+            "mean_score": round(sum(trial["score"] for trial in trials) / len(trials), 6),
             "mean_category_scores": {
                 category: round(
                     sum(trial["category_scores"][category] for trial in trials) / len(trials),
                     6,
                 )
-                for category in ("investigation", "decision", "state", "advice")
+                for category in sorted(trials[0]["category_scores"])
             },
             "criteria_passed": sum(trial["criteria_passed"] for trial in trials),
             "criteria_total": sum(trial["criteria_total"] for trial in trials),
@@ -243,7 +239,7 @@ def finalize(arguments: argparse.Namespace) -> dict[str, Any]:
     export_model_trajectories(release, hf, model_report)
 
     evidence = {
-        "mcp_conformance": release / "reports" / "mcp-conformance.json",
+        "provider_contract_audit": release / "reports" / "provider-contract-audit.json",
         "qualification": release / "reports" / "qualification.json",
         "harbor_all_oracle": release / "harbor-all" / "counselbench-all-oracle" / "result.json",
         "harbor_public_download_smoke": release
@@ -263,7 +259,7 @@ def finalize(arguments: argparse.Namespace) -> dict[str, Any]:
     oracle = read_json(evidence["harbor_all_oracle"])
     public_smoke = read_json(evidence["harbor_public_download_smoke"])
     qualification = read_json(evidence["qualification"])
-    conformance = read_json(evidence["mcp_conformance"])
+    conformance = read_json(evidence["provider_contract_audit"])
     oracle_stats = next(iter(oracle["stats"]["evals"].values()))
     summary = {
         "schema_version": "1.1",
@@ -279,10 +275,10 @@ def finalize(arguments: argparse.Namespace) -> dict[str, Any]:
                 row["false_accepts"] for row in qualification["negative_controls"].values()
             ),
         },
-        "mcp_conformance": {
+        "provider_contract_audit": {
             "passed": conformance["passed"],
-            "contract_checks": len(conformance["contract_checks"]),
-            "behavior_checks": len(conformance["behavior_checks"]),
+            "contract_checks": len(conformance["checks"]),
+            "operation_checks": len(conformance["operation_checks"]),
         },
         "harbor_oracle": {
             "trials": oracle["n_total_trials"],
