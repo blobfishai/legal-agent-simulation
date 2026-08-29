@@ -1182,9 +1182,11 @@ def render_prompt(
     task_index: int,
 ) -> str:
     settings = FAMILY_SETTINGS[matter.family]
+    client_sentence = matter.client if matter.client.endswith((".", "!", "?")) else f"{matter.client}."
     return (
-        f"You are {settings['role']} for {matter.client}. {OPENERS[task_index % 10]} "
-        f"{matter.narrative} The decision is due {matter.deadline} in {matter.venue}, {matter.jurisdiction}. "
+        f"You are {settings['role']} for {client_sentence} {OPENERS[task_index % 10]} "
+        f"{matter.narrative} Decision due {matter.deadline}. {matter.jurisdiction} law governs; "
+        f"{matter.venue} is the forum. "
         f"{LENSES[task_index % 10]} Work out the defensible position from the matter production and leave "
         "an audit-ready exception tracker and concise advice for the supervising lawyer. Keep confirmed "
         "conflicts separate from open questions, cite the records that actually control each conclusion, "

@@ -86,6 +86,12 @@ class SeededCorpusTests(unittest.TestCase):
         self.assertNotIn("Required review procedure", prompt)
         self.assertNotIn("Return exactly", prompt)
         self.assertNotIn("read_text_file", prompt)
+        self.assertNotIn("Inc..", prompt)
+        self.assertIn("Decision due 2026-09-04.", prompt)
+        self.assertIn(
+            "Delaware law governs; Washoe County, Nevada is the forum.",
+            prompt,
+        )
         self.assertTrue(
             any("# Matter work-product control" in value for value in self.material["documents"].values())
         )
