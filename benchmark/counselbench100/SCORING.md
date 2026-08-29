@@ -1,10 +1,10 @@
 # CounselBench-100 scoring contract
 
-CounselBench-100 v1.1 reports continuous, deterministic criterion credit and a
+CounselBench-100 v2.0 reports continuous, deterministic criterion credit and a
 separate strict pass. The grader makes no model, network, clock, locale, or
 random call.
 
-## Why v1.1 replaced the launch metric
+## Why v2.0 keeps the corrected metric
 
 The v1.0 baseline contained ten substantive GPT-5.6-sol executions. Every run
 read all 96 documents and completed 109–117 successful MCP calls, yet all ten
@@ -13,9 +13,16 @@ all-or-nothing memo grounding gate. Some expected issue labels and remediation
 owners were assigned by generator order but were not recoverable from the
 records. That made the binary display invalid as a diagnostic model metric.
 
-v1.1 exposes stable finding IDs, issue labels, severity, owner, and response
+v1.1 exposed stable finding IDs, issue labels, severity, owner, and response
 deadline in realistic record-control metadata. The verifier scores those
 recoverable values individually while retaining a strict all-criteria pass.
+
+v2.0 keeps those 182 checks but moves the solve procedure and output schema out
+of the user request and into a discoverable work-product control in the evidence
+room. The accepted walk inventories all 96 records, then reads the 32 controlling
+and corroborating records plus that control. Sixty-four context records remain as
+realistic distractors. Every matter has its own reference sequence and three
+explicitly explained decision alternatives; no exact call order is graded.
 
 ## Criteria per task
 

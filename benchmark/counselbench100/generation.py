@@ -18,7 +18,8 @@ from catalog import FAMILY_SETTINGS, Matter
 FIXED_FILE_TIMESTAMP = "2026-08-25T12:00:00.000Z"
 DOCUMENT_COUNT = 96
 FINDING_COUNT = 16
-MINIMUM_TOOL_CALLS = 109
+REQUIRED_EVIDENCE_READS = 33
+MINIMUM_TOOL_CALLS = 46
 DOCUMENT_ROOT = "/workspace/documents"
 OUTPUT_ROOT = "/workspace/output"
 
@@ -833,6 +834,7 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
     settings = FAMILY_SETTINGS[matter.family]
     topics = list(settings["issues"])
     paths = document_paths(matter)
+    task_id = f"cb100-{task_index + 1:03d}-{matter.slug}"
     primary_assignment, corroborating_assignment = _issue_assignments()
     issue_details = [
         issue_values(matter, task_index, issue_index, topic)
@@ -854,6 +856,9 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         )
         document_values[absolute_path] = values
         documents[absolute_path] = _render_document(values, PurePosixPath(absolute_path).suffix[1:])
+
+    contract_path = paths[-1]
+    documents[contract_path] += render_work_product_control(matter, task_id)
 
     findings: list[dict[str, str]] = []
     for issue_index, (topic, detail) in enumerate(zip(topics, issue_details, strict=True)):
@@ -890,7 +895,6 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
             }
         )
 
-    task_id = f"cb100-{task_index + 1:03d}-{matter.slug}"
     expected_findings = {
         "schema_version": "1.0",
         "task_id": task_id,
@@ -900,19 +904,240 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         "findings": findings,
     }
     memo = render_memo(matter, task_id, findings)
-    prompt = render_prompt(matter, task_index, task_id, paths, topics)
-    return {
+    prompt = render_prompt(matter, task_index)
+    required_paths = sorted(
+        {
+            contract_path,
+            *(finding["primary_source"] for finding in findings),
+            *(finding["corroborating_source"] for finding in findings),
+        }
+    )
+    metadata_paths = [finding["primary_source"] for finding in findings[:8]]
+    material = {
         "task_id": task_id,
         "documents": documents,
-        "required_document_paths": paths,
-        "metadata_check_paths": [paths[index * 3] for index in range(8)],
+        "all_document_paths": paths,
+        "required_document_paths": required_paths,
+        "metadata_check_paths": metadata_paths,
         "expected_findings": expected_findings,
         "scoring_findings": scoring_findings,
         "expected_findings_text": json.dumps(expected_findings, indent=2, ensure_ascii=False) + "\n",
         "expected_memo": memo,
         "instruction": prompt,
         "topics": topics,
+        "decision_options": decision_options(matter),
     }
+    material["reference_calls"] = reference_calls(
+        task_index,
+        required_paths,
+        metadata_paths,
+        material["expected_findings_text"],
+        memo,
+    )
+    material["rubric_criteria"] = rubric_criteria(material)
+    return material
+
+
+def render_work_product_control(matter: Matter, task_id: str) -> str:
+    """Put the output contract in the evidence room instead of the user request."""
+
+    return f"""
+
+# Matter work-product control
+
+Matter operations requires a source-supported exception register and counsel advice for
+`{task_id}`. The reviewer should first inventory the production, use the record-control
+fields to locate each confirmed exception, compare every primary record with its
+corroborating record, and inspect chain-of-custody metadata for the eight critical primary
+records. Context-only records are not independent findings.
+
+Leave exactly `/workspace/output/findings.json` and `/workspace/output/advice.md` through
+the approved filesystem tools. The JSON object uses `schema_version`, `task_id`,
+`matter_number`, `prepared_for`, `as_of`, and `findings`. Each finding preserves the stable
+`id`, `severity`, `issue`, exact absolute `primary_source` and `corroborating_source`, a
+source-bounded `determination`, and a dated, owned `recommended_action`. The advice contains
+Executive assessment, Method and record coverage, Findings, Recommended next actions, and
+Assumptions and limitations; it addresses each finding and does not invent facts outside
+the production. The governing deadline is {matter.deadline}.
+"""
+
+
+def decision_options(matter: Matter) -> list[dict[str, Any]]:
+    return [
+        {
+            "id": "cross-source-reconciliation",
+            "label": "Reconcile controlling and corroborating records",
+            "selected": True,
+            "reason": (
+                f"The {matter.matter_number} production contains independently maintained records; "
+                "a defensible answer must preserve each supported conflict and its cure owner."
+            ),
+        },
+        {
+            "id": "latest-record-controls",
+            "label": "Treat the latest record as controlling",
+            "selected": False,
+            "reason": "Timestamp recency does not establish legal priority, execution, or approval authority.",
+        },
+        {
+            "id": "primary-records-only",
+            "label": "Report primary records without reconciliation",
+            "selected": False,
+            "reason": "Primary records alone conceal the operational conflicts that create the actionable exceptions.",
+        },
+    ]
+
+
+def reference_calls(
+    task_index: int,
+    required_paths: list[str],
+    metadata_paths: list[str],
+    findings_text: str,
+    memo_text: str,
+) -> list[dict[str, Any]]:
+    """Create a distinct, evidence-led reference walk for every matter."""
+
+    calls: list[dict[str, Any]] = [
+        {"name": "list_allowed_directories", "arguments": {}},
+        {
+            "name": "directory_tree",
+            "arguments": {"path": DOCUMENT_ROOT, "excludePatterns": []},
+        },
+    ]
+    evidence_calls: list[dict[str, Any]] = [
+        {"name": "read_text_file", "arguments": {"path": path}}
+        for path in required_paths
+    ]
+    evidence_calls.extend(
+        {"name": "get_file_info", "arguments": {"path": path}}
+        for path in metadata_paths
+    )
+    evidence_calls.append(
+        {
+            "name": "search_files",
+            "arguments": {
+                "path": DOCUMENT_ROOT,
+                "pattern": "**/*.eml",
+                "excludePatterns": [],
+            },
+        }
+    )
+    evidence_calls.sort(
+        key=lambda call: stable_int(
+            "reference-walk",
+            task_index,
+            call["name"],
+            call["arguments"].get("path", ""),
+        )
+    )
+    calls.extend(evidence_calls)
+    deliverables = [
+        {
+            "name": "write_file",
+            "arguments": {
+                "path": f"{OUTPUT_ROOT}/findings.json",
+                "content": findings_text,
+            },
+        },
+        {
+            "name": "write_file",
+            "arguments": {"path": f"{OUTPUT_ROOT}/advice.md", "content": memo_text},
+        },
+    ]
+    if task_index % 2:
+        deliverables.reverse()
+    calls.extend(deliverables)
+    if len(calls) != MINIMUM_TOOL_CALLS:
+        raise ValueError(f"expected {MINIMUM_TOOL_CALLS} reference calls, got {len(calls)}")
+    return calls
+
+
+def rubric_criteria(material: dict[str, Any]) -> list[dict[str, str]]:
+    """Explain every deterministic check with matter-specific evidence references."""
+
+    rows: list[dict[str, str]] = []
+
+    def add(category: str, criterion_id: str, description: str) -> None:
+        rows.append(
+            {
+                "id": f"{category}.{criterion_id}",
+                "category": category,
+                "description": description,
+            }
+        )
+
+    procedure = {
+        "minimum_successful_tool_calls": (
+            f"Complete at least {MINIMUM_TOOL_CALLS} successful, argument-specific evidence and output calls."
+        ),
+        "all_evidence_read_in_full": (
+            f"Find and read the {len(material['required_document_paths'])} controlling, corroborating, and work-product-control records in full."
+        ),
+        "chain_of_custody_metadata_checked": (
+            "Inspect file metadata for the eight designated critical primary records before relying on them."
+        ),
+        "allowed_directories_checked": "Confirm the sandbox's allowed document and output roots.",
+        "recursive_inventory_completed": "Inventory all 96 records so the relevant sources are discovered among the context records.",
+        "targeted_search_completed": "Search the production for email evidence that may corroborate or contradict formal records.",
+        "exact_deliverable_set": "Leave only findings.json and advice.md in the output workspace.",
+        "deliverables_written_through_mcp": "Create both final work products through the sandbox MCP surface.",
+    }
+    for criterion_id, description in procedure.items():
+        add("procedure", criterion_id, description)
+
+    expected = material["expected_findings"]
+    add("findings", "findings_is_object", "Produce findings.json as a valid JSON object.")
+    add("findings", "findings_exact_count", f"Report exactly {len(material['scoring_findings'])} confirmed exceptions.")
+    add("findings", "finding_ids_unique", "Use each stable finding ID exactly once.")
+    for field in ("schema_version", "task_id", "matter_number", "prepared_for", "as_of"):
+        add(
+            "findings",
+            f"top_level_{field}",
+            f"Set {field} to the released matter value {expected[field]!r}.",
+        )
+    for finding in material["scoring_findings"]:
+        finding_id = finding["id"]
+        add("findings", f"{finding_id}.present", f"Include the confirmed {finding_id} exception for {finding['issue']}.")
+        for field in ("id", "issue", "severity", "primary_source", "corroborating_source"):
+            add(
+                "findings",
+                f"{finding_id}.{field}",
+                f"Preserve {finding_id}'s {field} from {finding['primary_source']} and {finding['corroborating_source']}.",
+            )
+        add(
+            "findings",
+            f"{finding_id}.fact_anchors",
+            f"Reconcile {finding_id} using the exact controlled facts {finding['fact_anchors']!r}.",
+        )
+        add(
+            "findings",
+            f"{finding_id}.facts_source_bounded",
+            f"Do not introduce a controlled date, amount, percentage, address, or reference absent from {finding_id}'s cited source pair.",
+        )
+        add(
+            "findings",
+            f"{finding_id}.action_anchors",
+            f"Preserve the supported cure owner and deadline anchors {finding['action_anchors']!r} for {finding_id}.",
+        )
+
+    for section in (
+        "Executive assessment",
+        "Method and record coverage",
+        "Findings",
+        "Recommended next actions",
+        "Assumptions and limitations",
+    ):
+        add("memo", f"section.{section}", f"Include the {section!r} decision section in advice.md.")
+    for finding in material["scoring_findings"]:
+        add(
+            "memo",
+            f"finding.{finding['id']}",
+            f"Explain {finding['id']} with its issue, severity, cited source pair, exact conflicting facts, owner, and deadline.",
+        )
+    add("memo", "forbidden_claims_absent", "Do not claim the production has no issues or that every record is consistent.")
+    if len(rows) != 182:
+        raise ValueError(f"expected 182 rubric criteria, got {len(rows)}")
+    return rows
 
 
 def render_memo(matter: Matter, task_id: str, findings: list[dict[str, str]]) -> str:
@@ -923,8 +1148,9 @@ def render_memo(matter: Matter, task_id: str, findings: list[dict[str, str]]) ->
         f"{len(findings)} source-supported exceptions requiring action before {matter.deadline}. "
         f"The assessment concerns {matter.counterparty} and the supplied record for {matter.jurisdiction}.", "",
         "## Method and record coverage", "",
-        f"The review inventoried and read all {DOCUMENT_COUNT} production files, searched the email exports, "
-        "and checked metadata for the designated chain-of-custody sample. Conclusions are limited to the "
+        f"The review inventoried all {DOCUMENT_COUNT} production files, read the {REQUIRED_EVIDENCE_READS} "
+        "controlling, corroborating, and control records, searched the email exports, and checked metadata "
+        "for the designated chain-of-custody sample. Conclusions are limited to the "
         "synthetic production supplied for this benchmark matter.", "",
         "## Findings", "",
     ]
@@ -954,85 +1180,13 @@ def render_memo(matter: Matter, task_id: str, findings: list[dict[str, str]]) ->
 def render_prompt(
     matter: Matter,
     task_index: int,
-    task_id: str,
-    paths: list[str],
-    topics: list[str],
 ) -> str:
     settings = FAMILY_SETTINGS[matter.family]
-    metadata_paths = [paths[index * 3] for index in range(8)]
-    topic_lines = "\n".join(f"- {topic}" for topic in topics)
-    metadata_lines = "\n".join(f"- `{path}`" for path in metadata_paths)
-    return f"""# {matter.title}
-
-You are acting as {settings['role']} for {matter.client}. {OPENERS[task_index % 10]}
-
-Matter: {matter.matter_number}
-Other party or authority: {matter.counterparty}
-Jurisdiction: {matter.jurisdiction}
-Venue or forum: {matter.venue}
-Decision deadline: {matter.deadline}
-
-## Assignment
-
-{matter.narrative} {LENSES[task_index % 10]}
-
-Reconcile the complete seeded production and prepare an exception tracker plus a concise counsel memo. The data room contains {DOCUMENT_COUNT} text-native legal and business records in 12 folders. Some facts can be evaluated only by comparing a primary record in one folder with a later or independently maintained record elsewhere. Do not rely on filenames alone, do not assume that a later record controls, and do not use facts outside this production.
-
-Finding-bearing records identify the review question, stable finding ID, record role, severity, remediation owner, and response due date in their record-control metadata. Preserve those values exactly. Records labeled `context only` are responsive background, not independent findings.
-
-Your review scope includes these independently tested legal and control questions:
-
-{topic_lines}
-
-## Required review procedure
-
-Use the `io.github.modelcontextprotocol/server-filesystem` MCP tools exposed by the environment.
-
-1. Call `list_allowed_directories` and confirm the available roots.
-2. Call `directory_tree` on `{DOCUMENT_ROOT}` to inventory the complete production.
-3. Call `search_files` on `{DOCUMENT_ROOT}` with pattern `**/*.eml`.
-4. Call `read_text_file` separately, without `head` or `tail`, for every one of the {DOCUMENT_COUNT} files. Bulk reads are intentionally unavailable because the work product must have file-level provenance.
-5. Call `get_file_info` for each of these eight chain-of-custody sample records:
-
-{metadata_lines}
-
-6. Use `write_file` to create both final deliverables under `{OUTPUT_ROOT}`.
-
-An accepted trajectory therefore contains at least {MINIMUM_TOOL_CALLS} successful MCP tool calls. The verifier checks the call trace and final filesystem state; merely stating that records were reviewed is insufficient.
-
-## Deliverables
-
-Create exactly these two files and no others:
-
-- `{OUTPUT_ROOT}/findings.json`
-- `{OUTPUT_ROOT}/advice.md`
-
-`findings.json` must be valid JSON with this exact top-level shape:
-
-```json
-{{
-  "schema_version": "1.0",
-  "task_id": "{task_id}",
-  "matter_number": "{matter.matter_number}",
-  "prepared_for": "{matter.client}",
-  "as_of": "{matter.deadline}",
-  "findings": [
-    {{
-      "id": "F-01",
-      "severity": "critical|high|medium|low",
-      "issue": "short issue label",
-      "primary_source": "/workspace/documents/...",
-      "corroborating_source": "/workspace/documents/...",
-      "determination": "precise reconciliation of the conflicting facts",
-      "recommended_action": "dated, owned next step"
-    }}
-  ]
-}}
-```
-
-Use one row per confirmed exception, stable IDs beginning at `F-01`, exact absolute source paths, and exact dates, amounts, names, statuses, thresholds, or counts from the cited records.
-
-`advice.md` must contain these headings: `Executive assessment`, `Method and record coverage`, `Findings`, `Recommended next actions`, and `Assumptions and limitations`. Address every JSON finding in the memo with its ID, issue, severity, both source paths, determination, and recommended action. Keep confirmed contradictions distinct from assumptions or unresolved legal questions.
-
-All facts in this task are synthetic. The work product is benchmark output, not legal advice.
-"""
+    return (
+        f"You are {settings['role']} for {matter.client}. {OPENERS[task_index % 10]} "
+        f"{matter.narrative} The decision is due {matter.deadline} in {matter.venue}, {matter.jurisdiction}. "
+        f"{LENSES[task_index % 10]} Work out the defensible position from the matter production and leave "
+        "an audit-ready exception tracker and concise advice for the supervising lawyer. Keep confirmed "
+        "conflicts separate from open questions, cite the records that actually control each conclusion, "
+        "and do not fill gaps with outside facts."
+    )
