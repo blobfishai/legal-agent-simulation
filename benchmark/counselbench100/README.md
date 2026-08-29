@@ -3,15 +3,16 @@
 This directory contains the deterministic source generator, pinned MCP world,
 qualification suite, and release tooling for CounselBench-100.
 
-The v3.0.0 release contains 100 original synthetic legal matters and 9,600
-source records across ten practice workflows. Each employee request asks for a
+The v3.1.0 release contains 100 original synthetic legal matters and 9,700
+agent-visible files across ten practice workflows, including a native PDF and
+parser-validated XLSX evidence source in every task. Each employee request asks for a
 decision in ordinary workplace language. The task-specific investigation is
 discovered from the records: twelve portfolio items must be joined across
 immutable identity, operative authority, current operations, and effective
 approval/revision evidence.
 
 Every task has a real mix of 5–9 supported actions and 3–7 evidence holds. It
-requires 55–65 full evidence reads and a distinct 68–85-call MCP trajectory,
+requires 56–67 full evidence reads and a distinct 76–93-call MCP trajectory,
 including three state-changing deliverables and exact post-write readback. All
 100 raw tool sequences and all 100 semantic action graphs are distinct.
 
@@ -22,7 +23,7 @@ The v3 qualification ran 1,200 local executions:
 - 0 false accepts in each of ten adversarial controls (1,000/1,000 rejected)
 - copied-gold, no-op, state-only, incomplete-read, write-before-read,
   missing-readback, unauthorized-write, wrong-value, wrong-decision, and
-  wrong-branch trajectories all fail
+  wrong-evidence trajectories all fail
 
 Public artifacts:
 
@@ -44,7 +45,7 @@ python3 benchmark/counselbench100/tests/conformance.py \
 
 Reference trajectories prove solvability and are excluded from model ranking.
 A leaderboard row is eligible only after one model has executed all 100 tasks
-against the exact v3.0.0 release. Older or partial scores are not inherited.
+against the exact v3.1.0 release. Older or partial scores are not inherited.
 
 Generated files are written to `dist/counselbench-100` and are ignored by Git.
 The committed catalog and decision-rule table contain 100 authored matter

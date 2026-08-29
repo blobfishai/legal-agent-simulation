@@ -8,6 +8,8 @@ import html
 import io
 import json
 import re
+import textwrap
+import zipfile
 from datetime import date, timedelta
 from pathlib import PurePosixPath
 from typing import Any
@@ -21,8 +23,9 @@ except ImportError:  # pragma: no cover - flat import in release builder
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
-RELEASE_VERSION = "3.0.0"
+RELEASE_VERSION = "3.1.0"
 DOCUMENT_COUNT = 96
+AGENT_VISIBLE_FILE_COUNT = DOCUMENT_COUNT + 1
 PORTFOLIO_COUNT = 12
 FINDING_COUNT = PORTFOLIO_COUNT  # Backward-compatible public constant.
 REQUIRED_EVIDENCE_READS = 49  # Release-wide lower bound; each task varies.
@@ -51,7 +54,7 @@ EVIDENCE_ROLES = (
     "independent_counterrecord",
 )
 
-EXTENSIONS = ("md", "txt", "eml", "csv", "json", "xml", "html", "md")
+EXTENSIONS = ("md", "txt", "eml", "csv", "json", "xml", "html", "pdf")
 
 SOURCE_SYSTEMS: dict[str, tuple[str, ...]] = {
     "corporate-ma": (
@@ -522,7 +525,189 @@ def _record_payload(
     }
 
 
+def _pdf_escape(value: str) -> str:
+    return value.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+
+
+def _render_pdf(value: dict[str, Any]) -> str:
+    """Create a deterministic, uncompressed PDF that remains text-readable via MCP.
+
+    The official filesystem MCP exposes text reads but no PDF extraction tool.  An
+    ASCII, uncompressed PDF preserves the native file contract while still letting
+    the agent inspect every source line through the pinned upstream tool.
+    """
+
+    logical_lines = [
+        "COUNSELBENCH SOURCE RECORD",
+        f"Record: {value['record_id']}",
+        f"Matter: {value['matter_number']} - {value['matter_title']}",
+        f"Portfolio key: {value['portfolio_key']}",
+        f"Source system: {value['source_system']}",
+        f"Evidence role: {value['evidence_role']}",
+        f"Immutable entity: {value['immutable_entity_key']}",
+        f"Referenced revision: {value['referenced_revision']}",
+        f"Current revision: {value['current_revision']}",
+        f"Custodian: {value['custodian']}",
+        f"Reviewer: {value['reviewer']}",
+        "",
+        "NATIVE RECORD",
+        value["body"],
+    ]
+    for section in value["sections"]:
+        logical_lines.extend(("", str(section["heading"]).upper(), str(section["text"])))
+    logical_lines.extend(("", "NATIVE ROWS"))
+    logical_lines.extend(
+        " | ".join(
+            str(row[key])
+            for key in (
+                "line_id", "effective_date", "entity_key", "revision",
+                "actor", "status", "metric", "note",
+            )
+        )
+        for row in value["rows"]
+    )
+    logical_lines.extend(("", "CHRONOLOGY"))
+    logical_lines.extend(
+        " | ".join(str(row[key]) for key in ("date", "event", "actor", "reference"))
+        for row in value["chronology"]
+    )
+    logical_lines.extend(("", "RELATED NATIVE RECORDS", *value["related_records"], "", value["provenance"]))
+
+    lines: list[str] = []
+    for logical_line in logical_lines:
+        ascii_line = str(logical_line).encode("ascii", "replace").decode("ascii")
+        lines.extend(textwrap.wrap(ascii_line, width=105, replace_whitespace=False) or [""])
+    pages = [lines[index : index + 62] for index in range(0, len(lines), 62)]
+    font_id = 3 + len(pages) * 2
+    objects: dict[int, str] = {
+        1: "<< /Type /Catalog /Pages 2 0 R >>",
+        2: (
+            f"<< /Type /Pages /Count {len(pages)} /Kids "
+            f"[{' '.join(f'{3 + index * 2} 0 R' for index in range(len(pages)))}] >>"
+        ),
+        font_id: "<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>",
+    }
+    for page_index, page_lines in enumerate(pages):
+        page_id = 3 + page_index * 2
+        content_id = page_id + 1
+        stream = "BT\n/F1 7 Tf\n36 756 Td\n9 TL\n" + "".join(
+            f"({_pdf_escape(line)}) Tj\nT*\n" for line in page_lines
+        ) + "ET\n"
+        objects[page_id] = (
+            f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+            f"/Resources << /Font << /F1 {font_id} 0 R >> >> /Contents {content_id} 0 R >>"
+        )
+        objects[content_id] = f"<< /Length {len(stream.encode('ascii'))} >>\nstream\n{stream}endstream"
+
+    output = "%PDF-1.4\n% CounselBench deterministic native source\n"
+    offsets: dict[int, int] = {}
+    for object_id in sorted(objects):
+        offsets[object_id] = len(output.encode("ascii"))
+        output += f"{object_id} 0 obj\n{objects[object_id]}\nendobj\n"
+    xref_offset = len(output.encode("ascii"))
+    output += f"xref\n0 {font_id + 1}\n0000000000 65535 f \n"
+    output += "".join(f"{offsets[object_id]:010d} 00000 n \n" for object_id in range(1, font_id + 1))
+    output += f"trailer\n<< /Size {font_id + 1} /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF\n"
+    return output
+
+
+def _render_xlsx_workbook(matter: Matter, cases: list[dict[str, Any]]) -> bytes:
+    """Create a deterministic, parser-valid OOXML workbook without build dependencies.
+
+    The workbook is stored without ZIP compression.  This keeps its native spreadsheet
+    structure while allowing the pinned filesystem MCP's extension-agnostic text read to
+    surface the underlying XML rows.  It deliberately contains only impact-population
+    facts; identity, authority, current operations, and approval still have to be joined
+    from independent records.
+    """
+
+    headers = (
+        "portfolio_key",
+        "immutable_entity",
+        "impact_control_score",
+        "event_reference",
+        "source_revision",
+        "source_population_status",
+        "matter_number",
+    )
+    data_rows = [
+        (
+            case["portfolio_key"],
+            case["entity_id"],
+            str(case["impact_score"]),
+            case["event_reference"],
+            case["referenced_revision"],
+            "retained source population; not a legal disposition",
+            matter.matter_number,
+        )
+        for case in cases
+    ]
+
+    def cell(reference: str, value: str) -> str:
+        return (
+            f'<c r="{reference}" t="inlineStr"><is><t xml:space="preserve">'
+            f"{html.escape(value)}"
+            "</t></is></c>"
+        )
+
+    worksheet_rows = []
+    for row_number, values in enumerate((headers, *data_rows), start=1):
+        cells = "".join(
+            cell(f"{chr(65 + column)}{row_number}", str(value))
+            for column, value in enumerate(values)
+        )
+        worksheet_rows.append(f'<row r="{row_number}">{cells}</row>')
+    worksheet = (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+        '<dimension ref="A1:G13"/><sheetViews><sheetView workbookViewId="0"/></sheetViews>'
+        '<sheetFormatPr defaultRowHeight="15"/><sheetData>'
+        + "".join(worksheet_rows)
+        + '</sheetData></worksheet>'
+    )
+    entries = {
+        "[Content_Types].xml": (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+            '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+            '<Default Extension="xml" ContentType="application/xml"/>'
+            '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+            '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>'
+            '</Types>'
+        ),
+        "_rels/.rels": (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+            '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>'
+            '</Relationships>'
+        ),
+        "xl/workbook.xml": (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '
+            'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
+            '<sheets><sheet name="Impact population" sheetId="1" r:id="rId1"/></sheets></workbook>'
+        ),
+        "xl/_rels/workbook.xml.rels": (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+            '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
+            '</Relationships>'
+        ),
+        "xl/worksheets/sheet1.xml": worksheet,
+    }
+    output = io.BytesIO()
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as archive:
+        for name, content in entries.items():
+            info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_STORED
+            info.external_attr = 0o100600 << 16
+            archive.writestr(info, content.encode("utf-8"))
+    return output.getvalue()
+
+
 def _render_document(value: dict[str, Any], extension: str) -> str:
+    if extension == "pdf":
+        return _render_pdf(value)
     if extension == "json":
         return json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
 
@@ -576,7 +761,7 @@ def _render_document(value: dict[str, Any], extension: str) -> str:
         )
         return (
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-            "<counsel-source-record schema-version=\"3.0\">\n"
+            "<counsel-source-record schema-version=\"3.1\">\n"
             f"  <record-id>{html.escape(value['record_id'])}</record-id>\n"
             f"  <matter-number>{html.escape(value['matter_number'])}</matter-number>\n"
             f"  <portfolio-key>{html.escape(value['portfolio_key'])}</portfolio-key>\n"
@@ -749,7 +934,7 @@ def _action_row(case: dict[str, Any], rule: DecisionRule) -> dict[str, Any]:
         "recommended_action": f"{rule.register_action} Owner: {case['owner']}; due {case['due_date']}.",
         "owner": case["owner"],
         "due_date": case["due_date"],
-        "source_paths": [case["paths_by_role"][role] for role in EVIDENCE_ROLES[:4]],
+        "source_paths": list(case["required_paths"]),
     }
 
 
@@ -766,7 +951,7 @@ def _hold_row(case: dict[str, Any]) -> dict[str, Any]:
         "issue": case["topic"],
         "reason": case["hold_reason"],
         "required_next_evidence": missing,
-        "source_paths": [case["paths_by_role"][role] for role in EVIDENCE_ROLES[:4]],
+        "source_paths": list(case["required_paths"]),
     }
 
 
@@ -927,11 +1112,46 @@ finishing. The matter date is {matter.deadline}; no external facts may be assume
 """
 
 
-def _search_patterns(task_index: int) -> list[str]:
-    choices = ("**/*.eml", "**/*.csv", "**/*.json", "**/*.xml", "**/*.html", "**/*.txt", "**/*.md")
-    count = 1 + task_index % 4
-    start = (task_index * 3) % len(choices)
-    return [choices[(start + offset * 2) % len(choices)] for offset in range(count)]
+def _search_patterns(matter: Matter, rule: DecisionRule, task_index: int) -> list[str]:
+    """Return the case-specific native-format discovery plan.
+
+    The PDF search is invariant because the eighth record in every production folder is
+    a native PDF source.  The remaining searches are derived from the authored matter and
+    decision rule, rather than a benchmark-wide modulo template.  They are public verifier
+    requirements: an agent must actually perform these searches before it can earn the
+    procedure reward.
+    """
+
+    mandatory_patterns = ["**/*.pdf", "**/*.xlsx"]
+    choices = (
+        "**/*.eml",
+        "**/*.csv",
+        "**/*.json",
+        "**/*.xml",
+        "**/*.html",
+        "**/*.txt",
+        "**/*.md",
+    )
+    count = 4 + stable_int(
+        matter.slug, rule.question, rule.authority, "native-format-search-count"
+    ) % 6
+    start = stable_int(matter.slug, rule.observation, "native-format-search-start") % len(choices)
+    stride = (1, 2, 3, 4, 5, 6)[
+        stable_int(rule.register_action, task_index, "native-format-search-stride") % 6
+    ]
+    ordered: list[str] = []
+    cursor = start
+    while len(ordered) < count - len(mandatory_patterns):
+        candidate = choices[cursor % len(choices)]
+        if candidate not in ordered:
+            ordered.append(candidate)
+        cursor += stride
+        if len(ordered) < count - len(mandatory_patterns) and cursor % len(choices) == start:
+            cursor += 1
+    for pattern in mandatory_patterns:
+        insertion = stable_int(matter.slug, pattern, "native-search-position") % (len(ordered) + 1)
+        ordered.insert(insertion, pattern)
+    return ordered
 
 
 def reference_calls(
@@ -1102,6 +1322,19 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         for role, path in case["paths_by_role"].items():
             path_roles[path] = (case["portfolio_key"], role)
 
+    workbook_folder = str(FAMILY_SETTINGS[matter.family]["folders"][-1])
+    workbook_path = str(
+        PurePosixPath(
+            DOCUMENT_ROOT,
+            workbook_folder,
+            f"097_{slugify(matter.slug)}_impact_population.xlsx",
+        )
+    )
+    path_roles[workbook_path] = ("portfolio", "financial_or_population_support")
+    for case in cases:
+        case["required_roles"].append("portfolio_impact_workbook")
+        case["required_paths"].append(workbook_path)
+
     documents: dict[str, str] = {}
     for document_index, path in enumerate(paths):
         slot = document_index % PORTFOLIO_COUNT
@@ -1110,9 +1343,12 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
             matter, rule, cases[slot], role, task_index, document_index, path
         )
         documents[path] = _render_document(payload, PurePosixPath(path).suffix[1:])
+    binary_documents = {workbook_path: _render_xlsx_workbook(matter, cases)}
 
     options = decision_options(matter, task_index)
-    protocol_path = paths[-1]
+    protocol_path = next(
+        path for path in reversed(paths) if PurePosixPath(path).suffix == ".md"
+    )
     documents[protocol_path] += render_work_product_control(matter, task_id, options)
     expected_decision, expected_register, advice = _expected_outputs(
         matter, task_id, rule, options, cases
@@ -1122,12 +1358,18 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
     required_paths = sorted(
         {protocol_path, *(path for case in cases for path in case["required_paths"])}
     )
-    metadata_count = 3 + task_index % 6
-    metadata_paths = sorted(
-        required_paths,
-        key=lambda path: stable_int(matter.slug, "metadata", path),
-    )[:metadata_count]
-    search_patterns = _search_patterns(task_index)
+    metadata_count = 4 + stable_int(
+        matter.slug, rule.observation, rule.authority, "custody-check-count"
+    ) % 9
+    metadata_paths = [workbook_path, *sorted(
+        (path for path in required_paths if path != workbook_path),
+        key=lambda path: (
+            0 if PurePosixPath(path).suffix == ".pdf" else 1,
+            0 if path_roles[path][1] in {"operative_authority", "approval_and_capacity"} else 1,
+            stable_int(matter.slug, rule.register_action, "metadata", path),
+        ),
+    )][:metadata_count]
+    search_patterns = _search_patterns(matter, rule, task_index)
     calls = reference_calls(
         task_index, required_paths, metadata_paths, search_patterns, path_roles,
         decision_text, register_text, advice,
@@ -1135,7 +1377,8 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
     material: dict[str, Any] = {
         "task_id": task_id,
         "documents": documents,
-        "all_document_paths": paths,
+        "binary_documents": binary_documents,
+        "all_document_paths": [*paths, workbook_path],
         "required_document_paths": required_paths,
         "metadata_check_paths": metadata_paths,
         "search_patterns": search_patterns,

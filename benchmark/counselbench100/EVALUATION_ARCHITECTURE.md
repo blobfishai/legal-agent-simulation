@@ -35,10 +35,10 @@ only `/workspace/documents` and `/workspace/output` through six tool
 contracts pinned to the official MCP filesystem server. Hidden world
 specification files are outside the allowlisted roots.
 
-Each task has twelve portfolio items, 96 records in twelve folders and seven
-text-native formats, 55–65 required evidence reads, 3–8 custody checks,
+Each task has twelve portfolio items, 97 files in twelve folders and nine
+native formats, 56–67 required evidence reads, 4–12 custody checks,
 task-specific searches, three writes, and three readbacks. Reference
-trajectories range from 68 to 85 successful calls. The verifier checks causal
+trajectories range from 76 to 93 successful calls. The verifier checks causal
 prerequisites and outcomes, not one exact call order.
 
 ## Archipelago/APEX mapping

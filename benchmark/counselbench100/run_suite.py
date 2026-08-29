@@ -32,7 +32,7 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
-RELEASE_VERSION = "3.0.0"
+RELEASE_VERSION = "3.1.0"
 
 
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
@@ -218,6 +218,30 @@ def wrong_branch(world: CounselWorld, spec: dict[str, Any], reference: dict[str,
     )
 
 
+def wrong_evidence(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    """Reach the exact work product after substituting a valid but wrong source record."""
+
+    missing_path = spec["required_document_paths"][-1]
+    wrong_path = next(
+        path for path in spec["required_document_paths"] if path != missing_path
+    )
+    replaced = False
+    for call in reference["calls"]:
+        arguments = deepcopy(call["arguments"])
+        if (
+            not replaced
+            and call["name"] == "read_text_file"
+            and arguments.get("path") == missing_path
+            and "head" not in arguments
+            and "tail" not in arguments
+        ):
+            arguments["path"] = wrong_path
+            replaced = True
+        checked_call(world, call["name"], arguments)
+    if not replaced:
+        raise RuntimeError("reference trajectory had no uniquely required evidence read")
+
+
 Runner = Callable[[CounselWorld, dict[str, Any], dict[str, Any]], None]
 
 
@@ -274,7 +298,7 @@ def run(release: Path) -> dict[str, Any]:
         ("unauthorized_write", unauthorized_write),
         ("wrong_value", wrong_value),
         ("wrong_decision", wrong_decision),
-        ("wrong_branch", wrong_branch),
+        ("wrong_evidence", wrong_evidence),
     ]
     oracle_passes = 0
     determinism_matches = 0

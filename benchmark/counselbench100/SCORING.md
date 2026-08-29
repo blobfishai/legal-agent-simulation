@@ -1,6 +1,6 @@
 # CounselBench-100 scoring contract
 
-CounselBench-100 v3.0 reports deterministic criterion credit and a separate
+CounselBench-100 v3.1 reports deterministic criterion credit and a separate
 strict pass. The grader makes no model, network, clock, locale, or random call.
 
 ## What v3 measures
@@ -40,7 +40,7 @@ field-level decision and state criteria.
 
 The trace—not a claimed narrative—proves the workflow:
 
-- all 55–65 required records must be read in full before the first write;
+- all 56–67 required records must be read in full before the first write;
 - designated metadata checks and task-specific format searches must precede
   mutation;
 - only `decision.json`, `matter-register.json`, and `advice.md` may be
