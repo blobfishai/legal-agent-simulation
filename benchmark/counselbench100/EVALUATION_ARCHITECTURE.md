@@ -8,7 +8,7 @@ verifier rather than reproducing Archipelago's three-service topology.
 ## Runtime flow
 
 ```text
-task prompt + 96 immutable records
+high-level request + 96 immutable records
                |
                v
 Harbor trial container -> filesystem MCP world -> append-only tool trace
@@ -25,8 +25,10 @@ Harbor trial container -> filesystem MCP world -> append-only tool trace
 
 The agent never receives the gold output or verifier token. The world exposes
 six allowlisted filesystem tools over Streamable HTTP MCP. Every full task
-requires 96 separate document reads, eight custody checks, inventory and search
-calls, and two MCP writes: at least 109 successful calls.
+requires discovery across 96 records, full reads of the 33 controlling,
+corroborating, and work-product-control records, eight custody checks, inventory
+and search calls, and two MCP writes: at least 46 successful calls. The verifier
+checks prerequisites and outcomes, not the reference call order.
 
 ## Archipelago/APEX mapping
 
@@ -65,4 +67,3 @@ tokens. Open-ended legal persuasiveness is outside this release's score.
 - [APEX Agents leaderboard](https://www.mercor.com/apex/apex-agents-leaderboard/)
 - [Harbor Framework](https://harborframework.com/)
 - [Model Context Protocol servers](https://github.com/modelcontextprotocol/servers)
-

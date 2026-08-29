@@ -10,8 +10,8 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-RELEASE_VERSION = "1.1.0"
-DEFAULT_MODEL_JOBS = ["counselbench-codex-stratified-v110-valid"]
+RELEASE_VERSION = "2.0.0"
+DEFAULT_MODEL_JOBS: list[str] = []
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -102,8 +102,10 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
                 }
             )
     trials.sort(key=lambda row: row["task_id"])
-    if len(trials) != 10:
-        raise ValueError(f"expected ten valid model trials, found {len(trials)}")
+    if len(trials) != 100:
+        raise ValueError(f"expected 100 valid model trials, found {len(trials)}")
+    if len({trial["task_id"] for trial in trials}) != 100:
+        raise ValueError("model trials must cover every released task exactly once")
     if len({trial["practice_area"] for trial in trials}) != 10:
         raise ValueError("model trials do not cover all ten practice areas")
 
@@ -117,7 +119,7 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
             "agent_version": sorted({trial["agent_version"] for trial in trials}),
             "model": sorted({trial["model"] for trial in trials}),
             "provider": sorted({trial["provider"] for trial in trials}),
-            "selection": "one predeclared matter from each of ten practice areas",
+            "selection": "all 100 released matters",
             "attempts_per_task": 1,
             "gold_available_to_agent": False,
             "verifier_unchanged_from_release": True,
@@ -138,7 +140,7 @@ def build_model_report(release: Path, job_names: list[str]) -> dict[str, Any]:
             },
             "criteria_passed": sum(trial["criteria_passed"] for trial in trials),
             "criteria_total": sum(trial["criteria_total"] for trial in trials),
-            "all_documents_read_trials": sum(trial["documents_read"] == 96 for trial in trials),
+            "all_required_evidence_read_trials": sum(trial["documents_read"] == 33 for trial in trials),
             "minimum_successful_tool_calls": min(trial["successful_tool_calls"] for trial in trials),
             "maximum_successful_tool_calls": max(trial["successful_tool_calls"] for trial in trials),
             "total_input_tokens": sum(trial["input_tokens"] or 0 for trial in trials),

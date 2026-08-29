@@ -31,6 +31,9 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
+RELEASE_VERSION = "2.0.0"
+
+
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
     result = world.call_tool(name, arguments)
     if result.get("isError"):
@@ -69,13 +72,28 @@ def write_reference_outputs(world: CounselWorld, reference: dict[str, Any]) -> N
     )
 
 
+def replay_reference(
+    world: CounselWorld,
+    reference: dict[str, Any],
+    *,
+    skip_read_path: str | None = None,
+    include_writes: bool = True,
+) -> None:
+    for step in reference["calls"]:
+        if not include_writes and step["name"] == "write_file":
+            continue
+        if (
+            skip_read_path is not None
+            and step["name"] == "read_text_file"
+            and step["arguments"].get("path") == skip_read_path
+        ):
+            continue
+        checked_call(world, step["name"], step["arguments"])
+
+
 def oracle(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    common_discovery(world)
-    for path in spec["required_document_paths"]:
-        checked_call(world, "read_text_file", {"path": path})
-    for path in spec["metadata_check_paths"]:
-        checked_call(world, "get_file_info", {"path": path})
-    write_reference_outputs(world, reference)
+    del spec
+    replay_reference(world, reference)
 
 
 def shortcut(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
@@ -84,20 +102,16 @@ def shortcut(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any
 
 
 def incomplete_read(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    common_discovery(world)
-    for path in spec["required_document_paths"][:-1]:
-        checked_call(world, "read_text_file", {"path": path})
-    for path in spec["metadata_check_paths"]:
-        checked_call(world, "get_file_info", {"path": path})
-    write_reference_outputs(world, reference)
+    replay_reference(
+        world,
+        reference,
+        skip_read_path=spec["required_document_paths"][-1],
+    )
 
 
 def wrong_fact(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    common_discovery(world)
-    for path in spec["required_document_paths"]:
-        checked_call(world, "read_text_file", {"path": path})
-    for path in spec["metadata_check_paths"]:
-        checked_call(world, "get_file_info", {"path": path})
+    del spec
+    replay_reference(world, reference, include_writes=False)
     wrong = json.loads(reference["findings_text"])
     wrong["findings"][0]["determination"] += " The file also establishes a $99,999,999 exposure."
     checked_call(
@@ -232,14 +246,14 @@ def run(release: Path) -> dict[str, Any]:
     report = {
         "schema_version": "1.0",
         "benchmark": "CounselBench-100",
-        "version": "1.1.0",
+        "version": RELEASE_VERSION,
         "task_count": len(task_dirs),
         "executions": len(task_dirs) * (2 + len(negative_runners)),
         "oracle": {
             "executions": len(task_dirs),
             "passes": oracle_passes,
             "failures": len(task_dirs) - oracle_passes,
-            "expected_tool_calls_per_task": 109,
+            "expected_tool_calls_per_task": 46,
         },
         "determinism": {
             "replays": len(task_dirs),

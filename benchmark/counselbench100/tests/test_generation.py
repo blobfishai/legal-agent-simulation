@@ -79,6 +79,34 @@ class SeededCorpusTests(unittest.TestCase):
                 ):
                     self.assertIn(expected, content, msg=f"{expected!r} missing from {path}")
 
+    def test_employee_request_is_high_level_and_contract_lives_in_evidence(self) -> None:
+        prompt = self.material["instruction"]
+        self.assertGreaterEqual(len(prompt.split()), 45)
+        self.assertLessEqual(len(prompt.split()), 120)
+        self.assertNotIn("Required review procedure", prompt)
+        self.assertNotIn("Return exactly", prompt)
+        self.assertNotIn("read_text_file", prompt)
+        self.assertTrue(
+            any("# Matter work-product control" in value for value in self.material["documents"].values())
+        )
+
+    def test_public_contract_is_specific_and_requires_choice(self) -> None:
+        self.assertEqual(len(self.material["required_document_paths"]), 33)
+        self.assertEqual(len(self.material["reference_calls"]), 46)
+        self.assertEqual(len(self.material["rubric_criteria"]), 182)
+        self.assertEqual(len(self.material["decision_options"]), 3)
+        self.assertEqual(
+            sum(option["selected"] for option in self.material["decision_options"]),
+            1,
+        )
+
+    def test_every_matter_has_a_distinct_reference_tool_sequence(self) -> None:
+        sequences = {
+            tuple(call["name"] for call in build_material(matter, index)["reference_calls"])
+            for index, matter in enumerate(MATTERS)
+        }
+        self.assertEqual(len(sequences), 100)
+
 
 if __name__ == "__main__":
     unittest.main()
