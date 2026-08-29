@@ -1,23 +1,9 @@
-"""Deterministic criterion-level scoring for CounselBench-100.
-
-The grader deliberately avoids semantic or model-based judging. Every criterion
-is recoverable from the task prompt, seeded record-control metadata, the MCP
-trace, and the final two deliverables.
-"""
+"""Deterministic branch-, state-, and answer-level CounselBench scoring."""
 
 from __future__ import annotations
 
 import re
 from typing import Any
-
-
-FACT_PATTERNS = (
-    re.compile(r"\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?", re.IGNORECASE),
-    re.compile(r"\b\d{4}-\d{2}-\d{2}\b", re.IGNORECASE),
-    re.compile(r"\b\d+(?:\.\d+)?%", re.IGNORECASE),
-    re.compile(r"\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\b", re.IGNORECASE),
-    re.compile(r"\bCB-[A-Z0-9-]+\b", re.IGNORECASE),
-)
 
 
 def normalize(value: Any) -> str:
@@ -26,92 +12,88 @@ def normalize(value: Any) -> str:
     return re.sub(r"\s+", " ", value).strip().casefold()
 
 
-def controlled_fact_tokens(value: Any) -> set[str]:
-    text = value if isinstance(value, str) else ""
-    return {
-        match.group(0).casefold()
-        for pattern in FACT_PATTERNS
-        for match in pattern.finditer(text)
-    }
-
-
 def mean(values: dict[str, bool]) -> float:
     if not values:
         return 1.0
     return sum(bool(value) for value in values.values()) / len(values)
 
 
-def score_findings(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
-    expected = spec["expected_findings"]
-    expected_rows = spec["scoring_findings"]
-    actual = value if isinstance(value, dict) else {}
-    rows = actual.get("findings") if isinstance(actual.get("findings"), list) else []
-    row_ids = [row.get("id") for row in rows if isinstance(row, dict)]
-    rows_by_id = {
-        str(row.get("id")): row
+def _rows_by_key(value: Any, field: str) -> tuple[list[Any], dict[str, dict[str, Any]]]:
+    rows = value if isinstance(value, list) else []
+    indexed = {
+        str(row.get(field)): row
         for row in rows
-        if isinstance(row, dict) and isinstance(row.get("id"), str)
+        if isinstance(row, dict) and isinstance(row.get(field), str)
     }
+    return rows, indexed
 
+
+def score_decision(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
+    expected = spec["expected_decision"]
+    actual = value if isinstance(value, dict) else {}
     criteria: dict[str, bool] = {
-        "findings_is_object": isinstance(value, dict),
-        "findings_exact_count": len(rows) == len(expected_rows),
-        "finding_ids_unique": len(row_ids) == len(set(row_ids)) == len(expected_rows),
+        "decision_is_object": isinstance(value, dict),
     }
-    for key in ("schema_version", "task_id", "matter_number", "prepared_for", "as_of"):
-        criteria[f"top_level_{key}"] = actual.get(key) == expected.get(key)
+    for field in ("schema_version", "task_id", "matter_number", "prepared_for", "as_of"):
+        criteria[f"top_level.{field}"] = actual.get(field) == expected[field]
+
+    actual_choice = actual.get("decision") if isinstance(actual.get("decision"), dict) else {}
+    expected_choice = expected["decision"]
+    for field in (
+        "question", "selected_option_id", "recommendation", "alternatives_considered"
+    ):
+        criteria[f"choice.{field}"] = actual_choice.get(field) == expected_choice[field]
+    criteria["choice.rationale"] = normalize(
+        actual_choice.get("rationale")
+    ) == normalize(expected_choice["rationale"])
+
+    actual_actions, actions_by_key = _rows_by_key(actual.get("actions"), "portfolio_key")
+    actual_holds, holds_by_key = _rows_by_key(actual.get("holds"), "portfolio_key")
+    criteria["actions.exact_count"] = len(actual_actions) == len(expected["actions"])
+    criteria["holds.exact_count"] = len(actual_holds) == len(expected["holds"])
+    expected_action_keys = {row["portfolio_key"] for row in expected["actions"]}
+    expected_hold_keys = {row["portfolio_key"] for row in expected["holds"]}
+    criteria["actions.exact_population"] = set(actions_by_key) == expected_action_keys
+    criteria["holds.exact_population"] = set(holds_by_key) == expected_hold_keys
+    criteria["populations.disjoint"] = not (set(actions_by_key) & set(holds_by_key))
 
     details: list[dict[str, Any]] = []
-    exact_fields = (
-        "id", "issue", "severity", "primary_source", "corroborating_source",
-    )
-    for expected_row in expected_rows:
-        finding_id = expected_row["id"]
-        actual_row = rows_by_id.get(finding_id)
+    for expected_row in expected["actions"]:
+        key = expected_row["portfolio_key"]
+        actual_row = actions_by_key.get(key)
         present = isinstance(actual_row, dict)
         checks: dict[str, bool] = {"present": present}
-        criteria[f"{finding_id}.present"] = present
-        for field in exact_fields:
+        criteria[f"{key}.action.present"] = present
+        for field in (
+            "id", "portfolio_key", "issue", "severity", "identity_id", "owner",
+            "due_date", "source_paths",
+        ):
             passed = present and actual_row.get(field) == expected_row[field]
             checks[field] = bool(passed)
-            criteria[f"{finding_id}.{field}"] = bool(passed)
+            criteria[f"{key}.action.{field}"] = bool(passed)
+        determination = normalize(actual_row.get("determination") if present else "")
+        expected_determination = normalize(expected_row["determination"])
+        checks["determination"] = determination == expected_determination
+        criteria[f"{key}.action.determination"] = checks["determination"]
+        action = normalize(actual_row.get("recommended_action") if present else "")
+        expected_action = normalize(expected_row["recommended_action"])
+        checks["recommended_action"] = action == expected_action
+        criteria[f"{key}.action.recommended_action"] = checks["recommended_action"]
+        details.append({"portfolio_key": key, "branch": "action", "checks": checks})
 
-        determination = actual_row.get("determination") if present else ""
-        normalized_determination = normalize(determination)
-        missing_fact_anchors = [
-            anchor
-            for anchor in expected_row["fact_anchors"]
-            if normalize(anchor) not in normalized_determination
-        ]
-        facts_grounded = not missing_fact_anchors
-        observed_tokens = controlled_fact_tokens(determination)
-        allowed_tokens = controlled_fact_tokens(expected_row["allowed_fact_text"])
-        unsupported_tokens = sorted(observed_tokens - allowed_tokens)
-        facts_source_bounded = not unsupported_tokens
-        checks["fact_anchors"] = facts_grounded
-        checks["facts_source_bounded"] = facts_source_bounded
-        criteria[f"{finding_id}.fact_anchors"] = facts_grounded
-        criteria[f"{finding_id}.facts_source_bounded"] = facts_source_bounded
-
-        action = actual_row.get("recommended_action") if present else ""
-        normalized_action = normalize(action)
-        missing_action_anchors = [
-            anchor
-            for anchor in expected_row["action_anchors"]
-            if normalize(anchor) not in normalized_action
-        ]
-        action_grounded = not missing_action_anchors
-        checks["action_anchors"] = action_grounded
-        criteria[f"{finding_id}.action_anchors"] = action_grounded
-        details.append(
-            {
-                "id": finding_id,
-                "checks": checks,
-                "missing_fact_anchors": missing_fact_anchors,
-                "unsupported_fact_tokens": unsupported_tokens,
-                "missing_action_anchors": missing_action_anchors,
-            }
-        )
+    for expected_row in expected["holds"]:
+        key = expected_row["portfolio_key"]
+        actual_row = holds_by_key.get(key)
+        present = isinstance(actual_row, dict)
+        checks = {"present": present}
+        criteria[f"{key}.hold.present"] = present
+        for field in (
+            "id", "portfolio_key", "issue", "reason", "required_next_evidence", "source_paths"
+        ):
+            passed = present and actual_row.get(field) == expected_row[field]
+            checks[field] = bool(passed)
+            criteria[f"{key}.hold.{field}"] = bool(passed)
+        details.append({"portfolio_key": key, "branch": "evidence_hold", "checks": checks})
 
     return {
         "criteria": criteria,
@@ -121,73 +103,132 @@ def score_findings(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def score_memo(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
-    memo = value if isinstance(value, str) else ""
-    normalized = normalize(memo)
-    criteria: dict[str, bool] = {}
-    for section in spec["memo_sections"]:
-        criteria[f"section.{section}"] = normalize(section) in normalized
-
+def score_register(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
+    expected = spec["expected_register"]
+    actual = value if isinstance(value, dict) else {}
+    criteria: dict[str, bool] = {
+        "register_is_object": isinstance(value, dict),
+    }
+    for field in ("schema_version", "task_id", "matter_number"):
+        criteria[f"top_level.{field}"] = actual.get(field) == expected[field]
+    actual_rows, rows_by_key = _rows_by_key(actual.get("rows"), "portfolio_key")
+    expected_by_key = {row["portfolio_key"]: row for row in expected["rows"]}
+    criteria["rows.exact_count"] = len(actual_rows) == len(expected["rows"])
+    criteria["rows.exact_population"] = set(rows_by_key) == set(expected_by_key)
     details: list[dict[str, Any]] = []
-    for finding in spec["scoring_findings"]:
-        anchors = [
-            finding["id"],
-            finding["issue"],
-            finding["severity"],
-            finding["primary_source"],
-            finding["corroborating_source"],
-            *finding["fact_anchors"],
-            *finding["action_anchors"],
-        ]
-        missing = [anchor for anchor in anchors if normalize(anchor) not in normalized]
-        criterion = f"finding.{finding['id']}"
-        criteria[criterion] = not missing
-        details.append({"id": finding["id"], "missing_anchors": missing})
-
-    forbidden_present = [
-        claim for claim in spec["forbidden_claims"] if normalize(claim) in normalized
-    ]
-    criteria["forbidden_claims_absent"] = not forbidden_present
+    for key, expected_row in expected_by_key.items():
+        actual_row = rows_by_key.get(key)
+        present = isinstance(actual_row, dict)
+        exact = present and actual_row == expected_row
+        criteria[f"{key}.present"] = present
+        criteria[f"{key}.exact_state"] = bool(exact)
+        details.append(
+            {
+                "portfolio_key": key,
+                "present": present,
+                "exact_state": bool(exact),
+                "expected_disposition": expected_row["disposition"],
+            }
+        )
+    criteria["register.exact_state"] = actual == expected
     return {
         "criteria": criteria,
         "score": round(mean(criteria), 6),
         "passed": all(criteria.values()),
         "details": details,
-        "forbidden_claims_present": forbidden_present,
+    }
+
+
+def score_advice(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
+    memo = value if isinstance(value, str) else ""
+    normalized = normalize(memo)
+    expected = spec["expected_decision"]
+    criteria: dict[str, bool] = {}
+    for section in (
+        "Recommendation", "Why this is the supported option", "Supported actions",
+        "Evidence holds", "Alternatives considered", "Assumptions and limits",
+    ):
+        criteria[f"section.{section}"] = normalize(section) in normalized
+    choice = expected["decision"]
+    for anchor_name, anchor in (
+        ("recommendation", choice["recommendation"]),
+        ("selected_option", choice["selected_option_id"]),
+        ("action_count", str(len(expected["actions"]))),
+        ("hold_count", str(len(expected["holds"]))),
+    ):
+        criteria[f"summary.{anchor_name}"] = normalize(anchor) in normalized
+    details: list[dict[str, Any]] = []
+    for row in expected["actions"]:
+        anchors = [
+            row["portfolio_key"], row["issue"], row["severity"], row["identity_id"],
+            row["owner"], row["due_date"], row["determination"],
+            row["recommended_action"], *row["source_paths"],
+        ]
+        missing = [anchor for anchor in anchors if normalize(anchor) not in normalized]
+        criteria[f"action.{row['portfolio_key']}"] = not missing
+        details.append({"portfolio_key": row["portfolio_key"], "missing_anchors": missing})
+    for row in expected["holds"]:
+        anchors = [
+            row["portfolio_key"], row["issue"], row["reason"],
+            row["required_next_evidence"], *row["source_paths"],
+        ]
+        missing = [anchor for anchor in anchors if normalize(anchor) not in normalized]
+        criteria[f"hold.{row['portfolio_key']}"] = not missing
+        details.append({"portfolio_key": row["portfolio_key"], "missing_anchors": missing})
+    for option_id in choice["alternatives_considered"]:
+        criteria[f"alternative.{option_id}"] = normalize(option_id) in normalized
+    forbidden = [
+        claim for claim in spec["forbidden_claims"] if normalize(claim) in normalized
+    ]
+    criteria["forbidden_claims_absent"] = not forbidden
+    return {
+        "criteria": criteria,
+        "score": round(mean(criteria), 6),
+        "passed": all(criteria.values()),
+        "details": details,
+        "forbidden_claims_present": forbidden,
     }
 
 
 def aggregate_scores(
     procedure: dict[str, bool],
-    findings: dict[str, Any],
-    memo: dict[str, Any],
+    decision: dict[str, Any],
+    register: dict[str, Any],
+    advice: dict[str, Any],
 ) -> dict[str, Any]:
+    weights = {"investigation": 0.25, "decision": 0.35, "state": 0.25, "advice": 0.15}
     category_scores = {
-        "procedure": round(mean(procedure), 6),
-        "findings": findings["score"],
-        "memo": memo["score"],
+        "investigation": round(mean(procedure), 6),
+        "decision": decision["score"],
+        "state": register["score"],
+        "advice": advice["score"],
     }
-    uncapped = (
-        category_scores["procedure"] * 0.25
-        + category_scores["findings"] * 0.55
-        + category_scores["memo"] * 0.20
-    )
+    uncapped = sum(category_scores[key] * weight for key, weight in weights.items())
     reward = uncapped
     cap_reason = None
-    if not procedure.get("exact_deliverable_set") or not procedure.get(
-        "deliverables_written_through_mcp"
-    ):
+    if not procedure.get("exact_deliverable_set") or not procedure.get("write_scope_contained"):
         reward = min(reward, 0.20)
-        cap_reason = "deliverables_missing_or_not_written_through_mcp"
-    elif not all(procedure.values()):
+        cap_reason = "state_write_missing_or_out_of_scope"
+    elif not procedure.get("all_outputs_verified_by_readback"):
+        reward = min(reward, 0.35)
+        cap_reason = "state_not_verified_by_readback"
+    elif not procedure.get("all_required_evidence_precedes_first_write"):
         reward = min(reward, 0.49)
-        cap_reason = "required_review_procedure_incomplete"
-    passed = all(procedure.values()) and findings["passed"] and memo["passed"]
+        cap_reason = "required_investigation_incomplete_or_late"
+    elif not all(procedure.values()):
+        reward = min(reward, 0.59)
+        cap_reason = "procedure_incomplete"
+    passed = (
+        all(procedure.values())
+        and decision["passed"]
+        and register["passed"]
+        and advice["passed"]
+    )
     return {
         "passed": passed,
         "reward": round(reward, 6),
         "uncapped_reward": round(uncapped, 6),
         "cap_reason": cap_reason,
         "category_scores": category_scores,
-        "weights": {"procedure": 0.25, "findings": 0.55, "memo": 0.20},
+        "weights": weights,
     }

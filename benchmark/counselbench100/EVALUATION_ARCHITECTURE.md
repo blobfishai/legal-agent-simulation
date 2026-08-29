@@ -1,64 +1,73 @@
 # CounselBench evaluation architecture
 
-CounselBench has the same core evaluation loop as Mercor's public Archipelago
-runner—isolated task state, an agent process, captured trajectories, and a
-separate grading step—but it uses Harbor packaging and a deterministic legal
-verifier rather than reproducing Archipelago's three-service topology.
+CounselBench uses the same functional loop as enterprise agent benchmarks:
+isolated task state, an agent process, captured trajectories, and an independent
+grading step. Harbor provides orchestration; a pinned filesystem MCP provides
+the sandbox; a deterministic legal verifier grades investigation, decision,
+state, and answer.
 
 ## Runtime flow
 
 ```text
-high-level request + 96 immutable records
-               |
-               v
-Harbor trial container -> filesystem MCP world -> append-only tool trace
-               |                    |
-               |                    v
-               +-----------> exactly two output files
-                                      |
-                                      v
-                         hidden deterministic verifier
-                                      |
-                                      v
-                    criteria + category scores + strict pass
+high-level employee request + 96 immutable source records
+                         |
+                         v
+              filesystem MCP sandbox
+                         |
+                         v
+  identity -> authority -> operations -> approval/revision
+                         |
+              +----------+----------+
+              |                     |
+       supported action        evidence hold
+              +----------+----------+
+                         |
+        decision + matter-register state + advice
+                         |
+             exact post-write readback
+                         |
+                         v
+             hidden deterministic verifier
 ```
 
-The agent never receives the gold output or verifier token. The world exposes
-six allowlisted filesystem tools over Streamable HTTP MCP. Every full task
-requires discovery across 96 records, full reads of the 33 controlling,
-corroborating, and work-product-control records, eight custody checks, inventory
-and search calls, and two MCP writes: at least 46 successful calls. The verifier
-checks prerequisites and outcomes, not the reference call order.
+The agent receives neither the gold output nor the verifier token. It can reach
+only `/workspace/documents` and `/workspace/output` through six tool
+contracts pinned to the official MCP filesystem server. Hidden world
+specification files are outside the allowlisted roots.
+
+Each task has twelve portfolio items, 96 records in twelve folders and seven
+text-native formats, 55–65 required evidence reads, 3–8 custody checks,
+task-specific searches, three writes, and three readbacks. Reference
+trajectories range from 68 to 85 successful calls. The verifier checks causal
+prerequisites and outcomes, not one exact call order.
 
 ## Archipelago/APEX mapping
 
 | Layer | CounselBench / Blobfish | Archipelago / APEX analogue |
 |---|---|---|
-| Task state | Immutable `/workspace/documents`, writable `/workspace/output`, per-trial world state | Environment image plus initial snapshot |
-| Tool gateway | Pinned filesystem MCP contract with offline implementation | Environment-server APIs and task-specific tools |
-| Agent execution | Harbor agent container (`codex` for the measured run, `oracle` for qualification) | Agent service and selectable agent implementations |
-| Trajectory | Harbor result, complete Codex transcript, MCP trace, token/cost data | Trajectory, final snapshot, prompts, and agent logs |
-| Grading | 182 Boolean criteria, weighted category score, deterministic caps, separate strict pass | Grading service with composable rubric graders; public APEX methodology commonly uses criterion-level model judging |
-| Reproducibility | 100 oracle trials, 400 negative controls, 100 exact replays, MCP contract conformance, public-download smoke | Containerized reruns against stored environment and grading configuration |
+| Task state | Immutable source room, writable output state, per-trial trace | Environment image plus initial snapshot |
+| Tool gateway | Pinned official filesystem MCP contract with closed offline implementation | Environment-server APIs and task-specific tools |
+| Agent execution | Harbor agent container | Agent service and selectable implementation |
+| Trajectory | Complete MCP trace plus agent and verifier artifacts | Trajectory, final snapshot, prompts, and agent logs |
+| Grading | Deterministic causal, branch, state-diff, containment, and readback criteria | Independent grading service with composable graders |
+| Reproducibility | 100 oracle trials, 1,000 negative controls, 100 exact replays, contract conformance | Containerized reruns against frozen environment and grader |
 
-The architectural similarity is therefore functional, not a claim that the
-implementations are interchangeable. Archipelago separates environment,
-agents, and grading into services. CounselBench delegates orchestration to
-Harbor, embeds the MCP world in each task package, and keeps grading local to a
-hidden verifier process.
+The similarity is functional, not a claim that implementations are
+interchangeable. Archipelago separates environment, agents, and grading into
+services. CounselBench delegates orchestration to Harbor, embeds the MCP world
+inside every task pack, and keeps verification behind a capability token.
 
-## Why the grader differs
+## Why deterministic grading works here
 
-Legal findings in this benchmark have recoverable record-control fields and
-controlled fact anchors. That permits exact criterion checks without a model
-judge. The verifier performs no model, network, clock, locale, or random call.
-It reports continuous credit for diagnostic value while strict pass still
-requires every criterion.
+The generator creates raw facts and independently recomputes every branch from
+four controls. The evidence does not carry the computed disposition. The
+verifier can therefore check exact IDs, revisions, values, source paths,
+owners, deadlines, state rows, and trace ordering without a model judge.
 
-This design avoids evaluator-model drift and makes a score reproducible from
-the public verifier report. It also deliberately limits what can be graded:
-criteria must be represented by exact fields, trace events, or source-bounded
-tokens. Open-ended legal persuasiveness is outside this release's score.
+This design intentionally limits the scored claim. Open-ended legal
+persuasiveness is not graded. Whether the agent found the right records,
+applied the released decision rule, changed only the task-scoped state, and
+reported the exact supported result is graded.
 
 ## Public references
 

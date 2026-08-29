@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute every CounselBench task against positive and adversarial trajectories."""
+"""Qualify every CounselBench task against oracle and adversarial trajectories."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ import json
 import shutil
 import sys
 import tempfile
+from copy import deepcopy
 from pathlib import Path
 from typing import Any, Callable
 
@@ -31,134 +32,189 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
-RELEASE_VERSION = "2.0.0"
+RELEASE_VERSION = "3.0.0"
 
 
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
-    result = world.call_tool(name, arguments)
+    result = world.call_tool(name, deepcopy(arguments))
     if result.get("isError"):
         raise RuntimeError(f"{name} failed: {result}")
     return result
 
 
-def common_discovery(world: CounselWorld) -> None:
-    checked_call(world, "list_allowed_directories", {})
-    checked_call(
-        world,
-        "directory_tree",
-        {"path": "/workspace/documents", "excludePatterns": []},
-    )
-    checked_call(
-        world,
-        "search_files",
-        {
-            "path": "/workspace/documents",
-            "pattern": "**/*.eml",
-            "excludePatterns": [],
-        },
-    )
-
-
-def write_reference_outputs(world: CounselWorld, reference: dict[str, Any]) -> None:
-    checked_call(
-        world,
-        "write_file",
-        {"path": "/workspace/output/findings.json", "content": reference["findings_text"]},
-    )
-    checked_call(
-        world,
-        "write_file",
-        {"path": "/workspace/output/advice.md", "content": reference["memo_text"]},
-    )
-
-
-def replay_reference(
-    world: CounselWorld,
-    reference: dict[str, Any],
-    *,
-    skip_read_path: str | None = None,
-    include_writes: bool = True,
-) -> None:
-    for step in reference["calls"]:
-        if not include_writes and step["name"] == "write_file":
-            continue
-        if (
-            skip_read_path is not None
-            and step["name"] == "read_text_file"
-            and step["arguments"].get("path") == skip_read_path
-        ):
-            continue
-        checked_call(world, step["name"], step["arguments"])
-
-
 def oracle(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
     del spec
-    replay_reference(world, reference)
+    for call in reference["calls"]:
+        checked_call(world, call["name"], call["arguments"])
 
 
 def shortcut(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    """Copy perfect public outputs and read them back without investigating."""
+
     del spec
-    write_reference_outputs(world, reference)
+    for call in reference["calls"]:
+        if call["name"] == "write_file" or call.get("phase", "").startswith("postwrite-readback"):
+            checked_call(world, call["name"], call["arguments"])
+
+
+def noop(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    del world, spec, reference
+
+
+def state_only(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    """Complete the state decision but omit the employee-facing advice."""
+
+    del spec
+    for call in reference["calls"]:
+        if call["arguments"].get("path") == "/workspace/output/advice.md":
+            continue
+        checked_call(world, call["name"], call["arguments"])
 
 
 def incomplete_read(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    replay_reference(
+    missing_path = spec["required_document_paths"][-1]
+    skipped = False
+    for call in reference["calls"]:
+        if (
+            not skipped
+            and call["name"] == "read_text_file"
+            and call["arguments"].get("path") == missing_path
+        ):
+            skipped = True
+            continue
+        checked_call(world, call["name"], call["arguments"])
+
+
+def write_before_read(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    """Reach the exact final state, but mutate before investigating."""
+
+    del spec
+    writes = [call for call in reference["calls"] if call["name"] == "write_file"]
+    readbacks = [
+        call for call in reference["calls"]
+        if call.get("phase", "").startswith("postwrite-readback")
+    ]
+    investigation = [
+        call for call in reference["calls"]
+        if call not in writes and call not in readbacks
+    ]
+    for call in [*writes, *investigation, *readbacks]:
+        checked_call(world, call["name"], call["arguments"])
+
+
+def missing_readback(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    del spec
+    skipped = False
+    for call in reference["calls"]:
+        if not skipped and call.get("phase", "").startswith("postwrite-readback"):
+            skipped = True
+            continue
+        checked_call(world, call["name"], call["arguments"])
+    if not skipped:
+        raise RuntimeError("reference trajectory had no post-write readback")
+
+
+def unauthorized_write(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    del spec
+    oracle(world, {}, reference)
+    checked_call(
+        world,
+        "write_file",
+        {"path": "/workspace/output/unapproved-note.txt", "content": "collateral edit\n"},
+    )
+
+
+def _replay_with_replacements(
+    world: CounselWorld,
+    reference: dict[str, Any],
+    replacements: dict[str, str],
+) -> None:
+    for call in reference["calls"]:
+        arguments = deepcopy(call["arguments"])
+        path = str(arguments.get("path") or "")
+        if call["name"] == "write_file" and path in replacements:
+            arguments["content"] = replacements[path]
+        checked_call(world, call["name"], arguments)
+
+
+def wrong_value(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    del spec
+    decision = deepcopy(reference["decision"])
+    decision["actions"][0]["owner"] = "Unapproved Owner"
+    _replay_with_replacements(
         world,
         reference,
-        skip_read_path=spec["required_document_paths"][-1],
+        {
+            "/workspace/output/decision.json": json.dumps(
+                decision, indent=2, ensure_ascii=False, sort_keys=True
+            ) + "\n"
+        },
     )
 
 
-def wrong_fact(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+def wrong_decision(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
+    wrong_option = next(
+        option["id"]
+        for option in spec["decision_options"]
+        if option["id"] != reference["decision"]["decision"]["selected_option_id"]
+    )
+    decision = deepcopy(reference["decision"])
+    register = deepcopy(reference["register"])
+    decision["decision"]["selected_option_id"] = wrong_option
+    for row in register["rows"]:
+        row["decision_option_id"] = wrong_option
+    _replay_with_replacements(
+        world,
+        reference,
+        {
+            "/workspace/output/decision.json": json.dumps(
+                decision, indent=2, ensure_ascii=False, sort_keys=True
+            ) + "\n",
+            "/workspace/output/matter-register.json": json.dumps(
+                register, indent=2, ensure_ascii=False, sort_keys=True
+            ) + "\n",
+        },
+    )
+
+
+def wrong_branch(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
     del spec
-    replay_reference(world, reference, include_writes=False)
-    wrong = json.loads(reference["findings_text"])
-    wrong["findings"][0]["determination"] += " The file also establishes a $99,999,999 exposure."
-    checked_call(
-        world,
-        "write_file",
+    decision = deepcopy(reference["decision"])
+    register = deepcopy(reference["register"])
+    moved = decision["actions"].pop(0)
+    decision["holds"].append(
         {
-            "path": "/workspace/output/findings.json",
-            "content": json.dumps(wrong, indent=2, ensure_ascii=False) + "\n",
-        },
+            "id": f"HOLD-{moved['portfolio_key']}",
+            "portfolio_key": moved["portfolio_key"],
+            "issue": moved["issue"],
+            "reason": "conservative hold despite complete evidence",
+            "required_next_evidence": "another reviewer",
+            "source_paths": moved["source_paths"],
+        }
     )
-    checked_call(
-        world,
-        "write_file",
-        {"path": "/workspace/output/advice.md", "content": reference["memo_text"]},
+    row = next(
+        item for item in register["rows"]
+        if item["portfolio_key"] == moved["portfolio_key"]
     )
-
-
-def bounded_reviewer(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
-    """A plausible but time-bounded baseline that stops after one-third of the record."""
-
-    common_discovery(world)
-    for path in spec["required_document_paths"][:32]:
-        checked_call(world, "read_text_file", {"path": path})
-    for path in spec["metadata_check_paths"][:4]:
-        checked_call(world, "get_file_info", {"path": path})
-    partial = json.loads(reference["findings_text"])
-    partial["findings"] = partial["findings"][:4]
-    memo = (
-        f"# Preliminary review — {spec['matter_number']}\n\n"
-        "## Executive assessment\n\nThe initial sample contains four possible exceptions.\n\n"
-        "## Method and record coverage\n\nReview stopped after 32 records due to the baseline action budget.\n\n"
-        "## Findings\n\nSee the partial JSON tracker.\n\n"
-        "## Recommended next actions\n\nComplete the remaining review.\n\n"
-        "## Assumptions and limitations\n\nThis is an incomplete synthetic benchmark work product.\n"
-    )
-    checked_call(
-        world,
-        "write_file",
+    row.update(
         {
-            "path": "/workspace/output/findings.json",
-            "content": json.dumps(partial, indent=2, ensure_ascii=False) + "\n",
-        },
+            "disposition": "evidence_hold",
+            "owner": None,
+            "due_date": None,
+            "hold_reason": "conservative hold despite complete evidence",
+        }
     )
-    checked_call(
+    _replay_with_replacements(
         world,
-        "write_file",
-        {"path": "/workspace/output/advice.md", "content": memo},
+        reference,
+        {
+            "/workspace/output/decision.json": json.dumps(
+                decision, indent=2, ensure_ascii=False, sort_keys=True
+            ) + "\n",
+            "/workspace/output/matter-register.json": json.dumps(
+                register, indent=2, ensure_ascii=False, sort_keys=True
+            ) + "\n",
+        },
     )
 
 
@@ -173,7 +229,9 @@ def execute(
 ) -> dict[str, Any]:
     spec_path = task_dir / "environment" / "world" / "spec.json"
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
-    reference = json.loads((task_dir / "solution" / "reference.json").read_text(encoding="utf-8"))
+    reference = json.loads(
+        (task_dir / "solution" / "reference.json").read_text(encoding="utf-8")
+    )
     with tempfile.TemporaryDirectory(prefix=f"{spec['task_id']}-") as temporary:
         temp = Path(temporary)
         world = CounselWorld(
@@ -190,6 +248,15 @@ def execute(
     return report
 
 
+def failed_criteria(report: dict[str, Any]) -> list[str]:
+    failed = [name for name, passed in report["checks"].items() if not passed]
+    for category, result in report["criteria"].items():
+        for name, passed in result.get("criteria", {}).items():
+            if not passed:
+                failed.append(f"{category}.{name}")
+    return sorted(set(failed))
+
+
 def run(release: Path) -> dict[str, Any]:
     tasks_root = release / "harbor" / "tasks"
     hf_root = release / "huggingface"
@@ -197,17 +264,26 @@ def run(release: Path) -> dict[str, Any]:
     if len(task_dirs) != 100:
         raise ValueError(f"expected 100 generated tasks, found {len(task_dirs)}")
 
-    task_results: list[dict[str, Any]] = []
-    oracle_passes = 0
-    determinism_matches = 0
-    false_accepts = {"shortcut": 0, "incomplete_read": 0, "wrong_fact": 0, "bounded_reviewer": 0}
-    failure_samples: dict[str, list[dict[str, Any]]] = {name: [] for name in false_accepts}
     negative_runners: list[tuple[str, Runner]] = [
         ("shortcut", shortcut),
+        ("noop", noop),
+        ("state_only", state_only),
         ("incomplete_read", incomplete_read),
-        ("wrong_fact", wrong_fact),
-        ("bounded_reviewer", bounded_reviewer),
+        ("write_before_read", write_before_read),
+        ("missing_readback", missing_readback),
+        ("unauthorized_write", unauthorized_write),
+        ("wrong_value", wrong_value),
+        ("wrong_decision", wrong_decision),
+        ("wrong_branch", wrong_branch),
     ]
+    oracle_passes = 0
+    determinism_matches = 0
+    false_accepts = {name: 0 for name, _ in negative_runners}
+    failure_samples: dict[str, list[dict[str, Any]]] = {
+        name: [] for name, _ in negative_runners
+    }
+    task_results: list[dict[str, Any]] = []
+    reference_counts: list[int] = []
 
     for task_dir in task_dirs:
         task_id = task_dir.name
@@ -217,19 +293,18 @@ def run(release: Path) -> dict[str, Any]:
         oracle_passes += int(first["passed"])
         deterministic = first == second
         determinism_matches += int(deterministic)
+        reference_counts.append(first["required_tool_calls"])
         negatives: dict[str, Any] = {}
         for name, runner in negative_runners:
-            report = execute(task_dir, runner)
-            false_accepts[name] += int(report["passed"])
+            result = execute(task_dir, runner)
+            false_accepts[name] += int(result["passed"])
             negatives[name] = {
-                "passed": report["passed"],
-                "successful_tool_calls": report["successful_tool_calls"],
-                "failed_checks": sorted(
-                    check for check, passed in report["checks"].items() if not passed
-                ),
-                "report_sha256": report["report_sha256"],
+                "passed": result["passed"],
+                "successful_tool_calls": result["successful_tool_calls"],
+                "failed_criteria": failed_criteria(result),
+                "report_sha256": result["report_sha256"],
             }
-            if not report["passed"] and len(failure_samples[name]) < 5:
+            if not result["passed"] and len(failure_samples[name]) < 3:
                 failure_samples[name].append({"task_id": task_id, **negatives[name]})
         task_results.append(
             {
@@ -244,7 +319,7 @@ def run(release: Path) -> dict[str, Any]:
         )
 
     report = {
-        "schema_version": "1.0",
+        "schema_version": "counselbench.qualification.v3",
         "benchmark": "CounselBench-100",
         "version": RELEASE_VERSION,
         "task_count": len(task_dirs),
@@ -253,7 +328,8 @@ def run(release: Path) -> dict[str, Any]:
             "executions": len(task_dirs),
             "passes": oracle_passes,
             "failures": len(task_dirs) - oracle_passes,
-            "expected_tool_calls_per_task": 46,
+            "reference_tool_calls_min": min(reference_counts),
+            "reference_tool_calls_max": max(reference_counts),
         },
         "determinism": {
             "replays": len(task_dirs),
@@ -276,13 +352,14 @@ def run(release: Path) -> dict[str, Any]:
         ),
         "task_results": task_results,
     }
-    write_targets = [
+    for target in (
         release / "reports" / "qualification.json",
         hf_root / "reports" / "qualification.json",
-    ]
-    for target in write_targets:
+    ):
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        target.write_text(
+            json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
     print(
         json.dumps(
             {

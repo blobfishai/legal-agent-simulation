@@ -1,4 +1,4 @@
-"""Depth, structure, and recoverability tests for seeded evidence."""
+"""Causal depth, evidence partition, and native-format tests."""
 
 from __future__ import annotations
 
@@ -12,7 +12,13 @@ from email.parser import Parser
 from pathlib import PurePosixPath
 
 from benchmark.counselbench100.catalog import MATTERS
-from benchmark.counselbench100.generation import build_material
+from benchmark.counselbench100.decision_specs import DECISION_RULES
+from benchmark.counselbench100.generation import (
+    MINIMUM_TOOL_CALLS,
+    REQUIRED_EVIDENCE_READS,
+    build_material,
+    derive_disposition,
+)
 
 
 class SeededCorpusTests(unittest.TestCase):
@@ -23,7 +29,6 @@ class SeededCorpusTests(unittest.TestCase):
     def test_sample_matter_has_deep_unique_folder_tree(self) -> None:
         documents = self.material["documents"]
         paths = [PurePosixPath(path) for path in documents]
-
         self.assertEqual(len(documents), 96)
         self.assertEqual(len({path.parent for path in paths}), 12)
         self.assertEqual(
@@ -31,87 +36,112 @@ class SeededCorpusTests(unittest.TestCase):
             {".md", ".txt", ".eml", ".csv", ".json", ".xml", ".html"},
         )
         self.assertEqual(len(set(documents.values())), 96)
-        self.assertGreaterEqual(min(len(value.encode("utf-8")) for value in documents.values()), 5_500)
+        self.assertGreaterEqual(
+            min(len(value.encode("utf-8")) for value in documents.values()), 5_500
+        )
 
-    def test_format_native_documents_parse(self) -> None:
+    def test_format_native_documents_parse_without_answer_headers(self) -> None:
         by_suffix: dict[str, str] = {}
         for path, content in self.material["documents"].items():
             by_suffix.setdefault(PurePosixPath(path).suffix, content)
 
         parsed_json = json.loads(by_suffix[".json"])
-        self.assertEqual(len(parsed_json["record"]["analysis_sections"]), 6)
-        self.assertEqual(len(parsed_json["chronology"]), 5)
-        self.assertEqual(len(parsed_json["action_register"]), 3)
+        self.assertEqual(len(parsed_json["sections"]), 4)
+        self.assertEqual(len(parsed_json["rows"]), 18)
+        self.assertEqual(len(parsed_json["chronology"]), 6)
 
         csv_rows = list(csv.DictReader(io.StringIO(by_suffix[".csv"])))
-        self.assertGreaterEqual(len(csv_rows), 50)
-        self.assertIn("ledger_entry", {row["row_type"] for row in csv_rows})
+        self.assertGreaterEqual(len(csv_rows), 35)
+        self.assertIn("source_row", {row["row_type"] for row in csv_rows})
 
         xml_root = ET.fromstring(by_suffix[".xml"])
-        self.assertEqual(xml_root.tag, "legal-record")
-        self.assertEqual(len(xml_root.findall("./analysis/section")), 6)
+        self.assertEqual(xml_root.tag, "counsel-source-record")
+        self.assertEqual(len(xml_root.findall("./supporting-rows/row")), 18)
 
-        eml_messages = [
-            Parser(policy=policy.default).parsestr(content)
-            for path, content in self.material["documents"].items()
-            if PurePosixPath(path).suffix == ".eml"
-        ]
-        message = next(row for row in eml_messages if row["X-Finding-ID"] != "none")
-        self.assertRegex(str(message["X-Finding-ID"]), r"^F-\d{2}$")
+        message = Parser(policy=policy.default).parsestr(by_suffix[".eml"])
+        self.assertTrue(message["Message-ID"])
+        self.assertTrue(message["X-Portfolio-Key"])
+        self.assertIsNone(message["X-Finding-ID"])
         self.assertIn("-----Original Message-----", message.get_content())
 
         self.assertIn("<!doctype html>", by_suffix[".html"].casefold())
-        self.assertIn("Action register", by_suffix[".html"])
-        self.assertIn("SCHEDULE 1 — RECORD CHRONOLOGY", by_suffix[".txt"])
-        self.assertIn("## Participants", by_suffix[".md"])
+        self.assertIn("Native rows", by_suffix[".html"])
+        self.assertIn("SCHEDULE 1 — NATIVE ROWS", by_suffix[".txt"])
+        self.assertIn("## Related native records", by_suffix[".md"])
 
-    def test_every_finding_field_is_recoverable_from_both_sources(self) -> None:
+    def test_outcomes_are_derived_from_four_independent_sources(self) -> None:
         documents = self.material["documents"]
-        for finding in self.material["scoring_findings"]:
-            for path, role in (
-                (finding["primary_source"], "primary"),
-                (finding["corroborating_source"], "corroborating"),
-            ):
-                content = documents[path]
-                for expected in (
-                    finding["id"], finding["issue"], finding["severity"], role,
-                    *finding["action_anchors"],
-                ):
-                    self.assertIn(expected, content, msg=f"{expected!r} missing from {path}")
+        self.assertEqual(len(self.material["cases"]), 12)
+        self.assertGreaterEqual(self.material["action_count"], 5)
+        self.assertGreaterEqual(self.material["hold_count"], 3)
+        for case in self.material["cases"]:
+            self.assertEqual(derive_disposition(case), case["disposition"])
+            core_paths = [
+                case["paths_by_role"][role]
+                for role in (
+                    "identity_crosswalk", "operative_authority",
+                    "current_operations", "approval_and_capacity",
+                )
+            ]
+            self.assertEqual(len(set(core_paths)), 4)
+            self.assertIn(case["portfolio_key"], documents[core_paths[0]])
+            self.assertIn(case["governing_statement"], documents[core_paths[1]])
+            self.assertIn(case["observed_statement"], documents[core_paths[2]])
+            self.assertIn(case["owner"], documents[core_paths[3]])
 
-    def test_employee_request_is_high_level_and_contract_lives_in_evidence(self) -> None:
+        joined = "\n".join(documents.values()).casefold()
+        for token in (
+            "finding_id", "record_role", "control_severity", "remediation_owner",
+            '"selected_option_id"', '"disposition": "open_action"',
+        ):
+            self.assertNotIn(token, joined)
+        for action in self.material["expected_decision"]["actions"]:
+            self.assertNotIn(action["determination"].casefold(), joined)
+            self.assertNotIn(action["recommended_action"].casefold(), joined)
+
+    def test_employee_request_is_natural_and_not_a_tool_recipe(self) -> None:
         prompt = self.material["instruction"]
         self.assertGreaterEqual(len(prompt.split()), 45)
         self.assertLessEqual(len(prompt.split()), 120)
-        self.assertNotIn("Required review procedure", prompt)
-        self.assertNotIn("Return exactly", prompt)
-        self.assertNotIn("read_text_file", prompt)
-        self.assertNotIn("Inc..", prompt)
-        self.assertIn("Decision due 2026-09-04.", prompt)
-        self.assertIn(
-            "Delaware law governs; Washoe County, Nevada is the forum.",
-            prompt,
-        )
-        self.assertTrue(
-            any("# Matter work-product control" in value for value in self.material["documents"].values())
-        )
+        for forbidden in (
+            "required review procedure", "return exactly", "read_text_file",
+            "decision.json", "matter-register.json", "step 1", "first,",
+        ):
+            self.assertNotIn(forbidden, prompt.casefold())
+        self.assertIn("2026-09-04", prompt)
 
-    def test_public_contract_is_specific_and_requires_choice(self) -> None:
-        self.assertEqual(len(self.material["required_document_paths"]), 33)
-        self.assertEqual(len(self.material["reference_calls"]), 46)
-        self.assertEqual(len(self.material["rubric_criteria"]), 182)
+    def test_reference_has_causal_reads_writes_and_readbacks(self) -> None:
+        self.assertGreaterEqual(
+            len(self.material["required_document_paths"]), REQUIRED_EVIDENCE_READS
+        )
+        self.assertGreaterEqual(len(self.material["reference_calls"]), MINIMUM_TOOL_CALLS)
         self.assertEqual(len(self.material["decision_options"]), 3)
         self.assertEqual(
-            sum(option["selected"] for option in self.material["decision_options"]),
-            1,
+            sum(option["selected"] for option in self.material["decision_options"]), 1
         )
+        phases = [call["phase"] for call in self.material["reference_calls"]]
+        self.assertEqual(sum(phase.startswith("state-transition") for phase in phases), 3)
+        self.assertEqual(sum(phase.startswith("postwrite-readback") for phase in phases), 3)
+        first_write = next(i for i, phase in enumerate(phases) if phase.startswith("state-transition"))
+        last_evidence = max(i for i, phase in enumerate(phases) if phase.startswith("evidence:"))
+        self.assertLess(last_evidence, first_write)
 
-    def test_every_matter_has_a_distinct_reference_tool_sequence(self) -> None:
-        sequences = {
-            tuple(call["name"] for call in build_material(matter, index)["reference_calls"])
-            for index, matter in enumerate(MATTERS)
-        }
-        self.assertEqual(len(sequences), 100)
+    def test_all_matters_have_distinct_authored_rules_and_action_graphs(self) -> None:
+        self.assertEqual(len(DECISION_RULES), 100)
+        self.assertEqual(len({rule.signature for rule in DECISION_RULES.values()}), 100)
+        raw_sequences: set[tuple[str, ...]] = set()
+        semantic_sequences: set[tuple[str, ...]] = set()
+        action_sizes: set[int] = set()
+        for index, matter in enumerate(MATTERS):
+            material = build_material(matter, index)
+            raw_sequences.add(tuple(call["name"] for call in material["reference_calls"]))
+            semantic_sequences.add(tuple(material["semantic_signature"]))
+            action_sizes.add(material["action_count"])
+            self.assertTrue(all(material["quality_gates"].values()))
+            self.assertGreater(material["hold_count"], 0)
+        self.assertEqual(len(raw_sequences), 100)
+        self.assertEqual(len(semantic_sequences), 100)
+        self.assertEqual(action_sizes, {5, 6, 7, 8, 9})
 
 
 if __name__ == "__main__":
