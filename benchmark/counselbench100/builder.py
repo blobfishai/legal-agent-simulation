@@ -9,10 +9,12 @@ import hashlib
 import io
 import json
 import os
+import re
 import shutil
 import stat
 import sys
 import xml.etree.ElementTree as ET
+import zipfile
 from difflib import SequenceMatcher
 from email import policy
 from email.parser import Parser
@@ -28,6 +30,7 @@ if str(HERE) not in sys.path:
 from catalog import FAMILY_SETTINGS, MATTERS, Matter  # noqa: E402
 from decision_specs import DECISION_RULES  # noqa: E402
 from generation import (  # noqa: E402
+    AGENT_VISIBLE_FILE_COUNT,
     DOCUMENT_COUNT,
     DOCUMENT_ROOT,
     FINDING_COUNT,
@@ -42,7 +45,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "3.0.0"
+RELEASE_VERSION = "3.1.0"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -57,6 +60,11 @@ def write_text(path: Path, value: str, executable: bool = False) -> None:
 
 def write_json(path: Path, value: Any) -> None:
     write_text(path, json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
+
+
+def write_bytes(path: Path, value: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(value)
 
 
 def sha256_file(path: Path) -> str:
@@ -95,7 +103,7 @@ benchmark_version = "{RELEASE_VERSION}"
 task_id = "{task_id}"
 matter_number = "{matter.matter_number}"
 practice_area = "{matter.family}"
-document_count = {DOCUMENT_COUNT}
+document_count = {AGENT_VISIBLE_FILE_COUNT}
 minimum_tool_calls = {material['minimum_tool_calls']}
 required_evidence_reads = {len(material['required_document_paths'])}
 supported_actions = {material['action_count']}
@@ -374,6 +382,9 @@ def create_task_pack(
     for absolute_path, content in material["documents"].items():
         relative = PurePosixPath(absolute_path).relative_to(DOCUMENT_ROOT)
         write_text(documents / Path(*relative.parts), content)
+    for absolute_path, content in material["binary_documents"].items():
+        relative = PurePosixPath(absolute_path).relative_to(DOCUMENT_ROOT)
+        write_bytes(documents / Path(*relative.parts), content)
 
     reference = {
         "task_id": task_id,
@@ -445,7 +456,7 @@ def create_task_pack(
             "venue": matter.venue,
             "deadline": matter.deadline,
             "synthetic": True,
-            "document_count": DOCUMENT_COUNT,
+            "document_count": AGENT_VISIBLE_FILE_COUNT,
             "required_evidence_reads": len(material["required_document_paths"]),
             "reference_tool_calls": material["minimum_tool_calls"],
             "supported_actions": material["action_count"],
@@ -464,7 +475,7 @@ def create_task_pack(
         "practice_area": matter.family,
         "task_pack": f"tasks/{task_id}",
         "harbor_name": f"{HARBOR_ORG}/cb100-{task_index + 1:03d}-{matter.slug}",
-        "documents": DOCUMENT_COUNT,
+        "documents": AGENT_VISIBLE_FILE_COUNT,
         "reference_tool_calls": material["minimum_tool_calls"],
         "required_evidence_reads": len(material["required_document_paths"]),
         "supported_actions": material["action_count"],
@@ -532,11 +543,74 @@ def native_document_parses(path: str, content: str) -> bool:
             parser.feed(content)
             parser.close()
             return "<!doctype html>" in content.casefold() and "</html>" in content.casefold()
+        if suffix == ".pdf":
+            encoded = content.encode("ascii")
+            startxref = re.search(rb"startxref\n(\d+)\n%%EOF\n?$", encoded)
+            if not startxref:
+                return False
+            xref_offset = int(startxref.group(1))
+            if encoded[xref_offset : xref_offset + 5] != b"xref\n":
+                return False
+            header = re.match(rb"xref\n0 (\d+)\n", encoded[xref_offset:])
+            if not header:
+                return False
+            object_count = int(header.group(1)) - 1
+            entries_start = xref_offset + header.end()
+            entries = encoded[entries_start:].splitlines()[: object_count + 1]
+            if len(entries) != object_count + 1 or entries[0] != b"0000000000 65535 f ":
+                return False
+            for object_id, entry in enumerate(entries[1:], start=1):
+                if not re.fullmatch(rb"\d{10} 00000 n ", entry):
+                    return False
+                offset = int(entry[:10])
+                if not encoded.startswith(f"{object_id} 0 obj\n".encode(), offset):
+                    return False
+            return (
+                encoded.startswith(b"%PDF-1.4\n")
+                and b"/Type /Catalog" in encoded
+                and b"/Type /Page " in encoded
+                and b"trailer\n" in encoded
+            )
         if suffix in {".md", ".txt"}:
             return len(content.splitlines()) >= 40
     except (csv.Error, json.JSONDecodeError, UnicodeError, ET.ParseError, ValueError):
         return False
     return False
+
+
+def native_binary_document_parses(path: str, content: bytes) -> bool:
+    """Validate native binary formats using their container and XML contracts."""
+
+    if PurePosixPath(path).suffix.casefold() != ".xlsx" or not content.startswith(b"PK\x03\x04"):
+        return False
+    required = {
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "xl/workbook.xml",
+        "xl/_rels/workbook.xml.rels",
+        "xl/worksheets/sheet1.xml",
+    }
+    try:
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            if archive.testzip() is not None or not required <= set(archive.namelist()):
+                return False
+            for name in required:
+                ET.fromstring(archive.read(name))
+            sheet = ET.fromstring(archive.read("xl/worksheets/sheet1.xml"))
+            namespace = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+            rows = sheet.findall(".//s:sheetData/s:row", namespace)
+            values = [
+                node.text or ""
+                for node in sheet.findall(".//s:c/s:is/s:t", namespace)
+            ]
+            return (
+                len(rows) == 13
+                and "portfolio_key" in values
+                and "impact_control_score" in values
+                and any(value.startswith("CBP-") for value in values)
+            )
+    except (KeyError, OSError, ValueError, zipfile.BadZipFile, ET.ParseError):
+        return False
 
 
 def dataset_card() -> str:
@@ -567,8 +641,8 @@ configs:
 
 {RELEASE_NAME} v{RELEASE_VERSION} is a synthetic legal-work benchmark with 100
 authored matters across ten practice workflows. Every task has a natural employee
-request, a 96-record evidence room, twelve portfolio decisions, 5–9 supported
-actions, 3–7 evidence holds, and a distinct 68–85-call filesystem MCP trajectory.
+request, a 97-file evidence room, twelve portfolio decisions, 5–9 supported
+actions, 3–7 evidence holds, and a distinct 76–93-call filesystem MCP trajectory.
 
 The answer is not preclassified in the evidence. Each portfolio item requires an
 immutable identity join, an operative-authority and revision lookup, a current-state
@@ -585,22 +659,22 @@ an exact matter-register row and reads all three final work products back.
 ## Included files
 
 - `data/tasks.jsonl`: prompt, context paths, public causal rubric, gold output, and metadata.
-- `task_files/`: 9,600 unique records in Markdown, TXT, EML, CSV, JSON, XML, and HTML.
+- `task_files/`: 9,700 unique files across Markdown, TXT, EML, CSV, JSON, XML, HTML, PDF, and XLSX.
 - `world/`: pinned offline MCP implementation and hidden deterministic verifier.
 - `trajectories/`: 100 solvability traces; these are excluded from model ranking.
 - `reports/`: exact-version build, qualification, and conformance evidence.
 - `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Measured v3.0.0 release gates
+## Measured v3.1.0 release gates
 
 | Gate | Measured |
 |---|---:|
 | Tasks | 100 |
-| Source records | 9,600 unique; all native formats parse |
-| Required evidence reads | 55–65 per task |
-| Reference MCP calls | 68–85 per task |
+| Agent-visible files | 9,700 unique; all nine native formats parse |
+| Required evidence reads | 56–67 per task |
+| Reference MCP calls | 76–93 per task |
 | Raw tool sequences | 100 distinct |
-| Semantic action graphs | 100 distinct; maximum pair match 0.145695 |
+| Semantic action graphs | 100 distinct; maximum pair match 0.169697 |
 | Prompt maximum 5-shingle Jaccard | 0.386139 |
 | Oracle and deterministic replay | 100/100 each |
 | Ten negative controls | 1,000/1,000 rejected |
@@ -625,10 +699,10 @@ def harbor_readme() -> str:
     return f"""# {RELEASE_NAME}
 
 {RELEASE_NAME} v{RELEASE_VERSION} contains 100 executable legal-agent tasks. Each
-task has 96 source records, twelve evidence-derived portfolio decisions, a pinned
+task has 97 source files, twelve evidence-derived portfolio decisions, a pinned
 filesystem MCP sandbox, and a deterministic causal/state verifier.
 
-- 55–65 required evidence reads and 68–85 calls per task
+- 56–67 required evidence reads and 76–93 calls per task
 - 5–9 supported actions plus 3–7 evidence holds per task
 - 100 distinct raw tool sequences and semantic action graphs
 - exact matter-register state, write containment, and post-write readback
@@ -697,7 +771,7 @@ def build(output: Path) -> dict[str, Any]:
         hold_counts.append(material["hold_count"])
         criteria_counts.append(len(material["rubric_criteria"]))
         material_gate_results.append(material["quality_gates"])
-        document_paths = [PurePosixPath(path) for path in material["documents"]]
+        document_paths = [PurePosixPath(path) for path in material["all_document_paths"]]
         task_folder_counts.append(len({path.parent for path in document_paths}))
         task_format_counts.append(len({path.suffix for path in document_paths}))
         for path, content in material["documents"].items():
@@ -706,6 +780,12 @@ def build(output: Path) -> dict[str, Any]:
             all_document_hashes.add(hashlib.sha256(content.encode("utf-8")).hexdigest())
             all_document_sizes.append(len(content.encode("utf-8")))
             native_format_results.append(native_document_parses(path, content))
+        for path, content in material["binary_documents"].items():
+            suffix = PurePosixPath(path).suffix.lstrip(".")
+            extension_counts[suffix] = extension_counts.get(suffix, 0) + 1
+            all_document_hashes.add(hashlib.sha256(content).hexdigest())
+            all_document_sizes.append(len(content))
+            native_format_results.append(native_binary_document_parses(path, content))
 
     data_path = hf_root / "data" / "tasks.jsonl"
     write_text(
@@ -738,20 +818,20 @@ def build(output: Path) -> dict[str, Any]:
     unique_reference_sequences = len({tuple(sequence) for sequence in reference_sequences})
     unique_semantic_sequences = len({tuple(sequence) for sequence in semantic_sequences})
     exact_duplicate_prompts = len(prompts) - len(set(prompts))
-    exact_duplicate_documents = len(records) * DOCUMENT_COUNT - len(all_document_hashes)
+    exact_duplicate_documents = len(records) * AGENT_VISIBLE_FILE_COUNT - len(all_document_hashes)
     quality_gates = {
         "one_hundred_tasks": len(records) == 100,
         "ten_balanced_practice_areas": (
             len(FAMILY_SETTINGS) == 10
             and all(sum(matter.family == family for matter in MATTERS) == 10 for family in FAMILY_SETTINGS)
         ),
-        "ninety_six_documents_per_task": all(
-            entry["documents"] == DOCUMENT_COUNT for entry in index
+        "ninety_seven_agent_visible_files_per_task": all(
+            entry["documents"] == AGENT_VISIBLE_FILE_COUNT for entry in index
         ),
         "twelve_folders_per_task": all(count == 12 for count in task_folder_counts),
-        "seven_text_native_formats_per_task": all(count == 7 for count in task_format_counts),
+        "nine_native_formats_per_task": all(count == 9 for count in task_format_counts),
         "all_expected_formats_present": set(extension_counts) == {
-            "md", "txt", "eml", "csv", "json", "xml", "html",
+            "md", "txt", "eml", "csv", "json", "xml", "html", "pdf", "xlsx",
         },
         "all_native_formats_parse": all(native_format_results),
         "minimum_document_depth": min(all_document_sizes) >= 5_500,
@@ -815,8 +895,8 @@ def build(output: Path) -> dict[str, Any]:
             family: sum(matter.family == family for matter in MATTERS)
             for family in FAMILY_SETTINGS
         },
-        "documents_per_task": DOCUMENT_COUNT,
-        "document_count": len(records) * DOCUMENT_COUNT,
+        "documents_per_task": AGENT_VISIBLE_FILE_COUNT,
+        "document_count": len(records) * AGENT_VISIBLE_FILE_COUNT,
         "folders_per_task": min(task_folder_counts),
         "formats_per_task": min(task_format_counts),
         "format_counts": dict(sorted(extension_counts.items())),
@@ -875,7 +955,7 @@ def build(output: Path) -> dict[str, Any]:
     dataset_template = f'''[dataset]
 name = "{HARBOR_ORG}/{RELEASE_SLUG}"
 version = "{RELEASE_VERSION}"
-description = "100 high-level legal-agent tasks with 96-record evidence rooms, distinct 68-85 call trajectories, and causal state verification."
+description = "100 high-level legal-agent tasks with 97-file evidence rooms, distinct 76-93 call trajectories, and causal state verification."
 authors = []
 keywords = ["legal", "mcp", "deterministic", "long-horizon"]
 

@@ -12,8 +12,13 @@ from email.parser import Parser
 from pathlib import PurePosixPath
 
 from benchmark.counselbench100.catalog import MATTERS
+from benchmark.counselbench100.builder import (
+    native_binary_document_parses,
+    native_document_parses,
+)
 from benchmark.counselbench100.decision_specs import DECISION_RULES
 from benchmark.counselbench100.generation import (
+    AGENT_VISIBLE_FILE_COUNT,
     MINIMUM_TOOL_CALLS,
     REQUIRED_EVIDENCE_READS,
     build_material,
@@ -33,9 +38,15 @@ class SeededCorpusTests(unittest.TestCase):
         self.assertEqual(len({path.parent for path in paths}), 12)
         self.assertEqual(
             {path.suffix for path in paths},
-            {".md", ".txt", ".eml", ".csv", ".json", ".xml", ".html"},
+            {".md", ".txt", ".eml", ".csv", ".json", ".xml", ".html", ".pdf"},
         )
         self.assertEqual(len(set(documents.values())), 96)
+        self.assertEqual(len(self.material["all_document_paths"]), AGENT_VISIBLE_FILE_COUNT)
+        self.assertEqual(len(self.material["binary_documents"]), 1)
+        self.assertEqual(
+            {PurePosixPath(path).suffix for path in self.material["all_document_paths"]},
+            {".md", ".txt", ".eml", ".csv", ".json", ".xml", ".html", ".pdf", ".xlsx"},
+        )
         self.assertGreaterEqual(
             min(len(value.encode("utf-8")) for value in documents.values()), 5_500
         )
@@ -66,8 +77,18 @@ class SeededCorpusTests(unittest.TestCase):
 
         self.assertIn("<!doctype html>", by_suffix[".html"].casefold())
         self.assertIn("Native rows", by_suffix[".html"])
+        self.assertTrue(native_document_parses("source-record.pdf", by_suffix[".pdf"]))
+        self.assertIn("COUNSELBENCH SOURCE RECORD", by_suffix[".pdf"])
+        self.assertIn(self.material["cases"][7]["portfolio_key"], by_suffix[".pdf"])
         self.assertIn("SCHEDULE 1 — NATIVE ROWS", by_suffix[".txt"])
         self.assertIn("## Related native records", by_suffix[".md"])
+
+        workbook_path, workbook = next(iter(self.material["binary_documents"].items()))
+        self.assertTrue(native_binary_document_parses(workbook_path, workbook))
+        self.assertTrue(workbook.startswith(b"PK\x03\x04"))
+        decoded = workbook.decode("utf-8", errors="replace")
+        self.assertIn("impact_control_score", decoded)
+        self.assertIn(self.material["cases"][0]["portfolio_key"], decoded)
 
     def test_outcomes_are_derived_from_four_independent_sources(self) -> None:
         documents = self.material["documents"]

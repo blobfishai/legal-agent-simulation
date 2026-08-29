@@ -242,7 +242,7 @@ def run(report_path: Path | None = None) -> dict[str, Any]:
     report = {
         "schema_version": "counselbench.mcp-conformance.v3",
         "benchmark": "CounselBench-100",
-        "benchmark_version": "3.0.0",
+        "benchmark_version": "3.1.0",
         "upstream": MCP_PIN,
         "upstream_initialize": initialized,
         "contract_checks": contract_checks,

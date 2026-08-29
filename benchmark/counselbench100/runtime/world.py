@@ -162,7 +162,10 @@ class CounselWorld:
             tail = arguments.get("tail")
             if head is not None and tail is not None:
                 raise ToolFailure("Cannot specify both head and tail parameters simultaneously")
-            content = path.read_text(encoding="utf-8")
+            # The pinned upstream filesystem server decodes every extension as
+            # UTF-8 text.  Replacement decoding mirrors Node Buffer.toString for
+            # native containers such as the deliberately uncompressed XLSX.
+            content = path.read_bytes().decode("utf-8", errors="replace")
             lines = content.splitlines(keepends=True)
             if head is not None:
                 if not isinstance(head, (int, float)) or head < 0:
