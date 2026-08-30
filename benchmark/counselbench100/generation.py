@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover - flat import in release builder
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
-RELEASE_VERSION = "3.2.1"
+RELEASE_VERSION = "3.2.2"
 DOCUMENT_COUNT = 96
 AGENT_VISIBLE_FILE_COUNT = DOCUMENT_COUNT + 1
 PORTFOLIO_COUNT = 12

@@ -32,7 +32,7 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
-RELEASE_VERSION = "3.2.1"
+RELEASE_VERSION = "3.2.2"
 
 
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:

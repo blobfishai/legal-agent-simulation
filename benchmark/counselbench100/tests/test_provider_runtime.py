@@ -148,6 +148,134 @@ class ProviderRuntimeTests(unittest.TestCase):
             self.material["state_contract"]["custom_field_id"],
         )
 
+    def test_equivalent_provider_projections_count_as_evidence_and_readback(self) -> None:
+        world = self.world("equivalent-provider-projections")
+        calls = deepcopy(self.reference["calls"])
+        for call in calls:
+            name = call["name"]
+            arguments = call["arguments"]
+            if name == "clio_manage.notes.get":
+                arguments["fields"] = "id,subject,detail"
+            elif name == "clio_manage.matters.get":
+                arguments["fields"] = "id,custom_field_values"
+            elif name == "google_drive.files.get":
+                arguments.pop("fields", None)
+            elif name == "google_drive.comments.get":
+                arguments.pop("fields", None)
+            elif name == "slack.conversations_replies":
+                arguments.pop("limit", None)
+
+        self.replay(world, calls)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        self.assertTrue(
+            report["passed"],
+            [row["id"] for row in report["atomic_checks"] if not row["passed"]],
+        )
+        self.assertTrue(
+            report["criteria"]["procedure"]["criteria"][
+                "all_material_evidence_read"
+            ]
+        )
+        self.assertTrue(all(report["diagnostics"]["readback_checks"].values()))
+
+    def test_metadata_only_provider_lookup_does_not_count_as_evidence(self) -> None:
+        world = self.world("metadata-only-provider-lookup")
+        calls = deepcopy(self.reference["calls"])
+        drive_read = next(
+            call
+            for call in calls
+            if call["name"] == "google_drive.files.get"
+            and call["phase"].startswith("evidence:")
+        )
+        drive_read["arguments"].pop("alt", None)
+        self.replay(world, calls)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        self.assertFalse(report["passed"])
+        self.assertFalse(
+            report["criteria"]["procedure"]["criteria"][
+                "all_material_evidence_read"
+            ]
+        )
+        failed = {
+            row["id"]
+            for row in report["atomic_checks"]
+            if row["id"].startswith("evidence.") and not row["passed"]
+        }
+        self.assertEqual(len(failed), 1)
+
+    def test_neighboring_provider_object_does_not_count_as_exact_evidence(self) -> None:
+        world = self.world("neighboring-provider-object")
+        calls = deepcopy(self.reference["calls"])
+        drive_reads = [
+            call
+            for call in calls
+            if call["name"] == "google_drive.files.get"
+            and call["phase"].startswith("evidence:")
+        ]
+        self.assertGreaterEqual(len(drive_reads), 2)
+        drive_reads[0]["arguments"] = deepcopy(drive_reads[1]["arguments"])
+        self.replay(world, calls)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        failed = {
+            row["id"]
+            for row in report["atomic_checks"]
+            if row["id"].startswith("evidence.") and not row["passed"]
+        }
+        self.assertFalse(report["passed"])
+        self.assertEqual(len(failed), 1)
+
+    def test_readback_proof_rejects_stale_values_with_the_right_shape(self) -> None:
+        world = self.world("stale-shaped-readback")
+        self.replay(world, self.reference["calls"])
+        state = self.material["state_contract"]
+        notification_write = next(
+            call
+            for call in state["writes"]
+            if call["name"] == "slack.chat_postMessage"
+        )
+        target = notification_write["arguments"]
+        stale_matter = {
+            "structuredContent": {
+                "data": {
+                    "id": state["matter_id"],
+                    "custom_field_values": [
+                        {
+                            "custom_field": {"id": state["custom_field_id"]},
+                            "value": "stale-but-well-shaped",
+                        }
+                    ],
+                }
+            }
+        }
+        stale_notification = {
+            "structuredContent": {
+                "messages": [
+                    {
+                        "ts": state["notification_id"],
+                        "thread_ts": target["thread_ts"],
+                        "text": "stale-but-well-shaped",
+                    }
+                ]
+            }
+        }
+        self.assertIsNone(
+            world._state_readback_proof(
+                "clio_manage.matters.get",
+                {"id": state["matter_id"]},
+                stale_matter,
+            )
+        )
+        self.assertIsNone(
+            world._state_readback_proof(
+                "slack.conversations_replies",
+                {
+                    "channel": target["channel"],
+                    "ts": target["thread_ts"],
+                },
+                stale_notification,
+            )
+        )
+
     def test_slack_json_export_is_served_as_a_human_thread(self) -> None:
         asset = next(
             row
