@@ -24,7 +24,7 @@ test("server-renders the complete benchmark page", async () => {
   assert.match(html, /Long-horizon legal work/);
   assert.match(html, /9,700/);
   assert.match(html, /69–97/);
-  assert.match(html, /1,600/);
+  assert.match(html, /1,700/);
   assert.match(html, /100\/100/);
   assert.match(html, /exact-release score/);
   assert.doesNotMatch(html, /\b0\/10\b|GPT-5\.6-sol/);
@@ -41,7 +41,7 @@ test("release links and metadata remain pinned", async () => {
   ]);
 
   assert.match(page, /datasets\/blobfishai\/counselbench-100/);
-  assert.match(page, /1,600/);
+  assert.match(page, /1,700/);
   assert.match(page, /Clio Manage v4/);
   assert.match(page, /v3\.2\.4/);
   assert.doesNotMatch(page, /filesystem MCP|v1\.0\.0/);
