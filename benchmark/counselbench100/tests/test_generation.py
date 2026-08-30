@@ -140,6 +140,36 @@ class SeededCorpusTests(unittest.TestCase):
         self.assertEqual(
             sum(option["selected"] for option in self.material["decision_options"]), 1
         )
+        for option in self.material["decision_options"]:
+            self.assertTrue(option["outcome"])
+            self.assertIsInstance(option["incrementalCost"], int)
+            self.assertNotIsInstance(option["incrementalCost"], bool)
+            self.assertTrue(option["authorityStatus"])
+            self.assertTrue(option["outcomeDate"])
+            self.assertIsInstance(option["signedVarianceDays"], int)
+            self.assertTrue(option["timingStatus"])
+        statuses = {
+            option["authorityStatus"] for option in self.material["decision_options"]
+        }
+        self.assertIn("AUTHORIZED", statuses)
+        self.assertIn("ADDITIONAL_APPROVAL_REQUIRED", statuses)
+        self.assertIn("UNSUPPORTED_BY_CURRENT_EVIDENCE", statuses)
+        choice = self.material["expected_decision"]["decision"]
+        selected = next(
+            option for option in self.material["decision_options"] if option["selected"]
+        )
+        self.assertEqual(choice["alternatives_evaluated"], self.material["decision_options"])
+        self.assertEqual(
+            choice["control_comparison"]["selectedOutcomeDate"],
+            selected["outcomeDate"],
+        )
+        self.assertEqual(
+            choice["control_comparison"]["signedVarianceDays"],
+            selected["signedVarianceDays"],
+        )
+        self.assertEqual(
+            choice["authority_application"]["selectedOptionId"], selected["id"]
+        )
         phases = [call["phase"] for call in self.material["reference_calls"]]
         self.assertEqual(sum(phase.startswith("state-transition") for phase in phases), 3)
         self.assertEqual(sum(phase.startswith("postwrite-readback") for phase in phases), 3)
@@ -157,6 +187,15 @@ class SeededCorpusTests(unittest.TestCase):
         self.assertEqual(len(narrative["branch_contract"]), 12)
         self.assertEqual(len(narrative["authorized_state_transition"]), 3)
         self.assertEqual(len(narrative["verification_chain"]), 3)
+        self.assertEqual(len(narrative["decision_options"]), 3)
+        self.assertEqual(
+            narrative["control_comparison"],
+            self.material["expected_decision"]["decision"]["control_comparison"],
+        )
+        self.assertEqual(
+            narrative["authority_application"],
+            self.material["expected_decision"]["decision"]["authority_application"],
+        )
         self.assertIn("CB-MA-2401", milestones["discovery.systems"])
         self.assertIn("CBP-001-01", milestones["investigation.identity"])
         self.assertIn("ENT-001-1000", milestones["investigation.identity"])

@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover - flat import in release builder
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
-RELEASE_VERSION = "3.2.0"
+RELEASE_VERSION = "3.2.1"
 DOCUMENT_COUNT = 96
 AGENT_VISIBLE_FILE_COUNT = DOCUMENT_COUNT + 1
 PORTFOLIO_COUNT = 12
@@ -946,8 +946,23 @@ def _render_document(value: dict[str, Any], extension: str) -> str:
     )
 
 
-def decision_options(matter: Matter, task_index: int) -> list[dict[str, Any]]:
+def decision_options(
+    matter: Matter,
+    task_index: int,
+    cases: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
     rule = DECISION_RULES[matter.slug]
+    supported = [case for case in cases if derive_disposition(case) == "action"]
+    held = [case for case in cases if derive_disposition(case) != "action"]
+    severity_hours = {"low": 2, "medium": 4, "high": 6, "critical": 10}
+    hourly_rate = 275 + 25 * (stable_int(matter.slug, "review-rate") % 6)
+    selected_hours = sum(severity_hours[case["severity"]] for case in supported) + 2 * len(held)
+    selected_cost = selected_hours * hourly_rate
+    business_need = date.fromisoformat(matter.deadline)
+    selected_outcome = max(date.fromisoformat(case["due_date"]) for case in supported)
+    selected_variance = (selected_outcome - business_need).days
+    delay_days = 3 + stable_int(matter.slug, task_index, "blanket-hold-delay") % 8
+    blanket_outcome = business_need + timedelta(days=delay_days)
     options = [
         {
             "id": f"{matter.slug}:scoped-evidence",
@@ -955,18 +970,45 @@ def decision_options(matter: Matter, task_index: int) -> list[dict[str, Any]]:
             "approach": (
                 f"Apply the exact identity, current-state, authority, and revision test. {rule.register_action}"
             ),
+            "outcome": (
+                f"Commit {len(supported)} supported actions, preserve {len(held)} evidence holds, "
+                f"and finish the latest supported action by {selected_outcome.isoformat()}."
+            ),
+            "incrementalCost": selected_cost,
+            "authorityStatus": "AUTHORIZED",
+            "outcomeDate": selected_outcome.isoformat(),
+            "signedVarianceDays": selected_variance,
+            "timingStatus": "ON_TIME" if selected_variance <= 0 else "LATE",
             "selected": True,
         },
         {
             "id": f"{matter.slug}:shortcut",
             "label": rule.unsafe_shortcut,
             "approach": "Use a plausible summary or one source without completing the controlling joins.",
+            "outcome": (
+                f"Create an unsupported same-day disposition for all {len(cases)} records while "
+                f"discarding {len(held)} unresolved evidence constraints."
+            ),
+            "incrementalCost": 0,
+            "authorityStatus": "UNSUPPORTED_BY_CURRENT_EVIDENCE",
+            "outcomeDate": matter.deadline,
+            "signedVarianceDays": 0,
+            "timingStatus": "ON_TIME_BUT_UNSUPPORTED",
             "selected": False,
         },
         {
             "id": f"{matter.slug}:blanket-hold",
             "label": "Freeze the entire matter population",
             "approach": "Treat supported actions and genuinely ambiguous records as if they were equally unresolved.",
+            "outcome": (
+                f"Defer all {len(cases)} records until {blanket_outcome.isoformat()}, including "
+                f"the {len(supported)} records already supported by current evidence."
+            ),
+            "incrementalCost": selected_cost + delay_days * 8 * hourly_rate,
+            "authorityStatus": "ADDITIONAL_APPROVAL_REQUIRED",
+            "outcomeDate": blanket_outcome.isoformat(),
+            "signedVarianceDays": delay_days,
+            "timingStatus": "LATE",
             "selected": False,
         },
     ]
@@ -1016,11 +1058,35 @@ def _expected_outputs(
     rule: DecisionRule,
     options: list[dict[str, Any]],
     cases: list[dict[str, Any]],
+    control_source_path: str,
 ) -> tuple[dict[str, Any], dict[str, Any], str]:
     actions = [_action_row(case, rule) for case in cases if derive_disposition(case) == "action"]
     holds = [_hold_row(case) for case in cases if derive_disposition(case) == "evidence_hold"]
     selected = next(option for option in options if option["selected"])
     alternatives = [option["id"] for option in options if not option["selected"]]
+    control_comparison = {
+        "businessNeedDate": matter.deadline,
+        "selectedOutcomeDate": selected["outcomeDate"],
+        "signedVarianceDays": selected["signedVarianceDays"],
+        "timingStatus": selected["timingStatus"],
+        "sourcePath": control_source_path,
+    }
+    authority_application = {
+        "authorityRecord": rule.authority,
+        "selectedOptionId": selected["id"],
+        "selectedAuthorityStatus": selected["authorityStatus"],
+        "approvalRequired": False,
+        "approvalRequiredOptionIds": [
+            option["id"]
+            for option in options
+            if option["authorityStatus"] == "ADDITIONAL_APPROVAL_REQUIRED"
+        ],
+        "unsupportedOptionIds": [
+            option["id"]
+            for option in options
+            if option["authorityStatus"] == "UNSUPPORTED_BY_CURRENT_EVIDENCE"
+        ],
+    }
     decision = {
         "schema_version": "counselbench.decision.v3",
         "task_id": task_id,
@@ -1036,6 +1102,9 @@ def _expected_outputs(
                 f"{len(holds)} records on evidence hold. {rule.authority}"
             ),
             "alternatives_considered": alternatives,
+            "alternatives_evaluated": options,
+            "control_comparison": control_comparison,
+            "authority_application": authority_application,
         },
         "actions": actions,
         "holds": holds,
@@ -1086,6 +1155,17 @@ def _expected_outputs(
         f"{rule.recommended} The reconciled record supports {len(actions)} scoped actions and "
         f"leaves {len(holds)} items on evidence hold.", "",
         f"Selected option: `{selected['id']}`.", "",
+        "## Control comparison", "",
+        f"Business-need date: {control_comparison['businessNeedDate']}. Selected outcome date: "
+        f"{control_comparison['selectedOutcomeDate']}. Signed variance: "
+        f"{control_comparison['signedVarianceDays']} day(s); timing status: "
+        f"{control_comparison['timingStatus']}. Control source: "
+        f"`{control_comparison['sourcePath']}`.", "",
+        "## Authority application", "",
+        f"Selected authority status: {authority_application['selectedAuthorityStatus']}. "
+        f"Applied authority record: {authority_application['authorityRecord']} "
+        f"Options requiring added approval: {', '.join(authority_application['approvalRequiredOptionIds'])}. "
+        f"Unsupported options: {', '.join(authority_application['unsupportedOptionIds'])}.", "",
         "## Why this is the supported option", "",
         f"{rule.observation} {rule.authority}", "",
         "## Supported actions", "",
@@ -1113,8 +1193,10 @@ def _expected_outputs(
         [
             "## Alternatives considered", "",
             *[
-                f"- `{option['id']}` — {option['label']}: {option['approach']}"
-                for option in options if not option["selected"]
+                f"- `{option['id']}` — {option['label']}: {option['approach']} "
+                f"Outcome: {option['outcome']} Incremental cost: ${option['incrementalCost']:,}. "
+                f"Authority: {option['authorityStatus']}."
+                for option in options
             ],
             "", "## Assumptions and limits", "",
             f"This decision is limited to {task_id}, the supplied synthetic records, and the "
@@ -1145,7 +1227,9 @@ def render_work_product_control(
     options: list[dict[str, Any]],
 ) -> str:
     option_rows = "\n".join(
-        f"- `{option['id']}` — {option['label']}: {option['approach']}"
+        f"- `{option['id']}` — {option['label']}: {option['approach']} "
+        f"Outcome: {option['outcome']} Incremental cost: ${option['incrementalCost']:,}. "
+        f"Authority: {option['authorityStatus']}."
         for option in options
     )
     return f"""
@@ -1338,10 +1422,19 @@ def _state_contract(
     custom_field_id = 610_000 + task_index
     custom_value_id = f"text_area-{custom_field_id}"
     selected = expected_decision["decision"]["selected_option_id"]
+    choice = expected_decision["decision"]
+    control = choice["control_comparison"]
+    authority = choice["authority_application"]
+    constraints = sorted(
+        {row["required_next_evidence"] for row in expected_decision["holds"]}
+    )
     notification = (
         f"{matter.matter_number}: review recorded under {selected}; "
         f"{len(expected_decision['actions'])} supported actions and "
         f"{len(expected_decision['holds'])} evidence holds. "
+        f"Outcome {control['selectedOutcomeDate']} ({control['signedVarianceDays']:+d} days versus "
+        f"{control['businessNeedDate']}, {control['timingStatus']}); authority "
+        f"{authority['selectedAuthorityStatus']}. Constraints: {'; '.join(constraints)}. "
         f"See Clio note {note_id} and the Review Disposition Register."
     )
     note_detail = json.dumps(
@@ -1538,6 +1631,9 @@ def semantic_milestones(material: dict[str, Any]) -> list[dict[str, Any]]:
     decision = material["expected_decision"]
     cases = material["cases"]
     selected = decision["decision"]["selected_option_id"]
+    choice = decision["decision"]
+    control = choice["control_comparison"]
+    authority_application = choice["authority_application"]
     supported_cases = [case for case in cases if case["disposition"] == "action"]
     held_cases = [case for case in cases if case["disposition"] != "action"]
     supported = [case["portfolio_key"] for case in supported_cases]
@@ -1588,6 +1684,11 @@ def semantic_milestones(material: dict[str, Any]) -> list[dict[str, Any]]:
         f"{case['portfolio_key']} needs {next(row['required_next_evidence'] for row in decision['holds'] if row['portfolio_key'] == case['portfolio_key'])}"
         for case in held_cases
     )
+    option_map = "; ".join(
+        f"{option['id']} outcome={option['outcome']} incremental_cost=${option['incrementalCost']:,} "
+        f"authority={option['authorityStatus']}"
+        for option in material["decision_options"]
+    )
     workbook = next(
         PurePosixPath(path).as_posix()
         for path in material["required_document_paths"]
@@ -1601,7 +1702,16 @@ def semantic_milestones(material: dict[str, Any]) -> list[dict[str, Any]]:
         ("investigation.operations", "investigation", 9, f"For each item compare the governing record to the current observation using these exact record pairs: {observation_map}. The trigger conclusion must be recomputed from the source facts, not copied from a summary."),
         ("investigation.approvals", "investigation", 7, f"Verify the effective owner roster and remaining capacity for the same immutable items: {capacity_map}. Pending authority or zero capacity must block that item even when its operational trigger is met."),
         ("investigation.impact", "investigation", 6, f"Read and reconcile all {len(material['required_document_paths'])} material records, including impact workbook {workbook}, the task control, correspondence, custody chronology, population support, and independent counterrecords before any mutation."),
-        ("reasoning.options", "reasoning", 10, f"Select {selected!r} for {material['decision_rule']['question']} and distinguish it from both documented alternatives."),
+        (
+            "reasoning.options",
+            "reasoning",
+            10,
+            f"Compare all three task-specific alternatives—{option_map}. Select {selected!r}, apply "
+            f"{authority_application['selectedAuthorityStatus']} authority, and report the selected "
+            f"outcome against business-need date {control['businessNeedDate']}: outcome "
+            f"{control['selectedOutcomeDate']}, signed variance {control['signedVarianceDays']} day(s), "
+            f"status {control['timingStatus']}.",
+        ),
         ("reasoning.branches", "reasoning", 10, f"Apply identity + trigger + effective authority/capacity + current revision item by item. Exact task outcome: {branch_map}; totals are {len(supported)} actions and {len(held)} holds."),
         ("reasoning.actions", "reasoning", 8, f"Derive the operational details rather than only labeling branches. Actions: {action_map}. Holds: {hold_map}. Every row must retain its task-specific source anchors."),
         ("state.matter_register", "state", 8, f"Use clio_manage.matters.update only on matter id {state['matter_id']} and custom value {state['custom_value_id']}; commit exactly twelve Review Disposition Register rows for {matter_number}, with no missing, duplicate, or foreign key."),
@@ -1678,6 +1788,9 @@ def causal_evaluation_narrative(material: dict[str, Any]) -> dict[str, Any]:
             for index, call in enumerate(material["state_contract"]["writes"])
         ],
         "verification_chain": [call["name"] for call in material["state_contract"]["readbacks"]],
+        "decision_options": material["decision_options"],
+        "control_comparison": decision["decision"]["control_comparison"],
+        "authority_application": decision["decision"]["authority_application"],
         "strict_success": (
             "All task-specific evidence joins and branches are correct; the exact scoped provider "
             "state is committed in causal order; every changed record is read back; no foreign, "
@@ -1702,6 +1815,14 @@ def _material_quality(
         '"selected_option_id"', '"disposition": "open_action"',
         '"disposition": "evidence_hold"',
     )
+    choice = expected["decision"]
+    options = choice["alternatives_evaluated"]
+    control = choice["control_comparison"]
+    selected = next(option for option in options if option["selected"])
+    expected_variance = (
+        date.fromisoformat(control["selectedOutcomeDate"])
+        - date.fromisoformat(control["businessNeedDate"])
+    ).days
     return {
         "causality_recomputed": all(derive_disposition(case) == case["disposition"] for case in cases),
         "action_and_hold_mix": bool(expected["actions"]) and bool(expected["holds"]),
@@ -1712,6 +1833,32 @@ def _material_quality(
             for case in cases
         ),
         "every_case_has_independent_evidence": all(len(case["required_paths"]) >= 4 for case in cases),
+        "all_options_have_outcome_cost_and_authority": (
+            len(options) == 3
+            and sum(bool(option["selected"]) for option in options) == 1
+            and all(
+                option.get("outcome")
+                and isinstance(option.get("incrementalCost"), int)
+                and not isinstance(option.get("incrementalCost"), bool)
+                and option.get("authorityStatus")
+                for option in options
+            )
+        ),
+        "option_set_contains_authority_boundary": (
+            any(option["authorityStatus"] == "ADDITIONAL_APPROVAL_REQUIRED" for option in options)
+            and any(option["authorityStatus"] == "UNSUPPORTED_BY_CURRENT_EVIDENCE" for option in options)
+            and selected["authorityStatus"] == "AUTHORIZED"
+        ),
+        "selected_outcome_is_compared_to_control_date": (
+            control["signedVarianceDays"] == expected_variance
+            and control["timingStatus"] == ("ON_TIME" if expected_variance <= 0 else "LATE")
+            and bool(control["sourcePath"])
+        ),
+        "authority_is_applied_to_selected_scope": (
+            choice["authority_application"]["selectedOptionId"] == selected["id"]
+            and choice["authority_application"]["selectedAuthorityStatus"] == "AUTHORIZED"
+            and choice["authority_application"]["approvalRequired"] is False
+        ),
     }
 
 
@@ -1758,13 +1905,13 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         documents[path] = _render_document(payload, PurePosixPath(path).suffix[1:])
     binary_documents = {workbook_path: _render_xlsx_workbook(matter, cases)}
 
-    options = decision_options(matter, task_index)
     protocol_path = next(
         path for path in reversed(paths) if PurePosixPath(path).suffix == ".md"
     )
+    options = decision_options(matter, task_index, cases)
     documents[protocol_path] += render_work_product_control(matter, task_id, options)
     expected_decision, expected_register, advice = _expected_outputs(
-        matter, task_id, rule, options, cases
+        matter, task_id, rule, options, cases, protocol_path
     )
     decision_text = json.dumps(expected_decision, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
     register_text = json.dumps(expected_register, indent=2, ensure_ascii=False, sort_keys=True) + "\n"

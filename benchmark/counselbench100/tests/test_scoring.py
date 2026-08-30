@@ -90,6 +90,29 @@ class ScoringTests(unittest.TestCase):
         self.assertFalse(result["criteria"]["holds.exact_population"])
         self.assertFalse(result["passed"])
 
+    def test_option_outcome_control_date_and_authority_are_independently_graded(self) -> None:
+        spec, decision, _, _ = fixture()
+        cases = (
+            ("alternatives_evaluated", "outcome", "unsupported outcome"),
+            ("control_comparison", "signedVarianceDays", 99),
+            ("authority_application", "selectedAuthorityStatus", "UNAUTHORIZED"),
+        )
+        for group, field, wrong_value in cases:
+            with self.subTest(group=group, field=field):
+                mutated = copy.deepcopy(decision)
+                if group == "alternatives_evaluated":
+                    option_id = mutated["decision"][group][0]["id"]
+                    mutated["decision"][group][0][field] = wrong_value
+                    criterion = (
+                        f"choice.alternatives_evaluated.{option_id}.{field}"
+                    )
+                else:
+                    mutated["decision"][group][field] = wrong_value
+                    criterion = f"choice.{group}.{field}"
+                result = score_decision(mutated, spec)
+                self.assertFalse(result["criteria"][criterion])
+                self.assertFalse(result["passed"])
+
     def test_collateral_register_edit_fails_exact_state(self) -> None:
         spec, _, register, _ = fixture()
         key = register["rows"][0]["portfolio_key"]

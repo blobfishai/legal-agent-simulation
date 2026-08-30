@@ -47,6 +47,36 @@ def score_decision(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
         actual_choice.get("rationale")
     ) == normalize(expected_choice["rationale"])
 
+    actual_options, options_by_id = _rows_by_key(
+        actual_choice.get("alternatives_evaluated"), "id"
+    )
+    expected_options = {
+        option["id"]: option for option in expected_choice["alternatives_evaluated"]
+    }
+    criteria["choice.alternatives_evaluated.exact_count"] = (
+        len(actual_options) == len(expected_options)
+    )
+    criteria["choice.alternatives_evaluated.exact_population"] = (
+        set(options_by_id) == set(expected_options)
+    )
+    for option_id, expected_option in expected_options.items():
+        actual_option = options_by_id.get(option_id)
+        for field, expected_value in expected_option.items():
+            criteria[f"choice.alternatives_evaluated.{option_id}.{field}"] = (
+                isinstance(actual_option, dict)
+                and actual_option.get(field) == expected_value
+            )
+
+    for group in ("control_comparison", "authority_application"):
+        actual_group = actual_choice.get(group)
+        expected_group = expected_choice[group]
+        criteria[f"choice.{group}.is_object"] = isinstance(actual_group, dict)
+        for field, expected_value in expected_group.items():
+            criteria[f"choice.{group}.{field}"] = (
+                isinstance(actual_group, dict)
+                and actual_group.get(field) == expected_value
+            )
+
     actual_actions, actions_by_key = _rows_by_key(actual.get("actions"), "portfolio_key")
     actual_holds, holds_by_key = _rows_by_key(actual.get("holds"), "portfolio_key")
     criteria["actions.exact_count"] = len(actual_actions) == len(expected["actions"])
@@ -145,8 +175,9 @@ def score_advice(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
     expected = spec["expected_decision"]
     criteria: dict[str, bool] = {}
     for section in (
-        "Recommendation", "Why this is the supported option", "Supported actions",
-        "Evidence holds", "Alternatives considered", "Assumptions and limits",
+        "Recommendation", "Control comparison", "Authority application",
+        "Why this is the supported option", "Supported actions", "Evidence holds",
+        "Alternatives considered", "Assumptions and limits",
     ):
         criteria[f"section.{section}"] = normalize(section) in normalized
     choice = expected["decision"]
@@ -177,6 +208,30 @@ def score_advice(value: Any, spec: dict[str, Any]) -> dict[str, Any]:
         details.append({"portfolio_key": row["portfolio_key"], "missing_anchors": missing})
     for option_id in choice["alternatives_considered"]:
         criteria[f"alternative.{option_id}"] = normalize(option_id) in normalized
+    for option in choice["alternatives_evaluated"]:
+        anchors = (
+            option["id"],
+            option["outcome"],
+            f"${option['incrementalCost']:,}",
+            option["authorityStatus"],
+        )
+        criteria[f"alternative_contract.{option['id']}"] = all(
+            normalize(anchor) in normalized for anchor in anchors
+        )
+    control = choice["control_comparison"]
+    for field, value in control.items():
+        criteria[f"control_comparison.{field}"] = normalize(str(value)) in normalized
+    authority = choice["authority_application"]
+    for field in (
+        "authorityRecord", "selectedOptionId", "selectedAuthorityStatus",
+    ):
+        criteria[f"authority_application.{field}"] = (
+            normalize(str(authority[field])) in normalized
+        )
+    for field in ("approvalRequiredOptionIds", "unsupportedOptionIds"):
+        criteria[f"authority_application.{field}"] = all(
+            normalize(str(option_id)) in normalized for option_id in authority[field]
+        )
     forbidden = [
         claim for claim in spec["forbidden_claims"] if normalize(claim) in normalized
     ]
