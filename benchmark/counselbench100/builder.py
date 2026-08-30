@@ -143,18 +143,14 @@ def compose_yaml() -> str:
       world:
         condition: service_healthy
     volumes:
-      - type: bind
-        source: ./documents
-        target: /workspace/documents
-        read_only: true
       - type: volume
         source: counselbench_output
         target: /workspace/output
 
   world:
     build:
-      context: ./world
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: world/Dockerfile
     environment:
       COUNSELBENCH_DOCUMENTS: /workspace/documents
       COUNSELBENCH_OUTPUT: /workspace/output
@@ -163,10 +159,6 @@ def compose_yaml() -> str:
     expose:
       - "8972"
     volumes:
-      - type: bind
-        source: ./documents
-        target: /workspace/documents
-        read_only: true
       - type: volume
         source: counselbench_output
         target: /workspace/output
@@ -198,7 +190,8 @@ CMD ["sleep", "infinity"]
 def world_dockerfile() -> str:
     return """FROM python:3.12-slim@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17
 WORKDIR /opt/counselbench
-COPY contracts.py scoring.py world.py server.py spec.json ./
+COPY world/contracts.py world/scoring.py world/world.py world/server.py world/spec.json ./
+COPY documents /workspace/documents
 RUN mkdir -p /workspace/output /workspace/state
 EXPOSE 8972
 CMD ["python3", "/opt/counselbench/server.py"]
