@@ -8,6 +8,7 @@ import unittest
 from pathlib import Path
 
 from benchmark.counselbench100.catalog import MATTERS
+from benchmark.counselbench100.builder import semantic_state_contract
 from benchmark.counselbench100.generation import build_material
 
 RUNTIME = Path(__file__).resolve().parents[1] / "runtime"
@@ -28,6 +29,7 @@ def fixture() -> tuple[dict, dict, dict, str]:
     spec = {
         "expected_decision": material["expected_decision"],
         "expected_register": material["expected_register"],
+        "semantic_state_contract": semantic_state_contract(material),
         "forbidden_claims": [
             "every portfolio item is actionable",
             "the newest document always controls",
@@ -120,6 +122,40 @@ class ScoringTests(unittest.TestCase):
         result = score_register(register, spec)
         self.assertFalse(result["criteria"][f"{key}.exact_state"])
         self.assertFalse(result["criteria"]["register.exact_state"])
+
+    def test_section_headings_and_business_record_citations_are_semantic_state(self) -> None:
+        spec, decision, _, _ = fixture()
+        lines = [
+            f"Review Disposition Register — {decision['matter_number']}",
+            f"Selected option: {decision['decision']['selected_option_id']}",
+        ]
+        for disposition, heading in (
+            ("action", "## CLOSING CONDITIONS"),
+            ("evidence_hold", "## EVIDENCE HOLDS"),
+        ):
+            lines.append(heading)
+            for row in spec["semantic_state_contract"]:
+                if row["disposition"] != disposition:
+                    continue
+                facts = "; ".join(str(value) for value in row["fact_anchors"])
+                source = row["business_record_ids"][0]
+                if disposition == "action":
+                    detail = (
+                        f"{row['topic']} | identity {row['entity_id']} | {facts} | "
+                        f"owner {row['owner']} | due {row['due_date']} | source {source}"
+                    )
+                else:
+                    detail = (
+                        f"{row['topic']} | {facts} | missing control: "
+                        f"{row['required_next_evidence']} | source {source}"
+                    )
+                lines.append(f"- {row['portfolio_key']} — {detail}")
+
+        result = score_register("\n".join(lines), spec)
+        self.assertTrue(
+            result["passed"],
+            [name for name, passed in result["criteria"].items() if not passed],
+        )
 
     def test_missing_readback_caps_reward(self) -> None:
         perfect = {"score": 1.0, "passed": True}

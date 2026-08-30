@@ -3,7 +3,7 @@
 This directory contains the deterministic generator, multi-provider sandbox
 MCP, qualification suite, and release tooling for CounselBench-100.
 
-CounselBench-100 v3.2.3 contains 100 original synthetic legal matters across
+CounselBench-100 v3.2.4 contains 100 original synthetic legal matters across
 ten practice workflows. Each employee request is a high-level workplace
 question, not a prescribed tool recipe. Solving it requires the agent to find
 and correlate raw records before deciding what is supported, what remains an
@@ -24,7 +24,8 @@ Every task includes:
   authority status, and signed timing variance against the matter control date;
 - 5–9 supported actions and 3–7 evidence holds;
 - a distinct 69–97-call reference trajectory;
-- an exact Clio matter-register patch, a Clio decision note, and a task-native
+- a semantically exact but naturally formatted Clio matter-register patch, a
+  Clio decision note, and a task-native
   Gmail, Drive, or Slack completion update;
 - native provider readback after each committed mutation; and
 - fourteen task-specific semantic milestones totaling 100 CounselScore points.
@@ -34,14 +35,14 @@ Clio Manage v4, Gmail v1, Drive v3, and Slack Web API methods. It deliberately
 does not expose business-level pseudo-tools such as `approve_finding` or
 `resolve_matter`.
 
-The v3.2.3 qualification contract runs 1,500 local executions:
+The v3.2.4 qualification contract runs 1,600 local executions:
 
 - 100 oracle executions;
 - 100 exact deterministic replays; and
-- 1,300 adversarial executions covering no-op and copied-gold shortcuts, missing
+- 1,400 adversarial executions covering no-op and copied-gold shortcuts, missing
   state, incomplete or late evidence, premature notification, missing readback,
   duplicate and rejected mutations, wrong values, wrong options, wrong branches,
-  and substituted evidence.
+  substituted evidence, and serialization keyword stuffing without distinct rows.
 
 Public artifacts:
 

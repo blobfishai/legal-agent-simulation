@@ -46,7 +46,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "3.2.3"
+RELEASE_VERSION = "3.2.4"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -305,10 +305,71 @@ PYEOF
 '''
 
 
+def semantic_state_contract(material: dict[str, Any]) -> list[dict[str, Any]]:
+    """Build serialization-independent facts for deterministic state grading.
+
+    The provider stores the register and note in text fields.  A real employee
+    can therefore use ordinary prose or JSON.  The hidden verifier should bind
+    the business facts and row population, not require the oracle's private
+    byte layout.
+    """
+
+    expected = material["expected_decision"]
+    action_by_key = {row["portfolio_key"]: row for row in expected["actions"]}
+    hold_by_key = {row["portfolio_key"]: row for row in expected["holds"]}
+    resources_by_key: dict[str, list[dict[str, Any]]] = {}
+    for asset in material["provider_assets"]:
+        if not asset["material"] or asset["portfolio_key"] == "portfolio":
+            continue
+        resources_by_key.setdefault(asset["portfolio_key"], []).append(
+            {
+                "evidence_id": asset["evidence_id"],
+                "document_record_id": asset["evidence_id"].replace(
+                    "E-", "CB-DOC-", 1
+                ),
+                "provider": asset["provider"],
+                "resource_id": str(asset["resource_id"]),
+                "source_path": asset["path"],
+            }
+        )
+
+    rows: list[dict[str, Any]] = []
+    for case in material["cases"]:
+        key = case["portfolio_key"]
+        expected_row = action_by_key.get(key) or hold_by_key[key]
+        rows.append(
+            {
+                "portfolio_key": key,
+                "topic": case["topic"],
+                "disposition": case["disposition"],
+                "failure_mode": case["failure_mode"],
+                "entity_id": case["entity_id"],
+                "alternate_id": case["alternate_id"],
+                "current_revision": case["current_revision"],
+                "referenced_revision": case["referenced_revision"],
+                "owner": case["owner"] if case["disposition"] == "action" else None,
+                "control_owner": case["owner"],
+                "owner_active": case["owner_active"],
+                "due_date": case["due_date"] if case["disposition"] == "action" else None,
+                "severity": case["severity"],
+                "remaining_capacity": case["remaining_capacity"],
+                "fact_anchors": list(case["fact_anchors"]),
+                "business_record_ids": [
+                    case["reference"],
+                    case["event_reference"],
+                ],
+                "hold_reason": case["hold_reason"] or None,
+                "required_next_evidence": expected_row.get("required_next_evidence"),
+                "source_records": resources_by_key.get(key, []),
+            }
+        )
+    return rows
+
+
 def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str, Any]:
     state = material["state_contract"]
     return {
-        "schema_version": "counselbench.world.v4",
+        "schema_version": "counselbench.world.v5",
         "task_id": material["task_id"],
         "matter_number": matter.matter_number,
         "fixed_file_timestamp": FIXED_FILE_TIMESTAMP,
@@ -337,6 +398,7 @@ def make_spec(material: dict[str, Any], matter: Matter, token: str) -> dict[str,
         "expected_decision": material["expected_decision"],
         "expected_register": material["expected_register"],
         "expected_advice": material["expected_advice"],
+        "semantic_state_contract": semantic_state_contract(material),
         "decision_options": material["decision_options"],
         "evidence_requirements": [
             {
@@ -407,6 +469,7 @@ def create_task_pack(
         "state_contract": material["state_contract"],
         "rubric_milestones": material["rubric_milestones"],
         "evaluation_narrative": material["evaluation_narrative"],
+        "semantic_state_contract": semantic_state_contract(material),
         "decision": material["expected_decision"],
         "register": material["expected_register"],
         "decision_text": material["decision_text"],
@@ -716,7 +779,7 @@ changed record back.
 - `reports/`: exact-version build, qualification, and conformance evidence.
 - `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Measured v3.2.3 release gates
+## Measured v3.2.4 release gates
 
 | Gate | Measured |
 |---|---:|
@@ -729,7 +792,7 @@ changed record back.
 | Semantic action graphs | 100 distinct; maximum pair match {semantic_similarity:.6f} |
 | Prompt maximum 5-shingle Jaccard | {prompt_similarity:.6f} |
 | Oracle and deterministic replay | 100/100 each |
-| Thirteen negative controls | 1,300/1,300 rejected |
+| Fourteen negative controls | 1,400/1,400 rejected |
 
 No older or partial model score is carried onto v3.2. A leaderboard row is published
 only after one model runs all 100 tasks on this exact release.
@@ -757,9 +820,9 @@ a closed multi-provider MCP sandbox, and a deterministic causal/state verifier.
 - 58–86 required evidence reads and 69–97 calls per task
 - 5–9 supported actions plus 3–7 evidence holds per task
 - 100 distinct raw tool sequences and semantic action graphs
-- exact matter-register state, write containment, and post-write readback
+- serialization-independent matter-register facts, write containment, and post-write readback
 - 14 task-specific semantic milestones totaling 100 CounselScore points
-- 100/100 oracle passes and 1,300/1,300 adversarial rejections
+- 100/100 oracle passes and 1,400/1,400 adversarial rejections
 
 ```bash
 harbor download {HARBOR_ORG}/{RELEASE_SLUG}@v{RELEASE_VERSION} \

@@ -32,7 +32,7 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
-RELEASE_VERSION = "3.2.3"
+RELEASE_VERSION = "3.2.4"
 
 
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
@@ -280,6 +280,39 @@ def wrong_evidence(world: CounselWorld, spec: dict[str, Any], reference: dict[st
         raise RuntimeError("reference trajectory had no uniquely required evidence read")
 
 
+def keyword_stuffing(
+    world: CounselWorld,
+    spec: dict[str, Any],
+    reference: dict[str, Any],
+) -> None:
+    """Include every expected token without creating distinct business rows."""
+
+    tokens = [spec["matter_number"]]
+    for row in spec["semantic_state_contract"]:
+        tokens.extend(
+            str(value)
+            for value in (
+                row["portfolio_key"],
+                row["topic"],
+                row["disposition"],
+                row["entity_id"],
+                row.get("owner"),
+                row.get("due_date"),
+                row.get("hold_reason"),
+                row.get("required_next_evidence"),
+                *row["fact_anchors"],
+                *(source["resource_id"] for source in row["source_records"]),
+            )
+            if value is not None
+        )
+    stuffed = " ".join(tokens)
+    for call in reference["calls"]:
+        arguments = deepcopy(call["arguments"])
+        if call.get("phase") == "state-transition:matter-register":
+            arguments["data"]["custom_field_values"][0]["value"] = stuffed
+        checked_call(world, call["name"], arguments)
+
+
 Runner = Callable[[CounselWorld, dict[str, Any], dict[str, Any]], None]
 
 
@@ -337,6 +370,7 @@ def run(release: Path) -> dict[str, Any]:
         ("wrong_decision", wrong_decision),
         ("wrong_branch", wrong_branch),
         ("wrong_evidence", wrong_evidence),
+        ("keyword_stuffing", keyword_stuffing),
     ]
     oracle_passes = 0
     determinism_matches = 0
