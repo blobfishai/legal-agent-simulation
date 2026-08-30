@@ -23,6 +23,7 @@ from benchmark.counselbench100.generation import (
     REQUIRED_EVIDENCE_READS,
     build_material,
     derive_disposition,
+    prompt_authorizes_execution,
 )
 
 
@@ -130,6 +131,7 @@ class SeededCorpusTests(unittest.TestCase):
         ):
             self.assertNotIn(forbidden, prompt.casefold())
         self.assertIn("2026-09-04", prompt)
+        self.assertTrue(prompt_authorizes_execution(prompt))
 
     def test_reference_has_causal_reads_writes_and_readbacks(self) -> None:
         self.assertGreaterEqual(
@@ -243,6 +245,7 @@ class SeededCorpusTests(unittest.TestCase):
             self.assertGreater(material["hold_count"], 0)
             self.assertGreaterEqual(len(prompt.split()), 70)
             self.assertLessEqual(len(prompt.split()), 120)
+            self.assertTrue(prompt_authorizes_execution(prompt))
             mutation_phases = [
                 call["phase"]
                 for call in material["reference_calls"]
