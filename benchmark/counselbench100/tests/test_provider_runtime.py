@@ -148,6 +148,84 @@ class ProviderRuntimeTests(unittest.TestCase):
             self.material["state_contract"]["custom_field_id"],
         )
 
+    def test_human_readable_state_needs_no_hidden_json_serialization(self) -> None:
+        world = self.world("human-readable-state")
+        calls = deepcopy(self.reference["calls"])
+        selected = self.material["expected_decision"]["decision"][
+            "selected_option_id"
+        ]
+        register_lines = [
+            f"Review Disposition Register — {self.spec['matter_number']}",
+            f"Selected option: {selected}",
+        ]
+        for row in self.spec["semantic_state_contract"]:
+            source = row["source_records"][0]["resource_id"]
+            facts = "; ".join(str(value) for value in row["fact_anchors"])
+            if row["disposition"] == "action":
+                detail = (
+                    f"OPEN ACTION | {row['topic']} | {row['entity_id']} | "
+                    f"{facts} | Owner {row['owner']} | due {row['due_date']} | "
+                    f"Source {source}"
+                )
+            else:
+                detail = (
+                    f"EVIDENCE HOLD | {row['topic']} | {facts} | "
+                    f"Missing control: {row['required_next_evidence']} | Source {source}"
+                )
+            register_lines.append(f"{row['portfolio_key']} | {detail}")
+
+        matter_write = next(
+            call
+            for call in calls
+            if call.get("phase") == "state-transition:matter-register"
+        )
+        matter_write["arguments"]["data"]["custom_field_values"][0]["value"] = (
+            "\n".join(register_lines)
+        )
+        note_write = next(
+            call
+            for call in calls
+            if call.get("phase") == "state-transition:decision-note"
+        )
+        note_write["arguments"]["data"]["detail"] = (
+            f"Prepared for {self.material['expected_decision']['prepared_for']} as of "
+            f"{self.material['expected_decision']['as_of']}.\n\n"
+            f"{self.material['expected_advice']}"
+        )
+
+        self.replay(world, calls)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        self.assertTrue(
+            report["passed"],
+            [row["id"] for row in report["atomic_checks"] if not row["passed"]],
+        )
+        self.assertEqual(
+            report["criteria"]["register"]["serialization"], "human-readable"
+        )
+        self.assertEqual(
+            report["criteria"]["decision"]["serialization"], "human-readable"
+        )
+
+    def test_keyword_stuffing_without_distinct_rows_cannot_fake_state(self) -> None:
+        world = self.world("keyword-stuffing")
+        calls = deepcopy(self.reference["calls"])
+        matter_write = next(
+            call
+            for call in calls
+            if call.get("phase") == "state-transition:matter-register"
+        )
+        all_keys = " ".join(
+            row["portfolio_key"] for row in self.spec["semantic_state_contract"]
+        )
+        matter_write["arguments"]["data"]["custom_field_values"][0]["value"] = (
+            f"{self.spec['matter_number']} {all_keys} open action evidence hold "
+            "owner due source selected option"
+        )
+        self.replay(world, calls)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        self.assertFalse(report["passed"])
+        self.assertFalse(report["criteria"]["register"]["criteria"]["rows.population"])
+
     def test_equivalent_provider_projections_count_as_evidence_and_readback(self) -> None:
         world = self.world("equivalent-provider-projections")
         calls = deepcopy(self.reference["calls"])
@@ -382,6 +460,34 @@ class ProviderRuntimeTests(unittest.TestCase):
         self.assertFalse(report["passed"])
         failed = {row["id"] for row in report["milestones"] if not row["passed"]}
         self.assertEqual(failed, {"containment.scope"})
+
+    def test_undisclosed_slack_thread_is_out_of_scope_even_when_it_exists(self) -> None:
+        self.assertEqual(self.material["completion_route"]["provider"], "slack")
+        world = self.world("wrong-existing-slack-thread")
+        calls = deepcopy(self.reference["calls"])
+        expected_thread = self.material["completion_route"]["thread_ts"]
+        alternate = next(
+            asset
+            for asset in self.material["provider_assets"]
+            if asset["provider"] == "slack" and asset["ts"] != expected_thread
+        )
+        notification_write = next(
+            call
+            for call in calls
+            if call["phase"] == "state-transition:notification"
+        )
+        notification_write["arguments"]["thread_ts"] = alternate["ts"]
+        notification_readback = next(
+            call
+            for call in calls
+            if call["phase"] == "postwrite-readback:notification"
+        )
+        notification_readback["arguments"]["ts"] = alternate["ts"]
+        self.replay(world, calls)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        self.assertFalse(report["passed"])
+        atomic = {row["id"]: row["passed"] for row in report["atomic_checks"]}
+        self.assertFalse(atomic["state.write_scope_contained"])
 
     def test_notification_before_core_state_fails_collaboration(self) -> None:
         world = self.world("premature-notification")

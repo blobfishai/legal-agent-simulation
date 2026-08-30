@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover - flat import in release builder
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
-RELEASE_VERSION = "3.2.3"
+RELEASE_VERSION = "3.2.4"
 DOCUMENT_COUNT = 96
 AGENT_VISIBLE_FILE_COUNT = DOCUMENT_COUNT + 1
 PORTFOLIO_COUNT = 12
@@ -280,35 +280,61 @@ def _dimension_facts(
     )
     reference = f"{matter.matter_number}-R{100 + seed % 900}"
     event_reference = f"{matter.matter_number}-E{100 + (seed // 17) % 900}"
-    dimension = (task_index + slot * 5) % 8
+    # Keep the underlying comparison type coherent with the authored legal
+    # issue.  Earlier releases rotated an unrelated generic dimension through
+    # the portfolio (for example, a geographic permission test could be
+    # attached to a most-favored-customer issue).  That created difficult
+    # joins, but not believable legal work.  The topic is now part of every
+    # governing/current statement and keyword routing selects a plausible
+    # control type.  The fallback remains deterministic for newly authored
+    # topics.
+    topic_value = topic.casefold()
+    topic_dimensions: tuple[tuple[int, tuple[str, ...]], ...] = (
+        (6, ("notice", "delivery", "address", "subpoena")),
+        (4, ("localization", "cross-border", "zoning", "jurisdiction", "foreign-filing", "environmental", "nexus")),
+        (0, ("deadline", "renewal", "expiration", "delay", "clock", "filing", "maintenance-fee", "tail", "timing")),
+        (2, ("authorization", "approval", "consent", "committee", "certification", "assignment", "authority", "ratification")),
+        (1, ("pricing", "invoice", "rent", "payment", "credit", "budget", "reserve", "deposit", "claim", "currency", "underpayment", "shortfall", "reconciliation", "variance")),
+        (5, ("covenant", "threshold", "concentration", "limit", "premium", "benchmark", "margin", "most-favored", "pay-equity")),
+        (7, ("population", "training", "share", "record", "completion", "production", "Bates", "custodian")),
+        (3, ("gap", "omission", "defect", "exception", "failure", "mismatch", "conflict", "anomaly", "inconsistency", "breach", "restriction", "exposure")),
+    )
+    dimension = next(
+        (
+            candidate
+            for candidate, keywords in topic_dimensions
+            if any(keyword.casefold() in topic_value for keyword in keywords)
+        ),
+        stable_int(topic, "control-dimension") % 8,
+    )
 
     if dimension == 0:
         observed_date = later if trigger_met else base - timedelta(days=2)
-        governing = f"completion is required by {base.isoformat()} under {reference}"
-        observed = f"the current event record shows completion on {observed_date.isoformat()} under {event_reference}"
+        governing = f"{topic} is due by {base.isoformat()} under {reference}"
+        observed = f"the {topic} event completed on {observed_date.isoformat()} under {event_reference}"
         anchors = [base.isoformat(), observed_date.isoformat(), reference, event_reference]
     elif dimension == 1:
         observed_amount = amount if trigger_met else max(0, threshold - 5_000)
-        governing = f"the operative cap is ${threshold:,.2f} under {reference}"
-        observed = f"the matched ledger population totals ${observed_amount:,.2f} under {event_reference}"
+        governing = f"the {topic} cap is ${threshold:,.2f} under {reference}"
+        observed = f"the {topic} amount is ${observed_amount:,.2f} under {event_reference}"
         anchors = [f"${threshold:,.2f}", f"${observed_amount:,.2f}", reference, event_reference]
     elif dimension == 2:
-        governing = f"approval must come from {required_person} under {reference}"
-        observed = f"the effective approval record names {observed_person} under {event_reference}"
+        governing = f"{topic} approval must come from {required_person} under {reference}"
+        observed = f"the {topic} approval names {observed_person} under {event_reference}"
         anchors = [required_person, observed_person, reference, event_reference]
     elif dimension == 3:
         observed_status = "open and unresolved" if trigger_met else "closed with completion evidence"
-        governing = f"an open exception blocks completion under {reference}"
-        observed = f"the current status is {observed_status} under {event_reference}"
+        governing = f"open {topic} blocks completion under {reference}"
+        observed = f"the {topic} status is {observed_status} under {event_reference}"
         anchors = ["open exception", observed_status, reference, event_reference]
     elif dimension == 4:
         observed_location = matter.jurisdiction if trigger_met else matter.venue
-        governing = f"the permission is limited to {matter.venue} under {reference}"
-        observed = f"the matched activity occurred in {observed_location} under {event_reference}"
+        governing = f"{topic} authority is limited to {matter.venue} under {reference}"
+        observed = f"the {topic} activity occurred in {observed_location} under {event_reference}"
         anchors = [matter.venue, observed_location, reference, event_reference]
     elif dimension == 5:
-        governing = f"the controlling threshold is {pct}% under {reference}"
-        observed = f"the independently calculated result is {observed_pct}% under {event_reference}"
+        governing = f"the {topic} threshold is {pct}% under {reference}"
+        observed = f"the {topic} result is {observed_pct}% under {event_reference}"
         anchors = [f"{pct}%", f"{observed_pct}%", reference, event_reference]
     elif dimension == 6:
         required_address = f"notices-{slugify(matter.client)}@example.test"
@@ -317,14 +343,14 @@ def _dimension_facts(
             if trigger_met
             else required_address
         )
-        governing = f"delivery must use {required_address} under {reference}"
-        observed = f"the only matched receipt used {delivered_address} under {event_reference}"
+        governing = f"{topic} notices must use {required_address} under {reference}"
+        observed = f"the {topic} receipt used {delivered_address} under {event_reference}"
         anchors = [required_address, delivered_address, reference, event_reference]
     else:
         required_count = 72 + seed % 170
         observed_count = required_count - (9 + seed % 31) if trigger_met else required_count
-        governing = f"the controlled population contains {required_count} records under {reference}"
-        observed = f"the certification covers {observed_count} records under {event_reference}"
+        governing = f"the {topic} population is {required_count} records under {reference}"
+        observed = f"the {topic} certification covers {observed_count} records under {event_reference}"
         anchors = [f"{required_count} records", f"{observed_count} records", reference, event_reference]
     return {
         "dimension": dimension,
@@ -448,12 +474,12 @@ def _role_body(case: dict[str, Any], role: str, matter: Matter, rule: DecisionRu
             else f"Operations cites {case['referenced_revision']}, but {case['current_revision']} is the later effective revision."
         )
         return (
-            f"For {case['topic']}, {case['governing_statement']}. {revision_note} "
+            f"{case['governing_statement']}. {revision_note} "
             f"The matter-level control is: {rule.authority}"
         )
     if role == "current_operations":
         return (
-            f"For immutable entity {case['entity_id']}, {case['observed_statement']}. "
+            f"For immutable entity {case['entity_id']}.\n{case['observed_statement']}. "
             f"The operating extract cites revision {case['referenced_revision']} and portfolio key "
             f"{case['portfolio_key']}; it does not state a legal disposition."
         )
@@ -668,7 +694,18 @@ def _render_pdf(value: dict[str, Any]) -> str:
     lines: list[str] = []
     for logical_line in logical_lines:
         ascii_line = str(logical_line).encode("ascii", "replace").decode("ascii")
-        lines.extend(textwrap.wrap(ascii_line, width=105, replace_whitespace=False) or [""])
+        physical_lines = ascii_line.splitlines() or [""]
+        for physical_line in physical_lines:
+            lines.extend(
+                textwrap.wrap(
+                    physical_line,
+                    width=105,
+                    replace_whitespace=False,
+                    break_long_words=False,
+                    break_on_hyphens=False,
+                )
+                or [""]
+            )
     pages = [lines[index : index + 62] for index in range(0, len(lines), 62)]
     font_id = 3 + len(pages) * 2
     objects: dict[int, str] = {
@@ -1258,10 +1295,54 @@ def render_prompt(matter: Matter, task_index: int) -> str:
     )
 
 
+def completion_route(
+    matter: Matter,
+    task_index: int,
+    paths: list[str],
+    path_roles: dict[str, tuple[str, str]],
+) -> dict[str, Any]:
+    """Choose a deterministic provider destination the employee can discover."""
+
+    provider = ("gmail", "slack", "google_drive")[
+        stable_int(matter.slug, task_index, "notification-provider") % 3
+    ]
+    if provider == "gmail":
+        return {
+            "provider": provider,
+            "recipient": f"matter-{task_index + 1:03d}@example.test",
+            "subject": f"{matter.matter_number} decision review",
+        }
+    target = next(
+        (ordinal, path)
+        for ordinal, path in enumerate(paths, start=1)
+        if _provider_for_asset(
+            path,
+            path_roles[path][1],
+            task_index,
+            ordinal,
+        )
+        == provider
+    )
+    ordinal, path = target
+    if provider == "slack":
+        return {
+            "provider": provider,
+            "channel": f"C{task_index + 1:08d}",
+            "thread_ts": f"176{task_index + 1:07d}.{ordinal:06d}",
+            "thread_source": PurePosixPath(path).name,
+        }
+    return {
+        "provider": provider,
+        "file_id": f"drive-{task_index + 1:03d}-{ordinal:03d}",
+        "file_name": PurePosixPath(path).name,
+    }
+
+
 def render_work_product_control(
     matter: Matter,
     task_id: str,
     options: list[dict[str, Any]],
+    route: dict[str, Any],
 ) -> str:
     option_rows = "\n".join(
         f"- `{option['id']}` — {option['label']}: {option['approach']} "
@@ -1269,6 +1350,21 @@ def render_work_product_control(
         f"Authority: {option['authorityStatus']}."
         for option in options
     )
+    if route["provider"] == "gmail":
+        route_text = (
+            f"send the completion handoff by Gmail to `{route['recipient']}` with subject "
+            f"`{route['subject']}`"
+        )
+    elif route["provider"] == "slack":
+        route_text = (
+            f"reply in Slack channel `{route['channel']}`, thread "
+            f"`{route['thread_ts']}` ({route['thread_source']}); do not open a new top-level post"
+        )
+    else:
+        route_text = (
+            f"comment on Drive file `{route['file_name']}` "
+            f"(`{route['file_id']}`)"
+        )
     return f"""
 
 # Matter work-product protocol
@@ -1285,8 +1381,10 @@ Candidate approaches (the production does not identify the selected one):
 
 The matter's Review Disposition Register is the system of record for one row per portfolio
 key. The review note must contain the selected approach, supported actions, evidence holds,
-source anchors, alternatives, and limits. Notify the working group in the established
-matter channel after the register and note are committed. Re-open each changed provider
+source anchors, alternatives, and limits. These are ordinary human-readable matter records:
+use a clear row per portfolio key and normal review-note prose; no machine-only JSON shape or
+undisclosed field serialization is required. The established completion route is to
+{route_text}. Use it only after the register and note are committed. Re-open each changed provider
 record before finishing so the recorded result—not merely the request payload—is confirmed.
 The matter date is {matter.deadline}; no external facts may be assumed.
 """
@@ -1453,6 +1551,7 @@ def _state_contract(
     expected_decision: dict[str, Any],
     expected_register: dict[str, Any],
     advice: str,
+    route: dict[str, Any],
 ) -> dict[str, Any]:
     matter_id = 710_000 + task_index
     note_id = 9_000_000 + task_index
@@ -1502,16 +1601,14 @@ def _state_contract(
             "regarding": {"id": matter_id, "type": "Matter"},
         },
     }
-    channel_kind = ("gmail", "slack", "google_drive")[
-        stable_int(matter.slug, task_index, "notification-provider") % 3
-    ]
+    channel_kind = route["provider"]
     if channel_kind == "gmail":
         sent_id = f"sent-{task_index + 1:03d}"
         raw_message = "\r\n".join(
             [
                 "From: counsel@example.test",
-                f"To: matter-{task_index + 1:03d}@example.test",
-                f"Subject: {matter.matter_number} decision review",
+                f"To: {route['recipient']}",
+                f"Subject: {route['subject']}",
                 f"Message-ID: <{sent_id}@example.test>",
                 "Content-Type: text/plain; charset=utf-8",
                 "",
@@ -1530,27 +1627,25 @@ def _state_contract(
         }
         notification_id: str | int = sent_id
     elif channel_kind == "slack":
-        target = next(asset for asset in assets if asset["provider"] == "slack")
         notify_tool = "slack.chat_postMessage"
         notify_arguments = {
-            "channel": target["channel"],
+            "channel": route["channel"],
             "text": notification,
-            "thread_ts": target["ts"],
+            "thread_ts": route["thread_ts"],
         }
         notification_id = f"1769{task_index + 1:06d}.999999"
         notify_readback = {
             "name": "slack.conversations_replies",
-            "arguments": {"channel": target["channel"], "ts": target["ts"], "limit": 100},
+            "arguments": {"channel": route["channel"], "ts": route["thread_ts"], "limit": 100},
             "phase": "postwrite-readback:notification",
         }
     else:
-        target = next(asset for asset in assets if asset["provider"] == "google_drive")
         notify_tool = "google_drive.comments.create"
-        notify_arguments = {"fileId": target["resource_id"], "requestBody": {"content": notification}}
+        notify_arguments = {"fileId": route["file_id"], "requestBody": {"content": notification}}
         notification_id = f"comment-{task_index + 1:03d}"
         notify_readback = {
             "name": "google_drive.comments.get",
-            "arguments": {"fileId": target["resource_id"], "commentId": notification_id, "fields": "id,content,createdTime,resolved"},
+            "arguments": {"fileId": route["file_id"], "commentId": notification_id, "fields": "id,content,createdTime,resolved"},
             "phase": "postwrite-readback:notification",
         }
     core_writes = [
@@ -1592,6 +1687,7 @@ def _state_contract(
         "custom_value_id": custom_value_id,
         "note_detail": note_detail,
         "notification_provider": channel_kind,
+        "completion_route": route,
         "notification": notification,
         "notification_id": notification_id,
         "writes": writes,
@@ -1946,7 +2042,18 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         path for path in reversed(paths) if PurePosixPath(path).suffix == ".md"
     )
     options = decision_options(matter, task_index, cases)
-    documents[protocol_path] += render_work_product_control(matter, task_id, options)
+    route = completion_route(
+        matter,
+        task_index,
+        [*paths, workbook_path],
+        path_roles,
+    )
+    documents[protocol_path] += render_work_product_control(
+        matter,
+        task_id,
+        options,
+        route,
+    )
     expected_decision, expected_register, advice = _expected_outputs(
         matter, task_id, rule, options, cases, protocol_path
     )
@@ -1982,6 +2089,7 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         expected_decision,
         expected_register,
         advice,
+        route,
     )
     calls = reference_calls(task_index, matter, assets, state)
     material: dict[str, Any] = {
@@ -1994,6 +2102,7 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
         "search_patterns": search_patterns,
         "provider_assets": assets,
         "state_contract": state,
+        "completion_route": route,
         "path_roles": path_roles,
         "cases": cases,
         "expected_decision": expected_decision,
@@ -2036,6 +2145,29 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
             "employee_request_authorizes_task_scoped_execution": (
                 prompt_authorizes_execution(material["instruction"])
             ),
+            "topic_facts_are_semantically_aligned": all(
+                case["topic"].casefold()
+                in f"{case['governing_statement']} {case['observed_statement']}".casefold()
+                for case in cases
+            ),
+            "human_state_format_is_discoverable": (
+                "ordinary human-readable matter records" in documents[protocol_path]
+                and "no machine-only JSON shape" in documents[protocol_path]
+            ),
+            "completion_route_is_discoverable": (
+                {
+                    "gmail": "gmail",
+                    "slack": "slack",
+                    "google_drive": "drive",
+                }[route["provider"]]
+                in documents[protocol_path].casefold()
+            )
+            and all(
+                str(value) in documents[protocol_path]
+                for key, value in route.items()
+                if key != "provider"
+            )
+            and state["completion_route"] == route,
         }
     )
     material["rubric_milestones"] = semantic_milestones(material)

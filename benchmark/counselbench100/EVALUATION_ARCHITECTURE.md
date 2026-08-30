@@ -71,7 +71,7 @@ global order among independent evidence reads.
 | Agent execution | Harbor agent container | Agent service and selectable implementation |
 | Trajectory | Full MCP call/result digest trace plus agent and verifier artifacts | Trajectory, final snapshot, prompts, and agent logs |
 | Grading | CounselScore semantic milestones backed by atomic evidence, state, containment, and readback checks | Independent grading service with composable graders |
-| Reproducibility | 100 oracle trials, 1,300 negative controls, 100 exact replays, provider contract audit | Containerized reruns against frozen environment and grader |
+| Reproducibility | 100 oracle trials, 1,400 negative controls, 100 exact replays, provider contract audit | Containerized reruns against frozen environment and grader |
 
 The similarity is functional, not a claim that the implementations are
 interchangeable. Archipelago separates environment, agents, and grading into

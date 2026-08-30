@@ -12,15 +12,22 @@ import hashlib
 import json
 import threading
 from copy import deepcopy
+from email import policy
+from email.parser import BytesParser
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 try:  # Package import in local qualification; flat import in generated image.
     from .contracts import MUTATION_TOOLS, TOOLS_BY_NAME, tool_definitions
-    from .scoring import score_advice, score_decision, score_register
+    from .scoring import (
+        score_advice,
+        score_decision,
+        score_notification,
+        score_register,
+    )
 except ImportError:  # pragma: no cover - exercised inside the task container
     from contracts import MUTATION_TOOLS, TOOLS_BY_NAME, tool_definitions
-    from scoring import score_advice, score_decision, score_register
+    from scoring import score_advice, score_decision, score_notification, score_register
 
 
 class ToolFailure(Exception):
@@ -856,7 +863,116 @@ class CounselWorld:
         with self.trace_path.open(encoding="utf-8") as stream:
             return [json.loads(line) for line in stream if line.strip()]
 
-    def _actual_state_values(self) -> tuple[Any, Any, str, bool, bool, bool, bool]:
+    def _mutation_scope_matches(
+        self,
+        name: str,
+        arguments: dict[str, Any],
+        expected: dict[str, Any],
+    ) -> bool:
+        """Validate the provider target and write surface, not oracle prose."""
+
+        state = self.spec["state_contract"]
+        if name == "clio_manage.matters.update":
+            data = arguments.get("data")
+            values = data.get("custom_field_values") if isinstance(data, dict) else None
+            if (
+                arguments.get("id") != state["matter_id"]
+                or set(arguments) - {"id", "fields", "data"}
+                or not isinstance(data, dict)
+                or set(data) != {"custom_field_values"}
+                or not isinstance(values, list)
+                or len(values) != 1
+                or not isinstance(values[0], dict)
+            ):
+                return False
+            field = values[0]
+            custom_field = field.get("custom_field")
+            return bool(
+                field.get("id") == state["custom_value_id"]
+                and isinstance(field.get("value"), str)
+                and set(field) <= {"id", "value", "custom_field"}
+                and (
+                    custom_field is None
+                    or custom_field == {"id": state["custom_field_id"]}
+                )
+            )
+        if name == "clio_manage.notes.create":
+            data = arguments.get("data")
+            regarding = data.get("regarding") if isinstance(data, dict) else None
+            return bool(
+                set(arguments) <= {"fields", "data"}
+                and isinstance(data, dict)
+                and set(data)
+                <= {"subject", "detail", "detail_text_type", "regarding"}
+                and isinstance(data.get("subject"), str)
+                and isinstance(data.get("detail"), str)
+                and regarding == {"id": state["matter_id"], "type": "Matter"}
+            )
+        if name == "slack.chat_postMessage":
+            return bool(
+                arguments.get("channel") == expected.get("channel")
+                and arguments.get("thread_ts") == expected.get("thread_ts")
+                and isinstance(arguments.get("text"), str)
+                and set(arguments) <= {"channel", "thread_ts", "text"}
+            )
+        if name == "google_drive.comments.create":
+            body = arguments.get("requestBody")
+            return bool(
+                arguments.get("fileId") == expected.get("fileId")
+                and isinstance(body, dict)
+                and isinstance(body.get("content"), str)
+                and set(body) == {"content"}
+                and set(arguments) <= {"fileId", "fields", "requestBody"}
+            )
+        if name == "gmail.messages.send":
+            body = arguments.get("requestBody")
+            expected_body = expected.get("requestBody") or {}
+            if (
+                arguments.get("userId") != expected.get("userId")
+                or not isinstance(body, dict)
+                or not isinstance(body.get("raw"), str)
+                or set(body) - {"raw", "threadId"}
+                or set(arguments) != {"userId", "requestBody"}
+            ):
+                return False
+            try:
+                actual_message = BytesParser(policy=policy.default).parsebytes(
+                    _decode_base64url(body["raw"])
+                )
+                expected_message = BytesParser(policy=policy.default).parsebytes(
+                    _decode_base64url(expected_body["raw"])
+                )
+            except (KeyError, TypeError, ValueError):
+                return False
+            return bool(
+                actual_message.get("To") == expected_message.get("To")
+                and actual_message.get("Subject") == expected_message.get("Subject")
+                and body.get("threadId") == expected_body.get("threadId")
+            )
+        return False
+
+    @staticmethod
+    def _notification_text(name: str, arguments: dict[str, Any]) -> str:
+        if name == "slack.chat_postMessage":
+            return arguments.get("text") if isinstance(arguments.get("text"), str) else ""
+        if name == "google_drive.comments.create":
+            body = arguments.get("requestBody")
+            return body.get("content") if isinstance(body, dict) and isinstance(body.get("content"), str) else ""
+        if name == "gmail.messages.send":
+            body = arguments.get("requestBody")
+            try:
+                message = BytesParser(policy=policy.default).parsebytes(
+                    _decode_base64url(body["raw"])
+                )
+                content = message.get_body(preferencelist=("plain",))
+                return content.get_content() if content is not None else message.get_content()
+            except (AttributeError, KeyError, TypeError, ValueError):
+                return ""
+        return ""
+
+    def _actual_state_values(
+        self,
+    ) -> tuple[Any, Any, str, str, bool, bool, bool, bool]:
         expected_by_tool = {call["name"]: call for call in self.spec["state_contract"]["writes"]}
         actual_by_tool: dict[str, list[dict[str, Any]]] = {}
         for mutation in self._mutations:
@@ -873,25 +989,62 @@ class CounselWorld:
             if call["phase"] == "state-transition:notification"
         )
         notification_mutation = (actual_by_tool.get(notification_tool) or [{}])[-1]
-        matter_exact = matter_mutation.get("arguments") == expected_by_tool["clio_manage.matters.update"]["arguments"]
-        note_exact = note_mutation.get("arguments") == expected_by_tool["clio_manage.notes.create"]["arguments"]
-        notification_exact = notification_mutation.get("arguments") == expected_by_tool[notification_tool]["arguments"]
+        matter_exact = self._mutation_scope_matches(
+            "clio_manage.matters.update",
+            matter_mutation.get("arguments") or {},
+            expected_by_tool["clio_manage.matters.update"]["arguments"],
+        )
+        note_exact = self._mutation_scope_matches(
+            "clio_manage.notes.create",
+            note_mutation.get("arguments") or {},
+            expected_by_tool["clio_manage.notes.create"]["arguments"],
+        )
+        notification_exact = self._mutation_scope_matches(
+            notification_tool,
+            notification_mutation.get("arguments") or {},
+            expected_by_tool[notification_tool]["arguments"],
+        )
 
         register: Any = None
         decision: Any = None
         advice = ""
+        notification = self._notification_text(
+            notification_tool, notification_mutation.get("arguments") or {}
+        )
         try:
             field_values = matter_mutation["arguments"]["data"]["custom_field_values"]
-            register = json.loads(field_values[0]["value"])
-        except (KeyError, IndexError, TypeError, json.JSONDecodeError):
-            pass
+            register_text = field_values[0]["value"]
+            try:
+                parsed_register = json.loads(register_text)
+                register = parsed_register if isinstance(parsed_register, dict) else register_text
+            except json.JSONDecodeError:
+                register = register_text
+        except (KeyError, IndexError, TypeError):
+            register = None
         try:
-            note = json.loads(note_mutation["arguments"]["data"]["detail"])
-            decision = note.get("decision")
-            advice = note.get("advice_markdown") if isinstance(note.get("advice_markdown"), str) else ""
-        except (KeyError, TypeError, json.JSONDecodeError):
-            pass
-        return decision, register, advice, exact_set, matter_exact, note_exact, notification_exact
+            detail = note_mutation["arguments"]["data"]["detail"]
+            try:
+                note = json.loads(detail)
+            except json.JSONDecodeError:
+                note = None
+            if isinstance(note, dict) and isinstance(note.get("decision"), dict):
+                decision = note["decision"]
+                advice = note.get("advice_markdown") if isinstance(note.get("advice_markdown"), str) else detail
+            else:
+                decision = detail
+                advice = detail
+        except (KeyError, TypeError):
+            decision = None
+        return (
+            decision,
+            register,
+            advice,
+            notification,
+            exact_set,
+            matter_exact,
+            note_exact,
+            notification_exact,
+        )
 
     @staticmethod
     def _decision_milestone(identifier: str) -> str:
@@ -964,6 +1117,7 @@ class CounselWorld:
             decision,
             register,
             advice,
+            notification,
             exact_mutation_set,
             matter_state_exact,
             note_state_exact,
@@ -972,6 +1126,13 @@ class CounselWorld:
         decision_scoring = score_decision(decision, self.spec)
         register_scoring = score_register(register, self.spec)
         advice_scoring = score_advice(advice, self.spec)
+        notification_scoring = score_notification(notification, self.spec)
+        write_scope_contained = (
+            exact_mutation_set
+            and matter_state_exact
+            and note_state_exact
+            and notification_exact
+        )
 
         readback_checks: dict[str, bool] = {}
         after_tools = {
@@ -1002,8 +1163,11 @@ class CounselWorld:
             "all_material_evidence_read": all_evidence,
             "all_material_evidence_precedes_first_mutation": all_evidence_prewrite,
             "exact_mutation_set": exact_mutation_set,
+            "write_scope_contained": write_scope_contained,
             "core_provider_state_exact": matter_state_exact and note_state_exact,
-            "notification_state_exact": notification_exact,
+            "notification_state_exact": (
+                notification_exact and notification_scoring["passed"]
+            ),
             "core_state_precedes_notification": False,
             "all_provider_readbacks_complete": all(readback_checks.values()),
             "no_rejected_mutation": not self._rejected_mutations,
@@ -1060,10 +1224,17 @@ class CounselWorld:
             add(f"register.{identifier}", passed, "state.matter_register")
         for identifier, passed in advice_scoring["criteria"].items():
             add(f"advice.{identifier}", passed, self._advice_milestone(identifier))
+        for identifier, passed in notification_scoring["criteria"].items():
+            add(f"notification.{identifier}", passed, "state.collaboration")
         add("state.exact_mutation_set", exact_mutation_set, "containment.scope")
+        add("state.write_scope_contained", write_scope_contained, "containment.scope")
         add("state.matter_register_exact", matter_state_exact and register_scoring["passed"], "state.matter_register")
         add("state.decision_note_exact", note_state_exact and decision_scoring["passed"] and advice_scoring["passed"], "state.legal_note")
-        add("state.notification_exact", notification_exact, "state.collaboration")
+        add(
+            "state.notification_exact",
+            notification_exact and notification_scoring["passed"],
+            "state.collaboration",
+        )
         add(
             "state.core_state_precedes_notification",
             procedure["core_state_precedes_notification"],
@@ -1109,7 +1280,7 @@ class CounselWorld:
             category_scores[category] = round(sum(row["earned"] for row in rows), 6)
 
         report: dict[str, Any] = {
-            "schema_version": "counselbench.verifier.v5",
+            "schema_version": "counselbench.verifier.v6",
             "task_id": self.spec["task_id"],
             "metric": "CounselScore",
             "score": score,
@@ -1125,6 +1296,7 @@ class CounselWorld:
                 "decision": decision_scoring,
                 "register": register_scoring,
                 "advice": advice_scoring,
+                "notification": notification_scoring,
             },
             "successful_tool_calls": len(successful),
             "required_tool_calls": self.spec["minimum_tool_calls"],
@@ -1138,6 +1310,12 @@ class CounselWorld:
                 "exact_decision_match": decision == self.spec["expected_decision"],
                 "exact_register_match": register == self.spec["expected_register"],
                 "exact_advice_match": advice == self.spec.get("expected_advice", ""),
+                "semantic_notification_match": notification_scoring["passed"],
+                "state_scope": {
+                    "matter": matter_state_exact,
+                    "note": note_state_exact,
+                    "notification": notification_exact,
+                },
                 "readback_checks": readback_checks,
                 "evidence": {
                     "required": len(evidence_results),

@@ -111,6 +111,15 @@ class SeededCorpusTests(unittest.TestCase):
             self.assertIn(case["observed_statement"], documents[core_paths[2]])
             self.assertIn(case["owner"], documents[core_paths[3]])
 
+            joined_facts = (
+                f"{case['governing_statement']} {case['observed_statement']}"
+            ).casefold()
+            self.assertIn(
+                case["topic"].casefold(),
+                joined_facts,
+                "the governing/current comparison must describe the authored issue",
+            )
+
         joined = "\n".join(documents.values()).casefold()
         for token in (
             "finding_id", "record_role", "control_severity", "remediation_owner",
@@ -132,6 +141,22 @@ class SeededCorpusTests(unittest.TestCase):
             self.assertNotIn(forbidden, prompt.casefold())
         self.assertIn("2026-09-04", prompt)
         self.assertTrue(prompt_authorizes_execution(prompt))
+
+    def test_human_write_format_is_discoverable_without_a_hidden_schema(self) -> None:
+        protocol = next(
+            content
+            for content in self.material["documents"].values()
+            if "# Matter work-product protocol" in content
+        )
+        self.assertIn("ordinary human-readable matter records", protocol)
+        self.assertIn("no machine-only JSON shape", protocol)
+        self.assertNotIn('"schema_version": "counselbench.matter-register', protocol)
+        self.assertTrue(
+            self.material["quality_gates"]["human_state_format_is_discoverable"]
+        )
+        self.assertTrue(
+            self.material["quality_gates"]["topic_facts_are_semantically_aligned"]
+        )
 
     def test_reference_has_causal_reads_writes_and_readbacks(self) -> None:
         self.assertGreaterEqual(
@@ -246,6 +271,32 @@ class SeededCorpusTests(unittest.TestCase):
             self.assertGreaterEqual(len(prompt.split()), 70)
             self.assertLessEqual(len(prompt.split()), 120)
             self.assertTrue(prompt_authorizes_execution(prompt))
+            route = material["completion_route"]
+            protocol = next(
+                content
+                for content in material["documents"].values()
+                if "# Matter work-product protocol" in content
+            )
+            self.assertEqual(material["state_contract"]["completion_route"], route)
+            self.assertTrue(
+                material["quality_gates"]["completion_route_is_discoverable"]
+            )
+            for key, value in route.items():
+                if key != "provider":
+                    self.assertIn(str(value), protocol)
+            if route["provider"] == "slack":
+                self.assertTrue(any(
+                    asset["provider"] == "slack"
+                    and asset["channel"] == route["channel"]
+                    and asset["ts"] == route["thread_ts"]
+                    for asset in material["provider_assets"]
+                ))
+            elif route["provider"] == "google_drive":
+                self.assertTrue(any(
+                    asset["provider"] == "google_drive"
+                    and asset["resource_id"] == route["file_id"]
+                    for asset in material["provider_assets"]
+                ))
             mutation_phases = [
                 call["phase"]
                 for call in material["reference_calls"]
