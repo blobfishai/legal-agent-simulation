@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -32,7 +34,7 @@ except ImportError:
 from world import CounselWorld  # noqa: E402
 
 
-RELEASE_VERSION = "3.2.4"
+RELEASE_VERSION = "3.2.5"
 
 
 def checked_call(world: CounselWorld, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
@@ -161,6 +163,76 @@ def rejected_mutation(world: CounselWorld, spec: dict[str, Any], reference: dict
     )
     if not result.get("isError"):
         raise RuntimeError("out-of-scope mutation unexpectedly succeeded")
+
+
+def wrong_target(
+    world: CounselWorld,
+    spec: dict[str, Any],
+    reference: dict[str, Any],
+) -> None:
+    """Write the correct completion to a real, readable but wrong destination."""
+
+    calls = deepcopy(reference["calls"])
+    notification = next(
+        call
+        for call in calls
+        if call.get("phase") == "state-transition:notification"
+    )
+    readback = next(
+        call
+        for call in calls
+        if call.get("phase") == "postwrite-readback:notification"
+    )
+    route = spec["state_contract"]["completion_route"]
+    provider = route["provider"]
+    candidates = [
+        asset
+        for asset in spec["provider_assets"]
+        if asset["provider"] == provider
+    ]
+    if provider == "slack":
+        alternate = next(
+            asset for asset in candidates if asset["ts"] != route["thread_ts"]
+        )
+        notification["arguments"]["thread_ts"] = alternate["ts"]
+        readback["arguments"]["ts"] = alternate["ts"]
+    elif provider == "google_drive":
+        alternate = next(
+            asset for asset in candidates if asset["resource_id"] != route["file_id"]
+        )
+        notification["arguments"]["fileId"] = alternate["resource_id"]
+        readback["arguments"]["fileId"] = alternate["resource_id"]
+    elif provider == "gmail":
+        source = world._asset_bytes(candidates[0]).decode("utf-8", errors="replace")
+        address_match = re.search(
+            r"(?im)^From:\s*(?:.*?<)?([^<>\s]+@[^<>\s]+)>?\s*$",
+            source,
+        )
+        if address_match is None:
+            raise RuntimeError("mounted Gmail record has no discoverable sender")
+        alternate_recipient = address_match.group(1)
+        encoded = notification["arguments"]["requestBody"]["raw"]
+        raw = base64.urlsafe_b64decode(
+            encoded + "=" * (-len(encoded) % 4)
+        ).decode("utf-8")
+        changed, substitutions = re.subn(
+            r"(?im)^To:.*$",
+            f"To: {alternate_recipient}",
+            raw,
+            count=1,
+        )
+        if substitutions != 1 or alternate_recipient == route["recipient"]:
+            raise RuntimeError("could not construct a distinct existing Gmail target")
+        notification["arguments"]["requestBody"]["raw"] = (
+            base64.urlsafe_b64encode(changed.encode("utf-8"))
+            .decode("ascii")
+            .rstrip("=")
+        )
+    else:  # pragma: no cover - release generation permits only these providers.
+        raise RuntimeError(f"unsupported completion provider {provider}")
+
+    for call in calls:
+        checked_call(world, call["name"], call["arguments"])
 
 
 def duplicate_mutation(world: CounselWorld, spec: dict[str, Any], reference: dict[str, Any]) -> None:
@@ -366,6 +438,7 @@ def run(release: Path) -> dict[str, Any]:
         ("missing_readback", missing_readback),
         ("duplicate_mutation", duplicate_mutation),
         ("rejected_mutation", rejected_mutation),
+        ("wrong_target", wrong_target),
         ("wrong_value", wrong_value),
         ("wrong_decision", wrong_decision),
         ("wrong_branch", wrong_branch),
@@ -417,7 +490,7 @@ def run(release: Path) -> dict[str, Any]:
         )
 
     report = {
-        "schema_version": "counselbench.qualification.v4",
+        "schema_version": "counselbench.qualification.v5",
         "metric": "CounselScore",
         "benchmark": "CounselBench-100",
         "version": RELEASE_VERSION,

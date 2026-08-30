@@ -24,7 +24,7 @@ SLACK = "https://api.slack.com/methods"
 MCP_PIN = {
     "schema_version": "counselbench.provider-contracts.v1",
     "runtime_server_name": "counselbench-enterprise-sandbox",
-    "runtime_server_version": "3.2.4",
+    "runtime_server_version": "3.2.5",
     "protocol_version": "2025-06-18",
     "providers": {
         "clio_manage": {"api": "v4", "source": CLIO},

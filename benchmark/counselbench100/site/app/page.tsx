@@ -47,7 +47,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="eyebrow">Open benchmark · v3.2.4</div>
+        <div className="eyebrow">Open benchmark · v3.2.5</div>
         <h1>
           Long-horizon legal work,
           <br /> measured end to end.
@@ -161,14 +161,14 @@ export default function Home() {
           <h2>Built to fail agents for real reasons.</h2>
           <p>
             Every task was executed, not merely linted. The oracle passes every
-            isolated task twice; fourteen adversarial strategies fail every one.
+              isolated task twice; fifteen adversarial strategies fail every one.
           </p>
         </div>
         <div className="proof-stats">
-          <div><strong>1,600</strong><span>local qualification executions</span></div>
+          <div><strong>1,700</strong><span>local qualification executions</span></div>
           <div><strong>100/100</strong><span>oracle passes</span></div>
           <div><strong>100/100</strong><span>exact deterministic replays</span></div>
-          <div><strong>1,400/1,400</strong><span>negative controls rejected</span></div>
+          <div><strong>1,500/1,500</strong><span>negative controls rejected</span></div>
         </div>
         <div className="control-grid">
           <article><span>No-op or copied-gold shortcut</span><strong>0/200 accepted</strong></article>
@@ -233,7 +233,7 @@ export default function Home() {
       <footer>
         <a className="wordmark" href="#top"><span className="wordmark-mark">CB</span><span>CounselBench-100</span></a>
         <p>An open long-horizon benchmark for legal agents.</p>
-        <a href={HARBOR_URL}>v3.2.4 <Arrow /></a>
+        <a href={HARBOR_URL}>v3.2.5 <Arrow /></a>
       </footer>
     </main>
   );

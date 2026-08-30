@@ -46,7 +46,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "3.2.4"
+RELEASE_VERSION = "3.2.5"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -779,7 +779,7 @@ changed record back.
 - `reports/`: exact-version build, qualification, and conformance evidence.
 - `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Measured v3.2.4 release gates
+## Measured v3.2.5 release gates
 
 | Gate | Measured |
 |---|---:|
@@ -792,7 +792,7 @@ changed record back.
 | Semantic action graphs | 100 distinct; maximum pair match {semantic_similarity:.6f} |
 | Prompt maximum 5-shingle Jaccard | {prompt_similarity:.6f} |
 | Oracle and deterministic replay | 100/100 each |
-| Fourteen negative controls | 1,400/1,400 rejected |
+| Fifteen negative controls | 1,500/1,500 rejected |
 
 No older or partial model score is carried onto v3.2. A leaderboard row is published
 only after one model runs all 100 tasks on this exact release.
@@ -822,7 +822,7 @@ a closed multi-provider MCP sandbox, and a deterministic causal/state verifier.
 - 100 distinct raw tool sequences and semantic action graphs
 - serialization-independent matter-register facts, write containment, and post-write readback
 - 14 task-specific semantic milestones totaling 100 CounselScore points
-- 100/100 oracle passes and 1,400/1,400 adversarial rejections
+- 100/100 oracle passes and 1,500/1,500 adversarial rejections
 
 ```bash
 harbor download {HARBOR_ORG}/{RELEASE_SLUG}@v{RELEASE_VERSION} \
