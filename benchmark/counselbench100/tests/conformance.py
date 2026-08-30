@@ -104,7 +104,7 @@ def run(report_path: Path | None = None) -> dict[str, Any]:
     report = {
         "schema_version": "counselbench.provider-contract-audit.v1",
         "benchmark": "CounselBench-100",
-        "benchmark_version": "3.2.2",
+        "benchmark_version": "3.2.3",
         "providers": MCP_PIN,
         "tool_count": len(TOOLS_BY_NAME),
         "mutation_tools": sorted(MUTATION_TOOLS),

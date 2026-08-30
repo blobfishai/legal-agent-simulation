@@ -937,21 +937,28 @@ class CounselWorld:
         }
         successful_tools = {entry["tool"] for entry in successful}
         discovery_complete = discovery_tools <= successful_tools
-        evidence_results: list[tuple[dict[str, Any], bool]] = []
+        evidence_results: list[tuple[dict[str, Any], bool, bool]] = []
         for asset in self.assets:
             if not asset["material"]:
                 continue
-            passed = any(
-                (entry.get("evidence_proof") or {}).get("evidence_id")
+            matching = [
+                entry
+                for entry in successful
+                if (entry.get("evidence_proof") or {}).get("evidence_id")
                 == asset["evidence_id"]
                 and (entry.get("evidence_proof") or {}).get("sha256")
                 == asset["sha256"]
-                and first_mutation is not None
-                and entry["index"] < first_mutation
-                for entry in successful
+            ]
+            content_read = bool(matching)
+            read_before_write = any(
+                first_mutation is None or entry["index"] < first_mutation
+                for entry in matching
             )
-            evidence_results.append((asset, passed))
-        all_evidence = all(passed for _, passed in evidence_results)
+            evidence_results.append((asset, content_read, read_before_write))
+        all_evidence = all(content_read for _, content_read, _ in evidence_results)
+        all_evidence_prewrite = all(
+            read_before_write for _, _, read_before_write in evidence_results
+        )
 
         (
             decision,
@@ -993,7 +1000,7 @@ class CounselWorld:
             "minimum_successful_tool_calls": len(successful) >= self.spec["minimum_tool_calls"],
             "provider_discovery_complete": discovery_complete,
             "all_material_evidence_read": all_evidence,
-            "all_material_evidence_precedes_first_mutation": all_evidence and first_mutation is not None,
+            "all_material_evidence_precedes_first_mutation": all_evidence_prewrite,
             "exact_mutation_set": exact_mutation_set,
             "core_provider_state_exact": matter_state_exact and note_state_exact,
             "notification_state_exact": notification_exact,
@@ -1040,10 +1047,10 @@ class CounselWorld:
             "current_operations": "investigation.operations",
             "approval_and_capacity": "investigation.approvals",
         }
-        for asset, passed in evidence_results:
+        for asset, content_read, _ in evidence_results:
             add(
-                f"evidence.{asset['evidence_id']}.read_before_write",
-                passed,
+                f"evidence.{asset['evidence_id']}.content_read",
+                content_read,
                 role_milestones.get(asset["role"], "investigation.impact"),
                 {"provider": asset["provider"], "role": asset["role"], "portfolio_key": asset["portfolio_key"]},
             )
@@ -1102,7 +1109,7 @@ class CounselWorld:
             category_scores[category] = round(sum(row["earned"] for row in rows), 6)
 
         report: dict[str, Any] = {
-            "schema_version": "counselbench.verifier.v4",
+            "schema_version": "counselbench.verifier.v5",
             "task_id": self.spec["task_id"],
             "metric": "CounselScore",
             "score": score,
@@ -1121,7 +1128,9 @@ class CounselWorld:
             },
             "successful_tool_calls": len(successful),
             "required_tool_calls": self.spec["minimum_tool_calls"],
-            "documents_read": sum(passed for _, passed in evidence_results),
+            "documents_read": sum(
+                content_read for _, content_read, _ in evidence_results
+            ),
             "required_documents": len(evidence_results),
             "provider_mutations": [entry["tool"] for entry in self._mutations],
             "rejected_mutations": len(self._rejected_mutations),
@@ -1130,6 +1139,16 @@ class CounselWorld:
                 "exact_register_match": register == self.spec["expected_register"],
                 "exact_advice_match": advice == self.spec.get("expected_advice", ""),
                 "readback_checks": readback_checks,
+                "evidence": {
+                    "required": len(evidence_results),
+                    "content_reads": sum(
+                        content_read for _, content_read, _ in evidence_results
+                    ),
+                    "prewrite_reads": sum(
+                        read_before_write
+                        for _, _, read_before_write in evidence_results
+                    ),
+                },
                 "deterministic": True,
                 "model_calls": 0,
                 "network_calls": 0,

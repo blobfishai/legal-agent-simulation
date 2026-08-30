@@ -39,13 +39,14 @@ from generation import (  # noqa: E402
     OUTPUT_ROOT,
     REQUIRED_EVIDENCE_READS,
     build_material,
+    prompt_authorizes_execution,
 )
 from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "3.2.2"
+RELEASE_VERSION = "3.2.3"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -715,11 +716,12 @@ changed record back.
 - `reports/`: exact-version build, qualification, and conformance evidence.
 - `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Measured v3.2.2 release gates
+## Measured v3.2.3 release gates
 
 | Gate | Measured |
 |---|---:|
 | Tasks | 100 |
+| Employee execution authority | 100/100 high-level requests authorize normal task-scoped closeout |
 | Agent-visible files | 9,700 unique; all nine native formats parse |
 | Required evidence reads | 58–86 per task |
 | Reference MCP calls | 69–97 per task |
@@ -925,6 +927,9 @@ def build(output: Path) -> dict[str, Any]:
             and "required review procedure" not in prompt.casefold()
             and "return exactly" not in prompt.casefold()
             for prompt in prompts
+        ),
+        "employee_requests_authorize_task_scoped_execution": all(
+            prompt_authorizes_execution(prompt) for prompt in prompts
         ),
         "three_decision_options_per_task": all(
             len(record["rubric"]["decision_options"]) == 3

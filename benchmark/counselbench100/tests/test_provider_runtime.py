@@ -203,6 +203,46 @@ class ProviderRuntimeTests(unittest.TestCase):
         }
         self.assertEqual(len(failed), 1)
 
+    def test_investigation_credit_is_independent_from_required_mutations(self) -> None:
+        world = self.world("investigation-without-mutations")
+        investigation = [
+            call
+            for call in self.reference["calls"]
+            if call["phase"].startswith(("discovery:", "evidence:"))
+        ]
+        self.replay(world, investigation)
+        report = world.verify(verification_token(self.spec["task_id"]))
+        self.assertFalse(report["passed"])
+        self.assertTrue(
+            report["criteria"]["procedure"]["criteria"][
+                "all_material_evidence_read"
+            ]
+        )
+        self.assertTrue(
+            report["criteria"]["procedure"]["criteria"][
+                "all_material_evidence_precedes_first_mutation"
+            ]
+        )
+        self.assertFalse(
+            report["criteria"]["procedure"]["criteria"]["exact_mutation_set"]
+        )
+        required = len(self.material["required_document_paths"])
+        self.assertEqual(
+            report["diagnostics"]["evidence"],
+            {
+                "required": required,
+                "content_reads": required,
+                "prewrite_reads": required,
+            },
+        )
+        self.assertFalse(
+            any(
+                not row["passed"]
+                for row in report["atomic_checks"]
+                if row["id"].startswith("evidence.")
+            )
+        )
+
     def test_neighboring_provider_object_does_not_count_as_exact_evidence(self) -> None:
         world = self.world("neighboring-provider-object")
         calls = deepcopy(self.reference["calls"])

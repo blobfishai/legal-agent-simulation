@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover - flat import in release builder
 
 
 FIXED_FILE_TIMESTAMP = "2026-08-29T12:00:00.000Z"
-RELEASE_VERSION = "3.2.2"
+RELEASE_VERSION = "3.2.3"
 DOCUMENT_COUNT = 96
 AGENT_VISIBLE_FILE_COUNT = DOCUMENT_COUNT + 1
 PORTFOLIO_COUNT = 12
@@ -124,26 +124,26 @@ REQUEST_OPENERS = (
 )
 
 REQUEST_CLOSES = (
-    "Once you have reconciled the record, leave the workspace with the supported position, the open holds, and the next owners, then close the loop with the team.",
-    "Work out the practical options, preserve any genuine uncertainty, and make the matter record safe for the business to act from.",
-    "Please leave a short decision record that another lawyer can reproduce, including what remains blocked and what would unblock it.",
+    "Once you have reconciled the record, carry the supported position, open holds, and next owners into the matter workspace, then close the loop with the team.",
+    "Work out the practical options, preserve any genuine uncertainty, update the matter record with the supported outcome, and give the working team a current handoff.",
+    "Please close out the review with a short decision record another lawyer can reproduce, including what remains blocked, what would unblock it, and the team handoff.",
     "Bring the matter workspace up to date with only the conclusions the evidence supports and tell the working team where things landed.",
-    "I need the recommended path, the credible alternatives, and the unresolved evidence gaps carried through to the team's working record.",
-    "Settle the operating position without guessing through missing authority, and leave each supported next step with a real owner.",
-    "Make the result usable in the next client conversation: what can proceed, what cannot, why, and what the team should do next.",
-    "When the sources conflict, follow the controlling record and preserve the conflict instead of silently choosing the newest file.",
-    "Leave behind enough of the reasoning and source trail that the next reviewer can challenge the call without starting over.",
+    "Record the recommended path, credible alternatives, and unresolved evidence gaps in the matter workspace, then carry that position into the team's working handoff.",
+    "Settle the operating position without guessing through missing authority, then take the supported result through normal matter closeout and close the loop with the team.",
+    "Make the result usable in the next client conversation by updating the matter's working record and circulating the supported next steps to the team.",
+    "When the sources conflict, follow the controlling record and preserve the conflict in the matter workspace before handing the current position to the team.",
+    "Put enough reasoning and source trail in the matter record for the next reviewer to challenge the call, and circulate the current position to the team.",
     "Record the defensible outcome, distinguish exceptions from identity or revision gaps, and notify the people who are waiting on the answer.",
-    "Turn the supported conclusion into the matter's current working position and keep unsupported assumptions out of the handoff.",
-    "Give the client a decision rather than a document inventory, but keep any item on hold when the record cannot carry the conclusion.",
+    "Turn the supported conclusion into the matter's current working record, keep unsupported assumptions out, and close the loop with the team.",
+    "Give the client a decision rather than a document inventory, then update the normal matter record and team handoff while keeping unsupported items on hold.",
     "Close out the review in the workspace, with the rejected alternatives and remaining dependencies visible to the next person.",
     "Please make the matter status reflect the conclusion, add the reasoning a partner will need, and finish the promised team update.",
-    "Do not just summarize the file; decide what the evidence permits and leave the operational record consistent with that decision.",
+    "Do not just summarize the file; decide what the evidence permits, update the operational record, and send the supported position through the existing team channel.",
     "Capture the answer, its limits, and the next actions in the existing matter workflow so nobody acts from the stale summary.",
-    "Resolve what can be resolved, isolate what still needs proof, and leave the team with one coherent working position.",
-    "Make the recommendation audit-ready without turning ambiguity into an accusation, waiver, or client commitment.",
-    "I should be able to use your recorded result in the briefing and point each remaining hold to the evidence that will clear it.",
-    "Finish with a concise, source-grounded matter update and make sure the result is visible where the working team expects it.",
+    "Resolve what can be resolved, record the outcome, holds, and owners in the workspace, and close the loop with the team on one coherent working position.",
+    "Put the audit-ready recommendation and preserved ambiguities in the matter record, then circulate it without turning uncertainty into an accusation, waiver, or commitment.",
+    "Record the result and each remaining hold in the matter workspace, then complete the team update so I can use that current record in the briefing.",
+    "Finish the review by saving a concise, source-grounded matter update in the workspace and making the current result visible to the working team.",
 )
 
 DEADLINE_PRESSURE = (
@@ -173,6 +173,43 @@ FAMILY_STAKES = {
     "ip-technology": "The product and deal teams need to know what rights are usable now and which defects require a cure or hold.",
     "public-company": "The disclosure team needs a supportable filing position and a clear route for anything that is not yet certifiable.",
 }
+
+
+def prompt_authorizes_execution(prompt: str) -> bool:
+    """Recognize natural authority to complete task-scoped operational closeout."""
+
+    value = prompt.casefold()
+    record_authority = any(
+        marker in value
+        for marker in (
+            "record",
+            "workspace",
+            "workflow",
+            "operational record",
+            "matter status",
+            "matter closeout",
+            "working record",
+        )
+    )
+    team_authority = any(
+        marker in value
+        for marker in (
+            "close the loop",
+            "team handoff",
+            "team update",
+            "working team",
+            "team channel",
+            "team",
+            "handoff",
+            "notify",
+            "people who are waiting",
+            "next person",
+            "nobody acts",
+            "visible",
+            "circulate",
+        )
+    )
+    return record_authority and team_authority
 
 
 def stable_int(*parts: object, digits: int = 12) -> int:
@@ -1701,7 +1738,7 @@ def semantic_milestones(material: dict[str, Any]) -> list[dict[str, Any]]:
         ("investigation.authority", "investigation", 9, f"Apply the matter-specific authority—{material['decision_rule']['authority']}—and compare cited to effective revisions: {authority_map}. A superseded operational revision is a hold, not an action."),
         ("investigation.operations", "investigation", 9, f"For each item compare the governing record to the current observation using these exact record pairs: {observation_map}. The trigger conclusion must be recomputed from the source facts, not copied from a summary."),
         ("investigation.approvals", "investigation", 7, f"Verify the effective owner roster and remaining capacity for the same immutable items: {capacity_map}. Pending authority or zero capacity must block that item even when its operational trigger is met."),
-        ("investigation.impact", "investigation", 6, f"Read and reconcile all {len(material['required_document_paths'])} material records, including impact workbook {workbook}, the task control, correspondence, custody chronology, population support, and independent counterrecords before any mutation."),
+        ("investigation.impact", "investigation", 6, f"Read and reconcile all {len(material['required_document_paths'])} material records, including impact workbook {workbook}, the task control, correspondence, custody chronology, population support, and independent counterrecords."),
         (
             "reasoning.options",
             "reasoning",
@@ -1996,6 +2033,9 @@ def build_material(matter: Matter, task_index: int) -> dict[str, Any]:
             and {call["name"] for call in state["writes"]}
             >= {"clio_manage.matters.update", "clio_manage.notes.create"},
             "native_state_has_three_readbacks": len(state["readbacks"]) == 3,
+            "employee_request_authorizes_task_scoped_execution": (
+                prompt_authorizes_execution(material["instruction"])
+            ),
         }
     )
     material["rubric_milestones"] = semantic_milestones(material)

@@ -3,7 +3,7 @@
 This directory contains the deterministic generator, multi-provider sandbox
 MCP, qualification suite, and release tooling for CounselBench-100.
 
-CounselBench-100 v3.2.2 contains 100 original synthetic legal matters across
+CounselBench-100 v3.2.3 contains 100 original synthetic legal matters across
 ten practice workflows. Each employee request is a high-level workplace
 question, not a prescribed tool recipe. Solving it requires the agent to find
 and correlate raw records before deciding what is supported, what remains an
@@ -16,6 +16,8 @@ Every task includes:
 - evidence distributed across Clio Manage, Gmail, Google Drive, and Slack;
 - source-byte-bound evidence receipts that accept equivalent optional provider
   projections while rejecting metadata-only and neighboring-object reads;
+- natural employee requests that authorize ordinary task-scoped closeout without
+  prescribing provider operations or a tool-call recipe;
 - twelve portfolio decisions derived from immutable identity, operative
   authority/revision, current operations, and effective approval/capacity;
 - three graded operating alternatives with exact outcomes, incremental cost,
@@ -32,7 +34,7 @@ Clio Manage v4, Gmail v1, Drive v3, and Slack Web API methods. It deliberately
 does not expose business-level pseudo-tools such as `approve_finding` or
 `resolve_matter`.
 
-The v3.2.2 qualification contract runs 1,500 local executions:
+The v3.2.3 qualification contract runs 1,500 local executions:
 
 - 100 oracle executions;
 - 100 exact deterministic replays; and
