@@ -3,7 +3,7 @@
 This directory contains the deterministic generator, multi-provider sandbox
 MCP, qualification suite, and release tooling for CounselBench-100.
 
-CounselBench-100 v3.2.0 contains 100 original synthetic legal matters across
+CounselBench-100 v3.2.1 contains 100 original synthetic legal matters across
 ten practice workflows. Each employee request is a high-level workplace
 question, not a prescribed tool recipe. Solving it requires the agent to find
 and correlate raw records before deciding what is supported, what remains an
@@ -16,6 +16,8 @@ Every task includes:
 - evidence distributed across Clio Manage, Gmail, Google Drive, and Slack;
 - twelve portfolio decisions derived from immutable identity, operative
   authority/revision, current operations, and effective approval/capacity;
+- three graded operating alternatives with exact outcomes, incremental cost,
+  authority status, and signed timing variance against the matter control date;
 - 5–9 supported actions and 3–7 evidence holds;
 - a distinct 69–97-call reference trajectory;
 - an exact Clio matter-register patch, a Clio decision note, and a task-native
