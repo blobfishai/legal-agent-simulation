@@ -94,6 +94,12 @@ class CounselWorld:
             provider: [asset for asset in self.assets if asset["provider"] == provider]
             for provider in ("clio_manage", "gmail", "google_drive", "slack")
         }
+        # Fail the world at startup if its immutable provider objects are not
+        # actually readable. Search results without retrievable source bytes
+        # create a misleading MCP that passes schema tests but cannot support a
+        # real agent trajectory.
+        for asset in self.assets:
+            self._asset_bytes(asset)
         self._lock = threading.Lock()
         self._next_trace_index = 1
         self._mutations: list[dict[str, Any]] = []
