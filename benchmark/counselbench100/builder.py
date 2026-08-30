@@ -45,7 +45,7 @@ from runtime.contracts import MCP_PIN, tool_definitions  # noqa: E402
 
 RELEASE_NAME = "CounselBench-100"
 RELEASE_SLUG = "counselbench-100"
-RELEASE_VERSION = "3.2.1"
+RELEASE_VERSION = "3.2.2"
 HARBOR_ORG = "blobfishai"
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "Apache-2.0"
@@ -715,7 +715,7 @@ changed record back.
 - `reports/`: exact-version build, qualification, and conformance evidence.
 - `SCORING.md`: causal, branch, state, containment, and readback contract.
 
-## Measured v3.2.1 release gates
+## Measured v3.2.2 release gates
 
 | Gate | Measured |
 |---|---:|

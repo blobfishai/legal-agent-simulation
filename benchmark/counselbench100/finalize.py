@@ -10,7 +10,7 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-RELEASE_VERSION = "3.2.1"
+RELEASE_VERSION = "3.2.2"
 DEFAULT_MODEL_JOBS: list[str] = []
 
 

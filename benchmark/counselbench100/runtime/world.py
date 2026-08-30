@@ -159,6 +159,190 @@ class CounselWorld:
 
         return redact(arguments)
 
+    def _evidence_proof(
+        self,
+        name: str,
+        arguments: dict[str, Any],
+        result: dict[str, Any],
+    ) -> dict[str, str] | None:
+        """Bind a successful content-bearing provider read to its source object.
+
+        Provider SDKs commonly expose optional response projections (for example,
+        Google Drive ``fields`` or Clio ``fields``).  Those projections are not
+        part of the employee's evidentiary act.  The immutable object identifier
+        and the bytes actually returned are.  Record a server-authored proof so
+        the verifier can accept equivalent projections without accepting a list,
+        metadata-only lookup, or a neighboring object.
+        """
+
+        asset: dict[str, Any] | None = None
+        returned_bytes: bytes | None = None
+        structured = result.get("structuredContent") or {}
+        if name == "clio_manage.notes.get":
+            identifier = arguments.get("id")
+            if str(identifier) != str(self.spec["state_contract"]["note_id"]):
+                asset = self._find_asset("clio_manage", identifier)
+                detail = (structured.get("data") or {}).get("detail")
+                if not isinstance(detail, str):
+                    return None
+                returned_bytes = detail.encode("utf-8")
+        elif name == "gmail.messages.get":
+            format_name = str(arguments.get("format") or "full")
+            if format_name not in {"full", "raw"}:
+                return None
+            identifier = arguments.get("id")
+            if str(identifier) == str(self.spec["state_contract"]["notification_id"]):
+                return None
+            asset = self._find_asset("gmail", identifier)
+            if format_name == "raw":
+                encoded = structured.get("raw")
+                if not isinstance(encoded, str):
+                    return None
+            else:
+                encoded = ((structured.get("payload") or {}).get("body") or {}).get(
+                    "data"
+                )
+                if not isinstance(encoded, str):
+                    return None
+            try:
+                returned_bytes = _decode_base64url(encoded)
+            except (ValueError, UnicodeError):
+                return None
+        elif name == "google_drive.files.get":
+            if arguments.get("alt") != "media":
+                return None
+            asset = self._find_asset("google_drive", arguments.get("fileId"))
+            encoded = (structured.get("media") or {}).get("data")
+            if not isinstance(encoded, str):
+                return None
+            try:
+                returned_bytes = _decode_base64url(encoded)
+            except (ValueError, UnicodeError):
+                return None
+        elif name == "slack.conversations_replies":
+            asset = next(
+                (
+                    item
+                    for item in self.assets_by_provider["slack"]
+                    if item["channel"] == arguments.get("channel")
+                    and item["ts"] == arguments.get("ts")
+                ),
+                None,
+            )
+            if asset is None:
+                return None
+            messages = structured.get("messages") or []
+            if messages != self._slack_messages(asset):
+                return None
+        if asset is None:
+            return None
+        if (
+            returned_bytes is not None
+            and hashlib.sha256(returned_bytes).hexdigest() != asset["sha256"]
+        ):
+            return None
+        return {
+            "evidence_id": asset["evidence_id"],
+            "provider": asset["provider"],
+            "sha256": asset["sha256"],
+        }
+
+    def _state_readback_proof(
+        self,
+        name: str,
+        arguments: dict[str, Any],
+        result: dict[str, Any],
+    ) -> str | None:
+        """Identify a successful response that actually exposes persisted state."""
+
+        state = self.spec["state_contract"]
+        structured = result.get("structuredContent") or {}
+        if name == "clio_manage.matters.get" and arguments.get("id") == state["matter_id"]:
+            mutation = self._latest_mutation("clio_manage.matters.update")
+            if mutation is None:
+                return None
+            expected_values = (
+                (mutation.get("arguments") or {}).get("data") or {}
+            ).get("custom_field_values") or []
+            expected = next(
+                (
+                    value
+                    for value in expected_values
+                    if isinstance(value, dict)
+                    and str(value.get("id")) == str(state["custom_value_id"])
+                ),
+                None,
+            )
+            data = structured.get("data") or {}
+            values = data.get("custom_field_values") or []
+            if str(data.get("id")) == str(state["matter_id"]) and any(
+                isinstance(value, dict)
+                and str((value.get("custom_field") or {}).get("id"))
+                == str(state["custom_field_id"])
+                and isinstance(expected, dict)
+                and value.get("value") == expected.get("value")
+                for value in values
+            ):
+                return "matter-register"
+        if name == "clio_manage.notes.get" and arguments.get("id") == state["note_id"]:
+            mutation = self._latest_mutation("clio_manage.notes.create")
+            if mutation is None:
+                return None
+            expected = (mutation.get("arguments") or {}).get("data") or {}
+            data = structured.get("data") or {}
+            if str(data.get("id")) == str(state["note_id"]) and all(
+                data.get(key) == expected.get(key)
+                for key in ("subject", "detail", "detail_text_type", "regarding")
+            ):
+                return "decision-note"
+        if name == "gmail.messages.get" and str(arguments.get("id")) == str(
+            state["notification_id"]
+        ):
+            mutation = self._latest_mutation("gmail.messages.send")
+            if mutation is None:
+                return None
+            expected_raw = (
+                (mutation.get("arguments") or {}).get("requestBody") or {}
+            ).get("raw")
+            format_name = str(arguments.get("format") or "full")
+            if format_name == "raw" and structured.get("raw") == expected_raw:
+                return "notification"
+            if format_name == "full" and (
+                ((structured.get("payload") or {}).get("body") or {}).get("data")
+                == expected_raw
+            ):
+                return "notification"
+        if name == "google_drive.comments.get":
+            mutation = self._latest_mutation("google_drive.comments.create")
+            expected_content = (
+                (((mutation or {}).get("arguments") or {}).get("requestBody") or {}).get(
+                    "content"
+                )
+            )
+            if (
+                mutation is not None
+                and str(structured.get("id")) == str(state["notification_id"])
+                and structured.get("content") == expected_content
+            ):
+                return "notification"
+        if name == "slack.conversations_replies":
+            mutation = self._latest_mutation("slack.chat_postMessage")
+            if mutation is None:
+                return None
+            expected = mutation.get("arguments") or {}
+            messages = structured.get("messages") or []
+            if any(
+                isinstance(message, dict)
+                and str(message.get("ts")) == str(state["notification_id"])
+                and message.get("text") == expected.get("text")
+                and message.get("thread_ts") == expected.get("thread_ts")
+                and arguments.get("channel") == expected.get("channel")
+                and arguments.get("ts") == expected.get("thread_ts")
+                for message in messages
+            ):
+                return "notification"
+        return None
+
     def _trace(
         self,
         name: str,
@@ -176,6 +360,12 @@ class CounselWorld:
         }
         if ok:
             entry["result_sha256"] = sha256_text(_result_text(result))
+            evidence_proof = self._evidence_proof(name, arguments, result)
+            if evidence_proof is not None:
+                entry["evidence_proof"] = evidence_proof
+            state_readback = self._state_readback_proof(name, arguments, result)
+            if state_readback is not None:
+                entry["state_readback"] = state_readback
         else:
             entry["error"] = _result_text(result)
         with self.trace_path.open("a", encoding="utf-8") as stream:
@@ -752,8 +942,10 @@ class CounselWorld:
             if not asset["material"]:
                 continue
             passed = any(
-                entry["tool"] == asset["read_tool"]
-                and entry["arguments"] == asset["read_arguments"]
+                (entry.get("evidence_proof") or {}).get("evidence_id")
+                == asset["evidence_id"]
+                and (entry.get("evidence_proof") or {}).get("sha256")
+                == asset["sha256"]
                 and first_mutation is not None
                 and entry["index"] < first_mutation
                 for entry in successful
@@ -790,13 +982,10 @@ class CounselWorld:
             if mutation is None:
                 readback_checks[label] = False
                 continue
-            expected_response = self._dispatch(call["name"], deepcopy(call["arguments"]))
-            expected_sha = sha256_text(_result_text(expected_response))
             readback_checks[label] = any(
                 entry["index"] > mutation["index"]
                 and entry["tool"] == call["name"]
-                and entry["arguments"] == call["arguments"]
-                and entry.get("result_sha256") == expected_sha
+                and entry.get("state_readback") == label
                 for entry in successful
             )
 
